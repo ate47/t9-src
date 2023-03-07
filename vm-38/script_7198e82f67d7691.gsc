@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_fb1bfa12 : class_6aaccc24
+class class_fb1bfa12 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_fb1bfa12 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class class_fb1bfa12 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("evidence_board_mission_preview");
+		cLUIelem::function_5c1bb138("evidence_board_mission_preview");
 	}
 
 	/*
@@ -124,14 +124,14 @@ class class_fb1bfa12 : class_6aaccc24
 	*/
 	function setup_clientfields(var_5a7b4b38, var_ce679737, var_21c9fb3e, var_370e913b, var_4682a952, var_72328549, var_8c8b5d16)
 	{
-		namespace_6aaccc24::setup_clientfields("evidence_board_mission_preview");
-		namespace_6aaccc24::function_da693cbe("entNum", 1, 10, "int", var_370e913b);
-		namespace_6aaccc24::function_da693cbe("activeState", 1, 2, "int", var_4682a952);
-		namespace_6aaccc24::function_da693cbe("lvlYear", 1, 11, "int", var_72328549);
-		namespace_6aaccc24::function_dcb34c80("string", "lvlName", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "lvlDescriptionShort", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "lvlDescriptionLong", 1);
-		namespace_6aaccc24::function_da693cbe("lvlProgress", 1, 4, "float", var_8c8b5d16);
+		cLUIelem::setup_clientfields("evidence_board_mission_preview");
+		cLUIelem::function_da693cbe("entNum", 1, 10, "int", var_370e913b);
+		cLUIelem::function_da693cbe("activeState", 1, 2, "int", var_4682a952);
+		cLUIelem::function_da693cbe("lvlYear", 1, 11, "int", var_72328549);
+		cLUIelem::function_dcb34c80("string", "lvlName", 1);
+		cLUIelem::function_dcb34c80("string", "lvlDescriptionShort", 1);
+		cLUIelem::function_dcb34c80("string", "lvlDescriptionLong", 1);
+		cLUIelem::function_da693cbe("lvlProgress", 1, 4, "float", var_8c8b5d16);
 	}
 
 	/*
@@ -163,7 +163,7 @@ class class_fb1bfa12 : class_6aaccc24
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_fb1bfa12
 		Checksum: 0xF598FB24
 		Offset: 0x838
@@ -171,7 +171,7 @@ class class_fb1bfa12 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(localclientnum, value)
+	function set_entNum(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", value);
 	}
@@ -187,7 +187,7 @@ class class_fb1bfa12 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "activeState", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "lvlYear", 0);
@@ -306,7 +306,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: evidence_board_mission_preview
 	Checksum: 0x45DE3893
 	Offset: 0x3D8
@@ -314,9 +314,9 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(localclientnum, value)
+function set_entNum(localclientnum, value)
 {
-	[[ self ]]->function_c8350e33(localclientnum, value);
+	[[ self ]]->set_entNum(localclientnum, value);
 }
 
 /*

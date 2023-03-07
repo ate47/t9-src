@@ -58,7 +58,7 @@ function private function_70a657d8()
 	#/
 	if(!isdefined(level.script))
 	{
-		level.script = util::function_53bbf9d2();
+		level.script = util::get_map_name();
 	}
 }
 

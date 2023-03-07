@@ -834,8 +834,8 @@ function function_1f622ac(index)
 function devgui_setup()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

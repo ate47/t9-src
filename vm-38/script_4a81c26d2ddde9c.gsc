@@ -2,9 +2,9 @@
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
-#using script_57c900a7e39234be;
+#using scripts\killstreaks\airsupport.gsc;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_79aa222369853cdc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\influencers_shared.gsc;

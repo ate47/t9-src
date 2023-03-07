@@ -1,5 +1,5 @@
 #using script_2c49ae69cd8ce30c;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_72d96920f15049b8;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

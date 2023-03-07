@@ -1,9 +1,9 @@
 #using script_10c3f96a6d1d5b35;
 #using script_12a07c0a6ec3b0e;
-#using script_1611421ee9b880d3;
+#using scripts\zm_common\zm_wallbuy.csc;
 #using script_179ba564f65e92c5;
 #using script_17a9d06bf819b2d3;
-#using script_1fe1c6847ce5cb46;
+#using scripts\zm\zm_tungsten_pap_quest.csc;
 #using script_26df4fcdb3397fd4;
 #using script_2c5f2d4e7aa698c4;
 #using script_2c8fd33ddb45e78b;
@@ -17,7 +17,7 @@
 #using script_68732f44626820ed;
 #using script_76b36ed1b7a51ed2;
 #using script_77597bfbc6274baf;
-#using script_7ae1d3c7bfe5070;
+#using scripts\zm\zm_tungsten_main_quest.csc;
 #using script_7fc5045bca241a8b;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\load_shared.csc;
@@ -29,11 +29,11 @@
 #using scripts\zm_common\zm_utility.csc;
 #using scripts\zm_common\zm_weapons.csc;
 
-#namespace namespace_96b7f11d;
+#namespace zm_tungsten;
 
 /*
 	Name: function_8fd18a15
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x43BBC3BC
 	Offset: 0x6E8
 	Size: 0x14
@@ -47,7 +47,7 @@ function private autoexec function_8fd18a15()
 
 /*
 	Name: opt_in
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xAEB3622
 	Offset: 0x708
 	Size: 0x24
@@ -62,7 +62,7 @@ function autoexec opt_in()
 
 /*
 	Name: main
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xE0B17E2C
 	Offset: 0x738
 	Size: 0xEF4
@@ -119,8 +119,8 @@ event main(eventstruct)
 	load::main();
 	namespace_297ae820::init();
 	namespace_ff7e490::init();
-	namespace_e502fca8::init();
-	namespace_a8dddac2::init();
+	zm_tungsten_pap_quest::init();
+	zm_tungsten_main_quest::init();
 	namespace_95c839d1::init();
 	namespace_8a08914c::init();
 	namespace_c097de49::init();
@@ -135,7 +135,7 @@ event main(eventstruct)
 
 /*
 	Name: setup_personality_character_exerts
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x7D0891B
 	Offset: 0x1638
 	Size: 0x282
@@ -164,7 +164,7 @@ function setup_personality_character_exerts()
 
 /*
 	Name: function_c2858d41
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xE2E065E
 	Offset: 0x18C8
 	Size: 0x7C
@@ -185,7 +185,7 @@ function function_c2858d41(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_2879e60b
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x4CFA94A3
 	Offset: 0x1950
 	Size: 0x18A
@@ -216,7 +216,7 @@ function function_2879e60b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1fa52d9a
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x9FADD102
 	Offset: 0x1AE8
 	Size: 0xA4
@@ -233,7 +233,7 @@ function function_1fa52d9a(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f2b7289d
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x8FC544F7
 	Offset: 0x1B98
 	Size: 0x138
@@ -256,7 +256,7 @@ function function_f2b7289d(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_61297264
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x39A80FC5
 	Offset: 0x1CD8
 	Size: 0x138
@@ -279,7 +279,7 @@ function function_61297264(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_6b66a9a3
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xDE76242D
 	Offset: 0x1E18
 	Size: 0x10C
@@ -304,7 +304,7 @@ function function_6b66a9a3(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_fd7a1df2
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x9F4D805E
 	Offset: 0x1F30
 	Size: 0x5DA
@@ -384,7 +384,7 @@ function function_fd7a1df2(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_53c1bf22
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xADD83391
 	Offset: 0x2518
 	Size: 0x74
@@ -404,7 +404,7 @@ function function_53c1bf22(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_949d138a
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x9A4973AC
 	Offset: 0x2598
 	Size: 0x1A6
@@ -443,7 +443,7 @@ function function_949d138a(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_f524c7a5
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xB8EE81E4
 	Offset: 0x2748
 	Size: 0xD8
@@ -463,7 +463,7 @@ function function_f524c7a5(localclientnum, var_3f79908d)
 
 /*
 	Name: function_996f5d0f
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x5FABC04F
 	Offset: 0x2828
 	Size: 0x1C6
@@ -509,7 +509,7 @@ function function_996f5d0f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_10537d85
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x629ADB81
 	Offset: 0x29F8
 	Size: 0x1AE
@@ -554,7 +554,7 @@ function function_10537d85(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_40ef083a
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xCD4BCAB2
 	Offset: 0x2BB0
 	Size: 0x12A
@@ -582,7 +582,7 @@ function function_40ef083a()
 
 /*
 	Name: function_44dc8dc9
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x8634B1FD
 	Offset: 0x2CE8
 	Size: 0xCC
@@ -606,7 +606,7 @@ function function_44dc8dc9(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_167fc35
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xF5C4DD56
 	Offset: 0x2DC0
 	Size: 0x10C
@@ -631,7 +631,7 @@ function function_167fc35(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_182ea9e4
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xDFB5AF05
 	Offset: 0x2ED8
 	Size: 0x10C
@@ -656,7 +656,7 @@ function function_182ea9e4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_33082eb4
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x60DD54B3
 	Offset: 0x2FF0
 	Size: 0x104
@@ -680,7 +680,7 @@ function function_33082eb4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_a146ac0f
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xF4EB8E0A
 	Offset: 0x3100
 	Size: 0x400
@@ -730,7 +730,7 @@ function function_a146ac0f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1d123acd
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x1CF3D0A0
 	Offset: 0x3508
 	Size: 0x78
@@ -751,7 +751,7 @@ function function_1d123acd(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5bc9772e
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xECAA1E2
 	Offset: 0x3588
 	Size: 0xEC
@@ -777,7 +777,7 @@ function function_5bc9772e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_51ee271b
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xF25B0BB
 	Offset: 0x3680
 	Size: 0x7C
@@ -798,7 +798,7 @@ function function_51ee271b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5414ee31
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xE1C865B8
 	Offset: 0x3708
 	Size: 0x8C
@@ -819,7 +819,7 @@ function function_5414ee31(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_eff937db
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xACC5C1C0
 	Offset: 0x37A0
 	Size: 0x74
@@ -840,7 +840,7 @@ function function_eff937db(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_489caa85
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x517CBA4E
 	Offset: 0x3820
 	Size: 0x6C
@@ -855,7 +855,7 @@ function function_489caa85(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_72c3294
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xE22A8EC2
 	Offset: 0x3898
 	Size: 0x7C
@@ -872,7 +872,7 @@ function function_72c3294(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_43b0a4e2
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x6F73C811
 	Offset: 0x3920
 	Size: 0x94
@@ -890,7 +890,7 @@ function function_43b0a4e2(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1a91c8d3
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x64BEA719
 	Offset: 0x39C0
 	Size: 0xE4
@@ -917,7 +917,7 @@ function function_1a91c8d3(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9163efd4
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0xED3F9FE6
 	Offset: 0x3AB0
 	Size: 0x226
@@ -972,7 +972,7 @@ function function_9163efd4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_61d33efe
-	Namespace: namespace_96b7f11d
+	Namespace: zm_tungsten
 	Checksum: 0x200B0825
 	Offset: 0x3CE0
 	Size: 0xB4

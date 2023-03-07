@@ -1,8 +1,8 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_471b31bd963b388e;
 #using script_4ccfb58a9443a60b;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
 #using script_6167e26342be354b;
 #using script_7a5293d92c61c788;
@@ -92,7 +92,7 @@ function function_27473e44()
 {
 	zm_perks::register_perk_basic_info(#"hash_17e4ae593eaf4a47", #"perk_tombstone", 2000, #"hash_4a88c89fbf0061f6", getweapon("zombie_perk_bottle_mulekick"), undefined, #"hash_5347ff402123307a");
 	zm_perks::register_perk_precache_func(#"hash_17e4ae593eaf4a47", &precache);
-	zm_perks::register_perk_clientfields(#"hash_17e4ae593eaf4a47", &register_clientfield, &function_b0c4e363);
+	zm_perks::register_perk_clientfields(#"hash_17e4ae593eaf4a47", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_machine(#"hash_17e4ae593eaf4a47", &function_1fe63170);
 	zm_perks::register_perk_threads(#"hash_17e4ae593eaf4a47", &function_190ff809, &function_6df7ba74);
 	zm_perks::register_perk_host_migration_params(#"hash_17e4ae593eaf4a47", "vending_mulekick", "mulekick_light");
@@ -136,7 +136,7 @@ function register_clientfield()
 }
 
 /*
-	Name: function_b0c4e363
+	Name: set_clientfield
 	Namespace: namespace_f764fcd6
 	Checksum: 0x6708C267
 	Offset: 0x6F0
@@ -144,7 +144,7 @@ function register_clientfield()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b0c4e363(state)
+function set_clientfield(state)
 {
 }
 
@@ -294,7 +294,7 @@ function function_6a6169b2(var_2c2030)
 	}
 	if(self namespace_e86ffa8::function_30a8ed81(0))
 	{
-		self namespace_b376ff3f::function_61b8a91f(1, var_2c2030);
+		self item_inventory::function_61b8a91f(1, var_2c2030);
 	}
 }
 
@@ -320,7 +320,7 @@ function function_6df7ba74(b_pause, str_perk, str_result, n_slot)
 		}
 		waitframe(1);
 	}
-	self namespace_b376ff3f::function_61b8a91f(0, 1);
+	self item_inventory::function_61b8a91f(0, 1);
 }
 
 /*

@@ -939,9 +939,9 @@ function private function_60211cf4(sequence)
 				var_aa5d1f5b = 0;
 			}
 		}
-		if(event.var_97370473 != "")
+		if(event.luievent != "")
 		{
-			luinotifyevent(event.var_97370473);
+			luinotifyevent(event.luievent);
 		}
 		if(processevent)
 		{
@@ -1382,7 +1382,7 @@ function function_b6a5e7fa(var_a7f35e6d)
 				player = getentbynum(event.clientnum);
 				if(isplayer(player))
 				{
-					player stats::function_dad108fa(#"hash_639d9af21c54a255", 1);
+					player stats::function_dad108fa(#"featured_in_best_play", 1);
 				}
 			}
 			for(index = 0; index < level.players.size; index++)

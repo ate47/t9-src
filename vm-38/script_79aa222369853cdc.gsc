@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.gsc;
 
-class class_37d61ee3 : class_6aaccc24
+class class_37d61ee3 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -46,7 +46,7 @@ class class_37d61ee3 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -60,7 +60,7 @@ class class_37d61ee3 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -88,7 +88,7 @@ class class_37d61ee3 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("lui_plane_mortar");
+		cLUIelem::setup_clientfields("lui_plane_mortar");
 	}
 
 	/*

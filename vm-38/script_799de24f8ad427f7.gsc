@@ -1,6 +1,6 @@
 #using script_1029986e2bc8ca8e;
 #using script_5a525a75a8f1f7e4;
-#using script_7224d61ed502ea07;
+#using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7b1cd3908a825fdd;
 #using script_7d7ac1f663edcdc8;
 #using script_7fc996fe8678852;

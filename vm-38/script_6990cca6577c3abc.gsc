@@ -1305,7 +1305,7 @@ function function_49fa2899()
 	var_cb5aea38 = [2:((((17 + 1) + 8) + 1) + 8) + 1, 1:((17 + 1) + 8) + 1, 0:17 + 1];
 	foreach(slot in var_cb5aea38)
 	{
-		var_9ccb901d = self namespace_b376ff3f::function_2e711614(slot);
+		var_9ccb901d = self item_inventory::function_2e711614(slot);
 		if(!isdefined(var_9ccb901d))
 		{
 			continue;
@@ -1405,7 +1405,7 @@ function function_7897dfe6(params)
 */
 function function_e5469f27(weapon, var_131779dd)
 {
-	var_55687712 = self namespace_b376ff3f::function_230ceec4(weapon);
+	var_55687712 = self item_inventory::function_230ceec4(weapon);
 	if(isdefined(var_55687712.var_a8bccf69))
 	{
 		if(is_true(var_131779dd))
@@ -1468,12 +1468,12 @@ function function_e5469f27(weapon, var_131779dd)
 function function_e711fec1()
 {
 	/#
-		level_name = util::function_53bbf9d2();
+		level_name = util::get_map_name();
 		if(level_name === "")
 		{
-			util::function_345e5b9a("");
-			util::function_345e5b9a("");
-			util::function_345e5b9a("");
+			util::add_debug_command("");
+			util::add_debug_command("");
+			util::add_debug_command("");
 			zm_devgui::add_custom_devgui_callback(&cmd);
 		}
 	#/

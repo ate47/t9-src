@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -52,11 +52,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_6c9de9db7f3e44a3", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_6c9de9db7f3e44a3", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_5f342394
 	Checksum: 0x6F5C8AD7
 	Offset: 0x170
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 9
 	Flags: Private
 */
-function private function_d1de6a85(var_a84ac7c8, str_archetype, n_kill_count, str_destination, str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_84245fe9)
+function private on_begin(var_a84ac7c8, str_archetype, n_kill_count, str_destination, str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_84245fe9)
 {
 	var_1968096a = [4:var_84245fe9, 3:var_91e2fb66, 2:var_588808b1, 1:str_zone2, 0:str_zone1];
 	arrayremovevalue(var_1968096a, undefined, 0);
@@ -87,13 +87,13 @@ function private function_d1de6a85(var_a84ac7c8, str_archetype, n_kill_count, st
 	level.var_c23449d8 = zm_trial::function_5769f26a(str_destination);
 	self.var_925854c7 = n_kill_count;
 	level.var_fbca3288 = 0;
-	namespace_b22c99a5::function_2976fa44(level.var_c23449d8);
-	namespace_b22c99a5::function_dace284(0);
+	zm_trial_util::function_2976fa44(level.var_c23449d8);
+	zm_trial_util::function_dace284(0);
 	callback::on_ai_killed(&on_ai_killed);
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_5f342394
 	Checksum: 0x1A39FA46
 	Offset: 0x3D8
@@ -101,9 +101,9 @@ function private function_d1de6a85(var_a84ac7c8, str_archetype, n_kill_count, st
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	n_remaining = level.var_c23449d8;
 	level.var_c23449d8 = undefined;
 	level.var_925854c7 = undefined;
@@ -140,7 +140,7 @@ function private on_ai_killed(params)
 		{
 			level.var_c23449d8--;
 			level.var_fbca3288++;
-			namespace_b22c99a5::function_dace284(level.var_fbca3288);
+			zm_trial_util::function_dace284(level.var_fbca3288);
 		}
 	}
 }

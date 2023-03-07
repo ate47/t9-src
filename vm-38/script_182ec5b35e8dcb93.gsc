@@ -434,10 +434,10 @@ function function_537e9ae2(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwastimejump === 1)
 	{
-		var_565fd007 = self getlinkedent();
-		if(isdefined(var_565fd007))
+		soa = self getlinkedent();
+		if(isdefined(soa))
 		{
-			level.var_65331992 = var_565fd007;
+			level.var_65331992 = soa;
 		}
 	}
 	else if(bwastimejump === 2)

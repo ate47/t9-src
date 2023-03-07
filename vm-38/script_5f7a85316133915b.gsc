@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\array_shared.gsc;

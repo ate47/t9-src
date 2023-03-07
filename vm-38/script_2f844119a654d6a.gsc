@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using script_545a0bac37bda541;
 #using script_68d2ee1489345a1d;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -963,18 +963,18 @@ function function_6d1a12d3(var_cd03ffa)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(var_80b21eea, var_dbd1a594)
+function function_bff5c062(var_80b21eea, attackingplayer)
 {
 	var_f3ab6571 = var_80b21eea.owner weaponobjects::function_8481fc06(var_80b21eea.weapon) > 1;
 	var_80b21eea.owner thread globallogic_audio::function_a2cde53d(var_80b21eea.weapon, var_f3ab6571);
 	var_80b21eea.owner weaponobjects::hackerremoveweapon(var_80b21eea);
 	var_80b21eea weaponobjects::function_fb7b0024(var_80b21eea.owner);
-	var_80b21eea.team = var_dbd1a594.team;
-	var_80b21eea setteam(var_dbd1a594.team);
-	var_80b21eea.owner = var_dbd1a594;
-	var_80b21eea setowner(var_dbd1a594);
-	var_80b21eea weaponobjects::function_386fa470(var_dbd1a594);
-	var_80b21eea weaponobjects::function_931041f8(var_dbd1a594);
+	var_80b21eea.team = attackingplayer.team;
+	var_80b21eea setteam(attackingplayer.team);
+	var_80b21eea.owner = attackingplayer;
+	var_80b21eea setowner(attackingplayer);
+	var_80b21eea weaponobjects::function_386fa470(attackingplayer);
+	var_80b21eea weaponobjects::function_931041f8(attackingplayer);
 	if(isdefined(var_80b21eea) && isdefined(level.var_f1edf93f))
 	{
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
@@ -984,7 +984,7 @@ function function_bff5c062(var_80b21eea, var_dbd1a594)
 			var_80b21eea thread weaponobjects::weapon_object_timeout(var_80b21eea.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
-	var_80b21eea thread weaponobjects::function_6d8aa6a0(var_dbd1a594, var_80b21eea.var_2d045452);
+	var_80b21eea thread weaponobjects::function_6d8aa6a0(attackingplayer, var_80b21eea.var_2d045452);
 }
 
 /*

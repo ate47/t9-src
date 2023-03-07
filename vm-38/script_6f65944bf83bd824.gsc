@@ -1,4 +1,4 @@
-#using script_6d9aa3cb389aa46a;
+#using scripts\weapons\hacker_tool.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace hacker_tool;

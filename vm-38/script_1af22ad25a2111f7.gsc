@@ -2,8 +2,8 @@
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -190,14 +190,14 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(var_d148081d, var_dbd1a594)
+function function_bff5c062(var_d148081d, attackingplayer)
 {
 	var_f3ab6571 = var_d148081d.owner weaponobjects::function_8481fc06(var_d148081d.weapon) > 1;
 	var_d148081d.owner thread globallogic_audio::function_a2cde53d(var_d148081d.weapon, var_f3ab6571);
-	var_d148081d.team = var_dbd1a594.team;
-	var_d148081d setteam(var_dbd1a594.team);
-	var_d148081d.owner = var_dbd1a594;
-	var_d148081d setowner(var_dbd1a594);
+	var_d148081d.team = attackingplayer.team;
+	var_d148081d setteam(attackingplayer.team);
+	var_d148081d.owner = attackingplayer;
+	var_d148081d setowner(attackingplayer);
 	if(isdefined(var_d148081d) && isdefined(level.var_f1edf93f))
 	{
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
@@ -207,7 +207,7 @@ function function_bff5c062(var_d148081d, var_dbd1a594)
 			var_d148081d thread weaponobjects::weapon_object_timeout(var_d148081d.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
-	var_d148081d thread weaponobjects::function_6d8aa6a0(var_dbd1a594, var_d148081d.var_2d045452);
+	var_d148081d thread weaponobjects::function_6d8aa6a0(attackingplayer, var_d148081d.var_2d045452);
 	var_d148081d clientfield::increment("jammer_hacked");
 }
 
@@ -818,13 +818,13 @@ function function_b2e496fa(watcher)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_2fdf3111(entity, var_dbd1a594)
+function private function_2fdf3111(entity, attackingplayer)
 {
 	if(self == entity)
 	{
 		return false;
 	}
-	if(isplayer(entity) && isdefined(entity.team) && !util::function_fbce7263(entity.team, var_dbd1a594.team))
+	if(isplayer(entity) && isdefined(entity.team) && !util::function_fbce7263(entity.team, attackingplayer.team))
 	{
 		return true;
 	}
@@ -840,7 +840,7 @@ function private function_2fdf3111(entity, var_dbd1a594)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_b16c8865(entity, var_dbd1a594)
+function private function_b16c8865(entity, attackingplayer)
 {
 	if(self == entity)
 	{
@@ -858,7 +858,7 @@ function private function_b16c8865(entity, var_dbd1a594)
 	{
 		return false;
 	}
-	if(isdefined(entity.team) && !util::function_fbce7263(entity.team, var_dbd1a594.team))
+	if(isdefined(entity.team) && !util::function_fbce7263(entity.team, attackingplayer.team))
 	{
 		return false;
 	}
@@ -945,7 +945,7 @@ function function_2e6238c0(weapon, owner)
 			break;
 		}
 		case "ability_smart_cover":
-		case "hash_1fb0b26684caee0f":
+		case "gadget_smart_cover":
 		{
 			var_60d3002f = "smartCoverJammedStart";
 			break;
@@ -1002,7 +1002,7 @@ function function_2eb0a933(weapon, owner)
 			break;
 		}
 		case "ability_smart_cover":
-		case "hash_1fb0b26684caee0f":
+		case "gadget_smart_cover":
 		{
 			var_60d3002f = "smartCoverJammedEnd";
 			break;

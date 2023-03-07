@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using script_2da073d4aa78c206;
 #using script_305d57cf0618009d;
-#using script_4663ec59d864e437;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_57f7003580bb15e0;
 #using script_d43f0658aa1a5e5;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -219,8 +219,8 @@ function private function_57d4a011(insertion)
 			{
 				x_pos = center[0] + (radius * cos(angle));
 				y_pos = center[1] + (radius * sin(angle));
-				var_636e904a = var_5199e69;
-				var_9fac9726.origin = (x_pos, y_pos, var_636e904a);
+				z_pos = var_5199e69;
+				var_9fac9726.origin = (x_pos, y_pos, z_pos);
 				var_9fac9726.var_8c9cad0b = angle;
 				angle = angle + step_size;
 				target = var_8a2c40d0.origin - var_9fac9726.origin;

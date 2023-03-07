@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_b201538a : class_6aaccc24
+class class_b201538a : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_b201538a : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class class_b201538a : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -75,9 +75,9 @@ class class_b201538a : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("cp_test_journalist1_uni_download_hack_luielem");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("download_progress", 1, 7, "float");
+		cLUIelem::setup_clientfields("cp_test_journalist1_uni_download_hack_luielem");
+		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::function_da693cbe("download_progress", 1, 7, "float");
 	}
 
 	/*

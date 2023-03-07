@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_28a7d65d : class_6aaccc24
+class cself_respawn : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x999020D4
 		Offset: 0x348
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_28a7d65d : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0xDAA783F2
 		Offset: 0x4A0
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_28a7d65d : class_6aaccc24
 
 	/*
 		Name: function_459465a
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x7F231CEC
 		Offset: 0x468
 		Size: 0x30
@@ -45,7 +45,7 @@ class class_28a7d65d : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x6760E502
 		Offset: 0x438
 		Size: 0x24
@@ -54,12 +54,12 @@ class class_28a7d65d : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x3DD4B28F
 		Offset: 0x3C0
 		Size: 0x1C
@@ -68,12 +68,12 @@ class class_28a7d65d : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("self_respawn");
+		cLUIelem::function_5c1bb138("self_respawn");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x1D696B36
 		Offset: 0x368
 		Size: 0x4C
@@ -82,13 +82,13 @@ class class_28a7d65d : class_6aaccc24
 	*/
 	function setup_clientfields(var_1089a5f3)
 	{
-		namespace_6aaccc24::setup_clientfields("self_respawn");
-		namespace_6aaccc24::function_da693cbe("percent", 1, 6, "float", var_1089a5f3);
+		cLUIelem::setup_clientfields("self_respawn");
+		cLUIelem::function_da693cbe("percent", 1, 6, "float", var_1089a5f3);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x479F3D60
 		Offset: 0x3E8
 		Size: 0x48
@@ -97,7 +97,7 @@ class class_28a7d65d : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "percent", 0);
 	}
 
@@ -130,7 +130,7 @@ function private autoexec function_87ee9c1d()
 */
 function register(var_1089a5f3)
 {
-	elem = new class_28a7d65d();
+	elem = new cself_respawn();
 	[[ elem ]]->setup_clientfields(var_1089a5f3);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -162,7 +162,7 @@ function register(var_1089a5f3)
 */
 function function_5c1bb138()
 {
-	elem = new class_28a7d65d();
+	elem = new cself_respawn();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

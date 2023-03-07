@@ -136,7 +136,7 @@ function private function_70a657d8()
 			defaultaspectratio = 1.777778;
 		}
 	}
-	level.script = util::function_53bbf9d2();
+	level.script = util::get_map_name();
 	level.clientscripts = getdvarstring(#"cg_usingclientscripts") != "";
 	level.clientscripts = getdvarstring(#"cg_usingclientscripts") != "";
 	if(!isdefined(level.timeofday))

@@ -3,11 +3,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_c8c67699;
+#namespace zm_silver_ww_quest;
 
 /*
 	Name: function_179cd5fc
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x4BE0992B
 	Offset: 0x1D8
 	Size: 0x14
@@ -21,7 +21,7 @@ function private autoexec function_179cd5fc()
 
 /*
 	Name: init
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x37AC1D15
 	Offset: 0x1F8
 	Size: 0x62C
@@ -56,7 +56,7 @@ function init()
 
 /*
 	Name: function_cadc50d8
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x25901A56
 	Offset: 0x830
 	Size: 0x19A
@@ -100,7 +100,7 @@ function function_cadc50d8(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4c8d91b3
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xA23734D
 	Offset: 0x9D8
 	Size: 0xD4
@@ -125,7 +125,7 @@ function function_4c8d91b3(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_167bea22
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x3C908509
 	Offset: 0xAB8
 	Size: 0xA4
@@ -142,7 +142,7 @@ function function_167bea22(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c4793fe5
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x6A231649
 	Offset: 0xB68
 	Size: 0x9C
@@ -160,7 +160,7 @@ function function_c4793fe5(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_408232a7
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x5473B151
 	Offset: 0xC10
 	Size: 0x16C
@@ -188,7 +188,7 @@ function function_408232a7(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1534626e
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x20626D3D
 	Offset: 0xD88
 	Size: 0x8C
@@ -206,7 +206,7 @@ function function_1534626e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_48124b82
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xAB4A8CC6
 	Offset: 0xE20
 	Size: 0x94
@@ -224,7 +224,7 @@ function function_48124b82(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: interact_rumble
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x263FBCF9
 	Offset: 0xEC0
 	Size: 0x6C
@@ -241,7 +241,7 @@ function interact_rumble(localclientnum, oldval, newval, bnewent, binitialsnap, 
 
 /*
 	Name: function_f0bc5344
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x149B575A
 	Offset: 0xF38
 	Size: 0x104
@@ -265,7 +265,7 @@ function function_f0bc5344(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_29b9f19b
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x360B8FBE
 	Offset: 0x1048
 	Size: 0x20A
@@ -305,7 +305,7 @@ function function_29b9f19b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_7bceb311
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x88B121F4
 	Offset: 0x1260
 	Size: 0x74
@@ -322,7 +322,7 @@ function function_7bceb311(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_c35975ed
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x7DEF60B8
 	Offset: 0x12E0
 	Size: 0x18C
@@ -347,7 +347,7 @@ function function_c35975ed(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_37ba0961
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x6986EC25
 	Offset: 0x1478
 	Size: 0x8E
@@ -369,7 +369,7 @@ function function_37ba0961(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: player_continuous_rumble
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xBC29C779
 	Offset: 0x1510
 	Size: 0xAE
@@ -393,7 +393,7 @@ function player_continuous_rumble(localclientnum)
 
 /*
 	Name: function_f875612b
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x98F8174B
 	Offset: 0x15C8
 	Size: 0x144
@@ -419,7 +419,7 @@ function function_f875612b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: crystal_energy_fx
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x21ABF19A
 	Offset: 0x1718
 	Size: 0x11E
@@ -453,7 +453,7 @@ function crystal_energy_fx(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: ww_vacuum_crystal_fx
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x249DBC43
 	Offset: 0x1840
 	Size: 0x278
@@ -508,7 +508,7 @@ function ww_vacuum_crystal_fx(localclientnum, oldval, newval, bnewent, binitials
 
 /*
 	Name: hold_crystal_energy
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xB2C88A83
 	Offset: 0x1AC0
 	Size: 0x10E
@@ -539,7 +539,7 @@ function hold_crystal_energy(localclientnum, oldval, newval, bnewent, binitialsn
 
 /*
 	Name: function_2a66952f
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xDBA0FD13
 	Offset: 0x1BD8
 	Size: 0x6C
@@ -557,7 +557,7 @@ function function_2a66952f(localclientnum, var_9b6b8f9a)
 
 /*
 	Name: function_a6b2453b
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x6115462
 	Offset: 0x1C50
 	Size: 0x27E
@@ -592,7 +592,7 @@ function function_a6b2453b(localclientnum, var_9b6b8f9a, var_a4f83274)
 
 /*
 	Name: function_9dd39fc8
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x7C28EBD9
 	Offset: 0x1ED8
 	Size: 0xAA
@@ -617,7 +617,7 @@ function private function_9dd39fc8(localclientnum, var_9b6b8f9a, var_a4f83274)
 
 /*
 	Name: function_564a4c6
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xD1C58EAD
 	Offset: 0x1F90
 	Size: 0xA6
@@ -642,7 +642,7 @@ function private function_564a4c6(localclientnum, var_9b6b8f9a, var_d4ece4fd)
 
 /*
 	Name: function_1385b26c
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xDC9D2E64
 	Offset: 0x2040
 	Size: 0x64

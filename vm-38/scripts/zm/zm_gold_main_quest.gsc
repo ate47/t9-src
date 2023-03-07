@@ -7,10 +7,10 @@
 #using script_52c6c2d1a2ef1b46;
 #using script_5404bcacf34a92d;
 #using script_57f7003580bb15e0;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5fd73298643b6fff;
 #using script_60d2812480bc5591;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_6cc18c65e4f06fd0;
 #using script_7492032440d4d998;
 #using script_7bacb32f8222fa3e;
@@ -33,11 +33,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_af171776;
+#namespace zm_gold_main_quest;
 
 /*
 	Name: function_69b64c96
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA87D03A
 	Offset: 0xA38
 	Size: 0x14
@@ -51,7 +51,7 @@ function private autoexec function_69b64c96()
 
 /*
 	Name: init
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB334682E
 	Offset: 0xA58
 	Size: 0x6EC
@@ -109,7 +109,7 @@ function init()
 
 /*
 	Name: function_be0bcb78
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x8366CCA3
 	Offset: 0x1150
 	Size: 0x9C
@@ -128,7 +128,7 @@ function function_be0bcb78()
 
 /*
 	Name: function_e983f15a
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xC7457E58
 	Offset: 0x11F8
 	Size: 0x3CC
@@ -137,21 +137,21 @@ function function_be0bcb78()
 */
 function function_e983f15a()
 {
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_22b789728918395f", #"hash_342e10211feb6e85", &function_899080e4, &function_a23c9017);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_3feee5b58a00d16c", #"hash_342e0d211feb696c", &function_db7d739a, &function_6eb8a9b2);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_488b680e29b812d", #"hash_342e0e211feb6b1f", &function_2fd63927, &function_4d5b1342);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_1a7551970d707039", #"hash_342e0b211feb6606", &function_cd4fe3bf, &function_2084058e);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_638edd9b0b05cd3b", #"hash_342e0c211feb67b9", &function_6184283f, &function_74b83d82);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_474aeb01bf3e2726", #"hash_342e09211feb62a0", &function_72036ab1, &function_86a23fd4);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_25befcacd1e78ac7", #"hash_342e0a211feb6453", &function_62d6b8df, &function_157c5321);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_1953096735765f35", #"hash_342e17211feb7a6a", &function_8365add8, &function_b78a218b);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"hash_1cb2e993ffa829f0", #"hash_276792e11fed422e", &function_32fba4cd, &function_aba92bd4);
-	level namespace_ee206246::register(#"hash_40f667cdf0bccad4", #"end_fight", #"hash_3130208028a11b3", &namespace_c4d353e7::function_79868b3b, &namespace_c4d353e7::function_ec198408, 1);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_22b789728918395f", #"hash_342e10211feb6e85", &function_899080e4, &function_a23c9017);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_3feee5b58a00d16c", #"hash_342e0d211feb696c", &function_db7d739a, &function_6eb8a9b2);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_488b680e29b812d", #"hash_342e0e211feb6b1f", &function_2fd63927, &function_4d5b1342);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_1a7551970d707039", #"hash_342e0b211feb6606", &function_cd4fe3bf, &function_2084058e);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_638edd9b0b05cd3b", #"hash_342e0c211feb67b9", &function_6184283f, &function_74b83d82);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_474aeb01bf3e2726", #"hash_342e09211feb62a0", &function_72036ab1, &function_86a23fd4);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_25befcacd1e78ac7", #"hash_342e0a211feb6453", &function_62d6b8df, &function_157c5321);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_1953096735765f35", #"hash_342e17211feb7a6a", &function_8365add8, &function_b78a218b);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"hash_1cb2e993ffa829f0", #"hash_276792e11fed422e", &function_32fba4cd, &function_aba92bd4);
+	level zm_sq::register(#"hash_40f667cdf0bccad4", #"end_fight", #"hash_3130208028a11b3", &namespace_c4d353e7::function_79868b3b, &namespace_c4d353e7::function_ec198408, 1);
 }
 
 /*
 	Name: function_d5d67561
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x31BB32F3
 	Offset: 0x15D0
 	Size: 0x58
@@ -166,7 +166,7 @@ function function_d5d67561()
 
 /*
 	Name: function_e9c07a3d
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xCC05F84A
 	Offset: 0x1630
 	Size: 0x74
@@ -177,12 +177,12 @@ function function_e9c07a3d()
 {
 	level flag::wait_till("pap_quest_completed");
 	level thread scene::play("p9_fxanim_zm_gold_shutters_peck_bundle", "open");
-	level namespace_ee206246::start(#"hash_40f667cdf0bccad4", 1);
+	level zm_sq::start(#"hash_40f667cdf0bccad4", 1);
 }
 
 /*
 	Name: function_899080e4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x49EC09F3
 	Offset: 0x16B0
 	Size: 0x4C
@@ -201,7 +201,7 @@ function function_899080e4(b_skipped)
 
 /*
 	Name: function_cd7e8422
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xDBC3AEF8
 	Offset: 0x1708
 	Size: 0xFC
@@ -226,7 +226,7 @@ function function_cd7e8422()
 
 /*
 	Name: function_f7a25ad5
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xBC19179B
 	Offset: 0x1810
 	Size: 0xCE
@@ -251,7 +251,7 @@ function function_f7a25ad5(var_23d9277f)
 
 /*
 	Name: function_a23c9017
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x186C6DEF
 	Offset: 0x18E8
 	Size: 0x8C
@@ -270,7 +270,7 @@ function function_a23c9017(b_skipped, var_19e802fa)
 
 /*
 	Name: function_720b3a4d
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x2382E342
 	Offset: 0x1980
 	Size: 0x4B4
@@ -324,7 +324,7 @@ function function_720b3a4d()
 
 /*
 	Name: function_946d65b9
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x6A84B988
 	Offset: 0x1E40
 	Size: 0xA0
@@ -343,7 +343,7 @@ function function_946d65b9(e_player)
 
 /*
 	Name: function_db7d739a
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x76A6EA1C
 	Offset: 0x1EE8
 	Size: 0x4C
@@ -362,7 +362,7 @@ function function_db7d739a(b_skipped)
 
 /*
 	Name: function_e12506e5
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x2A646DE3
 	Offset: 0x1F40
 	Size: 0x140
@@ -383,7 +383,7 @@ function function_e12506e5()
 
 /*
 	Name: function_bd9ebda
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xC14969C6
 	Offset: 0x2088
 	Size: 0x33A
@@ -434,7 +434,7 @@ function function_bd9ebda()
 
 /*
 	Name: function_4a9e112c
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x62FADD89
 	Offset: 0x23D0
 	Size: 0x13C
@@ -466,7 +466,7 @@ function function_4a9e112c()
 
 /*
 	Name: function_9a978ce6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x12B0E906
 	Offset: 0x2518
 	Size: 0x634
@@ -540,7 +540,7 @@ function function_9a978ce6()
 
 /*
 	Name: function_2d9a6efe
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xFB91254B
 	Offset: 0x2B58
 	Size: 0xE2
@@ -559,7 +559,7 @@ function private function_2d9a6efe()
 
 /*
 	Name: function_4460c48
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xDD87EC00
 	Offset: 0x2C48
 	Size: 0x58
@@ -578,7 +578,7 @@ function private function_4460c48(e_player)
 
 /*
 	Name: function_b88f30aa
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1F1EFE03
 	Offset: 0x2CB0
 	Size: 0x124
@@ -605,7 +605,7 @@ function private function_b88f30aa(var_63b11ed2)
 
 /*
 	Name: function_e8a759be
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE304DA23
 	Offset: 0x2DE0
 	Size: 0x54
@@ -622,7 +622,7 @@ function private function_e8a759be(var_9c84fce2)
 
 /*
 	Name: function_6eb8a9b2
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1C238D5F
 	Offset: 0x2E40
 	Size: 0xD4
@@ -646,7 +646,7 @@ function function_6eb8a9b2(b_skipped, var_19e802fa)
 
 /*
 	Name: function_2fd63927
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1FF0480E
 	Offset: 0x2F20
 	Size: 0x4C
@@ -665,7 +665,7 @@ function function_2fd63927(b_skipped)
 
 /*
 	Name: function_ad7dbaa3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x9188B71C
 	Offset: 0x2F78
 	Size: 0x24C
@@ -696,7 +696,7 @@ function function_ad7dbaa3()
 
 /*
 	Name: function_4d5b1342
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x2098FDE
 	Offset: 0x31D0
 	Size: 0xB4
@@ -716,7 +716,7 @@ function function_4d5b1342(b_skipped, var_19e802fa)
 
 /*
 	Name: function_50f8e514
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEE4D6D86
 	Offset: 0x3290
 	Size: 0x124
@@ -743,7 +743,7 @@ function private function_50f8e514(var_99402def)
 
 /*
 	Name: function_cd4fe3bf
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x6382663F
 	Offset: 0x33C0
 	Size: 0x4C
@@ -762,7 +762,7 @@ function function_cd4fe3bf(b_skipped)
 
 /*
 	Name: function_cbb8aadb
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4CBC04F6
 	Offset: 0x3418
 	Size: 0xA8
@@ -786,7 +786,7 @@ function function_cbb8aadb(e_player)
 
 /*
 	Name: function_341f3901
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xDC3F72DD
 	Offset: 0x34C8
 	Size: 0xE8
@@ -813,7 +813,7 @@ function function_341f3901()
 
 /*
 	Name: function_b509640
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x986AD481
 	Offset: 0x35B8
 	Size: 0x394
@@ -848,7 +848,7 @@ function function_b509640()
 
 /*
 	Name: function_b21632bf
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x91B4D098
 	Offset: 0x3958
 	Size: 0x22C
@@ -888,7 +888,7 @@ function function_b21632bf(var_7961a37e)
 
 /*
 	Name: function_3d2f9ce0
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4499C6AA
 	Offset: 0x3B90
 	Size: 0x2B0
@@ -938,7 +938,7 @@ function function_3d2f9ce0()
 
 /*
 	Name: function_863a7434
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x63A0BBB2
 	Offset: 0x3E48
 	Size: 0xD6
@@ -963,7 +963,7 @@ function function_863a7434()
 
 /*
 	Name: function_aa3414cb
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE2C53449
 	Offset: 0x3F28
 	Size: 0x19C
@@ -986,15 +986,15 @@ function function_aa3414cb(a_pos, var_753342a3, str_zone_name)
 			level.var_aff5d50e.var_d9558be1 = var_753342a3;
 			level.var_aff5d50e callback::on_death(&function_4741f2d1);
 			level.var_aff5d50e.var_7a5e475 = 1;
-			level.var_aff5d50e callback::function_d8abfc3d(#"hash_29cb63a7ebb5d699", &namespace_808e3265::function_b7bf6e96);
-			level.var_aff5d50e callback::function_d8abfc3d(#"hash_484127e0cbd8f8cb", &namespace_808e3265::function_64515cbe);
+			level.var_aff5d50e callback::function_d8abfc3d(#"hash_29cb63a7ebb5d699", &zm_gold::function_b7bf6e96);
+			level.var_aff5d50e callback::function_d8abfc3d(#"hash_484127e0cbd8f8cb", &zm_gold::function_64515cbe);
 		}
 	}
 }
 
 /*
 	Name: function_4741f2d1
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB854390F
 	Offset: 0x40D0
 	Size: 0x2C
@@ -1008,7 +1008,7 @@ function function_4741f2d1(params)
 
 /*
 	Name: function_3c3fc3c6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA19511D0
 	Offset: 0x4108
 	Size: 0x380
@@ -1076,7 +1076,7 @@ function function_3c3fc3c6()
 
 /*
 	Name: function_5ed3ff52
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7F390D91
 	Offset: 0x4490
 	Size: 0x64
@@ -1095,7 +1095,7 @@ function function_5ed3ff52(player)
 
 /*
 	Name: function_2084058e
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE174CEE8
 	Offset: 0x4500
 	Size: 0x44
@@ -1112,7 +1112,7 @@ function function_2084058e(b_skipped, var_19e802fa)
 
 /*
 	Name: function_6184283f
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xD976334
 	Offset: 0x4550
 	Size: 0x4C
@@ -1131,7 +1131,7 @@ function function_6184283f(b_skipped)
 
 /*
 	Name: function_9e39dad3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xC5B962F5
 	Offset: 0x45A8
 	Size: 0x2C2
@@ -1177,7 +1177,7 @@ function function_9e39dad3(var_b555f02e)
 
 /*
 	Name: function_1621782d
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA624EA36
 	Offset: 0x4878
 	Size: 0x202
@@ -1231,7 +1231,7 @@ function function_1621782d(var_b555f02e)
 
 /*
 	Name: function_b7fb7df6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1A93158D
 	Offset: 0x4A88
 	Size: 0x8C
@@ -1248,7 +1248,7 @@ function function_b7fb7df6()
 
 /*
 	Name: function_823c9bad
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xADEF1660
 	Offset: 0x4B20
 	Size: 0xA8
@@ -1272,7 +1272,7 @@ function function_823c9bad(e_player)
 
 /*
 	Name: function_16a611c6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x133FAC87
 	Offset: 0x4BD0
 	Size: 0xF0
@@ -1299,7 +1299,7 @@ function function_16a611c6(e_player)
 
 /*
 	Name: function_35e13260
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA3E3F336
 	Offset: 0x4CC8
 	Size: 0x504
@@ -1362,7 +1362,7 @@ function function_35e13260()
 
 /*
 	Name: function_7814d598
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x54EF28C9
 	Offset: 0x51D8
 	Size: 0x17E
@@ -1397,7 +1397,7 @@ function function_7814d598(status)
 
 /*
 	Name: function_ddd13d30
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x973AAF04
 	Offset: 0x5360
 	Size: 0x10C
@@ -1423,7 +1423,7 @@ function private function_ddd13d30(portal_pos)
 
 /*
 	Name: function_74b83d82
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x14CDB612
 	Offset: 0x5478
 	Size: 0x148
@@ -1453,7 +1453,7 @@ function function_74b83d82(b_skipped, var_19e802fa)
 
 /*
 	Name: function_de84b08d
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x15984108
 	Offset: 0x55C8
 	Size: 0x10E
@@ -1472,7 +1472,7 @@ function function_de84b08d()
 
 /*
 	Name: function_72036ab1
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x5752BDD1
 	Offset: 0x56E0
 	Size: 0x15C
@@ -1503,7 +1503,7 @@ function function_72036ab1(b_skipped)
 
 /*
 	Name: function_86a23fd4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB105E7BD
 	Offset: 0x5848
 	Size: 0x1A8
@@ -1528,7 +1528,7 @@ function function_86a23fd4(b_skipped, var_19e802fa)
 
 /*
 	Name: function_62d6b8df
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1EBE4605
 	Offset: 0x59F8
 	Size: 0xFC
@@ -1554,7 +1554,7 @@ function function_62d6b8df(b_skipped)
 
 /*
 	Name: function_520b958d
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xF84C11A7
 	Offset: 0x5B00
 	Size: 0x94
@@ -1567,14 +1567,14 @@ function function_520b958d()
 	var_ca1193a6 = getent("shovel_tool_pos", "targetname");
 	if(isdefined(var_ca1193a6))
 	{
-		namespace_9f2e6680::function_ade87eb5(#"hash_27ca0b2cf2e3ceaf", var_ca1193a6, 0);
+		zm_gold_ww_quest::function_ade87eb5(#"hash_27ca0b2cf2e3ceaf", var_ca1193a6, 0);
 		var_ca1193a6 delete();
 	}
 }
 
 /*
 	Name: function_a8df5533
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x8F79365C
 	Offset: 0x5BA0
 	Size: 0x25A
@@ -1606,7 +1606,7 @@ function function_a8df5533()
 
 /*
 	Name: function_f0423163
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x8A5B1A68
 	Offset: 0x5E08
 	Size: 0x1F8
@@ -1657,7 +1657,7 @@ function function_f0423163()
 
 /*
 	Name: function_db7e1556
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x9F4F9421
 	Offset: 0x6008
 	Size: 0x196
@@ -1691,7 +1691,7 @@ function function_db7e1556(var_4ab05779, var_d7716b9c)
 
 /*
 	Name: function_10a4dd0a
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEF3164E9
 	Offset: 0x61A8
 	Size: 0x5E2
@@ -1790,7 +1790,7 @@ function function_10a4dd0a(params)
 
 /*
 	Name: function_3a3ca419
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xDCA28746
 	Offset: 0x6798
 	Size: 0xB04
@@ -1942,7 +1942,7 @@ function function_3a3ca419()
 
 /*
 	Name: function_eca49808
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x169C2128
 	Offset: 0x72A8
 	Size: 0xF4
@@ -1964,7 +1964,7 @@ function function_eca49808(model)
 
 /*
 	Name: function_d6298eb3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB46AE98D
 	Offset: 0x73A8
 	Size: 0x98
@@ -1985,7 +1985,7 @@ function function_d6298eb3()
 
 /*
 	Name: function_d4ec7e31
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x2A25EB5F
 	Offset: 0x7448
 	Size: 0x45C
@@ -2058,7 +2058,7 @@ function function_d4ec7e31(s_container)
 
 /*
 	Name: function_1f1ea0d3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x33155B90
 	Offset: 0x78B0
 	Size: 0x12C
@@ -2084,7 +2084,7 @@ function function_1f1ea0d3()
 
 /*
 	Name: function_531dcaa4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x758FDFDD
 	Offset: 0x79E8
 	Size: 0x6D6
@@ -2157,7 +2157,7 @@ function function_531dcaa4()
 
 /*
 	Name: function_73141752
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x96A24FDB
 	Offset: 0x80C8
 	Size: 0x218
@@ -2202,7 +2202,7 @@ function function_73141752(s_crystal)
 
 /*
 	Name: function_4924bc79
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA1E3F27D
 	Offset: 0x82E8
 	Size: 0x7C
@@ -2222,7 +2222,7 @@ function function_4924bc79(time)
 
 /*
 	Name: function_ffb5a78a
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xD3960AC0
 	Offset: 0x8370
 	Size: 0x274
@@ -2256,7 +2256,7 @@ function function_ffb5a78a()
 
 /*
 	Name: function_b5fc7e46
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x838ABA0D
 	Offset: 0x85F0
 	Size: 0x132
@@ -2285,7 +2285,7 @@ function function_b5fc7e46()
 
 /*
 	Name: function_9c74e3e3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x5882B5DA
 	Offset: 0x8730
 	Size: 0x194
@@ -2318,7 +2318,7 @@ function function_9c74e3e3(e_player)
 
 /*
 	Name: function_f69ec622
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB61B77F9
 	Offset: 0x88D0
 	Size: 0x1F0
@@ -2361,7 +2361,7 @@ function function_f69ec622()
 
 /*
 	Name: function_6b76cd80
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x5AF1B87C
 	Offset: 0x8AC8
 	Size: 0x474
@@ -2410,7 +2410,7 @@ function function_6b76cd80(s_container)
 
 /*
 	Name: function_df33ac59
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA5198FB8
 	Offset: 0x8F48
 	Size: 0x5FA
@@ -2485,7 +2485,7 @@ function function_df33ac59(s_container)
 
 /*
 	Name: function_35914dc4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xD0BD620E
 	Offset: 0x9550
 	Size: 0x19C
@@ -2533,7 +2533,7 @@ function function_35914dc4(var_18ceba08)
 
 /*
 	Name: function_cdba47c6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x75C3EB4B
 	Offset: 0x96F8
 	Size: 0x184
@@ -2566,7 +2566,7 @@ function function_cdba47c6(var_18ceba08, mdl_dome)
 
 /*
 	Name: function_92f65927
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x29880418
 	Offset: 0x9888
 	Size: 0x19E
@@ -2606,7 +2606,7 @@ function function_92f65927()
 
 /*
 	Name: function_5f6a508b
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x28F30E95
 	Offset: 0x9A30
 	Size: 0x94
@@ -2625,7 +2625,7 @@ function function_5f6a508b(e_player)
 
 /*
 	Name: function_882a2c43
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7321EC70
 	Offset: 0x9AD0
 	Size: 0xAC
@@ -2648,7 +2648,7 @@ function function_882a2c43(e_player, var_468fde99)
 
 /*
 	Name: function_7dc5b077
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x38F5F4D3
 	Offset: 0x9B88
 	Size: 0x74
@@ -2668,7 +2668,7 @@ function function_7dc5b077(var_18ceba08, e_player)
 
 /*
 	Name: function_46932caa
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x61957738
 	Offset: 0x9C08
 	Size: 0x16C
@@ -2701,7 +2701,7 @@ function function_46932caa(e_player)
 
 /*
 	Name: function_9bd73066
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB40769A2
 	Offset: 0x9D80
 	Size: 0x44
@@ -2723,7 +2723,7 @@ function function_9bd73066(e_player)
 
 /*
 	Name: function_f36d9845
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1C39340A
 	Offset: 0x9DD0
 	Size: 0x1E4
@@ -2753,7 +2753,7 @@ function function_f36d9845(s_canister)
 
 /*
 	Name: function_ad8d71a0
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7FFB3A7
 	Offset: 0x9FC0
 	Size: 0x16E
@@ -2802,7 +2802,7 @@ function function_ad8d71a0(zonename)
 
 /*
 	Name: function_157c5321
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4207301F
 	Offset: 0xA138
 	Size: 0xB4
@@ -2820,7 +2820,7 @@ function function_157c5321(b_skipped, var_19e802fa)
 
 /*
 	Name: function_8365add8
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4EAD5BD8
 	Offset: 0xA1F8
 	Size: 0x83A
@@ -2840,7 +2840,7 @@ function function_8365add8(b_skipped)
 	var_fac83bd = struct::get("opc_activator_pos");
 	var_1f5391d1 = struct::get("tp_pos");
 	var_e8c728b4 = util::spawn_model("tag_origin", var_fac83bd.origin, var_fac83bd.angles);
-	namespace_ee206246::objective_set(#"hash_70910dcf03846864", var_1f5391d1);
+	zm_sq::objective_set(#"hash_70910dcf03846864", var_1f5391d1);
 	n_time = 0;
 	while(true)
 	{
@@ -2861,7 +2861,7 @@ function function_8365add8(b_skipped)
 		waitframe(1);
 		n_time = n_time + (float(function_60d95f53()) / 1000);
 	}
-	namespace_ee206246::objective_complete(#"hash_70910dcf03846864", var_1f5391d1);
+	zm_sq::objective_complete(#"hash_70910dcf03846864", var_1f5391d1);
 	zm_utility::function_d729de6a(1, [0:#"hash_7ea1a27a8242415e"]);
 	if(isdefined(level.portal))
 	{
@@ -2929,7 +2929,7 @@ function function_8365add8(b_skipped)
 
 /*
 	Name: function_57acf4b3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEADEE6F5
 	Offset: 0xAA40
 	Size: 0x6C
@@ -2950,7 +2950,7 @@ function private function_57acf4b3(n_delay)
 
 /*
 	Name: function_1f427fc1
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1D193B1D
 	Offset: 0xAAB8
 	Size: 0x5E
@@ -2969,7 +2969,7 @@ function function_1f427fc1()
 
 /*
 	Name: function_2f0869bc
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x60218E65
 	Offset: 0xAB20
 	Size: 0x4C4
@@ -3026,7 +3026,7 @@ function function_2f0869bc()
 
 /*
 	Name: function_b78a218b
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEB0F9442
 	Offset: 0xAFF0
 	Size: 0x1C0
@@ -3043,7 +3043,7 @@ function function_b78a218b(b_skipped, var_19e802fa)
 		if(var_19e802fa)
 		{
 			var_1f5391d1 = struct::get("tp_pos");
-			namespace_ee206246::objective_complete(#"hash_70910dcf03846864", var_1f5391d1);
+			zm_sq::objective_complete(#"hash_70910dcf03846864", var_1f5391d1);
 		}
 		zm_utility::function_d729de6a(0, [0:#"hash_7ea1a27a8242415e"]);
 		if(isdefined(level.portal))
@@ -3061,7 +3061,7 @@ function function_b78a218b(b_skipped, var_19e802fa)
 
 /*
 	Name: function_32fba4cd
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x25420569
 	Offset: 0xB1B8
 	Size: 0x36C
@@ -3103,7 +3103,7 @@ function function_32fba4cd(b_skipped)
 	level flag::set("spawn_zombies");
 	var_1c8e649 = struct::get("s_tp_console");
 	var_1c8e649 zm_unitrigger::create(#"hash_4be701bdba0686b8", 99, &function_666eda20);
-	namespace_ee206246::objective_set(#"hash_4acae0c2f9e8da3d", var_1c8e649, undefined, #"hash_116f95f8a12e36ba");
+	zm_sq::objective_set(#"hash_4acae0c2f9e8da3d", var_1c8e649, undefined, #"hash_116f95f8a12e36ba");
 	level thread function_aded680b();
 	level flag::wait_till(#"hash_118f37213e91b44d");
 	/#
@@ -3113,7 +3113,7 @@ function function_32fba4cd(b_skipped)
 
 /*
 	Name: function_aaac2a38
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1466CE16
 	Offset: 0xB530
 	Size: 0x132
@@ -3141,7 +3141,7 @@ function function_aaac2a38()
 
 /*
 	Name: function_dca16fc0
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xAED90949
 	Offset: 0xB670
 	Size: 0xB4
@@ -3160,7 +3160,7 @@ function function_dca16fc0()
 
 /*
 	Name: function_666eda20
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE00C244D
 	Offset: 0xB730
 	Size: 0x60
@@ -3179,7 +3179,7 @@ function function_666eda20()
 
 /*
 	Name: function_30f0bf79
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xDE7421D4
 	Offset: 0xB798
 	Size: 0x8E
@@ -3197,7 +3197,7 @@ function function_30f0bf79()
 
 /*
 	Name: function_a69ecd2c
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xC04A5BD8
 	Offset: 0xB830
 	Size: 0x184
@@ -3236,7 +3236,7 @@ function function_a69ecd2c(e_player)
 
 /*
 	Name: function_6addcb69
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7C5CA657
 	Offset: 0xB9C0
 	Size: 0x298
@@ -3281,7 +3281,7 @@ function function_6addcb69()
 
 /*
 	Name: function_41a039fe
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xED124488
 	Offset: 0xBC60
 	Size: 0xB4
@@ -3306,7 +3306,7 @@ function function_41a039fe(round_number)
 
 /*
 	Name: function_ee77f553
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEA9889A8
 	Offset: 0xBD20
 	Size: 0x764
@@ -3395,7 +3395,7 @@ function function_ee77f553(s_target)
 
 /*
 	Name: function_4f3ab7da
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x435B5102
 	Offset: 0xC490
 	Size: 0x6C
@@ -3412,7 +3412,7 @@ function function_4f3ab7da()
 
 /*
 	Name: function_40d9cf7a
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7CADBEC8
 	Offset: 0xC508
 	Size: 0x13C
@@ -3471,7 +3471,7 @@ function function_40d9cf7a(current_point, var_3751e731, var_9d16fce2, var_737cf3
 
 /*
 	Name: function_aded680b
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x2156BFDF
 	Offset: 0xC650
 	Size: 0x8C
@@ -3491,7 +3491,7 @@ function function_aded680b()
 
 /*
 	Name: function_f040e2ee
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x52455117
 	Offset: 0xC6E8
 	Size: 0xCC
@@ -3520,7 +3520,7 @@ function function_f040e2ee(index, var_c9911936)
 
 /*
 	Name: function_3d89b096
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x17A66160
 	Offset: 0xC7C0
 	Size: 0xC8
@@ -3547,7 +3547,7 @@ function function_3d89b096(var_aa67e3a5)
 
 /*
 	Name: function_2eb5792
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x234AFD6D
 	Offset: 0xC890
 	Size: 0x230
@@ -3560,7 +3560,7 @@ function function_2eb5792(var_aa67e3a5)
 	{
 		foreach(var_9fbdac89 in var_aa67e3a5)
 		{
-			namespace_ee206246::objective_set(#"hash_68f4e9062d28524d", var_9fbdac89, undefined, #"hash_3859482a0c5aa91f");
+			zm_sq::objective_set(#"hash_68f4e9062d28524d", var_9fbdac89, undefined, #"hash_3859482a0c5aa91f");
 			if(!isdefined(level.var_ef84ff45))
 			{
 				level.var_ef84ff45 = [];
@@ -3577,7 +3577,7 @@ function function_2eb5792(var_aa67e3a5)
 	}
 	else
 	{
-		namespace_ee206246::objective_set(#"hash_68f4e9062d28524d", var_aa67e3a5, undefined, #"hash_3859482a0c5aa91f");
+		zm_sq::objective_set(#"hash_68f4e9062d28524d", var_aa67e3a5, undefined, #"hash_3859482a0c5aa91f");
 		if(!isdefined(level.var_ef84ff45))
 		{
 			level.var_ef84ff45 = [];
@@ -3595,7 +3595,7 @@ function function_2eb5792(var_aa67e3a5)
 
 /*
 	Name: function_51001a7b
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xDC7ABBDA
 	Offset: 0xCAC8
 	Size: 0xA4
@@ -3606,14 +3606,14 @@ function function_51001a7b()
 {
 	foreach(var_9fbdac89 in level.var_ef84ff45)
 	{
-		namespace_ee206246::objective_complete(#"hash_68f4e9062d28524d", var_9fbdac89);
+		zm_sq::objective_complete(#"hash_68f4e9062d28524d", var_9fbdac89);
 	}
 	level.var_ef84ff45 = [];
 }
 
 /*
 	Name: function_2b4153d6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7A682DF7
 	Offset: 0xCB78
 	Size: 0x174
@@ -3646,7 +3646,7 @@ function function_2b4153d6(var_c1369554, index, var_4fcb30db)
 
 /*
 	Name: function_aba92bd4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xBA879CA
 	Offset: 0xCCF8
 	Size: 0x164
@@ -3658,7 +3658,7 @@ function function_aba92bd4(b_skipped, var_19e802fa)
 	level clientfield::set("" + #"hash_5c8a1cf9b543c223", 0);
 	level thread namespace_2a67e53::cleanup();
 	var_1c8e649 = struct::get("s_tp_console");
-	namespace_ee206246::objective_complete(#"hash_4acae0c2f9e8da3d", var_1c8e649);
+	zm_sq::objective_complete(#"hash_4acae0c2f9e8da3d", var_1c8e649);
 	level.var_894a83d8 = 0;
 	level flag::clear(#"infinite_round_spawning");
 	level function_dca16fc0();
@@ -3669,7 +3669,7 @@ function function_aba92bd4(b_skipped, var_19e802fa)
 
 /*
 	Name: function_d329256
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4F105790
 	Offset: 0xCE68
 	Size: 0x4B4
@@ -3737,7 +3737,7 @@ function function_d329256(v_center)
 
 /*
 	Name: function_60a64aa9
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x30328AF3
 	Offset: 0xD328
 	Size: 0x230
@@ -3782,7 +3782,7 @@ function function_60a64aa9(target_entity, radius)
 
 /*
 	Name: function_b5fa44e4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x5D896FD8
 	Offset: 0xD560
 	Size: 0xD8
@@ -3809,7 +3809,7 @@ function function_b5fa44e4()
 
 /*
 	Name: function_c5a09ae3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x1D07A284
 	Offset: 0xD640
 	Size: 0x66C
@@ -3926,7 +3926,7 @@ function function_c5a09ae3(var_18ceba08)
 
 /*
 	Name: function_d5b65d2f
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x89C6402E
 	Offset: 0xDCB8
 	Size: 0x94
@@ -3949,7 +3949,7 @@ function function_d5b65d2f(s_params)
 
 /*
 	Name: function_351f1fe5
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE963356C
 	Offset: 0xDD58
 	Size: 0x84
@@ -3968,7 +3968,7 @@ function function_351f1fe5()
 
 /*
 	Name: function_80b4d925
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x765947B
 	Offset: 0xDDE8
 	Size: 0x2E4
@@ -4009,7 +4009,7 @@ function private function_80b4d925()
 
 /*
 	Name: function_b3524864
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x432F830C
 	Offset: 0xE0D8
 	Size: 0x144
@@ -4030,7 +4030,7 @@ function private function_b3524864()
 
 /*
 	Name: function_c952cd2c
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xBFFD666B
 	Offset: 0xE228
 	Size: 0x74
@@ -4046,7 +4046,7 @@ function function_c952cd2c()
 
 /*
 	Name: function_31b6fa5b
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xECFC8368
 	Offset: 0xE2A8
 	Size: 0x45C
@@ -4117,7 +4117,7 @@ function private function_31b6fa5b()
 
 /*
 	Name: function_800a8361
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x65B75493
 	Offset: 0xE710
 	Size: 0x4C
@@ -4132,7 +4132,7 @@ function private function_800a8361()
 
 /*
 	Name: function_ae6e3aa4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA2033E5B
 	Offset: 0xE768
 	Size: 0x64
@@ -4152,7 +4152,7 @@ function function_ae6e3aa4(e_player)
 
 /*
 	Name: function_9dfccdca
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xD1D339EA
 	Offset: 0xE7D8
 	Size: 0x34
@@ -4166,7 +4166,7 @@ function function_9dfccdca(str_notify)
 
 /*
 	Name: function_9b0199c0
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xD63F5CE1
 	Offset: 0xE818
 	Size: 0x184
@@ -4197,7 +4197,7 @@ function function_9b0199c0(var_f09453ec)
 
 /*
 	Name: function_b8091725
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xBD05636D
 	Offset: 0xE9A8
 	Size: 0x16C
@@ -4222,7 +4222,7 @@ function function_b8091725(var_f09453ec)
 
 /*
 	Name: function_355a2ff4
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x3F33561
 	Offset: 0xEB20
 	Size: 0x374
@@ -4261,7 +4261,7 @@ function function_355a2ff4()
 
 /*
 	Name: function_fe96e109
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x455E2321
 	Offset: 0xEEA0
 	Size: 0x1F4
@@ -4287,7 +4287,7 @@ function private function_fe96e109()
 
 /*
 	Name: function_e47c39d0
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x506A022F
 	Offset: 0xF0A0
 	Size: 0x5C
@@ -4302,7 +4302,7 @@ function function_e47c39d0()
 
 /*
 	Name: function_c548adb3
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x798C818D
 	Offset: 0xF108
 	Size: 0xB4
@@ -4320,7 +4320,7 @@ function function_c548adb3()
 
 /*
 	Name: function_51657aa2
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEE0F8741
 	Offset: 0xF1C8
 	Size: 0x12C
@@ -4346,7 +4346,7 @@ function private function_51657aa2()
 
 /*
 	Name: function_beff1fff
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4FE3A670
 	Offset: 0xF300
 	Size: 0x12C
@@ -4372,7 +4372,7 @@ function private function_beff1fff()
 
 /*
 	Name: function_f6853a4a
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x4D1F5CBD
 	Offset: 0xF438
 	Size: 0xBC
@@ -4391,7 +4391,7 @@ function private function_f6853a4a()
 
 /*
 	Name: function_af82e929
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x41F822BA
 	Offset: 0xF500
 	Size: 0x58C
@@ -4492,7 +4492,7 @@ function private function_af82e929()
 
 /*
 	Name: function_b9a3fa11
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE61D96AB
 	Offset: 0xFA98
 	Size: 0xC4
@@ -4528,7 +4528,7 @@ function function_b9a3fa11(var_e0c6386f, var_40feefce, var_c4ad7aa9)
 
 /*
 	Name: devgui_setup
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7B3EF69F
 	Offset: 0xFB68
 	Size: 0x5C
@@ -4538,15 +4538,15 @@ function function_b9a3fa11(var_e0c6386f, var_40feefce, var_c4ad7aa9)
 function devgui_setup()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }
 
 /*
 	Name: cmd
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEA311C7B
 	Offset: 0xFBD0
 	Size: 0x82
@@ -4578,7 +4578,7 @@ function cmd(cmd)
 
 /*
 	Name: function_a8a17d5d
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x5EBECF26
 	Offset: 0xFC60
 	Size: 0x104
@@ -4602,7 +4602,7 @@ function function_a8a17d5d()
 
 /*
 	Name: function_47a17b36
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB5C52927
 	Offset: 0xFD70
 	Size: 0x84

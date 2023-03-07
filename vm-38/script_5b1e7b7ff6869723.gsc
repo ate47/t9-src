@@ -194,7 +194,7 @@ function private function_6f4653fd(player)
 		self linkto(var_55e11aa9);
 		v_facing = vectortoangles(player.origin - self.origin);
 		var_55e11aa9 rotateto(v_facing, 0.3);
-		player namespace_68a80213::damageinfirearea(player.origin, undefined, undefined, getweapon(#"hash_23dd6039fe2f36c6"), self, undefined, getscriptbundle("molotov_custom_settings"));
+		player namespace_68a80213::damageinfirearea(player.origin, undefined, undefined, getweapon(#"molotov_fire"), self, undefined, getscriptbundle("molotov_custom_settings"));
 	}
 	level thread function_491bb6b7(self.instance, self.origin);
 	self playsound(#"hash_1c9b23a03a1c2367");

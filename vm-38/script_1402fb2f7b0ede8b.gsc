@@ -1,5 +1,5 @@
 #using script_6021ce59143452c3;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -52,12 +52,12 @@ function private function_70a657d8()
 		return;
 	}
 	level.var_5335b66f = associativearray(#"hash_53bd8d8afd745e0", 1, #"hash_7b56bdcba095cb41", 2, #"hash_68ca3d7404460abf", 3, #"hash_1d84c5587b7c3dd4", 4, #"hash_177ee254a5de65d8", 5, #"hash_3cf0f6c1e53f5282", 6, #"hash_5639494d7b07b79c", 7);
-	zm_trial::register_challenge(#"give_reward", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"give_reward", &on_begin, &on_end);
 	level.var_ee7ca64 = [];
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_dbd46b57
 	Checksum: 0x2FBF13E0
 	Offset: 0x1F8
@@ -65,7 +65,7 @@ function private function_70a657d8()
 	Parameters: 6
 	Flags: Private
 */
-function private function_d1de6a85(var_c2964c77, description, image, var_1ab324d7, var_191009a6, var_8d63de44)
+function private on_begin(var_c2964c77, description, image, var_1ab324d7, var_191009a6, var_8d63de44)
 {
 	self.var_c2964c77 = image;
 	self.var_1ab324d7 = var_1ab324d7;
@@ -74,7 +74,7 @@ function private function_d1de6a85(var_c2964c77, description, image, var_1ab324d
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_dbd46b57
 	Checksum: 0xC8AD3123
 	Offset: 0x278
@@ -82,7 +82,7 @@ function private function_d1de6a85(var_c2964c77, description, image, var_1ab324d
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset && !level flag::get(#"hash_6acab8bde7078239"))
 	{

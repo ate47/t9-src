@@ -57,14 +57,14 @@ function function_f3c80d73(var_d7e9261c, var_136e2645)
 {
 	if(zm_utility::function_166646a6() == 1 || !isdefined(var_136e2645))
 	{
-		var_920c5fbb = getweapon(var_d7e9261c);
+		w_perk = getweapon(var_d7e9261c);
 	}
 	else
 	{
-		var_920c5fbb = getweapon(var_136e2645);
+		w_perk = getweapon(var_136e2645);
 	}
-	forcestreamxmodel(var_920c5fbb.viewmodel, -1, -1);
-	forcestreamxmodel(var_920c5fbb.worldmodel, 1, 1);
+	forcestreamxmodel(w_perk.viewmodel, -1, -1);
+	forcestreamxmodel(w_perk.worldmodel, 1, 1);
 }
 
 /*

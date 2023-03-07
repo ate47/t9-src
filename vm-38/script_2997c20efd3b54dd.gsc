@@ -154,7 +154,7 @@ function private function_8991ddb4(localclientnum)
 		{
 			entnum = self.var_214c1803.var_b4185011 getentitynumber();
 		}
-		self.var_214c1803.elem stealth_meter_display::function_c8350e33(localclientnum, entnum);
+		self.var_214c1803.elem stealth_meter_display::set_entNum(localclientnum, entnum);
 	}
 	return self.var_214c1803.elem;
 }
@@ -213,7 +213,7 @@ function private function_5010aab6(localclientnum, oldvalue, newvalue, bnewent, 
 			{
 				entnum = self.var_214c1803.var_b4185011 getentitynumber();
 			}
-			self.var_214c1803.elem stealth_meter_display::function_c8350e33(wasdemojump, entnum);
+			self.var_214c1803.elem stealth_meter_display::set_entNum(wasdemojump, entnum);
 		}
 		if(getdvarint(#"hash_7bf40e4b6a830d11", 1))
 		{

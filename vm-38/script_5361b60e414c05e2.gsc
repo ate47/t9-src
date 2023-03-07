@@ -2,13 +2,13 @@
 #using script_2416cc31e71459ca;
 #using script_26187575f84f8d07;
 #using script_335d0650ed05d36d;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_4108035fe400ce67;
 #using script_46192c58ea066d7f;
 #using script_46a1e199a5662ca1;
 #using script_595f2d6a7b798a87;
 #using script_5ee699b0aaf564c4;
-#using script_65d4fc42e5e94766;
+#using scripts\wz_common\spawn.gsc;
 #using script_69514c4c056c768;
 #using script_788472602edbe3b9;
 #using script_b9a55edd207e4ca;
@@ -27,11 +27,11 @@
 #using scripts\mp_common\gametypes\globallogic_score.gsc;
 #using scripts\mp_common\gametypes\round.gsc;
 
-#namespace namespace_c6203f32;
+#namespace fireteam_elimination;
 
 /*
 	Name: function_d96cb85d
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x68A9232
 	Offset: 0x3F0
 	Size: 0x14
@@ -45,7 +45,7 @@ function private autoexec function_d96cb85d()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xA90A9E8A
 	Offset: 0x410
 	Size: 0x44
@@ -59,7 +59,7 @@ function private autoexec function_89f2df9()
 
 /*
 	Name: main
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x69C7346F
 	Offset: 0x460
 	Size: 0x69C
@@ -130,7 +130,7 @@ event main(eventstruct)
 
 /*
 	Name: on_player_connect
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x197E09C
 	Offset: 0xB08
 	Size: 0x1C
@@ -144,7 +144,7 @@ function private on_player_connect()
 
 /*
 	Name: function_98a0917d
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x65849C6F
 	Offset: 0xB30
 	Size: 0x1AC
@@ -176,7 +176,7 @@ function private function_98a0917d()
 
 /*
 	Name: givecustomloadout
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xBDF205F6
 	Offset: 0xCE8
 	Size: 0x364
@@ -221,7 +221,7 @@ function givecustomloadout(takeoldweapon)
 
 /*
 	Name: onplayerspawned
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x6E6B7E73
 	Offset: 0x1058
 	Size: 0xDC
@@ -246,7 +246,7 @@ function onplayerspawned()
 
 /*
 	Name: on_player_killed
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xE3E4B10D
 	Offset: 0x1140
 	Size: 0x54
@@ -262,7 +262,7 @@ function on_player_killed(params)
 
 /*
 	Name: function_ec3bb66c
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x9748F73B
 	Offset: 0x11A0
 	Size: 0x198
@@ -297,7 +297,7 @@ function function_ec3bb66c()
 
 /*
 	Name: function_13de4626
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x72F775A2
 	Offset: 0x1340
 	Size: 0x9C
@@ -318,7 +318,7 @@ function function_13de4626()
 
 /*
 	Name: function_62730899
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xC2DE1ECF
 	Offset: 0x13E8
 	Size: 0x5C
@@ -336,7 +336,7 @@ function private function_62730899()
 
 /*
 	Name: function_b359b7b0
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xED99346C
 	Offset: 0x1450
 	Size: 0xB4
@@ -359,7 +359,7 @@ function private function_b359b7b0()
 
 /*
 	Name: ondeadevent
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x29131B25
 	Offset: 0x1510
 	Size: 0x28C
@@ -400,7 +400,7 @@ function private ondeadevent(team)
 
 /*
 	Name: function_1a22a165
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x8B2E1236
 	Offset: 0x17A8
 	Size: 0xBA
@@ -422,7 +422,7 @@ function private function_1a22a165(team)
 
 /*
 	Name: function_9b927bb4
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x3BD0FA20
 	Offset: 0x1870
 	Size: 0x432
@@ -496,7 +496,7 @@ function private function_9b927bb4(var_698dbb78)
 
 /*
 	Name: function_a3e78cba
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x12189392
 	Offset: 0x1CB0
 	Size: 0x2BC
@@ -548,7 +548,7 @@ function private function_a3e78cba()
 
 /*
 	Name: function_c21c59f
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x7EBEFCC3
 	Offset: 0x1F78
 	Size: 0x17C
@@ -576,7 +576,7 @@ function private function_c21c59f()
 
 /*
 	Name: function_e96dd5cf
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xDAFA53CB
 	Offset: 0x2100
 	Size: 0x2B4
@@ -609,7 +609,7 @@ function private function_e96dd5cf(player)
 
 /*
 	Name: function_7447e7df
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xC3F4F856
 	Offset: 0x23C0
 	Size: 0x76
@@ -634,7 +634,7 @@ function private function_7447e7df(var_98fb2758, player, success)
 
 /*
 	Name: function_d5dfe4b
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x91AC2EAF
 	Offset: 0x2440
 	Size: 0x4C
@@ -649,7 +649,7 @@ function function_d5dfe4b(player)
 
 /*
 	Name: function_e49cc01a
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x80F724D1
 	Offset: 0x2498
 	Size: 0x4
@@ -662,7 +662,7 @@ function function_e49cc01a()
 
 /*
 	Name: function_93ef48b
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xAFC69EA2
 	Offset: 0x24A8
 	Size: 0x6A8
@@ -746,7 +746,7 @@ function function_93ef48b(vip, helicopter)
 
 /*
 	Name: function_3d30adf7
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x378F806E
 	Offset: 0x2B58
 	Size: 0x248
@@ -786,7 +786,7 @@ function function_3d30adf7(winningteam)
 
 /*
 	Name: function_7e309c84
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x91FD537D
 	Offset: 0x2DA8
 	Size: 0xA4
@@ -805,7 +805,7 @@ function function_7e309c84(team, players)
 
 /*
 	Name: function_3915e148
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x67C44917
 	Offset: 0x2E58
 	Size: 0xA4
@@ -824,7 +824,7 @@ function function_3915e148(team, players)
 
 /*
 	Name: function_39971b81
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xD8093AE6
 	Offset: 0x2F08
 	Size: 0xBE
@@ -862,7 +862,7 @@ function function_39971b81(var_d3ba512b, var_c0856555)
 
 /*
 	Name: function_3b897a2
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xF1789707
 	Offset: 0x2FD0
 	Size: 0x156
@@ -886,7 +886,7 @@ function function_3b897a2(vip, var_d892ba80, var_10890b28, movetime)
 
 /*
 	Name: function_ce44e2a8
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xEEE59B92
 	Offset: 0x3130
 	Size: 0xDC
@@ -909,7 +909,7 @@ function private function_ce44e2a8(helicopter)
 
 /*
 	Name: function_1d3cfe48
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xA2091805
 	Offset: 0x3218
 	Size: 0x4C
@@ -927,7 +927,7 @@ function private function_1d3cfe48(helicopter)
 
 /*
 	Name: function_d914539a
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xF01F9DEA
 	Offset: 0x3270
 	Size: 0x1AC
@@ -957,7 +957,7 @@ function function_d914539a(goalyaw)
 
 /*
 	Name: function_a34ad686
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xD7AC401A
 	Offset: 0x3428
 	Size: 0x3C
@@ -971,7 +971,7 @@ function function_a34ad686()
 
 /*
 	Name: function_c05c19ed
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xBF4A0D70
 	Offset: 0x3470
 	Size: 0x124
@@ -993,7 +993,7 @@ function function_c05c19ed()
 
 /*
 	Name: function_18f58ab2
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xBC965FA0
 	Offset: 0x35A0
 	Size: 0x150
@@ -1031,7 +1031,7 @@ function private function_18f58ab2(item, player, var_bd027dd9, var_d8138db2, ite
 
 /*
 	Name: function_dc3115e2
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x74F775F
 	Offset: 0x36F8
 	Size: 0x110
@@ -1054,7 +1054,7 @@ function private function_dc3115e2(item, player, var_bd027dd9, var_d8138db2, ite
 
 /*
 	Name: function_a882bcee
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x25911B4F
 	Offset: 0x3810
 	Size: 0x11C
@@ -1075,7 +1075,7 @@ function private function_a882bcee(item, player, var_bd027dd9, var_d8138db2, ite
 
 /*
 	Name: function_2d5cfefd
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xF868B3A1
 	Offset: 0x3938
 	Size: 0x3C4
@@ -1147,7 +1147,7 @@ function function_2d5cfefd()
 
 /*
 	Name: function_c77a61d
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x629BF783
 	Offset: 0x3D08
 	Size: 0x3DC
@@ -1206,7 +1206,7 @@ function function_c77a61d()
 
 /*
 	Name: function_87b2107c
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x7B576DB0
 	Offset: 0x40F0
 	Size: 0x12A
@@ -1228,7 +1228,7 @@ function function_87b2107c(&structs)
 
 /*
 	Name: function_7545eaf0
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xDE382FFB
 	Offset: 0x4228
 	Size: 0x37E
@@ -1296,7 +1296,7 @@ function function_7545eaf0()
 
 /*
 	Name: function_6ca1fed3
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xA55A4760
 	Offset: 0x45B0
 	Size: 0x1DA
@@ -1334,7 +1334,7 @@ function function_6ca1fed3()
 
 /*
 	Name: function_f37d284
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x8FE15939
 	Offset: 0x4798
 	Size: 0x13C
@@ -1355,7 +1355,7 @@ function private function_f37d284()
 
 /*
 	Name: function_407d343f
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xEC47D0EA
 	Offset: 0x48E0
 	Size: 0xD8
@@ -1375,7 +1375,7 @@ function function_407d343f()
 
 /*
 	Name: function_149055ce
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x6DC06953
 	Offset: 0x49C0
 	Size: 0x2C8
@@ -1442,7 +1442,7 @@ function private function_149055ce()
 
 /*
 	Name: function_a90b3aca
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x2A45C6A7
 	Offset: 0x4C90
 	Size: 0x17C
@@ -1480,7 +1480,7 @@ function private function_a90b3aca()
 
 /*
 	Name: function_84774057
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xC41DE558
 	Offset: 0x4E18
 	Size: 0x64
@@ -1500,7 +1500,7 @@ function private function_84774057()
 
 /*
 	Name: function_b6420ef7
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x5B7D4736
 	Offset: 0x4E88
 	Size: 0xFC
@@ -1525,7 +1525,7 @@ function private function_b6420ef7()
 
 /*
 	Name: function_2085db3b
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0xF16AC29B
 	Offset: 0x4F90
 	Size: 0x24
@@ -1541,7 +1541,7 @@ function function_2085db3b()
 
 /*
 	Name: function_78ae3a87
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x9BA24CF2
 	Offset: 0x4FC0
 	Size: 0x150
@@ -1576,7 +1576,7 @@ function function_78ae3a87(fx)
 
 /*
 	Name: function_436dbdd3
-	Namespace: namespace_c6203f32
+	Namespace: fireteam_elimination
 	Checksum: 0x985150C7
 	Offset: 0x5118
 	Size: 0x240

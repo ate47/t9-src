@@ -1,12 +1,12 @@
 #using script_1cc417743d7c262d;
 #using script_1d1a97b78f64bfd;
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -188,14 +188,14 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_127fb8f3(turret, var_dbd1a594)
+function function_127fb8f3(turret, attackingplayer)
 {
 	turret turretcleartarget(0);
 	if(isdefined(level.var_86e3d17a) && turret.classname == "script_vehicle")
 	{
 		if(isdefined(level.var_1794f85f))
 		{
-			[[level.var_1794f85f]](var_dbd1a594, "disrupted_sentry");
+			[[level.var_1794f85f]](attackingplayer, "disrupted_sentry");
 		}
 		turret clientfield::set("enemyvehicle", 0);
 	}
@@ -210,7 +210,7 @@ function function_127fb8f3(turret, var_dbd1a594)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(turret, var_dbd1a594)
+function function_bff5c062(turret, attackingplayer)
 {
 	var_f3ab6571 = turret.owner weaponobjects::function_8481fc06(turret.weapon) > 1;
 	turret.owner thread globallogic_audio::function_a2cde53d(turret.weapon, var_f3ab6571);
@@ -219,10 +219,10 @@ function function_bff5c062(turret, var_dbd1a594)
 	{
 		turret.owner weaponobjects::hackerremoveweapon(turret.turret);
 	}
-	turret.owner = var_dbd1a594;
-	turret.team = var_dbd1a594.team;
-	turret setowner(var_dbd1a594);
-	turret setteam(var_dbd1a594.team);
+	turret.owner = attackingplayer;
+	turret.team = attackingplayer.team;
+	turret setowner(attackingplayer);
+	turret setteam(attackingplayer.team);
 	if(turret.classname == "script_vehicle")
 	{
 		turret.var_1ee03b04 = [];

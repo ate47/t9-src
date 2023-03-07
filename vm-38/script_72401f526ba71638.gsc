@@ -405,7 +405,7 @@ function function_1067f94c(class_index)
 		if(self.var_87f72f8 != level.var_5b46d961[var_d07d57b2])
 		{
 			self function_460882e2();
-			namespace_b376ff3f::function_5852cb7b(item.var_bd027dd9);
+			item_inventory::function_5852cb7b(item.var_bd027dd9);
 		}
 	}
 	self function_3ef3cec3(class_index);
@@ -793,7 +793,7 @@ function function_6457e4cd(item_name, count)
 	if(isdefined(item))
 	{
 		item.count = count;
-		var_fa3df96 = self namespace_b376ff3f::function_e66dcff5(item);
+		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
 			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
@@ -854,10 +854,10 @@ function function_7281de4d(itemname, var_c940cca, weaponname, iconname, maxammo,
 	if(var_874a73c4 > 0)
 	{
 		item = self.inventory.items[12];
-		dropitem = self namespace_b376ff3f::function_418f9eb8(item.var_bd027dd9);
+		dropitem = self item_inventory::function_418f9eb8(item.var_bd027dd9);
 		dropitem hide();
 		dropitem.var_864ea466 = 1;
-		self namespace_b376ff3f::function_7730442c(dropitem);
+		self item_inventory::function_7730442c(dropitem);
 	}
 	if(!isdefined(level.var_1b527536))
 	{
@@ -911,10 +911,10 @@ function function_69303ed3()
 	if(var_874a73c4 > 0)
 	{
 		item = self.inventory.items[12];
-		dropitem = self namespace_b376ff3f::function_418f9eb8(item.var_bd027dd9);
+		dropitem = self item_inventory::function_418f9eb8(item.var_bd027dd9);
 		dropitem hide();
 		dropitem.var_864ea466 = 1;
-		self namespace_b376ff3f::function_7730442c(dropitem);
+		self item_inventory::function_7730442c(dropitem);
 	}
 	self.var_c9448182 = self.var_d7c2e1cf;
 	self.var_fc8023b4 = self.var_703fa168;

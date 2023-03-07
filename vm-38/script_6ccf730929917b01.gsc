@@ -547,14 +547,14 @@ function private _think()
 			{
 				if(isdefined(var_36247bfb) && var_36247bfb != #"")
 				{
-					namespace_61e6d095::function_d5ea17f0(#"hash_7ccb313a097bf40", var_36247bfb);
+					namespace_61e6d095::set_text(#"hash_7ccb313a097bf40", var_36247bfb);
 					namespace_61e6d095::function_bfdab223(#"hash_7ccb313a097bf40", text);
 				}
 				else
 				{
 					if(data.var_774d5d03 == 3)
 					{
-						namespace_61e6d095::function_d5ea17f0(#"hash_7ccb313a097bf40", text);
+						namespace_61e6d095::set_text(#"hash_7ccb313a097bf40", text);
 					}
 					else
 					{
@@ -565,7 +565,7 @@ function private _think()
 			}
 			else
 			{
-				namespace_61e6d095::function_d5ea17f0(#"hash_7ccb313a097bf40", #"");
+				namespace_61e6d095::set_text(#"hash_7ccb313a097bf40", #"");
 				namespace_61e6d095::function_bfdab223(#"hash_7ccb313a097bf40", #"");
 				namespace_61e6d095::set_state(#"hash_7ccb313a097bf40", 0);
 			}

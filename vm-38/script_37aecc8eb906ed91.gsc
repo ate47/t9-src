@@ -1,7 +1,7 @@
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
 #using script_68d2ee1489345a1d;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;

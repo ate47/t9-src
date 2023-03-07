@@ -392,11 +392,11 @@ function private function_ed173e0b()
 	Parameters: 2
 	Flags: Linked
 */
-function is_staircase_up(var_dbd1a594, jammer)
+function is_staircase_up(attackingplayer, jammer)
 {
-	if(!isdefined(var_dbd1a594))
+	if(!isdefined(attackingplayer))
 	{
-		var_dbd1a594 = undefined;
+		attackingplayer = undefined;
 	}
 	if(!isdefined(jammer))
 	{
@@ -420,11 +420,11 @@ function is_staircase_up(var_dbd1a594, jammer)
 		emp_duration = level.var_578f7c6d.var_4dd46f8a.var_3bd9b483;
 	}
 	params.param0 = emp_duration;
-	params.param1 = var_dbd1a594;
+	params.param1 = attackingplayer;
 	params.param2 = jammer;
-	if(isplayer(var_dbd1a594))
+	if(isplayer(attackingplayer))
 	{
-		level callback::callback(#"hash_69ec922777c59153", {#vehicle:self, #attacker:var_dbd1a594});
+		level callback::callback(#"hash_69ec922777c59153", {#vehicle:self, #attacker:attackingplayer});
 	}
 	if(isdefined(self.is_staircase_up))
 	{
@@ -486,7 +486,7 @@ function on_vehicle_damage(params)
 		occupants = vehicle getvehoccupants();
 		if(isdefined(occupants) && occupants.size > 0)
 		{
-			params.eattacker stats::function_d40764f3(#"hash_6d5ae3ac5cb7968a", int(params.idamage));
+			params.eattacker stats::function_d40764f3(#"vehicle_damage_occupied", int(params.idamage));
 		}
 	}
 	if(isdefined(params.smeansofdeath))
@@ -1048,7 +1048,7 @@ function private function_b3caeebc(player)
 			else
 			{
 				player clientfield::set_player_uimodel("vehicle.missileLock", 0);
-				self waittill(#"hash_594587fd1093c3b3");
+				self waittill(#"locking on");
 			}
 		}
 	}

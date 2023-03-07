@@ -1,4 +1,4 @@
-#using script_79fbbb4d5723c197;
+#using scripts\zm_common\zm_inventory.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;

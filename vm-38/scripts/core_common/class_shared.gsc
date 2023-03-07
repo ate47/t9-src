@@ -129,11 +129,11 @@ class class_d0a0a887
 
 }
 
-#namespace namespace_3125a05b;
+#namespace class_shared;
 
 /*
 	Name: function_a21000a1
-	Namespace: namespace_3125a05b
+	Namespace: class_shared
 	Checksum: 0x57FE5B7E
 	Offset: 0x60
 	Size: 0x14

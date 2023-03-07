@@ -4,11 +4,11 @@
 #using scripts\zm_common\zm_perks.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_a7cf6436;
+#namespace zm_perk_slider;
 
 /*
 	Name: function_fabe3ee7
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x2902DE4D
 	Offset: 0x190
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_fabe3ee7()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xF75B2CD9
 	Offset: 0x1B0
 	Size: 0x3C
@@ -31,12 +31,12 @@ function private autoexec function_fabe3ee7()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_2813a2fd40c93f23", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_perk_slider", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x4C001ED0
 	Offset: 0x1F8
 	Size: 0x4C
@@ -54,7 +54,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_481123c
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x1F80976D
 	Offset: 0x250
 	Size: 0x9C
@@ -70,7 +70,7 @@ function function_481123c()
 
 /*
 	Name: function_15d03600
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x2F8
 	Size: 0x4
@@ -83,7 +83,7 @@ function function_15d03600()
 
 /*
 	Name: function_4bb29d61
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xCE502978
 	Offset: 0x308
 	Size: 0xEC
@@ -102,7 +102,7 @@ function function_4bb29d61()
 
 /*
 	Name: function_90b5e96c
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x400
 	Size: 0x4
@@ -115,7 +115,7 @@ function function_90b5e96c()
 
 /*
 	Name: function_82475467
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xD5A8BAE2
 	Offset: 0x410
 	Size: 0x104
@@ -141,7 +141,7 @@ function function_82475467(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_ed4b5d33
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x4D3A6317
 	Offset: 0x520
 	Size: 0x154
@@ -168,7 +168,7 @@ function function_ed4b5d33(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_a0d9dbb3
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xA45DF0B1
 	Offset: 0x680
 	Size: 0xA4

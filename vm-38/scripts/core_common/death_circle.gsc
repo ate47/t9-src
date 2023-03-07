@@ -1,5 +1,5 @@
 #using script_47fb62300ac0bd60;
-#using script_6350c209b3d1b07d;
+#using scripts\core_common\map.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_14224618 : class_6aaccc24
+class cfull_screen_black : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0x6087E2FF
 		Offset: 0x4F0
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_14224618 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0xC13C2E7B
 		Offset: 0x980
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_14224618 : class_6aaccc24
 
 	/*
 		Name: function_331f9dd
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0x5233AF94
 		Offset: 0x910
 		Size: 0x30
@@ -45,7 +45,7 @@ class class_14224618 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0x1E40A403
 		Offset: 0x7C8
 		Size: 0x24
@@ -54,40 +54,40 @@ class class_14224618 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
-		Name: function_2208b8db
-		Namespace: namespace_14224618
+		Name: set_green
+		Namespace: cfull_screen_black
 		Checksum: 0x5AFE5DB5
 		Offset: 0x830
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_2208b8db(localclientnum, value)
+	function set_green(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "green", value);
 	}
 
 	/*
-		Name: function_237ff433
-		Namespace: namespace_14224618
+		Name: set_fadeOverTime
+		Namespace: cfull_screen_black
 		Checksum: 0x8C0150E4
 		Offset: 0x8A0
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_237ff433(localclientnum, value)
+	function set_fadeOverTime(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", value);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0x947C154E
 		Offset: 0x688
 		Size: 0x1C
@@ -96,47 +96,47 @@ class class_14224618 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("full_screen_black");
+		cLUIelem::function_5c1bb138("full_screen_black");
 	}
 
 	/*
-		Name: function_7420df0a
-		Namespace: namespace_14224618
+		Name: set_blue
+		Namespace: cfull_screen_black
 		Checksum: 0x67CFE0DE
 		Offset: 0x868
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_7420df0a(localclientnum, value)
+	function set_blue(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "blue", value);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0xF169FCB6
 		Offset: 0x510
 		Size: 0x16C
 		Parameters: 7
 		Flags: Linked
 	*/
-	function setup_clientfields(var_9350f184, var_788c188f, var_3fb95ac9, var_a3e0a6ce, var_b046940, var_34291db, var_32445b2)
+	function setup_clientfields(redcallback, greencallback, bluecallback, fadeOverTimecallback, var_b046940, var_34291db, var_32445b2)
 	{
-		namespace_6aaccc24::setup_clientfields("full_screen_black");
-		namespace_6aaccc24::function_da693cbe("red", 1, 3, "float", var_9350f184);
-		namespace_6aaccc24::function_da693cbe("green", 1, 3, "float", var_788c188f);
-		namespace_6aaccc24::function_da693cbe("blue", 1, 3, "float", var_3fb95ac9);
-		namespace_6aaccc24::function_da693cbe("fadeOverTime", 1, 12, "int", var_a3e0a6ce);
-		namespace_6aaccc24::function_da693cbe("startAlpha", 1, 5, "float", var_b046940);
-		namespace_6aaccc24::function_da693cbe("endAlpha", 1, 5, "float", var_34291db);
-		namespace_6aaccc24::function_da693cbe("drawHUD", 1, 1, "int", var_32445b2);
+		cLUIelem::setup_clientfields("full_screen_black");
+		cLUIelem::function_da693cbe("red", 1, 3, "float", redcallback);
+		cLUIelem::function_da693cbe("green", 1, 3, "float", greencallback);
+		cLUIelem::function_da693cbe("blue", 1, 3, "float", bluecallback);
+		cLUIelem::function_da693cbe("fadeOverTime", 1, 12, "int", fadeOverTimecallback);
+		cLUIelem::function_da693cbe("startAlpha", 1, 5, "float", var_b046940);
+		cLUIelem::function_da693cbe("endAlpha", 1, 5, "float", var_34291db);
+		cLUIelem::function_da693cbe("drawHUD", 1, 1, "int", var_32445b2);
 	}
 
 	/*
 		Name: function_9cd54463
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0x9862E18D
 		Offset: 0x8D8
 		Size: 0x30
@@ -150,7 +150,7 @@ class class_14224618 : class_6aaccc24
 
 	/*
 		Name: function_ae1277a0
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0x2CFBE81C
 		Offset: 0x948
 		Size: 0x30
@@ -163,22 +163,22 @@ class class_14224618 : class_6aaccc24
 	}
 
 	/*
-		Name: function_eccc151d
-		Namespace: namespace_14224618
+		Name: set_red
+		Namespace: cfull_screen_black
 		Checksum: 0x6165FBDF
 		Offset: 0x7F8
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_eccc151d(localclientnum, value)
+	function set_red(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "red", value);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_14224618
+		Namespace: cfull_screen_black
 		Checksum: 0xA0B46827
 		Offset: 0x6B0
 		Size: 0x110
@@ -187,7 +187,7 @@ class class_14224618 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "red", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "green", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "blue", 0);
@@ -224,10 +224,10 @@ function private autoexec function_67a01b4b()
 	Parameters: 7
 	Flags: Linked
 */
-function register(var_9350f184, var_788c188f, var_3fb95ac9, var_a3e0a6ce, var_b046940, var_34291db, var_32445b2)
+function register(redcallback, greencallback, bluecallback, fadeOverTimecallback, var_b046940, var_34291db, var_32445b2)
 {
-	elem = new class_14224618();
-	[[ elem ]]->setup_clientfields(var_9350f184, var_788c188f, var_3fb95ac9, var_a3e0a6ce, var_b046940, var_34291db, var_32445b2);
+	elem = new cfull_screen_black();
+	[[ elem ]]->setup_clientfields(redcallback, greencallback, bluecallback, fadeOverTimecallback, var_b046940, var_34291db, var_32445b2);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -258,7 +258,7 @@ function register(var_9350f184, var_788c188f, var_3fb95ac9, var_a3e0a6ce, var_b0
 */
 function function_5c1bb138()
 {
-	elem = new class_14224618();
+	elem = new cfull_screen_black();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -306,7 +306,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_eccc151d
+	Name: set_red
 	Namespace: full_screen_black
 	Checksum: 0x7C92FCC5
 	Offset: 0x3A0
@@ -314,13 +314,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_eccc151d(localclientnum, value)
+function set_red(localclientnum, value)
 {
-	[[ self ]]->function_eccc151d(localclientnum, value);
+	[[ self ]]->set_red(localclientnum, value);
 }
 
 /*
-	Name: function_2208b8db
+	Name: set_green
 	Namespace: full_screen_black
 	Checksum: 0x2B68F8A6
 	Offset: 0x3D0
@@ -328,13 +328,13 @@ function function_eccc151d(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_2208b8db(localclientnum, value)
+function set_green(localclientnum, value)
 {
-	[[ self ]]->function_2208b8db(localclientnum, value);
+	[[ self ]]->set_green(localclientnum, value);
 }
 
 /*
-	Name: function_7420df0a
+	Name: set_blue
 	Namespace: full_screen_black
 	Checksum: 0xC96BCD26
 	Offset: 0x400
@@ -342,13 +342,13 @@ function function_2208b8db(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_7420df0a(localclientnum, value)
+function set_blue(localclientnum, value)
 {
-	[[ self ]]->function_7420df0a(localclientnum, value);
+	[[ self ]]->set_blue(localclientnum, value);
 }
 
 /*
-	Name: function_237ff433
+	Name: set_fadeOverTime
 	Namespace: full_screen_black
 	Checksum: 0x113464FF
 	Offset: 0x430
@@ -356,9 +356,9 @@ function function_7420df0a(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_237ff433(localclientnum, value)
+function set_fadeOverTime(localclientnum, value)
 {
-	[[ self ]]->function_237ff433(localclientnum, value);
+	[[ self ]]->set_fadeOverTime(localclientnum, value);
 }
 
 /*

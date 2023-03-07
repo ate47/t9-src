@@ -1,7 +1,7 @@
 #using script_51c30eeabe25bee6;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

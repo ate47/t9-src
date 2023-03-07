@@ -80,7 +80,7 @@ function function_72c32279()
 	{
 		/#
 			println("" + getutc());
-			println("" + util::function_53bbf9d2());
+			println("" + util::get_map_name());
 			println("" + level.gametype);
 			println("" + sessionmodeisprivateonlinegame());
 			println("" + sessionmodeissystemlink());
@@ -94,7 +94,7 @@ function function_72c32279()
 		}
 		matchstart = {};
 		matchstart.utc_start_time_s = utc;
-		matchstart.map = hash(util::function_53bbf9d2());
+		matchstart.map = hash(util::get_map_name());
 		matchstart.game_type = hash(level.gametype);
 		matchstart.var_c8019fa4 = sessionmodeisprivateonlinegame();
 		matchstart.is_offline = sessionmodeissystemlink();
@@ -132,7 +132,7 @@ function function_d519e318()
 		/#
 			println("" + function_f8d53445());
 			println("" + gettime());
-			println("" + util::function_53bbf9d2());
+			println("" + util::get_map_name());
 			println("" + level.gametype);
 			println("" + getutc());
 		#/
@@ -140,7 +140,7 @@ function function_d519e318()
 		matchend = {};
 		matchend.utc_start_time_s = 0;
 		matchend.utc_end_time_s = utc;
-		matchend.map = hash(util::function_53bbf9d2());
+		matchend.map = hash(util::get_map_name());
 		matchend.game_type = hash(level.gametype);
 		matchend.var_c8019fa4 = sessionmodeisprivateonlinegame();
 		matchend.is_offline = sessionmodeissystemlink();

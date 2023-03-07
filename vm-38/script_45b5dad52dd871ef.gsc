@@ -158,8 +158,8 @@ function function_2f3ba0ef(center)
 	angle = randomint(360);
 	x_pos = center[0] + (64 * cos(angle));
 	y_pos = center[1] + (64 * sin(angle));
-	var_636e904a = center[2] + (randomintrange(64 * -1, 64));
-	var_f84680ae = (x_pos, y_pos, var_636e904a);
+	z_pos = center[2] + (randomintrange(64 * -1, 64));
+	var_f84680ae = (x_pos, y_pos, z_pos);
 	return var_f84680ae;
 }
 

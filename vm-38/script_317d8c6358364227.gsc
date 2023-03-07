@@ -70,7 +70,7 @@ function private function_70a657d8()
 */
 function enable_deadshot_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_210097a75bb6c49a", #"perk_dead_shot", 2000, #"hash_3ac784b3888e0dab", getweapon("zombie_perk_bottle_deadshot"), undefined, #"hash_26407356b81a1957");
+	zm_perks::register_perk_basic_info(#"hash_210097a75bb6c49a", #"perk_dead_shot", 2000, #"hash_3ac784b3888e0dab", getweapon("zombie_perk_bottle_deadshot"), undefined, #"zmperksdeadshot");
 	zm_perks::register_perk_precache_func(#"hash_210097a75bb6c49a", &deadshot_precache);
 	zm_perks::register_perk_clientfields(#"hash_210097a75bb6c49a", &deadshot_register_clientfield, &deadshot_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_210097a75bb6c49a", &deadshot_perk_machine_setup);

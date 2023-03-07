@@ -772,7 +772,7 @@ function function_80bbb50b(chest, trigger)
 					var_25b6fcfc = chest.var_f0f92268[playerindex][self.var_ba0ccdab];
 				}
 				gun = function_4ba8fde(var_25b6fcfc);
-				var_fa3df96 = self namespace_b376ff3f::function_e66dcff5(gun);
+				var_fa3df96 = self item_inventory::function_e66dcff5(gun);
 				self item_world::function_de2018e3(gun, self, var_fa3df96);
 				if(isdefined(self.var_524f43cb) && (isdefined(trigger.var_7fadf788) && isdefined(self.var_524f43cb[trigger.var_7fadf788])))
 				{

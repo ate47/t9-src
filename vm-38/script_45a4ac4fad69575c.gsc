@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_fd95a9c : class_6aaccc24
+class class_fd95a9c : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_fd95a9c : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_fd95a9c : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("DOA_KeyTrade");
+		cLUIelem::function_5c1bb138("DOA_KeyTrade");
 	}
 
 	/*
@@ -96,9 +96,9 @@ class class_fd95a9c : class_6aaccc24
 	*/
 	function setup_clientfields(var_909954a3, var_66f4eb53)
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_KeyTrade");
-		namespace_6aaccc24::function_dcb34c80("string", "textBoxHint", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "confirmBtn", 1);
+		cLUIelem::setup_clientfields("DOA_KeyTrade");
+		cLUIelem::function_dcb34c80("string", "textBoxHint", 1);
+		cLUIelem::function_dcb34c80("string", "confirmBtn", 1);
 	}
 
 	/*
@@ -112,7 +112,7 @@ class class_fd95a9c : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "textBoxHint", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "confirmBtn", #"");
 	}

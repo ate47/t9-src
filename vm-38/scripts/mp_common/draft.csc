@@ -1,6 +1,6 @@
 #using script_13da4e6b98ca81a1;
 #using script_1e34fbb210f87b6f;
-#using script_6ad3fda349f49bf9;
+#using scripts\killstreaks\killstreak_detect.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\battlechatter.csc;
 #using scripts\core_common\character_customization.csc;
@@ -711,7 +711,7 @@ function function_4ccc033d(localclientnum, var_d0c67621)
 		}
 		if(is_true(level.var_207a1c9a))
 		{
-			return ([[ var_d0c67621 ]]->function_82e05d64().activeweapon) != getweapon(#"hash_124cfa74fbc2fd96");
+			return ([[ var_d0c67621 ]]->function_82e05d64().activeweapon) != getweapon(#"crossbow_special_t8");
 		}
 		var_aec11cf1 = ([[ var_d0c67621 ]]->function_82e05d64().activeweapon) != ([[ var_d0c67621 ]]->function_82e05d64().primaryweapon) || ([[ var_d0c67621 ]]->function_82e05d64().var_b8f20727) !== ([[ var_d0c67621 ]]->function_82e05d64().primaryweaponoptions);
 		return var_aec11cf1;

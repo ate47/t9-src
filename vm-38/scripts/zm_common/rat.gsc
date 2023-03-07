@@ -120,7 +120,7 @@ function function_303319e9(params)
 {
 	/#
 		zombies = getaiarchetypearray("", level.zombie_team);
-		player = function_4337d833(params);
+		player = getplayer(params);
 		forward = anglestoforward(player.angles);
 		distance = 31;
 		if(isdefined(params.distance))
@@ -391,9 +391,9 @@ function function_5b9ddfdb(params)
 function function_e2143adf(params)
 {
 	/#
-		if(isdefined(level.var_b376ff3f))
+		if(isdefined(level.item_inventory))
 		{
-			return level.var_b376ff3f.size;
+			return level.item_inventory.size;
 		}
 		return 0;
 	#/

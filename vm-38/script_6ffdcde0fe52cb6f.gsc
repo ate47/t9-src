@@ -1,6 +1,6 @@
 #using script_3f9e0dc8454d98e1;
 #using script_6021ce59143452c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_powerups.gsc;
@@ -51,11 +51,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"no_powerups", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"no_powerups", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_e4df2f52
 	Checksum: 0x3DE33F9C
 	Offset: 0x168
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	self.active = 1;
 	self.enemies_killed = 0;
@@ -77,7 +77,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_e4df2f52
 	Checksum: 0xBB04EF05
 	Offset: 0x220
@@ -85,7 +85,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	self.active = 0;
 	zombie_utility::set_zombie_var(#"zombie_powerup_drop_max_per_round", 4);
@@ -124,7 +124,7 @@ function function_2fc5f13()
 	/#
 		assert(isdefined(challenge));
 	#/
-	var_5843af96 = namespace_a28acff3::get_zombie_count_for_round(level.round_number, getplayers().size);
+	var_5843af96 = zm_round_logic::get_zombie_count_for_round(level.round_number, getplayers().size);
 	frac = math::clamp(challenge.enemies_killed / var_5843af96, 0, 1);
 	modifier = lerpfloat(25, 40, frac);
 	return modifier;

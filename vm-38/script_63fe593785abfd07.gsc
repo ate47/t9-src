@@ -1,4 +1,4 @@
-#using script_4f58b9f4cd085079;
+#using scripts\weapons\trophy_system.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace trophy_system;

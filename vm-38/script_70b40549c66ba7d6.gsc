@@ -6,7 +6,7 @@
 #using script_4dc6a9b234b838e1;
 #using script_6167e26342be354b;
 #using script_6f7b2cd5eb7f3e6d;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\hud_shared.gsc;
@@ -198,18 +198,18 @@ function private function_600a82c(player)
 	if(isdefined(item))
 	{
 		item.amount = 1;
-		var_fa3df96 = player namespace_b376ff3f::function_e66dcff5(item);
+		var_fa3df96 = player item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
 			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
 			{
 				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
 			}
-			var_ddeb881e = namespace_b376ff3f::function_2e711614(var_fa3df96);
+			var_ddeb881e = item_inventory::function_2e711614(var_fa3df96);
 			while(var_ddeb881e.var_a6762160 === item.var_a6762160)
 			{
 				waitframe(1);
-				var_ddeb881e = namespace_b376ff3f::function_2e711614(var_fa3df96);
+				var_ddeb881e = item_inventory::function_2e711614(var_fa3df96);
 			}
 			if(var_ddeb881e.var_bd027dd9 === 32767)
 			{

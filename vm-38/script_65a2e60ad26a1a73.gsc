@@ -1,5 +1,5 @@
 #using script_57f7003580bb15e0;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace flamethrower;
@@ -45,7 +45,7 @@ function __init__()
 {
 	if(!sessionmodeiscampaigngame())
 	{
-		killstreaks::function_e4ef8390("killstreak_flamethrower", &killstreaks::function_fc82c544);
+		killstreaks::register_killstreak("killstreak_flamethrower", &killstreaks::function_fc82c544);
 	}
 	status_effect::function_30e7d622(getweapon("hero_flamethrower"), "flakjacket");
 	status_effect::function_30e7d622(getweapon("inventory_hero_flamethrower"), "flakjacket");

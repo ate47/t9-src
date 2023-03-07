@@ -5,11 +5,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\load.csc;
 
-#namespace namespace_44ee8aa7;
+#namespace zm_bgb_pack;
 
 /*
 	Name: function_3bccabb6
-	Namespace: namespace_44ee8aa7
+	Namespace: zm_bgb_pack
 	Checksum: 0x4229FB88
 	Offset: 0x90
 	Size: 0x14

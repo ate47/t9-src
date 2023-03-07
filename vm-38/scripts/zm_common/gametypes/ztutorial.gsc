@@ -1,4 +1,4 @@
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -41,7 +41,7 @@ event main(eventstruct)
 	level.callbackplayerlaststand = &function_1b27b9d0;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
+	level._round_start_func = &zm_round_logic::round_start;
 }
 
 /*

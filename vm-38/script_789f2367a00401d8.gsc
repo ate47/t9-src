@@ -4,8 +4,8 @@
 #using script_57f7003580bb15e0;
 #using script_62caa307a394c18c;
 #using script_6809bf766eba194a;
-#using script_7bafaa95bb1b427e;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weapons.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -64,7 +64,7 @@ function init_shared()
 	clientfield::register("actor", "" + #"hash_c5d06ae18fde4c0", 1, 1, "int");
 	params = function_4d1e7b48("dot_molotov_dog");
 	level.var_e6a4f161 = params.var_18d16a6b;
-	level.var_5d450296 = params.var_67e2281d;
+	level.var_5d450296 = params.setype;
 	level.var_e8a6b3ee = [];
 	spawner::add_archetype_spawn_function(#"zombie_dog", &function_4f3cd1f0);
 }
@@ -210,7 +210,7 @@ function function_e8ad1d81(position, normal, velocity, team, var_4dd46f8a, attac
 	var_e76400c0 = undefined;
 	wallnormal = undefined;
 	var_693f108f = undefined;
-	var_aecaaa11 = getweapon(#"hash_23dd6039fe2f36c6");
+	var_aecaaa11 = getweapon(#"molotov_fire");
 	var_5632b17 = getweapon("molotov_fire_wall");
 	var_7bf146f2 = getweapon("molotov_steam");
 	if(normal[2] < -0.5)
@@ -516,7 +516,7 @@ function function_8a03d3f3(impactpos, startpos, normal, multiplier, rotation, te
 			}
 		}
 	}
-	var_aecaaa11 = getweapon(#"hash_23dd6039fe2f36c6");
+	var_aecaaa11 = getweapon(#"molotov_fire");
 	var_3cbce009 = getweapon("molotov_fire_tall");
 	var_4a1b9411 = getweapon("molotov_fire_small");
 	var_7bf146f2 = getweapon("molotov_steam");

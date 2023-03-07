@@ -6,7 +6,7 @@
 #using script_4a81c26d2ddde9c;
 #using script_61828ad9e71c6616;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7bdcff4f92f3d220;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;
@@ -57,7 +57,7 @@ function private function_70a657d8()
 	init_shared();
 	clientfield::register("scriptmover", "planemortar_marker_on", 1, 2, "int");
 	bundlename = "killstreak_planemortar" + "_zm";
-	killstreaks::function_e4ef8390(bundlename, &function_c9ca313b);
+	killstreaks::register_killstreak(bundlename, &function_c9ca313b);
 	level.plane_mortar_bda_dialog = &plane_mortar_bda_dialog;
 	level.var_269fec2 = &function_269fec2;
 	level.var_eb0c5d6 = 1;

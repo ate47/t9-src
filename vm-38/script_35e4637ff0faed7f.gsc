@@ -1157,8 +1157,8 @@ function function_b90ebd9a()
 	level.player = level.players[0];
 	level.player namespace_db2381c4::function_ec0a577();
 	thread function_d3cdf2a7();
-	var_7e4a7b32 = getweapon(#"ar_accurate_t9");
-	level.adler setweapon(var_7e4a7b32);
+	a_ar = getweapon(#"ar_accurate_t9");
+	level.adler setweapon(a_ar);
 	level.player.fakeplayer = util::spawn_player_clone(level.player);
 	level.player.fakeplayer.targetname = "FakePlayer 2";
 	level.player.fakeplayer ghost();

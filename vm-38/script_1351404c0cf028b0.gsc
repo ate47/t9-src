@@ -1,4 +1,4 @@
-#using script_4ca6f7cb266af7fe;
+#using scripts\weapons\hacker_tool.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace hacker_tool;

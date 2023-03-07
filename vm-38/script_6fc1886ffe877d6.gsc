@@ -9,12 +9,12 @@
 #using script_3411bb48d41bd3b;
 #using script_348ce871561476c9;
 #using script_34ab99a4ca1a43d;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_40fc784c60f9fa7b;
 #using script_4163291d6e693552;
 #using script_5a525a75a8f1f7e4;
 #using script_5f261a5d57de5f7c;
-#using script_70e9937eb8d47c8;
+#using scripts\zm_common\zm_barricade.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1398,7 +1398,7 @@ function kickoff(instance, activator)
 		wait(5);
 		foreach(player in getplayers())
 		{
-			level.var_31028c5d prototype_hud::function_953da284(player, #"hash_65641bd73530220a");
+			level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_65641bd73530220a");
 			level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 		}
 		wait(5);

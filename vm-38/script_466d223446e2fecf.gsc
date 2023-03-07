@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.gsc;
 
-class class_42946372 : class_6aaccc24
+class class_42946372 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -46,11 +46,11 @@ class class_42946372 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
-		Name: function_3b7b386a
+		Name: set_clientnum
 		Namespace: namespace_42946372
 		Checksum: 0x24C9B690
 		Offset: 0x3B0
@@ -58,7 +58,7 @@ class class_42946372 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_3b7b386a(player, value)
+	function set_clientnum(player, value)
 	{
 		player lui::function_bb6bcb89(hash(var_d5213cbb), var_bf9c8c95, 2, value, 0);
 	}
@@ -88,7 +88,7 @@ class class_42946372 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -130,11 +130,11 @@ class class_42946372 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_TextBubble_PlayerName");
+		cLUIelem::setup_clientfields("DOA_TextBubble_PlayerName");
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_42946372
 		Checksum: 0xE9FB5CAE
 		Offset: 0x358
@@ -142,7 +142,7 @@ class class_42946372 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(player, value)
+	function set_entNum(player, value)
 	{
 		player lui::function_bb6bcb89(hash(var_d5213cbb), var_bf9c8c95, 1, value, 0);
 	}
@@ -228,7 +228,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: doa_textbubble_playername
 	Checksum: 0xCF0D832
 	Offset: 0x1A8
@@ -236,13 +236,13 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(player, value)
+function set_entNum(player, value)
 {
-	[[ self ]]->function_c8350e33(player, value);
+	[[ self ]]->set_entNum(player, value);
 }
 
 /*
-	Name: function_3b7b386a
+	Name: set_clientnum
 	Namespace: doa_textbubble_playername
 	Checksum: 0x8F7D2906
 	Offset: 0x1D8
@@ -250,9 +250,9 @@ function function_c8350e33(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_3b7b386a(player, value)
+function set_clientnum(player, value)
 {
-	[[ self ]]->function_3b7b386a(player, value);
+	[[ self ]]->set_clientnum(player, value);
 }
 
 /*

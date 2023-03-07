@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_366ba496 : class_6aaccc24
+class cvehicleturretdurability : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_366ba496
+		Namespace: cvehicleturretdurability
 		Checksum: 0xCA5E39AD
 		Offset: 0x350
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_366ba496 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_366ba496
+		Namespace: cvehicleturretdurability
 		Checksum: 0x3D6E3C51
 		Offset: 0x4A8
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_366ba496 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_366ba496
+		Namespace: cvehicleturretdurability
 		Checksum: 0x8D2E111F
 		Offset: 0x440
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_366ba496 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_366ba496
+		Namespace: cvehicleturretdurability
 		Checksum: 0x52775501
 		Offset: 0x3C8
 		Size: 0x1C
@@ -54,12 +54,12 @@ class class_366ba496 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("VehicleTurretDurability");
+		cLUIelem::function_5c1bb138("VehicleTurretDurability");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_366ba496
+		Namespace: cvehicleturretdurability
 		Checksum: 0x407ECB1D
 		Offset: 0x370
 		Size: 0x4C
@@ -68,13 +68,13 @@ class class_366ba496 : class_6aaccc24
 	*/
 	function setup_clientfields(var_661989d5)
 	{
-		namespace_6aaccc24::setup_clientfields("VehicleTurretDurability");
-		namespace_6aaccc24::function_da693cbe("bar_percent", 1, 6, "float", var_661989d5);
+		cLUIelem::setup_clientfields("VehicleTurretDurability");
+		cLUIelem::function_da693cbe("bar_percent", 1, 6, "float", var_661989d5);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_366ba496
+		Namespace: cvehicleturretdurability
 		Checksum: 0x84E5206D
 		Offset: 0x3F0
 		Size: 0x48
@@ -83,20 +83,20 @@ class class_366ba496 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", 0);
 	}
 
 	/*
-		Name: function_fd8c13fb
-		Namespace: namespace_366ba496
+		Name: set_bar_percent
+		Namespace: cvehicleturretdurability
 		Checksum: 0x1D0AF15E
 		Offset: 0x470
 		Size: 0x30
 		Parameters: 2
 		Flags: None
 	*/
-	function function_fd8c13fb(localclientnum, value)
+	function set_bar_percent(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", value);
 	}
@@ -130,7 +130,7 @@ function private autoexec function_7d5b9412()
 */
 function register(var_661989d5)
 {
-	elem = new class_366ba496();
+	elem = new cvehicleturretdurability();
 	[[ elem ]]->setup_clientfields(var_661989d5);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -162,7 +162,7 @@ function register(var_661989d5)
 */
 function function_5c1bb138()
 {
-	elem = new class_366ba496();
+	elem = new cvehicleturretdurability();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -210,7 +210,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_fd8c13fb
+	Name: set_bar_percent
 	Namespace: vehicleturretdurability
 	Checksum: 0x9BBCE78F
 	Offset: 0x320
@@ -218,8 +218,8 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_fd8c13fb(localclientnum, value)
+function set_bar_percent(localclientnum, value)
 {
-	[[ self ]]->function_fd8c13fb(localclientnum, value);
+	[[ self ]]->set_bar_percent(localclientnum, value);
 }
 

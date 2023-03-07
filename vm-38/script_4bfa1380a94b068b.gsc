@@ -1,13 +1,13 @@
 #using script_1cc417743d7c262d;
-#using script_2c74a7b5eea1ec89;
-#using script_2dc48f46bfeac894;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_79a7e1c31a3e8cc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\deployable.gsc;
 #using script_7f6cd71c43c45c57;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -111,16 +111,16 @@ function finalize()
 	Parameters: 2
 	Flags: None
 */
-function function_127fb8f3(supplypod, var_dbd1a594)
+function function_127fb8f3(supplypod, attackingplayer)
 {
-	var_dbd1a594.gameobject gameobjects::allow_use(#"hash_161f03feaadc9b8f");
+	attackingplayer.gameobject gameobjects::allow_use(#"hash_161f03feaadc9b8f");
 	if(isdefined(level.var_86e3d17a))
 	{
 		_station_up_to_detention_center_triggers = [[level.var_86e3d17a]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0) > 0)
 		{
-			var_dbd1a594 notify(#"hash_602ae7ca650d6287");
-			var_dbd1a594 thread weaponobjects::weapon_object_timeout(var_dbd1a594.var_2d045452, _station_up_to_detention_center_triggers);
+			attackingplayer notify(#"hash_602ae7ca650d6287");
+			attackingplayer thread weaponobjects::weapon_object_timeout(attackingplayer.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
 }
@@ -134,7 +134,7 @@ function function_127fb8f3(supplypod, var_dbd1a594)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(supplypod, var_dbd1a594)
+function function_bff5c062(supplypod, attackingplayer)
 {
 	if(!isdefined(supplypod.gameobject))
 	{
@@ -143,11 +143,11 @@ function function_bff5c062(supplypod, var_dbd1a594)
 	original_owner = supplypod.owner;
 	supplypod.owner weaponobjects::hackerremoveweapon(supplypod);
 	supplypod.owner function_890b2784();
-	supplypod.owner = var_dbd1a594;
-	supplypod setowner(var_dbd1a594);
-	supplypod setteam(var_dbd1a594 getteam());
-	supplypod.team = var_dbd1a594 getteam();
-	supplypod.gameobject gameobjects::set_owner_team(var_dbd1a594.team);
+	supplypod.owner = attackingplayer;
+	supplypod setowner(attackingplayer);
+	supplypod setteam(attackingplayer getteam());
+	supplypod.team = attackingplayer getteam();
+	supplypod.gameobject gameobjects::set_owner_team(attackingplayer.team);
 	supplypod.gameobject gameobjects::set_visible(#"hash_150a20fa4efc5c7a");
 	supplypod.gameobject gameobjects::allow_use(#"hash_150a20fa4efc5c7a");
 	supplypod notify(#"hash_523ddcbd662010e5");
@@ -174,7 +174,7 @@ function function_bff5c062(supplypod, var_dbd1a594)
 				watcher = original_owner weaponobjects::getweaponobjectwatcherbyweapon(supplypod.var_2d045452.weapon);
 				if(isdefined(watcher))
 				{
-					supplypod.var_2d045452 thread weaponobjects::function_6d8aa6a0(var_dbd1a594, watcher);
+					supplypod.var_2d045452 thread weaponobjects::function_6d8aa6a0(attackingplayer, watcher);
 					supplypod.var_2d045452 thread weaponobjects::weapon_object_timeout(watcher, _station_up_to_detention_center_triggers);
 					var_a87deb22 = 0;
 				}
@@ -185,13 +185,13 @@ function function_bff5c062(supplypod, var_dbd1a594)
 	{
 		[[level.var_fc1bbaef]](supplypod);
 	}
-	level.var_934fb97.var_5f6d033b[supplypod.objectiveid] = supplypod;
-	if(!isdefined(level.var_934fb97.var_27fce4c0[var_dbd1a594.clientid]))
+	level.var_934fb97.supplypods[supplypod.objectiveid] = supplypod;
+	if(!isdefined(level.var_934fb97.var_27fce4c0[attackingplayer.clientid]))
 	{
-		level.var_934fb97.var_27fce4c0[var_dbd1a594.clientid] = [];
+		level.var_934fb97.var_27fce4c0[attackingplayer.clientid] = [];
 	}
 	var_a7edcaed = level.var_934fb97.var_27fce4c0.size + 1;
-	array::push(level.var_934fb97.var_27fce4c0[var_dbd1a594.clientid], supplypod, var_a7edcaed);
+	array::push(level.var_934fb97.var_27fce4c0[attackingplayer.clientid], supplypod, var_a7edcaed);
 	if(var_a87deb22)
 	{
 		supplypod thread function_827486aa(0);
@@ -698,7 +698,7 @@ function function_827486aa(var_d3213f00, var_7497ba51)
 	deleteobjective(self.objectiveid);
 	deleteobjective(self.var_134eefb9);
 	self.var_83d9bfb5 = 1;
-	level.var_934fb97.var_5f6d033b[self.objectiveid] = undefined;
+	level.var_934fb97.supplypods[self.objectiveid] = undefined;
 	self clientfield::set("enemyequip", 0);
 	if(isdefined(self.gameobject))
 	{
@@ -1029,7 +1029,7 @@ function function_9abdee8c(watcher, object)
 	supplypod.var_57022ab8 = (isdefined(level.var_934fb97.bundle.var_5a0d87e0) ? level.var_934fb97.bundle.var_5a0d87e0 : 20);
 	supplypod.usecount = 0;
 	supplypod.objectiveid = getobjectiveid();
-	level.var_934fb97.var_5f6d033b[supplypod.objectiveid] = supplypod;
+	level.var_934fb97.supplypods[supplypod.objectiveid] = supplypod;
 	if(!isdefined(level.var_934fb97.var_27fce4c0[player.clientid]))
 	{
 		level.var_934fb97.var_27fce4c0[player.clientid] = [];

@@ -4,7 +4,7 @@
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-class class_6aaccc24 
+class cLUIelem 
 {
 	var var_47d8642e;
 	var var_bf9c8c95;
@@ -12,7 +12,7 @@ class class_6aaccc24
 
 	/*
 		Name: constructor
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x515E03A5
 		Offset: 0x828
 		Size: 0x2A
@@ -28,7 +28,7 @@ class class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x1F6AA34A
 		Offset: 0x860
 		Size: 0x96
@@ -45,7 +45,7 @@ class class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x14963CFB
 		Offset: 0xF88
 		Size: 0x82
@@ -64,7 +64,7 @@ class class_6aaccc24
 
 	/*
 		Name: close
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xE77FB8DD
 		Offset: 0x1088
 		Size: 0x6E
@@ -82,7 +82,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xD77661B
 		Offset: 0xDB0
 		Size: 0x18E
@@ -119,7 +119,7 @@ class class_6aaccc24
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x3C557C5B
 		Offset: 0x900
 		Size: 0xDA
@@ -144,7 +144,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_92ba69fa
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x2BBCAD35
 		Offset: 0x1330
 		Size: 0x6A
@@ -161,7 +161,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_cbca32d8
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xF00B036C
 		Offset: 0x13A8
 		Size: 0x26C
@@ -201,7 +201,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_d7d2fcce
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x70DE36E2
 		Offset: 0x1100
 		Size: 0x222
@@ -230,7 +230,7 @@ class class_6aaccc24
 
 	/*
 		Name: is_open
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xB5913E47
 		Offset: 0x1018
 		Size: 0x62
@@ -247,7 +247,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_da693cbe
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xB30A2348
 		Offset: 0x9E8
 		Size: 0x1E4
@@ -278,7 +278,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_dcb34c80
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0x739C5D3E
 		Offset: 0xBD8
 		Size: 0x1CC
@@ -309,7 +309,7 @@ class class_6aaccc24
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_6aaccc24
+		Namespace: cLUIelem
 		Checksum: 0xF104CEE1
 		Offset: 0xF48
 		Size: 0x34
@@ -528,12 +528,12 @@ function private _screen_fade(localclientnum, n_time, n_target_alpha, n_start_al
 	level.localclients[localclientnum].full_screen_black.n_target_time = n_time_ms;
 	level.localclients[localclientnum].full_screen_black.n_start_time = gettime();
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->open(localclientnum);
-	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_eccc151d(localclientnum, v_color[0]);
-	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_2208b8db(localclientnum, v_color[1]);
-	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_7420df0a(localclientnum, v_color[2]);
+	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_red(localclientnum, v_color[0]);
+	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_green(localclientnum, v_color[1]);
+	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_blue(localclientnum, v_color[2]);
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_9cd54463(localclientnum, n_start_alpha);
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_331f9dd(localclientnum, n_target_alpha);
-	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_237ff433(localclientnum, n_time_ms);
+	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_fadeOverTime(localclientnum, n_time_ms);
 	wait(n_time);
 	if(b_force_close_menu || n_target_alpha == 0)
 	{

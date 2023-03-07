@@ -1,4 +1,4 @@
-#using script_3f6516099f1d5ff1;
+#using scripts\core_common\map.csc;
 #using script_4e261fd4bc49e992;
 #using script_71f2f8a6fc184b69;
 #using script_7f431c02afd98cf0;
@@ -40,7 +40,7 @@ function init()
 	callback::on_localplayer_spawned(&on_player_spawned);
 	callback::function_e9e16e2f(&function_e9e16e2f);
 	callback::function_4f6cafea(&function_4f6cafea);
-	callback::function_d46d9315(&function_1bcd6e1e);
+	callback::function_d46d9315(&start_warzone);
 	function_41f9de03();
 	function_f6b076db();
 	level.var_f2814a96 = (isdefined(getgametypesetting(#"hash_6be1c95551e78384")) ? getgametypesetting(#"hash_6be1c95551e78384") : 0);
@@ -52,7 +52,7 @@ function init()
 }
 
 /*
-	Name: function_1bcd6e1e
+	Name: start_warzone
 	Namespace: namespace_17baa64d
 	Checksum: 0x8409689
 	Offset: 0x318
@@ -60,7 +60,7 @@ function init()
 	Parameters: 1
 	Flags: None
 */
-function function_1bcd6e1e(localclientnum)
+function start_warzone(localclientnum)
 {
 	if(!is_true(getgametypesetting(#"hash_7532afe3ef8b4332")))
 	{

@@ -3,7 +3,7 @@
 #using script_4108035fe400ce67;
 #using script_44b0b8420eabacad;
 #using script_471b31bd963b388e;
-#using script_5209c07c35771d12;
+#using scripts\wz_common\wz_loadouts.gsc;
 #using script_5495f0bb06045dc7;
 #using script_788472602edbe3b9;
 #using script_7bacb32f8222fa3e;
@@ -105,10 +105,10 @@ function function_511245ae(takeoldweapon)
 			self takeweapon(weapon);
 		}
 	}
-	var_43d69af6 = getweapon(#"null_offhand_primary");
-	self giveweapon(var_43d69af6);
-	self setweaponammoclip(var_43d69af6, 0);
-	self switchtooffhand(var_43d69af6);
+	nullprimary = getweapon(#"null_offhand_primary");
+	self giveweapon(nullprimary);
+	self setweaponammoclip(nullprimary, 0);
+	self switchtooffhand(nullprimary);
 	if(self.firstspawn !== 0)
 	{
 		hud::function_2f66bc37();
@@ -160,8 +160,8 @@ function function_b82fbeb8()
 	{
 		return;
 	}
-	self namespace_441c2f1c::give_weapon(#"hash_2099525166a32b52");
-	self namespace_441c2f1c::function_52df229a(#"hash_837a6ea0c2864a8");
+	self wz_loadouts::give_weapon(#"hash_2099525166a32b52");
+	self wz_loadouts::function_52df229a(#"hash_837a6ea0c2864a8");
 }
 
 /*
@@ -184,9 +184,9 @@ function function_6de0bb32()
 		var_122bdb78 = function_4ba8fde(#"hash_837a6ea0c2864a8").id;
 		var_dd8041ff = 0;
 		var_348a5219 = 1;
-		foreach(var_b619c089 in self.inventory.items)
+		foreach(inventoryitem in self.inventory.items)
 		{
-			var_d8138db2 = var_b619c089.id;
+			var_d8138db2 = inventoryitem.id;
 			if(var_d8138db2 == 32767)
 			{
 				continue;
@@ -218,9 +218,9 @@ function function_6de0bb32()
 		}
 		if(var_348a5219)
 		{
-			var_375298f3 = function_4ba8fde(#"hash_837a6ea0c2864a8");
-			var_95162a97 = namespace_ad5a0cd6::function_f4a8d375(var_375298f3.id);
-			item_drop::drop_item(0, var_95162a97, 1, var_dd8041ff, var_375298f3.id, self.origin);
+			ammoitem = function_4ba8fde(#"hash_837a6ea0c2864a8");
+			var_95162a97 = namespace_ad5a0cd6::function_f4a8d375(ammoitem.id);
+			item_drop::drop_item(0, var_95162a97, 1, var_dd8041ff, ammoitem.id, self.origin);
 		}
 		return !var_348a5219;
 	}

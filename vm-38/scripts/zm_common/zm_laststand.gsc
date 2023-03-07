@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_243ea03c7a285692;
 #using script_3751b21462a54a7d;
@@ -6,13 +6,13 @@
 #using script_47fb62300ac0bd60;
 #using script_48f7c4ab73137f8;
 #using script_58860a35d0555f74;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
 #using script_6021ce59143452c3;
 #using script_6e3c826b1814cab6;
 #using script_6ef496a1b77e83a4;
-#using script_7bafaa95bb1b427e;
-#using script_ab890501c40b73c;
+#using scripts\weapons\weapons.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\demo_shared.gsc;
@@ -1162,8 +1162,8 @@ function laststand_bleedout(delay)
 	{
 		level.var_ff482f76 zm_laststand_client::open(self, 0);
 	}
-	level.var_ff482f76 zm_laststand_client::function_65194707(self, self.n_downs);
-	level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, 0);
+	level.var_ff482f76 zm_laststand_client::set_num_downs(self, self.n_downs);
+	level.var_ff482f76 zm_laststand_client::set_revive_progress(self, 0);
 	while(self.bleedout_time > 0)
 	{
 		if(is_true(self.var_16735873))
@@ -1179,8 +1179,8 @@ function laststand_bleedout(delay)
 			if(!level.var_ff482f76 zm_laststand_client::is_open(self))
 			{
 				level.var_ff482f76 zm_laststand_client::open(self, 0);
-				level.var_ff482f76 zm_laststand_client::function_65194707(self, self.n_downs);
-				level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, 0);
+				level.var_ff482f76 zm_laststand_client::set_num_downs(self, self.n_downs);
+				level.var_ff482f76 zm_laststand_client::set_revive_progress(self, 0);
 			}
 			self.bleedout_time = self.bleedout_time - 0.2;
 			var_76a1ade7 = self.bleedout_time / delay;
@@ -1190,7 +1190,7 @@ function laststand_bleedout(delay)
 				objective_setgamemodeflags(self.var_57b374b4, 1);
 			}
 			level clientfield::set("laststand_update" + self getentitynumber(), var_76a1ade7);
-			level.var_ff482f76 zm_laststand_client::function_67bdfe40(self, var_76a1ade7);
+			level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, var_76a1ade7);
 		}
 		wait(0.2);
 	}
@@ -1232,8 +1232,8 @@ function function_473d2fe1(delay)
 	if(!level.var_ff482f76 zm_laststand_client::is_open(self))
 	{
 		level.var_ff482f76 zm_laststand_client::open(self, 0);
-		level.var_ff482f76 zm_laststand_client::function_65194707(self, self.n_downs);
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, 0);
+		level.var_ff482f76 zm_laststand_client::set_num_downs(self, self.n_downs);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(self, 0);
 		var_76a1ade7 = self.bleedout_time / delay;
 		if(isdefined(self.var_57b374b4) && !self.var_c6a6f334 === 1)
 		{
@@ -1241,7 +1241,7 @@ function function_473d2fe1(delay)
 			objective_setgamemodeflags(self.var_57b374b4, 1);
 		}
 		level clientfield::set("laststand_update" + self getentitynumber(), var_76a1ade7);
-		level.var_ff482f76 zm_laststand_client::function_67bdfe40(self, var_76a1ade7);
+		level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, var_76a1ade7);
 	}
 }
 
@@ -1680,7 +1680,7 @@ function function_73d6c609(n_duration)
 		{
 			waitframe(1);
 			var_722c6f25 = var_722c6f25 + 0.05;
-			level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, var_722c6f25 / n_duration);
+			level.var_ff482f76 zm_laststand_client::set_revive_progress(self, var_722c6f25 / n_duration);
 			if(var_722c6f25 >= n_duration)
 			{
 				b_success = 1;
@@ -1688,7 +1688,7 @@ function function_73d6c609(n_duration)
 			}
 		}
 		var_722c6f25 = 0;
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(self, var_722c6f25 / n_duration);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(self, var_722c6f25 / n_duration);
 		if(is_true(b_success))
 		{
 			return b_success;
@@ -2155,7 +2155,7 @@ function revive_do_revive(e_revivee, t_secondary)
 	while(isdefined(self) && self is_reviving(e_revivee, t_secondary))
 	{
 		var_ae7a2103 = (function_800268ed(e_revivee) ? e_revivee.var_1ff8de20 : e_revivee);
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(var_ae7a2103, e_revivee.var_6fc48a11 / revivetime);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(var_ae7a2103, e_revivee.var_6fc48a11 / revivetime);
 		if(isdefined(var_ae7a2103.var_57b374b4))
 		{
 			objective_setprogress(var_ae7a2103.var_57b374b4, e_revivee.var_6fc48a11 / revivetime);
@@ -2211,7 +2211,7 @@ function revive_do_revive(e_revivee, t_secondary)
 	{
 		e_revivee.var_6fc48a11 = 0;
 		var_ae7a2103 = (function_800268ed(e_revivee) ? e_revivee.var_1ff8de20 : e_revivee);
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(var_ae7a2103, 0);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(var_ae7a2103, 0);
 	}
 	return revived;
 }
@@ -2232,7 +2232,7 @@ function function_2cc9a315(revivetime)
 	{
 		self.var_6fc48a11 = self.var_6fc48a11 - 0.05;
 		var_ae7a2103 = (function_800268ed(self) ? self.var_1ff8de20 : self);
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(var_ae7a2103, self.var_6fc48a11 / revivetime);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(var_ae7a2103, self.var_6fc48a11 / revivetime);
 		waitframe(1);
 	}
 }

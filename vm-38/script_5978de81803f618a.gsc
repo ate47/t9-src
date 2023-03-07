@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_5c7b7dcc : class_6aaccc24
+class class_5c7b7dcc : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_5c7b7dcc : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_5c7b7dcc : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("mp_infect_timer");
+		cLUIelem::function_5c1bb138("mp_infect_timer");
 	}
 
 	/*
@@ -82,8 +82,8 @@ class class_5c7b7dcc : class_6aaccc24
 	*/
 	function setup_clientfields(var_7682811d)
 	{
-		namespace_6aaccc24::setup_clientfields("mp_infect_timer");
-		namespace_6aaccc24::function_da693cbe("infectionTimeRemaining", 1, 4, "int", var_7682811d);
+		cLUIelem::setup_clientfields("mp_infect_timer");
+		cLUIelem::function_da693cbe("infectionTimeRemaining", 1, 4, "int", var_7682811d);
 	}
 
 	/*
@@ -97,7 +97,7 @@ class class_5c7b7dcc : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "infectionTimeRemaining", 0);
 	}
 

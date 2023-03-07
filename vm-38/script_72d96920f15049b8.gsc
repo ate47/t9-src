@@ -1,12 +1,12 @@
 #using script_15022fca9ab99080;
-#using script_2c74a7b5eea1ec89;
-#using script_3728b3b9606c4299;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -54,7 +54,7 @@ function function_70a657d8(bundlename)
 	clientfield::register("vehicle", "" + #"hash_46646871455cab15", 1, 2, "int");
 	clientfield::register("vehicle", "" + #"hash_6cf1a3b26118d892", 1, 1, "int");
 	init_shared();
-	killstreaks::function_e4ef8390(bundlename, &activatemaingunner);
+	killstreaks::register_killstreak(bundlename, &activatemaingunner);
 }
 
 /*

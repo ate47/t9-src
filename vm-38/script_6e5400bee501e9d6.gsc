@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_9bf1b425;
+#namespace trapd;
 
 /*
 	Name: function_fee29896
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0x7AAE5B43
 	Offset: 0xB0
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_fee29896()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xD329D9DF
 	Offset: 0xD0
 	Size: 0x3C
@@ -29,12 +29,12 @@ function private autoexec function_fee29896()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_5eff6da6c51cbff2", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"trapd", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0x3178480C
 	Offset: 0x118
 	Size: 0x64
@@ -49,7 +49,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_9f6d38cf
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xF651C4E6
 	Offset: 0x188
 	Size: 0x24
@@ -63,7 +63,7 @@ function function_9f6d38cf(localclientnum)
 
 /*
 	Name: fx_think
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xAD8800BB
 	Offset: 0x1B8
 	Size: 0xF8
@@ -88,7 +88,7 @@ function fx_think(localclientnum)
 
 /*
 	Name: start_light_fx
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0xEB84FC44
 	Offset: 0x2B8
 	Size: 0x3A
@@ -102,7 +102,7 @@ function start_light_fx(localclientnum)
 
 /*
 	Name: stop_light_fx
-	Namespace: namespace_9bf1b425
+	Namespace: trapd
 	Checksum: 0x574A6C06
 	Offset: 0x300
 	Size: 0x4E

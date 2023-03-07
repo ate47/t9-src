@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_f4d68515 : class_6aaccc24
+class cinitial_black : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x4D8CCE20
 		Offset: 0x348
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_f4d68515 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x672A1259
 		Offset: 0x498
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_f4d68515 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0xA7BA79EA
 		Offset: 0x430
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_f4d68515 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_2eb3f6e8
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x81B6FC75
 		Offset: 0x460
 		Size: 0x30
@@ -59,7 +59,7 @@ class class_f4d68515 : class_6aaccc24
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0xB732F866
 		Offset: 0x3C0
 		Size: 0x1C
@@ -68,12 +68,12 @@ class class_f4d68515 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("initial_black");
+		cLUIelem::function_5c1bb138("initial_black");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x4DC96E5A
 		Offset: 0x368
 		Size: 0x4C
@@ -82,13 +82,13 @@ class class_f4d68515 : class_6aaccc24
 	*/
 	function setup_clientfields(var_e303eae1)
 	{
-		namespace_6aaccc24::setup_clientfields("initial_black");
-		namespace_6aaccc24::function_da693cbe("developer_mode", 1, 1, "int", var_e303eae1);
+		cLUIelem::setup_clientfields("initial_black");
+		cLUIelem::function_da693cbe("developer_mode", 1, 1, "int", var_e303eae1);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x8024995A
 		Offset: 0x3E8
 		Size: 0x40
@@ -97,7 +97,7 @@ class class_f4d68515 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "developer_mode", 0);
 	}
 
@@ -130,7 +130,7 @@ function private autoexec function_fa3581f()
 */
 function register(var_e303eae1)
 {
-	elem = new class_f4d68515();
+	elem = new cinitial_black();
 	[[ elem ]]->setup_clientfields(var_e303eae1);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -162,7 +162,7 @@ function register(var_e303eae1)
 */
 function function_5c1bb138()
 {
-	elem = new class_f4d68515();
+	elem = new cinitial_black();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

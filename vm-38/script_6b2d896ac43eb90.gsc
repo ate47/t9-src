@@ -2,13 +2,13 @@
 #using script_1287f54612f9bfce;
 #using script_215d7818c548cb51;
 #using script_348ce871561476c9;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3ddf84b7bb3bf47d;
 #using script_55b68e9c3e3a915b;
 #using script_5a8a1aa32dea1a04;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5fb26eef020f9958;
-#using script_613bf3e46dacdcfc;
+#using scripts\killstreaks\zm\chopper_gunner.gsc;
 #using script_6155d71e1c9a57eb;
 #using script_669400ff5aadcc83;
 #using script_799de24f8ad427f7;

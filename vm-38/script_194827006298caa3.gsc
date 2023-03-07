@@ -2,7 +2,7 @@
 #using script_215d7818c548cb51;
 #using script_27347f09888ad15;
 #using script_3411bb48d41bd3b;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

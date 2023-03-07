@@ -1185,7 +1185,7 @@ function init_debug_center_screen()
 			}
 			else
 			{
-				level notify(#"hash_63054d2b7dcb7739");
+				level notify(#"stop center screen debug");
 				if(zero_idle_movement == 1)
 				{
 					setdvar(#"zero_idle_movement", 0);
@@ -1212,7 +1212,7 @@ function debug_center_screen()
 		level.var_7929a046 = 1;
 		wait(0.1);
 		level.var_f9f04b00 debug_center_screen::open(level.players[0], 1);
-		level waittill(#"hash_63054d2b7dcb7739");
+		level waittill(#"stop center screen debug");
 		level.var_f9f04b00 debug_center_screen::close(level.players[0]);
 		level.var_7929a046 = 0;
 	#/

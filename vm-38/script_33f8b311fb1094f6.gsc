@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_302a48fc : class_6aaccc24
+class class_302a48fc : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_302a48fc : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_302a48fc : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("vip_notify_text");
+		cLUIelem::function_5c1bb138("vip_notify_text");
 	}
 
 	/*
@@ -66,15 +66,15 @@ class class_302a48fc : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function setup_clientfields(var_42fe6185, var_af074abc)
+	function setup_clientfields(var_42fe6185, alphacallback)
 	{
-		namespace_6aaccc24::setup_clientfields("vip_notify_text");
-		namespace_6aaccc24::function_dcb34c80("string", "vipmessage", 1);
-		namespace_6aaccc24::function_da693cbe("alpha", 1, 8, "float", var_af074abc);
+		cLUIelem::setup_clientfields("vip_notify_text");
+		cLUIelem::function_dcb34c80("string", "vipmessage", 1);
+		cLUIelem::function_da693cbe("alpha", 1, 8, "float", alphacallback);
 	}
 
 	/*
-		Name: function_aa5c711d
+		Name: set_alpha
 		Namespace: namespace_302a48fc
 		Checksum: 0x335075BD
 		Offset: 0x548
@@ -82,7 +82,7 @@ class class_302a48fc : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_aa5c711d(localclientnum, value)
+	function set_alpha(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", value);
 	}
@@ -112,7 +112,7 @@ class class_302a48fc : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "vipmessage", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", 0);
 	}
@@ -144,10 +144,10 @@ function private autoexec function_b0d0cb22()
 	Parameters: 2
 	Flags: None
 */
-function register(var_42fe6185, var_af074abc)
+function register(var_42fe6185, alphacallback)
 {
 	elem = new class_302a48fc();
-	[[ elem ]]->setup_clientfields(var_42fe6185, var_af074abc);
+	[[ elem ]]->setup_clientfields(var_42fe6185, alphacallback);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -240,7 +240,7 @@ function function_d01a102c(localclientnum, value)
 }
 
 /*
-	Name: function_aa5c711d
+	Name: set_alpha
 	Namespace: vip_notify_text
 	Checksum: 0xC9C6C398
 	Offset: 0x368
@@ -248,8 +248,8 @@ function function_d01a102c(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_aa5c711d(localclientnum, value)
+function set_alpha(localclientnum, value)
 {
-	[[ self ]]->function_aa5c711d(localclientnum, value);
+	[[ self ]]->set_alpha(localclientnum, value);
 }
 

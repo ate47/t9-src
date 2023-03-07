@@ -4,11 +4,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\core_common\vehicle_shared.csc;
 
-#namespace namespace_b1fabd77;
+#namespace player_heavy_helicopter;
 
 /*
 	Name: function_4f503578
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x63ACF70
 	Offset: 0xF0
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_4f503578()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x455710DF
 	Offset: 0x110
 	Size: 0x44
@@ -31,12 +31,12 @@ function private autoexec function_4f503578()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_755cb45f3199fa30", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_heavy_helicopter", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x7D2E1A7B
 	Offset: 0x160
 	Size: 0xC4
@@ -52,7 +52,7 @@ function private function_70a657d8(localclientnum)
 
 /*
 	Name: function_8220feb0
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0xC842E3AA
 	Offset: 0x230
 	Size: 0xC
@@ -65,7 +65,7 @@ function private function_8220feb0(localclientnum)
 
 /*
 	Name: function_44ad5e3e
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x57200726
 	Offset: 0x248
 	Size: 0xCC
@@ -89,7 +89,7 @@ function function_44ad5e3e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: hind_compass_icon
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x3EC2EFFF
 	Offset: 0x320
 	Size: 0x112

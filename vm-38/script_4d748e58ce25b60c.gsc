@@ -22,7 +22,7 @@
 #using script_6b6510e124bad778;
 #using script_74a56359b7d02ab6;
 #using script_774302f762d76254;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using script_f38dc50f0e82277;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

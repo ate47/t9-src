@@ -1,5 +1,5 @@
 #using script_221cb3c0b91a347a;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_b9d273dc917ee1f;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -584,9 +584,9 @@ function function_28594421()
 */
 function function_ed634081(params)
 {
-	if(isplayer(params.eattacker) && self.archetype === #"hash_7c09b683edfb0e96")
+	if(isplayer(params.eattacker) && self.archetype === #"abom")
 	{
-		if(isdefined(level.var_307ccdbc) && self == level.var_307ccdbc)
+		if(isdefined(level.ai_abomination) && self == level.ai_abomination)
 		{
 			return;
 		}
@@ -713,7 +713,7 @@ function function_5df7275b()
 function function_cd7a3de4()
 {
 	/#
-		util::function_345e5b9a("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

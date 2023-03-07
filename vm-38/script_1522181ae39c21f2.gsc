@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_b1fabd77;
+#namespace player_heavy_helicopter;
 
 /*
 	Name: function_5447665f
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x59C9FB0A
 	Offset: 0x100
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_5447665f()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x455710DF
 	Offset: 0x120
 	Size: 0x44
@@ -31,12 +31,12 @@ function private autoexec function_5447665f()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_755cb45f3199fa30", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_heavy_helicopter", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0xC2876FE
 	Offset: 0x170
 	Size: 0x11C
@@ -55,7 +55,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_8220feb0
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0xE4D760C7
 	Offset: 0x298
 	Size: 0x24
@@ -70,7 +70,7 @@ function private function_8220feb0()
 
 /*
 	Name: function_8f37f11
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0xB3C51CCE
 	Offset: 0x2C8
 	Size: 0xBC
@@ -96,7 +96,7 @@ function function_8f37f11(params)
 
 /*
 	Name: function_1ec626d7
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x6CFAB6E3
 	Offset: 0x390
 	Size: 0x44
@@ -111,7 +111,7 @@ function function_1ec626d7(params)
 
 /*
 	Name: change_seat
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0x984B62D9
 	Offset: 0x3E0
 	Size: 0xD4
@@ -138,7 +138,7 @@ function change_seat(params)
 
 /*
 	Name: update_compass_icon
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0xCC8BE3BC
 	Offset: 0x4C0
 	Size: 0xF4
@@ -165,7 +165,7 @@ function update_compass_icon()
 
 /*
 	Name: function_6ffe1aa7
-	Namespace: namespace_b1fabd77
+	Namespace: player_heavy_helicopter
 	Checksum: 0xDB89D221
 	Offset: 0x5C0
 	Size: 0xC4

@@ -1,6 +1,6 @@
 #using script_35b5ff21c2a0960f;
 #using script_4266a5d281c65453;
-#using script_79a7e1c31a3e8cc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\cp_common\challenges.gsc;

@@ -1495,7 +1495,7 @@ function function_9cb5b8e0()
 	while(isdefined(self))
 	{
 		var_ae7a2103 = (isplayer(self.var_1ff8de20) ? self.var_1ff8de20 : self);
-		level.var_ff482f76 zm_laststand_client::function_d50fdde9(var_ae7a2103, var_d3e5d819 / revivetime);
+		level.var_ff482f76 zm_laststand_client::set_revive_progress(var_ae7a2103, var_d3e5d819 / revivetime);
 		if(isdefined(var_ae7a2103.var_57b374b4))
 		{
 			objective_setprogress(var_ae7a2103.var_57b374b4, var_d3e5d819 / revivetime);

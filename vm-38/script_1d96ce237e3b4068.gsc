@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_37d61ee3 : class_6aaccc24
+class class_37d61ee3 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_37d61ee3 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_37d61ee3 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("lui_plane_mortar");
+		cLUIelem::function_5c1bb138("lui_plane_mortar");
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_37d61ee3 : class_6aaccc24
 	*/
 	function setup_clientfields(var_828e1f01, var_a9fceeac)
 	{
-		namespace_6aaccc24::setup_clientfields("lui_plane_mortar");
+		cLUIelem::setup_clientfields("lui_plane_mortar");
 	}
 
 	/*
@@ -110,7 +110,7 @@ class class_37d61ee3 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "selectorIndex", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "selectorsAvailable", 0);
 	}

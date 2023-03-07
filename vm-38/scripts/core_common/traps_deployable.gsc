@@ -1,5 +1,5 @@
-#using script_123facbef9b63a62;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\trapd.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -1235,23 +1235,23 @@ function watcher_init(var_3af54106)
 		type = var_3af54106.m_type;
 		if(type == "claymore")
 		{
-			var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &namespace_9bf1b425::function_ae7e49da, 0);
+			var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &trapd::function_ae7e49da, 0);
 		}
 		else
 		{
 			if(type == "flash_disruptor")
 			{
-				var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &namespace_9bf1b425::function_d8d3b49b, 0);
+				var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &trapd::function_d8d3b49b, 0);
 			}
 			else
 			{
 				if(type == "fire_bomb")
 				{
-					var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &namespace_9bf1b425::function_518130e, 0);
+					var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &trapd::function_518130e, 0);
 				}
 				else
 				{
-					var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &namespace_9bf1b425::function_1daa29fc, 0);
+					var_c98531e5 = owner weaponobjects::function_9d7ae85f(var_c29551e1, &trapd::function_1daa29fc, 0);
 				}
 			}
 		}

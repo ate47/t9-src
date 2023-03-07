@@ -1,7 +1,7 @@
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_256b8879317373de;
 #using script_3d703ef87a841fe4;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_45fdb6cec5580007;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

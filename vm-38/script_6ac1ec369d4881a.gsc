@@ -1,5 +1,5 @@
 #using script_383a3b1bb18ba876;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
@@ -48,7 +48,7 @@ function private autoexec function_89f2df9()
 */
 function init_shared()
 {
-	killstreaks::function_e4ef8390("weapon_armor", &use_armor);
+	killstreaks::register_killstreak("weapon_armor", &use_armor);
 	callback::on_player_killed(&on_player_killed);
 }
 

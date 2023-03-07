@@ -2,7 +2,7 @@
 #using script_3b334409f11762b8;
 #using script_61828ad9e71c6616;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7475f917e6d3bed9;
 #using script_7bdcff4f92f3d220;
 #using scripts\core_common\clientfield_shared.gsc;

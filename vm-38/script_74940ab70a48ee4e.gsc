@@ -36,7 +36,7 @@ function function_901ca209(state, text, desc)
 	}
 	if(isdefined(text))
 	{
-		namespace_61e6d095::function_d5ea17f0(#"hash_767355dc5e1cddfb", text);
+		namespace_61e6d095::set_text(#"hash_767355dc5e1cddfb", text);
 	}
 	if(isdefined(desc))
 	{

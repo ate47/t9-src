@@ -1,7 +1,7 @@
 #using script_1029986e2bc8ca8e;
 #using script_1cf46b33555422b7;
-#using script_3e25b5e703601101;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm\zm_tungsten.gsc;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_7bacb32f8222fa3e;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -75,9 +75,9 @@ function init_clientfields()
 */
 function function_ec9e5cf2()
 {
-	level namespace_ee206246::register(#"hash_11d6906cf162270f", #"open_door", #"hash_346a14cdb51a5ad2", &function_3e0af5bf, &function_d75885b9);
-	level namespace_ee206246::register(#"hash_11d6906cf162270f", #"hash_4589490bb9502447", #"hash_346a13cdb51a591f", &function_53c64c7d, &function_bb997270);
-	level namespace_ee206246::register(#"hash_11d6906cf162270f", #"hash_6b85b8caee97658f", #"hash_346a12cdb51a576c", &function_6d459f8c, &function_6c07d63);
+	level zm_sq::register(#"hash_11d6906cf162270f", #"open_door", #"hash_346a14cdb51a5ad2", &function_3e0af5bf, &function_d75885b9);
+	level zm_sq::register(#"hash_11d6906cf162270f", #"hash_4589490bb9502447", #"hash_346a13cdb51a591f", &function_53c64c7d, &function_bb997270);
+	level zm_sq::register(#"hash_11d6906cf162270f", #"hash_6b85b8caee97658f", #"hash_346a12cdb51a576c", &function_6d459f8c, &function_6c07d63);
 	if(!zm_utility::function_e51dc2d8())
 	{
 		return;
@@ -96,7 +96,7 @@ function function_ec9e5cf2()
 */
 function private function_2abef8da()
 {
-	level namespace_ee206246::start(#"hash_11d6906cf162270f", 1);
+	level zm_sq::start(#"hash_11d6906cf162270f", 1);
 }
 
 /*
@@ -185,7 +185,7 @@ function function_f71a8c71()
 */
 function function_75460593(e_player)
 {
-	if(!e_player flag::get(#"hash_467e4279ccacfd8a") && !e_player flag::get(#"hash_56cc1795fa5f8e21") && !namespace_96b7f11d::function_1fd1da2b(0))
+	if(!e_player flag::get(#"hash_467e4279ccacfd8a") && !e_player flag::get(#"hash_56cc1795fa5f8e21") && !zm_tungsten::function_1fd1da2b(0))
 	{
 		return true;
 	}
@@ -278,11 +278,11 @@ function function_51989322(n_time)
 function function_626741e8(n_time)
 {
 	level.var_55fd9380 luielemtext::open(self, 1);
-	level.var_55fd9380 luielemtext::function_d5ea17f0(self, #"hash_5f906edd77fa8485");
+	level.var_55fd9380 luielemtext::set_text(self, #"hash_5f906edd77fa8485");
 	level.var_55fd9380 luielemtext::function_f97e9049(self, 50, 550);
 	level.var_55fd9380 luielemtext::set_color(self, 1, 1, 1);
-	level.var_55fd9380 luielemtext::function_aa5c711d(self, 1);
-	level.var_55fd9380 luielemtext::function_1bd2bb26(self, 1);
+	level.var_55fd9380 luielemtext::set_alpha(self, 1);
+	level.var_55fd9380 luielemtext::set_horizontal_alignment(self, 1);
 	self thread objective_manager::function_b8278876(n_time, "pizza_delivery");
 }
 
@@ -800,8 +800,8 @@ function function_6c07d63(var_a276c861, var_19e802fa)
 function function_c72df2e9()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

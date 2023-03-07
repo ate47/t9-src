@@ -2,7 +2,7 @@
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
 #using script_4a81c26d2ddde9c;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -57,7 +57,7 @@ function private function_70a657d8()
 	{
 		bundlename = bundlename + "_wz";
 	}
-	killstreaks::function_e4ef8390(bundlename, &usekillstreakplanemortar);
+	killstreaks::register_killstreak(bundlename, &usekillstreakplanemortar);
 	level.plane_mortar_bda_dialog = &plane_mortar_bda_dialog;
 	level.planeawardscoreevent = &planeawardscoreevent;
 	level.var_269fec2 = &function_269fec2;

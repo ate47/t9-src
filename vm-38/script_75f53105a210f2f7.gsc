@@ -48,11 +48,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_293a2fd65ffe0222", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_293a2fd65ffe0222", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_901adecc
 	Checksum: 0x35A59A22
 	Offset: 0x150
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	foreach(player in getplayers())
 	{
@@ -69,7 +69,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_901adecc
 	Checksum: 0xAEFA5855
 	Offset: 0x1F0
@@ -77,7 +77,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{

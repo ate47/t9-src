@@ -1,15 +1,15 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_399c912938783695;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_melee_weapon.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_ea4e2c95;
+#namespace zm_weap_bowie;
 
 /*
 	Name: function_feb1e7c4
-	Namespace: namespace_ea4e2c95
+	Namespace: zm_weap_bowie
 	Checksum: 0x46E6BCBC
 	Offset: 0x130
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_feb1e7c4()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_ea4e2c95
+	Namespace: zm_weap_bowie
 	Checksum: 0x3A903798
 	Offset: 0x150
 	Size: 0x4C
@@ -37,7 +37,7 @@ function private autoexec function_89f2df9()
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_ea4e2c95
+	Namespace: zm_weap_bowie
 	Checksum: 0x13231BF0
 	Offset: 0x1A8
 	Size: 0x24
@@ -51,7 +51,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_8ac3bea9
-	Namespace: namespace_ea4e2c95
+	Namespace: zm_weap_bowie
 	Checksum: 0x40A7711F
 	Offset: 0x1D8
 	Size: 0x15C
@@ -80,12 +80,12 @@ function private function_8ac3bea9()
 	}
 	zm_melee_weapon::init(level.var_8e4168e9, level.var_63af3e00, cost, "bowie_upgrade", prompt, "bowie", undefined);
 	zm_melee_weapon::set_fallback_weapon(level.var_8e4168e9, var_57858dd5);
-	level.var_1c0d76f8 = getweapon(hash(level.var_8e4168e9));
+	level.w_bowie_knife = getweapon(hash(level.var_8e4168e9));
 }
 
 /*
 	Name: init
-	Namespace: namespace_ea4e2c95
+	Namespace: zm_weap_bowie
 	Checksum: 0x80F724D1
 	Offset: 0x340
 	Size: 0x4

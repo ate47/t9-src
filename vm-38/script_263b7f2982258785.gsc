@@ -77,7 +77,7 @@ function function_47b06180()
 		return;
 	}
 	self util::function_f78e220a();
-	self notify(#"hash_5d02e24cebf138cb");
+	self notify(#"cancel speaking");
 }
 
 /*

@@ -734,7 +734,7 @@ function defend_start(instance, activator)
 		wait(5);
 		foreach(player in getplayers())
 		{
-			level.var_31028c5d prototype_hud::function_953da284(player, #"hash_237b8c297f7c5730");
+			level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_237b8c297f7c5730");
 			level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 		}
 	}
@@ -883,7 +883,7 @@ function function_57cc3128()
 	self endon(#"hash_69090774fec4a17b");
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_4546417366cc7a50");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_4546417366cc7a50");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 	var_4a416ea9 = self.var_4a416ea9;

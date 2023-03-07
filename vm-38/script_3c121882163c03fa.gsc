@@ -1,4 +1,4 @@
-#using script_1bcc1f64e8b3929c;
+#using scripts\weapons\grenades.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace grenades;

@@ -1,4 +1,4 @@
-#using script_3469488e46c579c6;
+#using scripts\weapons\ballistic_knife.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace ballistic_knife;

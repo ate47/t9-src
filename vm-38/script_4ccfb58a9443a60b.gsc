@@ -11,7 +11,7 @@
 #using script_7bacb32f8222fa3e;
 #using script_7d7ac1f663edcdc8;
 #using script_7fc996fe8678852;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -652,7 +652,7 @@ function function_52df229a(itemname, amount, var_75766173)
 		{
 			self notify(#"hash_4506f189fa360331");
 		}
-		var_fa3df96 = self namespace_b376ff3f::function_e66dcff5(item);
+		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
 			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
@@ -672,7 +672,7 @@ function function_52df229a(itemname, amount, var_75766173)
 			{
 				if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767)
 				{
-					self namespace_b376ff3f::function_418f9eb8(self.inventory.items[var_fa3df96].var_bd027dd9);
+					self item_inventory::function_418f9eb8(self.inventory.items[var_fa3df96].var_bd027dd9);
 					item_world::function_de2018e3(item, self, var_fa3df96);
 				}
 				else
@@ -684,7 +684,7 @@ function function_52df229a(itemname, amount, var_75766173)
 			{
 				if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767 && self.inventory.items[var_fa3df96].var_a6762160.name != item.var_a6762160.name)
 				{
-					self namespace_b376ff3f::function_418f9eb8(self.inventory.items[var_fa3df96].var_bd027dd9);
+					self item_inventory::function_418f9eb8(self.inventory.items[var_fa3df96].var_bd027dd9);
 					item_world::function_de2018e3(item, self, var_fa3df96);
 				}
 				else
@@ -726,15 +726,15 @@ function function_ff9ddbfa(itemname, var_738dfc81)
 				{
 					if(isdefined(var_a6762160))
 					{
-						var_b619c089 = self namespace_b376ff3f::function_8babc9f9(var_a6762160);
+						inventoryitem = self item_inventory::function_8babc9f9(var_a6762160);
 					}
-					if(isdefined(var_b619c089))
+					if(isdefined(inventoryitem))
 					{
-						self namespace_b376ff3f::function_c8bedf1b(var_b619c089);
+						self item_inventory::equip_equipment(inventoryitem);
 					}
 					continue;
 				}
-				self namespace_b376ff3f::function_fba40e6c(dropitem);
+				self item_inventory::function_fba40e6c(dropitem);
 			}
 		}
 	}

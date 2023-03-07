@@ -1,5 +1,5 @@
 #using script_2cb831533cab2794;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -984,7 +984,7 @@ function show_hint_text(text, show_for_time, font_scale, ypos)
 	{
 		level.zm_hint_text zm_hint_text::open(self);
 	}
-	level.zm_hint_text zm_hint_text::function_d5ea17f0(self, font_scale);
+	level.zm_hint_text zm_hint_text::set_text(self, font_scale);
 	level.zm_hint_text zm_hint_text::set_state(self, #"visible");
 	time = undefined;
 	time = self waittilltimeout(ypos, #"hide_equipment_hint_text", #"death", #"disconnect");

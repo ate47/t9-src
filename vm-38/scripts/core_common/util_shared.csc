@@ -2481,7 +2481,7 @@ function is_safehouse(str_next_map)
 {
 	if(!isdefined(str_next_map))
 	{
-		str_next_map = function_53bbf9d2();
+		str_next_map = get_map_name();
 	}
 	return false;
 }
@@ -3007,7 +3007,7 @@ function function_5df4294()
 }
 
 /*
-	Name: function_53bbf9d2
+	Name: get_map_name
 	Namespace: util
 	Checksum: 0x36A43738
 	Offset: 0x5440
@@ -3015,7 +3015,7 @@ function function_5df4294()
 	Parameters: 0
 	Flags: Linked
 */
-function function_53bbf9d2()
+function get_map_name()
 {
 	return tolower(getdvarstring(#"hash_3b7b241b78207c96"));
 }
@@ -3031,7 +3031,7 @@ function function_53bbf9d2()
 */
 function function_3f165ee8()
 {
-	return function_53bbf9d2() === "core_frontend";
+	return get_map_name() === "core_frontend";
 }
 
 /*
@@ -3046,10 +3046,10 @@ function function_3f165ee8()
 function function_26489405()
 {
 	isnightmap = 0;
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	switch(mapname)
 	{
-		case "hash_623073ec102c587a":
+		case "mp_casino":
 		{
 			isnightmap = 1;
 			break;

@@ -12,7 +12,7 @@
 #using script_66e55245f6b76298;
 #using script_6971dbf38c33bf47;
 #using script_727042a075af51b7;
-#using script_730b372fb9c41b81;
+#using scripts\weapons\zm\weaponobjects.csc;
 #using scripts\core_common\clientfaceanim_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;

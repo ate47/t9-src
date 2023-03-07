@@ -6,7 +6,7 @@
 #using script_335d0650ed05d36d;
 #using script_3fda550bc6e1089a;
 #using script_47fb62300ac0bd60;
-#using script_57c900a7e39234be;
+#using scripts\killstreaks\airsupport.gsc;
 #using script_68d2ee1489345a1d;
 #using script_788472602edbe3b9;
 #using scripts\core_common\animation_shared.gsc;
@@ -81,7 +81,7 @@ event main(eventstruct)
 	level.var_43c00bc2 = int((150 * (isdefined(getgametypesetting(#"hash_2f20d4c9b96c51a2")) ? getgametypesetting(#"hash_2f20d4c9b96c51a2") : 1)) + 0.5);
 	level.onstartgametype = &onstartgametype;
 	level.onspawnplayer = &onspawnplayer;
-	level.var_f6d301b = &function_f6d301b;
+	level.onendround = &onendround;
 	level.onroundswitch = &onroundswitch;
 	level.ondeadevent = &ondeadevent;
 	level.ononeleftevent = &ononeleftevent;
@@ -93,11 +93,11 @@ event main(eventstruct)
 	player::function_cf3aa03d(&onplayerkilled);
 	callback::on_connect(&onconnect);
 	callback::on_disconnect(&ondisconnect);
-	callback::on_spawned(&function_590c4630);
+	callback::on_spawned(&onspawned);
 	callback::function_98a0917d(&function_98a0917d);
 	spawning::addsupportedspawnpointtype("vip");
-	namespace_674e6435::function_367cfa1b(&function_95002a59);
-	namespace_674e6435::function_eb8c0e47(&function_114f1da7);
+	laststand_mp::function_367cfa1b(&function_95002a59);
+	laststand_mp::function_eb8c0e47(&function_114f1da7);
 	level.var_34842a14 = 1;
 	level.var_ce802423 = 1;
 	clientfield::function_5b7d846d("hudItems.war.attackingTeam", 1, 2, "int");
@@ -134,7 +134,7 @@ function onstartgametype()
 		[[level._setteamscore]](#"axis", game.stat[#"roundswon"][#"axis"]);
 	}
 	function_5bc7928d();
-	namespace_674e6435::function_414115a0(level.laststandtimer, level.laststandhealth);
+	laststand_mp::function_414115a0(level.laststandtimer, level.laststandhealth);
 }
 
 /*
@@ -187,7 +187,7 @@ function function_36f8016e(winning_team, var_c1e98979)
 }
 
 /*
-	Name: function_f6d301b
+	Name: onendround
 	Namespace: vip
 	Checksum: 0x6BE449A7
 	Offset: 0xF10
@@ -195,7 +195,7 @@ function function_36f8016e(winning_team, var_c1e98979)
 	Parameters: 1
 	Flags: None
 */
-function function_f6d301b(var_c1e98979)
+function onendround(var_c1e98979)
 {
 	if(isdefined(level.vip))
 	{
@@ -245,7 +245,7 @@ function onspawnplayer(predictedspawn)
 }
 
 /*
-	Name: function_590c4630
+	Name: onspawned
 	Namespace: vip
 	Checksum: 0x9E4C4679
 	Offset: 0x1068
@@ -253,7 +253,7 @@ function onspawnplayer(predictedspawn)
 	Parameters: 0
 	Flags: None
 */
-function function_590c4630()
+function onspawned()
 {
 	var_59fb30b2 = self.pers[#"hash_629f4666af73d943"];
 	current_role = self getspecialistindex();
@@ -355,7 +355,7 @@ function onplayerdamage(einflictor, eattacker, idamage, idflags, smeansofdeath, 
 */
 function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime, deathanimduration)
 {
-	if(isdefined(self) && isdefined(psoffsettime) && isplayer(psoffsettime) && psoffsettime != self && psoffsettime.team != self.team && !psoffsettime namespace_674e6435::is_cheating())
+	if(isdefined(self) && isdefined(psoffsettime) && isplayer(psoffsettime) && psoffsettime != self && psoffsettime.team != self.team && !psoffsettime laststand_mp::is_cheating())
 	{
 		var_ff9338bb = (level.playercount[self.team] * level.numlives) - level.deaths[self.team];
 		if(var_ff9338bb === 0)
@@ -1026,11 +1026,11 @@ function function_95ab03ff(primary, var_6834562f, secondary, var_90030ba7, prima
 	}
 	else
 	{
-		var_43d69af6 = getweapon(#"bare_hands");
-		self giveweapon(var_43d69af6);
-		self setweaponammoclip(var_43d69af6, 0);
-		self setblockweaponpickup(var_43d69af6, 1);
-		self loadout::function_442539("primary", var_43d69af6);
+		nullprimary = getweapon(#"bare_hands");
+		self giveweapon(nullprimary);
+		self setweaponammoclip(nullprimary, 0);
+		self setblockweaponpickup(nullprimary, 1);
+		self loadout::function_442539("primary", nullprimary);
 	}
 	if(isdefined(secondary))
 	{
@@ -1055,11 +1055,11 @@ function function_95ab03ff(primary, var_6834562f, secondary, var_90030ba7, prima
 	}
 	else
 	{
-		var_b5867a38 = getweapon(#"bare_hands");
-		self giveweapon(var_b5867a38);
-		self setweaponammoclip(var_b5867a38, 0);
-		self setblockweaponpickup(var_b5867a38, 1);
-		self loadout::function_442539("secondary", var_b5867a38);
+		nullsecondary = getweapon(#"bare_hands");
+		self giveweapon(nullsecondary);
+		self setweaponammoclip(nullsecondary, 0);
+		self setblockweaponpickup(nullsecondary, 1);
+		self loadout::function_442539("secondary", nullsecondary);
 	}
 	if(isdefined(primarygrenade))
 	{
@@ -1304,7 +1304,7 @@ function private function_95002a59(attacker, victim, inflictor, weapon, meansofd
 	{
 		weapon.pers[#"downs"] = (isdefined(weapon.pers[#"downs"]) ? weapon.pers[#"downs"] : 0) + 1;
 		weapon.downs = weapon.pers[#"downs"];
-		if(isplayer(weapon) && util::function_fbce7263(weapon.team, self.team) && !weapon namespace_674e6435::is_cheating())
+		if(isplayer(weapon) && util::function_fbce7263(weapon.team, self.team) && !weapon laststand_mp::is_cheating())
 		{
 			if(self === level.vip)
 			{
@@ -1373,7 +1373,7 @@ function private function_114f1da7(revivee, reviver)
 {
 	reviver.pers[#"revives"] = (isdefined(reviver.pers[#"revives"]) ? reviver.pers[#"revives"] : 0) + 1;
 	reviver.revives = reviver.pers[#"revives"];
-	if(!reviver namespace_674e6435::is_cheating())
+	if(!reviver laststand_mp::is_cheating())
 	{
 		if(revivee === level.vip)
 		{
@@ -1416,7 +1416,7 @@ function function_419acee4()
 	{
 		if(self function_cf8de58d())
 		{
-			self namespace_674e6435::bleed_out();
+			self laststand_mp::bleed_out();
 			return;
 		}
 		waitframe(1);

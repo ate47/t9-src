@@ -1,4 +1,4 @@
-#using script_65d4fc42e5e94766;
+#using scripts\wz_common\spawn.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\death_circle.gsc;

@@ -4,7 +4,7 @@
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using script_788472602edbe3b9;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -68,7 +68,7 @@ event main(eventstruct)
 	level.var_e7b05b51 = 0;
 	level.onstartgametype = &onstartgametype;
 	level.givecustomloadout = &givecustomloadout;
-	level.var_f6d301b = &function_f6d301b;
+	level.onendround = &onendround;
 	level.ononeleftevent = &ononeleftevent;
 	level.ondeadevent = &ondeadevent;
 	level.ontimelimit = &ontimelimit;
@@ -86,7 +86,7 @@ event main(eventstruct)
 	clientfield::register("allplayers", "gunfight_pregame_rob", 9000, 1, "int");
 	callback::function_98a0917d(&function_5a3c682d);
 	callback::on_connect(&onconnect);
-	callback::on_spawned(&function_590c4630);
+	callback::on_spawned(&onspawned);
 	callback::function_c11071a8(&function_86513cd0);
 	player::function_cf3aa03d(&onplayerkilled);
 	callback::on_disconnect(&ondisconnect);
@@ -277,7 +277,7 @@ function onconnect()
 }
 
 /*
-	Name: function_590c4630
+	Name: onspawned
 	Namespace: gunfight
 	Checksum: 0xB05BF344
 	Offset: 0x11F8
@@ -285,7 +285,7 @@ function onconnect()
 	Parameters: 0
 	Flags: None
 */
-function function_590c4630()
+function onspawned()
 {
 	if(game.state == #"pregame")
 	{
@@ -369,7 +369,7 @@ function ondeadevent(team)
 }
 
 /*
-	Name: function_f6d301b
+	Name: onendround
 	Namespace: gunfight
 	Checksum: 0xA76CEC89
 	Offset: 0x1438
@@ -377,7 +377,7 @@ function ondeadevent(team)
 	Parameters: 1
 	Flags: None
 */
-function function_f6d301b(var_c1e98979)
+function onendround(var_c1e98979)
 {
 	globallogic_score::function_9779ac61();
 	if(isdefined(level.var_5ecd2f9f) && level.var_5ecd2f9f !== 0 && ((util::getroundsplayed() + 1) % level.var_5ecd2f9f) == 0)
@@ -615,10 +615,10 @@ function giveweapons(loadout)
 	}
 	else
 	{
-		var_43d69af6 = getweapon(#"bare_hands");
-		self giveweapon(var_43d69af6);
-		self setweaponammoclip(var_43d69af6, 0);
-		self loadout::function_442539("primary", var_43d69af6);
+		nullprimary = getweapon(#"bare_hands");
+		self giveweapon(nullprimary);
+		self setweaponammoclip(nullprimary, 0);
+		self loadout::function_442539("primary", nullprimary);
 	}
 	var_7aa66b2b = function_d98e2783(loadout, "secondary");
 	secondaryweapon = var_7aa66b2b.weapon;
@@ -635,10 +635,10 @@ function giveweapons(loadout)
 	}
 	else
 	{
-		var_b5867a38 = getweapon(#"bare_hands");
-		self giveweapon(var_b5867a38);
-		self setweaponammoclip(var_b5867a38, 0);
-		self loadout::function_442539("secondary", var_b5867a38);
+		nullsecondary = getweapon(#"bare_hands");
+		self giveweapon(nullsecondary);
+		self setweaponammoclip(nullsecondary, 0);
+		self loadout::function_442539("secondary", nullsecondary);
 	}
 	firstround = util::isfirstround();
 	primarygrenade = loadout.primarygrenade;

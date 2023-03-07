@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\system_shared.gsc;
 
@@ -49,11 +49,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_45ef12aaa7c1d585", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_45ef12aaa7c1d585", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_7b1a5a90
 	Checksum: 0x4C4788AE
 	Offset: 0x148
@@ -61,7 +61,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(var_e38c7612, var_2d4ba9d4)
+function private on_begin(var_e38c7612, var_2d4ba9d4)
 {
 	self.var_e38c7612 = zm_trial::function_5769f26a(var_e38c7612);
 	self.var_2d4ba9d4 = isdefined(var_2d4ba9d4);
@@ -72,7 +72,7 @@ function private function_d1de6a85(var_e38c7612, var_2d4ba9d4)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_7b1a5a90
 	Checksum: 0x9EBF5CCE
 	Offset: 0x220
@@ -80,7 +80,7 @@ function private function_d1de6a85(var_e38c7612, var_2d4ba9d4)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset)
 	{
@@ -100,7 +100,7 @@ function private function_9e7b3f4d(round_reset)
 				var_696c3b4[var_696c3b4.size] = player;
 			}
 			player.var_167bc422 = undefined;
-			player namespace_b22c99a5::function_f3aacffb();
+			player zm_trial_util::function_f3aacffb();
 		}
 		if(var_696c3b4.size)
 		{
@@ -151,12 +151,12 @@ function private function_e4c3443c(s_challenge)
 		{
 			if(!is_true(self.var_167bc422) && self.score < s_challenge.var_e38c7612)
 			{
-				self namespace_b22c99a5::function_63060af4(1);
+				self zm_trial_util::function_63060af4(1);
 				self.var_167bc422 = 1;
 			}
 			else if(is_true(self.var_167bc422) && self.score >= s_challenge.var_e38c7612)
 			{
-				self namespace_b22c99a5::function_63060af4(0);
+				self zm_trial_util::function_63060af4(0);
 				self.var_167bc422 = undefined;
 			}
 		}
@@ -164,12 +164,12 @@ function private function_e4c3443c(s_challenge)
 		{
 			if(!is_true(self.var_167bc422) && self.score >= s_challenge.var_e38c7612)
 			{
-				self namespace_b22c99a5::function_63060af4(1);
+				self zm_trial_util::function_63060af4(1);
 				self.var_167bc422 = 1;
 			}
 			else if(is_true(self.var_167bc422) && self.score < s_challenge.var_e38c7612)
 			{
-				self namespace_b22c99a5::function_63060af4(0);
+				self zm_trial_util::function_63060af4(0);
 				self.var_167bc422 = undefined;
 			}
 		}

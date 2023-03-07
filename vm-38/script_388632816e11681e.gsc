@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_5c7b7dcc : class_6aaccc24
+class class_5c7b7dcc : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_5c7b7dcc : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class class_5c7b7dcc : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -89,8 +89,8 @@ class class_5c7b7dcc : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("mp_infect_timer");
-		namespace_6aaccc24::function_da693cbe("infectionTimeRemaining", 1, 4, "int", 0);
+		cLUIelem::setup_clientfields("mp_infect_timer");
+		cLUIelem::function_da693cbe("infectionTimeRemaining", 1, 4, "int", 0);
 	}
 
 }

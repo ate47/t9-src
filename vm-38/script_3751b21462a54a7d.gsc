@@ -387,7 +387,7 @@ function function_3fecad82(talent, var_6e2cc6cb)
 		self.var_7341f980[self.var_7341f980.size] = talent;
 	}
 	self function_a173ab53();
-	self namespace_b376ff3f::function_9f438f15();
+	self item_inventory::function_9f438f15();
 	if(isdefined(level.var_fcb9f1fb) && isdefined(level.var_fcb9f1fb[talent]))
 	{
 		self [[level.var_fcb9f1fb[talent]]]();
@@ -672,7 +672,7 @@ function function_4c1d0e25(perk, var_b2d43592, var_cd9efd85)
 	{
 		arrayremovevalue(self.var_7341f980, perk);
 		self function_a173ab53();
-		self namespace_b376ff3f::function_9f438f15();
+		self item_inventory::function_9f438f15();
 		var_3dab8681 = namespace_e86ffa8::function_cde018a9(perk);
 		if(isdefined(level._custom_perks[var_3dab8681]) && isdefined(level._custom_perks[var_3dab8681].clientfield_set))
 		{

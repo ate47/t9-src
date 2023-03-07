@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using script_47fb62300ac0bd60;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -89,14 +89,14 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(listening_device, var_dbd1a594)
+function function_bff5c062(listening_device, attackingplayer)
 {
 	var_f3ab6571 = listening_device.owner weaponobjects::function_8481fc06(listening_device.weapon) > 1;
 	listening_device.owner thread globallogic_audio::function_a2cde53d(listening_device.weapon, var_f3ab6571);
-	listening_device.team = var_dbd1a594.team;
-	listening_device setteam(var_dbd1a594.team);
-	listening_device.owner = var_dbd1a594;
-	listening_device setowner(var_dbd1a594);
+	listening_device.team = attackingplayer.team;
+	listening_device setteam(attackingplayer.team);
+	listening_device.owner = attackingplayer;
+	listening_device setowner(attackingplayer);
 	if(isdefined(listening_device) && isdefined(level.var_f1edf93f))
 	{
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
@@ -106,7 +106,7 @@ function function_bff5c062(listening_device, var_dbd1a594)
 			listening_device thread weaponobjects::weapon_object_timeout(listening_device.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
-	listening_device thread weaponobjects::function_6d8aa6a0(var_dbd1a594, listening_device.var_2d045452);
+	listening_device thread weaponobjects::function_6d8aa6a0(attackingplayer, listening_device.var_2d045452);
 	listening_device clientfield::increment("listening_device_hacked");
 }
 

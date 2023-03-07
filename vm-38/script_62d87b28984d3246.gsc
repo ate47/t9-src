@@ -40,7 +40,7 @@ function create(message, var_400e244b, pulse, endons)
 		self endoncallback(&remove, endons);
 	}
 	namespace_61e6d095::create(#"hash_71bae6f32cec8a8e", #"hash_6e2caf9e3aa6b810");
-	namespace_61e6d095::function_d5ea17f0(#"hash_71bae6f32cec8a8e", message);
+	namespace_61e6d095::set_text(#"hash_71bae6f32cec8a8e", message);
 	namespace_61e6d095::set_state(#"hash_71bae6f32cec8a8e", #"defaultstate");
 	if(is_true(pulse))
 	{
@@ -65,7 +65,7 @@ function create(message, var_400e244b, pulse, endons)
 }
 
 /*
-	Name: function_cd1b9801
+	Name: set_message
 	Namespace: namespace_aa1fe617
 	Checksum: 0x91309EDF
 	Offset: 0x2C0
@@ -73,11 +73,11 @@ function create(message, var_400e244b, pulse, endons)
 	Parameters: 1
 	Flags: None
 */
-function function_cd1b9801(message)
+function set_message(message)
 {
 	if(namespace_61e6d095::exists(#"hash_71bae6f32cec8a8e"))
 	{
-		namespace_61e6d095::function_d5ea17f0(#"hash_71bae6f32cec8a8e", message);
+		namespace_61e6d095::set_text(#"hash_71bae6f32cec8a8e", message);
 	}
 }
 

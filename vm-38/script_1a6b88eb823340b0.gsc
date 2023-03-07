@@ -75,7 +75,7 @@ event function_b4174270(eventstruct)
 		return;
 	}
 	weapon = self getcurrentweapon();
-	item = namespace_b376ff3f::function_230ceec4(weapon);
+	item = item_inventory::function_230ceec4(weapon);
 	if(item.var_a6762160.var_b079a6e6 === #"ammomod_electriccherry")
 	{
 		self function_aa4171b9();

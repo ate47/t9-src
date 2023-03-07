@@ -1,11 +1,11 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_2a13cc4e;
+#namespace mission_shared;
 
 /*
 	Name: function_a8117988
-	Namespace: namespace_2a13cc4e
+	Namespace: mission_shared
 	Checksum: 0xB757AEEE
 	Offset: 0x98
 	Size: 0x14

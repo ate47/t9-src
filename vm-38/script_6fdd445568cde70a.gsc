@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_b201538a : class_6aaccc24
+class class_b201538a : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_b201538a : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_b201538a : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("cp_test_journalist1_uni_download_hack_luielem");
+		cLUIelem::function_5c1bb138("cp_test_journalist1_uni_download_hack_luielem");
 	}
 
 	/*
@@ -68,9 +68,9 @@ class class_b201538a : class_6aaccc24
 	*/
 	function setup_clientfields(var_fff52af4)
 	{
-		namespace_6aaccc24::setup_clientfields("cp_test_journalist1_uni_download_hack_luielem");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("download_progress", 1, 7, "float", var_fff52af4);
+		cLUIelem::setup_clientfields("cp_test_journalist1_uni_download_hack_luielem");
+		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::function_da693cbe("download_progress", 1, 7, "float", var_fff52af4);
 	}
 
 	/*
@@ -137,7 +137,7 @@ class class_b201538a : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "download_progress", 0);
 	}

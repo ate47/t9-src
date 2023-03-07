@@ -48,11 +48,11 @@ function function_d6863a3(inflictor, attacker, meansofdeath, weapon, aat, item)
 	}
 	if(!isdefined(element) && isdefined(item))
 	{
-		if(isplayer(player) && isdefined(weapon) && !namespace_b376ff3f::function_4d426f94(weapon))
+		if(isplayer(player) && isdefined(weapon) && !item_inventory::function_4d426f94(weapon))
 		{
 			if(!isdefined(item))
 			{
-				item = player namespace_b376ff3f::function_230ceec4(weapon);
+				item = player item_inventory::function_230ceec4(weapon);
 			}
 			if(isdefined(item.var_e91aba42))
 			{

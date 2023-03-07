@@ -1,5 +1,5 @@
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -58,11 +58,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5b4dc34d166627cb", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5b4dc34d166627cb", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_ca28d1aa
 	Checksum: 0x35CC2513
 	Offset: 0x200
@@ -70,7 +70,7 @@ function private function_70a657d8()
 	Parameters: 5
 	Flags: Private
 */
-function private function_d1de6a85(var_ed49e96e, var_ea5e88ac, str_return, var_c728f1dd, var_aed178c2)
+function private on_begin(var_ed49e96e, var_ea5e88ac, str_return, var_c728f1dd, var_aed178c2)
 {
 	callback::add_callback(#"hash_137b937fd26992be", &function_ff66b979);
 	level flag::set(#"infinite_round_spawning");
@@ -85,7 +85,7 @@ function private function_d1de6a85(var_ed49e96e, var_ea5e88ac, str_return, var_c
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_ca28d1aa
 	Checksum: 0x3E5CAA24
 	Offset: 0x330
@@ -93,7 +93,7 @@ function private function_d1de6a85(var_ed49e96e, var_ea5e88ac, str_return, var_c
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::remove_callback(#"hash_137b937fd26992be", &function_ff66b979);
 	arrayremovevalue(level.var_2bb6b2ba, undefined);
@@ -302,9 +302,9 @@ function private start_timer(n_timeout, str_return)
 	if(!level.var_f995ece6 zm_trial_timer::is_open(self))
 	{
 		level.var_f995ece6 zm_trial_timer::open(self);
-		level.var_f995ece6 zm_trial_timer::function_8ede8e82(self, str_return);
-		level.var_f995ece6 zm_trial_timer::function_6ad54036(self, 1);
-		self namespace_b22c99a5::start_timer(n_timeout);
+		level.var_f995ece6 zm_trial_timer::set_timer_text(self, str_return);
+		level.var_f995ece6 zm_trial_timer::set_under_round_rules(self, 1);
+		self zm_trial_util::start_timer(n_timeout);
 		self playsoundtoplayer(#"hash_18aab7ffde259877", self);
 	}
 }
@@ -323,7 +323,7 @@ function private stop_timer()
 	if(level.var_f995ece6 zm_trial_timer::is_open(self))
 	{
 		level.var_f995ece6 zm_trial_timer::close(self);
-		self namespace_b22c99a5::stop_timer();
+		self zm_trial_util::stop_timer();
 	}
 }
 

@@ -1,6 +1,6 @@
 #using script_1c65dbfc2f1c8d8f;
 #using script_34ab99a4ca1a43d;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_7bacb32f8222fa3e;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -77,19 +77,19 @@ function init_clientfields()
 */
 function function_6269d18d()
 {
-	level namespace_ee206246::register(#"hash_4eb39d839fbac7e", #"step_1", #"hash_d0aa01e75614761", &function_4149847c, &function_3247ec3e);
-	level namespace_ee206246::register(#"hash_4eb39d839fbac7e", #"step_2", #"hash_d0a9d1e75614248", &function_c7791763, &function_9c0a486d);
-	level namespace_ee206246::register(#"hash_697a1a564cb9f416", #"step_1", #"hash_191c8fc93172aae9", &function_386e50d5, &function_414aa194);
-	level namespace_ee206246::register(#"hash_697a1a564cb9f416", #"step_2", #"hash_191c8cc93172a5d0", &function_9b1a3790, &function_3001616b);
-	level namespace_ee206246::register(#"hash_44e5b04ef86ac1ee", #"step_1", #"hash_7e5758f68b89e171", &function_fcc5783b, &function_2de111f5);
-	level namespace_ee206246::register(#"hash_44e5b04ef86ac1ee", #"step_2", #"hash_7e5755f68b89dc58", &function_ca6685bb, &function_ee09dd4e);
+	level zm_sq::register(#"hash_4eb39d839fbac7e", #"step_1", #"hash_d0aa01e75614761", &function_4149847c, &function_3247ec3e);
+	level zm_sq::register(#"hash_4eb39d839fbac7e", #"step_2", #"hash_d0a9d1e75614248", &function_c7791763, &function_9c0a486d);
+	level zm_sq::register(#"hash_697a1a564cb9f416", #"step_1", #"hash_191c8fc93172aae9", &function_386e50d5, &function_414aa194);
+	level zm_sq::register(#"hash_697a1a564cb9f416", #"step_2", #"hash_191c8cc93172a5d0", &function_9b1a3790, &function_3001616b);
+	level zm_sq::register(#"hash_44e5b04ef86ac1ee", #"step_1", #"hash_7e5758f68b89e171", &function_fcc5783b, &function_2de111f5);
+	level zm_sq::register(#"hash_44e5b04ef86ac1ee", #"step_2", #"hash_7e5755f68b89dc58", &function_ca6685bb, &function_ee09dd4e);
 	if(!zm_utility::function_e51dc2d8())
 	{
 		return;
 	}
-	level namespace_ee206246::start(#"hash_4eb39d839fbac7e", 1);
-	level namespace_ee206246::start(#"hash_697a1a564cb9f416", 1);
-	level namespace_ee206246::start(#"hash_44e5b04ef86ac1ee", 1);
+	level zm_sq::start(#"hash_4eb39d839fbac7e", 1);
+	level zm_sq::start(#"hash_697a1a564cb9f416", 1);
+	level zm_sq::start(#"hash_44e5b04ef86ac1ee", 1);
 	/#
 		level thread function_c7f6ffbe();
 	#/
@@ -373,12 +373,12 @@ function function_3018008e(e_player, e_trigger)
 function function_31183ec4(e_player, var_b3dbe6aa)
 {
 	w_current_weapon = e_player getcurrentweapon();
-	var_2e1f34dd = e_player namespace_b376ff3f::function_230ceec4(w_current_weapon);
+	e_item = e_player item_inventory::function_230ceec4(w_current_weapon);
 	if(isdefined(e_player))
 	{
-		if(isdefined(var_2e1f34dd.var_a6762160.rarity))
+		if(isdefined(e_item.var_a6762160.rarity))
 		{
-			switch(var_2e1f34dd.var_a6762160.rarity)
+			switch(e_item.var_a6762160.rarity)
 			{
 				case "legendary":
 				{
@@ -616,11 +616,11 @@ function function_9af0ace6(str_weapon_type)
 function function_c7f6ffbe()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&devgui_cmd);
 	#/
 }

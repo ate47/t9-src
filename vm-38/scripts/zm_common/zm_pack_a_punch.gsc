@@ -1,13 +1,13 @@
 #using script_1254ac024174d9c0;
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_301f64a4090c381a;
 #using script_47fb62300ac0bd60;
-#using script_5b18db57724ff7be;
+#using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
 #using script_6e3c826b1814cab6;
 #using script_7f6cd71c43c45c57;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1351,8 +1351,8 @@ function private function_f0fe4bae(s_unitrigger_stub)
 			s_unitrigger_stub.var_59f1d079 = 1;
 		}
 		self notify(#"hash_12922c9c5f12df1", {#w_current:original_weapon});
-		var_64d58696 = namespace_b376ff3f::function_230ceec4(self.currentweapon);
-		self thread namespace_b376ff3f::function_5852cb7b(var_64d58696.var_bd027dd9);
+		weaponitem = item_inventory::function_230ceec4(self.currentweapon);
+		self thread item_inventory::function_5852cb7b(weaponitem.var_bd027dd9);
 	}
 	if(!is_true(self.intermission) && !is_true(self.is_drinking))
 	{

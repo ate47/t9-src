@@ -470,7 +470,7 @@ function function_ded2880a(localclientnum)
 	/#
 		util::init_dvar(#"hash_42041dee5640342d", "", &function_fd0c6ab2);
 		util::init_dvar(#"hash_472c425964c7d41e", "", &function_fd0c6ab2);
-		var_3132e3d3 = util::function_53bbf9d2();
+		var_3132e3d3 = util::get_map_name();
 		var_65679637 = getscriptbundlenames("");
 		foreach(var_d5fa8477 in var_65679637)
 		{

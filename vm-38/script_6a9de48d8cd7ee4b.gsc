@@ -243,7 +243,7 @@ function private function_10b50848()
 			return;
 		}
 		println("");
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		world_items = function_99216e10(mapname);
 		count = 0;
 		item_count = 0;
@@ -364,7 +364,7 @@ function private function_b6ea080()
 			return;
 		}
 		println("");
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		world_items = function_99216e10(mapname);
 		count = 0;
 		item_count = 0;
@@ -481,7 +481,7 @@ function private function_b6ea080()
 function private function_938d798a()
 {
 	/#
-		str_filename = util::function_53bbf9d2() + "";
+		str_filename = util::get_map_name() + "";
 		file = openfile(str_filename, "");
 		if(file == -1)
 		{
@@ -1887,7 +1887,7 @@ function private function_44b9dd1d()
 		{
 			waitframe(1);
 		}
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand("");
 		adddebugcommand("");
 		adddebugcommand(("" + mapname) + "");

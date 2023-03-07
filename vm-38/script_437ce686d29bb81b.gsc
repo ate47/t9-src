@@ -257,7 +257,7 @@ function function_f859a82d(player)
 			continue;
 		}
 		weapon_index = var_3c6fcb66;
-		item = player namespace_b376ff3f::function_230ceec4(weapon);
+		item = player item_inventory::function_230ceec4(weapon);
 		weapon_name = "";
 		if(isdefined(item.var_a8bccf69))
 		{
@@ -682,11 +682,11 @@ function function_642cc595(player)
 	player takeallweapons();
 	util::wait_network_frame();
 	player.specialty = [];
-	var_43d69af6 = getweapon(#"null_offhand_primary");
-	player giveweapon(var_43d69af6);
-	player setweaponammoclip(var_43d69af6, 0);
-	player switchtooffhand(var_43d69af6);
-	while(!player hasweapon(var_43d69af6))
+	nullprimary = getweapon(#"null_offhand_primary");
+	player giveweapon(nullprimary);
+	player setweaponammoclip(nullprimary, 0);
+	player switchtooffhand(nullprimary);
+	while(!player hasweapon(nullprimary))
 	{
 		waitframe(1);
 	}
@@ -908,7 +908,7 @@ function function_7695efd4(player, index, var_d17eb4df)
 			}
 		#/
 		item.var_a8bccf69 = var_a8bccf69;
-		player namespace_b376ff3f::function_d92c6b5b(item.var_627c698b, undefined, var_a8bccf69);
+		player item_inventory::function_d92c6b5b(item.var_627c698b, undefined, var_a8bccf69);
 	}
 	if(isdefined(item.var_627c698b) && is_true(lastequipped))
 	{
@@ -1061,7 +1061,7 @@ function function_897f280a(params)
 function set_player_equipment(equipment_name, count)
 {
 	item = function_4ba8fde(equipment_name);
-	slot = self namespace_b376ff3f::function_e66dcff5(item, 1);
+	slot = self item_inventory::function_e66dcff5(item, 1);
 	item.count = count;
 	item_world::function_de2018e3(item, self, slot);
 }

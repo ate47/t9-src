@@ -1,4 +1,4 @@
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace namespace_b7964db5;
@@ -46,7 +46,7 @@ function __init__()
 {
 	if(!sessionmodeiscampaigngame() && !sessionmodeiszombiesgame())
 	{
-		killstreaks::function_e4ef8390("killstreak_ray_gun", &killstreaks::function_fc82c544);
+		killstreaks::register_killstreak("killstreak_ray_gun", &killstreaks::function_fc82c544);
 	}
 }
 

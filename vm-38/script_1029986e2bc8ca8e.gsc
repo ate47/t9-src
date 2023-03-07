@@ -2,7 +2,7 @@
 #using script_193d6fcd3b319d05;
 #using script_1cc417743d7c262d;
 #using script_5961deb533dad533;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7d7ac1f663edcdc8;
 #using script_7fc996fe8678852;
 #using scripts\core_common\array_shared.gsc;
@@ -904,7 +904,7 @@ function private function_fa47c63e(scriptname)
 */
 function private function_dc7dedf9()
 {
-	level thread function_fbb3a986(&prototype_hud::function_cbcd8e48);
+	level thread function_fbb3a986(&prototype_hud::set_fanfare_visibility);
 }
 
 /*
@@ -918,7 +918,7 @@ function private function_dc7dedf9()
 */
 function private function_cad28879()
 {
-	level thread function_fbb3a986(&prototype_hud::function_1f1846cf);
+	level thread function_fbb3a986(&prototype_hud::set_fail_fanfare_visibility);
 }
 
 /*
@@ -1037,11 +1037,11 @@ function private function_10ad6cbc(var_d16872ed, xpos, ypos, n_width, end_notify
 		self.var_1948045d[n_num] = var_d16872ed;
 		self.var_1948045d[n_num] luielembar::open(self);
 		self.var_1948045d[n_num] luielembar::set_color(self, 0, 1, 0);
-		self.var_1948045d[n_num] luielembar::function_aa5c711d(self, 1);
-		self.var_1948045d[n_num] luielembar::function_8b0b5811(self, n_width);
-		self.var_1948045d[n_num] luielembar::function_5dbd7024(self, 4);
+		self.var_1948045d[n_num] luielembar::set_alpha(self, 1);
+		self.var_1948045d[n_num] luielembar::set_width(self, n_width);
+		self.var_1948045d[n_num] luielembar::set_height(self, 4);
 		self.var_1948045d[n_num] luielembar::function_f97e9049(self, xpos, ypos);
-		self.var_1948045d[n_num] luielembar::function_fd8c13fb(self, var_f00ef145);
+		self.var_1948045d[n_num] luielembar::set_bar_percent(self, var_f00ef145);
 	}
 	else
 	{
@@ -1049,11 +1049,11 @@ function private function_10ad6cbc(var_d16872ed, xpos, ypos, n_width, end_notify
 		self.var_c088c2dd = var_d16872ed;
 		self.var_c088c2dd luielembar::open(self);
 		self.var_c088c2dd luielembar::set_color(self, 0, 1, 0);
-		self.var_c088c2dd luielembar::function_aa5c711d(self, 1);
-		self.var_c088c2dd luielembar::function_8b0b5811(self, n_width);
-		self.var_c088c2dd luielembar::function_5dbd7024(self, 4);
+		self.var_c088c2dd luielembar::set_alpha(self, 1);
+		self.var_c088c2dd luielembar::set_width(self, n_width);
+		self.var_c088c2dd luielembar::set_height(self, 4);
 		self.var_c088c2dd luielembar::function_f97e9049(self, xpos, ypos);
-		self.var_c088c2dd luielembar::function_fd8c13fb(self, var_f00ef145);
+		self.var_c088c2dd luielembar::set_bar_percent(self, var_f00ef145);
 	}
 }
 
@@ -1103,11 +1103,11 @@ function private function_b4cb0c5c(n_frac, n_num)
 {
 	if(isdefined(n_num) && isdefined(self.var_1948045d))
 	{
-		self.var_1948045d[n_num] luielembar::function_fd8c13fb(self, n_frac);
+		self.var_1948045d[n_num] luielembar::set_bar_percent(self, n_frac);
 	}
 	else if(isdefined(self.var_c088c2dd) && isdefined(self.var_c088c2dd))
 	{
-		self.var_c088c2dd luielembar::function_fd8c13fb(self, n_frac);
+		self.var_c088c2dd luielembar::set_bar_percent(self, n_frac);
 		struct = self.var_f7a745;
 		if(n_frac <= 0.5 && n_frac > 0.33 && !is_true(struct.var_c33e8b6b))
 		{

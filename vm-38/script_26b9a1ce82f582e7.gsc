@@ -5,11 +5,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_dff38fd8;
+#namespace player_pbr;
 
 /*
 	Name: function_aa22e29e
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0xEA71D341
 	Offset: 0xF0
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_aa22e29e()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x7B41510B
 	Offset: 0x110
 	Size: 0x44
@@ -32,12 +32,12 @@ function private autoexec function_aa22e29e()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_5899c013879294b7", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_pbr", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0xB3947D77
 	Offset: 0x160
 	Size: 0x54
@@ -52,7 +52,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_cc0af45d
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x182ACA3B
 	Offset: 0x1C0
 	Size: 0x184
@@ -77,7 +77,7 @@ function private function_cc0af45d()
 
 /*
 	Name: function_b61c27bb
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x268D5339
 	Offset: 0x350
 	Size: 0x234
@@ -116,7 +116,7 @@ function private function_b61c27bb(einflictor, eattacker, idamage, idflags, smea
 
 /*
 	Name: function_b65217f6
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0xE8D28302
 	Offset: 0x590
 	Size: 0x84
@@ -140,7 +140,7 @@ function function_b65217f6(params)
 
 /*
 	Name: function_674b9c5b
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0xF2B19884
 	Offset: 0x620
 	Size: 0x5C
@@ -159,7 +159,7 @@ function function_674b9c5b(params)
 
 /*
 	Name: function_f2626e5f
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x9746CCC6
 	Offset: 0x688
 	Size: 0x84
@@ -186,7 +186,7 @@ function function_f2626e5f(params)
 
 /*
 	Name: function_ca11d4c2
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x228224A4
 	Offset: 0x718
 	Size: 0xB4
@@ -212,7 +212,7 @@ function private function_ca11d4c2(params)
 
 /*
 	Name: function_eb39313f
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x43C4136A
 	Offset: 0x7D8
 	Size: 0x3C
@@ -230,7 +230,7 @@ function function_eb39313f(player)
 
 /*
 	Name: function_77fbc7d9
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x2BE2B8A
 	Offset: 0x820
 	Size: 0x30
@@ -248,7 +248,7 @@ function function_77fbc7d9(player)
 
 /*
 	Name: function_53f7a11f
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0xCA23B0D
 	Offset: 0x858
 	Size: 0x236
@@ -299,7 +299,7 @@ function function_53f7a11f(player)
 
 /*
 	Name: function_786eff5d
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x793A969D
 	Offset: 0xA98
 	Size: 0x104

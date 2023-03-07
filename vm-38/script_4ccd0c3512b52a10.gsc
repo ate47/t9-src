@@ -450,7 +450,7 @@ function function_f3ac479c(obj_id)
 }
 
 /*
-	Name: function_affe8f61
+	Name: set_progress
 	Namespace: namespace_96850e69
 	Checksum: 0xF4A76A4
 	Offset: 0xFB0
@@ -458,7 +458,7 @@ function function_f3ac479c(obj_id)
 	Parameters: 2
 	Flags: Linked
 */
-function function_affe8f61(obj_id, progress)
+function set_progress(obj_id, progress)
 {
 	globallogic_ui::function_8954fa13("_DataSources.cp_objectives_list", obj_id, "progress", progress);
 }

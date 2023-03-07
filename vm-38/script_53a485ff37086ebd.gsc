@@ -5,10 +5,10 @@
 #using script_34ab99a4ca1a43d;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6196bd4e1ff26cc0;
 #using script_67ce8e728d8f37ba;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -81,7 +81,7 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
+	level._round_start_func = &zm_round_logic::round_start;
 	level.round_wait_func = &function_b982cd4d;
 	level.func_get_delay_between_rounds = &function_271fd5ed;
 	level.var_54d9d726 = 2;
@@ -98,7 +98,7 @@ event main(eventstruct)
 	level thread intro_cinematic();
 	level thread function_8e58680e();
 	callback::function_74872db6(&function_74872db6);
-	callback::function_189f87c1(&function_189f87c1);
+	callback::on_round_end(&on_round_end);
 	callback::add_callback(#"hash_3b7d3ed9e484ef72", &give_match_bonus);
 	callback::on_spawned(&on_player_spawn);
 	callback::on_actor_killed(&on_zombie_killed);
@@ -434,7 +434,7 @@ function function_b03d7dd0(round)
 }
 
 /*
-	Name: function_189f87c1
+	Name: on_round_end
 	Namespace: namespace_ec502488
 	Checksum: 0x369DBEBE
 	Offset: 0x12A0
@@ -442,7 +442,7 @@ function function_b03d7dd0(round)
 	Parameters: 0
 	Flags: None
 */
-function function_189f87c1()
+function on_round_end()
 {
 	playsoundatposition(#"hash_409b69424385812a", (0, 0, 0));
 	var_370ac26d = zm::function_d3113f01().var_bd588afd;

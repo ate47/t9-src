@@ -319,7 +319,7 @@ function function_3172cf59(player, newscore, weapon, var_10d67c1a)
 	}
 	recordplayerstats(newscore, "score", weapon);
 	newscore stats::function_bb7eedf0(#"score", scorediff);
-	newscore stats::function_bb7eedf0(#"hash_2b53b624764a0a41", scorediff);
+	newscore stats::function_bb7eedf0(#"score_core", scorediff);
 	newscore.score_total = newscore.score_total + scorediff;
 	pixendevent();
 }

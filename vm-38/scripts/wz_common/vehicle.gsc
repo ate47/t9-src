@@ -19,11 +19,11 @@ function private autoexec function_1622f082()
 	level notify(963480644);
 }
 
-#namespace namespace_964fbfb5;
+#namespace wz_vehicle;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_964fbfb5
+	Namespace: wz_vehicle
 	Checksum: 0x7E59B10F
 	Offset: 0xC0
 	Size: 0x3C
@@ -37,7 +37,7 @@ function private autoexec function_89f2df9()
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_964fbfb5
+	Namespace: wz_vehicle
 	Checksum: 0xFF8A97A7
 	Offset: 0x108
 	Size: 0xBC
@@ -56,7 +56,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_f565cb50
-	Namespace: namespace_964fbfb5
+	Namespace: wz_vehicle
 	Checksum: 0x11B973A9
 	Offset: 0x1D0
 	Size: 0x1C
@@ -70,7 +70,7 @@ function function_f565cb50()
 
 /*
 	Name: function_8307577f
-	Namespace: namespace_964fbfb5
+	Namespace: wz_vehicle
 	Checksum: 0xF6943C1E
 	Offset: 0x1F8
 	Size: 0xA4
@@ -90,7 +90,7 @@ function function_8307577f(params)
 
 /*
 	Name: function_6bcb016d
-	Namespace: namespace_964fbfb5
+	Namespace: wz_vehicle
 	Checksum: 0xE6F510C2
 	Offset: 0x2A8
 	Size: 0xC4

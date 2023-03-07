@@ -1,4 +1,4 @@
-#using script_3c362258ff800237;
+#using scripts\zm_common\zm_trial.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -54,11 +54,11 @@ function private function_70a657d8()
 	level._effect[#"hash_351debe7af1f588b"] = "maps/zm_escape/fx8_flame_wall_64x64";
 	level._effect[#"hash_257bf4ae70b5a852"] = "maps/zm_escape/fx8_flame_wall_128x128";
 	level._effect[#"hash_3ea271ae7eb7fdce"] = "maps/zm_escape/fx8_flame_wall_256x256";
-	zm_trial::register_challenge(#"hash_6f720e698e84015d", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_6f720e698e84015d", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_6f53a9bb
 	Checksum: 0x7D308FAA
 	Offset: 0x2A8
@@ -66,12 +66,12 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(localclientnum, a_params)
+function private on_begin(localclientnum, a_params)
 {
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_6f53a9bb
 	Checksum: 0xCED05788
 	Offset: 0x2C8
@@ -79,7 +79,7 @@ function private function_d1de6a85(localclientnum, a_params)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(localclientnum)
+function private on_end(localclientnum)
 {
 }
 

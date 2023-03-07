@@ -1,10 +1,10 @@
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_b906365e;
+#namespace vehicle_drivable_shared;
 
 /*
 	Name: function_8e91efa4
-	Namespace: namespace_b906365e
+	Namespace: vehicle_drivable_shared
 	Checksum: 0x68D95DE
 	Offset: 0x78
 	Size: 0x14

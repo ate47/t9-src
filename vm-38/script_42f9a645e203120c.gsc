@@ -1,5 +1,5 @@
 #using script_4108035fe400ce67;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\death_circle.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -272,11 +272,11 @@ function private function_35e11623(current_origin, var_c5a0bed8, previous_origin
 	if(isdefined(level.var_cc310d06))
 	{
 		var_2e20127d = [];
-		foreach(var_48ad08f5 in level.var_2da60c10)
+		foreach(homunculus in level.var_2da60c10)
 		{
-			if(isdefined(var_48ad08f5) && function_3703bc36(var_48ad08f5, previous_origin, var_7c597200))
+			if(isdefined(homunculus) && function_3703bc36(homunculus, previous_origin, var_7c597200))
 			{
-				var_2e20127d[var_2e20127d.size] = var_48ad08f5;
+				var_2e20127d[var_2e20127d.size] = homunculus;
 			}
 		}
 		for(index = 0; index < var_2e20127d.size; index++)

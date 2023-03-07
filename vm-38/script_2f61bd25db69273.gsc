@@ -41,7 +41,7 @@ function autoexec __init__()
 			function_e5d1b704();
 			break;
 		}
-		case "hash_2a8c6a2ad775902a":
+		case "fireteam_elimination":
 		{
 			function_574dc51f();
 			break;

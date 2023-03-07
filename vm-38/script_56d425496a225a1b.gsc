@@ -1,14 +1,14 @@
 #using script_1d1a97b78f64bfd;
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_383a3b1bb18ba876;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_4a03c204316cf33;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -65,7 +65,7 @@ function init_shared()
 		{
 			bundlename = bundlename + "_zm";
 		}
-		killstreaks::function_e4ef8390(bundlename, &activateturret);
+		killstreaks::register_killstreak(bundlename, &activateturret);
 		killstreaks::function_d8c32ca4("ultimate_turret", &function_a385666);
 		clientfield::register("vehicle", "ultimate_turret_open", 1, 1, "int");
 		clientfield::register("vehicle", "ultimate_turret_init", 1, 1, "int");
@@ -161,7 +161,7 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_127fb8f3(turret, var_dbd1a594)
+function function_127fb8f3(turret, attackingplayer)
 {
 	if(isalive(turret))
 	{
@@ -177,7 +177,7 @@ function function_127fb8f3(turret, var_dbd1a594)
 			}
 			if(isdefined(level.var_1794f85f))
 			{
-				[[level.var_1794f85f]](var_dbd1a594, "disrupted_sentry");
+				[[level.var_1794f85f]](attackingplayer, "disrupted_sentry");
 			}
 			turret clientfield::set("enemyvehicle", 0);
 		}
@@ -213,17 +213,17 @@ function function_4dc2eebb(stunned)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(turret, var_dbd1a594)
+function function_bff5c062(turret, attackingplayer)
 {
 	turret function_3a9dddac();
 	if(isdefined(turret.turret))
 	{
 		turret.owner weaponobjects::hackerremoveweapon(turret.turret);
 	}
-	turret.owner = var_dbd1a594;
-	turret.team = var_dbd1a594.team;
-	turret setowner(var_dbd1a594);
-	turret setteam(var_dbd1a594.team);
+	turret.owner = attackingplayer;
+	turret.team = attackingplayer.team;
+	turret setowner(attackingplayer);
+	turret setteam(attackingplayer.team);
 	turret.isjammed = 0;
 	if(turret.classname == "script_vehicle")
 	{

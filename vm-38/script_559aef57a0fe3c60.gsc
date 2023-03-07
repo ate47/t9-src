@@ -48,11 +48,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_5507dc3
 	Checksum: 0xA39E73E6
 	Offset: 0x188
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	level thread function_afe4a356();
 }
@@ -88,7 +88,7 @@ function function_afe4a356()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_5507dc3
 	Checksum: 0xEF944908
 	Offset: 0x2C8
@@ -96,7 +96,7 @@ function function_afe4a356()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level clientfield::set_world_uimodel("ZMHudGlobal.trials.hudDeactivated", 0);
 	level.var_dc60105c = undefined;

@@ -1025,14 +1025,14 @@ function function_a2015343(str_skipto)
 	level.adler = spawners[0] spawner::spawn(1);
 	level.adler val::set(#"airfield", "ignoreall", 1);
 	level thread util::magic_bullet_shield(level.adler);
-	var_7e4a7b32 = getweapon(#"ar_accurate_t9");
-	level.adler namespace_c25eb016::function_65d14a19(var_7e4a7b32);
+	a_ar = getweapon(#"ar_accurate_t9");
+	level.adler namespace_c25eb016::function_65d14a19(a_ar);
 	spawners = getspawnerarray("af_woods", "targetname");
 	level.woods = spawners[0] spawner::spawn(1);
 	level.woods val::set(#"airfield", "ignoreall", 1);
 	level.woods util::magic_bullet_shield(level.woods);
-	var_7e4a7b32 = getweapon("ar_accurate_t9");
-	level.woods namespace_c25eb016::function_65d14a19(var_7e4a7b32);
+	a_ar = getweapon("ar_accurate_t9");
+	level.woods namespace_c25eb016::function_65d14a19(a_ar);
 	level.adler.forcegoal = 1;
 	level.adler.fixednode = 1;
 	level.adler.radius = 50;

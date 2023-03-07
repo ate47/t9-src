@@ -1,10 +1,10 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_58c342edd81589fb;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6021ce59143452c3;
-#using script_6c5b51f98cd04fa3;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_sq.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -323,7 +323,7 @@ function oh_shit_vox()
 					}
 					if(self != e_player && sighttracepassed(self.origin + vectorscale((0, 0, 1), 30), e_player.origin + vectorscale((0, 0, 1), 30), 0, undefined))
 					{
-						e_player create_and_play_dialog(#"surrounded", #"hash_2cfacc18d3ecb7ad" + self zm_vo::function_82f9bc9f());
+						e_player create_and_play_dialog(#"surrounded", #"see_" + self zm_vo::function_82f9bc9f());
 						continue;
 					}
 				}
@@ -786,7 +786,7 @@ function function_350fc8cc(weapon, zombie, mod, player)
 					{
 					}
 				}
-				case "hash_2605a6745df58840":
+				case "ww_freezegun_t8":
 				{
 					if(zombie.archetype === #"zombie_dog")
 					{
@@ -812,10 +812,10 @@ function function_350fc8cc(weapon, zombie, mod, player)
 		}
 		switch(zombie.damageweapon.name)
 		{
-			case "hash_10f614b278daaebc":
+			case "homunculus":
 			case "cymbal_monkey":
 			{
-				str_weapon = #"hash_10f614b278daaebc";
+				str_weapon = #"homunculus";
 				break;
 			}
 			case "bowie_knife_story_1":
@@ -825,7 +825,7 @@ function function_350fc8cc(weapon, zombie, mod, player)
 				str_weapon = #"melee";
 				break;
 			}
-			case "hash_3882e337d28ec4df":
+			case "special_ballisticknife_t8_dw_upgraded":
 			case "special_ballisticknife_t8_dw":
 			{
 				str_weapon = #"ballistic";
@@ -837,7 +837,7 @@ function function_350fc8cc(weapon, zombie, mod, player)
 				break;
 			}
 			case "hash_c78156ba6aeda14":
-			case "hash_23dd6039fe2f36c6":
+			case "molotov_fire":
 			case "hash_308049a67e5afecf":
 			case "hash_55a4aa4a1077e2cc":
 			case "eq_molotov":
@@ -3108,7 +3108,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"specialty_phdflopper", #"hash_7b66342b9cdb1b0d");
 		sndannouncervoxadd(#"hash_37aa3a5919757781", #"hash_4b9e2835c9165954");
 		sndannouncervoxadd(#"specialty_shield", #"hash_21a6409eae2b8aa9");
-		sndannouncervoxadd(#"hash_5706909bc1db0f85", #"hash_4fb2d077e5dcb19c");
+		sndannouncervoxadd(#"specialty_awareness", #"hash_4fb2d077e5dcb19c");
 		sndannouncervoxadd(#"specialty_extraammo", #"hash_52fd3e1c86fae905");
 		sndannouncervoxadd(#"hash_210097a75bb6c49a", #"hash_7d9ebc736dc5c25d");
 		sndannouncervoxadd(#"hash_7f98b3dd3cce95aa", #"hash_7a34372ef3e6346a");
@@ -3136,15 +3136,15 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"hash_1e0175fdcfa89dbb", #"hash_445a8d6ac36b6ce4");
 		sndannouncervoxadd(#"player_respawn", #"hash_2c7fcf9c80b61898");
 		sndannouncervoxadd(#"hash_5dea50269df90336", #"hash_12d38add4b1b4225");
-		sndannouncervoxadd(#"hash_41990254d567065a", #"hash_75115605ce26435f");
-		sndannouncervoxadd(#"hash_41990354d567080d", #"hash_75115505ce2641ac");
-		sndannouncervoxadd(#"hash_4198f454d566ee90", #"hash_75115c05ce264d91");
-		sndannouncervoxadd(#"hash_4198f554d566f043", #"hash_75115b05ce264bde");
-		sndannouncervoxadd(#"hash_4198f654d566f1f6", #"hash_75115a05ce264a2b");
-		sndannouncervoxadd(#"hash_4198f754d566f3a9", #"hash_75115905ce264878");
-		sndannouncervoxadd(#"hash_4198f854d566f55c", #"hash_75116005ce26545d");
-		sndannouncervoxadd(#"hash_4198f954d566f70f", #"hash_75115f05ce2652aa");
-		sndannouncervoxadd(#"hash_4198fa54d566f8c2", #"hash_75115e05ce2650f7");
+		sndannouncervoxadd(#"timer_9", #"hash_75115605ce26435f");
+		sndannouncervoxadd(#"timer_8", #"hash_75115505ce2641ac");
+		sndannouncervoxadd(#"timer_7", #"hash_75115c05ce264d91");
+		sndannouncervoxadd(#"timer_6", #"hash_75115b05ce264bde");
+		sndannouncervoxadd(#"timer_5", #"hash_75115a05ce264a2b");
+		sndannouncervoxadd(#"timer_4", #"hash_75115905ce264878");
+		sndannouncervoxadd(#"timer_3", #"hash_75116005ce26545d");
+		sndannouncervoxadd(#"timer_2", #"hash_75115f05ce2652aa");
+		sndannouncervoxadd(#"timer_1", #"hash_75115e05ce2650f7");
 		sndannouncervoxadd(#"hash_72c41c0eef65bb72", #"hash_442eb3cbb773a1ff");
 		sndannouncervoxadd(#"lead_lost", #"hash_3de4c149127a437b");
 		sndannouncervoxadd(#"hash_784cbfe750be656c", #"hash_35d45a5646f89aa5");
@@ -3170,17 +3170,17 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"zmb_tigers", #"hash_33120300ceee6b04");
 		sndannouncervoxadd(#"tigers", #"hash_6ee21c358714ed5a");
 		sndannouncervoxadd(#"catalyst", #"hash_51aa5a9d6896a049");
-		sndannouncervoxadd(#"hash_15bbfece95507937", #"hash_5b183378b7f2428e");
+		sndannouncervoxadd(#"catalysts", #"hash_5b183378b7f2428e");
 		sndannouncervoxadd(#"stoker", #"hash_5eb48315f77f748c");
 		sndannouncervoxadd(#"stokers", #"hash_6c2fbd538d93cd4d");
 		sndannouncervoxadd(#"blightfather", #"hash_243f4785815444b2");
-		sndannouncervoxadd(#"hash_1bc37979ddc73c52", #"hash_6bcb48dac230d3f3");
+		sndannouncervoxadd(#"blightfathers", #"hash_6bcb48dac230d3f3");
 		sndannouncervoxadd(#"marauder", #"hash_2fff3bb943f4b1af");
 		sndannouncervoxadd(#"marauders", #"hash_36457ce78ca38d4");
 		sndannouncervoxadd(#"destroyer", #"hash_771d36fe61955de3");
 		sndannouncervoxadd(#"destroyers", #"hash_7c02023fd0cdfbb0");
 		sndannouncervoxadd(#"warden", #"hash_48ad0ff98fe175ef");
-		sndannouncervoxadd(#"hash_2f7e9fb76f9087d5", #"hash_5f87c10f7c1ad814");
+		sndannouncervoxadd(#"wardens", #"hash_5f87c10f7c1ad814");
 		sndannouncervoxadd(#"werewolf", #"hash_23c5292237128e03");
 		sndannouncervoxadd(#"nosferatu", #"hash_38bb4e0a7dfc9a1d");
 		sndannouncervoxadd(#"hash_e5dacec7371220e", #"hash_6e2246878a31d24d");

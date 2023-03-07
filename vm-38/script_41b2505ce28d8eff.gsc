@@ -1,15 +1,15 @@
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\zm_common\gametypes\zm_gametype.gsc;
 #using scripts\zm_common\zm_stats.gsc;
 
-#namespace namespace_f838b0ea;
+#namespace ztcm;
 
 /*
 	Name: function_768a84c0
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0xC82183A2
 	Offset: 0xB8
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_768a84c0()
 
 /*
 	Name: main
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0x4B4C7AFC
 	Offset: 0xD8
 	Size: 0xDC
@@ -37,16 +37,16 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
-	if(!level flag::exists(#"hash_33037f6188bd285f"))
+	level._round_start_func = &zm_round_logic::round_start;
+	if(!level flag::exists(#"ztcm"))
 	{
-		level flag::init(#"hash_33037f6188bd285f", 1);
+		level flag::init(#"ztcm", 1);
 	}
 }
 
 /*
 	Name: onprecachegametype
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0x36C9DEB
 	Offset: 0x1C0
 	Size: 0x1C
@@ -60,7 +60,7 @@ function onprecachegametype()
 
 /*
 	Name: onstartgametype
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0xAF14538E
 	Offset: 0x1E8
 	Size: 0x154

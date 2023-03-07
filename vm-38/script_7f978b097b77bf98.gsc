@@ -1,9 +1,9 @@
-#using script_135d639e83b15d2f;
+#using scripts\zm\ai\zm_ai_hulk.gsc;
 #using script_16b1b77a76492c6a;
 #using script_3411bb48d41bd3b;
 #using script_34ab99a4ca1a43d;
 #using script_35598499769dbb3d;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -355,7 +355,7 @@ function private function_1f15d9fc(instance)
 	self endon(#"death", #"end_game");
 	self.maxhealth = 500;
 	var_35588796 = max(1, getplayers().size * 0.666);
-	self namespace_3b3d42f::function_967133dc(0.02, var_35588796);
+	self zm_ai_hulk::function_967133dc(0.02, var_35588796);
 	self.health = int(self.maxhealth);
 	self.health_state = 4;
 	self clientfield::set("sr_black_chest_swarm_fx", 4);
@@ -371,7 +371,7 @@ function private function_1f15d9fc(instance)
 		}
 		if(isplayer(waitresult.attacker))
 		{
-			self namespace_3b3d42f::function_b89cb3dc(waitresult);
+			self zm_ai_hulk::function_b89cb3dc(waitresult);
 		}
 		if(self.health <= 1)
 		{
@@ -416,7 +416,7 @@ function private function_1f15d9fc(instance)
 		{
 			self.var_6b5de8fd = 1;
 			self thread function_66afafad(waitresult.attacker);
-			self thread namespace_3b3d42f::function_187bcbe();
+			self thread zm_ai_hulk::function_187bcbe();
 		}
 	}
 }

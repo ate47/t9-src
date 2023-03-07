@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
 #using script_396f7d71538c9677;
-#using script_6350c209b3d1b07d;
+#using scripts\core_common\map.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;

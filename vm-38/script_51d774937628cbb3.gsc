@@ -29,7 +29,7 @@ function private autoexec function_c95ada2d()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_73305c73e19c1e8f", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"molotov_zm", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

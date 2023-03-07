@@ -90,7 +90,7 @@ function function_8ac3bea9()
 */
 function function_a380fe5(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(util::function_53bbf9d2() === "wz_sanatorium")
+	if(util::get_map_name() === "wz_sanatorium")
 	{
 		var_ee6bcd51 = #"hash_4a9cb80afea6f8cb" + "_sanatorium";
 	}

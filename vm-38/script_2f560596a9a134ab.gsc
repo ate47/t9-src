@@ -5,7 +5,7 @@
 #using script_471b31bd963b388e;
 #using script_4ccfb58a9443a60b;
 #using script_4ce5d94e8c797350;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -398,7 +398,7 @@ function function_123bcbcf()
 		self thread function_6c62f074(self.var_9e09931e);
 	}
 	self function_71c9ab64(0);
-	self namespace_f0b43eb5::function_ac67ad85(0);
+	self namespace_f0b43eb5::set_tributeAvailable(0);
 }
 
 /*
@@ -434,33 +434,33 @@ function function_ae2c0ba5()
 	{
 		function_71c9ab64(level.var_8b7ab859);
 		self.var_9e09931e = 4;
-		self thread namespace_f0b43eb5::function_ac67ad85(4);
+		self thread namespace_f0b43eb5::set_tributeAvailable(4);
 	}
 	else
 	{
 		if(self.n_tribute >= (n_step * 3))
 		{
 			self.var_9e09931e = 3;
-			self thread namespace_f0b43eb5::function_ac67ad85(3);
+			self thread namespace_f0b43eb5::set_tributeAvailable(3);
 		}
 		else
 		{
 			if(self.n_tribute >= (n_step * 2))
 			{
 				self.var_9e09931e = 2;
-				self thread namespace_f0b43eb5::function_ac67ad85(2);
+				self thread namespace_f0b43eb5::set_tributeAvailable(2);
 			}
 			else
 			{
 				if(self.n_tribute >= (n_step * 1))
 				{
 					self.var_9e09931e = 1;
-					self thread namespace_f0b43eb5::function_ac67ad85(1);
+					self thread namespace_f0b43eb5::set_tributeAvailable(1);
 				}
 				else
 				{
 					self.var_9e09931e = 0;
-					self thread namespace_f0b43eb5::function_ac67ad85(0);
+					self thread namespace_f0b43eb5::set_tributeAvailable(0);
 				}
 			}
 		}
@@ -730,9 +730,9 @@ function function_ff28876a(var_7ed75e97)
 		{
 			s_bundle = getscriptbundle(#"hash_6f2ecbacf4031dc7");
 			var_20316d8f = [];
-			foreach(var_b67f9e10 in s_bundle.itemlist)
+			foreach(s_item in s_bundle.itemlist)
 			{
-				str_item_name = function_6725ddf1(var_b67f9e10.var_a6762160);
+				str_item_name = function_6725ddf1(s_item.var_a6762160);
 				if(str_item_name != "")
 				{
 					if(!isdefined(var_20316d8f))
@@ -756,9 +756,9 @@ function function_ff28876a(var_7ed75e97)
 		{
 			s_bundle = getscriptbundle(#"hash_37b2cda396a715c1");
 			var_20316d8f = [];
-			foreach(var_b67f9e10 in s_bundle.itemlist)
+			foreach(s_item in s_bundle.itemlist)
 			{
-				str_item_name = function_6725ddf1(var_b67f9e10.var_a6762160);
+				str_item_name = function_6725ddf1(s_item.var_a6762160);
 				if(str_item_name != "")
 				{
 					if(!isdefined(var_20316d8f))
@@ -782,9 +782,9 @@ function function_ff28876a(var_7ed75e97)
 		{
 			s_bundle = getscriptbundle(#"hash_797e1c1bf06f1140");
 			var_20316d8f = [];
-			foreach(var_b67f9e10 in s_bundle.itemlist)
+			foreach(s_item in s_bundle.itemlist)
 			{
-				str_item_name = function_6725ddf1(var_b67f9e10.var_a6762160);
+				str_item_name = function_6725ddf1(s_item.var_a6762160);
 				if(str_item_name != "")
 				{
 					if(!isdefined(var_20316d8f))
@@ -1268,7 +1268,7 @@ function function_e2a25377(str_weapon_name, b_upgraded, str_item_name)
 		}
 		if(is_true(b_upgraded))
 		{
-			self namespace_b376ff3f::function_d92c6b5b(self.currentweapon, 0);
+			self item_inventory::function_d92c6b5b(self.currentweapon, 0);
 			maxammo = self.currentweapon.maxammo;
 			var_53b14ebf = self function_b7f1fd2c(self.currentweapon);
 			self setweaponammoclip(self.currentweapon, var_53b14ebf);
@@ -1288,7 +1288,7 @@ function function_e2a25377(str_weapon_name, b_upgraded, str_item_name)
 			weapon_given = self zm_weapons::weapon_give(var_498a708, 1);
 			self waittill(#"weapon_change_complete");
 			weapon_given = self getcurrentweapon();
-			item = self namespace_b376ff3f::function_230ceec4(weapon_given);
+			item = self item_inventory::function_230ceec4(weapon_given);
 			if(isdefined(item))
 			{
 				item.var_a8bccf69 = 1;
@@ -2368,9 +2368,9 @@ function function_51fd2597(var_b9b24)
 	Parameters: 1
 	Flags: Linked
 */
-function function_57b8a4e9(var_6fbdd8ad)
+function function_57b8a4e9(e_pickup)
 {
-	var_6fbdd8ad waittill(#"death");
+	e_pickup waittill(#"death");
 	self delete();
 }
 

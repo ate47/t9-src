@@ -4,11 +4,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_5c4c9a39;
+#namespace zm_gold_util;
 
 /*
 	Name: function_7b6ea63c
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0xA9158C92
 	Offset: 0x88
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_7b6ea63c()
 
 /*
 	Name: init
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0xBAEB4741
 	Offset: 0xA8
 	Size: 0x24

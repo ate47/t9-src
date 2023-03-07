@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_d4941e5e : class_6aaccc24
+class class_d4941e5e : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_d4941e5e : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_d4941e5e : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("stealth_meter_display");
+		cLUIelem::function_5c1bb138("stealth_meter_display");
 	}
 
 	/*
@@ -110,16 +110,16 @@ class class_d4941e5e : class_6aaccc24
 	*/
 	function setup_clientfields(var_5a7b4b38, var_579b061b, var_f10a04a3, var_f228b5fa, var_bda3bf84)
 	{
-		namespace_6aaccc24::setup_clientfields("stealth_meter_display");
-		namespace_6aaccc24::function_da693cbe("entNum", 1, 10, "int", var_5a7b4b38);
-		namespace_6aaccc24::function_da693cbe("awarenessState", 1, 4, "int", var_579b061b);
-		namespace_6aaccc24::function_da693cbe("awarenessProgress", 1, 4, "float", var_f10a04a3);
-		namespace_6aaccc24::function_da693cbe("direction", 1, 4, "float", var_f228b5fa);
-		namespace_6aaccc24::function_da693cbe("clamped", 1, 1, "int", var_bda3bf84);
+		cLUIelem::setup_clientfields("stealth_meter_display");
+		cLUIelem::function_da693cbe("entNum", 1, 10, "int", var_5a7b4b38);
+		cLUIelem::function_da693cbe("awarenessState", 1, 4, "int", var_579b061b);
+		cLUIelem::function_da693cbe("awarenessProgress", 1, 4, "float", var_f10a04a3);
+		cLUIelem::function_da693cbe("direction", 1, 4, "float", var_f228b5fa);
+		cLUIelem::function_da693cbe("clamped", 1, 1, "int", var_bda3bf84);
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_d4941e5e
 		Checksum: 0x5C125907
 		Offset: 0x6D0
@@ -127,7 +127,7 @@ class class_d4941e5e : class_6aaccc24
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_c8350e33(localclientnum, value)
+	function set_entNum(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", value);
 	}
@@ -143,7 +143,7 @@ class class_d4941e5e : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "awarenessState", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "awarenessProgress", 0);
@@ -274,7 +274,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: stealth_meter_display
 	Checksum: 0x4C2BEDA4
 	Offset: 0x388
@@ -282,9 +282,9 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: Linked
 */
-function function_c8350e33(localclientnum, value)
+function set_entNum(localclientnum, value)
 {
-	[[ self ]]->function_c8350e33(localclientnum, value);
+	[[ self ]]->set_entNum(localclientnum, value);
 }
 
 /*

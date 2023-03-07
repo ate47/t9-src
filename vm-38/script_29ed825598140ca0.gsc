@@ -2,24 +2,24 @@
 #using script_18f0d22c75b141a7;
 #using script_1cc417743d7c262d;
 #using script_2c49ae69cd8ce30c;
-#using script_2c74a7b5eea1ec89;
-#using script_2dc48f46bfeac894;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\abilities\ability_player.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_35b5ff21c2a0960f;
 #using script_3f27a7b2232674db;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_6167e26342be354b;
 #using script_66052559f4fc2bf9;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
 #using script_7133a4d461308099;
 #using script_725554a59d6a75b9;
 #using script_7a8059ca02b7b09e;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using script_7f6cd71c43c45c57;
 #using script_caab14e8a60767c;
 #using scripts\core_common\audio_shared.gsc;
@@ -1056,7 +1056,7 @@ function private function_4a762be0(var_c391d0a8, var_a44c7fd8, weapon_at_time_of
 		{
 			if(var_c391d0a8.attacker.pers[#"hash_49e7469988944ecf"] === 1)
 			{
-				if(var_c391d0a8.weapon.statindex == level.var_bb448b5f.statindex)
+				if(var_c391d0a8.weapon.statindex == level.weapon_hero_annihilator.statindex)
 				{
 					scoreevents::processscoreevent(#"hash_39926f44fa76b382", var_c391d0a8.attacker, self, var_c391d0a8.weapon);
 					var_c391d0a8.attacker.pers[#"hash_49e7469988944ecf"] = undefined;
@@ -1667,9 +1667,9 @@ function private function_4e516ee6(attacker, weapon)
 				}
 			}
 			self.pers[#"kill_streak_before_death"] = self.pers[#"cur_kill_streak"];
-			if(isdefined(self.pers[#"hash_33112f192fb3c234"]) && isdefined(self.pers[#"hash_33112f192fb3c234"][#"current"]))
+			if(isdefined(self.pers[#"hvo"]) && isdefined(self.pers[#"hvo"][#"current"]))
 			{
-				self.pers[#"hash_33112f192fb3c234"][#"current"][#"highestkillstreak"] = 0;
+				self.pers[#"hvo"][#"current"][#"highestkillstreak"] = 0;
 			}
 			self.pers[#"cur_kill_streak"] = 0;
 			self.pers[#"cur_total_kill_streak"] = 0;
@@ -3235,7 +3235,7 @@ function function_ed2725ad(einflictor, attacker, weapon)
 	}
 	if(isdefined(attacker.var_b6f732c0) && attacker.pers[#"cur_kill_streak"] > attacker.var_b6f732c0)
 	{
-		attacker stats::function_4db3fba1(#"hash_5ef976b050e0aa48", attacker.pers[#"cur_kill_streak"]);
+		attacker stats::function_4db3fba1(#"longest_killstreak", attacker.pers[#"cur_kill_streak"]);
 		attacker.var_b6f732c0 = attacker.pers[#"cur_kill_streak"];
 	}
 }

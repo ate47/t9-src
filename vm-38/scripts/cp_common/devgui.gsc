@@ -485,9 +485,9 @@ function function_f96938ce()
 {
 	/#
 		var_16e5e46 = skipto::function_228558fd();
-		foreach(var_9ea95904 in var_16e5e46)
+		foreach(msn in var_16e5e46)
 		{
-			self stats::function_dad108fa(#"hash_6c042cdc991e48c2" + getsubstr(getmissionname(var_9ea95904), 0, 3), 1);
+			self stats::function_dad108fa(#"hash_6c042cdc991e48c2" + getsubstr(getmissionname(msn), 0, 3), 1);
 		}
 	#/
 }
@@ -546,9 +546,9 @@ function function_38ea35b()
 		{
 			return;
 		}
-		foreach(var_9ea95904 in skipto::function_228558fd())
+		foreach(msn in skipto::function_228558fd())
 		{
-			self stats::set_stat(#"playerstatsbymap", var_9ea95904, #"hash_1e0160af4fd80dff", 4, 1);
+			self stats::set_stat(#"playerstatsbymap", msn, #"hash_1e0160af4fd80dff", 4, 1);
 		}
 	#/
 }
@@ -1358,7 +1358,7 @@ function init_debug_center_screen()
 			}
 			else
 			{
-				level notify(#"hash_63054d2b7dcb7739");
+				level notify(#"stop center screen debug");
 				if(zero_idle_movement == 1)
 				{
 					setdvar(#"zero_idle_movement", 0);
@@ -1400,7 +1400,7 @@ function debug_center_screen()
 		level.center_screen_debug_hudelem2.x = 320 - 1;
 		level.center_screen_debug_hudelem2.y = 240;
 		level.center_screen_debug_hudelem2 setshader("", 1, 480);
-		level waittill(#"hash_63054d2b7dcb7739");
+		level waittill(#"stop center screen debug");
 		level.center_screen_debug_hudelem1 destroy();
 		level.center_screen_debug_hudelem2 destroy();
 		level.center_screen_debug_hudelem_active = 0;

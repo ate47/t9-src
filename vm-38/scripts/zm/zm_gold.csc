@@ -20,11 +20,11 @@
 #using scripts\zm\zm_gold_ww_quest.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_808e3265;
+#namespace zm_gold;
 
 /*
 	Name: function_1ae8f698
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x86FD6420
 	Offset: 0x400
 	Size: 0x14
@@ -38,7 +38,7 @@ function private autoexec function_1ae8f698()
 
 /*
 	Name: opt_in
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x7B94B9FE
 	Offset: 0x420
 	Size: 0x94
@@ -54,7 +54,7 @@ function autoexec opt_in()
 
 /*
 	Name: main
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x453E0CE5
 	Offset: 0x4C0
 	Size: 0x464
@@ -76,11 +76,11 @@ event main(eventstruct)
 	setdvar(#"hash_190c5373848fa8e6", 1);
 	load::main();
 	namespace_f7b3ed9::init();
-	namespace_e0b1e9f5::init();
+	zm_gold_pap_quest::init();
 	namespace_2a67e53::init();
-	namespace_5c4c9a39::init();
-	namespace_9f2e6680::init();
-	namespace_af171776::init();
+	zm_gold_util::init();
+	zm_gold_ww_quest::init();
+	zm_gold_main_quest::init();
 	namespace_36ebd7e4::init();
 	namespace_47809ab2::init();
 	namespace_e5d0906e::init();
@@ -96,7 +96,7 @@ event main(eventstruct)
 
 /*
 	Name: function_1493eabf
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x95BFF0D6
 	Offset: 0x930
 	Size: 0x3C
@@ -111,7 +111,7 @@ function function_1493eabf()
 
 /*
 	Name: setup_personality_character_exerts
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x764283D2
 	Offset: 0x978
 	Size: 0x282
@@ -140,7 +140,7 @@ function setup_personality_character_exerts()
 
 /*
 	Name: function_6c117bd1
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0xC88C884F
 	Offset: 0xC08
 	Size: 0x7C
@@ -161,7 +161,7 @@ function function_6c117bd1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4fd00e1f
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0xFA302ECE
 	Offset: 0xC90
 	Size: 0x354
@@ -243,7 +243,7 @@ function function_4fd00e1f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_84e68eed
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0xF572419D
 	Offset: 0xFF0
 	Size: 0x19C
@@ -270,7 +270,7 @@ function function_84e68eed(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_36f11a86
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x49F02102
 	Offset: 0x1198
 	Size: 0x1E4
@@ -314,7 +314,7 @@ function private function_36f11a86(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_d03c22c
-	Namespace: namespace_808e3265
+	Namespace: zm_gold
 	Checksum: 0x148C0331
 	Offset: 0x1388
 	Size: 0x15C

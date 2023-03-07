@@ -1,10 +1,10 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_299f56e6d0b16416;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using script_47fb62300ac0bd60;
 #using script_5660bae5b402a1eb;
-#using script_5b18db57724ff7be;
+#using scripts\zm_common\zm_camos.gsc;
 #using script_7133a4d461308099;
 #using script_7a8059ca02b7b09e;
 #using script_7e63597649100b1c;

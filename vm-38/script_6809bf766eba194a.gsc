@@ -5141,12 +5141,12 @@ function private function_bcbf3f38(entity)
 		{
 			return false;
 		}
-		var_51d5c26f = self ai::function_9139c839();
-		if(!(isdefined(var_51d5c26f) && isdefined(var_51d5c26f.var_158394c8)))
+		settingsbundle = self ai::function_9139c839();
+		if(!(isdefined(settingsbundle) && isdefined(settingsbundle.var_158394c8)))
 		{
 			return false;
 		}
-		if(distancetotarget > weapon.var_d3cafde6 + var_51d5c26f.var_158394c8)
+		if(distancetotarget > weapon.var_d3cafde6 + settingsbundle.var_158394c8)
 		{
 			return true;
 		}

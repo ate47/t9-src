@@ -265,12 +265,12 @@ function private function_ac750979(localclientnum, array)
 	{
 		for(index = 0; index < array.size; index++)
 		{
-			var_35c5cfb6 = array[index];
-			if(!isdefined(var_35c5cfb6))
+			arrayitem = array[index];
+			if(!isdefined(arrayitem))
 			{
 				continue;
 			}
-			var_35c5cfb6 renderoverridebundle::function_f4eab437(localclientnum, 1, #"hash_c37f4f4d19191cb", undefined);
+			arrayitem renderoverridebundle::function_f4eab437(localclientnum, 1, #"hash_c37f4f4d19191cb", undefined);
 			if(((index + 1) % 3) == 0)
 			{
 				waitframe(1);
@@ -294,12 +294,12 @@ function private function_bebd8395(localclientnum, array)
 	{
 		for(index = 0; index < array.size; index++)
 		{
-			var_35c5cfb6 = array[index];
-			if(!isdefined(var_35c5cfb6))
+			arrayitem = array[index];
+			if(!isdefined(arrayitem))
 			{
 				continue;
 			}
-			var_35c5cfb6 renderoverridebundle::function_f4eab437(localclientnum, 0, #"hash_c37f4f4d19191cb", undefined);
+			arrayitem renderoverridebundle::function_f4eab437(localclientnum, 0, #"hash_c37f4f4d19191cb", undefined);
 		}
 	}
 }

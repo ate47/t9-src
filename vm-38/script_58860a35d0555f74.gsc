@@ -1,6 +1,6 @@
 #using script_176597095ddfaa17;
 #using script_256b8879317373de;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_72401f526ba71638;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;

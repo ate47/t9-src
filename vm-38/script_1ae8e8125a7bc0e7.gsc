@@ -8,11 +8,11 @@
 #using scripts\mp_common\gametypes\globallogic_score.gsc;
 #using scripts\mp_common\util.gsc;
 
-#namespace namespace_dfe27ba6;
+#namespace cwl_contracts;
 
 /*
 	Name: function_d9a4ed51
-	Namespace: namespace_dfe27ba6
+	Namespace: cwl_contracts
 	Checksum: 0xB5B17DF0
 	Offset: 0xB8
 	Size: 0x14
@@ -37,7 +37,7 @@ function private autoexec function_d9a4ed51()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_7f404914b14e9019", &function_70a657d8, undefined, &finalize_init, undefined);
+	system::register(#"cwl_contracts", &function_70a657d8, undefined, &finalize_init, undefined);
 }
 
 /*

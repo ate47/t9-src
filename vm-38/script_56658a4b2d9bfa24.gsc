@@ -1,4 +1,4 @@
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_256b8879317373de;
 #using scripts\core_common\bots\bot_action.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -500,9 +500,9 @@ function private function_d3901b82()
 				assetname = function_9e72a96(function_ac0419ac(index, sessionmode));
 				name = ((displayname + "") + assetname) + "";
 				cmd = ((((("" + name) + "") + index) + "") + index) + "";
-				util::function_345e5b9a(cmd);
+				util::add_debug_command(cmd);
 				cmd = ((((("" + name) + "") + index) + "") + index) + "";
-				util::function_345e5b9a(cmd);
+				util::add_debug_command(cmd);
 			}
 		}
 	#/
@@ -584,7 +584,7 @@ function private add_bot_devgui_cmd(entnum, path, sortkey, devguiarg, cmdargs)
 		cmdargs = "";
 	}
 	cmd = ((((((((((((((("devgui_cmd \"Bots/") + entnum) + " ") + self.name) + ":") + entnum) + ("/") + path) + ":") + sortkey) + "\" \"set devgui_bot ") + devguiarg) + " ") + entnum) + " ") + cmdargs) + "\"";
-	util::function_345e5b9a(cmd);
+	util::add_debug_command(cmd);
 }
 
 /*
@@ -664,7 +664,7 @@ function clear_bot_devgui_menu()
 		return;
 	}
 	cmd = (((("devgui_remove \"Bots/") + entnum) + " ") + self.name) + "\"";
-	util::function_345e5b9a(cmd);
+	util::add_debug_command(cmd);
 }
 
 /*

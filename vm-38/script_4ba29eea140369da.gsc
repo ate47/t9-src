@@ -1,6 +1,6 @@
-#using script_14f4a3c583c77d4b;
-#using script_2255a7ad3edc838f;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\core_common\bots\bot.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\aat_shared.gsc;
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"friendly_fire", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"friendly_fire", &on_begin, &on_end);
 }
 
 /*
@@ -85,7 +85,7 @@ function __main__()
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: zm_trial_friendly_fire
 	Checksum: 0x966B3AA8
 	Offset: 0x228
@@ -93,7 +93,7 @@ function __main__()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_9e0a2a85)
+function private on_begin(var_9e0a2a85)
 {
 	if(!isdefined(var_9e0a2a85))
 	{
@@ -139,7 +139,7 @@ function private function_d1de6a85(var_9e0a2a85)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: zm_trial_friendly_fire
 	Checksum: 0xB2E0EC5
 	Offset: 0x4E0
@@ -147,7 +147,7 @@ function private function_d1de6a85(var_9e0a2a85)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	namespace_59ff1d6c::function_928be07c(level.var_3c2226ce);
 	level.var_3c2226ce = undefined;
@@ -278,7 +278,7 @@ function function_6aa8dd73()
 	}
 	if(level.round_number >= 20)
 	{
-		var_98cb6e9 = array::randomize(array(#"hash_4dfeb08c20a14b8b", #"hash_2b648e8ce3814bbb", #"hash_2c8e9cd5fbd53e70", #"hash_e1311542f5782b5", #"hash_354b896513d0581d", #"hash_81c373345c076c1"));
+		var_98cb6e9 = array::randomize(array(#"ar_accurate_t8_upgraded", #"ar_fastfire_t8_upgraded", #"ar_stealth_t8_upgraded", #"hash_e1311542f5782b5", #"smg_capacity_t8_upgraded", #"hash_81c373345c076c1"));
 		n_repacks = 3;
 		self zm_perks::function_cc24f525();
 	}
@@ -286,7 +286,7 @@ function function_6aa8dd73()
 	{
 		if(level.round_number >= 10)
 		{
-			var_98cb6e9 = array::randomize(array(#"hash_4dfeb08c20a14b8b", #"hash_2b648e8ce3814bbb", #"hash_2c8e9cd5fbd53e70", #"hash_e1311542f5782b5", #"hash_354b896513d0581d", #"hash_81c373345c076c1"));
+			var_98cb6e9 = array::randomize(array(#"ar_accurate_t8_upgraded", #"ar_fastfire_t8_upgraded", #"ar_stealth_t8_upgraded", #"hash_e1311542f5782b5", #"smg_capacity_t8_upgraded", #"hash_81c373345c076c1"));
 			n_repacks = 1;
 		}
 		else

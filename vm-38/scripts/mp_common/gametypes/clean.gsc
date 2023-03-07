@@ -5,7 +5,7 @@
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7b8ad364b9de169e;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

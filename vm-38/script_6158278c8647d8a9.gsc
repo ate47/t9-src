@@ -1,4 +1,4 @@
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using scripts\core_common\ai_shared.gsc;
 
 #namespace namespace_b20b4885;

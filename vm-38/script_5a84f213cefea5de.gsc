@@ -3,9 +3,9 @@
 #using script_4108035fe400ce67;
 #using script_471b31bd963b388e;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7bacb32f8222fa3e;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\loadout_shared.gsc;
@@ -53,7 +53,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(!namespace_b376ff3f::function_7d5553ac())
+	if(!item_inventory::function_7d5553ac())
 	{
 		return;
 	}

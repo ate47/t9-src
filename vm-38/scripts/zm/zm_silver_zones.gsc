@@ -1,17 +1,17 @@
 #using script_2f560596a9a134ab;
 #using script_4ce5d94e8c797350;
-#using script_5b4f7a8178990872;
+#using scripts\zm_common\zm_hud.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_51925ebc;
+#namespace zm_silver_zones;
 
 /*
 	Name: function_c38e39b8
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0x17E9F752
 	Offset: 0x948
 	Size: 0x14
@@ -25,7 +25,7 @@ function private autoexec function_c38e39b8()
 
 /*
 	Name: init
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0xFE1EE685
 	Offset: 0x968
 	Size: 0x154
@@ -42,7 +42,7 @@ function autoexec init()
 
 /*
 	Name: zone_init
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0xA630E247
 	Offset: 0xAC8
 	Size: 0x1034
@@ -139,7 +139,7 @@ function zone_init()
 
 /*
 	Name: function_a0910b80
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0xE232F773
 	Offset: 0x1B08
 	Size: 0x24
@@ -153,7 +153,7 @@ function function_a0910b80()
 
 /*
 	Name: function_34c9de53
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0xD95DDDC7
 	Offset: 0x1B38
 	Size: 0x84
@@ -170,7 +170,7 @@ function function_34c9de53(params)
 
 /*
 	Name: function_f62d4e38
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0xB68F271D
 	Offset: 0x1BC8
 	Size: 0x24
@@ -184,7 +184,7 @@ function function_f62d4e38()
 
 /*
 	Name: function_a74dcd0a
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0x425C7913
 	Offset: 0x1BF8
 	Size: 0xB2
@@ -206,7 +206,7 @@ function function_a74dcd0a(player)
 
 /*
 	Name: function_64c67df3
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0x486F47E1
 	Offset: 0x1CB8
 	Size: 0x13E
@@ -242,7 +242,7 @@ function function_64c67df3(var_e2414b1b)
 
 /*
 	Name: function_44b1279a
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0x5596DED9
 	Offset: 0x1E00
 	Size: 0x1A8
@@ -275,7 +275,7 @@ function function_44b1279a()
 
 /*
 	Name: function_27028b8e
-	Namespace: namespace_51925ebc
+	Namespace: zm_silver_zones
 	Checksum: 0xA8A75229
 	Offset: 0x1FB0
 	Size: 0x36E

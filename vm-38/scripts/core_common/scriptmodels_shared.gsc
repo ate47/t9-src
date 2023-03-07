@@ -1,11 +1,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_720db6f6;
+#namespace scriptmodels_shared;
 
 /*
 	Name: function_95c50dda
-	Namespace: namespace_720db6f6
+	Namespace: scriptmodels_shared
 	Checksum: 0xD076200F
 	Offset: 0xA0
 	Size: 0x14

@@ -3,16 +3,16 @@
 #using script_39e954a546d3baf;
 #using script_3e8035573d5bf289;
 #using script_3f9e0dc8454d98e1;
-#using script_467027ea7017462b;
+#using scripts\zm_common\zm_items.gsc;
 #using script_4b0b3de126cf7c9a;
-#using script_4d000493c57bb851;
+#using scripts\zm_common\zm_crafting.gsc;
 #using script_537b0d808c4cac25;
 #using script_58c342edd81589fb;
-#using script_5bb072c3abf4652c;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
 #using script_742a29771db74d6f;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -96,7 +96,7 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
+	level._round_start_func = &zm_round_logic::round_start;
 	level.round_wait_func = &function_cab8ebff;
 	level.round_think_func = &function_21669ebc;
 	level.round_start_custom_func = &function_399fa32;
@@ -197,8 +197,8 @@ function function_6c2b3729()
 			foreach(var_355646ad in var_f95f5bc7)
 			{
 				str_name = function_9e72a96(var_355646ad);
-				util::function_345e5b9a(((((("" + str_name) + "") + "") + str_name) + "") + "");
-				util::function_345e5b9a(((((("" + str_name) + "") + "") + str_name) + "") + "");
+				util::add_debug_command(((((("" + str_name) + "") + "") + str_name) + "") + "");
+				util::add_debug_command(((((("" + str_name) + "") + "") + str_name) + "") + "");
 			}
 		}
 	#/
@@ -1765,15 +1765,15 @@ function function_fe4381f8()
 function function_9c062829()
 {
 	waitframe(1);
-	var_58d9e0d3 = getitemarray();
-	foreach(var_2e1f34dd in var_58d9e0d3)
+	a_e_items = getitemarray();
+	foreach(e_item in a_e_items)
 	{
-		var_9c95ad05 = var_2e1f34dd.item;
-		if(isdefined(var_9c95ad05) && is_true(var_9c95ad05.var_52a84c7a))
+		w_item = e_item.item;
+		if(isdefined(w_item) && is_true(w_item.var_52a84c7a))
 		{
 			e_player = array::random(level.players);
-			zm_items::player_pick_up(e_player, var_9c95ad05);
-			var_2e1f34dd delete();
+			zm_items::player_pick_up(e_player, w_item);
+			e_item delete();
 		}
 	}
 	foreach(var_5f41c401 in level.var_4fe2f84d)
@@ -2955,14 +2955,14 @@ function function_21669ebc(restart)
 		else
 		{
 			level thread zm_audio::function_4138a262();
-			namespace_a28acff3::round_one_up();
+			zm_round_logic::round_one_up();
 		}
 		zm_powerups::powerup_round_start();
 		players = getplayers();
 		array::thread_all(players, &zm_blockers::rebuild_barrier_reward_reset);
 		if(!is_true(level.headshots_only) && !restart)
 		{
-			level thread namespace_a28acff3::award_grenades_for_survivors();
+			level thread zm_round_logic::award_grenades_for_survivors();
 		}
 		/#
 			println((("" + level.round_number) + "") + players.size);
@@ -2982,7 +2982,7 @@ function function_21669ebc(restart)
 		#/
 		if(!is_true(level.var_ab84adee))
 		{
-			level thread namespace_a28acff3::function_53d86042();
+			level thread zm_round_logic::function_53d86042();
 		}
 		level thread [[level.round_spawn_func]]();
 		level notify(#"start_of_round", {#n_round_number:level.round_number});
@@ -2991,7 +2991,7 @@ function function_21669ebc(restart)
 		players = getplayers();
 		for(index = 0; index < players.size; index++)
 		{
-			players[index] namespace_a28acff3::recordroundstartstats();
+			players[index] zm_round_logic::recordroundstartstats();
 		}
 		if(isdefined(level.round_start_custom_func))
 		{
@@ -3018,7 +3018,7 @@ function function_21669ebc(restart)
 		}
 		level thread zm_audio::function_d0f5602a();
 		level.first_round = 0;
-		callback::callback(#"hash_193ded5c8932fe29");
+		callback::callback(#"on_round_end");
 		level notify(#"end_of_round");
 		uploadstats();
 		if(isdefined(level.round_end_custom_logic))
@@ -3037,8 +3037,8 @@ function function_21669ebc(restart)
 			level clientfield::set("round_complete_time", int(((level.time - level.n_gameplay_start_time) + 500) / 1000));
 			level clientfield::set("round_complete_num", level.round_number);
 		}
-		namespace_a28acff3::set_round_number(1 + namespace_a28acff3::get_round_number());
-		setroundsplayed(namespace_a28acff3::get_round_number());
+		zm_round_logic::set_round_number(1 + zm_round_logic::get_round_number());
+		setroundsplayed(zm_round_logic::get_round_number());
 		for(n_round = 1; n_round <= level.round_number; n_round++)
 		{
 			if(zm_utility::function_e37823df())
@@ -3047,7 +3047,7 @@ function function_21669ebc(restart)
 			}
 			function_f6a30a49(n_round);
 		}
-		zombie_utility::set_zombie_var("zombie_spawn_delay", [[level.func_get_zombie_spawn_delay]](namespace_a28acff3::get_round_number()));
+		zombie_utility::set_zombie_var("zombie_spawn_delay", [[level.func_get_zombie_spawn_delay]](zm_round_logic::get_round_number()));
 		matchutctime = getutc();
 		foreach(player in level.players)
 		{
@@ -3059,8 +3059,8 @@ function function_21669ebc(restart)
 				player.number_revives_per_round[i] = 0;
 			}
 		}
-		level.round_number = namespace_a28acff3::get_round_number();
-		level namespace_a28acff3::round_over();
+		level.round_number = zm_round_logic::get_round_number();
+		level zm_round_logic::round_over();
 		level notify(#"between_round_over");
 		restart = 0;
 	}
@@ -3107,8 +3107,8 @@ function function_cab8ebff(var_5707265b)
 	#/
 	wait(1);
 	/#
-		level thread namespace_a28acff3::print_zombie_counts();
-		level thread namespace_a28acff3::sndmusiconkillround();
+		level thread zm_round_logic::print_zombie_counts();
+		level thread zm_round_logic::sndmusiconkillround();
 	#/
 	var_fcf7225b = gettime();
 	while(true)

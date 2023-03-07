@@ -101,7 +101,7 @@ function setupwaterfallmist(localclientnum)
 		{
 			localplayer = trigplayer;
 		}
-		trigger thread trigger::function_521edc64(localplayer, &trig_enter_waterfall_mist, &trig_leave_waterfall_mist);
+		trigger thread trigger::function_thread(localplayer, &trig_enter_waterfall_mist, &trig_leave_waterfall_mist);
 	}
 }
 
@@ -137,7 +137,7 @@ function setupwaterfall(localclientnum, localowner)
 		{
 			localplayer = trigplayer;
 		}
-		trigger thread trigger::function_521edc64(localplayer, &trig_enter_waterfall, &trig_leave_waterfall);
+		trigger thread trigger::function_thread(localplayer, &trig_enter_waterfall, &trig_leave_waterfall);
 	}
 }
 

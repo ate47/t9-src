@@ -1,4 +1,4 @@
-#using script_d116a14142e2250;
+#using scripts\killstreaks\killstreaks_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace killstreaks;

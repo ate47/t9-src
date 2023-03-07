@@ -1,11 +1,11 @@
 #using script_70aa5f5f0b09ad1a;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_78b43a28;
+#namespace zm_weap_bouncingbetty;
 
 /*
 	Name: function_cfbd32a1
-	Namespace: namespace_78b43a28
+	Namespace: zm_weap_bouncingbetty
 	Checksum: 0x5DED4077
 	Offset: 0x70
 	Size: 0x14

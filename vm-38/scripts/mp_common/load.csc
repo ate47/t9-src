@@ -3,7 +3,7 @@
 #using script_30496ec6b1f696ca;
 #using script_309ce7f5a9a023de;
 #using script_3d5887fc414a86fb;
-#using script_3f6516099f1d5ff1;
+#using scripts\core_common\map.csc;
 #using script_446b64250de153ef;
 #using script_45e0fb7326469ccf;
 #using script_57d93967806f601;

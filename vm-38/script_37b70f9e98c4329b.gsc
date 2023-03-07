@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_3b3d42f;
+#namespace zm_ai_hulk;
 
 /*
 	Name: function_c4a48809
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0xFED0A909
 	Offset: 0x168
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_c4a48809()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0x794AC9D
 	Offset: 0x188
 	Size: 0x3C
@@ -31,12 +31,12 @@ function private autoexec function_c4a48809()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_4e5aab38f14a7d66", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_ai_hulk", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0xB8699C9B
 	Offset: 0x1D0
 	Size: 0x154
@@ -54,7 +54,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_1b07848c
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0x659455A9
 	Offset: 0x330
 	Size: 0xCC
@@ -73,7 +73,7 @@ function private function_1b07848c(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_dc0e2c48
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0xA94BCD5D
 	Offset: 0x408
 	Size: 0x1D4
@@ -122,7 +122,7 @@ function private function_dc0e2c48(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_440e968
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0x1D6EC42B
 	Offset: 0x5E8
 	Size: 0x122
@@ -156,7 +156,7 @@ function private function_440e968(localclientnum, oldval, newval, bnewent, binit
 
 /*
 	Name: function_95dc19b0
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0xAC04E148
 	Offset: 0x718
 	Size: 0x54
@@ -171,7 +171,7 @@ function private function_95dc19b0(localclientnum)
 
 /*
 	Name: function_64d1f09b
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0xCBC687B2
 	Offset: 0x778
 	Size: 0xF4
@@ -200,7 +200,7 @@ function private function_64d1f09b(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_2a4100e7
-	Namespace: namespace_3b3d42f
+	Namespace: zm_ai_hulk
 	Checksum: 0xAC42F089
 	Offset: 0x878
 	Size: 0x2C

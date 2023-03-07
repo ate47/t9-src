@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -50,11 +50,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5065d3f7d21bf9d4", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5065d3f7d21bf9d4", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_629725b7
 	Checksum: 0x278F8B26
 	Offset: 0x160
@@ -62,7 +62,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(var_85af3be4, var_752d90ad)
+function private on_begin(var_85af3be4, var_752d90ad)
 {
 	if(getplayers().size == 1)
 	{
@@ -73,13 +73,13 @@ function private function_d1de6a85(var_85af3be4, var_752d90ad)
 		level.var_b529249b = zm_trial::function_5769f26a(var_85af3be4);
 	}
 	level.var_4b9163d5 = 0;
-	namespace_b22c99a5::function_2976fa44(level.var_b529249b);
-	namespace_b22c99a5::function_dace284(level.var_b529249b, 1);
+	zm_trial_util::function_2976fa44(level.var_b529249b);
+	zm_trial_util::function_dace284(level.var_b529249b, 1);
 	callback::on_player_damage(&on_player_damage);
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_629725b7
 	Checksum: 0x92E02818
 	Offset: 0x240
@@ -87,9 +87,9 @@ function private function_d1de6a85(var_85af3be4, var_752d90ad)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	level.var_b529249b = undefined;
 	level.var_4b9163d5 = undefined;
 	callback::remove_on_player_damage(&on_player_damage);
@@ -124,7 +124,7 @@ function private on_player_damage(params)
 	if(params.idamage >= 0)
 	{
 		level.var_4b9163d5++;
-		namespace_b22c99a5::function_dace284(level.var_b529249b - level.var_4b9163d5);
+		zm_trial_util::function_dace284(level.var_b529249b - level.var_4b9163d5);
 		if(level.var_4b9163d5 >= level.var_b529249b)
 		{
 			zm_trial::fail(#"hash_404865fbf8dd5cc2", array(self));

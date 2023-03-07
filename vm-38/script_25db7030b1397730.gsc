@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_4c6a0e72 : class_6aaccc24
+class class_4c6a0e72 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -61,7 +61,7 @@ class class_4c6a0e72 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class class_4c6a0e72 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -145,13 +145,13 @@ class class_4c6a0e72 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("cp_chyron");
-		namespace_6aaccc24::function_dcb34c80("string", "line1", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line2", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line3", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line4", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line5", 1);
-		namespace_6aaccc24::function_da693cbe("index", 1, 4, "int");
+		cLUIelem::setup_clientfields("cp_chyron");
+		cLUIelem::function_dcb34c80("string", "line1", 1);
+		cLUIelem::function_dcb34c80("string", "line2", 1);
+		cLUIelem::function_dcb34c80("string", "line3", 1);
+		cLUIelem::function_dcb34c80("string", "line4", 1);
+		cLUIelem::function_dcb34c80("string", "line5", 1);
+		cLUIelem::function_da693cbe("index", 1, 4, "int");
 	}
 
 	/*

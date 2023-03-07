@@ -227,7 +227,7 @@ function private aat_devgui_think()
 						if(sessionmodeiszombiesgame())
 						{
 							weapon = level.players[i] getcurrentweapon();
-							item = level.players[i] namespace_b376ff3f::function_230ceec4(weapon);
+							item = level.players[i] item_inventory::function_230ceec4(weapon);
 							if(isdefined(item.aat))
 							{
 								item.aat = undefined;
@@ -240,7 +240,7 @@ function private aat_devgui_think()
 						if(sessionmodeiszombiesgame())
 						{
 							weapon = level.players[i] getcurrentweapon();
-							item = level.players[i] namespace_b376ff3f::function_230ceec4(weapon);
+							item = level.players[i] item_inventory::function_230ceec4(weapon);
 							if(isdefined(item))
 							{
 								item.aat = aat_name;
@@ -1015,7 +1015,7 @@ function watch_weapon_changes()
 		weapon = waitresult.weapon;
 		if(sessionmodeiszombiesgame())
 		{
-			item = namespace_b376ff3f::function_230ceec4(weapon);
+			item = item_inventory::function_230ceec4(weapon);
 			if(isdefined(item.aat))
 			{
 				name = item.aat;

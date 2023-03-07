@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.gsc;
 
-class class_536d73e : class_6aaccc24
+class cDOA_Overworld : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0x26EA4E8B
 		Offset: 0x198
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_536d73e : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0x95BBD3FC
 		Offset: 0x258
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_536d73e : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0x8EFC0DC
 		Offset: 0x1E0
 		Size: 0x3C
@@ -44,12 +44,12 @@ class class_536d73e : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
 		Name: close
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0x335296BF
 		Offset: 0x228
 		Size: 0x24
@@ -58,12 +58,12 @@ class class_536d73e : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0xC3C53A14
 		Offset: 0x1B8
 		Size: 0x1C
@@ -72,7 +72,7 @@ class class_536d73e : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_Overworld");
+		cLUIelem::setup_clientfields("DOA_Overworld");
 	}
 
 }
@@ -104,7 +104,7 @@ function private autoexec function_975d508a()
 */
 function register()
 {
-	elem = new class_536d73e();
+	elem = new cDOA_Overworld();
 	[[ elem ]]->setup_clientfields();
 	return elem;
 }

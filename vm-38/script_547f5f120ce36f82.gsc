@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_302a48fc : class_6aaccc24
+class class_302a48fc : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_302a48fc : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class class_302a48fc : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -75,13 +75,13 @@ class class_302a48fc : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("vip_notify_text");
-		namespace_6aaccc24::function_dcb34c80("string", "vipmessage", 1);
-		namespace_6aaccc24::function_da693cbe("alpha", 1, 8, "float");
+		cLUIelem::setup_clientfields("vip_notify_text");
+		cLUIelem::function_dcb34c80("string", "vipmessage", 1);
+		cLUIelem::function_da693cbe("alpha", 1, 8, "float");
 	}
 
 	/*
-		Name: function_aa5c711d
+		Name: set_alpha
 		Namespace: namespace_302a48fc
 		Checksum: 0x118F27F9
 		Offset: 0x390
@@ -89,7 +89,7 @@ class class_302a48fc : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_aa5c711d(player, value)
+	function set_alpha(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "alpha", value);
 	}
@@ -203,7 +203,7 @@ function function_d01a102c(player, value)
 }
 
 /*
-	Name: function_aa5c711d
+	Name: set_alpha
 	Namespace: vip_notify_text
 	Checksum: 0xEB4BA0B
 	Offset: 0x200
@@ -211,8 +211,8 @@ function function_d01a102c(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_aa5c711d(player, value)
+function set_alpha(player, value)
 {
-	[[ self ]]->function_aa5c711d(player, value);
+	[[ self ]]->set_alpha(player, value);
 }
 

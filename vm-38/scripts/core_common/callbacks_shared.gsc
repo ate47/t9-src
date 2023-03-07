@@ -1557,7 +1557,7 @@ function function_824d206(func, obj)
 }
 
 /*
-	Name: function_4b1aff2
+	Name: on_boast
 	Namespace: callback
 	Checksum: 0x29ACD30A
 	Offset: 0x23E0
@@ -1565,9 +1565,9 @@ function function_824d206(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_4b1aff2(func, obj)
+function on_boast(func, obj)
 {
-	add_callback(#"hash_6c189017e0e91d02", func, obj);
+	add_callback(#"on_boast", func, obj);
 }
 
 /*
@@ -1581,7 +1581,7 @@ function function_4b1aff2(func, obj)
 */
 function function_d935a5b6(func, obj)
 {
-	remove_callback(#"hash_6c189017e0e91d02", func, obj);
+	remove_callback(#"on_boast", func, obj);
 }
 
 /*
@@ -1697,7 +1697,7 @@ function function_28a6c197(func, obj)
 }
 
 /*
-	Name: function_955a779c
+	Name: on_item_use
 	Namespace: callback
 	Checksum: 0x5D89A0E8
 	Offset: 0x26B0
@@ -1705,9 +1705,9 @@ function function_28a6c197(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_955a779c(func, obj)
+function on_item_use(func, obj)
 {
-	add_callback(#"hash_41c107b83320aba2", func, obj);
+	add_callback(#"on_item_use", func, obj);
 }
 
 /*
@@ -1911,7 +1911,7 @@ event codecallback_preinitialization(eventstruct)
 */
 event function_4123368a(eventstruct)
 {
-	flag::set(#"hash_40e6df0197588a7b");
+	flag::set(#"levelinit");
 }
 
 /*
@@ -2375,7 +2375,7 @@ event function_3b159f77(eventstruct)
 	{
 		[[level.var_4268159]](eventstruct.gestureindex, eventstruct.animlength);
 	}
-	callback(#"hash_6c189017e0e91d02", eventstruct);
+	callback(#"on_boast", eventstruct);
 }
 
 /*

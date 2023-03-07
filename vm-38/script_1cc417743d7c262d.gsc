@@ -1780,7 +1780,7 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 	}
 	switch(weapon.name)
 	{
-		case "hash_21b346649d376bf3":
+		case "eq_emp_grenade":
 		{
 			var_60d3002f = "jammerWeaponHacked";
 			break;
@@ -1791,7 +1791,7 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 			var_b3fe42a9 = 1;
 			break;
 		}
-		case "hash_4a4ba36128b6582f":
+		case "eq_seeker_mine":
 		{
 			var_60d3002f = "seekerMineWeaponHacked";
 			var_b3fe42a9 = 1;
@@ -1804,7 +1804,7 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 			break;
 		}
 		case "ability_smart_cover":
-		case "hash_1fb0b26684caee0f":
+		case "gadget_smart_cover":
 		{
 			var_60d3002f = "smartCoverHacked";
 			var_b3fe42a9 = 1;

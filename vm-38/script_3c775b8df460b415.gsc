@@ -1,6 +1,6 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6d813fcbc979603a;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -52,11 +52,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_32cdfeca4a793d78", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_32cdfeca4a793d78", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_9b24ce43
 	Checksum: 0x2E265D34
 	Offset: 0x170
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	foreach(player in getplayers())
 	{
@@ -73,7 +73,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_9b24ce43
 	Checksum: 0x5F40407C
 	Offset: 0x208
@@ -81,7 +81,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
@@ -116,7 +116,7 @@ function is_active()
 function private movement_watcher()
 {
 	self endon(#"disconnect", #"hash_17c41292130032eb");
-	wait(namespace_a28acff3::get_delay_between_rounds() - 2);
+	wait(zm_round_logic::get_delay_between_rounds() - 2);
 	while(true)
 	{
 		var_89276ce9 = 0;

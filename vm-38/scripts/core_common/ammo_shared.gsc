@@ -1,6 +1,6 @@
 #using script_18f0d22c75b141a7;
 #using script_4c5c4a64a59247a2;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\hud_shared.gsc;

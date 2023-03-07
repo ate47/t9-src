@@ -8,12 +8,12 @@
 #using scripts\core_common\trigger_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-class class_e72c95 
+class cwavemanager 
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_e72c95
+		Namespace: cwavemanager
 		Checksum: 0xB9F75A50
 		Offset: 0x258
 		Size: 0x4A
@@ -32,7 +32,7 @@ class class_e72c95
 
 	/*
 		Name: destructor
-		Namespace: namespace_e72c95
+		Namespace: cwavemanager
 		Checksum: 0x80F724D1
 		Offset: 0x2B0
 		Size: 0x4
@@ -199,7 +199,7 @@ function private function_b14456ef()
 			level.var_a44d1e7 = 0;
 		}
 		level.var_a44d1e7++;
-		str_map_name = util::function_53bbf9d2();
+		str_map_name = util::get_map_name();
 		foreach(var_dcd6c23 in level.var_ca74a4bc)
 		{
 			var_29b80910 = var_dcd6c23.var_cf3bea8a;
@@ -814,7 +814,7 @@ function private function_4810b274(var_dcd6c23, b_auto_delete)
 */
 function private function_3ff920ca(s_wave_manager_struct, str_team, b_looping, str_wavemanager, str_spawner_targets, var_e8332bc1)
 {
-	var_dcd6c23 = new class_e72c95();
+	var_dcd6c23 = new cwavemanager();
 	var_dcd6c23.m_s_bundle = getscriptbundle((isdefined(str_wavemanager) ? str_wavemanager : s_wave_manager_struct.scriptbundlename));
 	var_dcd6c23.var_cf3bea8a = get_unique_id();
 	var_dcd6c23.var_556afb3d = var_dcd6c23.m_s_bundle.name;

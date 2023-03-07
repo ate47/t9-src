@@ -1,6 +1,6 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -52,11 +52,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"reset_loadout", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"reset_loadout", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_4b9b8ded
 	Checksum: 0xDA38D5FE
 	Offset: 0x1C0
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_d1de6a85(var_30dbb2e5, var_f2c84b6b)
+function private on_begin(var_30dbb2e5, var_f2c84b6b)
 {
 	self.var_f2c84b6b = var_f2c84b6b;
 	self.var_30dbb2e5 = var_30dbb2e5;
@@ -232,7 +232,7 @@ function private reset_loadout(var_96288bc8)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_4b9b8ded
 	Checksum: 0xAF118E03
 	Offset: 0x898
@@ -240,7 +240,7 @@ function private reset_loadout(var_96288bc8)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(self.var_30dbb2e5 === "zombie_fists")
 	{
@@ -272,7 +272,7 @@ function private function_d1dabace(n_time)
 	level.var_7f7fd2ac = gettime() + (int(n_time * 1000));
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_128378c9(n_time);
+		player zm_trial_util::function_128378c9(n_time);
 		player.var_838c00de = 1;
 	}
 	wait(n_time);
@@ -297,7 +297,7 @@ function private function_59d771f7()
 	level.func_magicbox_update_prompt_use_override = undefined;
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_885fb2c8();
+		player zm_trial_util::function_885fb2c8();
 		player.var_838c00de = undefined;
 	}
 }

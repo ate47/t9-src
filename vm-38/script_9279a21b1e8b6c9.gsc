@@ -878,12 +878,12 @@ function function_5425f45d()
 			x_pos = center[0] + (radius * cos(angle));
 			y_pos = center[1] + (radius * sin(angle));
 			height = 20000 - height_diff;
-			var_636e904a = math::clamp(height, 12000, 20000);
+			z_pos = math::clamp(height, 12000, 20000);
 			if(death_circle::function_9956f107())
 			{
 				height = 12000;
 			}
-			portal.origin = (x_pos, y_pos, var_636e904a);
+			portal.origin = (x_pos, y_pos, z_pos);
 			target = death_circle::get_next_origin() - portal.origin;
 			target = vectornormalize(target);
 			angles = vectortoangles(target);

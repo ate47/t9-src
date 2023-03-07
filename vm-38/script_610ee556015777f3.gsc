@@ -1140,64 +1140,64 @@ function function_b2616fd7()
 	/#
 		function_5ac4dc99(#"hash_63d887d4b23cb6e", "");
 		function_cd140ee9(#"hash_63d887d4b23cb6e", &function_c19802);
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::function_345e5b9a(((((("" + "") + "") + var_211a8012) + "") + "") + "");
+		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
 		var_211a8012++;
 		level thread function_c5a69992(var_211a8012);
 	#/
@@ -1349,7 +1349,7 @@ function function_c5a69992(var_211a8012)
 		}
 		foreach(name_index, name in var_7eb6668)
 		{
-			util::function_345e5b9a(((((("" + var_211a8012) + "") + function_9e72a96(name) + "") + name_index) + "") + function_9e72a96(name) + "");
+			util::add_debug_command(((((("" + var_211a8012) + "") + function_9e72a96(name) + "") + name_index) + "") + function_9e72a96(name) + "");
 		}
 	#/
 }

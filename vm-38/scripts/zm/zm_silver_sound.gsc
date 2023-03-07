@@ -2,11 +2,11 @@
 #using scripts\core_common\music_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_f172695e;
+#namespace zm_silver_sound;
 
 /*
 	Name: function_2a07b96f
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xA9414E95
 	Offset: 0xF8
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_2a07b96f()
 
 /*
 	Name: init
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x64876119
 	Offset: 0x118
 	Size: 0x94
@@ -39,7 +39,7 @@ function init()
 
 /*
 	Name: function_c1db8d1a
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x3DE974CC
 	Offset: 0x1B8
 	Size: 0xCC
@@ -59,7 +59,7 @@ function function_c1db8d1a()
 
 /*
 	Name: function_acd83a15
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x76077707
 	Offset: 0x290
 	Size: 0x1DC
@@ -92,7 +92,7 @@ function function_acd83a15()
 
 /*
 	Name: function_44cea26f
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x8F458C9B
 	Offset: 0x478
 	Size: 0x3C
@@ -110,7 +110,7 @@ function function_44cea26f(str_msg, n_delay)
 
 /*
 	Name: function_30d9d43
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x646741A2
 	Offset: 0x4C0
 	Size: 0x14A
@@ -150,7 +150,7 @@ function function_30d9d43(str_msg, n_delay)
 
 /*
 	Name: function_2cf67660
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x4535EA92
 	Offset: 0x618
 	Size: 0x44
@@ -165,7 +165,7 @@ function function_2cf67660()
 
 /*
 	Name: function_cb5a4b1a
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xAC72B602
 	Offset: 0x668
 	Size: 0xCC
@@ -183,7 +183,7 @@ function function_cb5a4b1a()
 
 /*
 	Name: function_613a7ccc
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x4DCCAF25
 	Offset: 0x740
 	Size: 0x5C
@@ -208,7 +208,7 @@ function function_613a7ccc(b_success)
 
 /*
 	Name: function_da00670e
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xAB02E084
 	Offset: 0x7A8
 	Size: 0xCC
@@ -227,7 +227,7 @@ function function_da00670e()
 
 /*
 	Name: function_d0f24e17
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xFFD9FF05
 	Offset: 0x880
 	Size: 0x138
@@ -260,7 +260,7 @@ function function_d0f24e17()
 
 /*
 	Name: function_e840d5a5
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x2963E2ED
 	Offset: 0x9C0
 	Size: 0x74

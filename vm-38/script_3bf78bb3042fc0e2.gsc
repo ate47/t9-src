@@ -1,14 +1,14 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_28a7d65d : class_6aaccc24
+class cself_respawn : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
 
 	/*
 		Name: constructor
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0xA022DF69
 		Offset: 0x1E8
 		Size: 0x14
@@ -21,7 +21,7 @@ class class_28a7d65d : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0xD3D54A55
 		Offset: 0x320
 		Size: 0x14
@@ -34,7 +34,7 @@ class class_28a7d65d : class_6aaccc24
 
 	/*
 		Name: function_459465a
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x52B88E8D
 		Offset: 0x2D0
 		Size: 0x44
@@ -48,7 +48,7 @@ class class_28a7d65d : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x692ED424
 		Offset: 0x258
 		Size: 0x3C
@@ -61,12 +61,12 @@ class class_28a7d65d : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
 		Name: close
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x232E70C1
 		Offset: 0x2A0
 		Size: 0x24
@@ -75,12 +75,12 @@ class class_28a7d65d : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_28a7d65d
+		Namespace: cself_respawn
 		Checksum: 0x9C2E51AF
 		Offset: 0x208
 		Size: 0x44
@@ -89,8 +89,8 @@ class class_28a7d65d : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("self_respawn");
-		namespace_6aaccc24::function_da693cbe("percent", 1, 6, "float");
+		cLUIelem::setup_clientfields("self_respawn");
+		cLUIelem::function_da693cbe("percent", 1, 6, "float");
 	}
 
 }
@@ -122,7 +122,7 @@ function private autoexec function_eefe6667()
 */
 function register()
 {
-	elem = new class_28a7d65d();
+	elem = new cself_respawn();
 	[[ elem ]]->setup_clientfields();
 	return elem;
 }

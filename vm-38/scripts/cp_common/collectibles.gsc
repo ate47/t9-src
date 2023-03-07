@@ -597,7 +597,7 @@ function function_5d5166dd(var_d13a0347)
 */
 function function_d06c5a39()
 {
-	self prompts::function_d5ea17f0(#"hash_209c49282fbf4594");
+	self prompts::set_text(#"hash_209c49282fbf4594");
 	self prompts::function_309bf7c2(#"hash_1ca962038953ec7a");
 }
 

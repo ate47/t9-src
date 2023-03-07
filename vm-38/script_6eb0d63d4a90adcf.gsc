@@ -200,7 +200,7 @@ function private function_43e771ee(died)
 			var_178db383.died = died;
 			var_178db383.time_used_s = var_27047881;
 			var_178db383.longest_hit_distance = var_c2ffb370;
-			var_178db383.attachment1 = attachments.var_65be22a9;
+			var_178db383.attachment1 = attachments.attachment0;
 			var_178db383.attachment2 = attachments.attachment1;
 			var_178db383.attachment3 = attachments.attachment2;
 			var_178db383.attachment4 = attachments.attachment3;
@@ -416,7 +416,7 @@ function private function_729bf68e()
 		}
 		if(isdefined(self) && (!is_alive || level.gameended === 1 || self.player_disconnected === 1))
 		{
-			self stats::function_d40764f3(#"hash_72bde76e57d89017", int(var_7e8e90a4));
+			self stats::function_d40764f3(#"distance_traveled_foot", int(var_7e8e90a4));
 			self stats::function_d40764f3(#"hash_630fffa7f053a2b7", int(var_87a9b1b1));
 			self match_record::function_34800eec(#"hash_630fffa7f053a2b7", int(var_87a9b1b1));
 			self.pers[#"total_distance_travelled"] = self.pers[#"total_distance_travelled"] + var_365f7ec5;

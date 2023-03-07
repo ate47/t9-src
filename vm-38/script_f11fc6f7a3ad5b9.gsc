@@ -134,7 +134,7 @@ function function_bf51f3cc()
 function function_ec7953fa()
 {
 	weapon = self getcurrentweapon();
-	item = namespace_b376ff3f::function_230ceec4(weapon);
+	item = item_inventory::function_230ceec4(weapon);
 	if(isdefined(item.aat))
 	{
 		aat_name = item.aat;

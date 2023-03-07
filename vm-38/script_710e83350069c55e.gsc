@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_276088fe : class_6aaccc24
+class class_276088fe : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_276088fe : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class class_276088fe : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -117,15 +117,15 @@ class class_276088fe : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("LUIelem_entity_bar");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 3, "int");
-		namespace_6aaccc24::function_da693cbe("progress_percent", 1, 7, "float");
-		namespace_6aaccc24::function_da693cbe("entnum", 1, 7, "int");
-		namespace_6aaccc24::function_da693cbe("offset_x", 1, 6, "int");
-		namespace_6aaccc24::function_da693cbe("offset_y", 1, 6, "int");
-		namespace_6aaccc24::function_da693cbe("offset_z", 1, 6, "int");
-		namespace_6aaccc24::function_da693cbe("entityClamp", 1, 1, "int");
-		namespace_6aaccc24::function_da693cbe("entityScale", 1, 1, "int");
+		cLUIelem::setup_clientfields("LUIelem_entity_bar");
+		cLUIelem::function_da693cbe("_state", 1, 3, "int");
+		cLUIelem::function_da693cbe("progress_percent", 1, 7, "float");
+		cLUIelem::function_da693cbe("entnum", 1, 7, "int");
+		cLUIelem::function_da693cbe("offset_x", 1, 6, "int");
+		cLUIelem::function_da693cbe("offset_y", 1, 6, "int");
+		cLUIelem::function_da693cbe("offset_z", 1, 6, "int");
+		cLUIelem::function_da693cbe("entityClamp", 1, 1, "int");
+		cLUIelem::function_da693cbe("entityScale", 1, 1, "int");
 	}
 
 	/*
@@ -143,7 +143,7 @@ class class_276088fe : class_6aaccc24
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_276088fe
 		Checksum: 0x12DEA6EE
 		Offset: 0x7A0
@@ -151,7 +151,7 @@ class class_276088fe : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(player, value)
+	function set_entNum(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "entnum", value);
 	}
@@ -346,7 +346,7 @@ function function_ecacbaa5(player, value)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: luielem_entity_bar
 	Checksum: 0x6F50BEB6
 	Offset: 0x280
@@ -354,9 +354,9 @@ function function_ecacbaa5(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(player, value)
+function set_entNum(player, value)
 {
-	[[ self ]]->function_c8350e33(player, value);
+	[[ self ]]->set_entNum(player, value);
 }
 
 /*

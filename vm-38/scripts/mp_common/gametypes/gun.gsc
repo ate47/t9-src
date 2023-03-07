@@ -4,8 +4,8 @@
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
-#using script_56ca01b3b31455b5;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\abilities\ability_util.gsc;
 #using script_788472602edbe3b9;
 #using script_7a8059ca02b7b09e;
 #using scripts\core_common\callbacks_shared.gsc;

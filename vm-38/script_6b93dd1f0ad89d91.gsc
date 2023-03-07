@@ -1,18 +1,18 @@
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_300f815a565e66fb;
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_52d2de9b438adc78;
 #using script_5567f9f82a6d84b3;
-#using script_57c900a7e39234be;
-#using script_59c6bfe164142356;
+#using scripts\killstreaks\airsupport.gsc;
+#using scripts\weapons\smokegrenade.gsc;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_7bafaa95bb1b427e;
-#using script_8988fdbc78d6c53;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\weapons.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -99,7 +99,7 @@ function private function_70a657d8()
 	{
 		clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int");
 	}
-	killstreaks::function_e4ef8390("killstreak_supply_drop", &usekillstreaksupplydrop);
+	killstreaks::register_killstreak("killstreak_supply_drop", &usekillstreaksupplydrop);
 	level.cratetypes = [];
 	level.categorytypeweight = [];
 	level.cratecategoryweights = [];
@@ -370,13 +370,13 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(supplydrop, var_dbd1a594)
+function function_bff5c062(supplydrop, attackingplayer)
 {
-	supplydrop.owner = var_dbd1a594;
-	supplydrop setowner(var_dbd1a594);
-	supplydrop.team = var_dbd1a594.team;
-	supplydrop setteam(var_dbd1a594.team);
-	supplydrop killstreaks::configure_team_internal(var_dbd1a594, 1);
+	supplydrop.owner = attackingplayer;
+	supplydrop setowner(attackingplayer);
+	supplydrop.team = attackingplayer.team;
+	supplydrop setteam(attackingplayer.team);
+	supplydrop killstreaks::configure_team_internal(attackingplayer, 1);
 	supplydrop notify(#"hacked");
 	supplydrop thread deleteonownerleave();
 	if(isdefined(level.var_f1edf93f))

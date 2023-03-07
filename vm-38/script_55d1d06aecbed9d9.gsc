@@ -265,11 +265,11 @@ function function_2bf9274()
 */
 function function_e126c567(eventstruct)
 {
-	if(!isdefined(self.var_e6e3eca4))
+	if(!isdefined(self.isfishing))
 	{
-		self.var_e6e3eca4 = 0;
+		self.isfishing = 0;
 	}
-	else if(self.var_e6e3eca4)
+	else if(self.isfishing)
 	{
 		return;
 	}
@@ -289,7 +289,7 @@ function function_e126c567(eventstruct)
 		}
 		player val::set(#"fishing", "freezecontrols_allowlook", 1);
 		self sethintstring("");
-		self.var_e6e3eca4 = 1;
+		self.isfishing = 1;
 		var_16129dba = self.var_16129dba;
 		var_cf8192ca = self.var_cf8192ca;
 		var_9fadc93c = self.var_9fadc93c;
@@ -538,8 +538,8 @@ function function_16e4e507(var_558f00ed, var_886a6495, trigger, var_da4747b7)
 			wait(1.7);
 			if(isdefined(trigger) && (isdefined(var_886a6495) && isdefined(var_558f00ed)))
 			{
-				trigger.var_e6e3eca4 = 0;
-				var_886a6495.var_e6e3eca4 = 0;
+				trigger.isfishing = 0;
+				var_886a6495.isfishing = 0;
 				var_886a6495 notify(#"hash_6bdfdee9ee47f086");
 				var_886a6495.origin = var_886a6495.var_ccd7223;
 				var_886a6495 hide();
@@ -588,11 +588,11 @@ function function_73532e4f(str_notify)
 		self.var_886a6495 notify(#"hash_6bdfdee9ee47f086");
 		self.var_886a6495.origin = self.var_886a6495.var_ccd7223;
 		self.var_886a6495 hide();
-		self.var_886a6495.var_e6e3eca4 = 0;
+		self.var_886a6495.isfishing = 0;
 	}
 	if(isdefined(self.var_995e72b4))
 	{
-		self.var_995e72b4.var_e6e3eca4 = 0;
+		self.var_995e72b4.isfishing = 0;
 		self.var_995e72b4 sethintstring(#"hash_6ca9ecf6df3b77ed");
 	}
 }

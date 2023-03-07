@@ -3,7 +3,7 @@
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
 #using script_522aeb6ae906391e;
-#using script_65488ba3b5a08252;
+#using scripts\zm\ai\zm_ai_abom.gsc;
 #using script_799de24f8ad427f7;
 #using script_7d5c9b91cf8d272b;
 #using scripts\core_common\array_shared.gsc;
@@ -53,8 +53,8 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	spawner::add_archetype_spawn_function(#"hash_7c09b683edfb0e96", &function_b82e0a5d);
-	spawner::function_89a2cd87(#"hash_7c09b683edfb0e96", &function_545f669b);
+	spawner::add_archetype_spawn_function(#"abom", &function_b82e0a5d);
+	spawner::function_89a2cd87(#"abom", &function_545f669b);
 }
 
 /*

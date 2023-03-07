@@ -1,5 +1,5 @@
 #using script_16b1b77a76492c6a;
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_2618e0f3e5e11649;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
@@ -113,7 +113,7 @@ function function_76de3950()
 		{
 			level thread aat::setup_devgui("");
 		}
-		util::function_345e5b9a("");
+		util::add_debug_command("");
 		util::waittill_can_add_debug_command();
 		if(isdefined(level.var_c0f77370))
 		{
@@ -162,9 +162,9 @@ function private function_6f31d177()
 				var_eb3b90d = struct::get_array(var_aafdab5f.targetname, "");
 				foreach(n_index, s_spawn in var_eb3b90d)
 				{
-					util::function_345e5b9a(((((((("" + var_aafdab5f.target) + "") + n_index) + "") + var_aafdab5f.target) + "") + n_index) + "");
+					util::add_debug_command(((((((("" + var_aafdab5f.target) + "") + n_index) + "") + var_aafdab5f.target) + "") + n_index) + "");
 				}
-				util::function_345e5b9a(((("" + var_aafdab5f.target) + "") + var_aafdab5f.target) + "");
+				util::add_debug_command(((("" + var_aafdab5f.target) + "") + var_aafdab5f.target) + "");
 			}
 		}
 	#/
@@ -182,21 +182,21 @@ function private function_6f31d177()
 function private function_c4fe091c()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		var_de82b392 = function_19df1c1c();
 		foreach(var_7ecdee63 in var_de82b392)
 		{
 			var_7ecdee63 = function_9e72a96(var_7ecdee63);
-			util::function_345e5b9a(((("" + var_7ecdee63) + "") + var_7ecdee63) + "");
-			util::function_345e5b9a(((("" + var_7ecdee63) + "") + var_7ecdee63) + "");
-			util::function_345e5b9a(((("" + var_7ecdee63) + "") + var_7ecdee63) + "");
+			util::add_debug_command(((("" + var_7ecdee63) + "") + var_7ecdee63) + "");
+			util::add_debug_command(((("" + var_7ecdee63) + "") + var_7ecdee63) + "");
+			util::add_debug_command(((("" + var_7ecdee63) + "") + var_7ecdee63) + "");
 		}
 	#/
 }

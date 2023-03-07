@@ -1,5 +1,5 @@
 #using script_1254ac024174d9c0;
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_301f64a4090c381a;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
@@ -8,7 +8,7 @@
 #using script_6115a5707cfb78b3;
 #using script_6e3c826b1814cab6;
 #using script_6ef496a1b77e83a4;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -4164,19 +4164,19 @@ function function_a30c73b9(str_state)
 				{
 					case 0:
 					{
-						var_1d373a09 = #"hash_52ea8d11cd7fefd0";
+						var_1d373a09 = #"p8_fxanim_zm_perk_vending_brew_mod";
 						self.var_2839b015 = #"p8_fxanim_zm_perk_vending_brew_bundle";
 						break;
 					}
 					case 1:
 					{
-						var_1d373a09 = #"hash_72ce199a2f767495";
+						var_1d373a09 = #"p8_fxanim_zm_perk_vending_cola_mod";
 						self.var_2839b015 = #"p8_fxanim_zm_perk_vending_cola_bundle";
 						break;
 					}
 					case 2:
 					{
-						var_1d373a09 = #"hash_412846638d8a5d6d";
+						var_1d373a09 = #"p8_fxanim_zm_perk_vending_soda_mod";
 						self.var_2839b015 = #"p8_fxanim_zm_perk_vending_soda_bundle";
 						break;
 					}
@@ -5082,7 +5082,7 @@ function function_545a79c()
 				case "hash_696b25a08319319f":
 				case "hash_72cd05a9f7096d18":
 				{
-					str_perk = #"hash_5706909bc1db0f85";
+					str_perk = #"specialty_awareness";
 					var_8d1a1acc = strtok(cmd, "");
 					var_eb4c64e8 = int(var_8d1a1acc[1]) - 1;
 					break;

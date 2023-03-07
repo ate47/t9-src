@@ -143,14 +143,14 @@ function function_b4f41a02()
 		{
 			if(function_e949cfd7(type))
 			{
-				util::function_345e5b9a((("" + function_9e72a96(type)) + "") + function_9e72a96(type) + "");
-				util::function_345e5b9a((("" + function_9e72a96(type)) + "") + function_9e72a96(type) + "");
+				util::add_debug_command((("" + function_9e72a96(type)) + "") + function_9e72a96(type) + "");
+				util::add_debug_command((("" + function_9e72a96(type)) + "") + function_9e72a96(type) + "");
 			}
 		}
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		while(true)
 		{
 			wait(0.1);
@@ -716,7 +716,7 @@ function function_f311bd4c(var_4dc5382f, var_ee6563f8)
 		{
 			if(!level.inprematchperiod)
 			{
-				waitresult.attacker stats::function_d40764f3(#"hash_5e146097143ab761", 1);
+				waitresult.attacker stats::function_d40764f3(#"kills_zombie", 1);
 			}
 			if(isdefined(self.var_2cee3556))
 			{
@@ -2706,14 +2706,14 @@ function on_ai_damage(params)
 			var_80730518 = params.einflictor;
 			switch(var_80730518.scriptvehicletype)
 			{
-				case "hash_1aa3be97c5bfcefa":
+				case "player_motorcycle_2wd":
 				{
 					n_damage = 200;
 					var_bbbf4dc0 = 0.05;
 					var_e96b9598 = 0.2;
 					break;
 				}
-				case "hash_2d53e3136f122763":
+				case "player_uaz":
 				{
 					n_damage = 75;
 					var_bbbf4dc0 = 0.05;
@@ -2727,14 +2727,14 @@ function on_ai_damage(params)
 					var_e96b9598 = 0.25;
 					break;
 				}
-				case "hash_65231a254dac5391":
+				case "player_fav_light":
 				{
 					n_damage = 90;
 					var_bbbf4dc0 = 0.05;
 					var_e96b9598 = 0.7;
 					break;
 				}
-				case "hash_1314c8c8bb6fdb10":
+				case "player_sedan":
 				{
 					n_damage = 95;
 					var_bbbf4dc0 = 0.05;

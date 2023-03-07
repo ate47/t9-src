@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_799b5780;
+#namespace player_truck_transport;
 
 /*
 	Name: function_b4f25878
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0xDE4C3722
 	Offset: 0xA8
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_b4f25878()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0xC7C6AC84
 	Offset: 0xC8
 	Size: 0x44
@@ -31,12 +31,12 @@ function private autoexec function_b4f25878()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_280f5959b67c367a", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_truck_transport", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x5A2B2842
 	Offset: 0x118
 	Size: 0x2C
@@ -50,7 +50,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_3391a69f
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x585BEFF4
 	Offset: 0x150
 	Size: 0x18C
@@ -77,7 +77,7 @@ function private function_3391a69f()
 
 /*
 	Name: function_135c137c
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x37203768
 	Offset: 0x2E8
 	Size: 0x44
@@ -98,7 +98,7 @@ function private function_135c137c(player)
 
 /*
 	Name: function_3a991b11
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x62F080A
 	Offset: 0x338
 	Size: 0x1A
@@ -115,7 +115,7 @@ function private function_3a991b11()
 
 /*
 	Name: function_e2ade94b
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0xE34E96C
 	Offset: 0x360
 	Size: 0x1C
@@ -129,7 +129,7 @@ function private function_e2ade94b()
 
 /*
 	Name: function_86c4506d
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x62E80668
 	Offset: 0x388
 	Size: 0x24
@@ -143,7 +143,7 @@ function private function_86c4506d()
 
 /*
 	Name: player_enter
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0xE26A548B
 	Offset: 0x3B8
 	Size: 0xC2
@@ -178,7 +178,7 @@ function private player_enter(params)
 
 /*
 	Name: player_exit
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x8EE41FCB
 	Offset: 0x488
 	Size: 0xB2
@@ -209,7 +209,7 @@ function private player_exit(params)
 
 /*
 	Name: function_379a71bd
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x53E465B1
 	Offset: 0x548
 	Size: 0x13A

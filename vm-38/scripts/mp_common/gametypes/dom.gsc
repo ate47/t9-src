@@ -4,7 +4,7 @@
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -56,7 +56,7 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	player::function_cf3aa03d(&onplayerkilled);
 	player::function_3c5cc656(&function_610d3790);
-	level.var_f6d301b = &function_f6d301b;
+	level.onendround = &onendround;
 	level.var_1aef539f = &function_a800815;
 	level.var_d3a438fb = &function_d3a438fb;
 	clientfield::register("scriptmover", "scriptid", 1, 5, "int");
@@ -130,7 +130,7 @@ function function_171b6c0()
 }
 
 /*
-	Name: function_f6d301b
+	Name: onendround
 	Namespace: dom
 	Checksum: 0xF1483F7F
 	Offset: 0x808
@@ -138,7 +138,7 @@ function function_171b6c0()
 	Parameters: 1
 	Flags: None
 */
-function function_f6d301b(var_c1e98979)
+function onendround(var_c1e98979)
 {
 	foreach(capture_zone in level.domflags)
 	{

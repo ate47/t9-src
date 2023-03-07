@@ -1,5 +1,5 @@
 #using script_256b8879317373de;
-#using script_6350c209b3d1b07d;
+#using scripts\core_common\map.gsc;
 
 #namespace teams;
 

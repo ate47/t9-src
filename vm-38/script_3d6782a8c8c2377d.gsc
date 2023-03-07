@@ -1,5 +1,5 @@
 #using script_1b905a8474ed2a62;
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_522aeb6ae906391e;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\struct.gsc;

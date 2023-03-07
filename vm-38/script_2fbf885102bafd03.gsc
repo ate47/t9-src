@@ -1099,27 +1099,27 @@ function function_56821d13(localclientnum)
 	#/
 	if(level.doa.banner[localclientnum] doa_bannerelement::is_open(localclientnum))
 	{
-		level.doa.banner[localclientnum] doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		level.doa.banner[localclientnum] doa_bannerelement::set_alpha(localclientnum, 0);
 		level.doa.banner[localclientnum] doa_bannerelement::close(localclientnum);
 	}
 	if(level.doa.var_5f94c071[localclientnum] doa_bannerelement::is_open(localclientnum))
 	{
-		level.doa.var_5f94c071[localclientnum] doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		level.doa.var_5f94c071[localclientnum] doa_bannerelement::set_alpha(localclientnum, 0);
 		level.doa.var_5f94c071[localclientnum] doa_bannerelement::close(localclientnum);
 	}
 	if(level.doa.var_75e2ed0d[localclientnum] doa_bannerelement::is_open(localclientnum))
 	{
-		level.doa.var_75e2ed0d[localclientnum] doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		level.doa.var_75e2ed0d[localclientnum] doa_bannerelement::set_alpha(localclientnum, 0);
 		level.doa.var_75e2ed0d[localclientnum] doa_bannerelement::close(localclientnum);
 	}
 	if(level.doa.var_4f001f48[localclientnum] doa_bannerelement::is_open(localclientnum))
 	{
-		level.doa.var_4f001f48[localclientnum] doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		level.doa.var_4f001f48[localclientnum] doa_bannerelement::set_alpha(localclientnum, 0);
 		level.doa.var_4f001f48[localclientnum] doa_bannerelement::close(localclientnum);
 	}
 	if(level.doa.var_51c724d6[localclientnum] doa_bannerelement::is_open(localclientnum))
 	{
-		level.doa.var_51c724d6[localclientnum] doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		level.doa.var_51c724d6[localclientnum] doa_bannerelement::set_alpha(localclientnum, 0);
 		level.doa.var_51c724d6[localclientnum] doa_bannerelement::close(localclientnum);
 	}
 	level notify(#"hash_75b2813809fa8394");
@@ -1148,7 +1148,7 @@ function function_9a92c603(localclientnum, var_150143d0)
 	level endon(#"hash_75b2813809fa8394");
 	if(self doa_bannerelement::is_open(localclientnum))
 	{
-		self doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		self doa_bannerelement::set_alpha(localclientnum, 0);
 		self doa_bannerelement::close(localclientnum);
 		waitframe(1);
 	}
@@ -1193,7 +1193,7 @@ function function_9a92c603(localclientnum, var_150143d0)
 		}
 		self doa_textelement::function_f50d5765(localclientnum, text);
 		self doa_textelement::function_f97e9049(localclientnum, x, y);
-		self doa_textelement::function_aa5c711d(localclientnum, 0);
+		self doa_textelement::set_alpha(localclientnum, 0);
 		self doa_textelement::set_color(localclientnum, color[0], color[1], color[2]);
 		self doa_textelement::function_bede6f52(localclientnum, scale);
 		if(isdefined(var_6dcbe6ee))
@@ -1226,7 +1226,7 @@ function function_9a92c603(localclientnum, var_150143d0)
 	}
 	if(self doa_bannerelement::is_open(localclientnum))
 	{
-		self doa_bannerelement::function_aa5c711d(localclientnum, 0);
+		self doa_bannerelement::set_alpha(localclientnum, 0);
 		self doa_bannerelement::close(localclientnum);
 	}
 }
@@ -1253,11 +1253,11 @@ function function_3ce17e62(localclientnum, var_ab7c878c, var_393b2936, durations
 		n_timer = gettime();
 		if(n_timer >= n_time_end)
 		{
-			[[ self ]]->function_aa5c711d(localclientnum, var_393b2936);
+			[[ self ]]->set_alpha(localclientnum, var_393b2936);
 			return;
 		}
 		var_5db054c7 = mapfloat(n_time_start, n_time_end, var_ab7c878c, var_393b2936, n_timer);
-		[[ self ]]->function_aa5c711d(localclientnum, var_5db054c7);
+		[[ self ]]->set_alpha(localclientnum, var_5db054c7);
 		waitframe(1);
 	}
 }
@@ -1286,7 +1286,7 @@ function function_c11d702b(localclientnum, durationseconds, lowalpha, highalpha)
 		n_timer = gettime();
 		if(n_timer >= n_time_end)
 		{
-			[[ self ]]->function_aa5c711d(localclientnum, var_fc4d0311);
+			[[ self ]]->set_alpha(localclientnum, var_fc4d0311);
 			n_time_start = gettime();
 			n_time_end = gettime() + (int(durationseconds * 1000));
 			n_timer = n_time_start;
@@ -1297,7 +1297,7 @@ function function_c11d702b(localclientnum, durationseconds, lowalpha, highalpha)
 		else
 		{
 			var_5db054c7 = mapfloat(n_time_start, n_time_end, startalpha, var_fc4d0311, n_timer);
-			[[ self ]]->function_aa5c711d(localclientnum, var_5db054c7);
+			[[ self ]]->set_alpha(localclientnum, var_5db054c7);
 		}
 		waitframe(1);
 	}

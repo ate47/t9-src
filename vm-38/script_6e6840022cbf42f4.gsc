@@ -1,4 +1,4 @@
-#using script_3c362258ff800237;
+#using scripts\zm_common\zm_trial.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace namespace_497ab7da;
@@ -46,26 +46,26 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_347b44dd26e1875", &function_d1de6a85, &function_9e7b3f4d);
-	forcestreamxmodel(#"hash_4943e3162de8ef6e");
-	forcestreamxmodel(#"hash_1472b36f2021eaca");
-	forcestreamxmodel(#"hash_75ff026dd5e8cd1a");
+	zm_trial::register_challenge(#"hash_347b44dd26e1875", &on_begin, &on_end);
+	forcestreamxmodel(#"p8_zm_wall_buy_ar_accurate");
+	forcestreamxmodel(#"p8_zm_wall_buy_ar_fastfire");
+	forcestreamxmodel(#"p8_zm_wall_buy_ar_modular");
 	forcestreamxmodel(#"hash_5284370cc794177");
 	forcestreamxmodel(#"hash_6af4a0ff3d4ea44c");
-	forcestreamxmodel(#"hash_1d8e22348c4b45c9");
-	forcestreamxmodel(#"hash_6160275248857912");
-	forcestreamxmodel(#"hash_4bd467e0dabd5709");
+	forcestreamxmodel(#"p8_zm_wall_buy_lmg_titan");
+	forcestreamxmodel(#"p8_zm_wall_buy_pistol_burst");
+	forcestreamxmodel(#"p8_zm_wall_buy_pistol_standard");
 	forcestreamxmodel(#"hash_304de1f0d4ad83b1");
-	forcestreamxmodel(#"hash_2aa0030efc6a28e9");
-	forcestreamxmodel(#"hash_37f7b4dd345c97a0");
+	forcestreamxmodel(#"p8_zm_wall_buy_shotgun_trenchgun");
+	forcestreamxmodel(#"p8_zm_wall_buy_smg_accurate");
 	forcestreamxmodel(#"hash_5434d478b48918e");
-	forcestreamxmodel(#"hash_689bec40e7ecdd78");
-	forcestreamxmodel(#"hash_179a6a7859bb71a0");
+	forcestreamxmodel(#"p8_zm_wall_buy_smg_drum_pistol");
+	forcestreamxmodel(#"p8_zm_wall_buy_smg_fastfire");
 	forcestreamxmodel(#"hash_86d8950616483eb");
 	forcestreamxmodel(#"hash_1e826c91e070af89");
-	forcestreamxmodel(#"hash_77da47a49c46d7cf");
-	forcestreamxmodel(#"hash_2aaed6f517eedff1");
-	forcestreamxmodel(#"hash_648f3e9c3b9bf102");
+	forcestreamxmodel(#"p8_zm_wall_buy_tr_leveraction");
+	forcestreamxmodel(#"p8_zm_wall_buy_tr_longburst");
+	forcestreamxmodel(#"p8_zm_wall_buy_tr_powersemi");
 	forcestreamxmodel(#"p8_zm_wall_buy_symbol_01");
 	forcestreamxmodel(#"p8_zm_wall_buy_symbol_01_middle");
 	forcestreamxmodel(#"p8_zm_wall_buy_symbol_01_reverse");
@@ -73,7 +73,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_497ab7da
 	Checksum: 0xF96AAAF7
 	Offset: 0x420
@@ -81,12 +81,12 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(local_client_num, params)
+function private on_begin(local_client_num, params)
 {
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_497ab7da
 	Checksum: 0xD84B4F6
 	Offset: 0x440
@@ -94,7 +94,7 @@ function private function_d1de6a85(local_client_num, params)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(local_client_num)
+function private on_end(local_client_num)
 {
 }
 

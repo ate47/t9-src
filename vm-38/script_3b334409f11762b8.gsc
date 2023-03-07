@@ -1,6 +1,6 @@
 #using script_383a3b1bb18ba876;
 #using script_61828ad9e71c6616;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
 #namespace airsupport;

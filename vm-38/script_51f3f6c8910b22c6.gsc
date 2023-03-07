@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_df106b1 : class_6aaccc24
+class class_df106b1 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_df106b1 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -65,7 +65,7 @@ class class_df106b1 : class_6aaccc24
 	}
 
 	/*
-		Name: function_1bd2bb26
+		Name: set_horizontal_alignment
 		Namespace: namespace_df106b1
 		Checksum: 0xE92F88D3
 		Offset: 0xCF0
@@ -73,13 +73,13 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_1bd2bb26(player, value)
+	function set_horizontal_alignment(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "horizontal_alignment", value);
 	}
 
 	/*
-		Name: function_2208b8db
+		Name: set_green
 		Namespace: namespace_df106b1
 		Checksum: 0xF1F13967
 		Offset: 0xC00
@@ -87,13 +87,13 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_2208b8db(player, value)
+	function set_green(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "green", value);
 	}
 
 	/*
-		Name: function_237ff433
+		Name: set_fadeOverTime
 		Namespace: namespace_df106b1
 		Checksum: 0x70E4B1F2
 		Offset: 0xB10
@@ -101,7 +101,7 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_237ff433(player, value)
+	function set_fadeOverTime(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "fadeOverTime", value);
 	}
@@ -117,11 +117,11 @@ class class_df106b1 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
-		Name: function_5dbd7024
+		Name: set_height
 		Namespace: namespace_df106b1
 		Checksum: 0x3F535E55
 		Offset: 0xAC0
@@ -129,13 +129,13 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_5dbd7024(player, value)
+	function set_height(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "height", value);
 	}
 
 	/*
-		Name: function_7420df0a
+		Name: set_blue
 		Namespace: namespace_df106b1
 		Checksum: 0x36CD8910
 		Offset: 0xC50
@@ -143,7 +143,7 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_7420df0a(player, value)
+	function set_blue(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "blue", value);
 	}
@@ -159,20 +159,20 @@ class class_df106b1 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_TextElement");
-		namespace_6aaccc24::function_da693cbe("x", 1, 7, "int");
-		namespace_6aaccc24::function_da693cbe("y", 1, 6, "int");
-		namespace_6aaccc24::function_da693cbe("height", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("fadeOverTime", 1, 5, "int");
-		namespace_6aaccc24::function_da693cbe("alpha", 1, 4, "float");
-		namespace_6aaccc24::function_da693cbe("red", 1, 4, "float");
-		namespace_6aaccc24::function_da693cbe("green", 1, 4, "float");
-		namespace_6aaccc24::function_da693cbe("blue", 1, 4, "float");
-		namespace_6aaccc24::function_dcb34c80("string", "text", 1);
-		namespace_6aaccc24::function_da693cbe("horizontal_alignment", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("intpayload", 1, 32, "int");
-		namespace_6aaccc24::function_dcb34c80("string", "textpayload", 1);
-		namespace_6aaccc24::function_da693cbe("scale", 1, 5, "float");
+		cLUIelem::setup_clientfields("DOA_TextElement");
+		cLUIelem::function_da693cbe("x", 1, 7, "int");
+		cLUIelem::function_da693cbe("y", 1, 6, "int");
+		cLUIelem::function_da693cbe("height", 1, 2, "int");
+		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int");
+		cLUIelem::function_da693cbe("alpha", 1, 4, "float");
+		cLUIelem::function_da693cbe("red", 1, 4, "float");
+		cLUIelem::function_da693cbe("green", 1, 4, "float");
+		cLUIelem::function_da693cbe("blue", 1, 4, "float");
+		cLUIelem::function_dcb34c80("string", "text", 1);
+		cLUIelem::function_da693cbe("horizontal_alignment", 1, 2, "int");
+		cLUIelem::function_da693cbe("intpayload", 1, 32, "int");
+		cLUIelem::function_dcb34c80("string", "textpayload", 1);
+		cLUIelem::function_da693cbe("scale", 1, 5, "float");
 	}
 
 	/*
@@ -204,7 +204,7 @@ class class_df106b1 : class_6aaccc24
 	}
 
 	/*
-		Name: function_aa5c711d
+		Name: set_alpha
 		Namespace: namespace_df106b1
 		Checksum: 0x46329D7E
 		Offset: 0xB60
@@ -212,7 +212,7 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_aa5c711d(player, value)
+	function set_alpha(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "alpha", value);
 	}
@@ -246,7 +246,7 @@ class class_df106b1 : class_6aaccc24
 	}
 
 	/*
-		Name: function_d5ea17f0
+		Name: set_text
 		Namespace: namespace_df106b1
 		Checksum: 0x850E74D7
 		Offset: 0xCA0
@@ -254,13 +254,13 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_d5ea17f0(player, value)
+	function set_text(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "text", value);
 	}
 
 	/*
-		Name: function_eccc151d
+		Name: set_red
 		Namespace: namespace_df106b1
 		Checksum: 0xAFB8C1B8
 		Offset: 0xBB0
@@ -268,7 +268,7 @@ class class_df106b1 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_eccc151d(player, value)
+	function set_red(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "red", value);
 	}
@@ -302,9 +302,9 @@ function private autoexec function_494ce81c()
 */
 function set_color(player, red, green, blue)
 {
-	self function_eccc151d(player, red);
-	self function_2208b8db(player, green);
-	self function_7420df0a(player, blue);
+	self set_red(player, red);
+	self set_green(player, green);
+	self set_blue(player, blue);
 }
 
 /*
@@ -322,8 +322,8 @@ function fade(player, var_1a92607f, duration)
 	{
 		duration = 0;
 	}
-	self function_aa5c711d(player, var_1a92607f);
-	self function_237ff433(player, int(duration * 10));
+	self set_alpha(player, var_1a92607f);
+	self set_fadeOverTime(player, int(duration * 10));
 }
 
 /*
@@ -496,7 +496,7 @@ function set_y(player, value)
 }
 
 /*
-	Name: function_5dbd7024
+	Name: set_height
 	Namespace: doa_textelement
 	Checksum: 0xFB8F8737
 	Offset: 0x548
@@ -504,13 +504,13 @@ function set_y(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5dbd7024(player, value)
+function set_height(player, value)
 {
-	[[ self ]]->function_5dbd7024(player, value);
+	[[ self ]]->set_height(player, value);
 }
 
 /*
-	Name: function_237ff433
+	Name: set_fadeOverTime
 	Namespace: doa_textelement
 	Checksum: 0xD7CDFF1B
 	Offset: 0x578
@@ -518,13 +518,13 @@ function function_5dbd7024(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_237ff433(player, value)
+function set_fadeOverTime(player, value)
 {
-	[[ self ]]->function_237ff433(player, value);
+	[[ self ]]->set_fadeOverTime(player, value);
 }
 
 /*
-	Name: function_aa5c711d
+	Name: set_alpha
 	Namespace: doa_textelement
 	Checksum: 0x178229F5
 	Offset: 0x5A8
@@ -532,13 +532,13 @@ function function_237ff433(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_aa5c711d(player, value)
+function set_alpha(player, value)
 {
-	[[ self ]]->function_aa5c711d(player, value);
+	[[ self ]]->set_alpha(player, value);
 }
 
 /*
-	Name: function_eccc151d
+	Name: set_red
 	Namespace: doa_textelement
 	Checksum: 0x4725D72A
 	Offset: 0x5D8
@@ -546,13 +546,13 @@ function function_aa5c711d(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_eccc151d(player, value)
+function set_red(player, value)
 {
-	[[ self ]]->function_eccc151d(player, value);
+	[[ self ]]->set_red(player, value);
 }
 
 /*
-	Name: function_2208b8db
+	Name: set_green
 	Namespace: doa_textelement
 	Checksum: 0xE91C026F
 	Offset: 0x608
@@ -560,13 +560,13 @@ function function_eccc151d(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_2208b8db(player, value)
+function set_green(player, value)
 {
-	[[ self ]]->function_2208b8db(player, value);
+	[[ self ]]->set_green(player, value);
 }
 
 /*
-	Name: function_7420df0a
+	Name: set_blue
 	Namespace: doa_textelement
 	Checksum: 0x96CD9F50
 	Offset: 0x638
@@ -574,13 +574,13 @@ function function_2208b8db(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_7420df0a(player, value)
+function set_blue(player, value)
 {
-	[[ self ]]->function_7420df0a(player, value);
+	[[ self ]]->set_blue(player, value);
 }
 
 /*
-	Name: function_d5ea17f0
+	Name: set_text
 	Namespace: doa_textelement
 	Checksum: 0x321CC429
 	Offset: 0x668
@@ -588,13 +588,13 @@ function function_7420df0a(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_d5ea17f0(player, value)
+function set_text(player, value)
 {
-	[[ self ]]->function_d5ea17f0(player, value);
+	[[ self ]]->set_text(player, value);
 }
 
 /*
-	Name: function_1bd2bb26
+	Name: set_horizontal_alignment
 	Namespace: doa_textelement
 	Checksum: 0xF4F377C3
 	Offset: 0x698
@@ -602,9 +602,9 @@ function function_d5ea17f0(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_1bd2bb26(player, value)
+function set_horizontal_alignment(player, value)
 {
-	[[ self ]]->function_1bd2bb26(player, value);
+	[[ self ]]->set_horizontal_alignment(player, value);
 }
 
 /*

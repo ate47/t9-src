@@ -1,4 +1,4 @@
-#using script_7db26be178c873e2;
+#using scripts\weapons\smokegrenade.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace smokegrenade;

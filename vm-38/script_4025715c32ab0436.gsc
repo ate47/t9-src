@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_5813c56a : class_6aaccc24
+class class_5813c56a : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_5813c56a : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_5813c56a : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_silver_hud");
+		cLUIelem::function_5c1bb138("zm_silver_hud");
 	}
 
 	/*
@@ -82,9 +82,9 @@ class class_5813c56a : class_6aaccc24
 	*/
 	function setup_clientfields(var_a7dcee14, var_5cdd6232)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_silver_hud");
-		namespace_6aaccc24::function_da693cbe("aetherscopeStatus", 1, 2, "int", var_a7dcee14);
-		namespace_6aaccc24::function_da693cbe("showPhoto", 1, 1, "int", var_5cdd6232);
+		cLUIelem::setup_clientfields("zm_silver_hud");
+		cLUIelem::function_da693cbe("aetherscopeStatus", 1, 2, "int", var_a7dcee14);
+		cLUIelem::function_da693cbe("showPhoto", 1, 1, "int", var_5cdd6232);
 	}
 
 	/*
@@ -112,7 +112,7 @@ class class_5813c56a : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "aetherscopeStatus", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "showPhoto", 0);
 	}

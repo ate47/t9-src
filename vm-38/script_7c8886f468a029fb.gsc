@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_90c2e4ec : class_6aaccc24
+class class_90c2e4ec : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_90c2e4ec : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_90c2e4ec : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_orda_health_bar");
+		cLUIelem::function_5c1bb138("sr_orda_health_bar");
 	}
 
 	/*
@@ -68,9 +68,9 @@ class class_90c2e4ec : class_6aaccc24
 	*/
 	function setup_clientfields(var_663a86fa, var_d79cca54)
 	{
-		namespace_6aaccc24::setup_clientfields("sr_orda_health_bar");
-		namespace_6aaccc24::function_da693cbe("health", 4000, 7, "float", var_663a86fa);
-		namespace_6aaccc24::function_da693cbe("is_beast", 4000, 1, "int", var_d79cca54);
+		cLUIelem::setup_clientfields("sr_orda_health_bar");
+		cLUIelem::function_da693cbe("health", 4000, 7, "float", var_663a86fa);
+		cLUIelem::function_da693cbe("is_beast", 4000, 1, "int", var_d79cca54);
 	}
 
 	/*
@@ -112,7 +112,7 @@ class class_90c2e4ec : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "health", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "is_beast", 0);
 	}

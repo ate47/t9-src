@@ -1,6 +1,6 @@
 #using script_256b8879317373de;
-#using script_2dc48f46bfeac894;
-#using script_4663ec59d864e437;
+#using scripts\abilities\ability_player.gsc;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;
@@ -49,7 +49,7 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	callback::on_connect(&onconnect);
-	callback::on_spawned(&function_590c4630);
+	callback::on_spawned(&onspawned);
 	ability_player::register_gadget_activation_callbacks(23, &function_368c92b1, &function_6dd64ede);
 	level.var_ad24980b = &function_6dd64ede;
 	level.var_99a34951 = getgametypesetting(#"hash_712f4c2a96bca56e");
@@ -124,7 +124,7 @@ function private onconnect()
 }
 
 /*
-	Name: function_590c4630
+	Name: onspawned
 	Namespace: pickup_health
 	Checksum: 0x61902198
 	Offset: 0x5D0
@@ -132,7 +132,7 @@ function private onconnect()
 	Parameters: 0
 	Flags: Private
 */
-function private function_590c4630()
+function private onspawned()
 {
 	self function_3fbb0e22();
 }

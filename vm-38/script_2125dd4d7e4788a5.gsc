@@ -7,7 +7,7 @@
 #using script_3411bb48d41bd3b;
 #using script_3f9e0dc8454d98e1;
 #using script_4163291d6e693552;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
 #using script_72401f526ba71638;
 #using script_7bacb32f8222fa3e;
@@ -2488,7 +2488,7 @@ function function_44ae8976(instance, activator)
 		wait(6);
 		foreach(player in getplayers())
 		{
-			level.var_31028c5d prototype_hud::function_953da284(player, #"hash_69606c9e75f74ab0");
+			level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_69606c9e75f74ab0");
 			level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 		}
 	}

@@ -83,7 +83,7 @@ event main(eventstruct)
 	level.ontimelimit = &on_time_limit;
 	level.onendgame = &on_end_game;
 	level.ononeleftevent = &ononeleftevent;
-	level.var_f6d301b = &function_66cbd790;
+	level.onendround = &on_end_round;
 	level.gettimelimit = &gettimelimit;
 	level.ondeadevent = &function_40843d72;
 	level.doprematch = 1;
@@ -361,7 +361,7 @@ function on_end_game(var_c1e98979)
 }
 
 /*
-	Name: function_66cbd790
+	Name: on_end_round
 	Namespace: mission_koth
 	Checksum: 0x2F88061
 	Offset: 0x1C18
@@ -369,7 +369,7 @@ function on_end_game(var_c1e98979)
 	Parameters: 1
 	Flags: None
 */
-function function_66cbd790(var_c1e98979)
+function on_end_round(var_c1e98979)
 {
 	function_4c593022();
 	function_7996e36d();
@@ -980,7 +980,7 @@ function get_zone_array()
 	}
 	if(allzones.size == 0)
 	{
-		globallogic_utils::add_map_error("There are no control zones defined for this map " + util::function_53bbf9d2());
+		globallogic_utils::add_map_error("There are no control zones defined for this map " + util::get_map_name());
 		return [];
 	}
 	if(allzones.size > 1)

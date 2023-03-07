@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_12bf89f7 : class_6aaccc24
+class czm_trial_weapon_locked : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0x50D4A747
 		Offset: 0x348
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_12bf89f7 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0x7059FDB2
 		Offset: 0x4D8
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_12bf89f7 : class_6aaccc24
 
 	/*
 		Name: function_1e74977
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0x73C8BDB9
 		Offset: 0x460
 		Size: 0x6C
@@ -47,7 +47,7 @@ class class_12bf89f7 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0xAB2F901B
 		Offset: 0x430
 		Size: 0x24
@@ -56,12 +56,12 @@ class class_12bf89f7 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0x231AA368
 		Offset: 0x3C0
 		Size: 0x1C
@@ -70,12 +70,12 @@ class class_12bf89f7 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_trial_weapon_locked");
+		cLUIelem::function_5c1bb138("zm_trial_weapon_locked");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0xB753C22D
 		Offset: 0x368
 		Size: 0x4C
@@ -84,13 +84,13 @@ class class_12bf89f7 : class_6aaccc24
 	*/
 	function setup_clientfields(var_18c795d0)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_trial_weapon_locked");
-		namespace_6aaccc24::function_da693cbe("show_icon", 1, 1, "counter", var_18c795d0);
+		cLUIelem::setup_clientfields("zm_trial_weapon_locked");
+		cLUIelem::function_da693cbe("show_icon", 1, 1, "counter", var_18c795d0);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_12bf89f7
+		Namespace: czm_trial_weapon_locked
 		Checksum: 0xB983646F
 		Offset: 0x3E8
 		Size: 0x40
@@ -99,7 +99,7 @@ class class_12bf89f7 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "show_icon", 0);
 	}
 
@@ -132,7 +132,7 @@ function private autoexec function_76cbbb1a()
 */
 function register(var_18c795d0)
 {
-	elem = new class_12bf89f7();
+	elem = new czm_trial_weapon_locked();
 	[[ elem ]]->setup_clientfields(var_18c795d0);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -164,7 +164,7 @@ function register(var_18c795d0)
 */
 function function_5c1bb138()
 {
-	elem = new class_12bf89f7();
+	elem = new czm_trial_weapon_locked();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

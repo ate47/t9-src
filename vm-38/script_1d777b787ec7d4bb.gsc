@@ -7,11 +7,11 @@
 #using script_3f9e0dc8454d98e1;
 #using script_46fe62930372dc4e;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5fd73298643b6fff;
 #using script_60d2812480bc5591;
 #using script_663d23db6a134b9c;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_7e59d7bba853fe4b;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -125,8 +125,8 @@ function function_d81240c3()
 			var_32f76af8 thread function_21a9e71b(0);
 		}
 	}
-	namespace_ee206246::objective_complete(#"hash_8602209567f541c");
-	namespace_ee206246::objective_complete(#"hash_3e7926c5aefe4406");
+	zm_sq::objective_complete(#"hash_8602209567f541c");
+	zm_sq::objective_complete(#"hash_3e7926c5aefe4406");
 	level thread zm_power::turn_power_on_and_open_doors(2);
 }
 
@@ -406,7 +406,7 @@ function function_b7c45db1(var_9fbdac89, e_player)
 	{
 		if(var_9673500d.script_noteworthy === "objective_pos")
 		{
-			namespace_ee206246::objective_complete(#"hash_520d09b88a205eac", var_9673500d);
+			zm_sq::objective_complete(#"hash_520d09b88a205eac", var_9673500d);
 		}
 	}
 	/#
@@ -449,11 +449,11 @@ function function_7df47abd()
 	self.var_269ad176 = 1;
 	if(level.var_2645bbc0 === 1)
 	{
-		namespace_ee206246::objective_complete(#"hash_69cca9825b7edc33");
+		zm_sq::objective_complete(#"hash_69cca9825b7edc33");
 	}
 	if(level.var_2645bbc0 === 2)
 	{
-		namespace_ee206246::objective_complete(#"hash_2b663a5dd7beb565");
+		zm_sq::objective_complete(#"hash_2b663a5dd7beb565");
 	}
 	n_round = level.round_number;
 	if(n_round < 5)
@@ -826,7 +826,7 @@ function function_ca558ad5()
 		attacker = result.attacker;
 		if(isdefined(killed_ai) && isdefined(self.var_547f9dd5))
 		{
-			var_c2b976ac = namespace_af171776::function_db7e1556(killed_ai, self.var_547f9dd5);
+			var_c2b976ac = zm_gold_main_quest::function_db7e1556(killed_ai, self.var_547f9dd5);
 			if(var_c2b976ac.dis <= 600)
 			{
 				killed_ai.var_923bed7a = var_c2b976ac.entity;
@@ -904,9 +904,9 @@ function function_30f8cfb4(satellite, zone_index, var_14a22ccd)
 		var_abc3ef9 = self;
 		var_9bb2940e = #"hash_7918446edcdf4bdd";
 	}
-	namespace_ee206246::objective_set(#"hash_1598ff25b76743dd", var_abc3ef9, undefined, undefined, #"hash_8602209567f541c", undefined, &namespace_5c4c9a39::function_13ebb331, "vol_player_in_firebase");
-	namespace_ee206246::function_3029d343(#"hash_8602209567f541c", var_abc3ef9);
-	namespace_ee206246::objective_set(#"hash_68f4e9062d28524d", var_abc3ef9, undefined, var_9bb2940e, #"hash_3e7926c5aefe4406", undefined, &namespace_5c4c9a39::function_13ebb331, "vol_player_in_firebase");
+	zm_sq::objective_set(#"hash_1598ff25b76743dd", var_abc3ef9, undefined, undefined, #"hash_8602209567f541c", undefined, &zm_gold_util::function_13ebb331, "vol_player_in_firebase");
+	zm_sq::function_3029d343(#"hash_8602209567f541c", var_abc3ef9);
+	zm_sq::objective_set(#"hash_68f4e9062d28524d", var_abc3ef9, undefined, var_9bb2940e, #"hash_3e7926c5aefe4406", undefined, &zm_gold_util::function_13ebb331, "vol_player_in_firebase");
 	while(true)
 	{
 		result = undefined;
@@ -957,9 +957,9 @@ function function_49401276(var_abc3ef9)
 				var_cc3dc062 = #"hash_8602209567f541c";
 				var_ff8e0f2d = #"hash_3e7926c5aefe4406";
 			}
-			namespace_ee206246::function_aee0b4b4(var_ff8e0f2d, var_abc3ef9);
+			zm_sq::function_aee0b4b4(var_ff8e0f2d, var_abc3ef9);
 			waitframe(1);
-			namespace_ee206246::function_3029d343(var_cc3dc062, var_abc3ef9);
+			zm_sq::function_3029d343(var_cc3dc062, var_abc3ef9);
 			wait(0.5);
 		}
 		self.var_94d080b--;
@@ -1268,8 +1268,8 @@ function function_21a9e71b(success, var_14a22ccd, var_d219813c)
 			attackable flag::clear(#"hash_4677a94e0a997ed7");
 		}
 	}
-	namespace_ee206246::objective_complete(#"hash_8602209567f541c");
-	namespace_ee206246::objective_complete(#"hash_3e7926c5aefe4406");
+	zm_sq::objective_complete(#"hash_8602209567f541c");
+	zm_sq::objective_complete(#"hash_3e7926c5aefe4406");
 	foreach(e_player in getplayers())
 	{
 		if(isdefined(level.var_7dbadc8c) && level.var_7dbadc8c namespace_72133e5::is_open(e_player))
@@ -1304,7 +1304,7 @@ function function_21a9e71b(success, var_14a22ccd, var_d219813c)
 			self.mdl_tag clientfield::set("" + #"hash_221e597b28199323", 1);
 			if(zm_utility::function_e51dc2d8())
 			{
-				level thread namespace_af171776::function_9e39dad3(self.script_int);
+				level thread zm_gold_main_quest::function_9e39dad3(self.script_int);
 			}
 			foreach(satellite in self.var_547f9dd5)
 			{
@@ -1357,14 +1357,14 @@ function function_21a9e71b(success, var_14a22ccd, var_d219813c)
 			level thread namespace_1812c3f4::function_df0c6e4e();
 			foreach(e_player in getplayers())
 			{
-				level.var_31028c5d prototype_hud::function_953da284(e_player, #"");
+				level.var_31028c5d prototype_hud::set_active_objective_string(e_player, #"");
 				level.var_31028c5d prototype_hud::function_817e4d10(e_player, 0);
 				level.var_31028c5d prototype_hud::function_1b05e380(e_player, 0);
 			}
 		}
 		if(zm_utility::function_e51dc2d8())
 		{
-			level thread namespace_af171776::function_1621782d(self.script_int);
+			level thread zm_gold_main_quest::function_1621782d(self.script_int);
 		}
 		level thread namespace_47809ab2::function_1f622ac(self.script_int);
 		level flag::set("failed_control_point" + self.script_int);
@@ -1374,7 +1374,7 @@ function function_21a9e71b(success, var_14a22ccd, var_d219813c)
 	}
 	if(!level flag::get(#"pap_quest_completed"))
 	{
-		namespace_e0b1e9f5::function_b8854133();
+		zm_gold_pap_quest::function_b8854133();
 	}
 	level flag::clear(#"hash_1c70d74ceb5e9aa2");
 	self.mdl_tag clientfield::set("" + #"hash_4824b5ad2c6adfcf", 0);
@@ -1682,10 +1682,10 @@ function private function_2f28c166()
 function function_37597f29()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

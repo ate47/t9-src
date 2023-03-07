@@ -1,15 +1,15 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_3411bb48d41bd3b;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5c00791eb1bb8daf;
 #using script_676fc0767562bc02;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_772d4fbcb229f593;
-#using script_77b61a4178efdbc4;
+#using scripts\zm\ai\zm_ai_mimic.gsc;
 #using script_7bacb32f8222fa3e;
 #using script_7e59d7bba853fe4b;
 #using script_ab862743b3070a;
@@ -84,12 +84,12 @@ function init()
 */
 function function_1b65b01d()
 {
-	level namespace_ee206246::register(#"ww_quest", #"hash_79fb0b9d5540e0ac", #"hash_3cfd69dc67bdcf69", &function_c6de5d3d, &function_863fc0f1);
-	level namespace_ee206246::register(#"ww_quest", #"hash_38a2a9adaab1cc19", #"hash_3cfd66dc67bdca50", &function_1168e497, &function_4320379c);
-	level namespace_ee206246::register(#"ww_quest", #"hash_41bf4422496d516a", #"hash_3cfd66dc67bdca50", &function_38b4568d, &function_2f221d1c);
-	level namespace_ee206246::register(#"ww_quest", #"hash_7a62c3c8a237162c", #"hash_3cfd66dc67bdca50", &function_af92e3a4, &function_40fcf197);
+	level zm_sq::register(#"ww_quest", #"hash_79fb0b9d5540e0ac", #"hash_3cfd69dc67bdcf69", &function_c6de5d3d, &function_863fc0f1);
+	level zm_sq::register(#"ww_quest", #"hash_38a2a9adaab1cc19", #"hash_3cfd66dc67bdca50", &function_1168e497, &function_4320379c);
+	level zm_sq::register(#"ww_quest", #"hash_41bf4422496d516a", #"hash_3cfd66dc67bdca50", &function_38b4568d, &function_2f221d1c);
+	level zm_sq::register(#"ww_quest", #"hash_7a62c3c8a237162c", #"hash_3cfd66dc67bdca50", &function_af92e3a4, &function_40fcf197);
 	level flag::wait_till(#"start_zombie_round_logic");
-	level thread namespace_ee206246::start(#"ww_quest", 1);
+	level thread zm_sq::start(#"ww_quest", 1);
 }
 
 /*
@@ -425,7 +425,7 @@ function function_4d67771c(n_wave)
 				case 3:
 				{
 					s_spawn_loc = array::random(a_s_spawn_locs);
-					ai = namespace_14c07d4f::spawn_single(s_spawn_loc);
+					ai = zm_ai_mimic::spawn_single(s_spawn_loc);
 					break;
 				}
 			}
@@ -483,7 +483,7 @@ function function_b49b76d4(eventstruct)
 	{
 		return;
 	}
-	if(isdefined(attacker) && attacker.archetype === #"hash_7c09b683edfb0e96")
+	if(isdefined(attacker) && attacker.archetype === #"abom")
 	{
 		level thread function_844cd1f6(dynent.origin);
 	}
@@ -1297,9 +1297,9 @@ function function_904d21fd()
 function function_cd7a3de4()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

@@ -4,7 +4,7 @@
 #using script_256b8879317373de;
 #using script_29ed825598140ca0;
 #using script_32c8b5b0eb2854f3;
-#using script_3539cbff3042175f;
+#using scripts\killstreaks\mp\uav.gsc;
 #using script_3d703ef87a841fe4;
 #using script_3f27a7b2232674db;
 #using script_44b0b8420eabacad;
@@ -166,7 +166,7 @@ function callback_playerconnect()
 	if(level.onlinegame && !is_true(level.freerun))
 	{
 		self.gametype_kill_streak = self stats::function_ed81f25e(#"kill_streak");
-		self.var_b6f732c0 = self stats::function_441050ca(#"hash_5ef976b050e0aa48");
+		self.var_b6f732c0 = self stats::function_441050ca(#"longest_killstreak");
 		if(!isdefined(self.gametype_kill_streak))
 		{
 			self.gametype_kill_streak = 0;
@@ -334,7 +334,7 @@ function callback_playerconnect()
 	{
 		self namespace_42fe87d::record_global_mp_stats_for_player_at_match_start();
 	}
-	self namespace_9a8d2924::function_2ce5cb7e();
+	self hvo::function_2ce5cb7e();
 	num_con = getnumconnectedplayers(0);
 	num_exp = getnumexpectedplayers(1);
 	/#

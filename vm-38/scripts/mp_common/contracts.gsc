@@ -1,6 +1,6 @@
 #using script_18f0d22c75b141a7;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -76,7 +76,7 @@ function private finalize_init()
 	if(can_process_contracts())
 	{
 		register_player_contract_event(#"headshot", &on_headshot_kill, 1);
-		register_player_contract_event(#"hash_4b92edc69ea525fc", &function_a0045e6a);
+		register_player_contract_event(#"air_assault_total_kills", &function_a0045e6a);
 		register_player_contract_event(#"hash_10b0c56ae630070d", &function_8af6a5a);
 		challenges::registerchallengescallback("playerKilled", &contract_kills);
 		challenges::registerchallengescallback("gameEnd", &function_a4c8ce2a);

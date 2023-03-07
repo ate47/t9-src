@@ -2,12 +2,12 @@
 #using script_1c65dbfc2f1c8d8f;
 #using script_25ebc9ade08aed84;
 #using script_34ab99a4ca1a43d;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;
 #using script_5404bcacf34a92d;
-#using script_5bb072c3abf4652c;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_7a5293d92c61c788;
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;
@@ -94,13 +94,13 @@ function init_clientfields()
 function function_ec9e5cf2()
 {
 	namespace_8f39dfb1::init();
-	level namespace_ee206246::register(#"hash_4bcc3acb4102f466", #"step_1", #"hash_1309b1590ff55819", &function_1dcf5339, &function_9a3d73f5);
-	level namespace_ee206246::register(#"hash_4bcc3acb4102f466", #"step_2", #"hash_1309ae590ff55300", &function_bc64a2fc, &function_5339496c);
-	level namespace_ee206246::register(#"hash_5891e4c3e9c2ece4", #"step_1", #"hash_cdb7944a1051037", &function_f68bd85b, &function_a10cd1d4);
-	level namespace_ee206246::register(#"hash_5891e4c3e9c2ece4", #"step_2", #"hash_cdb7a44a10511ea", &function_513e5d8e, &function_af1af946);
-	level namespace_ee206246::register(#"hash_1e54ef45c51f5b1a", #"step_1", #"hash_1e54ef45c51f5b1a", &function_afb809d7, &function_a7f8da0d);
-	level namespace_ee206246::register(#"hash_68f490a90206132a", #"step_1", #"hash_18de4ebce0c76a15", &function_519f3aff, &function_bd8fd5ea);
-	level namespace_ee206246::register(#"hash_68f490a90206132a", #"step_2", #"hash_18de4bbce0c764fc", &function_c037252d, &function_610a4c69);
+	level zm_sq::register(#"hash_4bcc3acb4102f466", #"step_1", #"hash_1309b1590ff55819", &function_1dcf5339, &function_9a3d73f5);
+	level zm_sq::register(#"hash_4bcc3acb4102f466", #"step_2", #"hash_1309ae590ff55300", &function_bc64a2fc, &function_5339496c);
+	level zm_sq::register(#"hash_5891e4c3e9c2ece4", #"step_1", #"hash_cdb7944a1051037", &function_f68bd85b, &function_a10cd1d4);
+	level zm_sq::register(#"hash_5891e4c3e9c2ece4", #"step_2", #"hash_cdb7a44a10511ea", &function_513e5d8e, &function_af1af946);
+	level zm_sq::register(#"hash_1e54ef45c51f5b1a", #"step_1", #"hash_1e54ef45c51f5b1a", &function_afb809d7, &function_a7f8da0d);
+	level zm_sq::register(#"hash_68f490a90206132a", #"step_1", #"hash_18de4ebce0c76a15", &function_519f3aff, &function_bd8fd5ea);
+	level zm_sq::register(#"hash_68f490a90206132a", #"step_2", #"hash_18de4bbce0c764fc", &function_c037252d, &function_610a4c69);
 	level thread function_2abef8da();
 }
 
@@ -115,10 +115,10 @@ function function_ec9e5cf2()
 */
 function private function_2abef8da()
 {
-	level namespace_ee206246::start(#"hash_4bcc3acb4102f466");
-	level namespace_ee206246::start(#"hash_5891e4c3e9c2ece4");
-	level namespace_ee206246::start(#"hash_1e54ef45c51f5b1a");
-	level namespace_ee206246::start(#"hash_68f490a90206132a");
+	level zm_sq::start(#"hash_4bcc3acb4102f466");
+	level zm_sq::start(#"hash_5891e4c3e9c2ece4");
+	level zm_sq::start(#"hash_1e54ef45c51f5b1a");
+	level zm_sq::start(#"hash_68f490a90206132a");
 }
 
 /*
@@ -2239,7 +2239,7 @@ function function_3c81b8d8(e_player)
 	level flag::set(#"hash_25df5b0937fda015");
 	e_player function_bc82f900(#"hash_3937704286348bfa");
 	var_3c6ce622 = struct::get("intel_document_04", "targetname");
-	namespace_9f2e6680::function_ade87eb5(#"hash_51d66d8e659b2f0d", var_3c6ce622, 0);
+	zm_gold_ww_quest::function_ade87eb5(#"hash_51d66d8e659b2f0d", var_3c6ce622, 0);
 }
 
 /*

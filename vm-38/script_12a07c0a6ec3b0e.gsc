@@ -4,7 +4,7 @@
 #using script_311c446e3df6c3fa;
 #using script_40e017336a087343;
 #using script_5ee86fb478309acf;
-#using script_7ae1d3c7bfe5070;
+#using scripts\zm\zm_tungsten_main_quest.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -721,27 +721,27 @@ function function_bd4d69e3(localclientnum, var_6e938f0b, var_e15e9f2a, var_801f8
 			{
 				case 1:
 				{
-					var_2e1f34dd = util::spawn_model(localclientnum, #"hash_62b204735601bbc9", v_point);
+					e_item = util::spawn_model(localclientnum, #"hash_62b204735601bbc9", v_point);
 					break;
 				}
 				case 2:
 				{
-					var_2e1f34dd = util::spawn_model(localclientnum, #"p9_sur_junk_parts_pile", v_point);
+					e_item = util::spawn_model(localclientnum, #"p9_sur_junk_parts_pile", v_point);
 					break;
 				}
 				case 3:
 				{
-					var_2e1f34dd = util::spawn_model(localclientnum, #"p9_sur_junk_parts_rare", v_point);
+					e_item = util::spawn_model(localclientnum, #"p9_sur_junk_parts_rare", v_point);
 					break;
 				}
 				default:
 				{
-					var_2e1f34dd = util::spawn_model(localclientnum, #"hash_62b204735601bbc9", v_point);
+					e_item = util::spawn_model(localclientnum, #"hash_62b204735601bbc9", v_point);
 					break;
 				}
 			}
-			var_2e1f34dd util::delay(5, undefined, &delete);
-			var_2e1f34dd thread function_69ffb9e7(localclientnum, self, var_e15e9f2a);
+			e_item util::delay(5, undefined, &delete);
+			e_item thread function_69ffb9e7(localclientnum, self, var_e15e9f2a);
 			var_6e938f0b--;
 		}
 		wait(var_801f8ece);

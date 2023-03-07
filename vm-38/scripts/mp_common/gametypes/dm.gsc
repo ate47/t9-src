@@ -3,7 +3,7 @@
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\spawning_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic.gsc;

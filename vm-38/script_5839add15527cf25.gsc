@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -58,11 +58,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"weapon_rotation", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"weapon_rotation", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_84030cfb
 	Checksum: 0x76E4A8DC
 	Offset: 0x1D0
@@ -70,7 +70,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(var_44c4c23d, var_bd332e71)
+function private on_begin(var_44c4c23d, var_bd332e71)
 {
 	self.var_ea033f4a = [];
 	n_interval = zm_trial::function_5769f26a(var_44c4c23d);
@@ -134,7 +134,7 @@ function private function_d1de6a85(var_44c4c23d, var_bd332e71)
 	self.var_45de08d7 = [];
 	foreach(e_player in getplayers())
 	{
-		e_player namespace_b22c99a5::function_9bf8e274();
+		e_player zm_trial_util::function_9bf8e274();
 		self.var_f0966a0b[e_player.clientid] = [];
 		self thread take_player_weapons(n_interval, e_player);
 	}
@@ -207,7 +207,7 @@ function private function_873de196(weapon)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_84030cfb
 	Checksum: 0x9C2E4F0C
 	Offset: 0xAA8
@@ -215,7 +215,7 @@ function private function_873de196(weapon)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level zm_trial::function_44200d07(0);
 	callback::remove_on_spawned(&on_player_spawned);
@@ -229,7 +229,7 @@ function private function_9e7b3f4d(round_reset)
 		{
 			e_player enableweaponcycling();
 		}
-		e_player namespace_b22c99a5::function_73ff0096();
+		e_player zm_trial_util::function_73ff0096();
 		e_player.var_a14d2a24 = undefined;
 	}
 }

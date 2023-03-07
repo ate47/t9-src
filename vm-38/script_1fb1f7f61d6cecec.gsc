@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1b10fdf0addd52e;
 #using script_340a2e805e35f7a2;
 #using script_34ab99a4ca1a43d;
@@ -92,9 +92,9 @@ function private function_8ac3bea9()
 	if(is_true(getgametypesetting(#"hash_4751990deae37e66")))
 	{
 		/#
-			util::function_345e5b9a("");
-			util::function_345e5b9a("");
-			util::function_345e5b9a("");
+			util::add_debug_command("");
+			util::add_debug_command("");
+			util::add_debug_command("");
 			zm_devgui::add_custom_devgui_callback(&function_33572994);
 		#/
 		level thread function_5837bf72();
@@ -411,11 +411,11 @@ function private function_5da12481(params)
 				{
 					if(math::cointoss(15) || level flag::get(#"hash_6ef5c2fd97dfb8ba"))
 					{
-						var_c40fb40b = spawnactor(#"hash_785d6a6acd470388", item.origin, item.angles, "mimic_jackolantern_spawn", 1);
-						if(isdefined(var_c40fb40b))
+						ai_mimic = spawnactor(#"hash_785d6a6acd470388", item.origin, item.angles, "mimic_jackolantern_spawn", 1);
+						if(isdefined(ai_mimic))
 						{
-							playfx(#"hash_16d245700e1be792", var_c40fb40b.origin);
-							var_c40fb40b playsound(#"hash_408f33e5cf20df9d");
+							playfx(#"hash_16d245700e1be792", ai_mimic.origin);
+							ai_mimic playsound(#"hash_408f33e5cf20df9d");
 						}
 						else
 						{

@@ -1,15 +1,15 @@
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\damage.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_502f6ccb;
+#namespace microwave_turret_shared;
 
 /*
 	Name: function_b05f57da
-	Namespace: namespace_502f6ccb
+	Namespace: microwave_turret_shared
 	Checksum: 0x2FA7DBC1
 	Offset: 0x130
 	Size: 0x14

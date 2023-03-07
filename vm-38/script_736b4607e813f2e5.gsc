@@ -81,7 +81,7 @@ function init()
 	clientfield::register("scriptmover", "blight_father_gib_explosion", 1, 1, "int");
 	namespace_250e9486::function_252dff4d("blight_father", 1, &function_22de5bc1);
 	registerbehaviorscriptfunctions();
-	level.var_c2981ce9 = [#"hash_741c87a90c4ecc58":&function_33b2c99e, #"hash_73d1b7a90c0f326e":&function_40034805, #"tag_elbow_weakspot_ri":&function_5a1a4ad, #"tag_elbow_weakspot_le":&function_9bbe631c, #"hash_44497a6311259d30":&function_fa7c080];
+	level.var_c2981ce9 = [#"tag_eggsack_weakspot_ri":&function_33b2c99e, #"tag_eggsack_weakspot_le":&function_40034805, #"tag_elbow_weakspot_ri":&function_5a1a4ad, #"tag_elbow_weakspot_le":&function_9bbe631c, #"tag_mouth_weakspot":&function_fa7c080];
 	if(-1)
 	{
 		level.var_445e24c8 = [];

@@ -1,5 +1,5 @@
-#using script_2dc48f46bfeac894;
-#using script_4663ec59d864e437;
+#using scripts\abilities\ability_player.gsc;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

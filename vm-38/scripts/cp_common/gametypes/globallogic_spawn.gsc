@@ -1,7 +1,7 @@
 #using script_256b8879317373de;
 #using script_32399001bdb550da;
 #using script_44b0b8420eabacad;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

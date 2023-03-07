@@ -1,4 +1,4 @@
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;

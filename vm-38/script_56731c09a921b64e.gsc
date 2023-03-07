@@ -1,9 +1,9 @@
 #using script_1c65dbfc2f1c8d8f;
 #using script_1caf36ff04a85ff6;
 #using script_35598499769dbb3d;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -148,7 +148,7 @@ function private function_70a657d8()
 		level.var_1a4cc228[#"hash_7f957e36b4f6160f"] = [0:#"hash_61df3be05096e9e2"];
 		level.var_1a4cc228[#"hash_729b116cf9d044"] = [0:#"hash_78238b400ae08c28"];
 	}
-	else if(util::function_53bbf9d2() == "zm_platinum")
+	else if(util::get_map_name() == "zm_platinum")
 	{
 		level.var_1a4cc228[#"hash_7613c8395a7cd724"] = [3:#"hash_78fb681158a2a435", 2:#"hash_5508f5847f3dd438", 1:#"hash_7f1bca93226fa0d6", 0:#"hash_656d60e84740cf6b"];
 		level.var_1a4cc228[#"hash_23fa13756529654e"] = [3:#"hash_7f1bca93226fa0d6", 2:#"hash_656d60e84740cf6b", 1:#"hash_34bec5ddf4f376", 0:#"hash_423228b7b3b79e43"];
@@ -2806,15 +2806,15 @@ function function_5a2447b1(time)
 */
 function function_6732b1b(item)
 {
-	if(function_3efc58e4(self namespace_a0d533d1::function_2b83d3ff(self namespace_b376ff3f::function_2e711614(17 + 1))))
+	if(function_3efc58e4(self namespace_a0d533d1::function_2b83d3ff(self item_inventory::function_2e711614(17 + 1))))
 	{
 		return true;
 	}
-	if(function_3efc58e4(self namespace_a0d533d1::function_2b83d3ff(self namespace_b376ff3f::function_2e711614(((17 + 1) + 8) + 1))))
+	if(function_3efc58e4(self namespace_a0d533d1::function_2b83d3ff(self item_inventory::function_2e711614(((17 + 1) + 8) + 1))))
 	{
 		return true;
 	}
-	if(function_3efc58e4(self namespace_a0d533d1::function_2b83d3ff(self namespace_b376ff3f::function_2e711614(((((17 + 1) + 8) + 1) + 8) + 1))))
+	if(function_3efc58e4(self namespace_a0d533d1::function_2b83d3ff(self item_inventory::function_2e711614(((((17 + 1) + 8) + 1) + 8) + 1))))
 	{
 		return true;
 	}
@@ -3358,7 +3358,7 @@ function function_e09526a6()
 	var_cb5aea38 = [2:((((17 + 1) + 8) + 1) + 8) + 1, 1:((17 + 1) + 8) + 1, 0:17 + 1];
 	foreach(slot in var_cb5aea38)
 	{
-		var_9ccb901d = self namespace_b376ff3f::function_2e711614(slot);
+		var_9ccb901d = self item_inventory::function_2e711614(slot);
 		if(!isdefined(var_9ccb901d))
 		{
 			continue;
@@ -4235,12 +4235,12 @@ function function_fc9aff93(string)
 function function_37597f29()
 {
 	/#
-		level_name = util::function_53bbf9d2();
+		level_name = util::get_map_name();
 		if(level_name === "")
 		{
-			util::function_345e5b9a("");
-			util::function_345e5b9a("");
-			util::function_345e5b9a("");
+			util::add_debug_command("");
+			util::add_debug_command("");
+			util::add_debug_command("");
 			zm_devgui::add_custom_devgui_callback(&cmd);
 		}
 	#/

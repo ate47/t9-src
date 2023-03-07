@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_1caf36ff04a85ff6;
 #using script_68d2ee1489345a1d;
@@ -228,8 +228,8 @@ function function_5eeaa168()
 			}
 			var_1c7e95e9 = 0;
 			player.var_d30f56e4 = self;
-			weapon1 = player namespace_a0d533d1::function_2b83d3ff(player namespace_b376ff3f::function_2e711614(17 + 1));
-			weapon2 = player namespace_a0d533d1::function_2b83d3ff(player namespace_b376ff3f::function_2e711614(((17 + 1) + 8) + 1));
+			weapon1 = player namespace_a0d533d1::function_2b83d3ff(player item_inventory::function_2e711614(17 + 1));
+			weapon2 = player namespace_a0d533d1::function_2b83d3ff(player item_inventory::function_2e711614(((17 + 1) + 8) + 1));
 			if(!isdefined(weapon1))
 			{
 				weapon1 = var_f945fa92;
@@ -249,7 +249,7 @@ function function_5eeaa168()
 				{
 					if(weapon1 == var_f945fa92 || weapon1 == nullweapon || weapon1.weapclass == "melee" && (weapon2 != var_f945fa92 && weapon2 != nullweapon && weapon2.weapclass != "melee"))
 					{
-						item = player namespace_b376ff3f::function_230ceec4(weapon2);
+						item = player item_inventory::function_230ceec4(weapon2);
 						cost = function_adb75323(item);
 						if(player zm_score::can_player_purchase(cost) && !player function_f300168a(weapon2))
 						{
@@ -273,7 +273,7 @@ function function_5eeaa168()
 					}
 					else if(weapon2 == var_f945fa92 || weapon2 == nullweapon || weapon2.weapclass == "melee" && (weapon1 != var_f945fa92 && weapon1 != nullweapon && weapon1.weapclass != "melee"))
 					{
-						item = player namespace_b376ff3f::function_230ceec4(weapon1);
+						item = player item_inventory::function_230ceec4(weapon1);
 						cost = function_adb75323(item);
 						if(player zm_score::can_player_purchase(cost) && !player function_f300168a(weapon1))
 						{
@@ -308,7 +308,7 @@ function function_5eeaa168()
 					}
 					else
 					{
-						item = player namespace_b376ff3f::function_230ceec4(currentweapon);
+						item = player item_inventory::function_230ceec4(currentweapon);
 						cost = function_adb75323(item);
 						if(player zm_score::can_player_purchase(cost) && !player function_f300168a(currentweapon))
 						{
@@ -406,8 +406,8 @@ function function_e4ff673(eventstruct)
 		nullweapon = getweapon(#"none");
 		var_f945fa92 = getweapon(#"bare_hands");
 		currentweapon = player getcurrentweapon();
-		weapon1 = player namespace_a0d533d1::function_2b83d3ff(player namespace_b376ff3f::function_2e711614(17 + 1));
-		weapon2 = player namespace_a0d533d1::function_2b83d3ff(player namespace_b376ff3f::function_2e711614(((17 + 1) + 8) + 1));
+		weapon1 = player namespace_a0d533d1::function_2b83d3ff(player item_inventory::function_2e711614(17 + 1));
+		weapon2 = player namespace_a0d533d1::function_2b83d3ff(player item_inventory::function_2e711614(((17 + 1) + 8) + 1));
 		if(!isdefined(weapon1))
 		{
 			weapon1 = var_f945fa92;
@@ -472,7 +472,7 @@ function function_7c1cc13c(player, weapon, model)
 	{
 		return;
 	}
-	item = player namespace_b376ff3f::function_230ceec4(weapon);
+	item = player item_inventory::function_230ceec4(weapon);
 	cost = function_adb75323(item);
 	has_enough = player zm_score::can_player_purchase(cost);
 	currentclip = player getweaponammoclip(weapon);

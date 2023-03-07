@@ -1,21 +1,21 @@
 #using script_256b8879317373de;
 #using script_2c49ae69cd8ce30c;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_396f7d71538c9677;
 #using script_3f27a7b2232674db;
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
-#using script_56ca01b3b31455b5;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
 #using script_6167e26342be354b;
 #using script_68d2ee1489345a1d;
 #using script_70a43d6ba27cff6a;
 #using script_725554a59d6a75b9;
 #using script_788472602edbe3b9;
-#using script_7bafaa95bb1b427e;
-#using script_bc839bb0e693558;
+#using scripts\weapons\weapons.gsc;
+#using scripts\abilities\ability_power.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\burnplayer.gsc;
@@ -557,7 +557,7 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 			}
 			if(smeansofdeath === "MOD_HEAD_SHOT" && !killstreaks::is_killstreak_weapon(weapon))
 			{
-				eattacker stats::function_dad108fa(#"hash_770b357b9f671585", int(damagedone));
+				eattacker stats::function_dad108fa(#"headshot_damage", int(damagedone));
 			}
 		}
 	}
@@ -615,14 +615,14 @@ function private function_961fe569(einflictor, eattacker, idamage, idflags, smea
 		if(!is_true(params.var_d8e9a175) && (!isdefined(self.var_4dcf932b) || self.var_4dcf932b != self))
 		{
 			params.var_4df0ea83 = smeansofdeath != "MOD_DOT";
-			if(params.var_67e2281d == 6)
+			if(params.setype == 6)
 			{
 				params.var_752c0834 = function_a31ab50c(var_7c61c7a1);
 				params.var_4df0ea83 = 1;
 				self.var_abe2db87 = 1;
 			}
 			self status_effect::status_effect_apply(params, weapon, eattacker, 0);
-			var_284f3c1a = params.var_67e2281d == 6;
+			var_284f3c1a = params.setype == 6;
 			if(var_7e7a6e97 && !var_284f3c1a)
 			{
 				var_25635954 = (var_e31583b3 ? var_8c8cca9b : function_4d1e7b48("wound"));

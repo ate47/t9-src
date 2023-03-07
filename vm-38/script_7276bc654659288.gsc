@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_ab111f2c : class_6aaccc24
+class class_ab111f2c : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_ab111f2c : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -70,7 +70,7 @@ class class_ab111f2c : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("cp_hint_text");
+		cLUIelem::function_5c1bb138("cp_hint_text");
 	}
 
 	/*
@@ -100,11 +100,11 @@ class class_ab111f2c : class_6aaccc24
 	*/
 	function setup_clientfields(var_4f361551, var_8f133ca4, var_b38e91b5, var_101d8535)
 	{
-		namespace_6aaccc24::setup_clientfields("cp_hint_text");
-		namespace_6aaccc24::function_dcb34c80("string", "hint_text", 1);
-		namespace_6aaccc24::function_da693cbe("display_blink", 1, 1, "counter", var_8f133ca4);
-		namespace_6aaccc24::function_da693cbe("fadeout", 1, 1, "counter", var_b38e91b5);
-		namespace_6aaccc24::function_da693cbe("display_noblink", 1, 1, "counter", var_101d8535);
+		cLUIelem::setup_clientfields("cp_hint_text");
+		cLUIelem::function_dcb34c80("string", "hint_text", 1);
+		cLUIelem::function_da693cbe("display_blink", 1, 1, "counter", var_8f133ca4);
+		cLUIelem::function_da693cbe("fadeout", 1, 1, "counter", var_b38e91b5);
+		cLUIelem::function_da693cbe("display_noblink", 1, 1, "counter", var_101d8535);
 	}
 
 	/*
@@ -148,7 +148,7 @@ class class_ab111f2c : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "hint_text", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "display_blink", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "fadeout", 0);

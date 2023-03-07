@@ -1,6 +1,6 @@
 #using script_11cc3a9267cf7ac7;
 #using script_1f8c0f3565e1f647;
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using script_4212f52fcf0da3e3;
 #using script_44c87b4589ee1f93;
 #using script_557089630e09eb03;
@@ -57,7 +57,7 @@ event main(eventstruct)
 function on_player_spawned(localclientnum)
 {
 	self function_36b630a3(1);
-	if(util::function_53bbf9d2() === #"hash_7665a0b476d1b735")
+	if(util::get_map_name() === #"hash_7665a0b476d1b735")
 	{
 		function_f58e42ae(localclientnum, 1);
 	}

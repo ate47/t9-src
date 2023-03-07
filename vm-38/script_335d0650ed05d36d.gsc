@@ -2,7 +2,7 @@
 #using script_3e196d275a6fb180;
 #using script_44b0b8420eabacad;
 #using script_491ff5a2ba670762;
-#using script_6350c209b3d1b07d;
+#using scripts\core_common\map.gsc;
 #using script_75da5547b1822294;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

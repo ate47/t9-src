@@ -28,7 +28,7 @@ function private autoexec function_83eaf112()
 */
 event main(eventstruct)
 {
-	if(util::function_53bbf9d2() !== "wz_russia")
+	if(util::get_map_name() !== "wz_russia")
 	{
 		return;
 	}

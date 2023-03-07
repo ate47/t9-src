@@ -285,7 +285,7 @@ function private function_1e8ff2f7(settings, seat_index)
 	{
 		case 0:
 		{
-			return settings.var_e90e82ca;
+			return settings.vehicle_turret;
 		}
 		case 1:
 		{

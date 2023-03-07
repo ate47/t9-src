@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_d4941e5e : class_6aaccc24
+class class_d4941e5e : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_d4941e5e : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -89,7 +89,7 @@ class class_d4941e5e : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -117,16 +117,16 @@ class class_d4941e5e : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("stealth_meter_display");
-		namespace_6aaccc24::function_da693cbe("entNum", 1, 10, "int");
-		namespace_6aaccc24::function_da693cbe("awarenessState", 1, 4, "int");
-		namespace_6aaccc24::function_da693cbe("awarenessProgress", 1, 4, "float");
-		namespace_6aaccc24::function_da693cbe("direction", 1, 4, "float");
-		namespace_6aaccc24::function_da693cbe("clamped", 1, 1, "int");
+		cLUIelem::setup_clientfields("stealth_meter_display");
+		cLUIelem::function_da693cbe("entNum", 1, 10, "int");
+		cLUIelem::function_da693cbe("awarenessState", 1, 4, "int");
+		cLUIelem::function_da693cbe("awarenessProgress", 1, 4, "float");
+		cLUIelem::function_da693cbe("direction", 1, 4, "float");
+		cLUIelem::function_da693cbe("clamped", 1, 1, "int");
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_d4941e5e
 		Checksum: 0x6F09793D
 		Offset: 0x478
@@ -134,7 +134,7 @@ class class_d4941e5e : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(player, value)
+	function set_entNum(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "entNum", value);
 	}
@@ -234,7 +234,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: stealth_meter_display
 	Checksum: 0xAA5BD378
 	Offset: 0x200
@@ -242,9 +242,9 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(player, value)
+function set_entNum(player, value)
 {
-	[[ self ]]->function_c8350e33(player, value);
+	[[ self ]]->set_entNum(player, value);
 }
 
 /*

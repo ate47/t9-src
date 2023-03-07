@@ -1,5 +1,5 @@
 #using script_6021ce59143452c3;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -52,11 +52,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_250115340b2e27a5", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_250115340b2e27a5", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_a476311c
 	Checksum: 0x755C65DA
 	Offset: 0x170
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 4
 	Flags: Private
 */
-function private function_d1de6a85(var_b9c6550, var_50d1120, var_43f824d6, var_73d6ae36)
+function private on_begin(var_b9c6550, var_50d1120, var_43f824d6, var_73d6ae36)
 {
 	if(isdefined(var_b9c6550))
 	{
@@ -99,7 +99,7 @@ function private function_d1de6a85(var_b9c6550, var_50d1120, var_43f824d6, var_7
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_a476311c
 	Checksum: 0xF2392E16
 	Offset: 0x290
@@ -107,7 +107,7 @@ function private function_d1de6a85(var_b9c6550, var_50d1120, var_43f824d6, var_7
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	zm_spawner::deregister_zombie_death_event_callback(&function_138aec8e);
 }
@@ -130,7 +130,7 @@ function private function_e997bb0b(var_73d6ae36)
 	}
 	else
 	{
-		n_delay = namespace_a28acff3::get_delay_between_rounds();
+		n_delay = zm_round_logic::get_delay_between_rounds();
 		wait(n_delay + 0);
 	}
 	while(true)

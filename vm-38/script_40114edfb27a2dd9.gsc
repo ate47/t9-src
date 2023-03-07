@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_e5d48e46 : class_6aaccc24
+class cscavenger_icon : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x70C4EE11
 		Offset: 0x410
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x77D1B4D3
 		Offset: 0x7F0
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: function_65b281a
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x731937F2
 		Offset: 0x688
 		Size: 0x6C
@@ -47,7 +47,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x9E331489
 		Offset: 0x5E0
 		Size: 0x24
@@ -56,12 +56,12 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_417df30c
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0xA65878F1
 		Offset: 0x778
 		Size: 0x6C
@@ -77,7 +77,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: function_47e82a09
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x9FD56A
 		Offset: 0x700
 		Size: 0x6C
@@ -93,7 +93,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x6319BC2C
 		Offset: 0x518
 		Size: 0x1C
@@ -102,12 +102,12 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("scavenger_icon");
+		cLUIelem::function_5c1bb138("scavenger_icon");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x405AB23B
 		Offset: 0x430
 		Size: 0xDC
@@ -116,16 +116,16 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function setup_clientfields(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43)
 	{
-		namespace_6aaccc24::setup_clientfields("scavenger_icon");
-		namespace_6aaccc24::function_da693cbe("ammoPulse", 1, 1, "counter", var_c21a7363);
-		namespace_6aaccc24::function_da693cbe("armorPlatePulse", 1, 1, "counter", var_acffa825);
-		namespace_6aaccc24::function_da693cbe("scrapPulse", 1, 1, "counter", var_32c73fea);
-		namespace_6aaccc24::function_da693cbe("rareScrapPulse", 4000, 1, "counter", var_d239de43);
+		cLUIelem::setup_clientfields("scavenger_icon");
+		cLUIelem::function_da693cbe("ammoPulse", 1, 1, "counter", var_c21a7363);
+		cLUIelem::function_da693cbe("armorPlatePulse", 1, 1, "counter", var_acffa825);
+		cLUIelem::function_da693cbe("scrapPulse", 1, 1, "counter", var_32c73fea);
+		cLUIelem::function_da693cbe("rareScrapPulse", 4000, 1, "counter", var_d239de43);
 	}
 
 	/*
 		Name: function_e4e9c303
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x8BA0B740
 		Offset: 0x610
 		Size: 0x6C
@@ -141,7 +141,7 @@ class class_e5d48e46 : class_6aaccc24
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_e5d48e46
+		Namespace: cscavenger_icon
 		Checksum: 0x2E6E267C
 		Offset: 0x540
 		Size: 0x94
@@ -150,7 +150,7 @@ class class_e5d48e46 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "ammoPulse", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "armorPlatePulse", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "scrapPulse", 0);
@@ -186,7 +186,7 @@ function private autoexec function_f9a9c71d()
 */
 function register(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43)
 {
-	elem = new class_e5d48e46();
+	elem = new cscavenger_icon();
 	[[ elem ]]->setup_clientfields(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -218,7 +218,7 @@ function register(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43)
 */
 function function_5c1bb138()
 {
-	elem = new class_e5d48e46();
+	elem = new cscavenger_icon();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

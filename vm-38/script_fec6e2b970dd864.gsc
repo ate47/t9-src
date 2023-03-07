@@ -148,7 +148,7 @@ function function_b122e75f()
 */
 function function_f8b76690(var_a0345f37, player, weapon)
 {
-	var_4838b749 = weapon namespace_b376ff3f::function_d768ea30();
+	var_4838b749 = weapon item_inventory::function_d768ea30();
 	weapon_item = weapon.inventory.items[var_4838b749];
 	if(weapon_item.var_a6762160.var_387e74f4 === 1)
 	{

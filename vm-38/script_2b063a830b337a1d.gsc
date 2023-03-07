@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_fb1bfa12 : class_6aaccc24
+class class_fb1bfa12 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -47,7 +47,7 @@ class class_fb1bfa12 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class class_fb1bfa12 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -131,14 +131,14 @@ class class_fb1bfa12 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("evidence_board_mission_preview");
-		namespace_6aaccc24::function_da693cbe("entNum", 1, 10, "int");
-		namespace_6aaccc24::function_da693cbe("activeState", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("lvlYear", 1, 11, "int");
-		namespace_6aaccc24::function_dcb34c80("string", "lvlName", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "lvlDescriptionShort", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "lvlDescriptionLong", 1);
-		namespace_6aaccc24::function_da693cbe("lvlProgress", 1, 4, "float");
+		cLUIelem::setup_clientfields("evidence_board_mission_preview");
+		cLUIelem::function_da693cbe("entNum", 1, 10, "int");
+		cLUIelem::function_da693cbe("activeState", 1, 2, "int");
+		cLUIelem::function_da693cbe("lvlYear", 1, 11, "int");
+		cLUIelem::function_dcb34c80("string", "lvlName", 1);
+		cLUIelem::function_dcb34c80("string", "lvlDescriptionShort", 1);
+		cLUIelem::function_dcb34c80("string", "lvlDescriptionLong", 1);
+		cLUIelem::function_da693cbe("lvlProgress", 1, 4, "float");
 	}
 
 	/*
@@ -170,7 +170,7 @@ class class_fb1bfa12 : class_6aaccc24
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_fb1bfa12
 		Checksum: 0x1CAD3E8D
 		Offset: 0x5A0
@@ -178,7 +178,7 @@ class class_fb1bfa12 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(player, value)
+	function set_entNum(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "entNum", value);
 	}
@@ -278,7 +278,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: evidence_board_mission_preview
 	Checksum: 0xFA4CD9FB
 	Offset: 0x278
@@ -286,9 +286,9 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(player, value)
+function set_entNum(player, value)
 {
-	[[ self ]]->function_c8350e33(player, value);
+	[[ self ]]->set_entNum(player, value);
 }
 
 /*

@@ -51,11 +51,11 @@ class class_1546f28e
 
 }
 
-#namespace namespace_8f7da5cc;
+#namespace archetype_nosferatu;
 
 /*
 	Name: function_977a7edf
-	Namespace: namespace_8f7da5cc
+	Namespace: archetype_nosferatu
 	Checksum: 0xBA747A21
 	Offset: 0x2F8
 	Size: 0x14
@@ -67,11 +67,11 @@ function private autoexec function_977a7edf()
 	level notify(463713116);
 }
 
-#namespace namespace_41b4e1ce;
+#namespace archetypenosferatu;
 
 /*
 	Name: init
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x857BBD6D
 	Offset: 0x318
 	Size: 0x84
@@ -88,7 +88,7 @@ function autoexec init()
 
 /*
 	Name: function_dbd0360f
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x3DE1B315
 	Offset: 0x3A8
 	Size: 0x4A
@@ -104,7 +104,7 @@ function private function_dbd0360f()
 
 /*
 	Name: function_b1df7220
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x8F033804
 	Offset: 0x400
 	Size: 0xC
@@ -117,7 +117,7 @@ function private function_b1df7220(entity)
 
 /*
 	Name: function_f8ab724f
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x34473333
 	Offset: 0x418
 	Size: 0x2C
@@ -132,7 +132,7 @@ function private function_f8ab724f(entity)
 
 /*
 	Name: function_5b800648
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xA671BC9B
 	Offset: 0x450
 	Size: 0xB4
@@ -155,7 +155,7 @@ function private function_5b800648()
 
 /*
 	Name: function_2e5f2af4
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x9959DE10
 	Offset: 0x510
 	Size: 0x3C
@@ -172,7 +172,7 @@ function private function_2e5f2af4()
 
 /*
 	Name: registerbehaviorscriptfunctions
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x93576A92
 	Offset: 0x558
 	Size: 0x804
@@ -258,7 +258,7 @@ function private registerbehaviorscriptfunctions()
 
 /*
 	Name: function_2e8014e
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xF5E57EBB
 	Offset: 0xD68
 	Size: 0x64
@@ -275,7 +275,7 @@ function function_2e8014e(entity)
 
 /*
 	Name: function_b75dd595
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x7227F63F
 	Offset: 0xDD8
 	Size: 0x10C
@@ -308,7 +308,7 @@ function private function_b75dd595(entity)
 
 /*
 	Name: function_8b2173e0
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x7ABE6D88
 	Offset: 0xEF0
 	Size: 0x70
@@ -325,7 +325,7 @@ function private function_8b2173e0(entity)
 
 /*
 	Name: function_3df24b25
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x914E2148
 	Offset: 0xF68
 	Size: 0x11C
@@ -360,7 +360,7 @@ function private function_3df24b25(entity)
 
 /*
 	Name: function_15d413b9
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xDE2CEF86
 	Offset: 0x1090
 	Size: 0x80
@@ -378,7 +378,7 @@ function private function_15d413b9(entity)
 
 /*
 	Name: function_b758de87
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xED88C9E3
 	Offset: 0x1118
 	Size: 0x8C
@@ -396,7 +396,7 @@ function private function_b758de87(entity)
 
 /*
 	Name: function_b5305a8f
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x87654A4D
 	Offset: 0x11B0
 	Size: 0x38
@@ -414,7 +414,7 @@ function private function_b5305a8f(entity)
 
 /*
 	Name: function_2ad18645
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x6C4030E7
 	Offset: 0x11F0
 	Size: 0xCC
@@ -437,7 +437,7 @@ function private function_2ad18645(notifyhash)
 
 /*
 	Name: function_fb3fdf43
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x5A1CB3E2
 	Offset: 0x12C8
 	Size: 0x106
@@ -465,7 +465,7 @@ function private function_fb3fdf43(entity, latch_enemy)
 
 /*
 	Name: function_20a76c21
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x40268485
 	Offset: 0x13D8
 	Size: 0x1EC
@@ -507,7 +507,7 @@ function private function_20a76c21(entity)
 
 /*
 	Name: function_db62d88a
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xB526D6BF
 	Offset: 0x15D0
 	Size: 0xEC
@@ -529,7 +529,7 @@ function private function_db62d88a()
 
 /*
 	Name: function_a41a5aea
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x83B2250E
 	Offset: 0x16C8
 	Size: 0x1E6
@@ -577,7 +577,7 @@ function private function_a41a5aea(entity)
 
 /*
 	Name: function_b5047448
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x7D3600D4
 	Offset: 0x18B8
 	Size: 0x17A
@@ -627,7 +627,7 @@ function private function_b5047448(entity)
 
 /*
 	Name: function_e9819a23
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x7472D237
 	Offset: 0x1A40
 	Size: 0x3D2
@@ -712,7 +712,7 @@ function private function_e9819a23(entity)
 
 /*
 	Name: function_85d8b15d
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xFE29700C
 	Offset: 0x1E20
 	Size: 0x322
@@ -784,7 +784,7 @@ function private function_85d8b15d(entity)
 
 /*
 	Name: function_ebe0e1b5
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xA95DA70E
 	Offset: 0x2150
 	Size: 0xEC
@@ -813,7 +813,7 @@ function function_ebe0e1b5(entity)
 
 /*
 	Name: function_76505306
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x61EDD056
 	Offset: 0x2248
 	Size: 0x6C
@@ -829,7 +829,7 @@ function private function_76505306(entity)
 
 /*
 	Name: function_e0ad0db2
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x55867BE5
 	Offset: 0x22C0
 	Size: 0x2C
@@ -843,7 +843,7 @@ function private function_e0ad0db2(entity)
 
 /*
 	Name: nosferatushouldmelee
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x48F1E09C
 	Offset: 0x22F8
 	Size: 0xB0
@@ -869,7 +869,7 @@ function private nosferatushouldmelee(entity)
 
 /*
 	Name: function_7ffbbff
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x2CB91085
 	Offset: 0x23B0
 	Size: 0x24E
@@ -920,7 +920,7 @@ function private function_7ffbbff(entity)
 
 /*
 	Name: function_105988a0
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x64E1880
 	Offset: 0x2608
 	Size: 0x11C
@@ -955,7 +955,7 @@ function private function_105988a0(entity)
 
 /*
 	Name: function_c2f87d6
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xCD5AB558
 	Offset: 0x2730
 	Size: 0x11C
@@ -990,7 +990,7 @@ function private function_c2f87d6(entity)
 
 /*
 	Name: function_ed80a3bc
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x5F588537
 	Offset: 0x2858
 	Size: 0x6C
@@ -1006,7 +1006,7 @@ function private function_ed80a3bc(entity)
 
 /*
 	Name: function_4df0b87d
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xC60BEFDB
 	Offset: 0x28D0
 	Size: 0x6C
@@ -1022,7 +1022,7 @@ function private function_4df0b87d(entity)
 
 /*
 	Name: function_37d5cfc
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x6C5C0067
 	Offset: 0x2A08
 	Size: 0x9A
@@ -1039,7 +1039,7 @@ function function_37d5cfc(entity, mocompanim, mocompanimblendouttime, mocompanim
 
 /*
 	Name: function_4b55eb0a
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xDD504965
 	Offset: 0x2AB0
 	Size: 0x84
@@ -1056,7 +1056,7 @@ function function_4b55eb0a(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_1ad502a0
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x1BB033A
 	Offset: 0x2B40
 	Size: 0x2F4
@@ -1096,7 +1096,7 @@ function function_1ad502a0(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_3511ecd1
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x9D1AE32C
 	Offset: 0x2E40
 	Size: 0xB64
@@ -1242,7 +1242,7 @@ function function_3511ecd1(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_b472ba3d
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0xC40BBFC6
 	Offset: 0x39B0
 	Size: 0xBE
@@ -1262,7 +1262,7 @@ function function_b472ba3d(entity, mocompanim, mocompanimblendouttime, mocompani
 
 /*
 	Name: function_270f7c3f
-	Namespace: namespace_41b4e1ce
+	Namespace: archetypenosferatu
 	Checksum: 0x45D28FC
 	Offset: 0x3A78
 	Size: 0x2C

@@ -1235,7 +1235,7 @@ function trigger_group(s_info)
 }
 
 /*
-	Name: function_521edc64
+	Name: function_thread
 	Namespace: trigger
 	Checksum: 0xEA36A3F6
 	Offset: 0x29F0
@@ -1243,7 +1243,7 @@ function trigger_group(s_info)
 	Parameters: 3
 	Flags: None
 */
-function function_521edc64(ent, on_enter_payload, on_exit_payload)
+function function_thread(ent, on_enter_payload, on_exit_payload)
 {
 	ent endon(#"death");
 	if(!isdefined(self))

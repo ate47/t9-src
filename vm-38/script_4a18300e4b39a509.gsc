@@ -1,5 +1,5 @@
-#using script_2dc48f46bfeac894;
-#using script_6b2be07726845c37;
+#using scripts\abilities\ability_player.gsc;
+#using scripts\weapons\gravity_spikes.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\system_shared.gsc;
 

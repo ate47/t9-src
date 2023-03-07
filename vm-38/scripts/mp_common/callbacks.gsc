@@ -5,7 +5,7 @@
 #using script_43956600fe6c6be1;
 #using script_4c6debf78dffeeaf;
 #using script_6f416ed516b814a3;
-#using script_79a7e1c31a3e8cc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic.gsc;

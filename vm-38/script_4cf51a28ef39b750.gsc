@@ -1,5 +1,5 @@
-#using script_3cebb48c37fc271;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_fasttravel.gsc;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -540,8 +540,8 @@ function function_ca8f3b73()
 	level flag::wait_till_clear(#"dark_aether_active");
 	wait(1);
 	level thread function_1fad5dd0();
-	level thread namespace_9f845210::function_c1bd7e55();
-	level thread namespace_9f845210::function_40102053();
+	level thread zm_silver_pap_quest::function_c1bd7e55();
+	level thread zm_silver_pap_quest::function_40102053();
 	level flag::wait_till(#"hash_322c7f92525e008e");
 	function_2b30b25d();
 }

@@ -4,7 +4,7 @@
 #using script_36f4be19da8eb6d0;
 #using script_4ce5d94e8c797350;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
 #using script_b9d273dc917ee1f;
 #using scripts\core_common\array_shared.gsc;
@@ -24,11 +24,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_c8c67699;
+#namespace zm_silver_ww_quest;
 
 /*
 	Name: function_a438b9fa
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xCA4CFCFE
 	Offset: 0xA30
 	Size: 0x14
@@ -42,7 +42,7 @@ function private autoexec function_a438b9fa()
 
 /*
 	Name: init
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xFF68FA3C
 	Offset: 0xA50
 	Size: 0x9A4
@@ -121,7 +121,7 @@ function init()
 
 /*
 	Name: function_7b4dc906
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x80B6F105
 	Offset: 0x1400
 	Size: 0x7C
@@ -139,7 +139,7 @@ function function_7b4dc906()
 
 /*
 	Name: function_aee47035
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x6CA40201
 	Offset: 0x1488
 	Size: 0x7C
@@ -157,7 +157,7 @@ function function_aee47035()
 
 /*
 	Name: function_284b43aa
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xE78899F
 	Offset: 0x1510
 	Size: 0x150
@@ -191,7 +191,7 @@ function function_284b43aa()
 
 /*
 	Name: function_5adab0a2
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x2E09D05F
 	Offset: 0x1668
 	Size: 0x474
@@ -236,7 +236,7 @@ function function_5adab0a2()
 
 /*
 	Name: function_afba0d4c
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x3A294747
 	Offset: 0x1AE8
 	Size: 0x1F4
@@ -267,7 +267,7 @@ function function_afba0d4c()
 
 /*
 	Name: function_34ba4d65
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x608C246C
 	Offset: 0x1CE8
 	Size: 0x332
@@ -324,7 +324,7 @@ function function_34ba4d65(ent, max_distance, var_967955b1, var_3ef79add)
 
 /*
 	Name: function_eb0fb7fc
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x8FA0199B
 	Offset: 0x2028
 	Size: 0x59C
@@ -397,7 +397,7 @@ function function_eb0fb7fc(duration, cooldown)
 
 /*
 	Name: function_23ac3e06
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x548A8419
 	Offset: 0x25D0
 	Size: 0x20C
@@ -437,7 +437,7 @@ function function_23ac3e06()
 
 /*
 	Name: function_37ba0961
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x3F34ACB5
 	Offset: 0x27E8
 	Size: 0x14A
@@ -465,7 +465,7 @@ function function_37ba0961()
 
 /*
 	Name: function_890f302c
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x18F25775
 	Offset: 0x2940
 	Size: 0x11C
@@ -488,7 +488,7 @@ function function_890f302c()
 
 /*
 	Name: function_67a6fd4
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x3FBBFD7A
 	Offset: 0x2A68
 	Size: 0x1BE
@@ -522,7 +522,7 @@ function function_67a6fd4()
 
 /*
 	Name: function_67144513
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x344575C5
 	Offset: 0x2C30
 	Size: 0x4AC
@@ -581,7 +581,7 @@ function function_67144513()
 
 /*
 	Name: function_2f6cb9bc
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xCB7AAD47
 	Offset: 0x30E8
 	Size: 0xF8
@@ -604,7 +604,7 @@ function function_2f6cb9bc(var_479e219c)
 
 /*
 	Name: function_2bb91770
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xCABC969F
 	Offset: 0x31E8
 	Size: 0xC4
@@ -622,7 +622,7 @@ function function_2bb91770(var_479e219c)
 
 /*
 	Name: function_c436fc75
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x25FBDCCD
 	Offset: 0x32B8
 	Size: 0x82C
@@ -712,7 +712,7 @@ function function_c436fc75()
 
 /*
 	Name: function_ad61157
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x33372B7F
 	Offset: 0x3AF0
 	Size: 0x7C
@@ -728,7 +728,7 @@ function function_ad61157(a_ents)
 
 /*
 	Name: function_8fa801ac
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x856C8F60
 	Offset: 0x3B78
 	Size: 0x31C
@@ -771,7 +771,7 @@ function function_8fa801ac()
 
 /*
 	Name: function_c801979a
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x8465BDF
 	Offset: 0x3EA0
 	Size: 0x16C
@@ -803,7 +803,7 @@ function private function_c801979a(s_params)
 
 /*
 	Name: function_beb0f79f
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xF1108AC2
 	Offset: 0x4018
 	Size: 0x35C
@@ -862,7 +862,7 @@ function private function_beb0f79f()
 
 /*
 	Name: function_17329c15
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xFA69432B
 	Offset: 0x4380
 	Size: 0x73C
@@ -945,7 +945,7 @@ function function_17329c15()
 
 /*
 	Name: function_dc2acb90
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xA99A044E
 	Offset: 0x4AC8
 	Size: 0x204
@@ -978,7 +978,7 @@ function function_dc2acb90()
 
 /*
 	Name: function_72c756bc
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xC389D826
 	Offset: 0x4CD8
 	Size: 0x4E
@@ -995,7 +995,7 @@ function function_72c756bc(player, time)
 
 /*
 	Name: function_3ca2b2c1
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x1B68BBFC
 	Offset: 0x4D30
 	Size: 0x448
@@ -1022,14 +1022,14 @@ function function_3ca2b2c1(var_fd6475b5, end_notify, var_93bdf906)
 			var_f2484ed9 gameobjects::init_game_objects(#"hash_76653e6fda4bdfd1");
 			var_f2484ed9.mdl_gameobject gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
 			var_f2484ed9.mdl_gameobject gameobjects::set_onuse_event(&function_bd02699e);
-			var_f2484ed9.mdl_gameobject gameobjects::set_onbeginuse_event(&namespace_2b924e50::function_e6830825);
-			var_f2484ed9.mdl_gameobject gameobjects::set_onenduse_event(&namespace_2b924e50::function_834fd6bc);
+			var_f2484ed9.mdl_gameobject gameobjects::set_onbeginuse_event(&zm_silver_util::function_e6830825);
+			var_f2484ed9.mdl_gameobject gameobjects::set_onenduse_event(&zm_silver_util::function_834fd6bc);
 			var_f2484ed9.mdl_gameobject.trigger thread function_79d5804a();
 			var_f2484ed9.mdl_gameobject.dontlinkplayertotrigger = 1;
 			var_f2484ed9.mdl_gameobject.keepweapon = 1;
 			var_f2484ed9.mdl_gameobject thread function_f1ffb4dc();
 			var_f2484ed9.mdl_gameobject thread function_9d7bc1dd(end_notify);
-			var_f2484ed9.mdl_gameobject.canuseobject = &namespace_2b924e50::function_dd9482b7;
+			var_f2484ed9.mdl_gameobject.canuseobject = &zm_silver_util::function_dd9482b7;
 		}
 		else
 		{
@@ -1059,7 +1059,7 @@ function function_3ca2b2c1(var_fd6475b5, end_notify, var_93bdf906)
 
 /*
 	Name: function_bd02699e
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x666625E6
 	Offset: 0x5180
 	Size: 0x3C
@@ -1074,7 +1074,7 @@ function function_bd02699e(player)
 
 /*
 	Name: function_9d7bc1dd
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x985ADCF8
 	Offset: 0x51C8
 	Size: 0x16E
@@ -1107,7 +1107,7 @@ function function_9d7bc1dd(end_notify)
 
 /*
 	Name: function_f1ffb4dc
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x16482758
 	Offset: 0x5340
 	Size: 0xC0
@@ -1130,7 +1130,7 @@ function function_f1ffb4dc()
 
 /*
 	Name: function_79d5804a
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x74E54F78
 	Offset: 0x5408
 	Size: 0x14A
@@ -1161,7 +1161,7 @@ function function_79d5804a()
 
 /*
 	Name: function_a5ae82b0
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x52304FD9
 	Offset: 0x5560
 	Size: 0x546
@@ -1205,7 +1205,7 @@ function function_a5ae82b0()
 					var_f2484ed9 clientfield::set("" + #"hash_7ec80a02e9bb051a", 1);
 					if(!isdefined(var_f2484ed9.var_9463599a))
 					{
-						var_f2484ed9.var_9463599a = var_f2484ed9 namespace_2b924e50::function_3be9e71a();
+						var_f2484ed9.var_9463599a = var_f2484ed9 zm_silver_util::function_3be9e71a();
 					}
 					var_95138a52 = 1;
 				}
@@ -1259,7 +1259,7 @@ function function_a5ae82b0()
 
 /*
 	Name: function_ad3081a9
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xC4DFC894
 	Offset: 0x5AB0
 	Size: 0x1B6
@@ -1284,7 +1284,7 @@ function function_ad3081a9(e_player)
 
 /*
 	Name: function_78d3b53b
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x514C6366
 	Offset: 0x5C70
 	Size: 0x47C
@@ -1337,7 +1337,7 @@ function function_78d3b53b()
 
 /*
 	Name: function_ead1edac
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x863947B0
 	Offset: 0x60F8
 	Size: 0x1C0
@@ -1368,7 +1368,7 @@ function function_ead1edac(cutter)
 
 /*
 	Name: function_95913408
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xF16F77F3
 	Offset: 0x62C0
 	Size: 0x9C
@@ -1387,7 +1387,7 @@ function function_95913408(e_player)
 
 /*
 	Name: function_59642e27
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xA7B63564
 	Offset: 0x6368
 	Size: 0x1E0
@@ -1416,7 +1416,7 @@ function function_59642e27(a_ents)
 
 /*
 	Name: function_f308268d
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x2AD4CEA8
 	Offset: 0x6550
 	Size: 0x84
@@ -1433,7 +1433,7 @@ function function_f308268d()
 
 /*
 	Name: function_d4647e9c
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x81FE9CB2
 	Offset: 0x65E0
 	Size: 0x234
@@ -1473,7 +1473,7 @@ function function_d4647e9c()
 
 /*
 	Name: function_77fdf8f3
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x9715DA9C
 	Offset: 0x6820
 	Size: 0x41C
@@ -1517,7 +1517,7 @@ function function_77fdf8f3()
 
 /*
 	Name: function_196740ae
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xB853F295
 	Offset: 0x6C48
 	Size: 0xC8
@@ -1548,7 +1548,7 @@ function function_196740ae(b_delay)
 
 /*
 	Name: function_d9046ad7
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xC6258C3B
 	Offset: 0x6D18
 	Size: 0x2B0
@@ -1596,7 +1596,7 @@ function function_d9046ad7(crate, num)
 
 /*
 	Name: function_fbce146e
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x425EAFD8
 	Offset: 0x6FD0
 	Size: 0x268
@@ -1636,7 +1636,7 @@ function function_fbce146e(var_db089991)
 
 /*
 	Name: function_f5eebd57
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xC653065C
 	Offset: 0x7240
 	Size: 0x114
@@ -1667,7 +1667,7 @@ function function_f5eebd57()
 
 /*
 	Name: function_6c729e
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x4E578F82
 	Offset: 0x7360
 	Size: 0x74
@@ -1684,7 +1684,7 @@ function function_6c729e(num)
 
 /*
 	Name: function_971d0ec8
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xA7F03B4A
 	Offset: 0x73E0
 	Size: 0xC4
@@ -1706,7 +1706,7 @@ function function_971d0ec8(player, time)
 
 /*
 	Name: function_ba51c33f
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xD5C3D452
 	Offset: 0x74B0
 	Size: 0x14
@@ -1719,7 +1719,7 @@ function function_ba51c33f(e_player, n_start_time)
 
 /*
 	Name: function_e0e08fa2
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x39F9B1D6
 	Offset: 0x74D0
 	Size: 0xC
@@ -1732,7 +1732,7 @@ function function_e0e08fa2(e_player)
 
 /*
 	Name: function_43073640
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xF232AD4C
 	Offset: 0x74E8
 	Size: 0x13C
@@ -1754,7 +1754,7 @@ function function_43073640(crate, num)
 
 /*
 	Name: function_746a64df
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x389F4F25
 	Offset: 0x7630
 	Size: 0x118
@@ -1780,7 +1780,7 @@ function function_746a64df(var_15f88bee, t_damage, num)
 
 /*
 	Name: function_ef55bb22
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x9BEDF11C
 	Offset: 0x7750
 	Size: 0x29C
@@ -1834,7 +1834,7 @@ function function_ef55bb22(var_53f12789, num)
 
 /*
 	Name: function_b39ee43f
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xA74018C8
 	Offset: 0x79F8
 	Size: 0x1C4
@@ -1876,7 +1876,7 @@ function function_b39ee43f(a_ents)
 
 /*
 	Name: function_8d9ddc22
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x5D71C6E2
 	Offset: 0x7BC8
 	Size: 0xBE8
@@ -1942,9 +1942,9 @@ function function_8d9ddc22(var_e7772c37)
 		self.var_14bfe1d6 disconnectpaths();
 		if(isalive(player) && !player inlaststand())
 		{
-			var_4e4f65c9 = player namespace_b376ff3f::function_2e711614(17 + 1);
+			var_4e4f65c9 = player item_inventory::function_2e711614(17 + 1);
 			primary_weapon = player namespace_a0d533d1::function_2b83d3ff(var_4e4f65c9);
-			var_ec323ef9 = player namespace_b376ff3f::function_2e711614(((17 + 1) + 8) + 1);
+			var_ec323ef9 = player item_inventory::function_2e711614(((17 + 1) + 8) + 1);
 			secondary_weapon = player namespace_a0d533d1::function_2b83d3ff(var_ec323ef9);
 			if(namespace_b376a999::function_5fef4201(primary_weapon))
 			{
@@ -2046,7 +2046,7 @@ function function_8d9ddc22(var_e7772c37)
 
 /*
 	Name: function_172b3f96
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xB464A1FE
 	Offset: 0x87B8
 	Size: 0x104
@@ -2068,7 +2068,7 @@ function function_172b3f96(timeout)
 
 /*
 	Name: function_469b0e5
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x93063B2
 	Offset: 0x88C8
 	Size: 0x6E
@@ -2089,7 +2089,7 @@ function function_469b0e5()
 
 /*
 	Name: function_6d4e1f71
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xC951F172
 	Offset: 0x8940
 	Size: 0x12A
@@ -2142,7 +2142,7 @@ function function_6d4e1f71(var_d5c2e187, var_e7772c37, var_b0e35c50)
 
 /*
 	Name: function_217a625a
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x1E2E1107
 	Offset: 0x8A78
 	Size: 0x634
@@ -2228,7 +2228,7 @@ function function_217a625a(a_ents)
 
 /*
 	Name: function_b8a1fcc2
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x1D9E5823
 	Offset: 0x90B8
 	Size: 0x3F4
@@ -2316,7 +2316,7 @@ function function_b8a1fcc2(s_params)
 
 /*
 	Name: function_91807eb1
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x2512DB46
 	Offset: 0x94B8
 	Size: 0x150
@@ -2340,7 +2340,7 @@ function function_91807eb1(e_player)
 
 /*
 	Name: function_4d97eda3
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x8D444DBB
 	Offset: 0x9618
 	Size: 0x150
@@ -2364,7 +2364,7 @@ function function_4d97eda3(e_player)
 
 /*
 	Name: function_b75d50b5
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x4B8D2A90
 	Offset: 0x9778
 	Size: 0x150
@@ -2388,7 +2388,7 @@ function function_b75d50b5(e_player)
 
 /*
 	Name: function_8a172c28
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xCD21FAC3
 	Offset: 0x98D8
 	Size: 0x150
@@ -2412,7 +2412,7 @@ function function_8a172c28(e_player)
 
 /*
 	Name: function_10a4dd0a
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xD960DF
 	Offset: 0x9A38
 	Size: 0x654
@@ -2432,9 +2432,9 @@ function function_10a4dd0a(params)
 				{
 					if(self hasweapon(level.var_652bc5ed, 1) || self hasweapon(level.var_fb37bf51, 1) || self hasweapon(level.var_12b450dc, 1) || self hasweapon(level.var_810eda2b, 1) || self hasweapon(level.var_e0be56c0, 1))
 					{
-						var_4e4f65c9 = self namespace_b376ff3f::function_2e711614(17 + 1);
+						var_4e4f65c9 = self item_inventory::function_2e711614(17 + 1);
 						primary_weapon = self namespace_a0d533d1::function_2b83d3ff(var_4e4f65c9);
-						var_ec323ef9 = self namespace_b376ff3f::function_2e711614(((17 + 1) + 8) + 1);
+						var_ec323ef9 = self item_inventory::function_2e711614(((17 + 1) + 8) + 1);
 						secondary_weapon = self namespace_a0d533d1::function_2b83d3ff(var_ec323ef9);
 						if(namespace_b376a999::function_5fef4201(primary_weapon))
 						{
@@ -2444,12 +2444,12 @@ function function_10a4dd0a(params)
 						{
 							var_3e749c73 = secondary_weapon;
 						}
-						var_8a83ec7a = namespace_b376ff3f::function_a33744de(var_3e749c73);
+						var_8a83ec7a = item_inventory::function_a33744de(var_3e749c73);
 						if(isdefined(var_8a83ec7a))
 						{
 							if(var_8a83ec7a != 32767)
 							{
-								var_f9f12a82 = namespace_b376ff3f::function_418f9eb8(var_8a83ec7a);
+								var_f9f12a82 = item_inventory::function_418f9eb8(var_8a83ec7a);
 							}
 						}
 					}
@@ -2516,7 +2516,7 @@ function function_10a4dd0a(params)
 
 /*
 	Name: function_233ed9b4
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0x652A9A62
 	Offset: 0xA098
 	Size: 0x44
@@ -2533,7 +2533,7 @@ function private function_233ed9b4()
 
 /*
 	Name: function_98af2074
-	Namespace: namespace_c8c67699
+	Namespace: zm_silver_ww_quest
 	Checksum: 0xE69E2868
 	Offset: 0xA0E8
 	Size: 0x1CA

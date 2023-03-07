@@ -4,7 +4,7 @@
 #using script_1b01e95a6b5270fd;
 #using script_1b0b07ff57d1dde3;
 #using script_1ee011cd0961afd7;
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_2a5bf5b4a00cee0d;
 #using script_350cffecd05ef6cf;
 #using script_36fc02e86719d0f5;

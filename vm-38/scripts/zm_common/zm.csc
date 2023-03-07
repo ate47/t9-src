@@ -1,13 +1,13 @@
 #using script_11cc3a9267cf7ac7;
 #using script_136606144df0f9f1;
-#using script_1611421ee9b880d3;
+#using scripts\zm_common\zm_wallbuy.csc;
 #using script_17179876e0e27f8c;
 #using script_17a9d06bf819b2d3;
 #using script_2bdd098a8215ac9f;
 #using script_2c8fd33ddb45e78b;
 #using script_311c446e3df6c3fa;
 #using script_31816d064a53f516;
-#using script_3762ce8163e304e6;
+#using scripts\zm_common\zm_hud.csc;
 #using script_3d35e2ff167b3a82;
 #using script_3d5887fc414a86fb;
 #using script_460d54ff48daf1f7;
@@ -21,7 +21,7 @@
 #using script_5ee86fb478309acf;
 #using script_618d6f5ff5d18933;
 #using script_62c40d9a3acec9b1;
-#using script_6d85b093d74cdfdd;
+#using scripts\zm_common\zm_crafting.csc;
 #using script_6ffa998405e2f041;
 #using script_7520bf82a814057c;
 #using script_76b36ed1b7a51ed2;
@@ -87,7 +87,7 @@ function autoexec ignore_systems()
 	system::ignore(#"gadget_cleanse");
 	system::ignore(#"gadget_heat_wave");
 	system::ignore(#"gadget_resurrect");
-	system::ignore(#"hash_52aca7c35be649b8");
+	system::ignore(#"gadget_health_boost");
 	system::ignore(#"gadget_shock_field");
 	system::ignore(#"gadget_other");
 	system::ignore(#"gadget_camo");
@@ -404,11 +404,11 @@ function function_218c0417(localclientnum, var_a6762160)
 	{
 		return 1;
 	}
-	if(namespace_b376ff3f::function_7d5553ac())
+	if(item_inventory::function_7d5553ac())
 	{
 		return 1;
 	}
-	return namespace_b376ff3f::function_ad4c6116(localclientnum, var_a6762160);
+	return item_inventory::function_ad4c6116(localclientnum, var_a6762160);
 }
 
 /*

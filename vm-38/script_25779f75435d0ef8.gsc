@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_35ee22bc : class_6aaccc24
+class class_35ee22bc : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_35ee22bc : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class class_35ee22bc : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("cp_captured_supplydrop");
+		cLUIelem::function_5c1bb138("cp_captured_supplydrop");
 	}
 
 	/*
@@ -124,14 +124,14 @@ class class_35ee22bc : class_6aaccc24
 	*/
 	function setup_clientfields(var_e4f88108, var_a5022382, var_cad0ba31, var_dc5e3aea, var_efc8a38a, var_28bdc188, var_61794ad8)
 	{
-		namespace_6aaccc24::setup_clientfields("cp_captured_supplydrop");
-		namespace_6aaccc24::function_da693cbe("micromissile_count", 1, 2, "int", var_e4f88108);
-		namespace_6aaccc24::function_da693cbe("wasp_count", 1, 2, "int", var_a5022382);
-		namespace_6aaccc24::function_da693cbe("rcxd_count", 1, 2, "int", var_cad0ba31);
-		namespace_6aaccc24::function_da693cbe("guardian_count", 1, 2, "int", var_dc5e3aea);
-		namespace_6aaccc24::function_da693cbe("robot_count", 1, 2, "int", var_efc8a38a);
-		namespace_6aaccc24::function_da693cbe("raps_count", 1, 2, "int", var_28bdc188);
-		namespace_6aaccc24::function_da693cbe("selector_state", 1, 3, "int", var_61794ad8);
+		cLUIelem::setup_clientfields("cp_captured_supplydrop");
+		cLUIelem::function_da693cbe("micromissile_count", 1, 2, "int", var_e4f88108);
+		cLUIelem::function_da693cbe("wasp_count", 1, 2, "int", var_a5022382);
+		cLUIelem::function_da693cbe("rcxd_count", 1, 2, "int", var_cad0ba31);
+		cLUIelem::function_da693cbe("guardian_count", 1, 2, "int", var_dc5e3aea);
+		cLUIelem::function_da693cbe("robot_count", 1, 2, "int", var_efc8a38a);
+		cLUIelem::function_da693cbe("raps_count", 1, 2, "int", var_28bdc188);
+		cLUIelem::function_da693cbe("selector_state", 1, 3, "int", var_61794ad8);
 	}
 
 	/*
@@ -173,7 +173,7 @@ class class_35ee22bc : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "micromissile_count", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "wasp_count", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "rcxd_count", 0);

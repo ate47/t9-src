@@ -1,18 +1,18 @@
-#using script_35d655b3a0e4a949;
-#using script_3a3d4c4130baf173;
-#using script_51b0fb46d4a05f60;
-#using script_6b418dbafc965acc;
+#using scripts\abilities\ability_util.csc;
+#using scripts\abilities\gadgets\gadget_concertina_wire.csc;
+#using scripts\abilities\ability_player.csc;
+#using scripts\abilities\ability_power.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_33994c00;
+#namespace gadget_concertina_wire;
 
 /*
 	Name: function_21e07205
-	Namespace: namespace_33994c00
+	Namespace: gadget_concertina_wire
 	Checksum: 0x539C9CF3
 	Offset: 0xC8
 	Size: 0x14
@@ -37,7 +37,7 @@ function private autoexec function_21e07205()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_2089d7dfe76d99c6", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"gadget_concertina_wire", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

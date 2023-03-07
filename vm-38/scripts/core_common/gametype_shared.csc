@@ -1,8 +1,8 @@
-#namespace namespace_bc92b51a;
+#namespace gametype_shared;
 
 /*
 	Name: function_d055f955
-	Namespace: namespace_bc92b51a
+	Namespace: gametype_shared
 	Checksum: 0xA42DA175
 	Offset: 0x60
 	Size: 0x14

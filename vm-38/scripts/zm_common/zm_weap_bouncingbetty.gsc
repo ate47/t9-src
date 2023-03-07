@@ -1,5 +1,5 @@
 #using script_4c50b35ef5f6d7ae;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -7,11 +7,11 @@
 #using scripts\zm_common\util.gsc;
 #using scripts\zm_common\zm_placeable_mine.gsc;
 
-#namespace namespace_78b43a28;
+#namespace zm_weap_bouncingbetty;
 
 /*
 	Name: function_5f81213
-	Namespace: namespace_78b43a28
+	Namespace: zm_weap_bouncingbetty
 	Checksum: 0xC3C66DE0
 	Offset: 0xB8
 	Size: 0x14

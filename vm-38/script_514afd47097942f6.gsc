@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -50,11 +50,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_3d10e2fd98b0c3ab", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"no_ads", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_e699d70d
 	Checksum: 0x4F0CDA8C
 	Offset: 0x188
@@ -62,27 +62,27 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	callback::on_spawned(&function_dc856fd8);
 	callback::on_ai_spawned(&on_ai_spawned);
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_8677ce00(1);
+		player zm_trial_util::function_8677ce00(1);
 		player allowads(0);
 		player._allow_ads = 0;
 		player thread function_dc856fd8();
 		player thread function_16824dc3();
 		player thread function_2d961b95();
-		player namespace_b22c99a5::function_9bf8e274();
-		foreach(var_64225f6c in level.zombie_weapons)
+		player zm_trial_util::function_9bf8e274();
+		foreach(w_equip in level.zombie_weapons)
 		{
-			if(zm_loadout::is_lethal_grenade(var_64225f6c.weapon) || zm_loadout::is_melee_weapon(var_64225f6c.weapon))
+			if(zm_loadout::is_lethal_grenade(w_equip.weapon) || zm_loadout::is_melee_weapon(w_equip.weapon))
 			{
-				player function_28602a03(var_64225f6c.weapon, 1, 1);
+				player function_28602a03(w_equip.weapon, 1, 1);
 			}
 		}
-		player namespace_b22c99a5::function_dc9ab223(1, 1);
+		player zm_trial_util::function_dc9ab223(1, 1);
 	}
 	callback::function_33f0ddd3(&function_33f0ddd3);
 	level zm_trial::function_44200d07(1);
@@ -90,7 +90,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_e699d70d
 	Checksum: 0x6051D3A7
 	Offset: 0x430
@@ -98,7 +98,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::remove_on_spawned(&function_dc856fd8);
 	callback::function_824d206(&function_33f0ddd3);
@@ -109,16 +109,16 @@ function private function_9e7b3f4d(round_reset)
 		player._allow_ads = undefined;
 		player allowads(1);
 		player function_4488a530(0);
-		player namespace_b22c99a5::function_73ff0096();
-		foreach(var_64225f6c in level.zombie_weapons)
+		player zm_trial_util::function_73ff0096();
+		foreach(w_equip in level.zombie_weapons)
 		{
-			if(zm_loadout::is_lethal_grenade(var_64225f6c.weapon) || zm_loadout::is_melee_weapon(var_64225f6c.weapon))
+			if(zm_loadout::is_lethal_grenade(w_equip.weapon) || zm_loadout::is_melee_weapon(w_equip.weapon))
 			{
-				player unlockweapon(var_64225f6c.weapon);
+				player unlockweapon(w_equip.weapon);
 			}
 		}
-		player namespace_b22c99a5::function_dc9ab223(0, 1);
-		player namespace_b22c99a5::function_8677ce00(0);
+		player zm_trial_util::function_dc9ab223(0, 1);
+		player zm_trial_util::function_8677ce00(0);
 	}
 	level zm_trial::function_44200d07(0);
 	level zm_trial::function_cd75b690(0);
@@ -180,7 +180,7 @@ function private function_16824dc3()
 		var_f2a06582 = self getcurrentweapon();
 		if(isalive(self) && self adsbuttonpressed() && (var_f2a06582.dualwieldweapon === level.weaponnone || var_f2a06582.isriotshield))
 		{
-			self namespace_b22c99a5::function_97444b02();
+			self zm_trial_util::function_97444b02();
 			while(self adsbuttonpressed())
 			{
 				waitframe(1);

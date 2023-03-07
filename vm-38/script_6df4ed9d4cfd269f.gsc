@@ -105,7 +105,7 @@ function function_564698fd()
 */
 function function_a387f4f5()
 {
-	if(level.basegametype == #"fireteam_dirty_bomb" || level.basegametype == #"hash_2a8c6a2ad775902a")
+	if(level.basegametype == #"fireteam_dirty_bomb" || level.basegametype == #"fireteam_elimination")
 	{
 		/#
 			level thread function_f9492b33();
@@ -362,15 +362,15 @@ function function_f9492b33()
 		while(getdvarint(#"hash_31ae3e289b7b921d", 0))
 		{
 			var_ef77c3e3 = arraysortclosest(level.var_ef77c3e3, level.players[0].origin, 32, 0, 100000);
-			foreach(var_b12e89cf in var_ef77c3e3)
+			foreach(dirtybomb in var_ef77c3e3)
 			{
 				waitframe(1);
-				if(!level.players[0] util::is_player_looking_at(var_b12e89cf.origin, 0.6, 0))
+				if(!level.players[0] util::is_player_looking_at(dirtybomb.origin, 0.6, 0))
 				{
 					continue;
 				}
-				sphere(var_b12e89cf.origin, 32, (1, 1, 0), 1, 0, 8, 2);
-				circle(var_b12e89cf.origin, 96, (1, 1, 0), 0, 1, 2);
+				sphere(dirtybomb.origin, 32, (1, 1, 0), 1, 0, 8, 2);
+				circle(dirtybomb.origin, 96, (1, 1, 0), 0, 1, 2);
 			}
 		}
 	#/

@@ -2360,7 +2360,7 @@ function private function_dfe1997a()
 {
 	/#
 		util::waittill_can_add_debug_command();
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");
 	#/

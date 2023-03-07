@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_1bec696c : class_6aaccc24
+class class_1bec696c : cLUIelem
 {
 
 	/*
@@ -40,11 +40,11 @@ class class_1bec696c : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
-		Name: function_1bd2bb26
+		Name: set_horizontal_alignment
 		Namespace: namespace_1bec696c
 		Checksum: 0xF3E41105
 		Offset: 0xEE8
@@ -52,13 +52,13 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_1bd2bb26(localclientnum, value)
+	function set_horizontal_alignment(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "horizontal_alignment", value);
 	}
 
 	/*
-		Name: function_2208b8db
+		Name: set_green
 		Namespace: namespace_1bec696c
 		Checksum: 0xAF8E6741
 		Offset: 0xE40
@@ -66,13 +66,13 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_2208b8db(localclientnum, value)
+	function set_green(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "green", value);
 	}
 
 	/*
-		Name: function_237ff433
+		Name: set_fadeOverTime
 		Namespace: namespace_1bec696c
 		Checksum: 0xA1ACE05E
 		Offset: 0xD98
@@ -80,7 +80,7 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_237ff433(localclientnum, value)
+	function set_fadeOverTime(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", value);
 	}
@@ -96,11 +96,11 @@ class class_1bec696c : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("DOA_BannerElement");
+		cLUIelem::function_5c1bb138("DOA_BannerElement");
 	}
 
 	/*
-		Name: function_5dbd7024
+		Name: set_height
 		Namespace: namespace_1bec696c
 		Checksum: 0xBD29C85F
 		Offset: 0xD60
@@ -108,13 +108,13 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_5dbd7024(localclientnum, value)
+	function set_height(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "height", value);
 	}
 
 	/*
-		Name: function_7420df0a
+		Name: set_blue
 		Namespace: namespace_1bec696c
 		Checksum: 0xC5DDD315
 		Offset: 0xE78
@@ -122,7 +122,7 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_7420df0a(localclientnum, value)
+	function set_blue(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "blue", value);
 	}
@@ -136,20 +136,20 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 11
 		Flags: None
 	*/
-	function setup_clientfields(var_218de242, var_f6cc2724, var_fae6c0b5, var_a3e0a6ce, var_af074abc, var_9350f184, var_788c188f, var_3fb95ac9, var_f5852d69, var_cfabd75c, var_766e2bbb)
+	function setup_clientfields(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_f5852d69, horizontal_alignmentcallback, var_766e2bbb)
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_BannerElement");
-		namespace_6aaccc24::function_da693cbe("x", 1, 7, "int", var_f6cc2724);
-		namespace_6aaccc24::function_da693cbe("y", 1, 6, "int", var_fae6c0b5);
-		namespace_6aaccc24::function_da693cbe("height", 1, 2, "int", var_a3e0a6ce);
-		namespace_6aaccc24::function_da693cbe("fadeOverTime", 1, 5, "int", var_af074abc);
-		namespace_6aaccc24::function_da693cbe("alpha", 1, 4, "float", var_9350f184);
-		namespace_6aaccc24::function_da693cbe("red", 1, 4, "float", var_788c188f);
-		namespace_6aaccc24::function_da693cbe("green", 1, 4, "float", var_3fb95ac9);
-		namespace_6aaccc24::function_da693cbe("blue", 1, 4, "float", var_f5852d69);
-		namespace_6aaccc24::function_dcb34c80("string", "text", 1);
-		namespace_6aaccc24::function_da693cbe("horizontal_alignment", 1, 2, "int", var_cfabd75c);
-		namespace_6aaccc24::function_da693cbe("scale", 1, 6, "float", var_766e2bbb);
+		cLUIelem::setup_clientfields("DOA_BannerElement");
+		cLUIelem::function_da693cbe("x", 1, 7, "int", ycallback);
+		cLUIelem::function_da693cbe("y", 1, 6, "int", heightcallback);
+		cLUIelem::function_da693cbe("height", 1, 2, "int", fadeOverTimecallback);
+		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int", alphacallback);
+		cLUIelem::function_da693cbe("alpha", 1, 4, "float", redcallback);
+		cLUIelem::function_da693cbe("red", 1, 4, "float", greencallback);
+		cLUIelem::function_da693cbe("green", 1, 4, "float", bluecallback);
+		cLUIelem::function_da693cbe("blue", 1, 4, "float", var_f5852d69);
+		cLUIelem::function_dcb34c80("string", "text", 1);
+		cLUIelem::function_da693cbe("horizontal_alignment", 1, 2, "int", horizontal_alignmentcallback);
+		cLUIelem::function_da693cbe("scale", 1, 6, "float", var_766e2bbb);
 	}
 
 	/*
@@ -167,7 +167,7 @@ class class_1bec696c : class_6aaccc24
 	}
 
 	/*
-		Name: function_aa5c711d
+		Name: set_alpha
 		Namespace: namespace_1bec696c
 		Checksum: 0xFFD5411A
 		Offset: 0xDD0
@@ -175,7 +175,7 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_aa5c711d(localclientnum, value)
+	function set_alpha(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", value);
 	}
@@ -209,7 +209,7 @@ class class_1bec696c : class_6aaccc24
 	}
 
 	/*
-		Name: function_d5ea17f0
+		Name: set_text
 		Namespace: namespace_1bec696c
 		Checksum: 0xD9030D66
 		Offset: 0xEB0
@@ -217,13 +217,13 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_d5ea17f0(localclientnum, value)
+	function set_text(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "text", value);
 	}
 
 	/*
-		Name: function_eccc151d
+		Name: set_red
 		Namespace: namespace_1bec696c
 		Checksum: 0xC9A0DF10
 		Offset: 0xE08
@@ -231,7 +231,7 @@ class class_1bec696c : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_eccc151d(localclientnum, value)
+	function set_red(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "red", value);
 	}
@@ -247,7 +247,7 @@ class class_1bec696c : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "x", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "y", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "height", 0);
@@ -290,9 +290,9 @@ function private autoexec function_78bcc330()
 */
 function set_color(localclientnum, red, green, blue)
 {
-	self function_eccc151d(localclientnum, red);
-	self function_2208b8db(localclientnum, green);
-	self function_7420df0a(localclientnum, blue);
+	self set_red(localclientnum, red);
+	self set_green(localclientnum, green);
+	self set_blue(localclientnum, blue);
 }
 
 /*
@@ -310,8 +310,8 @@ function fade(localclientnum, var_1a92607f, duration)
 	{
 		duration = 0;
 	}
-	self function_aa5c711d(localclientnum, var_1a92607f);
-	self function_237ff433(localclientnum, int(duration * 10));
+	self set_alpha(localclientnum, var_1a92607f);
+	self set_fadeOverTime(localclientnum, int(duration * 10));
 }
 
 /*
@@ -402,10 +402,10 @@ function function_f97e9049(localclientnum, var_c6572d9b, var_d390c80e)
 	Parameters: 11
 	Flags: None
 */
-function register(var_218de242, var_f6cc2724, var_fae6c0b5, var_a3e0a6ce, var_af074abc, var_9350f184, var_788c188f, var_3fb95ac9, var_f5852d69, var_cfabd75c, var_766e2bbb)
+function register(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_f5852d69, horizontal_alignmentcallback, var_766e2bbb)
 {
 	elem = new class_1bec696c();
-	[[ elem ]]->setup_clientfields(var_218de242, var_f6cc2724, var_fae6c0b5, var_a3e0a6ce, var_af074abc, var_9350f184, var_788c188f, var_3fb95ac9, var_f5852d69, var_cfabd75c, var_766e2bbb);
+	[[ elem ]]->setup_clientfields(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_f5852d69, horizontal_alignmentcallback, var_766e2bbb);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -512,7 +512,7 @@ function set_y(localclientnum, value)
 }
 
 /*
-	Name: function_5dbd7024
+	Name: set_height
 	Namespace: doa_bannerelement
 	Checksum: 0xD235511E
 	Offset: 0x6F8
@@ -520,13 +520,13 @@ function set_y(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5dbd7024(localclientnum, value)
+function set_height(localclientnum, value)
 {
-	[[ self ]]->function_5dbd7024(localclientnum, value);
+	[[ self ]]->set_height(localclientnum, value);
 }
 
 /*
-	Name: function_237ff433
+	Name: set_fadeOverTime
 	Namespace: doa_bannerelement
 	Checksum: 0xEC9DFB92
 	Offset: 0x728
@@ -534,13 +534,13 @@ function function_5dbd7024(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_237ff433(localclientnum, value)
+function set_fadeOverTime(localclientnum, value)
 {
-	[[ self ]]->function_237ff433(localclientnum, value);
+	[[ self ]]->set_fadeOverTime(localclientnum, value);
 }
 
 /*
-	Name: function_aa5c711d
+	Name: set_alpha
 	Namespace: doa_bannerelement
 	Checksum: 0x1C14A7BD
 	Offset: 0x758
@@ -548,13 +548,13 @@ function function_237ff433(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_aa5c711d(localclientnum, value)
+function set_alpha(localclientnum, value)
 {
-	[[ self ]]->function_aa5c711d(localclientnum, value);
+	[[ self ]]->set_alpha(localclientnum, value);
 }
 
 /*
-	Name: function_eccc151d
+	Name: set_red
 	Namespace: doa_bannerelement
 	Checksum: 0x845E920
 	Offset: 0x788
@@ -562,13 +562,13 @@ function function_aa5c711d(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_eccc151d(localclientnum, value)
+function set_red(localclientnum, value)
 {
-	[[ self ]]->function_eccc151d(localclientnum, value);
+	[[ self ]]->set_red(localclientnum, value);
 }
 
 /*
-	Name: function_2208b8db
+	Name: set_green
 	Namespace: doa_bannerelement
 	Checksum: 0x56265ADD
 	Offset: 0x7B8
@@ -576,13 +576,13 @@ function function_eccc151d(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_2208b8db(localclientnum, value)
+function set_green(localclientnum, value)
 {
-	[[ self ]]->function_2208b8db(localclientnum, value);
+	[[ self ]]->set_green(localclientnum, value);
 }
 
 /*
-	Name: function_7420df0a
+	Name: set_blue
 	Namespace: doa_bannerelement
 	Checksum: 0xE850FB34
 	Offset: 0x7E8
@@ -590,13 +590,13 @@ function function_2208b8db(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_7420df0a(localclientnum, value)
+function set_blue(localclientnum, value)
 {
-	[[ self ]]->function_7420df0a(localclientnum, value);
+	[[ self ]]->set_blue(localclientnum, value);
 }
 
 /*
-	Name: function_d5ea17f0
+	Name: set_text
 	Namespace: doa_bannerelement
 	Checksum: 0xC8A5FC9B
 	Offset: 0x818
@@ -604,13 +604,13 @@ function function_7420df0a(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_d5ea17f0(localclientnum, value)
+function set_text(localclientnum, value)
 {
-	[[ self ]]->function_d5ea17f0(localclientnum, value);
+	[[ self ]]->set_text(localclientnum, value);
 }
 
 /*
-	Name: function_1bd2bb26
+	Name: set_horizontal_alignment
 	Namespace: doa_bannerelement
 	Checksum: 0x3B02F576
 	Offset: 0x848
@@ -618,9 +618,9 @@ function function_d5ea17f0(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_1bd2bb26(localclientnum, value)
+function set_horizontal_alignment(localclientnum, value)
 {
-	[[ self ]]->function_1bd2bb26(localclientnum, value);
+	[[ self ]]->set_horizontal_alignment(localclientnum, value);
 }
 
 /*

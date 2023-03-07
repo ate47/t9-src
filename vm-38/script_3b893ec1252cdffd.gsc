@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_536d73e : class_6aaccc24
+class cDOA_Overworld : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0xF58476EA
 		Offset: 0x2F8
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_536d73e : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0x9604EE4A
 		Offset: 0x3C8
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_536d73e : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0xE9672F07
 		Offset: 0x398
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_536d73e : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0x343720C7
 		Offset: 0x340
 		Size: 0x1C
@@ -54,12 +54,12 @@ class class_536d73e : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("DOA_Overworld");
+		cLUIelem::function_5c1bb138("DOA_Overworld");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0xA460A7EA
 		Offset: 0x318
 		Size: 0x1C
@@ -68,12 +68,12 @@ class class_536d73e : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_Overworld");
+		cLUIelem::setup_clientfields("DOA_Overworld");
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_536d73e
+		Namespace: cDOA_Overworld
 		Checksum: 0xBB37DD6E
 		Offset: 0x368
 		Size: 0x24
@@ -82,7 +82,7 @@ class class_536d73e : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 	}
 
 }
@@ -114,7 +114,7 @@ function private autoexec function_e80640b()
 */
 function register()
 {
-	elem = new class_536d73e();
+	elem = new cDOA_Overworld();
 	[[ elem ]]->setup_clientfields();
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -146,7 +146,7 @@ function register()
 */
 function function_5c1bb138()
 {
-	elem = new class_536d73e();
+	elem = new cDOA_Overworld();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

@@ -6,11 +6,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_2f51db47;
+#namespace wz_dynents;
 
 /*
 	Name: function_300b90ec
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x169BA692
 	Offset: 0x220
 	Size: 0x14
@@ -24,7 +24,7 @@ function private autoexec function_300b90ec()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x92DDFDF1
 	Offset: 0x240
 	Size: 0x3C
@@ -33,12 +33,12 @@ function private autoexec function_300b90ec()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_61d578a98d57a51e", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"wz_dynents", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x6929264A
 	Offset: 0x288
 	Size: 0xDC
@@ -58,7 +58,7 @@ function function_70a657d8()
 
 /*
 	Name: function_ded5d217
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x6F6BED6F
 	Offset: 0x370
 	Size: 0x180
@@ -86,7 +86,7 @@ function function_ded5d217()
 
 /*
 	Name: init_elevator
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x14C9521
 	Offset: 0x4F8
 	Size: 0x322
@@ -145,7 +145,7 @@ function init_elevator(var_fd98a47c)
 
 /*
 	Name: function_724a2fa5
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0xF023D40C
 	Offset: 0x828
 	Size: 0xEE
@@ -173,7 +173,7 @@ function private function_724a2fa5(eventstruct)
 
 /*
 	Name: function_8cc4432b
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0xD9CBED06
 	Offset: 0x920
 	Size: 0x7C
@@ -192,7 +192,7 @@ function function_8cc4432b(params)
 
 /*
 	Name: function_ad26976
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x28C7D211
 	Offset: 0x9A8
 	Size: 0x194
@@ -220,7 +220,7 @@ function function_ad26976()
 
 /*
 	Name: function_211e7277
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x10E5B2A8
 	Offset: 0xB48
 	Size: 0x1B4
@@ -259,7 +259,7 @@ function function_211e7277(point, var_8bd17d7d)
 
 /*
 	Name: is_equipment
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x28A1E4E6
 	Offset: 0xD08
 	Size: 0x11A
@@ -271,7 +271,7 @@ function is_equipment(entity)
 	if(isdefined(entity.weapon))
 	{
 		weapon = entity.weapon;
-		if(weapon.name === #"ability_smart_cover" || weapon.name === #"eq_tripwire" || weapon.name === #"trophy_system" || weapon.name === #"eq_concertina_wire" || weapon.name === #"eq_sensor" || weapon.name === #"cymbal_monkey" || weapon.name === #"hash_10f614b278daaebc")
+		if(weapon.name === #"ability_smart_cover" || weapon.name === #"eq_tripwire" || weapon.name === #"trophy_system" || weapon.name === #"eq_concertina_wire" || weapon.name === #"eq_sensor" || weapon.name === #"cymbal_monkey" || weapon.name === #"homunculus")
 		{
 			return true;
 		}
@@ -281,7 +281,7 @@ function is_equipment(entity)
 
 /*
 	Name: function_777e012d
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x92BBADB8
 	Offset: 0xE30
 	Size: 0x266
@@ -291,7 +291,7 @@ function is_equipment(entity)
 function function_777e012d(t_damage)
 {
 	self endon(#"death");
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	if(!isdefined(t_damage))
 	{
 		return;
@@ -320,7 +320,7 @@ function function_777e012d(t_damage)
 						device [[level.var_7c5c96dc]]();
 						break;
 					}
-					case "hash_10f614b278daaebc":
+					case "homunculus":
 					{
 						device [[level.var_cc310d06]]();
 						break;
@@ -352,7 +352,7 @@ function function_777e012d(t_damage)
 
 /*
 	Name: elevator_kill_player
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x23C81F31
 	Offset: 0x10A0
 	Size: 0x228
@@ -362,7 +362,7 @@ function function_777e012d(t_damage)
 function elevator_kill_player(t_damage)
 {
 	self endon(#"death");
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	if(!isdefined(t_damage))
 	{
 		return;
@@ -400,7 +400,7 @@ function elevator_kill_player(t_damage)
 
 /*
 	Name: function_8e73d913
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x60A3D722
 	Offset: 0x12D0
 	Size: 0x3C
@@ -418,7 +418,7 @@ function function_8e73d913()
 
 /*
 	Name: function_26ab1b5e
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x42E2D46C
 	Offset: 0x1318
 	Size: 0x3E4
@@ -428,7 +428,7 @@ function function_8e73d913()
 function function_26ab1b5e(t_damage)
 {
 	self endon(#"death");
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	if(!isdefined(t_damage))
 	{
 		return;
@@ -485,7 +485,7 @@ function function_26ab1b5e(t_damage)
 
 /*
 	Name: function_76ad6828
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0xFC2AE51B
 	Offset: 0x1708
 	Size: 0x18E
@@ -521,7 +521,7 @@ function function_76ad6828(position)
 
 /*
 	Name: elevator_move
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x6904583C
 	Offset: 0x18A0
 	Size: 0x3B4
@@ -569,7 +569,7 @@ function elevator_move(elevator)
 
 /*
 	Name: function_af088c90
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0x5C16E3EF
 	Offset: 0x1C60
 	Size: 0x7C
@@ -587,7 +587,7 @@ function function_af088c90(trigger_struct)
 
 /*
 	Name: function_31042f91
-	Namespace: namespace_2f51db47
+	Namespace: wz_dynents
 	Checksum: 0xC9B4E3DB
 	Offset: 0x1CE8
 	Size: 0xCC

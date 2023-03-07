@@ -4,11 +4,11 @@
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_8ae4bc7d;
+#namespace teleport_shared;
 
 /*
 	Name: function_63bbc43d
-	Namespace: namespace_8ae4bc7d
+	Namespace: teleport_shared
 	Checksum: 0x1A9D7540
 	Offset: 0xE8
 	Size: 0x14

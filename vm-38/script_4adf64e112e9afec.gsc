@@ -239,7 +239,7 @@ function function_deb84496(localclientnum, entitynum)
 		{
 			var_6c978e26.var_e429ef89 luielem_entity_bar::open(localclientnum);
 		}
-		var_6c978e26.var_e429ef89 luielem_entity_bar::function_c8350e33(localclientnum, entitynum);
+		var_6c978e26.var_e429ef89 luielem_entity_bar::set_entNum(localclientnum, entitynum);
 		namespace_1e25ad94::debugmsg((("Allocated a healthBar to localClientNum:" + localclientnum) + " Entity:") + entitynum);
 		return var_6c978e26.var_e429ef89;
 	}
@@ -631,7 +631,7 @@ function function_15158f84(localclientnum)
 	}
 	offset = self function_80317cee();
 	self.var_de98eb73 doa_textbubble::function_919052d(localclientnum, self.entnum, self function_a789b576());
-	self.var_de98eb73 doa_textbubble::function_d5ea17f0(localclientnum, #"hash_7ee185f0146bd791");
+	self.var_de98eb73 doa_textbubble::set_text(localclientnum, #"hash_7ee185f0146bd791");
 	self.var_de98eb73 doa_textbubble::function_b4023f5a(localclientnum, offset[0], offset[1], offset[2]);
 	self thread function_b935ba2b(localclientnum, self.entnum);
 	return true;
@@ -703,7 +703,7 @@ function function_fd71fef3(localclientnum, oldval, newval, bnewent, binitialsnap
 		val = self function_d47b1ac(bwastimejump, var_a793c1e1, var_a6e8b35b);
 		if(isdefined(val.msg))
 		{
-			self.var_de98eb73 doa_textbubble::function_d5ea17f0(fieldname, val.msg);
+			self.var_de98eb73 doa_textbubble::set_text(fieldname, val.msg);
 		}
 		else
 		{
@@ -891,8 +891,8 @@ function function_8394bc71(localclientnum)
 		self playsound(localclientnum, #"hash_1af6f1a195265272");
 	}
 	offset = (-16, 0, 58);
-	self.var_7488bfe4 doa_textbubble_playername::function_c8350e33(localclientnum, self.entnum);
-	self.var_7488bfe4 doa_textbubble_playername::function_3b7b386a(localclientnum, clientnum);
+	self.var_7488bfe4 doa_textbubble_playername::set_entNum(localclientnum, self.entnum);
+	self.var_7488bfe4 doa_textbubble_playername::set_clientnum(localclientnum, clientnum);
 	self.var_7488bfe4 doa_textbubble_playername::function_b4023f5a(localclientnum, offset[0], offset[1], offset[2]);
 	self thread function_b935ba2b(localclientnum, self.entnum);
 	return true;

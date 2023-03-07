@@ -534,7 +534,7 @@ function isheadshot(weapon, shitloc, smeansofdeath, einflictor)
 		case "mod_impact":
 		{
 			baseweapon = weapons::getbaseweapon(shitloc);
-			if(!shitloc.isballisticknife && baseweapon != level.weaponspecialcrossbow && baseweapon != level.var_9e188c0b)
+			if(!shitloc.isballisticknife && baseweapon != level.weaponspecialcrossbow && baseweapon != level.weaponflechette)
 			{
 				return false;
 			}

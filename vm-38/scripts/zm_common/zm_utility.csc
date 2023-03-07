@@ -1,6 +1,6 @@
 #using script_12282e6b2cc91b42;
 #using script_158d50d476435605;
-#using script_1611421ee9b880d3;
+#using scripts\zm_common\zm_wallbuy.csc;
 #using script_18a9e529264a3d29;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -1247,19 +1247,19 @@ function private function_538799c4()
 			{
 				i = 0;
 				debug2dtext((325, 200, 0) + (vectorscale((0, 1, 0), 20) * (i + 1)), "", (0, 1, 0));
-				foreach(var_b8055433 in level.var_c427e93b)
+				foreach(e_machine in level.var_c427e93b)
 				{
-					if(isdefined(var_b8055433))
+					if(isdefined(e_machine))
 					{
-						v_midpoint = var_b8055433 function_2cfe56d8();
+						v_midpoint = e_machine function_2cfe56d8();
 						i++;
-						if(is_true(var_b8055433.var_c02c4d66))
+						if(is_true(e_machine.var_c02c4d66))
 						{
-							debug2dtext((325, 200, 0) + (vectorscale((0, 1, 0), 20) * (i + 1)), function_9e72a96(var_b8055433.model), (0, 1, 0));
+							debug2dtext((325, 200, 0) + (vectorscale((0, 1, 0), 20) * (i + 1)), function_9e72a96(e_machine.model), (0, 1, 0));
 							circle(v_midpoint, 64, (0, 1, 0));
 							continue;
 						}
-						debug2dtext((325, 200, 0) + (vectorscale((0, 1, 0), 20) * (i + 1)), function_9e72a96(var_b8055433.model), (1, 0, 0));
+						debug2dtext((325, 200, 0) + (vectorscale((0, 1, 0), 20) * (i + 1)), function_9e72a96(e_machine.model), (1, 0, 0));
 						circle(v_midpoint, 64, (1, 0, 0));
 					}
 				}

@@ -2,7 +2,7 @@
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
 #using script_70a43d6ba27cff6a;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -124,7 +124,7 @@ function init()
 			level.rankedmatch = 1;
 		}
 	#/
-	level.script = util::function_53bbf9d2();
+	level.script = util::get_map_name();
 	level.gametype = util::function_5df4294();
 	level.var_837aa533 = hash(level.gametype);
 	if(isdefined(level.gametype))
@@ -360,7 +360,7 @@ function precache_mp_leaderboards()
 	{
 		return;
 	}
-	mapname = util::function_53bbf9d2();
+	mapname = util::get_map_name();
 	globalleaderboards = "LB_MP_GB_XPPRESTIGE LB_MP_GB_SCORE LB_MP_GB_KDRATIO LB_MP_GB_KILLS LB_MP_GB_WINS LB_MP_GB_DEATHS LB_MP_GB_XPMAXPERGAME LB_MP_GB_TACTICALINSERTS LB_MP_GB_TACTICALINSERTSKILLS LB_MP_GB_PRESTIGEXP LB_MP_GB_HEADSHOTS LB_MP_GB_WEAPONS_PRIMARY LB_MP_GB_WEAPONS_SECONDARY";
 	careerleaderboard = "";
 	switch(level.gametype)
@@ -869,7 +869,7 @@ function updategameevents()
 			else if(atleasttwoteams())
 			{
 				level.gameforfeited = 0;
-				level notify(#"hash_39a00a79045884ca");
+				level notify(#"abort forfeit");
 			}
 		}
 		else
@@ -885,7 +885,7 @@ function updategameevents()
 			else if(util::totalplayercount() > 1)
 			{
 				level.gameforfeited = 0;
-				level notify(#"hash_39a00a79045884ca");
+				level notify(#"abort forfeit");
 			}
 		}
 	}
@@ -2402,7 +2402,7 @@ function startgame()
 	}
 	level notify(#"prematch_over");
 	level.prematch_over = 1;
-	function_c1207282(level.players);
+	startplayers(level.players);
 	level flag::set("game_start");
 	setdvar(#"hash_54488b7c651bd0ec", 0);
 	thread timelimitclock();
@@ -2489,7 +2489,7 @@ function function_b5d72fb0()
 }
 
 /*
-	Name: function_c1207282
+	Name: startplayers
 	Namespace: globallogic
 	Checksum: 0x373F5DBB
 	Offset: 0x65C8
@@ -2497,7 +2497,7 @@ function function_b5d72fb0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c1207282(players)
+function startplayers(players)
 {
 	if(!isdefined(players))
 	{

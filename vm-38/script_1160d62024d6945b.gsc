@@ -554,7 +554,7 @@ function private function_e674d71a(vehicle)
 				respawntime = getgametypesetting(#"hash_7d53c8bab3db8122");
 				break;
 			}
-			case "hash_1aa3be97c5bfcefa":
+			case "player_motorcycle_2wd":
 			case "player_motorcycle":
 			{
 				respawntime = getgametypesetting(#"hash_b30022a9302a5a6");
@@ -565,12 +565,12 @@ function private function_e674d71a(vehicle)
 				respawntime = getgametypesetting(#"hash_28005bb885acabc3");
 				break;
 			}
-			case "hash_5115ee7eff718e37":
+			case "player_btr40":
 			{
 				respawntime = getgametypesetting(#"hash_3eeb8cb5c84b1939");
 				break;
 			}
-			case "hash_65231a254dac5391":
+			case "player_fav_light":
 			{
 				respawntime = getgametypesetting(#"hash_3d5a87878a3bef28");
 				break;
@@ -585,13 +585,13 @@ function private function_e674d71a(vehicle)
 				respawntime = getgametypesetting(#"hash_22c53ddb2cb67f13");
 				break;
 			}
-			case "hash_5899c013879294b7":
+			case "player_pbr":
 			{
 				respawntime = getgametypesetting(#"hash_39cfd81268504039");
 				break;
 			}
 			case "tactical_raft_wz":
-			case "hash_60773cb8e1d97f62":
+			case "player_tactical_raft":
 			{
 				respawntime = getgametypesetting(#"hash_53fd9a3e9a0e78e1");
 				break;
@@ -606,12 +606,12 @@ function private function_e674d71a(vehicle)
 				respawntime = getgametypesetting(#"hash_208071125a2b0b0b");
 				break;
 			}
-			case "hash_2d53e3136f122763":
+			case "player_uaz":
 			{
 				respawntime = getgametypesetting(#"hash_52ef5b12764c8139");
 				break;
 			}
-			case "hash_22256eb7a0eb3611":
+			case "player_jetski":
 			{
 				respawntime = getgametypesetting(#"hash_76f686986e1a58b");
 				break;
@@ -675,7 +675,7 @@ function private function_f77a9b1b(vehicle)
 				respawntime = getgametypesetting(#"hash_7353bbc24d72ec59");
 				break;
 			}
-			case "hash_1aa3be97c5bfcefa":
+			case "player_motorcycle_2wd":
 			case "player_motorcycle":
 			{
 				respawntime = getgametypesetting(#"hash_5a4fde688cbf1a01");
@@ -686,12 +686,12 @@ function private function_f77a9b1b(vehicle)
 				respawntime = getgametypesetting(#"hash_6b2754246df1bc7c");
 				break;
 			}
-			case "hash_5115ee7eff718e37":
+			case "player_btr40":
 			{
 				respawntime = getgametypesetting(#"hash_6773166f56896564");
 				break;
 			}
-			case "hash_65231a254dac5391":
+			case "player_fav_light":
 			{
 				respawntime = getgametypesetting(#"hash_54d908d6273c8893");
 				break;
@@ -706,13 +706,13 @@ function private function_f77a9b1b(vehicle)
 				respawntime = getgametypesetting(#"hash_273d049136c76afa");
 				break;
 			}
-			case "hash_5899c013879294b7":
+			case "player_pbr":
 			{
 				respawntime = getgametypesetting(#"hash_44f0b1c6b2d3b6f8");
 				break;
 			}
 			case "tactical_raft_wz":
-			case "hash_60773cb8e1d97f62":
+			case "player_tactical_raft":
 			{
 				respawntime = getgametypesetting(#"hash_56f6d77da3124af2");
 				break;
@@ -727,12 +727,12 @@ function private function_f77a9b1b(vehicle)
 				respawntime = getgametypesetting(#"hash_5dc620c6c0919d82");
 				break;
 			}
-			case "hash_2d53e3136f122763":
+			case "player_uaz":
 			{
 				respawntime = getgametypesetting(#"hash_2aea36c6a4135574");
 				break;
 			}
-			case "hash_22256eb7a0eb3611":
+			case "player_jetski":
 			{
 				respawntime = getgametypesetting(#"hash_38a8f601ab8388d0");
 				break;

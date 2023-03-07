@@ -3208,7 +3208,7 @@ function function_a5318821(var_79a934ad, var_6fa12df4, var_64b54706, var_20900fd
 	{
 		return;
 	}
-	var_f82db92c = function_53bbf9d2();
+	var_f82db92c = get_map_name();
 	if(isdefined(var_64b54706))
 	{
 		var_f82db92c = var_64b54706;
@@ -3248,7 +3248,7 @@ function function_a5318821(var_79a934ad, var_6fa12df4, var_64b54706, var_20900fd
 */
 function function_de500b59()
 {
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	if(mapname === #"cp_takedown" || mapname === #"cp_rus_yamantau" || mapname === #"cp_sidemission_takedown" || mapname === #"cp_sidemission_tundra")
 	{
 		return #"hash_4d5f6c0e8d8bec20";

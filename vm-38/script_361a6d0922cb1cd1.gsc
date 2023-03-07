@@ -45,7 +45,7 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	status_effect::register_status_effect_callback_apply(7, &function_1d474ba9);
-	status_effect::function_5bae5120(7, &function_1fe7552b);
+	status_effect::function_5bae5120(7, &dot_end);
 	status_effect::function_6f4eaf88(function_4d1e7b48("dot"));
 	clientfield::register("toplayer", "dot_splatter", 1, 1, "counter");
 	clientfield::register("toplayer", "dot_no_splatter", 1, 1, "counter");
@@ -134,7 +134,7 @@ function private function_c13d20c4()
 }
 
 /*
-	Name: function_1fe7552b
+	Name: dot_end
 	Namespace: status_effect_dot
 	Checksum: 0xCFBAA242
 	Offset: 0x500
@@ -142,7 +142,7 @@ function private function_c13d20c4()
 	Parameters: 0
 	Flags: Linked
 */
-function function_1fe7552b()
+function dot_end()
 {
 	self.owner.var_213b4a61 = undefined;
 	self.owner stoprumble("status_effect_dot");

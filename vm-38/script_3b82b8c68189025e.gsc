@@ -1311,7 +1311,7 @@ function private function_27059a7f(ai_actor, anim_struct)
 					snd::stop(ai_actor.var_e744d1aa);
 				}
 				ai_actor.var_e744d1aa = undefined;
-				ai_actor notify(#"hash_5d02e24cebf138cb");
+				ai_actor notify(#"cancel speaking");
 			}
 		}
 		if(ai_actor flag::get("_dialog_anim_playing") && isdefined(ai_actor._scene_object))

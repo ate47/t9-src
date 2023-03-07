@@ -5,13 +5,13 @@
 #using script_3a88f428c6d8ef90;
 #using script_3f9e0dc8454d98e1;
 #using script_58860a35d0555f74;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_60d2812480bc5591;
 #using script_64fee205fe8ada38;
 #using script_6809bf766eba194a;
 #using script_68d2ee1489345a1d;
 #using script_72401f526ba71638;
-#using script_77b61a4178efdbc4;
+#using scripts\zm\ai\zm_ai_mimic.gsc;
 #using script_7e59d7bba853fe4b;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -613,7 +613,7 @@ function function_79ae7b73()
 	level flag::set(#"boss_fight_started");
 	showmiscmodels("hide_mid_scene_models");
 	hidemiscmodels("village_courtyard_side_gate");
-	level thread namespace_e0b1e9f5::function_e7aacbc9();
+	level thread zm_gold_pap_quest::function_e7aacbc9();
 	level zm_utility::function_9ad5aeb1(0, 0, 1, 0);
 	level.var_923e8cb4 = struct::get_array("end_fight_spawn_points");
 	level teleport_players(level.var_923e8cb4);
@@ -1545,7 +1545,7 @@ function get_weapon_damage(inflictor, attacker, damage, flags, meansofdeath, wea
 		damage = zm_equipment::function_379f6b5d(damage);
 		damage = int(damage * 0.1);
 	}
-	item = attacker namespace_b376ff3f::function_230ceec4(weapon);
+	item = attacker item_inventory::function_230ceec4(weapon);
 	if(isdefined(item))
 	{
 		var_528363fd = self namespace_b61a349a::function_b3496fde(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype);
@@ -1890,14 +1890,14 @@ function function_11cc0e55()
 {
 	level endon(#"hash_38f29f9cb03586ea", #"spawn_zombies", #"intermission");
 	n_round = level.var_d6f059f7;
-	var_c40fb40b = undefined;
-	while(!isdefined(var_c40fb40b))
+	ai_mimic = undefined;
+	while(!isdefined(ai_mimic))
 	{
 		level waittill(#"hash_66fc3c05e12b4225");
-		var_c40fb40b = namespace_14c07d4f::spawn_single();
+		ai_mimic = zm_ai_mimic::spawn_single();
 	}
-	var_c40fb40b.maxhealth = var_c40fb40b namespace_e0710ee6::function_b5fe98(n_round);
-	var_c40fb40b.health = var_c40fb40b.maxhealth;
+	ai_mimic.maxhealth = ai_mimic namespace_e0710ee6::function_b5fe98(n_round);
+	ai_mimic.health = ai_mimic.maxhealth;
 }
 
 /*
@@ -2035,7 +2035,7 @@ function function_e4db583b(var_238eb6ec, var_bce45f4a, var_533ac894, var_cb579f7
 	var_1e8caeb1 = var_5dc704a7;
 	n_max_active_ai = 19 + level.var_f3c4bd00;
 	var_698258d8 = level.var_f3c4bd00 + 2;
-	var_c40fb40b = undefined;
+	ai_mimic = undefined;
 	if(!isarray(var_cb579f71))
 	{
 		s_zone = level.zones[#"hash_64d4cc9731a01d78"];
@@ -2073,13 +2073,13 @@ function function_e4db583b(var_238eb6ec, var_bce45f4a, var_533ac894, var_cb579f7
 		while(level.var_2266b455 < var_698258d8)
 		{
 			level.var_2266b455++;
-			while(!isdefined(var_c40fb40b))
+			while(!isdefined(ai_mimic))
 			{
 				level waittill(#"hash_66fc3c05e12b4225");
-				var_c40fb40b = namespace_14c07d4f::spawn_single(array::random(var_cb579f71));
+				ai_mimic = zm_ai_mimic::spawn_single(array::random(var_cb579f71));
 			}
-			var_c40fb40b.maxhealth = var_c40fb40b namespace_e0710ee6::function_b5fe98(n_round);
-			var_c40fb40b.health = var_c40fb40b.maxhealth;
+			ai_mimic.maxhealth = ai_mimic namespace_e0710ee6::function_b5fe98(n_round);
+			ai_mimic.health = ai_mimic.maxhealth;
 			var_3a8c1407++;
 			while(getaiteamarray(level.zombie_team).size >= n_max_active_ai)
 			{
@@ -2097,7 +2097,7 @@ function function_e4db583b(var_238eb6ec, var_bce45f4a, var_533ac894, var_cb579f7
 				var_e7987a1 = var_12532e1c;
 			}
 			wait(randomfloatrange(var_f36d4571, var_e7987a1));
-			var_c40fb40b = undefined;
+			ai_mimic = undefined;
 			var_77bcb393++;
 			level flag::wait_till(#"hash_3bdcbb902730e623");
 		}
@@ -2383,13 +2383,13 @@ function function_e2f134ce()
 function function_37597f29()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

@@ -1,4 +1,4 @@
-#using script_1a82674d68f69c23;
+#using scripts\zm_common\zm_inventory.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

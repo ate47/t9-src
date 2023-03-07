@@ -2,7 +2,7 @@
 #using script_256b8879317373de;
 #using script_25c09ccacf057919;
 #using script_32399001bdb550da;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\load_shared.gsc;

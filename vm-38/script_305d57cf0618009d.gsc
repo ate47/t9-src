@@ -265,10 +265,10 @@ function private function_3ca86964(var_1d83d08d)
 	{
 		return {#end:maxs, #start:mins};
 	}
-	var_f5663ad6 = var_6024133d[0].origin;
-	var_4ffef006 = var_6024133d[1].origin;
-	mins = (min(var_f5663ad6[0], var_4ffef006[0]), min(var_f5663ad6[1], var_4ffef006[1]), 150000);
-	maxs = (max(var_f5663ad6[0], var_4ffef006[0]), max(var_f5663ad6[1], var_4ffef006[1]), 150000);
+	o_a = var_6024133d[0].origin;
+	o_b = var_6024133d[1].origin;
+	mins = (min(o_a[0], o_b[0]), min(o_a[1], o_b[1]), 150000);
+	maxs = (max(o_a[0], o_b[0]), max(o_a[1], o_b[1]), 150000);
 	return function_24531a26(var_1d83d08d.start, var_1d83d08d.end, mins, maxs);
 }
 
@@ -673,7 +673,7 @@ function function_1b105d5b(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 			}
 			[[ lui_menu ]]->function_9cd54463(player, 0);
 			[[ lui_menu ]]->function_331f9dd(player, 1);
-			[[ lui_menu ]]->function_237ff433(player, int(fadeouttime * 1000));
+			[[ lui_menu ]]->set_fadeOverTime(player, int(fadeouttime * 1000));
 		}
 	}
 	wait(fadeouttime + var_8e0c0121);
@@ -691,7 +691,7 @@ function function_1b105d5b(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 		}
 		[[ lui_menu ]]->function_9cd54463(player, 1);
 		[[ lui_menu ]]->function_331f9dd(player, 0);
-		[[ lui_menu ]]->function_237ff433(player, int(fadeintime * 1000));
+		[[ lui_menu ]]->set_fadeOverTime(player, int(fadeintime * 1000));
 	}
 	wait(fadeintime);
 	function_a5fd9aa8(insertion);

@@ -230,7 +230,7 @@ function private function_bb412e85()
 	var_2084f739.level_name = level.script;
 	if(!isdefined(var_2084f739.level_name))
 	{
-		var_2084f739.level_name = util::function_53bbf9d2();
+		var_2084f739.level_name = util::get_map_name();
 	}
 	return var_2084f739;
 }

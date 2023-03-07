@@ -1,6 +1,6 @@
 #using script_32c8b5b0eb2854f3;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_70a43d6ba27cff6a;
 #using scripts\core_common\array_shared.gsc;

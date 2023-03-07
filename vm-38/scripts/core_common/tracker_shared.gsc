@@ -1,16 +1,16 @@
 #using script_70a43d6ba27cff6a;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_495a69cb;
+#namespace tracker_shared;
 
 /*
 	Name: function_ffc9441b
-	Namespace: namespace_495a69cb
+	Namespace: tracker_shared
 	Checksum: 0x7E98FCA3
 	Offset: 0xC0
 	Size: 0x14

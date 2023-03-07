@@ -5,7 +5,7 @@
 #using script_3a704cbcf4081bfb;
 #using script_522aeb6ae906391e;
 #using script_610ee556015777f3;
-#using script_77b61a4178efdbc4;
+#using scripts\zm\ai\zm_ai_mimic.gsc;
 #using script_799de24f8ad427f7;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -58,7 +58,7 @@ function function_70a657d8()
 	level.var_f8d5dd16 = &function_bc29cf28;
 	level.var_64aa9d51 = &function_64aa9d51;
 	level.var_f29dd47 = &function_f29dd47;
-	callback::add_callback(#"hash_7cdee03c16eb684a", &namespace_14c07d4f::function_218c4ce8);
+	callback::add_callback(#"hash_7cdee03c16eb684a", &zm_ai_mimic::function_218c4ce8);
 	namespace_ce1f29cc::add_archetype_spawn_function(#"mimic", &function_21de8113);
 }
 

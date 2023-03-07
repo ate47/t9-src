@@ -1,7 +1,7 @@
 #using script_35598499769dbb3d;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_437ce686d29bb81b;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\damagefeedback_shared.gsc;
@@ -474,7 +474,7 @@ function function_df51a2e8(var_5314bd63, nd_path_start, var_384528, str_notify, 
 		}
 	}
 	self notify(#"hash_1c35eb15aa210d6", {#hash_9fa6220c:var_5817f611});
-	self zm_stats::increment_challenge_stat(#"hash_2f0fbad6ce68f465");
+	self zm_stats::increment_challenge_stat(#"fast_travels");
 	if(!is_true(self.var_472e3448))
 	{
 		self stopsounds();

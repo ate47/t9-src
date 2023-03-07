@@ -37,14 +37,14 @@
 #using script_4ccfb58a9443a60b;
 #using script_4d1e366b77f0b4b;
 #using script_4dca2ab120688fc;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_5725a8301835a95d;
 #using script_59212975210c5bf2;
 #using script_5961deb533dad533;
 #using script_5a0c35b811c39bea;
 #using script_5b1e7b7ff6869723;
 #using script_5b2a3c052bf17d0e;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5dd920e119223a7c;
 #using script_5ff04d724da1c002;
 #using script_5ff9bbe37f3310b0;
@@ -1045,10 +1045,10 @@ function function_511245ae(takeoldweapon)
 			self takeweapon(weapon);
 		}
 	}
-	var_43d69af6 = getweapon(#"null_offhand_primary");
-	self giveweapon(var_43d69af6);
-	self setweaponammoclip(var_43d69af6, 0);
-	self switchtooffhand(var_43d69af6);
+	nullprimary = getweapon(#"null_offhand_primary");
+	self giveweapon(nullprimary);
+	self setweaponammoclip(nullprimary, 0);
+	self switchtooffhand(nullprimary);
 	bare_hands = getweapon(#"bare_hands");
 	self giveweapon(bare_hands);
 	self function_c9a111a(bare_hands);
@@ -1099,17 +1099,17 @@ function function_798c4aa9()
 	}
 	backpack = function_4ba8fde(#"hash_527b2cdb9b6837f3");
 	backpack.count = 1;
-	var_fa3df96 = self namespace_b376ff3f::function_e66dcff5(backpack);
+	var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 	item_world::function_de2018e3(backpack, self, var_fa3df96);
 	var_ea8725b3 = getdvarstring(#"hash_7187c1ee48f0a1a");
 	if(!isdefined(var_ea8725b3) || var_ea8725b3 == "")
 	{
 		var_ea8725b3 = array::random(array(#"hash_4777f28d1a2ad7bf", #"hash_5d310a03cd9f9af4", #"hash_43e819ecb1562f21", #"hash_27a1d3b77a36f326", #"hash_2230087fda13a58c"));
 	}
-	var_af76aeca = function_4ba8fde(var_ea8725b3);
-	var_fa3df96 = self namespace_b376ff3f::function_e66dcff5(var_af76aeca);
-	self item_world::function_de2018e3(var_af76aeca, self, var_fa3df96);
-	weapon = namespace_a0d533d1::function_2b83d3ff(var_af76aeca);
+	item_weapon = function_4ba8fde(var_ea8725b3);
+	var_fa3df96 = self item_inventory::function_e66dcff5(item_weapon);
+	self item_world::function_de2018e3(item_weapon, self, var_fa3df96);
+	weapon = namespace_a0d533d1::function_2b83d3ff(item_weapon);
 	self setweaponammostock(weapon, weapon.maxammo);
 	level flag::set(#"hash_394b4c458bf65ee1");
 }
@@ -1523,8 +1523,8 @@ function function_4ddaff8e()
 {
 	/#
 		function_128f8f9f();
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		level.var_c7b02cfe = &function_447a93ab;
 	#/
 }
@@ -1543,9 +1543,9 @@ function private function_128f8f9f()
 	/#
 		foreach(map in [2:{#hash_19a686ca:#"hash_15e3cdab677aed", #name:""}, 1:{#hash_19a686ca:#"hash_d9c18f112ff4552", #name:""}, 0:{#hash_19a686ca:#"hash_45f866da7af3a609", #name:""}])
 		{
-			util::function_345e5b9a(((("" + map.name) + "") + map.name) + "");
+			util::add_debug_command(((("" + map.name) + "") + map.name) + "");
 		}
-		util::function_345e5b9a("");
+		util::add_debug_command("");
 	#/
 }
 
@@ -1565,7 +1565,7 @@ function private function_2531fcc8()
 		{
 			foreach(category in level.var_4e996a3f)
 			{
-				util::function_345e5b9a(((((("" + map.name) + "") + function_9e72a96(category) + "") + map.name) + "") + function_9e72a96(category) + "");
+				util::add_debug_command(((((("" + map.name) + "") + function_9e72a96(category) + "") + map.name) + "") + function_9e72a96(category) + "");
 			}
 		}
 	#/

@@ -7,7 +7,7 @@
 #using script_3411bb48d41bd3b;
 #using script_34ab99a4ca1a43d;
 #using script_35b8a6927c851193;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3e196d275a6fb180;
 #using script_3e57cc1a9084fdd6;
 #using script_3f9e0dc8454d98e1;
@@ -18,7 +18,7 @@
 #using script_4d1e366b77f0b4b;
 #using script_75da5547b1822294;
 #using script_84036a646acb958;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using script_b9d273dc917ee1f;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
@@ -92,7 +92,7 @@ event main(eventstruct)
 	level.var_b20199e0 = &function_b20199e0;
 	level.var_8179368e = &function_6398c8cb;
 	level.var_b48509f9 = 1;
-	level.var_8de4d059 = util::function_53bbf9d2();
+	level.var_8de4d059 = util::get_map_name();
 	switch(level.var_8de4d059)
 	{
 		case "mp_cartel":
@@ -225,7 +225,7 @@ function function_8f3357bd()
 */
 function autoexec function_31a760fa()
 {
-	if(util::function_53bbf9d2() === #"hash_7665a0b476d1b735")
+	if(util::get_map_name() === #"hash_7665a0b476d1b735")
 	{
 		setgametypesetting(#"hash_3a15393c2e90e121", 1);
 	}
@@ -505,7 +505,7 @@ function overridespawn(ispredictedspawn)
 	}
 	var_273a84a9[var_273a84a9.size] = "ctf";
 	var_8fb1964e = function_d400d613(#"mp_spawn_point", var_273a84a9);
-	if(util::function_53bbf9d2() === #"hash_7665a0b476d1b735")
+	if(util::get_map_name() === #"hash_7665a0b476d1b735")
 	{
 		var_7e51d277 = randomint(5);
 		switch(var_7e51d277)

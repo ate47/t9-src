@@ -1,5 +1,5 @@
 #using script_18f0d22c75b141a7;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\util_shared.gsc;
 
 #namespace namespace_4216085a;
@@ -763,7 +763,7 @@ function function_97f7728e(equipment, statname)
 function function_3f64434(weapon)
 {
 	weaponname = weapon.name;
-	if(weaponname === #"hash_23dd6039fe2f36c6")
+	if(weaponname === #"molotov_fire")
 	{
 		weaponname = #"eq_molotov";
 	}
@@ -1100,9 +1100,9 @@ function function_81f5c0fe(statname, value)
 		return 0;
 	}
 	gametype = level.var_12323003;
-	map = util::function_53bbf9d2();
+	map = util::get_map_name();
 	var_96e39f1 = (gamemodeisarena() ? #"hash_2935ab25a7444ebf" : #"hash_42205318c6f41220");
-	return self inc_stat(var_96e39f1, map, #"hash_1a3dbc08fc5d3627", gametype, statname, value);
+	return self inc_stat(var_96e39f1, map, #"permode", gametype, statname, value);
 }
 
 /*
@@ -1309,7 +1309,7 @@ function function_eec52333(weapon, statname, value, classnum, pickedup, var_9ade
 		{
 			if(weapon.var_ff0b00ba)
 			{
-				self function_dad108fa(#"hash_3e934a4d2ecdedfd", 1);
+				self function_dad108fa(#"kills_equipment", 1);
 			}
 			break;
 		}

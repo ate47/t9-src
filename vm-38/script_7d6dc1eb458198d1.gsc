@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_a0b518ca : class_6aaccc24
+class class_a0b518ca : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_a0b518ca : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_a0b518ca : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_control_point_hud");
+		cLUIelem::function_5c1bb138("zm_control_point_hud");
 	}
 
 	/*
@@ -110,13 +110,13 @@ class class_a0b518ca : class_6aaccc24
 	*/
 	function setup_clientfields(var_4bf38eea, var_7cc0b11d, var_14431277, var_db1c4294, var_87048abd, var_dd55685a)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_control_point_hud");
-		namespace_6aaccc24::function_da693cbe("chargePct", 8000, 7, "float", var_4bf38eea);
-		namespace_6aaccc24::function_da693cbe("damagePct", 8000, 7, "float", var_7cc0b11d);
-		namespace_6aaccc24::function_da693cbe("ordaHealthPct", 16000, 7, "float", var_14431277);
-		namespace_6aaccc24::function_da693cbe("hasOrda", 16000, 1, "int", var_db1c4294);
-		namespace_6aaccc24::function_da693cbe("hasCharge", 16000, 1, "int", var_87048abd);
-		namespace_6aaccc24::function_da693cbe("hasDamage", 16000, 1, "int", var_dd55685a);
+		cLUIelem::setup_clientfields("zm_control_point_hud");
+		cLUIelem::function_da693cbe("chargePct", 8000, 7, "float", var_4bf38eea);
+		cLUIelem::function_da693cbe("damagePct", 8000, 7, "float", var_7cc0b11d);
+		cLUIelem::function_da693cbe("ordaHealthPct", 16000, 7, "float", var_14431277);
+		cLUIelem::function_da693cbe("hasOrda", 16000, 1, "int", var_db1c4294);
+		cLUIelem::function_da693cbe("hasCharge", 16000, 1, "int", var_87048abd);
+		cLUIelem::function_da693cbe("hasDamage", 16000, 1, "int", var_dd55685a);
 	}
 
 	/*
@@ -172,7 +172,7 @@ class class_a0b518ca : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "chargePct", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "damagePct", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "ordaHealthPct", 0);

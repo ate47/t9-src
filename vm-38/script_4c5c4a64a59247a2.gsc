@@ -1,6 +1,6 @@
 #using script_5dfa1afaab9c1935;
 #using script_6809bf766eba194a;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\throttle_shared.gsc;
 
 #namespace shared;

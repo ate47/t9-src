@@ -236,11 +236,11 @@ function function_62f1faf9()
 */
 function function_d29d5032()
 {
-	var_93e3feed = getaiarchetypearray(#"raz");
-	var_2c3c71f0 = var_93e3feed.size;
-	foreach(var_32c62397 in var_93e3feed)
+	a_ai_raz = getaiarchetypearray(#"raz");
+	var_2c3c71f0 = a_ai_raz.size;
+	foreach(ai_raz in a_ai_raz)
 	{
-		if(!isalive(var_32c62397))
+		if(!isalive(ai_raz))
 		{
 			var_2c3c71f0--;
 		}

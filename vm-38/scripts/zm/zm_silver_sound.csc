@@ -1,11 +1,11 @@
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\struct.csc;
 
-#namespace namespace_f172695e;
+#namespace zm_silver_sound;
 
 /*
 	Name: function_f2a8c8c9
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x641492C2
 	Offset: 0x150
 	Size: 0x14
@@ -19,7 +19,7 @@ function private autoexec function_f2a8c8c9()
 
 /*
 	Name: init
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xF8B85815
 	Offset: 0x170
 	Size: 0x4C
@@ -35,7 +35,7 @@ function init()
 
 /*
 	Name: function_12b1d8eb
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x41294A64
 	Offset: 0x1C8
 	Size: 0xFC
@@ -57,7 +57,7 @@ function function_12b1d8eb()
 
 /*
 	Name: function_9290b227
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x8C16BD56
 	Offset: 0x2D0
 	Size: 0x16C
@@ -103,7 +103,7 @@ function function_9290b227()
 
 /*
 	Name: soundloopthink
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xF5109C88
 	Offset: 0x448
 	Size: 0x18A
@@ -160,7 +160,7 @@ function soundloopthink()
 
 /*
 	Name: function_91c6e82a
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x81F24ABA
 	Offset: 0x5E0
 	Size: 0x194
@@ -186,7 +186,7 @@ function function_91c6e82a()
 
 /*
 	Name: function_2f3017ad
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x60FB945E
 	Offset: 0x780
 	Size: 0x74
@@ -207,7 +207,7 @@ function function_2f3017ad(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_21fee83f
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0xF08C1A0E
 	Offset: 0x800
 	Size: 0x1BC
@@ -262,7 +262,7 @@ function function_21fee83f(var_c4f44e2)
 
 /*
 	Name: function_1493eabf
-	Namespace: namespace_f172695e
+	Namespace: zm_silver_sound
 	Checksum: 0x6DE6DDD1
 	Offset: 0x9C8
 	Size: 0x3C

@@ -6,8 +6,8 @@
 #using script_5f261a5d57de5f7c;
 #using script_6e3c826b1814cab6;
 #using script_73bd646be3641c07;
-#using script_8988fdbc78d6c53;
-#using script_ab890501c40b73c;
+#using scripts\weapons\weaponobjects.gsc;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -1983,7 +1983,7 @@ function debris_think()
 				}
 			}
 			zm_utility::play_sound_at_pos("purchase", self.origin);
-			level notify(#"hash_6147a4961fd69a6e", {#t_blocker:self, #e_player:who});
+			level notify(#"junk purchased", {#t_blocker:self, #e_player:who});
 			move_ent = undefined;
 			a_clip = [];
 			for(i = 0; i < junk.size; i++)
@@ -2938,7 +2938,7 @@ function blocker_trigger_think()
 		}
 		if(zm_utility::no_valid_repairable_boards(self, self.barrier_chunks))
 		{
-			self notify(#"hash_3562759a2cd48f89");
+			self notify(#"no valid boards");
 			return;
 		}
 		if(isdefined(level._zm_blocker_trigger_think_return_override))
@@ -3041,7 +3041,7 @@ function blocker_trigger_think()
 			}
 			if(zm_utility::no_valid_repairable_boards(self, self.barrier_chunks))
 			{
-				self notify(#"hash_3562759a2cd48f89");
+				self notify(#"no valid boards");
 				player increment_window_repaired(self);
 				return;
 			}
@@ -3174,7 +3174,7 @@ function trigger_delete_on_repair()
 {
 	while(true)
 	{
-		self waittill(#"all_boards_repaired", #"hash_3562759a2cd48f89");
+		self waittill(#"all_boards_repaired", #"no valid boards");
 		zm_unitrigger::unregister_unitrigger(self.unitrigger_stub);
 		break;
 	}

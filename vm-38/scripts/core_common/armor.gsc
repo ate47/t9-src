@@ -1,4 +1,4 @@
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;

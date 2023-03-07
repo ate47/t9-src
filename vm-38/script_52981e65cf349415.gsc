@@ -1,4 +1,4 @@
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace gadget_other;

@@ -1,4 +1,4 @@
-#using script_1a76d38155e9ab3c;
+#using scripts\weapons\satchel_charge.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace satchel_charge;

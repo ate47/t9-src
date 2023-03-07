@@ -4,7 +4,7 @@
 #using script_38635d174016f682;
 #using script_42cbbdcd1e160063;
 #using script_4adf64e112e9afec;
-#using script_64ac23dbb2d7d587;
+#using scripts\weapons\weaponobjects.csc;
 #using script_64e5d3ad71ce8140;
 #using script_67049b48b589d81;
 #using script_6b71c9befed901f2;

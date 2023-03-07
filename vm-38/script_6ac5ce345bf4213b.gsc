@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_42946372 : class_6aaccc24
+class class_42946372 : cLUIelem
 {
 
 	/*
@@ -40,11 +40,11 @@ class class_42946372 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
-		Name: function_3b7b386a
+		Name: set_clientnum
 		Namespace: namespace_42946372
 		Checksum: 0x97290F15
 		Offset: 0x690
@@ -52,7 +52,7 @@ class class_42946372 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_3b7b386a(localclientnum, value)
+	function set_clientnum(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", value);
 	}
@@ -82,7 +82,7 @@ class class_42946372 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("DOA_TextBubble_PlayerName");
+		cLUIelem::function_5c1bb138("DOA_TextBubble_PlayerName");
 	}
 
 	/*
@@ -124,11 +124,11 @@ class class_42946372 : class_6aaccc24
 	*/
 	function setup_clientfields(var_5a7b4b38, var_c05c67e2, var_5957697a, var_90efc226, var_b77f41ee)
 	{
-		namespace_6aaccc24::setup_clientfields("DOA_TextBubble_PlayerName");
+		cLUIelem::setup_clientfields("DOA_TextBubble_PlayerName");
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_42946372
 		Checksum: 0x17471F4A
 		Offset: 0x658
@@ -136,7 +136,7 @@ class class_42946372 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(localclientnum, value)
+	function set_entNum(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", value);
 	}
@@ -152,7 +152,7 @@ class class_42946372 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "offset_x", 0);
@@ -285,7 +285,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: doa_textbubble_playername
 	Checksum: 0x9D595A14
 	Offset: 0x3E8
@@ -293,13 +293,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(localclientnum, value)
+function set_entNum(localclientnum, value)
 {
-	[[ self ]]->function_c8350e33(localclientnum, value);
+	[[ self ]]->set_entNum(localclientnum, value);
 }
 
 /*
-	Name: function_3b7b386a
+	Name: set_clientnum
 	Namespace: doa_textbubble_playername
 	Checksum: 0x84340B2B
 	Offset: 0x418
@@ -307,9 +307,9 @@ function function_c8350e33(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_3b7b386a(localclientnum, value)
+function set_clientnum(localclientnum, value)
 {
-	[[ self ]]->function_3b7b386a(localclientnum, value);
+	[[ self ]]->set_clientnum(localclientnum, value);
 }
 
 /*

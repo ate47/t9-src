@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -52,11 +52,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"distance_traveled", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"distance_traveled", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_bc25dada
 	Checksum: 0x55D86CCD
 	Offset: 0x170
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_38282db8)
+function private on_begin(var_38282db8)
 {
 	var_38282db8 = zm_trial::function_5769f26a(var_38282db8);
 	foreach(player in getplayers())
@@ -75,7 +75,7 @@ function private function_d1de6a85(var_38282db8)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_bc25dada
 	Checksum: 0x6DABE9B
 	Offset: 0x310
@@ -83,7 +83,7 @@ function private function_d1de6a85(var_38282db8)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level.var_4220f02a = undefined;
 }
@@ -117,8 +117,8 @@ function function_ed4d5d4(var_38282db8)
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656", #"end_game", #"hash_43a461e5c99d52a0");
 	n_distance_traveled = 0;
-	self namespace_b22c99a5::function_2190356a(int(n_distance_traveled), 1);
-	self namespace_b22c99a5::function_c2cd0cba(var_38282db8);
+	self zm_trial_util::function_2190356a(int(n_distance_traveled), 1);
+	self zm_trial_util::function_c2cd0cba(var_38282db8);
 	wait(12);
 	var_31409e15 = self.origin;
 	while(true)
@@ -141,13 +141,13 @@ function function_ed4d5d4(var_38282db8)
 		}
 		if(n_distance_traveled < var_38282db8)
 		{
-			self namespace_b22c99a5::function_2190356a(int(n_distance_traveled), 1);
-			self namespace_b22c99a5::function_c2cd0cba(var_38282db8);
+			self zm_trial_util::function_2190356a(int(n_distance_traveled), 1);
+			self zm_trial_util::function_c2cd0cba(var_38282db8);
 		}
 		else
 		{
-			self namespace_b22c99a5::function_2190356a(var_38282db8);
-			self namespace_b22c99a5::function_c2cd0cba(var_38282db8);
+			self zm_trial_util::function_2190356a(var_38282db8);
+			self zm_trial_util::function_c2cd0cba(var_38282db8);
 			zm_trial::fail(#"hash_1ab078fa9460e7c9", array(self));
 			level notify(#"hash_43a461e5c99d52a0");
 			return;

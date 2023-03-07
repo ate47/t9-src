@@ -2,8 +2,8 @@
 #using script_47fb62300ac0bd60;
 #using script_56d425496a225a1b;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_79a7e1c31a3e8cc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;

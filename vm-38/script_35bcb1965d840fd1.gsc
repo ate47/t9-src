@@ -1070,7 +1070,7 @@ function function_bb42a4ce(str_side, var_3b3f5ecb)
 function function_bc3bedde()
 {
 	/#
-		str_mapname = util::function_53bbf9d2();
+		str_mapname = util::get_map_name();
 		adddebugcommand(("" + str_mapname) + "");
 		level thread devgui_think();
 	#/

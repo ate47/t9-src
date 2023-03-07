@@ -5,11 +5,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_af171776;
+#namespace zm_gold_main_quest;
 
 /*
 	Name: function_201f49dc
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xBDDE656D
 	Offset: 0x1D0
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_201f49dc()
 
 /*
 	Name: init
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x97BA3474
 	Offset: 0x1F0
 	Size: 0x62C
@@ -58,7 +58,7 @@ function init()
 
 /*
 	Name: function_48f7c5e6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x6EC4856A
 	Offset: 0x828
 	Size: 0x4CC
@@ -116,7 +116,7 @@ function function_48f7c5e6(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_568ae388
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x9D39440A
 	Offset: 0xD00
 	Size: 0x122
@@ -144,7 +144,7 @@ function function_568ae388(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e959dd37
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x76FC4AF8
 	Offset: 0xE30
 	Size: 0xA4
@@ -162,7 +162,7 @@ function function_e959dd37(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_78d36eb1
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x74B78690
 	Offset: 0xEE0
 	Size: 0x1F4
@@ -195,7 +195,7 @@ function function_78d36eb1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1fd7d1f6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x9C312496
 	Offset: 0x10E0
 	Size: 0xCE
@@ -218,7 +218,7 @@ function private function_1fd7d1f6()
 
 /*
 	Name: function_ea1d7a10
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xE3DD6E6
 	Offset: 0x11B8
 	Size: 0x5C
@@ -236,7 +236,7 @@ function private function_ea1d7a10(str_notify)
 
 /*
 	Name: function_db002447
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x5EFE7F63
 	Offset: 0x1220
 	Size: 0x162
@@ -268,7 +268,7 @@ function function_db002447(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3131e413
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x814DFD9
 	Offset: 0x1390
 	Size: 0xF4
@@ -286,7 +286,7 @@ function function_3131e413(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_49331ac6
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEAE93059
 	Offset: 0x1490
 	Size: 0x224
@@ -334,7 +334,7 @@ function private function_49331ac6(localclientnum, oldval, newval, bnewent, bini
 
 /*
 	Name: function_e7b6b97f
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x7A72D1B8
 	Offset: 0x16C0
 	Size: 0x172
@@ -368,7 +368,7 @@ function function_e7b6b97f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_807a046
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xA094689F
 	Offset: 0x1840
 	Size: 0x74
@@ -385,7 +385,7 @@ function function_807a046(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_95631678
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x810EC16B
 	Offset: 0x18C0
 	Size: 0xC4
@@ -404,7 +404,7 @@ function function_95631678(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_db150da1
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x11B8F3AC
 	Offset: 0x1990
 	Size: 0x16A
@@ -429,7 +429,7 @@ function function_db150da1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9f3ff6fa
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x309BC9F1
 	Offset: 0x1B08
 	Size: 0x10E
@@ -453,7 +453,7 @@ function function_9f3ff6fa(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_d3dcbd21
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x6D760FD5
 	Offset: 0x1C20
 	Size: 0x22A
@@ -512,7 +512,7 @@ function function_d3dcbd21(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e56be134
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xEAE3E5FD
 	Offset: 0x1E58
 	Size: 0xDC
@@ -535,7 +535,7 @@ function function_e56be134(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_996f5d0f
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xD2816E47
 	Offset: 0x1F40
 	Size: 0x26E
@@ -588,7 +588,7 @@ function function_996f5d0f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b66e99f1
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0x77A1B06C
 	Offset: 0x21B8
 	Size: 0x406
@@ -668,7 +668,7 @@ function function_b66e99f1(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_789ec6a8
-	Namespace: namespace_af171776
+	Namespace: zm_gold_main_quest
 	Checksum: 0xB6C6B5F7
 	Offset: 0x25C8
 	Size: 0x2E0

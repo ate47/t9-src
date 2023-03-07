@@ -9,8 +9,8 @@
 #using script_35598499769dbb3d;
 #using script_4163291d6e693552;
 #using script_5a525a75a8f1f7e4;
-#using script_5bb072c3abf4652c;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -178,7 +178,7 @@ function function_a528be11()
 {
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_37c638fd5c6acd16");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_37c638fd5c6acd16");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 	self waittill(#"hash_69090774fec4a17b");
@@ -1106,14 +1106,14 @@ function function_3c40b07a()
 	self.n_start_health = self.health;
 	self.max_health = self.n_start_health;
 	var_8da3e170 = self.health / self.n_start_health;
-	namespace_ee206246::sndonoverride_eye_(var_8da3e170);
-	namespace_ee206246::function_2398ab16("objective_ended");
+	zm_sq::sndonoverride_eye_(var_8da3e170);
+	zm_sq::function_2398ab16("objective_ended");
 	while(true)
 	{
 		var_c3a3ae13 = self.health / self.n_start_health;
 		if(var_c3a3ae13 >= 0 && var_8da3e170 != var_c3a3ae13)
 		{
-			namespace_ee206246::sndonoverride_eye_(var_c3a3ae13);
+			zm_sq::sndonoverride_eye_(var_c3a3ae13);
 		}
 		var_8da3e170 = var_c3a3ae13;
 		if(var_c3a3ae13 <= 0.5 && !is_true(self.var_5e22f781))

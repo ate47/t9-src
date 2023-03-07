@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_1a456b75 : class_6aaccc24
+class class_1a456b75 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_1a456b75 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_1a456b75 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_objective_secure_hud");
+		cLUIelem::function_5c1bb138("sr_objective_secure_hud");
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_1a456b75 : class_6aaccc24
 	*/
 	function setup_clientfields(var_62534560, var_de4b1193, var_b661e7d8, var_2c613188)
 	{
-		namespace_6aaccc24::setup_clientfields("sr_objective_secure_hud");
+		cLUIelem::setup_clientfields("sr_objective_secure_hud");
 	}
 
 	/*
@@ -138,7 +138,7 @@ class class_1a456b75 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "progFracA", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "progFracB", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveWhiteA", 0);

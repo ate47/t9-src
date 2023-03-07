@@ -1,5 +1,5 @@
 #using script_256b8879317373de;
-#using script_4663ec59d864e437;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_47fb62300ac0bd60;
 #using script_62d13df4c3e9336d;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -633,7 +633,7 @@ function private heal(var_dc77251f)
 			player decay_player_damages(change);
 			if(sessionmodeismultiplayergame())
 			{
-				player stats::function_dad108fa(#"hash_448216881a2ea3a1", change);
+				player stats::function_dad108fa(#"total_heals", change);
 			}
 		}
 	}

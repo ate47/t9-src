@@ -3,11 +3,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_e0b1e9f5;
+#namespace zm_gold_pap_quest;
 
 /*
 	Name: function_66460f50
-	Namespace: namespace_e0b1e9f5
+	Namespace: zm_gold_pap_quest
 	Checksum: 0x25EED76
 	Offset: 0xD0
 	Size: 0x14
@@ -21,7 +21,7 @@ function private autoexec function_66460f50()
 
 /*
 	Name: init
-	Namespace: namespace_e0b1e9f5
+	Namespace: zm_gold_pap_quest
 	Checksum: 0x3274DD86
 	Offset: 0xF0
 	Size: 0x144
@@ -38,7 +38,7 @@ function init()
 
 /*
 	Name: function_7d467651
-	Namespace: namespace_e0b1e9f5
+	Namespace: zm_gold_pap_quest
 	Checksum: 0xD4A1619D
 	Offset: 0x240
 	Size: 0x26A
@@ -77,7 +77,7 @@ function function_7d467651(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e4ea3f5f
-	Namespace: namespace_e0b1e9f5
+	Namespace: zm_gold_pap_quest
 	Checksum: 0xB7027A8D
 	Offset: 0x4B8
 	Size: 0xFE
@@ -96,7 +96,7 @@ function function_e4ea3f5f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b35747a
-	Namespace: namespace_e0b1e9f5
+	Namespace: zm_gold_pap_quest
 	Checksum: 0xEBC02BE7
 	Offset: 0x5C0
 	Size: 0xF0

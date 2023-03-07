@@ -57,7 +57,7 @@ function private function_70a657d8()
 	level.default_skipto = "_default";
 	add_internal("_default");
 	add_internal("no_game");
-	load_mission_table(#"hash_42982af1920b8bfd", util::function_53bbf9d2());
+	load_mission_table(#"hash_42982af1920b8bfd", util::get_map_name());
 	level thread watch_players_connect();
 	level thread function_17cc9832();
 }
@@ -919,7 +919,7 @@ function stop_objective_logic(name, starting)
 */
 function set_last_map_dvar(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_1fdcd030 = util::function_53bbf9d2();
+	var_1fdcd030 = util::get_map_name();
 	setdvar(#"last_map", var_1fdcd030);
 }
 

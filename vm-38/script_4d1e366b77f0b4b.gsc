@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_178024232e91b0a1;
 #using script_1940fc077a028a81;
 #using script_1b10fdf0addd52e;
@@ -20,7 +20,7 @@
 #using script_57f7003580bb15e0;
 #using script_58c342edd81589fb;
 #using script_59f07c660e6710a5;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;
 #using script_7b7ed6e4bc963a51;

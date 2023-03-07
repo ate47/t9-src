@@ -49,11 +49,11 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	if(!isarchetypeloaded(#"hash_7c09b683edfb0e96"))
+	if(!isarchetypeloaded(#"abom"))
 	{
 		return;
 	}
-	ai::add_archetype_spawn_function(#"hash_7c09b683edfb0e96", &function_72989645);
+	ai::add_archetype_spawn_function(#"abom", &function_72989645);
 	clientfield::register("scriptmover", "abomLaunchBeamCF", 17000, 1, "int", &function_a53f1f75, 0, 0);
 	clientfield::register("scriptmover", "abomRegisterBeamTargetCF", 17000, 1, "int", &function_ac1157a, 0, 0);
 	clientfield::register("actor", "abomBeamDissolveCF", 17000, 1, "int", &function_7d380ea9, 0, 0);
@@ -315,7 +315,7 @@ function private function_b8d317ee(localclientnum)
 	actor_array = getentarraybytype(localclientnum, 15);
 	foreach(actor in actor_array)
 	{
-		if(isdefined(actor) && actor.archetype === #"hash_7c09b683edfb0e96")
+		if(isdefined(actor) && actor.archetype === #"abom")
 		{
 			actor thread function_3c79fe29(localclientnum, actor);
 			actor flag::set(#"hash_1bf32d70c3d977f6");
@@ -325,7 +325,7 @@ function private function_b8d317ee(localclientnum)
 	actor_array = getentarraybytype(localclientnum, 15);
 	foreach(actor in actor_array)
 	{
-		if(isdefined(actor) && actor.archetype === #"hash_7c09b683edfb0e96" && actor flag::get(#"hash_1bf32d70c3d977f6"))
+		if(isdefined(actor) && actor.archetype === #"abom" && actor flag::get(#"hash_1bf32d70c3d977f6"))
 		{
 			actor thread function_3c79fe29(localclientnum, actor);
 		}
@@ -839,16 +839,16 @@ function private function_c85b0a83(localclientnum)
 	while(isdefined(self.var_10eeb170) && self.var_10eeb170.size > 0)
 	{
 		var_fd3fba8a = 0;
-		foreach(var_60f0309d in self.var_10eeb170)
+		foreach(abom in self.var_10eeb170)
 		{
 			var_4709b9b7 = 0;
-			if(isdefined(var_60f0309d))
+			if(isdefined(abom))
 			{
-				var_17cd5daa = var_60f0309d gettagorigin("j_head");
+				var_17cd5daa = abom gettagorigin("j_head");
 				var_4f0b409d = distancesquared(self.origin, var_17cd5daa);
 				if(var_4f0b409d < sqr(200))
 				{
-					if(vectordot(anglestoforward(var_60f0309d.angles), self.origin - var_60f0309d.origin) > 0)
+					if(vectordot(anglestoforward(abom.angles), self.origin - abom.origin) > 0)
 					{
 						var_4709b9b7 = 3;
 					}
@@ -917,12 +917,12 @@ function private function_aa95c5f0(localclientnum)
 	while(isdefined(self.var_2788ca7e) && self.var_2788ca7e.size > 0)
 	{
 		var_fd3fba8a = 0;
-		foreach(var_60f0309d in self.var_2788ca7e)
+		foreach(abom in self.var_2788ca7e)
 		{
 			var_4eb77d26 = 0;
-			if(isdefined(var_60f0309d))
+			if(isdefined(abom))
 			{
-				var_17cd5daa = var_60f0309d gettagorigin("j_head");
+				var_17cd5daa = abom gettagorigin("j_head");
 				var_4f0b409d = distancesquared(self.origin, var_17cd5daa);
 				if(var_4f0b409d < sqr(1000))
 				{

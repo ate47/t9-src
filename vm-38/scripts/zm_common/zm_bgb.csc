@@ -6,11 +6,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\load.csc;
 
-#namespace namespace_80677f8;
+#namespace zm_bgb;
 
 /*
 	Name: function_7711b402
-	Namespace: namespace_80677f8
+	Namespace: zm_bgb
 	Checksum: 0x34D08D57
 	Offset: 0x1D0
 	Size: 0x14

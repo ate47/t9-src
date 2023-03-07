@@ -226,7 +226,7 @@ function private function_81d05c4f()
 			locations[child.targetname] = child;
 		}
 	}
-	var_e5f80f4e = getmapfields(util::function_53bbf9d2());
+	var_e5f80f4e = getmapfields(util::get_map_name());
 	if(isdefined(var_e5f80f4e.var_dd9e5316))
 	{
 		foreach(destination in var_e5f80f4e.var_dd9e5316)

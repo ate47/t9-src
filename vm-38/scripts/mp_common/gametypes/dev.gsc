@@ -1,8 +1,8 @@
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_269e356734524812;
 #using script_3fda550bc6e1089a;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_788472602edbe3b9;
 #using script_7d712f77ab8d0c16;
 #using scripts\core_common\array_shared.gsc;

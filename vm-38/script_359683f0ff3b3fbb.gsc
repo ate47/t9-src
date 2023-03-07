@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_8a452bea : class_6aaccc24
+class cprototype_hud : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x71CDD2ED
 		Offset: 0x668
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_8a452bea : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0xADAEE530
 		Offset: 0xC80
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_8a452bea : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x1F9C49E2
 		Offset: 0xA20
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_8a452bea : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_1b05e380
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x70683764
 		Offset: 0xC48
 		Size: 0x30
@@ -59,7 +59,7 @@ class class_8a452bea : class_6aaccc24
 
 	/*
 		Name: function_1bd6077e
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0xC2519BD8
 		Offset: 0xC10
 		Size: 0x30
@@ -72,22 +72,22 @@ class class_8a452bea : class_6aaccc24
 	}
 
 	/*
-		Name: function_1f1846cf
-		Namespace: namespace_8a452bea
+		Name: set_fail_fanfare_visibility
+		Namespace: cprototype_hud
 		Checksum: 0xFF5AAAFE
 		Offset: 0xAF8
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_1f1846cf(localclientnum, value)
+	function set_fail_fanfare_visibility(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "fail_fanfare_visibility", value);
 	}
 
 	/*
 		Name: function_4dfb5783
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0xF319F9BC
 		Offset: 0xBD8
 		Size: 0x30
@@ -100,22 +100,22 @@ class class_8a452bea : class_6aaccc24
 	}
 
 	/*
-		Name: function_4e0e26c8
-		Namespace: namespace_8a452bea
+		Name: set_objective_prompt_visibility
+		Namespace: cprototype_hud
 		Checksum: 0x905903D7
 		Offset: 0xA88
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_4e0e26c8(localclientnum, value)
+	function set_objective_prompt_visibility(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "objective_prompt_visibility", value);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x2A0EE71F
 		Offset: 0x890
 		Size: 0x1C
@@ -124,12 +124,12 @@ class class_8a452bea : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("prototype_hud");
+		cLUIelem::function_5c1bb138("prototype_hud");
 	}
 
 	/*
 		Name: function_7491d6c5
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0xF65659CA
 		Offset: 0xB68
 		Size: 0x30
@@ -143,7 +143,7 @@ class class_8a452bea : class_6aaccc24
 
 	/*
 		Name: function_817e4d10
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x5007CD23
 		Offset: 0xBA0
 		Size: 0x30
@@ -157,7 +157,7 @@ class class_8a452bea : class_6aaccc24
 
 	/*
 		Name: function_8c3b3ce6
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x25F61916
 		Offset: 0xB30
 		Size: 0x30
@@ -171,7 +171,7 @@ class class_8a452bea : class_6aaccc24
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x27BA6F89
 		Offset: 0x688
 		Size: 0x1FC
@@ -180,50 +180,50 @@ class class_8a452bea : class_6aaccc24
 	*/
 	function setup_clientfields(var_532cdc1a, var_7a99f2e1, var_b5ae72b8, var_2b966169, var_f16d8f66, var_8b49b908, var_e16cbdb9, var_ac373a00, var_2bc363b1, var_560b5364)
 	{
-		namespace_6aaccc24::setup_clientfields("prototype_hud");
-		namespace_6aaccc24::function_dcb34c80("string", "active_objective_string", 1);
-		namespace_6aaccc24::function_da693cbe("objective_prompt_visibility", 1, 1, "int", var_b5ae72b8);
-		namespace_6aaccc24::function_da693cbe("fanfare_visibility", 1, 1, "int", var_2b966169);
-		namespace_6aaccc24::function_da693cbe("fail_fanfare_visibility", 1, 1, "int", var_f16d8f66);
-		namespace_6aaccc24::function_da693cbe("new_obj_fanfare_visibility", 1, 1, "int", var_8b49b908);
-		namespace_6aaccc24::function_dcb34c80("string", "main_objective_string", 1);
-		namespace_6aaccc24::function_da693cbe("active_obj_visibility", 1, 1, "int", var_e16cbdb9);
-		namespace_6aaccc24::function_da693cbe("objective_retrieval", 1, 1, "int", var_ac373a00);
-		namespace_6aaccc24::function_da693cbe("active_objective_progress", 1, 6, "float", var_2bc363b1);
-		namespace_6aaccc24::function_da693cbe("active_obj_progress_visibility", 1, 1, "int", var_560b5364);
+		cLUIelem::setup_clientfields("prototype_hud");
+		cLUIelem::function_dcb34c80("string", "active_objective_string", 1);
+		cLUIelem::function_da693cbe("objective_prompt_visibility", 1, 1, "int", var_b5ae72b8);
+		cLUIelem::function_da693cbe("fanfare_visibility", 1, 1, "int", var_2b966169);
+		cLUIelem::function_da693cbe("fail_fanfare_visibility", 1, 1, "int", var_f16d8f66);
+		cLUIelem::function_da693cbe("new_obj_fanfare_visibility", 1, 1, "int", var_8b49b908);
+		cLUIelem::function_dcb34c80("string", "main_objective_string", 1);
+		cLUIelem::function_da693cbe("active_obj_visibility", 1, 1, "int", var_e16cbdb9);
+		cLUIelem::function_da693cbe("objective_retrieval", 1, 1, "int", var_ac373a00);
+		cLUIelem::function_da693cbe("active_objective_progress", 1, 6, "float", var_2bc363b1);
+		cLUIelem::function_da693cbe("active_obj_progress_visibility", 1, 1, "int", var_560b5364);
 	}
 
 	/*
-		Name: function_953da284
-		Namespace: namespace_8a452bea
+		Name: set_active_objective_string
+		Namespace: cprototype_hud
 		Checksum: 0x634EE866
 		Offset: 0xA50
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_953da284(localclientnum, value)
+	function set_active_objective_string(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "active_objective_string", value);
 	}
 
 	/*
-		Name: function_cbcd8e48
-		Namespace: namespace_8a452bea
+		Name: set_fanfare_visibility
+		Namespace: cprototype_hud
 		Checksum: 0xC508167F
 		Offset: 0xAC0
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_cbcd8e48(localclientnum, value)
+	function set_fanfare_visibility(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "fanfare_visibility", value);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_8a452bea
+		Namespace: cprototype_hud
 		Checksum: 0x11309891
 		Offset: 0x8B8
 		Size: 0x15C
@@ -232,7 +232,7 @@ class class_8a452bea : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "active_objective_string", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "objective_prompt_visibility", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "fanfare_visibility", 0);
@@ -274,7 +274,7 @@ function private autoexec function_c68ba5e0()
 */
 function register(var_532cdc1a, var_7a99f2e1, var_b5ae72b8, var_2b966169, var_f16d8f66, var_8b49b908, var_e16cbdb9, var_ac373a00, var_2bc363b1, var_560b5364)
 {
-	elem = new class_8a452bea();
+	elem = new cprototype_hud();
 	[[ elem ]]->setup_clientfields(var_532cdc1a, var_7a99f2e1, var_b5ae72b8, var_2b966169, var_f16d8f66, var_8b49b908, var_e16cbdb9, var_ac373a00, var_2bc363b1, var_560b5364);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -306,7 +306,7 @@ function register(var_532cdc1a, var_7a99f2e1, var_b5ae72b8, var_2b966169, var_f1
 */
 function function_5c1bb138()
 {
-	elem = new class_8a452bea();
+	elem = new cprototype_hud();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -354,7 +354,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_953da284
+	Name: set_active_objective_string
 	Namespace: prototype_hud
 	Checksum: 0x40719737
 	Offset: 0x488
@@ -362,13 +362,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_953da284(localclientnum, value)
+function set_active_objective_string(localclientnum, value)
 {
-	[[ self ]]->function_953da284(localclientnum, value);
+	[[ self ]]->set_active_objective_string(localclientnum, value);
 }
 
 /*
-	Name: function_4e0e26c8
+	Name: set_objective_prompt_visibility
 	Namespace: prototype_hud
 	Checksum: 0x8E0F95FE
 	Offset: 0x4B8
@@ -376,13 +376,13 @@ function function_953da284(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_4e0e26c8(localclientnum, value)
+function set_objective_prompt_visibility(localclientnum, value)
 {
-	[[ self ]]->function_4e0e26c8(localclientnum, value);
+	[[ self ]]->set_objective_prompt_visibility(localclientnum, value);
 }
 
 /*
-	Name: function_cbcd8e48
+	Name: set_fanfare_visibility
 	Namespace: prototype_hud
 	Checksum: 0x916DFFD4
 	Offset: 0x4E8
@@ -390,13 +390,13 @@ function function_4e0e26c8(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_cbcd8e48(localclientnum, value)
+function set_fanfare_visibility(localclientnum, value)
 {
-	[[ self ]]->function_cbcd8e48(localclientnum, value);
+	[[ self ]]->set_fanfare_visibility(localclientnum, value);
 }
 
 /*
-	Name: function_1f1846cf
+	Name: set_fail_fanfare_visibility
 	Namespace: prototype_hud
 	Checksum: 0x8B5DB8FA
 	Offset: 0x518
@@ -404,9 +404,9 @@ function function_cbcd8e48(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_1f1846cf(localclientnum, value)
+function set_fail_fanfare_visibility(localclientnum, value)
 {
-	[[ self ]]->function_1f1846cf(localclientnum, value);
+	[[ self ]]->set_fail_fanfare_visibility(localclientnum, value);
 }
 
 /*

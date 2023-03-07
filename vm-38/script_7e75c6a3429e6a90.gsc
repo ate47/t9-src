@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_ec90ce81 : class_6aaccc24
+class class_ec90ce81 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_ec90ce81 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_ec90ce81 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_weapon_upgrade_menu");
+		cLUIelem::function_5c1bb138("sr_weapon_upgrade_menu");
 	}
 
 	/*
@@ -82,8 +82,8 @@ class class_ec90ce81 : class_6aaccc24
 	*/
 	function setup_clientfields(var_52c93aa0)
 	{
-		namespace_6aaccc24::setup_clientfields("sr_weapon_upgrade_menu");
-		namespace_6aaccc24::function_da693cbe("cannotAmmoMod", 16000, 1, "int", var_52c93aa0);
+		cLUIelem::setup_clientfields("sr_weapon_upgrade_menu");
+		cLUIelem::function_da693cbe("cannotAmmoMod", 16000, 1, "int", var_52c93aa0);
 	}
 
 	/*
@@ -97,7 +97,7 @@ class class_ec90ce81 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "cannotAmmoMod", 0);
 	}
 

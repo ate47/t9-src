@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_f2203a88;
+#namespace player_uaz;
 
 /*
 	Name: function_40dea75b
-	Namespace: namespace_f2203a88
+	Namespace: player_uaz
 	Checksum: 0xA0F67E7C
 	Offset: 0x88
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_40dea75b()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_f2203a88
+	Namespace: player_uaz
 	Checksum: 0x218B77A5
 	Offset: 0xA8
 	Size: 0x44
@@ -29,12 +29,12 @@ function private autoexec function_40dea75b()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_2d53e3136f122763", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_uaz", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_f2203a88
+	Namespace: player_uaz
 	Checksum: 0xDE3DEF72
 	Offset: 0xF8
 	Size: 0x2C
@@ -48,7 +48,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_bc02ac38
-	Namespace: namespace_f2203a88
+	Namespace: player_uaz
 	Checksum: 0x7560C554
 	Offset: 0x130
 	Size: 0x92
@@ -66,7 +66,7 @@ function private function_bc02ac38()
 
 /*
 	Name: function_5433bc44
-	Namespace: namespace_f2203a88
+	Namespace: player_uaz
 	Checksum: 0x94DBC6ED
 	Offset: 0x1D0
 	Size: 0x2C
@@ -84,7 +84,7 @@ function function_5433bc44(params)
 
 /*
 	Name: function_b6eaa74f
-	Namespace: namespace_f2203a88
+	Namespace: player_uaz
 	Checksum: 0xA1126C95
 	Offset: 0x208
 	Size: 0x48

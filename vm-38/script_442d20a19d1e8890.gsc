@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_7c3faeda : class_6aaccc24
+class class_7c3faeda : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_7c3faeda : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_7c3faeda : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("Incursion_InfiltrationTitleCards");
+		cLUIelem::function_5c1bb138("Incursion_InfiltrationTitleCards");
 	}
 
 	/*
@@ -68,9 +68,9 @@ class class_7c3faeda : class_6aaccc24
 	*/
 	function setup_clientfields(var_f1385203)
 	{
-		namespace_6aaccc24::setup_clientfields("Incursion_InfiltrationTitleCards");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 4, "int");
-		namespace_6aaccc24::function_da693cbe("SelectedInfiltration", 1, 3, "int", var_f1385203);
+		cLUIelem::setup_clientfields("Incursion_InfiltrationTitleCards");
+		cLUIelem::function_da693cbe("_state", 1, 4, "int");
+		cLUIelem::function_da693cbe("SelectedInfiltration", 1, 3, "int", var_f1385203);
 	}
 
 	/*
@@ -214,7 +214,7 @@ class class_7c3faeda : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "SelectedInfiltration", 0);
 	}

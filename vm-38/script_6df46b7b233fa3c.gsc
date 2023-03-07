@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_70ee35b1 : class_6aaccc24
+class class_70ee35b1 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -33,7 +33,7 @@ class class_70ee35b1 : class_6aaccc24
 	}
 
 	/*
-		Name: function_87bb24
+		Name: set_movieName
 		Namespace: namespace_70ee35b1
 		Checksum: 0x16440DFE
 		Offset: 0x408
@@ -41,7 +41,7 @@ class class_70ee35b1 : class_6aaccc24
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_87bb24(player, value)
+	function set_movieName(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "movieName", value);
 	}
@@ -61,11 +61,11 @@ class class_70ee35b1 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
-		Name: function_493305af
+		Name: set_additive
 		Namespace: namespace_70ee35b1
 		Checksum: 0xCD2D4D53
 		Offset: 0x4F8
@@ -73,7 +73,7 @@ class class_70ee35b1 : class_6aaccc24
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_493305af(player, value)
+	function set_additive(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "additive", value);
 	}
@@ -89,11 +89,11 @@ class class_70ee35b1 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
-		Name: function_5caa21cb
+		Name: set_looping
 		Namespace: namespace_70ee35b1
 		Checksum: 0xBDE610BC
 		Offset: 0x4A8
@@ -101,13 +101,13 @@ class class_70ee35b1 : class_6aaccc24
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_5caa21cb(player, value)
+	function set_looping(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "looping", value);
 	}
 
 	/*
-		Name: function_8f7a8b9c
+		Name: set_showBlackScreen
 		Namespace: namespace_70ee35b1
 		Checksum: 0xD4705E89
 		Offset: 0x458
@@ -115,7 +115,7 @@ class class_70ee35b1 : class_6aaccc24
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_8f7a8b9c(player, value)
+	function set_showBlackScreen(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "showBlackScreen", value);
 	}
@@ -131,11 +131,11 @@ class class_70ee35b1 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("pip_menu");
-		namespace_6aaccc24::function_dcb34c80("moviefile", "movieName", 1);
-		namespace_6aaccc24::function_da693cbe("showBlackScreen", 1, 1, "int");
-		namespace_6aaccc24::function_da693cbe("looping", 1, 1, "int");
-		namespace_6aaccc24::function_da693cbe("additive", 1, 1, "int");
+		cLUIelem::setup_clientfields("pip_menu");
+		cLUIelem::function_dcb34c80("moviefile", "movieName", 1);
+		cLUIelem::function_da693cbe("showBlackScreen", 1, 1, "int");
+		cLUIelem::function_da693cbe("looping", 1, 1, "int");
+		cLUIelem::function_da693cbe("additive", 1, 1, "int");
 	}
 
 }
@@ -219,7 +219,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_87bb24
+	Name: set_movieName
 	Namespace: pip_menu
 	Checksum: 0xFC159FEA
 	Offset: 0x1E8
@@ -227,13 +227,13 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_87bb24(player, value)
+function set_movieName(player, value)
 {
-	[[ self ]]->function_87bb24(player, value);
+	[[ self ]]->set_movieName(player, value);
 }
 
 /*
-	Name: function_8f7a8b9c
+	Name: set_showBlackScreen
 	Namespace: pip_menu
 	Checksum: 0x2DC7A400
 	Offset: 0x218
@@ -241,13 +241,13 @@ function function_87bb24(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_8f7a8b9c(player, value)
+function set_showBlackScreen(player, value)
 {
-	[[ self ]]->function_8f7a8b9c(player, value);
+	[[ self ]]->set_showBlackScreen(player, value);
 }
 
 /*
-	Name: function_5caa21cb
+	Name: set_looping
 	Namespace: pip_menu
 	Checksum: 0xAF442DBE
 	Offset: 0x248
@@ -255,13 +255,13 @@ function function_8f7a8b9c(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5caa21cb(player, value)
+function set_looping(player, value)
 {
-	[[ self ]]->function_5caa21cb(player, value);
+	[[ self ]]->set_looping(player, value);
 }
 
 /*
-	Name: function_493305af
+	Name: set_additive
 	Namespace: pip_menu
 	Checksum: 0x771CEFA5
 	Offset: 0x278
@@ -269,8 +269,8 @@ function function_5caa21cb(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_493305af(player, value)
+function set_additive(player, value)
 {
-	[[ self ]]->function_493305af(player, value);
+	[[ self ]]->set_additive(player, value);
 }
 

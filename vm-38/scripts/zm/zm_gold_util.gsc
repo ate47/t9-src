@@ -8,11 +8,11 @@
 #using scripts\zm_common\zm_devgui.gsc;
 #using scripts\zm_common\zm_unitrigger.gsc;
 
-#namespace namespace_5c4c9a39;
+#namespace zm_gold_util;
 
 /*
 	Name: function_99e973a1
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0xE9255247
 	Offset: 0xB8
 	Size: 0x14
@@ -26,7 +26,7 @@ function private autoexec function_99e973a1()
 
 /*
 	Name: init
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0xD534F328
 	Offset: 0xD8
 	Size: 0x4C
@@ -44,7 +44,7 @@ function init()
 
 /*
 	Name: function_1aeb4889
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0x50F0CB11
 	Offset: 0x130
 	Size: 0x44
@@ -61,7 +61,7 @@ function function_1aeb4889()
 
 /*
 	Name: close_hud
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0x876F3782
 	Offset: 0x180
 	Size: 0x44
@@ -78,7 +78,7 @@ function close_hud()
 
 /*
 	Name: function_b488623
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0x7C8C83EA
 	Offset: 0x1D0
 	Size: 0xA4
@@ -102,7 +102,7 @@ function function_b488623(b_show)
 
 /*
 	Name: function_13ebb331
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0xEFDF37E3
 	Offset: 0x280
 	Size: 0x68
@@ -121,7 +121,7 @@ function function_13ebb331(v_origin_or_ent, str_targetname)
 
 /*
 	Name: function_37597f29
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0x2996E357
 	Offset: 0x2F0
 	Size: 0x7C
@@ -140,7 +140,7 @@ function function_37597f29()
 
 /*
 	Name: function_e76968e1
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0x8E7562D1
 	Offset: 0x378
 	Size: 0xA0
@@ -159,7 +159,7 @@ function function_e76968e1(show)
 
 /*
 	Name: function_72c803d3
-	Namespace: namespace_5c4c9a39
+	Namespace: zm_gold_util
 	Checksum: 0x5373BD61
 	Offset: 0x420
 	Size: 0x8A

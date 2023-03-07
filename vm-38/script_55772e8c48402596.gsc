@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_51e5626e : class_6aaccc24
+class class_51e5626e : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_51e5626e : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_51e5626e : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_message_box");
+		cLUIelem::function_5c1bb138("sr_message_box");
 	}
 
 	/*
@@ -82,8 +82,8 @@ class class_51e5626e : class_6aaccc24
 	*/
 	function setup_clientfields(var_50fe5991)
 	{
-		namespace_6aaccc24::setup_clientfields("sr_message_box");
-		namespace_6aaccc24::function_dcb34c80("string", "messagebox", 1);
+		cLUIelem::setup_clientfields("sr_message_box");
+		cLUIelem::function_dcb34c80("string", "messagebox", 1);
 	}
 
 	/*
@@ -97,7 +97,7 @@ class class_51e5626e : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "messagebox", #"");
 	}
 

@@ -1,4 +1,4 @@
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -39,10 +39,10 @@ function function_70a657d8()
 	level.var_8a530af5 = [];
 	if(!function_59116c33())
 	{
-		var_c93ad421 = getdvarint(#"hash_688c3ba84e378e53", 0);
-		if(var_c93ad421 > 0)
+		botfill = getdvarint(#"botfill", 0);
+		if(botfill > 0)
 		{
-			level.var_fa9f5bab = var_c93ad421;
+			level.var_fa9f5bab = botfill;
 			return;
 		}
 	}

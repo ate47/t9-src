@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -50,11 +50,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_53d304fe41545371", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_53d304fe41545371", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_3a56904b
 	Checksum: 0xCFCD438D
 	Offset: 0x160
@@ -62,13 +62,13 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	zm::register_actor_damage_callback(&function_306332df);
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_3a56904b
 	Checksum: 0xD132EB14
 	Offset: 0x190
@@ -76,7 +76,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(isinarray(level.actor_damage_callbacks, &function_306332df))
 	{

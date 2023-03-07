@@ -1,5 +1,5 @@
-#using script_3c362258ff800237;
-#using script_3d5821d793ed4c6;
+#using scripts\zm_common\zm_trial.csc;
+#using scripts\zm_common\zm_trial_util.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;
@@ -57,11 +57,11 @@ function private function_70a657d8()
 	clientfield::register("zbarrier", "" + #"hash_100f180bf5d2a517", 14000, 1, "int", &function_b245db69, 0, 0);
 	level._effect[#"hash_1d15a2dad558ac8c"] = "zombie/fx8_packapunch_zmb_red_gauntlet";
 	level._effect[#"hash_1d15a5dad558b1a5"] = "zombie/fx8_packapunch_zmb_red_gauntlet";
-	zm_trial::register_challenge(#"hash_28d1b9857e2ca681", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_28d1b9857e2ca681", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_841de7df
 	Checksum: 0xD196B002
 	Offset: 0x260
@@ -69,12 +69,12 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(localclientnum, a_params)
+function private on_begin(localclientnum, a_params)
 {
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_841de7df
 	Checksum: 0x38A4EF99
 	Offset: 0x280
@@ -82,7 +82,7 @@ function private function_d1de6a85(localclientnum, a_params)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(localclientnum)
+function private on_end(localclientnum)
 {
 }
 

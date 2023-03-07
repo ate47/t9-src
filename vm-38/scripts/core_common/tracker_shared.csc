@@ -3,11 +3,11 @@
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_495a69cb;
+#namespace tracker_shared;
 
 /*
 	Name: function_6f3441c9
-	Namespace: namespace_495a69cb
+	Namespace: tracker_shared
 	Checksum: 0xF41ABDB2
 	Offset: 0xC0
 	Size: 0x14

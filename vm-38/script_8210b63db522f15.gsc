@@ -127,7 +127,7 @@ function function_f0406288(var_79cf244b)
 	}
 	var_9ba1646c = level.var_7d8da246[var_79cf244b];
 	item_name = var_9ba1646c.var_a531c26d;
-	var_a531c26d = self namespace_b376ff3f::function_7fe4ce88(item_name);
+	var_a531c26d = self item_inventory::function_7fe4ce88(item_name);
 	if(isdefined(var_a531c26d))
 	{
 		return true;
@@ -409,7 +409,7 @@ function function_fb689837()
 		if(isdefined(var_2b469a7d))
 		{
 			self stats::set_stat(#"characters", var_2b469a7d, #"unlocked", 1);
-			self stats::function_d40764f3(#"hash_6a1aa003c5cc9ec0", 1);
+			self stats::function_d40764f3(#"character_quests_completed", 1);
 			function_54fc60f5(self, var_2b469a7d);
 			var_ade8d0e9 = {#character:var_2b469a7d};
 			self callback::callback(#"hash_7fc16e58d454945", var_ade8d0e9);
@@ -439,7 +439,7 @@ function function_28a6c197(player)
 	foreach(var_9ba1646c in level.var_7d8da246)
 	{
 		item_name = var_9ba1646c.var_a531c26d;
-		var_a531c26d = player namespace_b376ff3f::function_7fe4ce88(item_name);
+		var_a531c26d = player item_inventory::function_7fe4ce88(item_name);
 		if(isdefined(var_a531c26d))
 		{
 			player.var_474dff5e[var_79cf244b] = 1;

@@ -1,4 +1,4 @@
-#using script_3f6516099f1d5ff1;
+#using scripts\core_common\map.csc;
 #using script_59f62971655f7103;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -532,7 +532,7 @@ function function_c8663dbc(weapon, player)
 	}
 	switch(weapon.name)
 	{
-		case "hash_21b346649d376bf3":
+		case "eq_emp_grenade":
 		{
 			var_60d3002f = "jammerWeaponHacked";
 			break;
@@ -542,7 +542,7 @@ function function_c8663dbc(weapon, player)
 			var_60d3002f = "meshMineWeaponHacked";
 			break;
 		}
-		case "hash_4a4ba36128b6582f":
+		case "eq_seeker_mine":
 		{
 			var_60d3002f = "seekerMineWeaponHacked";
 			break;
@@ -553,7 +553,7 @@ function function_c8663dbc(weapon, player)
 			break;
 		}
 		case "ability_smart_cover":
-		case "hash_1fb0b26684caee0f":
+		case "gadget_smart_cover":
 		{
 			var_60d3002f = "smartCoverHacked";
 			break;

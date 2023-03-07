@@ -1,10 +1,10 @@
 #using script_5c69ef91bd5f2dbf;
 
-#namespace namespace_7cadb1cc;
+#namespace zm_ai_abom;
 
 /*
 	Name: function_b2a9bed7
-	Namespace: namespace_7cadb1cc
+	Namespace: zm_ai_abom
 	Checksum: 0x9392178A
 	Offset: 0x68
 	Size: 0x14

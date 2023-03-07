@@ -2,7 +2,7 @@
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
 #using script_556e19065f09f8a2;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -74,7 +74,7 @@ function private function_70a657d8()
 		level.var_1a4cc228[#"hash_6904f5c7bef64405"] = [0:#"hash_5eafd160d077670d"];
 		level.var_1a4cc228[#"hash_7f957e36b4f6160f"] = [0:#"hash_61df3be05096e9e2"];
 	}
-	else if(util::function_53bbf9d2() == "zm_silver")
+	else if(util::get_map_name() == "zm_silver")
 	{
 		level.var_1a4cc228[#"hash_5214ebcccbd95a36"] = [6:#"hash_c71860858c9efd0", 5:#"hash_3b3eb000bcfc5389", 4:#"hash_5c0877f0bdec3739", 3:#"hash_2de8c613f642c492", 2:#"hash_161f9bdf4e9e092f", 1:#"hash_725982139f7312b6", 0:#"hash_6137ec0a60179183"];
 		level.var_1a4cc228[#"hash_bc5dffd7824c28f"] = level.var_1a4cc228[#"hash_5214ebcccbd95a36"];

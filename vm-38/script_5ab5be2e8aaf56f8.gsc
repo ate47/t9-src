@@ -8,7 +8,7 @@
 #using script_340a2e805e35f7a2;
 #using script_3411bb48d41bd3b;
 #using script_4163291d6e693552;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -451,11 +451,11 @@ function function_dc79011b(instance)
 		{
 			if(zombie.aitype === #"hash_1aff4b71635bda08" || zombie.archetype === #"zombie" && !isdefined(zombie.is_marked))
 			{
-				zombie.var_b66d1b0d = util::spawn_model("tag_origin", zombie gettagorigin("J_Spine4"));
-				if(isdefined(zombie.var_b66d1b0d))
+				zombie.e_marker = util::spawn_model("tag_origin", zombie gettagorigin("J_Spine4"));
+				if(isdefined(zombie.e_marker))
 				{
-					zombie.var_b66d1b0d linkto(zombie, "J_Spine4");
-					zombie.var_b66d1b0d clientfield::set("" + #"hash_11838968b17d8418", 1);
+					zombie.e_marker linkto(zombie, "J_Spine4");
+					zombie.e_marker clientfield::set("" + #"hash_11838968b17d8418", 1);
 					zombie.is_marked = 1;
 					zombie thread function_60b78908(instance);
 				}
@@ -483,9 +483,9 @@ function function_60b78908(instance)
 	{
 		if(distance2dsquared(self.origin, self.var_5ea363c.origin) > sqr(self.var_5ea363c.var_75833abc) || is_true(self.var_5ea363c.b_cleared))
 		{
-			if(isdefined(self.var_b66d1b0d))
+			if(isdefined(self.e_marker))
 			{
-				self.var_b66d1b0d delete();
+				self.e_marker delete();
 				self.is_marked = undefined;
 			}
 		}
@@ -2022,7 +2022,7 @@ function function_fb9dff2f(instance, activator)
 		wait(6);
 		foreach(player in getplayers())
 		{
-			level.var_31028c5d prototype_hud::function_953da284(player, #"hash_691ec119979cba95");
+			level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_691ec119979cba95");
 			level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 			if(!level.var_30e191ea namespace_30e191ea::is_open(player))
 			{
@@ -2041,7 +2041,7 @@ function function_fb9dff2f(instance, activator)
 		}
 		foreach(player in getplayers())
 		{
-			level.var_31028c5d prototype_hud::function_953da284(player, #"hash_1201ff20897597a2");
+			level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_1201ff20897597a2");
 		}
 	}
 }
@@ -2064,9 +2064,9 @@ function on_ai_killed(params)
 		if(isdefined(self) && isdefined(var_954ec1b6) && isdefined(var_954ec1b6.var_48ab101) && !is_true(var_954ec1b6.var_fcd0c6d7) && distance2dsquared(self.origin, var_954ec1b6.origin) <= sqr(var_954ec1b6.var_75833abc) && is_true(var_954ec1b6.is_active) && !is_true(var_954ec1b6.is_cleared))
 		{
 			var_954ec1b6.n_kills++;
-			if(isdefined(self.var_b66d1b0d))
+			if(isdefined(self.e_marker))
 			{
-				self.var_b66d1b0d delete();
+				self.e_marker delete();
 			}
 			self clientfield::set("" + #"zombie_soul", 1);
 			wait(0.95);

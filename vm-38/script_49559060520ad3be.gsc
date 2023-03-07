@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_9f6a2660;
+#namespace player_van;
 
 /*
 	Name: function_8774381a
-	Namespace: namespace_9f6a2660
+	Namespace: player_van
 	Checksum: 0x9CF20C37
 	Offset: 0x88
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_8774381a()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_9f6a2660
+	Namespace: player_van
 	Checksum: 0x198D6442
 	Offset: 0xA8
 	Size: 0x44
@@ -29,12 +29,12 @@ function private autoexec function_8774381a()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_467050137d0c0d2a", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_van", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_9f6a2660
+	Namespace: player_van
 	Checksum: 0x515D1E95
 	Offset: 0xF8
 	Size: 0x2C
@@ -48,7 +48,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_c6b4bcab
-	Namespace: namespace_9f6a2660
+	Namespace: player_van
 	Checksum: 0xC827B261
 	Offset: 0x130
 	Size: 0xAA
@@ -67,7 +67,7 @@ function private function_c6b4bcab()
 
 /*
 	Name: function_e26ae7d4
-	Namespace: namespace_9f6a2660
+	Namespace: player_van
 	Checksum: 0x32E727C3
 	Offset: 0x1E8
 	Size: 0x8C
@@ -90,7 +90,7 @@ function function_e26ae7d4(params)
 
 /*
 	Name: function_f5da89ea
-	Namespace: namespace_9f6a2660
+	Namespace: player_van
 	Checksum: 0x8D209B6D
 	Offset: 0x280
 	Size: 0xDC

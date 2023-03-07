@@ -72,7 +72,7 @@ function function_27473e44()
 {
 	zm_perks::register_perk_basic_info(#"hash_51b6cc6dbafb7f31", #"perk_elemental_pop", 2000, #"hash_3aca6fccecde9e86", getweapon("zombie_perk_bottle_elemental_pop"), undefined, #"hash_363622d67a410b29");
 	zm_perks::register_perk_precache_func(#"hash_51b6cc6dbafb7f31", &precache);
-	zm_perks::register_perk_clientfields(#"hash_51b6cc6dbafb7f31", &register_clientfield, &function_b0c4e363);
+	zm_perks::register_perk_clientfields(#"hash_51b6cc6dbafb7f31", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_machine(#"hash_51b6cc6dbafb7f31", &function_1fe63170);
 	zm_perks::register_perk_host_migration_params(#"hash_51b6cc6dbafb7f31", "vending_elemental_pop", "elemental_pop_light");
 	zm_perks::register_actor_damage_override(#"hash_51b6cc6dbafb7f31", &function_abddd809);
@@ -124,7 +124,7 @@ function register_clientfield()
 }
 
 /*
-	Name: function_b0c4e363
+	Name: set_clientfield
 	Namespace: namespace_ce975293
 	Checksum: 0xAA0785D6
 	Offset: 0x810
@@ -132,7 +132,7 @@ function register_clientfield()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b0c4e363(state)
+function set_clientfield(state)
 {
 }
 

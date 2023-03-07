@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_d1b6325c : class_6aaccc24
+class czm_game_over : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x71617B1E
 		Offset: 0x378
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_d1b6325c : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x3BCD4D13
 		Offset: 0x600
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_d1b6325c : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x7BEE4324
 		Offset: 0x4A8
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_d1b6325c : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x6E723FEB
 		Offset: 0x418
 		Size: 0x1C
@@ -54,12 +54,12 @@ class class_d1b6325c : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_game_over");
+		cLUIelem::function_5c1bb138("zm_game_over");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x681A143C
 		Offset: 0x398
 		Size: 0x74
@@ -68,14 +68,14 @@ class class_d1b6325c : class_6aaccc24
 	*/
 	function setup_clientfields(var_ddbc37b7)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_game_over");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("rounds", 1, 8, "int", var_ddbc37b7);
+		cLUIelem::setup_clientfields("zm_game_over");
+		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::function_da693cbe("rounds", 1, 8, "int", var_ddbc37b7);
 	}
 
 	/*
 		Name: set_rounds
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x87C1A0C1
 		Offset: 0x5C8
 		Size: 0x30
@@ -89,7 +89,7 @@ class class_d1b6325c : class_6aaccc24
 
 	/*
 		Name: set_state
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x74C849D2
 		Offset: 0x4D8
 		Size: 0xE4
@@ -128,7 +128,7 @@ class class_d1b6325c : class_6aaccc24
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_d1b6325c
+		Namespace: czm_game_over
 		Checksum: 0x56167DB5
 		Offset: 0x440
 		Size: 0x60
@@ -137,7 +137,7 @@ class class_d1b6325c : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "rounds", 0);
 	}
@@ -171,7 +171,7 @@ function private autoexec function_66a128e6()
 */
 function register(var_ddbc37b7)
 {
-	elem = new class_d1b6325c();
+	elem = new czm_game_over();
 	[[ elem ]]->setup_clientfields(var_ddbc37b7);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -203,7 +203,7 @@ function register(var_ddbc37b7)
 */
 function function_5c1bb138()
 {
-	elem = new class_d1b6325c();
+	elem = new czm_game_over();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

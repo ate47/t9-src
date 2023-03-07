@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_ee7da953;
+#namespace player_tactical_raft;
 
 /*
 	Name: function_493e38c
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0xEE9F4F68
 	Offset: 0xB0
 	Size: 0x14
@@ -21,7 +21,7 @@ function private autoexec function_493e38c()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0x296BE1C5
 	Offset: 0xD0
 	Size: 0x44
@@ -30,12 +30,12 @@ function private autoexec function_493e38c()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_60773cb8e1d97f62", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_tactical_raft", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0xBA46426F
 	Offset: 0x120
 	Size: 0x54
@@ -50,7 +50,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_9941dc42
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0xBA6FFFE
 	Offset: 0x180
 	Size: 0xBC
@@ -68,7 +68,7 @@ function private function_9941dc42()
 
 /*
 	Name: function_6d4de854
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0x480CE6D1
 	Offset: 0x248
 	Size: 0xC
@@ -81,7 +81,7 @@ function private function_6d4de854(params)
 
 /*
 	Name: function_a5838bb7
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0xF092257D
 	Offset: 0x260
 	Size: 0x24
@@ -95,7 +95,7 @@ function private function_a5838bb7(params)
 
 /*
 	Name: function_a41bd019
-	Namespace: namespace_ee7da953
+	Namespace: player_tactical_raft
 	Checksum: 0xAE477339
 	Offset: 0x290
 	Size: 0xC

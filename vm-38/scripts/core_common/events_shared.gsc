@@ -1,10 +1,10 @@
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_ac6a9eb4;
+#namespace events_shared;
 
 /*
 	Name: function_51314ad4
-	Namespace: namespace_ac6a9eb4
+	Namespace: events_shared
 	Checksum: 0x7DF73BA0
 	Offset: 0x68
 	Size: 0x14

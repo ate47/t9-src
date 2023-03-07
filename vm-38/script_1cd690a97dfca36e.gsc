@@ -1838,21 +1838,21 @@ function function_9020a959(curve)
 	Parameters: 2
 	Flags: Linked
 */
-function function_b918d683(var_7e1f6a77, curve)
+function function_b918d683(inval, curve)
 {
 	curve = function_d3f407d6(curve);
 	var_c4f679d6 = level.var_c386bd24[curve];
 	/#
 		assert(isdefined(var_c4f679d6), "" + curve);
 	#/
-	var_7e1f6a77 = math::clamp(var_7e1f6a77, 0, 1);
+	inval = math::clamp(inval, 0, 1);
 	var_8c54d972 = 0;
 	step = 1 / (var_c4f679d6.size - 1);
-	if(var_7e1f6a77 == 0)
+	if(inval == 0)
 	{
 		return 0;
 	}
-	if(var_7e1f6a77 == 1)
+	if(inval == 1)
 	{
 		return 1;
 	}
@@ -1860,9 +1860,9 @@ function function_b918d683(var_7e1f6a77, curve)
 	{
 		var_a1c4b722 = i * step;
 		var_aa208db = (i + 1) * step;
-		if(var_7e1f6a77 >= var_a1c4b722 && var_7e1f6a77 <= var_aa208db)
+		if(inval >= var_a1c4b722 && inval <= var_aa208db)
 		{
-			diffx = var_7e1f6a77 - var_a1c4b722;
+			diffx = inval - var_a1c4b722;
 			var_5cf5d319 = var_aa208db - var_a1c4b722;
 			diff = diffx / var_5cf5d319;
 			var_eddc974c = var_c4f679d6[i];

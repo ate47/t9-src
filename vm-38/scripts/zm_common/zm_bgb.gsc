@@ -1,7 +1,7 @@
 #using script_47fb62300ac0bd60;
-#using script_61a734c95edc17aa;
+#using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -23,11 +23,11 @@
 #using scripts\zm_common\zm_stats.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_80677f8;
+#namespace zm_bgb;
 
 /*
 	Name: function_9cb7d712
-	Namespace: namespace_80677f8
+	Namespace: zm_bgb
 	Checksum: 0x152FD751
 	Offset: 0x2C8
 	Size: 0x14
@@ -222,7 +222,7 @@ function private bgb_player_init()
 		foreach(bgb in level.bgb)
 		{
 			str_name = bgb.name;
-			if(bgb.rarity === 0 && str_name != #"hash_177ea318753f5418" && !array::contains(self.bgb_pack, str_name))
+			if(bgb.rarity === 0 && str_name != #"zm_bgb_point_drops" && !array::contains(self.bgb_pack, str_name))
 			{
 				var_544e77f8 = level.bgb[str_name].var_a1750d43;
 				if(!isdefined(var_544e77f8) || (isdefined(var_544e77f8) && n_rank >= var_544e77f8 || function_bea73b01() == 1) && namespace_59ff1d6c::function_3ac936c6(str_name))

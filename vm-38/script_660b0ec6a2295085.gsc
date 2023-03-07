@@ -1,6 +1,6 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_2595527427ea71eb;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -56,11 +56,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"timeout", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"timeout", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: zm_trial_timeout
 	Checksum: 0xF02591E1
 	Offset: 0x290
@@ -68,7 +68,7 @@ function private function_70a657d8()
 	Parameters: 8
 	Flags: Private
 */
-function private function_d1de6a85(var_9eb4b9f8, var_1215371f, grace_period, var_29cadcde, var_c811984d, var_26be3f81, var_6b594c52, var_afb6cb74)
+function private on_begin(var_9eb4b9f8, var_1215371f, grace_period, var_29cadcde, var_c811984d, var_26be3f81, var_6b594c52, var_afb6cb74)
 {
 	var_690d3062 = 0;
 	switch(getplayers().size)
@@ -123,7 +123,7 @@ function private function_d1de6a85(var_9eb4b9f8, var_1215371f, grace_period, var
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: zm_trial_timeout
 	Checksum: 0x17CDC000
 	Offset: 0x5E8
@@ -131,14 +131,14 @@ function private function_d1de6a85(var_9eb4b9f8, var_1215371f, grace_period, var
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
 		if(level.var_f995ece6 zm_trial_timer::is_open(player))
 		{
 			level.var_f995ece6 zm_trial_timer::close(player);
-			player namespace_b22c99a5::stop_timer();
+			player zm_trial_util::stop_timer();
 		}
 	}
 	callback::remove_on_spawned(&function_31f197c2);
@@ -361,10 +361,10 @@ function private function_8b87e57c(var_9eb4b9f8, grace_period, var_690d3062, var
 		if(!level.var_f995ece6 zm_trial_timer::is_open(player))
 		{
 			level.var_f995ece6 zm_trial_timer::open(player);
-			level.var_f995ece6 zm_trial_timer::function_8ede8e82(player, var_9eb4b9f8);
-			level.var_f995ece6 zm_trial_timer::function_6ad54036(player, 1);
+			level.var_f995ece6 zm_trial_timer::set_timer_text(player, var_9eb4b9f8);
+			level.var_f995ece6 zm_trial_timer::set_under_round_rules(player, 1);
 		}
-		player namespace_b22c99a5::start_timer(var_690d3062);
+		player zm_trial_util::start_timer(var_690d3062);
 		if(level.var_f6f33e5f === #"melee_only")
 		{
 			player val::reset("zm_trial_timeout", "freezecontrols");
@@ -395,9 +395,9 @@ function private function_31f197c2()
 	if(!level.var_f995ece6 zm_trial_timer::is_open(self))
 	{
 		level.var_f995ece6 zm_trial_timer::open(self);
-		level.var_f995ece6 zm_trial_timer::function_8ede8e82(self, level.var_489d6aa2);
-		level.var_f995ece6 zm_trial_timer::function_6ad54036(self, 1);
-		self namespace_b22c99a5::start_timer(level.var_869f4c31);
+		level.var_f995ece6 zm_trial_timer::set_timer_text(self, level.var_489d6aa2);
+		level.var_f995ece6 zm_trial_timer::set_under_round_rules(self, 1);
+		self zm_trial_util::start_timer(level.var_869f4c31);
 	}
 }
 

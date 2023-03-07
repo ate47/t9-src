@@ -1,5 +1,5 @@
 #using script_50cd53b603b30ef5;
-#using script_6b00dd6300a0ec46;
+#using scripts\killstreaks\flak_drone.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\fx_shared.csc;

@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_14c07d4f;
+#namespace zm_ai_mimic;
 
 /*
 	Name: function_566d9208
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0x5F0800FB
 	Offset: 0x118
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_566d9208()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0xE43C62C0
 	Offset: 0x138
 	Size: 0x3C
@@ -31,12 +31,12 @@ function private autoexec function_566d9208()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_7442f9a5295824fd", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_ai_mimic", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0x977CA8F1
 	Offset: 0x180
 	Size: 0xDC
@@ -52,7 +52,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_78505cdf
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0x1D6D6284
 	Offset: 0x268
 	Size: 0x74
@@ -73,7 +73,7 @@ function function_78505cdf(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_dca29f5c
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0xE1AF24B5
 	Offset: 0x2E8
 	Size: 0x6C
@@ -90,7 +90,7 @@ function function_dca29f5c(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4bc65819
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0x91BCCC7
 	Offset: 0x360
 	Size: 0xC4
@@ -110,7 +110,7 @@ function function_4bc65819(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_119c2eb0
-	Namespace: namespace_14c07d4f
+	Namespace: zm_ai_mimic
 	Checksum: 0xB5488DFA
 	Offset: 0x430
 	Size: 0x54

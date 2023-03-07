@@ -1,11 +1,11 @@
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\struct.csc;
 
-#namespace namespace_f838b0ea;
+#namespace ztcm;
 
 /*
 	Name: function_90690ec
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0x53AEE5D4
 	Offset: 0x70
 	Size: 0x14
@@ -19,7 +19,7 @@ function private autoexec function_90690ec()
 
 /*
 	Name: main
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0xD6FBC781
 	Offset: 0x90
 	Size: 0xA4
@@ -30,9 +30,9 @@ event main(eventstruct)
 {
 	level._zombie_gamemodeprecache = &onprecachegametype;
 	level._zombie_gamemodemain = &onstartgametype;
-	if(!level flag::exists(#"hash_33037f6188bd285f"))
+	if(!level flag::exists(#"ztcm"))
 	{
-		level flag::init(#"hash_33037f6188bd285f", 1);
+		level flag::init(#"ztcm", 1);
 	}
 	/#
 		println("");
@@ -41,7 +41,7 @@ event main(eventstruct)
 
 /*
 	Name: onprecachegametype
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0x529DEF6E
 	Offset: 0x140
 	Size: 0x24
@@ -57,7 +57,7 @@ function onprecachegametype()
 
 /*
 	Name: onstartgametype
-	Namespace: namespace_f838b0ea
+	Namespace: ztcm
 	Checksum: 0x469421EE
 	Offset: 0x170
 	Size: 0x24

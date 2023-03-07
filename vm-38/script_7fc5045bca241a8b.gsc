@@ -3,7 +3,7 @@
 #using script_311c446e3df6c3fa;
 #using script_40e017336a087343;
 #using script_5ee86fb478309acf;
-#using script_7ae1d3c7bfe5070;
+#using scripts\zm\zm_tungsten_main_quest.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

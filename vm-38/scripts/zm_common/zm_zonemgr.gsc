@@ -2045,9 +2045,9 @@ function function_d4cf2b9b(force_update)
 		{
 			level.var_5ef1a72c = [];
 		}
-		var_4550a175 = function_a1ef346b();
+		active_players = function_a1ef346b();
 		var_5ef1a72c = [];
-		foreach(player in var_4550a175)
+		foreach(player in active_players)
 		{
 			if(isdefined(level.var_aea7dde1))
 			{
@@ -2096,7 +2096,7 @@ function function_d4cf2b9b(force_update)
 					if(adjacent_zone.is_connected)
 					{
 						var_658cf985 = spawnstruct();
-						var_658cf985.var_ab176ce9 = zone.name;
+						var_658cf985.to_zone = zone.name;
 						var_658cf985.cost = var_1d26c41e.cost + 1;
 						var_23ca4e6e[var_4a52ff35] = var_658cf985;
 						var_14a2a339[var_14a2a339.size] = var_4a52ff35;

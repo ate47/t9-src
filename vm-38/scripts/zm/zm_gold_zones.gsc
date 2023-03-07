@@ -1,7 +1,7 @@
 #using script_2f560596a9a134ab;
 #using script_4ce5d94e8c797350;
-#using script_5b4f7a8178990872;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_hud.gsc;
+#using scripts\zm_common\zm_sq.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -10,11 +10,11 @@
 #using scripts\zm\zm_gold.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_ac0e32c5;
+#namespace zm_gold_zones;
 
 /*
 	Name: function_d7e1dd43
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0xE0295EF7
 	Offset: 0xC80
 	Size: 0x14
@@ -28,7 +28,7 @@ function private autoexec function_d7e1dd43()
 
 /*
 	Name: init
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x23E65B84
 	Offset: 0xCA0
 	Size: 0x364
@@ -48,7 +48,7 @@ function autoexec init()
 
 /*
 	Name: zone_init
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x8E729032
 	Offset: 0x1010
 	Size: 0x371A
@@ -384,7 +384,7 @@ function zone_init()
 
 /*
 	Name: function_2c6d81f9
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0xE8DB878A
 	Offset: 0x4738
 	Size: 0x6C
@@ -400,7 +400,7 @@ function function_2c6d81f9()
 
 /*
 	Name: function_e6d10d94
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x1006A68E
 	Offset: 0x47B0
 	Size: 0x62
@@ -419,7 +419,7 @@ function function_e6d10d94(zone)
 
 /*
 	Name: codecallback_playermigrated
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x2DA0A674
 	Offset: 0x4820
 	Size: 0x7C
@@ -430,12 +430,12 @@ event codecallback_playermigrated(eventstruct)
 {
 	var_77279c0a = self zm_zonemgr::is_player_in_zone(level.var_4b35561a, 0);
 	var_4826cb3c = (var_77279c0a ? "firebase" : "village");
-	self namespace_808e3265::setupminimap("", var_4826cb3c);
+	self zm_gold::setupminimap("", var_4826cb3c);
 }
 
 /*
 	Name: function_a2cfeff5
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x6D8EED2F
 	Offset: 0x48A8
 	Size: 0x1C8
@@ -464,7 +464,7 @@ function function_a2cfeff5()
 
 /*
 	Name: function_44b1279a
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x194E3933
 	Offset: 0x4A78
 	Size: 0x1F0
@@ -476,7 +476,7 @@ function function_44b1279a()
 	self notify("55c572a8dde62114");
 	self endon("55c572a8dde62114");
 	self endon(#"disconnect");
-	self namespace_808e3265::setupminimap("", "village");
+	self zm_gold::setupminimap("", "village");
 	self clientfield::set_to_player("" + #"hash_697cae64fbcf81f8", 0);
 	util::wait_network_frame();
 	while(true)
@@ -485,12 +485,12 @@ function function_44b1279a()
 		var_6c117bd1 = self clientfield::get_to_player("" + #"hash_697cae64fbcf81f8");
 		if(is_player_in_zone && var_6c117bd1 == 0)
 		{
-			self namespace_808e3265::setupminimap("", "firebase");
+			self zm_gold::setupminimap("", "firebase");
 			self clientfield::set_to_player("" + #"hash_697cae64fbcf81f8", 1);
 		}
 		else if(!is_player_in_zone && var_6c117bd1 == 1)
 		{
-			self namespace_808e3265::setupminimap("", "village");
+			self zm_gold::setupminimap("", "village");
 			self clientfield::set_to_player("" + #"hash_697cae64fbcf81f8", 0);
 		}
 		var_be17187b = undefined;
@@ -500,7 +500,7 @@ function function_44b1279a()
 
 /*
 	Name: function_19f5e3fa
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0x4D9864B2
 	Offset: 0x4C70
 	Size: 0x13E
@@ -529,7 +529,7 @@ function function_19f5e3fa()
 
 /*
 	Name: function_27028b8e
-	Namespace: namespace_ac0e32c5
+	Namespace: zm_gold_zones
 	Checksum: 0xD8338DD3
 	Offset: 0x4DB8
 	Size: 0x55E

@@ -1,6 +1,6 @@
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_545a0bac37bda541;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
@@ -48,8 +48,8 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	ability_player::register_gadget_activation_callbacks(20, undefined, &gadget_grapple_off);
-	globallogic_score::function_5a241bd8(getweapon(#"hash_3a19c6a9c8caef33"), &function_d79e9bb5);
-	weaponobjects::function_e6400478(#"hash_3a19c6a9c8caef33", &function_422f24cc, 1);
+	globallogic_score::function_5a241bd8(getweapon(#"eq_grapple"), &function_d79e9bb5);
+	weaponobjects::function_e6400478(#"eq_grapple", &function_422f24cc, 1);
 }
 
 /*

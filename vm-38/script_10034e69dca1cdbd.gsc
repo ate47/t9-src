@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -49,11 +49,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_4803a4a42dd83650", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_4803a4a42dd83650", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_d579463e
 	Checksum: 0x8CB112F5
 	Offset: 0x158
@@ -61,14 +61,14 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(weapon_name)
+function private on_begin(weapon_name)
 {
-	namespace_b22c99a5::function_7d32b7d0(0);
+	zm_trial_util::function_7d32b7d0(0);
 	level thread function_83b71e7c();
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_d579463e
 	Checksum: 0x6583E502
 	Offset: 0x1A0
@@ -76,9 +76,9 @@ function private function_d1de6a85(weapon_name)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
-	namespace_b22c99a5::function_f3dbeda7();
+	zm_trial_util::function_f3dbeda7();
 	if(!round_reset)
 	{
 		if(!level flag::get(level.var_5bfd847e))
@@ -111,9 +111,9 @@ function private function_83b71e7c()
 	while(true)
 	{
 		level flag::wait_till(level.var_5bfd847e);
-		namespace_b22c99a5::function_7d32b7d0(1);
+		zm_trial_util::function_7d32b7d0(1);
 		level flag::wait_till_clear(level.var_5bfd847e);
-		namespace_b22c99a5::function_7d32b7d0(0);
+		zm_trial_util::function_7d32b7d0(0);
 	}
 }
 

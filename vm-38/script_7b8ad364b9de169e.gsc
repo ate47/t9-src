@@ -1,4 +1,4 @@
-#using script_47f5b3a23db10e76;
+#using scripts\abilities\gadgets\gadget_smart_cover.gsc;
 #using script_47fb62300ac0bd60;
 #using script_68d2ee1489345a1d;
 #using scripts\core_common\array_shared.gsc;
@@ -6,11 +6,11 @@
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_39000839;
+#namespace gadget_smart_cover;
 
 /*
 	Name: function_3ac6ff77
-	Namespace: namespace_39000839
+	Namespace: gadget_smart_cover
 	Checksum: 0xD74A4C7
 	Offset: 0x98
 	Size: 0x14
@@ -35,7 +35,7 @@ function private autoexec function_3ac6ff77()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_1fb0b26684caee0f", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"gadget_smart_cover", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

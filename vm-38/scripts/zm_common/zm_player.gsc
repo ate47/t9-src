@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_20ac552ee498eb9d;
 #using script_256b8879317373de;
@@ -11,8 +11,8 @@
 #using script_4194df57536e11ed;
 #using script_45fdb6cec5580007;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
-#using script_53f13b381cd4251d;
+#using scripts\weapons\weapon_utils.gsc;
+#using scripts\zm_common\bots\zm_bot.gsc;
 #using script_57f7003580bb15e0;
 #using script_5f261a5d57de5f7c;
 #using script_6021ce59143452c3;
@@ -1157,7 +1157,7 @@ function function_b01adf41()
 	}
 	if(isplayer(self))
 	{
-		var_6e618382 = namespace_b376ff3f::function_2e711614(13);
+		var_6e618382 = item_inventory::function_2e711614(13);
 		if(var_6e618382.var_a6762160.name === #"hash_689c84ba4e75b1c8")
 		{
 			return true;

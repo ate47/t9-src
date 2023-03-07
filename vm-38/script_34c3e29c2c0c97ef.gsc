@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_a19c3039 : class_6aaccc24
+class class_a19c3039 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_a19c3039 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_a19c3039 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_perk_machine_choice");
+		cLUIelem::function_5c1bb138("sr_perk_machine_choice");
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_a19c3039 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("sr_perk_machine_choice");
+		cLUIelem::setup_clientfields("sr_perk_machine_choice");
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_a19c3039 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 	}
 
 }

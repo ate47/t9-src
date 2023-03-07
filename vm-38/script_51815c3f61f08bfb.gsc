@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\vehicle_shared.csc;
 
-#namespace namespace_8ac7fc3d;
+#namespace player_jetski;
 
 /*
 	Name: function_ece76a02
-	Namespace: namespace_8ac7fc3d
+	Namespace: player_jetski
 	Checksum: 0x2B293735
 	Offset: 0x90
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_ece76a02()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_8ac7fc3d
+	Namespace: player_jetski
 	Checksum: 0x6E6C41B0
 	Offset: 0xB0
 	Size: 0x44
@@ -29,12 +29,12 @@ function private autoexec function_ece76a02()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_22256eb7a0eb3611", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_jetski", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_8ac7fc3d
+	Namespace: player_jetski
 	Checksum: 0xD2ABCDEA
 	Offset: 0x100
 	Size: 0x5C
@@ -49,7 +49,7 @@ function private function_70a657d8(localclientnum)
 
 /*
 	Name: function_966d6664
-	Namespace: namespace_8ac7fc3d
+	Namespace: player_jetski
 	Checksum: 0xC3343343
 	Offset: 0x168
 	Size: 0x2E

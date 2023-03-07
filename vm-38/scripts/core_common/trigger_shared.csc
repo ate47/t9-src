@@ -17,7 +17,7 @@ function private autoexec function_8b203b48()
 #namespace trigger;
 
 /*
-	Name: function_521edc64
+	Name: function_thread
 	Namespace: trigger
 	Checksum: 0xBF2E6296
 	Offset: 0x90
@@ -25,7 +25,7 @@ function private autoexec function_8b203b48()
 	Parameters: 3
 	Flags: Linked
 */
-function function_521edc64(ent, on_enter_payload, on_exit_payload)
+function function_thread(ent, on_enter_payload, on_exit_payload)
 {
 	ent endon(#"death");
 	if(!isdefined(self))

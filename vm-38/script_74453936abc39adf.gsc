@@ -71,7 +71,7 @@ function private function_72b9b674()
 			return &function_13821498;
 		}
 		case "control":
-		case "hash_1acc245ba0adf546":
+		case "control_hc":
 		case "hash_2e55eac851a6d21b":
 		case "hash_594c4ab1d31aa150":
 		{
@@ -83,7 +83,7 @@ function private function_72b9b674()
 		{
 			return &function_13821498;
 		}
-		case "hash_2b1e0466676a9e7d":
+		case "dom_hc":
 		case "dom":
 		case "hash_5e13d8428d20cfa6":
 		{
@@ -109,7 +109,7 @@ function private function_72b9b674()
 			return &koth_start;
 		}
 		case "hash_ce0d2a7056f9c17":
-		case "hash_2ad10ed6e94a349c":
+		case "tdm_hc":
 		case "tdm":
 		{
 			return &function_13821498;

@@ -3,11 +3,11 @@
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using script_67ce8e728d8f37ba;
 #using script_725554a59d6a75b9;
 #using script_788472602edbe3b9;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using script_7fb8e6e31dd139d;
 #using script_8abbc35fe12516a;
 #using scripts\core_common\array_shared.gsc;
@@ -193,7 +193,7 @@ event main(eventstruct)
 	function_5ac4dc99("scr_prop_minigame", 1);
 	/#
 		level.var_a7997034 = 0;
-		thread namespace_829e1a63::function_93440c52();
+		thread prop_dev::function_93440c52();
 	#/
 	clientfield::register("allplayers", "hideTeamPlayer", 16000, 2, "int");
 	clientfield::register("allplayers", "pingHighlight", 16000, 1, "int");
@@ -208,7 +208,7 @@ event main(eventstruct)
 	clientfield::function_a8bbc967("hudItems.numPropDecoys", 16000, 4, "int", 0);
 	clientfield::register("toplayer", "realtime_multiplay", 16000, 1, "int");
 	level.var_82e6af5d = mp_prop_timer::register();
-	level.var_314165c4 = mp_prop_controls::register();
+	level.prop_controls = mp_prop_controls::register();
 }
 
 /*
@@ -536,7 +536,7 @@ function hidehudintermission()
 	}
 	foreach(player in level.players)
 	{
-		player namespace_314165c4::propabilitykeysvisible(0);
+		player prop_controls::propabilitykeysvisible(0);
 	}
 }
 
@@ -695,7 +695,7 @@ function function_7913d068(var_fae892d1)
 	{
 		foreach(player in level.players)
 		{
-			level.var_82e6af5d mp_prop_timer::function_cb4a80b1(player, int((var_fb3f700 - gettime()) / 1000));
+			level.var_82e6af5d mp_prop_timer::set_timeRemaining(player, int((var_fb3f700 - gettime()) / 1000));
 		}
 		n_current_time = (var_fb3f700 - gettime()) / 1000;
 		var_4dd94c4c = int(n_current_time);
@@ -1153,9 +1153,9 @@ function function_71a55567()
 			var_484b4cdc = self.abilityleft;
 			var_3a346a8 = self.clonesleft;
 		}
-		self namespace_314165c4::propsetchangesleft(var_9ba0a68f);
-		self namespace_314165c4::setnewabilitycount(self.currentability, var_484b4cdc);
-		self namespace_314165c4::setnewabilitycount("CLONE", var_3a346a8);
+		self prop_controls::propsetchangesleft(var_9ba0a68f);
+		self prop_controls::setnewabilitycount(self.currentability, var_484b4cdc);
+		self prop_controls::setnewabilitycount("CLONE", var_3a346a8);
 		self clientfield::set_to_player("realtime_multiplay", 1);
 	}
 }
@@ -1178,9 +1178,9 @@ function onspawnplayer(predictedspawn)
 	}
 	if(self util::isprop())
 	{
-		if(!level.var_314165c4 mp_prop_controls::is_open(self))
+		if(!level.prop_controls mp_prop_controls::is_open(self))
 		{
-			level.var_314165c4 mp_prop_controls::open(self, 1);
+			level.prop_controls mp_prop_controls::open(self, 1);
 		}
 		self.registermod_gas_spawn_ = undefined;
 		if(!isdefined(self.abilityleft))
@@ -1198,21 +1198,21 @@ function onspawnplayer(predictedspawn)
 		self.currentability = level.abilities[self.pers[#"ability"]];
 		if(useprophudserver())
 		{
-			self thread namespace_314165c4::propcontrolshud();
+			self thread prop_controls::propcontrolshud();
 		}
 		self.isangleoffset = 0;
 		self.var_b279086a = 1;
 		self.var_4c45f505 = 1;
 		self thread function_71a55567();
-		level.var_82e6af5d mp_prop_timer::function_51883733(self, 1);
-		self thread namespace_314165c4::cleanuppropcontrolshudondeath();
+		level.var_82e6af5d mp_prop_timer::set_isProp(self, 1);
+		self thread prop_controls::cleanuppropcontrolshudondeath();
 		self thread handleprop();
 	}
 	else
 	{
-		if(level.var_314165c4 mp_prop_controls::is_open(self))
+		if(level.prop_controls mp_prop_controls::is_open(self))
 		{
-			level.var_314165c4 mp_prop_controls::close(self);
+			level.prop_controls mp_prop_controls::close(self);
 		}
 		self.abilityleft = undefined;
 		self.clonesleft = undefined;
@@ -1225,7 +1225,7 @@ function onspawnplayer(predictedspawn)
 		{
 			self.thrownspecialcount = 0;
 		}
-		level.var_82e6af5d mp_prop_timer::function_51883733(self, 0);
+		level.var_82e6af5d mp_prop_timer::set_isProp(self, 0);
 		self thread function_58c3eef7();
 	}
 	self thread attackerswaittime();
@@ -1368,9 +1368,9 @@ function handleprop()
 		assert(!isdefined(self.prop));
 	#/
 	self thread setupprop();
-	self thread namespace_314165c4::setupkeybindings();
+	self thread prop_controls::setupkeybindings();
 	self thread setupdamage();
-	self thread namespace_314165c4::propinputwatch();
+	self thread prop_controls::propinputwatch();
 	self thread propwatchdeath();
 	self thread propwatchcleanupondisconnect();
 	self thread propwatchcleanuponroundend();
@@ -1719,7 +1719,7 @@ function damagewatch(damage, attacker, direction_vec, point, meansofdeath, model
 		modelname thread damagefeedback::update();
 		if(isdefined(weapon) && weapon.rootweapon === level.phsettings.var_86fda1fd && isdefined(partname) && partname != "MOD_IMPACT")
 		{
-			namespace_314165c4::function_d04b961(modelname, undefined, partname, meansofdeath, tagname, weapon);
+			prop_controls::function_d04b961(modelname, undefined, partname, meansofdeath, tagname, weapon);
 		}
 	}
 	self.owner dodamage(meansofdeath, tagname, modelname, modelname, "none", "MOD_IMPACT", idflags, weapon);
@@ -1998,7 +1998,7 @@ function randgetpropsizetoallocate()
 	Parameters: 1
 	Flags: None
 */
-function getnextprop(var_d8316f60)
+function getnextprop(inplayer)
 {
 	var_f220f2d1 = randgetpropsizetoallocate();
 	var_d4cb730b = getarraykeys(level.proplist);
@@ -2024,11 +2024,11 @@ function getnextprop(var_d8316f60)
 		{
 			prop = _tomb_zmb_ee_monitor_button[j];
 			var_72595382 = 0;
-			if(isdefined(var_d8316f60.usedprops) && var_d8316f60.usedprops.size)
+			if(isdefined(inplayer.usedprops) && inplayer.usedprops.size)
 			{
-				for(index = 0; index < var_d8316f60.usedprops.size; index++)
+				for(index = 0; index < inplayer.usedprops.size; index++)
 				{
-					if(prop.modelname == var_d8316f60.usedprops[index].modelname)
+					if(prop.modelname == inplayer.usedprops[index].modelname)
 					{
 						var_72595382 = 1;
 						break;
@@ -2896,12 +2896,12 @@ function function_aa8a29ee(team)
 	level endon(#"game_ended");
 	self endon(#"disconnect", #"hash_7fe1b861ea89d531");
 	waitframe(1);
-	var_b0a45a26 = 1;
+	teamint = 1;
 	if(team == "axis")
 	{
-		var_b0a45a26 = 2;
+		teamint = 2;
 	}
-	self clientfield::set("hideTeamPlayer", var_b0a45a26);
+	self clientfield::set("hideTeamPlayer", teamint);
 }
 
 /*
@@ -3213,7 +3213,7 @@ function function_6363ab34(var_167fb943, remainingtime)
 		fadeintime = 0;
 		fadeouttime = 0;
 	}
-	self thread namespace_314165c4::function_d8b858d4(remainingtime, fadeintime, fadeouttime);
+	self thread prop_controls::function_d8b858d4(remainingtime, fadeintime, fadeouttime);
 	level thread function_7913d068(remainingtime);
 	result = self function_1ee6f124(remainingtime);
 	self freezecontrols(0);
@@ -3265,7 +3265,7 @@ function function_bfc79664(var_167fb943, remainingtime)
 			fadeintime = 0;
 			fadeouttime = 0;
 		}
-		self thread namespace_314165c4::function_d8b858d4(remainingtime, fadeintime, fadeouttime);
+		self thread prop_controls::function_d8b858d4(remainingtime, fadeintime, fadeouttime);
 		result = self function_1ee6f124(remainingtime);
 		self val::function_5276aede(#"hash_28635ef576a942da", 0);
 	}
@@ -3459,7 +3459,7 @@ function attackerinitammo()
 		{
 			self.thrownspecialcount = 0;
 		}
-		self thread namespace_314165c4::watchspecialgrenadethrow();
+		self thread prop_controls::watchspecialgrenadethrow();
 	}
 }
 
@@ -3617,7 +3617,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 			self thread respawnplayer();
 			return;
 		}
-		level.var_314165c4 mp_prop_controls::close(self);
+		level.prop_controls mp_prop_controls::close(self);
 	}
 	if(isdefined(lifeid) && isplayer(lifeid) && lifeid != victim && victim.team != lifeid.team)
 	{
@@ -3873,7 +3873,7 @@ function function_ef516d85(winner, endtype, endreasontext, outcometext, team, wi
 	{
 		if(mp_prop_controls::is_open(player))
 		{
-			level.var_314165c4 mp_prop_controls::close(self);
+			level.prop_controls mp_prop_controls::close(self);
 		}
 	}
 	if(endreasontext == "gameend" && isdefined(level.proptiebreaker))
@@ -4134,7 +4134,7 @@ function function_cd48b338(eattacker, einflictor, weapon, meansofdeath, damage, 
 		{
 			damageorigin = point;
 		}
-		if(self namespace_314165c4::function_d3b8a20e(damageorigin))
+		if(self prop_controls::function_d3b8a20e(damageorigin))
 		{
 			return;
 		}
@@ -4162,9 +4162,9 @@ function function_cd48b338(eattacker, einflictor, weapon, meansofdeath, damage, 
 			{
 				if(is_true(self.lock))
 				{
-					self namespace_314165c4::unlockprop();
+					self prop_controls::unlockprop();
 				}
-				self namespace_314165c4::function_d04b961(einflictor, self, meansofdeath, damage, damageorigin, weapon);
+				self prop_controls::function_d04b961(einflictor, self, meansofdeath, damage, damageorigin, weapon);
 			}
 		}
 	}

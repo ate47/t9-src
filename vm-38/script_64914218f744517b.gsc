@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_94abfc09 : class_6aaccc24
+class ccp_skip_scene_menu : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_94abfc09
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x6E3CD15D
 		Offset: 0x438
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_94abfc09 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_94abfc09
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x14FCCADB
 		Offset: 0x718
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_94abfc09 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_94abfc09
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x1380A2
 		Offset: 0x608
 		Size: 0x24
@@ -40,26 +40,26 @@ class class_94abfc09 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
-		Name: function_300eba00
-		Namespace: namespace_94abfc09
+		Name: set_hostIsSkipping
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x74CF307A
 		Offset: 0x670
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_300eba00(localclientnum, value)
+	function set_hostIsSkipping(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "hostIsSkipping", value);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_94abfc09
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x41BA8186
 		Offset: 0x540
 		Size: 0x1C
@@ -68,40 +68,40 @@ class class_94abfc09 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("cp_skip_scene_menu");
+		cLUIelem::function_5c1bb138("cp_skip_scene_menu");
 	}
 
 	/*
-		Name: function_5d0d17fd
-		Namespace: namespace_94abfc09
+		Name: set_votedToSkip
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x474DE9BA
 		Offset: 0x6A8
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_5d0d17fd(localclientnum, value)
+	function set_votedToSkip(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "votedToSkip", value);
 	}
 
 	/*
-		Name: function_6c680730
-		Namespace: namespace_94abfc09
+		Name: set_showSkipButton
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x5294685D
 		Offset: 0x638
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_6c680730(localclientnum, value)
+	function set_showSkipButton(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "showSkipButton", value);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_94abfc09
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x23AB83A9
 		Offset: 0x458
 		Size: 0xDC
@@ -110,30 +110,30 @@ class class_94abfc09 : class_6aaccc24
 	*/
 	function setup_clientfields(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805)
 	{
-		namespace_6aaccc24::setup_clientfields("cp_skip_scene_menu");
-		namespace_6aaccc24::function_da693cbe("showSkipButton", 1, 2, "int", var_792f3702);
-		namespace_6aaccc24::function_da693cbe("hostIsSkipping", 1, 1, "int", var_69bfc3be);
-		namespace_6aaccc24::function_da693cbe("votedToSkip", 1, 1, "int", var_b2a12719);
-		namespace_6aaccc24::function_da693cbe("sceneSkipEndTime", 1, 3, "int", var_266fe805);
+		cLUIelem::setup_clientfields("cp_skip_scene_menu");
+		cLUIelem::function_da693cbe("showSkipButton", 1, 2, "int", var_792f3702);
+		cLUIelem::function_da693cbe("hostIsSkipping", 1, 1, "int", var_69bfc3be);
+		cLUIelem::function_da693cbe("votedToSkip", 1, 1, "int", var_b2a12719);
+		cLUIelem::function_da693cbe("sceneSkipEndTime", 1, 3, "int", var_266fe805);
 	}
 
 	/*
-		Name: function_dad9a8ef
-		Namespace: namespace_94abfc09
+		Name: set_sceneSkipEndTime
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0xC815E775
 		Offset: 0x6E0
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_dad9a8ef(localclientnum, value)
+	function set_sceneSkipEndTime(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "sceneSkipEndTime", value);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_94abfc09
+		Namespace: ccp_skip_scene_menu
 		Checksum: 0x4AD6346B
 		Offset: 0x568
 		Size: 0x94
@@ -142,7 +142,7 @@ class class_94abfc09 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "showSkipButton", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "hostIsSkipping", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "votedToSkip", 0);
@@ -178,7 +178,7 @@ function private autoexec function_8a470108()
 */
 function register(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805)
 {
-	elem = new class_94abfc09();
+	elem = new ccp_skip_scene_menu();
 	[[ elem ]]->setup_clientfields(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -210,7 +210,7 @@ function register(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805)
 */
 function function_5c1bb138()
 {
-	elem = new class_94abfc09();
+	elem = new ccp_skip_scene_menu();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -258,7 +258,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_6c680730
+	Name: set_showSkipButton
 	Namespace: cp_skip_scene_menu
 	Checksum: 0x633D084D
 	Offset: 0x378
@@ -266,13 +266,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_6c680730(localclientnum, value)
+function set_showSkipButton(localclientnum, value)
 {
-	[[ self ]]->function_6c680730(localclientnum, value);
+	[[ self ]]->set_showSkipButton(localclientnum, value);
 }
 
 /*
-	Name: function_300eba00
+	Name: set_hostIsSkipping
 	Namespace: cp_skip_scene_menu
 	Checksum: 0xE94C82FC
 	Offset: 0x3A8
@@ -280,13 +280,13 @@ function function_6c680730(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_300eba00(localclientnum, value)
+function set_hostIsSkipping(localclientnum, value)
 {
-	[[ self ]]->function_300eba00(localclientnum, value);
+	[[ self ]]->set_hostIsSkipping(localclientnum, value);
 }
 
 /*
-	Name: function_5d0d17fd
+	Name: set_votedToSkip
 	Namespace: cp_skip_scene_menu
 	Checksum: 0x4FDEE030
 	Offset: 0x3D8
@@ -294,13 +294,13 @@ function function_300eba00(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5d0d17fd(localclientnum, value)
+function set_votedToSkip(localclientnum, value)
 {
-	[[ self ]]->function_5d0d17fd(localclientnum, value);
+	[[ self ]]->set_votedToSkip(localclientnum, value);
 }
 
 /*
-	Name: function_dad9a8ef
+	Name: set_sceneSkipEndTime
 	Namespace: cp_skip_scene_menu
 	Checksum: 0xC9208761
 	Offset: 0x408
@@ -308,8 +308,8 @@ function function_5d0d17fd(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_dad9a8ef(localclientnum, value)
+function set_sceneSkipEndTime(localclientnum, value)
 {
-	[[ self ]]->function_dad9a8ef(localclientnum, value);
+	[[ self ]]->set_sceneSkipEndTime(localclientnum, value);
 }
 

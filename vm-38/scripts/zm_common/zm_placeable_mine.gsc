@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_8988fdbc78d6c53;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

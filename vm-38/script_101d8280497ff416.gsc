@@ -1350,8 +1350,8 @@ function private function_e25c9d12(var_f16b79a, &var_8107154f, spawncount, var_b
 			{
 				if(var_8107154f[var_a1b91de4[pointindex]] == -2)
 				{
-					var_9ffcb596 = self function_35461e5f(var_f16b79a + items.size, var_75aa5cbb, var_be90d3da, falling);
-					items = arraycombine(items, var_9ffcb596, 1, 0);
+					spawnitems = self function_35461e5f(var_f16b79a + items.size, var_75aa5cbb, var_be90d3da, falling);
+					items = arraycombine(items, spawnitems, 1, 0);
 				}
 				else
 				{
@@ -1855,8 +1855,8 @@ function function_5eada592(scriptbundlename, linkto)
 				var_8107154f[var_8107154f.size] = -2;
 				if(!var_bbe618cc)
 				{
-					var_9ffcb596 = function_35461e5f(items.size, row, 1, 1);
-					items = arraycombine(items, var_9ffcb596, 1, 0);
+					spawnitems = function_35461e5f(items.size, row, 1, 1);
+					items = arraycombine(items, spawnitems, 1, 0);
 				}
 				available--;
 			}
@@ -1878,8 +1878,8 @@ function function_5eada592(scriptbundlename, linkto)
 				}
 				itemspawnlist = spawnstruct();
 				itemspawnlist.var_b91441dd = var_b91441dd;
-				var_9ffcb596 = itemspawnlist function_e25c9d12(items.size, var_8107154f, var_8107154f.size, 1);
-				items = arraycombine(items, var_9ffcb596, 1, 0);
+				spawnitems = itemspawnlist function_e25c9d12(items.size, var_8107154f, var_8107154f.size, 1);
+				items = arraycombine(items, spawnitems, 1, 0);
 			}
 		}
 	}

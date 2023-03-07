@@ -1,6 +1,6 @@
 #using script_62caa307a394c18c;
 #using script_6809bf766eba194a;
-#using script_7a7230237f77d815;
+#using scripts\weapons\molotov.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\hud_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -35,7 +35,7 @@ function private autoexec function_2a8a9952()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_73305c73e19c1e8f", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"molotov_zm", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
@@ -50,9 +50,9 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	level.var_31179876 = &function_16a57018;
-	zm_weapons::function_90953640(getweapon(#"hash_23dd6039fe2f36c6"));
+	zm_weapons::function_90953640(getweapon(#"molotov_fire"));
 	zm_weapons::function_90953640(getweapon(#"eq_molotov"));
-	zm_weapons::function_be9d79c3(getweapon(#"hash_23dd6039fe2f36c6"));
+	zm_weapons::function_be9d79c3(getweapon(#"molotov_fire"));
 	clientfield::register("actor", "molotov_zm_fire_fx", 1, 1, "int");
 }
 

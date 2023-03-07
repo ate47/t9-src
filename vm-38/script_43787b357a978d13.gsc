@@ -90,8 +90,8 @@ function grab_insta_kill(player)
 */
 function function_d7a1e6a8(var_7d81025, player)
 {
-	player notify(#"hash_1fa5ede82a39664c");
-	player endon(#"hash_1fa5ede82a39664c", #"disconnect");
+	player notify(#"powerup instakill");
+	player endon(#"powerup instakill", #"disconnect");
 	if(player bgb::is_enabled(#"zm_bgb_temporal_gift"))
 	{
 		n_wait_time = 60;

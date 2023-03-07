@@ -1,7 +1,7 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_f57714e4 : class_6aaccc24
+class class_f57714e4 : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
@@ -75,7 +75,7 @@ class class_f57714e4 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class class_f57714e4 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -243,26 +243,26 @@ class class_f57714e4 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("HUD_Spy");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 3, "int");
-		namespace_6aaccc24::function_da693cbe("player_role", 20000, 2, "int");
-		namespace_6aaccc24::function_da693cbe("player_id_number", 20000, 5, "int");
-		namespace_6aaccc24::function_da693cbe("alive_player_count", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("missing_player_count", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("operative_player_count", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("investigator_player_count", 20000, 2, "int");
-		namespace_6aaccc24::function_da693cbe("double_agent_player_count", 20000, 3, "int");
-		namespace_6aaccc24::function_da693cbe("body_player_clientnum", 20000, 7, "int");
-		namespace_6aaccc24::function_da693cbe("body_agent_id", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("body_identity", 20000, 2, "int");
-		namespace_6aaccc24::function_da693cbe("display_autopsy", 20000, 1, "int");
-		namespace_6aaccc24::function_da693cbe("timeSinceDeath", 20000, 16, "int");
-		namespace_6aaccc24::function_da693cbe("body_killed_by_mod", 20000, 5, "int");
-		namespace_6aaccc24::function_da693cbe("add_objective_id", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("current_objective_count", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("notification_id", 20000, 4, "int");
-		namespace_6aaccc24::function_da693cbe("aux_notification_param", 20000, 5, "int");
-		namespace_6aaccc24::function_da693cbe("dirty_bomb_id", 20000, 2, "int");
+		cLUIelem::setup_clientfields("HUD_Spy");
+		cLUIelem::function_da693cbe("_state", 1, 3, "int");
+		cLUIelem::function_da693cbe("player_role", 20000, 2, "int");
+		cLUIelem::function_da693cbe("player_id_number", 20000, 5, "int");
+		cLUIelem::function_da693cbe("alive_player_count", 20000, 4, "int");
+		cLUIelem::function_da693cbe("missing_player_count", 20000, 4, "int");
+		cLUIelem::function_da693cbe("operative_player_count", 20000, 4, "int");
+		cLUIelem::function_da693cbe("investigator_player_count", 20000, 2, "int");
+		cLUIelem::function_da693cbe("double_agent_player_count", 20000, 3, "int");
+		cLUIelem::function_da693cbe("body_player_clientnum", 20000, 7, "int");
+		cLUIelem::function_da693cbe("body_agent_id", 20000, 4, "int");
+		cLUIelem::function_da693cbe("body_identity", 20000, 2, "int");
+		cLUIelem::function_da693cbe("display_autopsy", 20000, 1, "int");
+		cLUIelem::function_da693cbe("timeSinceDeath", 20000, 16, "int");
+		cLUIelem::function_da693cbe("body_killed_by_mod", 20000, 5, "int");
+		cLUIelem::function_da693cbe("add_objective_id", 20000, 4, "int");
+		cLUIelem::function_da693cbe("current_objective_count", 20000, 4, "int");
+		cLUIelem::function_da693cbe("notification_id", 20000, 4, "int");
+		cLUIelem::function_da693cbe("aux_notification_param", 20000, 5, "int");
+		cLUIelem::function_da693cbe("dirty_bomb_id", 20000, 2, "int");
 	}
 
 	/*

@@ -1,8 +1,8 @@
-#namespace namespace_799b5780;
+#namespace player_truck_transport;
 
 /*
 	Name: function_231ddb0d
-	Namespace: namespace_799b5780
+	Namespace: player_truck_transport
 	Checksum: 0x66ADEFDC
 	Offset: 0x60
 	Size: 0x14

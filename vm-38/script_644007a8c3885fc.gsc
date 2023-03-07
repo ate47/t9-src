@@ -32,7 +32,7 @@ function private autoexec function_89f2df9()
 }
 
 /*
-	Name: function_9738468f
+	Name: __init
 	Namespace: namespace_1c7b37c6
 	Checksum: 0xC37B622B
 	Offset: 0xD8
@@ -40,7 +40,7 @@ function private autoexec function_89f2df9()
 	Parameters: 0
 	Flags: AutoExec
 */
-function autoexec function_9738468f()
+function autoexec __init()
 {
 	function_41453b43();
 }

@@ -1,4 +1,4 @@
-#using script_79a7e1c31a3e8cc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\oob.gsc;
 #using scripts\core_common\scene_shared.gsc;

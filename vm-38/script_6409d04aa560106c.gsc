@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_af345a5f : class_6aaccc24
+class czm_laststand_client : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_af345a5f
+		Namespace: czm_laststand_client
 		Checksum: 0x179B1BF4
 		Offset: 0x3F8
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_af345a5f : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_af345a5f
+		Namespace: czm_laststand_client
 		Checksum: 0xA858F513
 		Offset: 0x660
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_af345a5f : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_af345a5f
+		Namespace: czm_laststand_client
 		Checksum: 0xF1DEB3EB
 		Offset: 0x588
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_af345a5f : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_af345a5f
+		Namespace: czm_laststand_client
 		Checksum: 0x3FC5E3BB
 		Offset: 0x4D0
 		Size: 0x1C
@@ -54,40 +54,40 @@ class class_af345a5f : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_laststand_client");
+		cLUIelem::function_5c1bb138("zm_laststand_client");
 	}
 
 	/*
-		Name: function_65194707
-		Namespace: namespace_af345a5f
+		Name: set_num_downs
+		Namespace: czm_laststand_client
 		Checksum: 0xFE2D9A2F
 		Offset: 0x628
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_65194707(localclientnum, value)
+	function set_num_downs(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "num_downs", value);
 	}
 
 	/*
-		Name: function_67bdfe40
-		Namespace: namespace_af345a5f
+		Name: set_bleedout_progress
+		Namespace: czm_laststand_client
 		Checksum: 0x3567927F
 		Offset: 0x5B8
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_67bdfe40(localclientnum, value)
+	function set_bleedout_progress(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "bleedout_progress", value);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_af345a5f
+		Namespace: czm_laststand_client
 		Checksum: 0x8EBEADF4
 		Offset: 0x418
 		Size: 0xAC
@@ -96,29 +96,29 @@ class class_af345a5f : class_6aaccc24
 	*/
 	function setup_clientfields(var_a9a4e140, var_e97e7153, var_5db69c99)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_laststand_client");
-		namespace_6aaccc24::function_da693cbe("bleedout_progress", 1, 8, "float", var_a9a4e140);
-		namespace_6aaccc24::function_da693cbe("revive_progress", 1, 8, "float", var_e97e7153);
-		namespace_6aaccc24::function_da693cbe("num_downs", 1, 8, "int", var_5db69c99);
+		cLUIelem::setup_clientfields("zm_laststand_client");
+		cLUIelem::function_da693cbe("bleedout_progress", 1, 8, "float", var_a9a4e140);
+		cLUIelem::function_da693cbe("revive_progress", 1, 8, "float", var_e97e7153);
+		cLUIelem::function_da693cbe("num_downs", 1, 8, "int", var_5db69c99);
 	}
 
 	/*
-		Name: function_d50fdde9
-		Namespace: namespace_af345a5f
+		Name: set_revive_progress
+		Namespace: czm_laststand_client
 		Checksum: 0x3CE0F577
 		Offset: 0x5F0
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_d50fdde9(localclientnum, value)
+	function set_revive_progress(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "revive_progress", value);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_af345a5f
+		Namespace: czm_laststand_client
 		Checksum: 0x48ABD658
 		Offset: 0x4F8
 		Size: 0x88
@@ -127,7 +127,7 @@ class class_af345a5f : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "bleedout_progress", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "revive_progress", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "num_downs", 0);
@@ -162,7 +162,7 @@ function private autoexec function_6960a41()
 */
 function register(var_a9a4e140, var_e97e7153, var_5db69c99)
 {
-	elem = new class_af345a5f();
+	elem = new czm_laststand_client();
 	[[ elem ]]->setup_clientfields(var_a9a4e140, var_e97e7153, var_5db69c99);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -194,7 +194,7 @@ function register(var_a9a4e140, var_e97e7153, var_5db69c99)
 */
 function function_5c1bb138()
 {
-	elem = new class_af345a5f();
+	elem = new czm_laststand_client();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -242,7 +242,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_67bdfe40
+	Name: set_bleedout_progress
 	Namespace: zm_laststand_client
 	Checksum: 0xEA988A67
 	Offset: 0x368
@@ -250,13 +250,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_67bdfe40(localclientnum, value)
+function set_bleedout_progress(localclientnum, value)
 {
-	[[ self ]]->function_67bdfe40(localclientnum, value);
+	[[ self ]]->set_bleedout_progress(localclientnum, value);
 }
 
 /*
-	Name: function_d50fdde9
+	Name: set_revive_progress
 	Namespace: zm_laststand_client
 	Checksum: 0x68C99A48
 	Offset: 0x398
@@ -264,13 +264,13 @@ function function_67bdfe40(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_d50fdde9(localclientnum, value)
+function set_revive_progress(localclientnum, value)
 {
-	[[ self ]]->function_d50fdde9(localclientnum, value);
+	[[ self ]]->set_revive_progress(localclientnum, value);
 }
 
 /*
-	Name: function_65194707
+	Name: set_num_downs
 	Namespace: zm_laststand_client
 	Checksum: 0x5B84B300
 	Offset: 0x3C8
@@ -278,8 +278,8 @@ function function_d50fdde9(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_65194707(localclientnum, value)
+function set_num_downs(localclientnum, value)
 {
-	[[ self ]]->function_65194707(localclientnum, value);
+	[[ self ]]->set_num_downs(localclientnum, value);
 }
 

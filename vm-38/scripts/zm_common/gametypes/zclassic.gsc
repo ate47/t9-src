@@ -3,9 +3,9 @@
 #using script_3411bb48d41bd3b;
 #using script_34ab99a4ca1a43d;
 #using script_4421226bbc54b398;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_67ce8e728d8f37ba;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_799de24f8ad427f7;
 #using script_7b1cd3908a825fdd;
 #using script_db06eb511bd9b36;
@@ -68,7 +68,7 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
+	level._round_start_func = &zm_round_logic::round_start;
 	level.var_4d30a9f0 = 1;
 	level.var_cdc822b = &function_38499d79;
 	level.var_9f01688e = 1;
@@ -76,7 +76,7 @@ event main(eventstruct)
 	level thread function_a24232f4();
 	namespace_58949729::function_5a12541e();
 	level thread intro_cinematic();
-	callback::function_189f87c1(&function_189f87c1);
+	callback::on_round_end(&on_round_end);
 	callback::add_callback(#"hash_594217387367ebb4", &function_d81240c3);
 	callback::add_callback(#"hash_3b7d3ed9e484ef72", &function_809241a9);
 	callback::on_spawned(&on_player_spawn);
@@ -322,7 +322,7 @@ function function_a24232f4()
 }
 
 /*
-	Name: function_189f87c1
+	Name: on_round_end
 	Namespace: zclassic
 	Checksum: 0xB5C41EFF
 	Offset: 0xE08
@@ -330,7 +330,7 @@ function function_a24232f4()
 	Parameters: 0
 	Flags: None
 */
-function function_189f87c1()
+function on_round_end()
 {
 	level endon(#"hash_3e765c26047c9f54", #"end_game");
 	var_370ac26d = zm::function_d3113f01().var_bd588afd;

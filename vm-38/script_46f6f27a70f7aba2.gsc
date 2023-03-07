@@ -83,9 +83,9 @@ function notfunc(b_value)
 	Parameters: 2
 	Flags: None
 */
-function lessthan(var_8b1a2ec6, var_d2073c9f)
+function lessthan(var_a, var_b)
 {
-	return var_8b1a2ec6 < var_d2073c9f;
+	return var_a < var_b;
 }
 
 /*
@@ -97,9 +97,9 @@ function lessthan(var_8b1a2ec6, var_d2073c9f)
 	Parameters: 2
 	Flags: None
 */
-function function_b457969e(var_8b1a2ec6, var_d2073c9f)
+function function_b457969e(var_a, var_b)
 {
-	return var_8b1a2ec6 <= var_d2073c9f;
+	return var_a <= var_b;
 }
 
 /*
@@ -111,9 +111,9 @@ function function_b457969e(var_8b1a2ec6, var_d2073c9f)
 	Parameters: 2
 	Flags: None
 */
-function greaterthan(var_8b1a2ec6, var_d2073c9f)
+function greaterthan(var_a, var_b)
 {
-	return var_8b1a2ec6 > var_d2073c9f;
+	return var_a > var_b;
 }
 
 /*
@@ -125,9 +125,9 @@ function greaterthan(var_8b1a2ec6, var_d2073c9f)
 	Parameters: 2
 	Flags: None
 */
-function function_3743e19e(var_8b1a2ec6, var_d2073c9f)
+function function_3743e19e(var_a, var_b)
 {
-	return var_8b1a2ec6 >= var_d2073c9f;
+	return var_a >= var_b;
 }
 
 /*
@@ -139,9 +139,9 @@ function function_3743e19e(var_8b1a2ec6, var_d2073c9f)
 	Parameters: 2
 	Flags: None
 */
-function equal(var_8b1a2ec6, var_d2073c9f)
+function equal(var_a, var_b)
 {
-	return var_8b1a2ec6 == var_d2073c9f;
+	return var_a == var_b;
 }
 
 /*
@@ -715,9 +715,9 @@ function randomunitvector()
 	Parameters: 2
 	Flags: None
 */
-function multiply(var_d895ca40, var_3029f96f)
+function multiply(var_1, var_2)
 {
-	return var_3029f96f * var_3029f96f;
+	return var_2 * var_2;
 }
 
 /*
@@ -729,9 +729,9 @@ function multiply(var_d895ca40, var_3029f96f)
 	Parameters: 2
 	Flags: None
 */
-function divide(var_d895ca40, var_3029f96f)
+function divide(var_1, var_2)
 {
-	return var_d895ca40 / var_3029f96f;
+	return var_1 / var_2;
 }
 
 /*
@@ -743,9 +743,9 @@ function divide(var_d895ca40, var_3029f96f)
 	Parameters: 2
 	Flags: None
 */
-function add(var_d895ca40, var_3029f96f)
+function add(var_1, var_2)
 {
-	return var_d895ca40 + var_3029f96f;
+	return var_1 + var_2;
 }
 
 /*
@@ -757,9 +757,9 @@ function add(var_d895ca40, var_3029f96f)
 	Parameters: 2
 	Flags: None
 */
-function subtract(var_d895ca40, var_3029f96f)
+function subtract(var_1, var_2)
 {
-	return var_d895ca40 - var_3029f96f;
+	return var_1 - var_2;
 }
 
 /*
@@ -790,11 +790,11 @@ function vectordotfunc(v_1, v_2)
 	return vectordot(v_1, v_2);
 }
 
-#namespace namespace_f851c3be;
+#namespace flowgraph_level;
 
 /*
 	Name: function_35dc468d
-	Namespace: namespace_f851c3be
+	Namespace: flowgraph_level
 	Checksum: 0xCDC37090
 	Offset: 0x1B50
 	Size: 0x18
@@ -808,7 +808,7 @@ function function_35dc468d(str_field)
 
 /*
 	Name: function_f9d5c4b0
-	Namespace: namespace_f851c3be
+	Namespace: flowgraph_level
 	Checksum: 0x7504DE3E
 	Offset: 0x1B70
 	Size: 0x32

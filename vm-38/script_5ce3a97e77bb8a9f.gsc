@@ -1,7 +1,7 @@
 #using script_13da4e6b98ca81a1;
 #using script_3d0f36632dad12df;
 #using script_5520b91a8aa516ab;
-#using script_6ad3fda349f49bf9;
+#using scripts\killstreaks\killstreak_detect.csc;
 #using script_7bee869df82e0445;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

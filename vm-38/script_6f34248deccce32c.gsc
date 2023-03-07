@@ -1,4 +1,4 @@
-#using script_1ca35695cd4aeeea;
+#using scripts\weapons\weapons.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace weapons;

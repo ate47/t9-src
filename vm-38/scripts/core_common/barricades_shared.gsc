@@ -5,7 +5,7 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 
-class class_65d2fd70 : cdoor
+class cbarricade : cdoor
 {
 	var m_e_door;
 	var var_a2f96f78;
@@ -13,7 +13,7 @@ class class_65d2fd70 : cdoor
 
 	/*
 		Name: constructor
-		Namespace: namespace_65d2fd70
+		Namespace: cbarricade
 		Checksum: 0x882363E2
 		Offset: 0x348
 		Size: 0x22
@@ -27,7 +27,7 @@ class class_65d2fd70 : cdoor
 
 	/*
 		Name: destructor
-		Namespace: namespace_65d2fd70
+		Namespace: cbarricade
 		Checksum: 0x8E4C70AC
 		Offset: 0x378
 		Size: 0x14
@@ -40,7 +40,7 @@ class class_65d2fd70 : cdoor
 
 	/*
 		Name: function_6c15ac46
-		Namespace: namespace_65d2fd70
+		Namespace: cbarricade
 		Checksum: 0xF2D9D29F
 		Offset: 0x9A8
 		Size: 0x138
@@ -68,7 +68,7 @@ class class_65d2fd70 : cdoor
 
 	/*
 		Name: init
-		Namespace: namespace_65d2fd70
+		Namespace: cbarricade
 		Checksum: 0x72743651
 		Offset: 0x398
 		Size: 0x224
@@ -108,7 +108,7 @@ class class_65d2fd70 : cdoor
 
 	/*
 		Name: function_b4a1f06a
-		Namespace: namespace_65d2fd70
+		Namespace: cbarricade
 		Checksum: 0xEC4627FD
 		Offset: 0x5C8
 		Size: 0x280
@@ -165,7 +165,7 @@ class class_65d2fd70 : cdoor
 
 	/*
 		Name: function_da5abae9
-		Namespace: namespace_65d2fd70
+		Namespace: cbarricade
 		Checksum: 0xD4FD4E9E
 		Offset: 0x850
 		Size: 0x14E
@@ -196,11 +196,11 @@ class class_65d2fd70 : cdoor
 
 }
 
-#namespace namespace_43b55000;
+#namespace barricades_shared;
 
 /*
 	Name: function_f8c32aff
-	Namespace: namespace_43b55000
+	Namespace: barricades_shared
 	Checksum: 0xCEB36900
 	Offset: 0x130
 	Size: 0x14
@@ -269,7 +269,7 @@ function function_14354831()
 	{
 		var_9fecaae1 = getscriptbundle(self.scriptbundlename);
 	}
-	var_2a44a7ed = new class_65d2fd70();
+	var_2a44a7ed = new cbarricade();
 	var_2a44a7ed = [[ var_2a44a7ed ]]->init(var_9fecaae1, self);
 	return var_2a44a7ed;
 }

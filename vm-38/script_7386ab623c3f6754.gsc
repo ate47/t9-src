@@ -3,8 +3,8 @@
 #using script_3f9e0dc8454d98e1;
 #using script_62caa307a394c18c;
 #using script_72401f526ba71638;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

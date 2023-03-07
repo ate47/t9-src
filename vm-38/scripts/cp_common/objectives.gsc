@@ -599,7 +599,7 @@ function function_4279fd02()
 }
 
 /*
-	Name: function_affe8f61
+	Name: set_progress
 	Namespace: objectives
 	Checksum: 0x5F61F13E
 	Offset: 0x14F0
@@ -607,13 +607,13 @@ function function_4279fd02()
 	Parameters: 3
 	Flags: None
 */
-function function_affe8f61(str_objective, a_targets, n_progress)
+function set_progress(str_objective, a_targets, n_progress)
 {
 	a_n_objective_ids = get_id_array(str_objective, a_targets);
 	foreach(n_objective_id in a_n_objective_ids)
 	{
 		objective_setprogress(n_objective_id, n_progress);
-		namespace_96850e69::function_affe8f61(n_objective_id, n_progress);
+		namespace_96850e69::set_progress(n_objective_id, n_progress);
 	}
 }
 

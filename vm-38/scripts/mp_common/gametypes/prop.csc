@@ -44,7 +44,7 @@ event main(eventstruct)
 	clientfield::function_a8bbc967("hudItems.numPropDecoys", #"hud_items", #"hash_30bdcde2ca8cdccf", 16000, 4, "int", undefined, 0, 1);
 	clientfield::register("toplayer", "realtime_multiplay", 16000, 1, "int", &function_a1b40aa4, 0, 1);
 	level.var_82e6af5d = mp_prop_timer::register();
-	level.var_314165c4 = mp_prop_controls::register();
+	level.prop_controls = mp_prop_controls::register();
 	callback::on_localplayer_spawned(&function_357207b9);
 	level.var_20ece392 = &function_aa5f176f;
 	thread function_2691bc1b();
@@ -448,16 +448,16 @@ function function_b9fceaaf(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_f6c0a66e(localclientnum, var_b0a45a26)
+function function_f6c0a66e(localclientnum, teamint)
 {
 	self endon(#"entityshutdown");
 	self notify(#"hash_65350e9157e1e7fd");
 	self endon(#"hash_65350e9157e1e7fd");
 	/#
-		assert(var_b0a45a26 == 1 || var_b0a45a26 == 2);
+		assert(teamint == 1 || teamint == 2);
 	#/
 	team = "allies";
-	if(var_b0a45a26 == 2)
+	if(teamint == 2)
 	{
 		team = "axis";
 	}

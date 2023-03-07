@@ -1,5 +1,5 @@
 #using script_22a36cbdf7e3bd31;
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using script_2c5f2d4e7aa698c4;
 #using script_2c6e6e28dd66dcc4;
 #using script_2c8fd33ddb45e78b;
@@ -20,11 +20,11 @@
 #using scripts\zm\zm_silver_util.csc;
 #using scripts\zm\zm_silver_ww_quest.csc;
 
-#namespace namespace_ee0fc845;
+#namespace zm_silver;
 
 /*
 	Name: function_1ac9f7b2
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x19703F2F
 	Offset: 0x378
 	Size: 0x14
@@ -38,7 +38,7 @@ function private autoexec function_1ac9f7b2()
 
 /*
 	Name: opt_in
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x46878112
 	Offset: 0x398
 	Size: 0x84
@@ -54,7 +54,7 @@ function autoexec opt_in()
 
 /*
 	Name: main
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0xB1754159
 	Offset: 0x428
 	Size: 0x4B4
@@ -65,7 +65,7 @@ event main(eventstruct)
 {
 	clientfield::function_a8bbc967("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_464e0cd19b3b8c12", 1, 1, "int", &function_c2858d41, 0, 0);
-	clientfield::register("toplayer", "" + #"hash_4be33f9c734f0cb9", 1, 2, "int", &namespace_f172695e::function_2f3017ad, 0, 0);
+	clientfield::register("toplayer", "" + #"hash_4be33f9c734f0cb9", 1, 2, "int", &zm_silver_sound::function_2f3017ad, 0, 0);
 	clientfield::register("world", "" + #"hash_5e38b0496d9664bb", 1, 3, "int", &function_ce2c0029, 0, 0);
 	clientfield::register("world", "" + #"hash_2690e69916d071d9", 1, 1, "int", &function_49d2af47, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_6696d96a08b9701d", 1, 1, "counter", &function_38ff7d89, 0, 0);
@@ -82,11 +82,11 @@ event main(eventstruct)
 	setdvar(#"hash_5e3c0f05d2935beb", 1);
 	setsaveddvar(#"hash_235cfa4e56938e9c", 100);
 	namespace_812a8849::init();
-	namespace_9f845210::function_842831cf();
-	namespace_c8c67699::init();
-	namespace_d769652e::init();
-	namespace_2b924e50::init();
-	namespace_f172695e::init();
+	zm_silver_pap_quest::function_842831cf();
+	zm_silver_ww_quest::init();
+	zm_silver_main_quest::init();
+	zm_silver_util::init();
+	zm_silver_sound::init();
 	namespace_45690bb8::init();
 	load::main();
 	util::function_89a98f85();
@@ -95,7 +95,7 @@ event main(eventstruct)
 
 /*
 	Name: function_f16e4af0
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x606C8248
 	Offset: 0x8E8
 	Size: 0x64
@@ -109,7 +109,7 @@ function function_f16e4af0(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: setup_personality_character_exerts
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x5C91C341
 	Offset: 0x958
 	Size: 0x282
@@ -138,7 +138,7 @@ function setup_personality_character_exerts()
 
 /*
 	Name: function_c2858d41
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0xA0439F4E
 	Offset: 0xBE8
 	Size: 0x7C
@@ -159,7 +159,7 @@ function function_c2858d41(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: on_localplayer_spawned
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x7C6C280F
 	Offset: 0xC70
 	Size: 0x54
@@ -174,7 +174,7 @@ function on_localplayer_spawned(localclientnum)
 
 /*
 	Name: function_ce2c0029
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x9396E064
 	Offset: 0xCD0
 	Size: 0x412
@@ -251,7 +251,7 @@ function function_ce2c0029(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_65490f35
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x1958A66D
 	Offset: 0x10F0
 	Size: 0xD0
@@ -284,7 +284,7 @@ function private function_65490f35(localclientnum, var_2de789b, var_2d090e03, n_
 
 /*
 	Name: function_33593a44
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x455F2A21
 	Offset: 0x11C8
 	Size: 0x1FE
@@ -330,7 +330,7 @@ function private function_33593a44(localclientnum, var_312d65d1, var_68f7ce2e, n
 
 /*
 	Name: function_49d2af47
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x34F5939A
 	Offset: 0x13D0
 	Size: 0x94
@@ -351,7 +351,7 @@ function function_49d2af47(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_38ff7d89
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x457BA2D
 	Offset: 0x1470
 	Size: 0x6C
@@ -368,7 +368,7 @@ function function_38ff7d89(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_83c1bbf4
-	Namespace: namespace_ee0fc845
+	Namespace: zm_silver
 	Checksum: 0x555F456A
 	Offset: 0x14E8
 	Size: 0x6C

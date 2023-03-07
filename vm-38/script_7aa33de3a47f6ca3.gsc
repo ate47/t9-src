@@ -109,11 +109,11 @@ function open(var_738a6265, top_left, bottom_right, var_879505e1, var_ff0f9714, 
 		}
 		if(isdefined(map_width))
 		{
-			namespace_61e6d095::function_8b0b5811(#"hash_ee64d6a280a2e42", map_width);
+			namespace_61e6d095::set_width(#"hash_ee64d6a280a2e42", map_width);
 		}
 		if(isdefined(map_height))
 		{
-			namespace_61e6d095::function_5dbd7024(#"hash_ee64d6a280a2e42", map_height);
+			namespace_61e6d095::set_height(#"hash_ee64d6a280a2e42", map_height);
 		}
 		if(is_true(var_7ec0800f) && isentity(top_left) && isentity(bottom_right))
 		{

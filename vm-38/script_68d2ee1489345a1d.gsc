@@ -1,4 +1,4 @@
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;
 

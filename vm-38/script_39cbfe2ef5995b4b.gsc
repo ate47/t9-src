@@ -51,7 +51,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(namespace_b376ff3f::function_7d5553ac())
+	if(item_inventory::function_7d5553ac())
 	{
 		return;
 	}
@@ -110,12 +110,12 @@ function private function_d045e83b(item, player, var_bd027dd9, var_d8138db2, ite
 		#/
 		return 0;
 	}
-	if(!self namespace_b376ff3f::function_e106cbe9(var_d8138db2))
+	if(!self item_inventory::function_e106cbe9(var_d8138db2))
 	{
 		return (isdefined(slot) ? slot : (isdefined(var_d8138db2.var_a6762160.amount) ? var_d8138db2.var_a6762160.amount : 1));
 	}
 	itemcount function_b00db06(8, var_aec6fa7f);
-	return itemcount namespace_b376ff3f::function_11089ed8(var_d8138db2, slot);
+	return itemcount item_inventory::equip_ammo(var_d8138db2, slot);
 }
 
 /*
@@ -138,24 +138,24 @@ function private function_2e5b5858(item, player, var_bd027dd9, var_d8138db2, ite
 	{
 		if(var_d8138db2 armor::has_armor())
 		{
-			var_b619c089 = var_d8138db2.inventory.items[6];
-			if(var_b619c089.var_bd027dd9 != 32767)
+			inventoryitem = var_d8138db2.inventory.items[6];
+			if(inventoryitem.var_bd027dd9 != 32767)
 			{
-				droppeditem = var_b619c089.var_a6762160;
+				droppeditem = inventoryitem.var_a6762160;
 				var_3d1f9df4 = droppeditem.amount;
 			}
 		}
-		var_d8138db2 namespace_b376ff3f::drop_armor();
-		var_77e61fc6 = var_d8138db2 namespace_b376ff3f::function_e274f1fe(var_bd027dd9, 1, var_aec6fa7f, slotid);
+		var_d8138db2 item_inventory::drop_armor();
+		var_77e61fc6 = var_d8138db2 item_inventory::function_e274f1fe(var_bd027dd9, 1, var_aec6fa7f, slotid);
 		if(var_77e61fc6 < itemcount)
 		{
 			if(isdefined(var_bd027dd9.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_bd027dd9.var_bd027dd9))
 			{
-				var_bd027dd9 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
+				var_bd027dd9 = item_inventory::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
 			}
-			if(var_d8138db2 namespace_b376ff3f::function_fba4a353(var_bd027dd9))
+			if(var_d8138db2 item_inventory::function_fba4a353(var_bd027dd9))
 			{
-				var_d8138db2 namespace_b376ff3f::equip_armor(var_bd027dd9);
+				var_d8138db2 item_inventory::equip_armor(var_bd027dd9);
 				var_b0938bd7 = var_bd027dd9.var_a6762160;
 				var_381f3b39 = var_bd027dd9.var_a6762160.amount;
 			}
@@ -168,8 +168,8 @@ function private function_2e5b5858(item, player, var_bd027dd9, var_d8138db2, ite
 		{
 			if(var_bd027dd9.var_a6762160.armortier > var_d8138db2.armortier)
 			{
-				var_b619c089 = var_d8138db2.inventory.items[6];
-				var_4d7e11d8 = var_d8138db2 namespace_b376ff3f::function_418f9eb8(var_b619c089.var_bd027dd9);
+				inventoryitem = var_d8138db2.inventory.items[6];
+				var_4d7e11d8 = var_d8138db2 item_inventory::function_418f9eb8(inventoryitem.var_bd027dd9);
 				var_4d7e11d8 delete();
 				noarmor = 1;
 			}
@@ -178,22 +178,22 @@ function private function_2e5b5858(item, player, var_bd027dd9, var_d8138db2, ite
 				noarmor = 0;
 				if(isdefined(var_d8138db2.armor) && isdefined(var_d8138db2.maxarmor))
 				{
-					var_b619c089 = var_d8138db2.inventory.items[6];
-					var_b619c089.amount = var_d8138db2.maxarmor;
+					inventoryitem = var_d8138db2.inventory.items[6];
+					inventoryitem.amount = var_d8138db2.maxarmor;
 					var_d8138db2.armor = var_d8138db2.maxarmor;
 				}
 			}
 		}
 		if(noarmor)
 		{
-			var_d8138db2 namespace_b376ff3f::function_e274f1fe(var_bd027dd9, 1, var_aec6fa7f, slotid);
+			var_d8138db2 item_inventory::function_e274f1fe(var_bd027dd9, 1, var_aec6fa7f, slotid);
 			if(isdefined(var_bd027dd9.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_bd027dd9.var_bd027dd9))
 			{
-				var_bd027dd9 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
+				var_bd027dd9 = item_inventory::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
 			}
-			if(var_d8138db2 namespace_b376ff3f::function_fba4a353(var_bd027dd9))
+			if(var_d8138db2 item_inventory::function_fba4a353(var_bd027dd9))
 			{
-				var_d8138db2 namespace_b376ff3f::equip_armor(var_bd027dd9);
+				var_d8138db2 item_inventory::equip_armor(var_bd027dd9);
 				var_b0938bd7 = var_bd027dd9.var_a6762160;
 				var_381f3b39 = var_bd027dd9.var_a6762160.amount;
 			}
@@ -214,8 +214,8 @@ function private function_2e5b5858(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_cb9b4dd7(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
-	itemcount namespace_b376ff3f::function_3d113bfb();
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	itemcount item_inventory::function_3d113bfb();
 	return var_77e61fc6;
 }
 
@@ -230,20 +230,20 @@ function private function_cb9b4dd7(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_14b2eddf(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_f0dc4e93 = itemcount namespace_b376ff3f::function_ec087745();
+	var_f0dc4e93 = itemcount item_inventory::function_ec087745();
 	var_4838b749 = undefined;
 	if(isdefined(var_f0dc4e93) && var_f0dc4e93 != 32767)
 	{
-		var_4838b749 = itemcount namespace_b376ff3f::function_b246c573(var_f0dc4e93);
+		var_4838b749 = itemcount item_inventory::function_b246c573(var_f0dc4e93);
 	}
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	if(isdefined(var_4838b749) && isdefined(slotid) && namespace_a0d533d1::function_398b9770(var_4838b749, slotid))
 	{
 		if(isdefined(var_d8138db2.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_d8138db2.var_bd027dd9))
 		{
-			var_d8138db2 = namespace_b376ff3f::function_dfcacdc2(var_d8138db2.var_bd027dd9);
+			var_d8138db2 = item_inventory::function_dfcacdc2(var_d8138db2.var_bd027dd9);
 		}
-		itemcount namespace_b376ff3f::function_224c09c9(var_d8138db2, var_f0dc4e93, undefined, 0);
+		itemcount item_inventory::equip_attachment(var_d8138db2, var_f0dc4e93, undefined, 0);
 	}
 	return var_77e61fc6;
 }
@@ -259,18 +259,18 @@ function private function_14b2eddf(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_42ffe9b2(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	if(itemcount namespace_b376ff3f::function_fba4a353(var_d8138db2))
+	if(itemcount item_inventory::function_fba4a353(var_d8138db2))
 	{
 		slotid = 8;
 	}
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	if(var_77e61fc6 < var_aec6fa7f && slotid === 8)
 	{
 		if(isdefined(var_d8138db2.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_d8138db2.var_bd027dd9))
 		{
-			var_d8138db2 = namespace_b376ff3f::function_dfcacdc2(var_d8138db2.var_bd027dd9);
+			var_d8138db2 = item_inventory::function_dfcacdc2(var_d8138db2.var_bd027dd9);
 		}
-		itemcount namespace_b376ff3f::function_2dab8a7f(var_d8138db2);
+		itemcount item_inventory::equip_backpack(var_d8138db2);
 	}
 	return var_77e61fc6;
 }
@@ -286,16 +286,16 @@ function private function_42ffe9b2(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_2eebeff5(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = var_d8138db2 namespace_b376ff3f::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
+	var_77e61fc6 = var_d8138db2 item_inventory::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
 	if(var_77e61fc6 < itemcount)
 	{
 		if(isdefined(var_bd027dd9.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_bd027dd9.var_bd027dd9))
 		{
-			var_bd027dd9 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
+			var_bd027dd9 = item_inventory::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
 		}
-		if(var_d8138db2 namespace_b376ff3f::function_fba4a353(var_bd027dd9))
+		if(var_d8138db2 item_inventory::function_fba4a353(var_bd027dd9))
 		{
-			var_d8138db2 thread namespace_b376ff3f::function_c8bedf1b(var_bd027dd9);
+			var_d8138db2 thread item_inventory::equip_equipment(var_bd027dd9);
 		}
 	}
 	return var_77e61fc6;
@@ -312,16 +312,16 @@ function private function_2eebeff5(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_349d4c26(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	if(var_77e61fc6 < var_aec6fa7f)
 	{
 		if(isdefined(var_d8138db2.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_d8138db2.var_bd027dd9))
 		{
-			var_d8138db2 = namespace_b376ff3f::function_dfcacdc2(var_d8138db2.var_bd027dd9);
+			var_d8138db2 = item_inventory::function_dfcacdc2(var_d8138db2.var_bd027dd9);
 		}
-		if(itemcount namespace_b376ff3f::function_fba4a353(var_d8138db2))
+		if(itemcount item_inventory::function_fba4a353(var_d8138db2))
 		{
-			itemcount thread namespace_b376ff3f::function_11fc9fa9(var_d8138db2);
+			itemcount thread item_inventory::equip_health(var_d8138db2);
 		}
 	}
 	return var_77e61fc6;
@@ -338,7 +338,7 @@ function private function_349d4c26(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_670cce3f(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	return var_77e61fc6;
 }
 
@@ -353,7 +353,7 @@ function private function_670cce3f(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_41a52251(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	return var_77e61fc6;
 }
 
@@ -368,7 +368,7 @@ function private function_41a52251(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_2b2e9302(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	itemcount callback::callback(#"hash_3b891b6daa75c782", var_d8138db2);
 	return var_77e61fc6;
 }
@@ -384,16 +384,16 @@ function private function_2b2e9302(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_7de52ecc(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = var_d8138db2 namespace_b376ff3f::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
+	var_77e61fc6 = var_d8138db2 item_inventory::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
 	if(var_77e61fc6 < itemcount)
 	{
 		if(isdefined(var_bd027dd9.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_bd027dd9.var_bd027dd9))
 		{
-			var_bd027dd9 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
+			var_bd027dd9 = item_inventory::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
 		}
-		if(var_d8138db2 namespace_b376ff3f::function_fba4a353(var_bd027dd9))
+		if(var_d8138db2 item_inventory::function_fba4a353(var_bd027dd9))
 		{
-			var_d8138db2 thread namespace_b376ff3f::function_854cf2c3(var_bd027dd9);
+			var_d8138db2 thread item_inventory::function_854cf2c3(var_bd027dd9);
 		}
 	}
 	return var_77e61fc6;
@@ -410,17 +410,17 @@ function private function_7de52ecc(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_898628ef(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = var_d8138db2 namespace_b376ff3f::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
+	var_77e61fc6 = var_d8138db2 item_inventory::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
 	stockammo = var_bd027dd9.stockammo;
 	if(var_77e61fc6 < itemcount)
 	{
 		if(isdefined(var_bd027dd9.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_bd027dd9.var_bd027dd9))
 		{
-			var_bd027dd9 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
+			var_bd027dd9 = item_inventory::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
 		}
-		if(var_d8138db2 namespace_b376ff3f::function_fba4a353(var_bd027dd9))
+		if(var_d8138db2 item_inventory::function_fba4a353(var_bd027dd9))
 		{
-			var_d8138db2 thread namespace_b376ff3f::function_1ac37022(var_bd027dd9, stockammo);
+			var_d8138db2 thread item_inventory::function_1ac37022(var_bd027dd9, stockammo);
 		}
 	}
 	return var_77e61fc6;
@@ -437,7 +437,7 @@ function private function_898628ef(item, player, var_bd027dd9, var_d8138db2, ite
 */
 function private function_a240798a(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
 {
-	var_77e61fc6 = itemcount namespace_b376ff3f::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
+	var_77e61fc6 = itemcount item_inventory::function_e274f1fe(var_d8138db2, var_aec6fa7f, undefined, slotid);
 	return var_77e61fc6;
 }
 
@@ -471,7 +471,7 @@ function private function_c3f4d281(item, player, var_bd027dd9, var_d8138db2, ite
 	var_f945fa92 = getweapon(#"bare_hands");
 	foreach(weaponslot in namespace_a0d533d1::function_4905dddf())
 	{
-		inventoryweapon = self namespace_a0d533d1::function_2b83d3ff(self namespace_b376ff3f::function_2e711614(weaponslot));
+		inventoryweapon = self namespace_a0d533d1::function_2b83d3ff(self item_inventory::function_2e711614(weaponslot));
 		if(isdefined(inventoryweapon) && inventoryweapon != nullweapon && inventoryweapon != var_f945fa92 && inventoryweapon.weapclass != "melee")
 		{
 			var_1326fcc7 = (isdefined(slotid.var_a6762160.amount) ? slotid.var_a6762160.amount : 20);
@@ -563,10 +563,10 @@ function private function_2650d5c6(item, player, var_bd027dd9, var_d8138db2, ite
 {
 	self hud::function_801bf40f();
 	var_2cacdde7 = 50;
-	var_b619c089 = slotid.inventory.items[6];
-	if(isdefined(var_b619c089))
+	inventoryitem = slotid.inventory.items[6];
+	if(isdefined(inventoryitem))
 	{
-		var_2cacdde7 = (isdefined(var_b619c089.var_a6762160.var_a3aa1ca2) ? var_b619c089.var_a6762160.var_a3aa1ca2 : 50);
+		var_2cacdde7 = (isdefined(inventoryitem.var_a6762160.var_a3aa1ca2) ? inventoryitem.var_a6762160.var_a3aa1ca2 : 50);
 		if(isdefined(level.var_8cc294a7))
 		{
 			var_2cacdde7 = [[level.var_8cc294a7]](var_2cacdde7);
@@ -613,34 +613,34 @@ function private function_a712496a(item, player, var_bd027dd9, var_d8138db2, ite
 			namespace_a0d533d1::function_9e9c82a6(var_bd027dd9, var_84704ed7);
 		}
 	}
-	if(namespace_b376ff3f::function_57eac2ca() == namespace_a0d533d1::function_80fb4b76())
+	if(item_inventory::function_57eac2ca() == namespace_a0d533d1::function_80fb4b76())
 	{
 		var_be90d3da = namespace_ad5a0cd6::function_83c20f83(var_bd027dd9);
 		var_be90d3da = var_be90d3da & (~(isdefined(var_bd027dd9.var_4961f577) ? var_bd027dd9.var_4961f577 : 0));
-		var_64d58696 = namespace_b376ff3f::function_230ceec4(var_d8138db2.currentweapon);
-		if(!isdefined(var_64d58696))
+		weaponitem = item_inventory::function_230ceec4(var_d8138db2.currentweapon);
+		if(!isdefined(weaponitem))
 		{
 			var_d8138db2 takeweapon(var_d8138db2.currentweapon);
 		}
 		else
 		{
-			var_d8138db2 namespace_b376ff3f::function_418f9eb8(var_64d58696.var_bd027dd9, var_be90d3da, var_d8138db2.origin, (isdefined(var_bd027dd9.var_67169c0b) ? var_bd027dd9.var_67169c0b : var_bd027dd9.targetname), undefined, 1);
+			var_d8138db2 item_inventory::function_418f9eb8(weaponitem.var_bd027dd9, var_be90d3da, var_d8138db2.origin, (isdefined(var_bd027dd9.var_67169c0b) ? var_bd027dd9.var_67169c0b : var_bd027dd9.targetname), undefined, 1);
 		}
 	}
-	var_77e61fc6 = var_d8138db2 namespace_b376ff3f::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
+	var_77e61fc6 = var_d8138db2 item_inventory::function_e274f1fe(var_bd027dd9, itemcount, var_aec6fa7f, slotid);
 	if(var_77e61fc6 < itemcount)
 	{
 		if(isdefined(var_bd027dd9.var_bd027dd9) && namespace_ad5a0cd6::function_db35e94f(var_bd027dd9.var_bd027dd9))
 		{
-			var_bd027dd9 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
+			var_bd027dd9 = item_inventory::function_dfcacdc2(var_bd027dd9.var_bd027dd9);
 		}
 		if(isdefined(var_bd027dd9.var_a6762160.var_b079a6e6))
 		{
-			var_d8138db2 namespace_b376ff3f::function_b579540e(var_bd027dd9, var_bd027dd9.var_a6762160.var_b079a6e6);
+			var_d8138db2 item_inventory::function_b579540e(var_bd027dd9, var_bd027dd9.var_a6762160.var_b079a6e6);
 			weapon = namespace_a0d533d1::function_2b83d3ff(var_bd027dd9);
 			var_d8138db2 aat::acquire(weapon, var_bd027dd9.var_a6762160.var_b079a6e6);
 		}
-		var_d8138db2 namespace_b376ff3f::function_2b4d7b66(var_bd027dd9, 1, 1, 0, 1, stockammo);
+		var_d8138db2 item_inventory::equip_weapon(var_bd027dd9, 1, 1, 0, 1, stockammo);
 	}
 	return var_77e61fc6;
 }

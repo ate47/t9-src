@@ -1,14 +1,14 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_cf08fa2b : class_6aaccc24
+class cmp_prop_timer : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
 
 	/*
 		Name: constructor
-		Namespace: namespace_cf08fa2b
+		Namespace: cmp_prop_timer
 		Checksum: 0x1FFDEF9E
 		Offset: 0x220
 		Size: 0x14
@@ -21,7 +21,7 @@ class class_cf08fa2b : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_cf08fa2b
+		Namespace: cmp_prop_timer
 		Checksum: 0x3C76D3DF
 		Offset: 0x3D0
 		Size: 0x14
@@ -34,7 +34,7 @@ class class_cf08fa2b : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_cf08fa2b
+		Namespace: cmp_prop_timer
 		Checksum: 0xC3BA9771
 		Offset: 0x2B8
 		Size: 0x3C
@@ -47,26 +47,26 @@ class class_cf08fa2b : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
-		Name: function_51883733
-		Namespace: namespace_cf08fa2b
+		Name: set_isProp
+		Namespace: cmp_prop_timer
 		Checksum: 0x384D6B8
 		Offset: 0x380
 		Size: 0x44
 		Parameters: 2
 		Flags: None
 	*/
-	function function_51883733(player, value)
+	function set_isProp(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "isProp", value);
 	}
 
 	/*
 		Name: close
-		Namespace: namespace_cf08fa2b
+		Namespace: cmp_prop_timer
 		Checksum: 0x3F6BA199
 		Offset: 0x300
 		Size: 0x24
@@ -75,12 +75,12 @@ class class_cf08fa2b : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_cf08fa2b
+		Namespace: cmp_prop_timer
 		Checksum: 0xD562F828
 		Offset: 0x240
 		Size: 0x6C
@@ -89,21 +89,21 @@ class class_cf08fa2b : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("mp_prop_timer");
-		namespace_6aaccc24::function_da693cbe("timeRemaining", 1, 5, "int", 0);
-		namespace_6aaccc24::function_da693cbe("isProp", 1, 1, "int");
+		cLUIelem::setup_clientfields("mp_prop_timer");
+		cLUIelem::function_da693cbe("timeRemaining", 1, 5, "int", 0);
+		cLUIelem::function_da693cbe("isProp", 1, 1, "int");
 	}
 
 	/*
-		Name: function_cb4a80b1
-		Namespace: namespace_cf08fa2b
+		Name: set_timeRemaining
+		Namespace: cmp_prop_timer
 		Checksum: 0xE47B2640
 		Offset: 0x330
 		Size: 0x44
 		Parameters: 2
 		Flags: None
 	*/
-	function function_cb4a80b1(player, value)
+	function set_timeRemaining(player, value)
 	{
 		player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "timeRemaining", value);
 	}
@@ -137,7 +137,7 @@ function private autoexec function_7cc2e877()
 */
 function register()
 {
-	elem = new class_cf08fa2b();
+	elem = new cmp_prop_timer();
 	[[ elem ]]->setup_clientfields();
 	return elem;
 }
@@ -189,7 +189,7 @@ function is_open(player)
 }
 
 /*
-	Name: function_cb4a80b1
+	Name: set_timeRemaining
 	Namespace: mp_prop_timer
 	Checksum: 0x9B913B37
 	Offset: 0x1C0
@@ -197,13 +197,13 @@ function is_open(player)
 	Parameters: 2
 	Flags: None
 */
-function function_cb4a80b1(player, value)
+function set_timeRemaining(player, value)
 {
-	[[ self ]]->function_cb4a80b1(player, value);
+	[[ self ]]->set_timeRemaining(player, value);
 }
 
 /*
-	Name: function_51883733
+	Name: set_isProp
 	Namespace: mp_prop_timer
 	Checksum: 0x6524F8B4
 	Offset: 0x1F0
@@ -211,8 +211,8 @@ function function_cb4a80b1(player, value)
 	Parameters: 2
 	Flags: None
 */
-function function_51883733(player, value)
+function set_isProp(player, value)
 {
-	[[ self ]]->function_51883733(player, value);
+	[[ self ]]->set_isProp(player, value);
 }
 

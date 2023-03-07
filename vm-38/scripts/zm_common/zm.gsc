@@ -1,6 +1,6 @@
 #using script_1029986e2bc8ca8e;
 #using script_13e745841a98f3cd;
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_165beea08a63a243;
 #using script_190d6b82bcca0908;
 #using script_1b10fdf0addd52e;
@@ -10,10 +10,10 @@
 #using script_224fbf657e32b616;
 #using script_25be5471a9c31833;
 #using script_25ef58a2f6c13bd9;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_299f56e6d0b16416;
 #using script_2c5daa95f8fec03c;
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_2cb46c63a33c9b9c;
 #using script_301f64a4090c381a;
 #using script_317d8c6358364227;
@@ -39,38 +39,38 @@
 #using script_47fb62300ac0bd60;
 #using script_48f7c4ab73137f8;
 #using script_4a03c204316cf33;
-#using script_4d000493c57bb851;
-#using script_4de7e1a03eb2fbf;
-#using script_53f13b381cd4251d;
+#using scripts\zm_common\zm_crafting.gsc;
+#using scripts\killstreaks\zm\sparrow.gsc;
+#using scripts\zm_common\bots\zm_bot.gsc;
 #using script_556e19065f09f8a2;
 #using script_5660bae5b402a1eb;
 #using script_5a525a75a8f1f7e4;
-#using script_5b4f7a8178990872;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_hud.gsc;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
 #using script_6021ce59143452c3;
-#using script_613bf3e46dacdcfc;
+#using scripts\killstreaks\zm\chopper_gunner.gsc;
 #using script_61828ad9e71c6616;
 #using script_62caa307a394c18c;
 #using script_663c3bd4763135c6;
 #using script_669400ff5aadcc83;
 #using script_6809bf766eba194a;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_6ce38ab036223e6e;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7224d61ed502ea07;
+#using scripts\zm_common\zm_wallbuy.gsc;
 #using script_72401f526ba71638;
 #using script_73bd646be3641c07;
 #using script_7a5293d92c61c788;
 #using script_7b1cd3908a825fdd;
 #using script_7bdcff4f92f3d220;
 #using script_7e59d7bba853fe4b;
-#using script_9e4105ea1798ccc;
-#using script_afaa5c74d7e2875;
-#using script_b52a163973f339f;
+#using scripts\zm_common\zm_armor.gsc;
+#using scripts\killstreaks\sparrow.gsc;
+#using scripts\zm_common\zm_characters.gsc;
 #using script_b9d273dc917ee1f;
-#using script_bc6a9a35c229565;
+#using scripts\killstreaks\killstreak_detect.gsc;
 #using script_db06eb511bd9b36;
 #using script_f11fc6f7a3ad5b9;
 #using scripts\core_common\aat_shared.gsc;
@@ -162,7 +162,7 @@ function autoexec ignore_systems()
 	system::ignore(#"gadget_cleanse");
 	system::ignore(#"gadget_heat_wave");
 	system::ignore(#"gadget_resurrect");
-	system::ignore(#"hash_52aca7c35be649b8");
+	system::ignore(#"gadget_health_boost");
 	system::ignore(#"gadget_shock_field");
 	system::ignore(#"gadget_other");
 	system::ignore(#"gadget_camo");
@@ -301,10 +301,10 @@ function init()
 	{
 		level._zombies_round_spawn_failsafe = &zombie_utility::round_spawn_failsafe;
 	}
-	level.func_get_zombie_spawn_delay = &namespace_a28acff3::get_zombie_spawn_delay;
+	level.func_get_zombie_spawn_delay = &zm_round_logic::get_zombie_spawn_delay;
 	if(!isdefined(level.func_get_delay_between_rounds))
 	{
-		level.func_get_delay_between_rounds = &namespace_a28acff3::get_delay_between_rounds;
+		level.func_get_delay_between_rounds = &zm_round_logic::get_delay_between_rounds;
 	}
 	level.var_3426461d = &function_be95f56d;
 	level.var_2f528eb0 = &function_2c96cf0e;
@@ -366,7 +366,7 @@ function init()
 	level thread zm_utility::track_players_intersection_tracker();
 	level thread zm_utility::function_55295a16();
 	level thread onallplayersready();
-	level thread namespace_a28acff3::function_d20309f1();
+	level thread zm_round_logic::function_d20309f1();
 	callback::on_spawned(&zm_player::zm_on_player_spawned);
 	callback::on_disconnect(&on_player_disconnect);
 	callback::on_deleted(&on_entity_deleted);
@@ -415,7 +415,7 @@ function function_d5766919(killstreaktype)
 		var_1120bf0 = self.inventory.items[17];
 		if(var_1120bf0.var_bd027dd9 != 32767)
 		{
-			self namespace_b376ff3f::function_418f9eb8(var_1120bf0.var_bd027dd9);
+			self item_inventory::function_418f9eb8(var_1120bf0.var_bd027dd9);
 		}
 		var_d90e0e15 = function_4ba8fde(var_16f12c31);
 		if(isdefined(var_d90e0e15))
@@ -1133,7 +1133,7 @@ function init_levelvars()
 	level thread init_player_levelvars();
 	level.speed_change_max = 0;
 	level.speed_change_num = 0;
-	namespace_a28acff3::set_round_number(level.round_number);
+	zm_round_logic::set_round_number(level.round_number);
 	zm_score::function_e5d6e6dd(#"zombie", zombie_utility::function_d2dfacfd(#"hash_6f24d1fbe8a09727"));
 	level.missileremotelaunchtargetdist = 0;
 	setdvar(#"hash_6e8eff11c6fb1621", 1);
@@ -1627,7 +1627,7 @@ function actor_damage_override(inflictor, attacker, damage, flags, meansofdeath,
 				}
 			}
 		}
-		item = attacker namespace_b376ff3f::function_230ceec4(weapon);
+		item = attacker item_inventory::function_230ceec4(weapon);
 		if(isdefined(item))
 		{
 			var_528363fd = self namespace_b61a349a::function_b3496fde(inflictor, attacker, damage, flags, meansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype);
@@ -2027,7 +2027,7 @@ function actor_damage_override_wrapper(inflictor, attacker, damage, flags, means
 			}
 			if(isplayer(attacker))
 			{
-				item = attacker namespace_b376ff3f::function_230ceec4(weapon);
+				item = attacker item_inventory::function_230ceec4(weapon);
 			}
 			element = self namespace_42457a0::function_d6863a3(inflictor, attacker, meansofdeath, weapon, aat, item);
 			hud::function_c9800094(attacker, var_cb7c50c0, damage_override, var_ebcff177, self namespace_42457a0::function_1b3815a7(element));
@@ -2734,7 +2734,7 @@ function end_game()
 	}
 	else if("ztrials" == util::function_5df4294())
 	{
-		namespace_b22c99a5::function_2ee2d021();
+		zm_trial_util::function_2ee2d021();
 	}
 	util::preload_frontend();
 	if(isdefined(level.custom_end_screen))
@@ -2798,7 +2798,7 @@ function end_game()
 	}
 	if(zm_trial::function_b47f6aba())
 	{
-		level thread namespace_b22c99a5::function_f79b96ac();
+		level thread zm_trial_util::function_f79b96ac();
 	}
 	if(potm::function_afe21831() == 0)
 	{
@@ -3331,7 +3331,7 @@ function precache_zombie_leaderboards()
 		precacheleaderboards(globalleaderboards);
 		return;
 	}
-	mapname = util::function_53bbf9d2();
+	mapname = util::get_map_name();
 	expectedplayernum = getnumexpectedplayers();
 	mapleaderboard = ((("LB_ZM_MAP_" + getsubstr(mapname, 3, mapname.size)) + "_") + expectedplayernum) + "PLAYER";
 	precacheleaderboards(globalleaderboards + mapleaderboard);

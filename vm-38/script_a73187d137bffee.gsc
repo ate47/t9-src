@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -50,11 +50,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_29065f0efd8d6ff3", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_29065f0efd8d6ff3", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_b8821044
 	Checksum: 0xD071CF1C
 	Offset: 0x160
@@ -62,21 +62,21 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_b3d469ae)
+function private on_begin(var_b3d469ae)
 {
 	level.var_21c2f32a = zm_trial::function_5769f26a(var_b3d469ae);
 	level.var_943b6e2b = array();
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_c2cd0cba(level.var_21c2f32a);
-		player namespace_b22c99a5::function_2190356a(0);
+		player zm_trial_util::function_c2cd0cba(level.var_21c2f32a);
+		player zm_trial_util::function_2190356a(0);
 		level.var_943b6e2b[player.clientid] = array();
 	}
 	level thread wallbuy_watcher();
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_b8821044
 	Checksum: 0xB023F4A9
 	Offset: 0x290
@@ -84,7 +84,7 @@ function private function_d1de6a85(var_b3d469ae)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(!round_reset)
 	{
@@ -118,7 +118,7 @@ function private function_9e7b3f4d(round_reset)
 	level notify(#"hash_31c14df051f6c165");
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_f3aacffb();
+		player zm_trial_util::function_f3aacffb();
 	}
 }
 
@@ -168,7 +168,7 @@ function private wallbuy_watcher()
 		}
 		if(level.var_943b6e2b[e_player.clientid].size <= level.var_21c2f32a)
 		{
-			e_player namespace_b22c99a5::function_2190356a(level.var_943b6e2b[e_player.clientid].size);
+			e_player zm_trial_util::function_2190356a(level.var_943b6e2b[e_player.clientid].size);
 		}
 	}
 }

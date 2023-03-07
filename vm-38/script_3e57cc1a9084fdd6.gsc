@@ -1,7 +1,7 @@
 #using script_178024232e91b0a1;
 #using script_1940fc077a028a81;
 #using script_20dc0f45753888c7;
-#using script_2118e128407b7acb;
+#using scripts\zm\ai\zm_ai_dog.gsc;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
 #using script_3819e7a1427df6d2;
@@ -259,7 +259,7 @@ function function_c2400b01()
 	}
 	else
 	{
-		awareness::function_dad6ba0e(self, #"chase", &function_6f207918, &namespace_5eb9b9b6::function_90da9686, &function_cf29908a, &awareness::function_5c40e824, undefined);
+		awareness::function_dad6ba0e(self, #"chase", &function_6f207918, &zm_ai_dog::function_90da9686, &function_cf29908a, &awareness::function_5c40e824, undefined);
 	}
 	awareness::set_state(self, #"wander");
 	self thread awareness::function_c6b1009e();
@@ -512,7 +512,7 @@ function private function_ae78134(params)
 		self notsolid();
 		playsoundatposition(#"zmb_hellhound_explode", self.origin);
 	}
-	if(namespace_5eb9b9b6::function_a82712bc(self))
+	if(zm_ai_dog::function_a82712bc(self))
 	{
 		function_2bf6dd1c(self);
 	}

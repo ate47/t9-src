@@ -1334,7 +1334,7 @@ function setup_zones()
 	zones = get_zone_array();
 	if(zones.size == 0)
 	{
-		globallogic_utils::add_map_error("No zones found for KOTH in map " + util::function_53bbf9d2());
+		globallogic_utils::add_map_error("No zones found for KOTH in map " + util::get_map_name());
 	}
 	trigs = getentarray("koth_zone_trigger", "targetname");
 	var_4cb5e04 = getentarray("koth_zone_trigger", "script_noteworthy");

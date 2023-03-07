@@ -1,6 +1,6 @@
 #using script_18f0d22c75b141a7;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_7133a4d461308099;
 #using script_7f6cd71c43c45c57;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -411,7 +411,7 @@ function function_5829abe3(attacker, weapon, var_651b6171)
 	Parameters: 5
 	Flags: Linked
 */
-function function_a890cac2(attacker, owningteam, weapon, scoreevents, var_4ed35da2)
+function function_a890cac2(attacker, owningteam, weapon, scoreevents, objectiveobj)
 {
 	attacker function_662aaa65(weapon);
 	attacker.multikills[weapon.name].var_3e9f80b2++;
@@ -419,19 +419,19 @@ function function_a890cac2(attacker, owningteam, weapon, scoreevents, var_4ed35d
 	{
 		if(isdefined(level.var_b13d1f9b[weapon.name].var_826b85e7))
 		{
-			[[level.var_b13d1f9b[weapon.name].var_826b85e7]](attacker, self, weapon, var_4ed35da2);
+			[[level.var_b13d1f9b[weapon.name].var_826b85e7]](attacker, self, weapon, objectiveobj);
 		}
 		if(isdefined(scoreevents.var_867de225))
 		{
 			scoreevents::processscoreevent(scoreevents.var_867de225, attacker, self, weapon);
 		}
-		if((isdefined(attacker.multikills[weapon.name].var_3e9f80b2) ? attacker.multikills[weapon.name].var_3e9f80b2 : 0) > 2 && (isdefined(var_4ed35da2.var_4e02c9bd) ? var_4ed35da2.var_4e02c9bd : 0) < gettime())
+		if((isdefined(attacker.multikills[weapon.name].var_3e9f80b2) ? attacker.multikills[weapon.name].var_3e9f80b2 : 0) > 2 && (isdefined(objectiveobj.var_4e02c9bd) ? objectiveobj.var_4e02c9bd : 0) < gettime())
 		{
 			enemies = attacker getenemies();
 			var_f6612539 = 0;
 			foreach(enemy in enemies)
 			{
-				if(enemy istouching(var_4ed35da2))
+				if(enemy istouching(objectiveobj))
 				{
 					var_f6612539 = 1;
 					break;
@@ -439,7 +439,7 @@ function function_a890cac2(attacker, owningteam, weapon, scoreevents, var_4ed35d
 			}
 			if(!var_f6612539)
 			{
-				var_4ed35da2.var_4e02c9bd = gettime() + 4000;
+				objectiveobj.var_4e02c9bd = gettime() + 4000;
 				attacker.multikills[weapon.name].var_d6089e48 = 1;
 			}
 		}
@@ -531,11 +531,11 @@ function private function_eced93f5(objective, var_c217216c)
 	}
 	if(isarray(level.var_b13d1f9b))
 	{
-		foreach(var_a1960192 in level.var_b13d1f9b)
+		foreach(specialweapon in level.var_b13d1f9b)
 		{
-			if(isdefined(var_a1960192.var_d20c7012))
+			if(isdefined(specialweapon.var_d20c7012))
 			{
-				[[var_a1960192.var_d20c7012]](self, self.var_f46a73a1, self.var_60f43bac, self.var_e3d30669, var_a1960192.weapon);
+				[[specialweapon.var_d20c7012]](self, self.var_f46a73a1, self.var_60f43bac, self.var_e3d30669, specialweapon.weapon);
 			}
 		}
 	}
@@ -980,17 +980,17 @@ function private function_4d412da8(inflictor, meansofdeath, victim, attacker, sc
 	{
 		if(level.teambased && isdefined(victim.damagedplayers))
 		{
-			foreach(var_96590ffe in victim.damagedplayers)
+			foreach(entitydamaged in victim.damagedplayers)
 			{
-				if(!isdefined(var_96590ffe.entity) || var_96590ffe.entity == attacker || attacker util::isenemyplayer(var_96590ffe.entity) || !isdefined(var_96590ffe.time))
+				if(!isdefined(entitydamaged.entity) || entitydamaged.entity == attacker || attacker util::isenemyplayer(entitydamaged.entity) || !isdefined(entitydamaged.time))
 				{
 					continue;
 				}
-				if(time - var_96590ffe.time < 1000)
+				if(time - entitydamaged.time < 1000)
 				{
 					if(isdefined(var_25f92d1d.var_ec2a6a4c))
 					{
-						[[var_25f92d1d.var_ec2a6a4c]](attacker, victim, var_96590ffe.entity, time, weapon, var_25f92d1d.weapon);
+						[[var_25f92d1d.var_ec2a6a4c]](attacker, victim, entitydamaged.entity, time, weapon, var_25f92d1d.weapon);
 					}
 					if(isdefined(scoreevents.var_2892e164))
 					{

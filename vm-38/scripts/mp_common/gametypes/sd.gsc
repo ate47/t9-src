@@ -77,7 +77,7 @@ event main(eventstruct)
 	level.ondeadevent = &ondeadevent;
 	level.ononeleftevent = &ononeleftevent;
 	level.ontimelimit = &ontimelimit;
-	level.var_f6d301b = &function_f6d301b;
+	level.onendround = &onendround;
 	level.iskillboosting = &sd_iskillboosting;
 	level.figure_out_gametype_friendly_fire = &figureoutgametypefriendlyfire;
 	level.var_17ae20ae = &function_17ae20ae;
@@ -154,7 +154,7 @@ function function_17ae20ae(einflictor, attacker, smeansofdeath, weapon)
 }
 
 /*
-	Name: function_f6d301b
+	Name: onendround
 	Namespace: sd
 	Checksum: 0xD73CC091
 	Offset: 0x8C8
@@ -162,7 +162,7 @@ function function_17ae20ae(einflictor, attacker, smeansofdeath, weapon)
 	Parameters: 0
 	Flags: None
 */
-function function_f6d301b()
+function onendround()
 {
 	function_4c593022();
 	function_7996e36d();
@@ -1122,7 +1122,7 @@ function onuseplantobject(player)
 	demo::bookmark(#"event", gettime(), player);
 	potm::bookmark(#"event", gettime(), player);
 	player stats::function_bb7eedf0(#"plants", 1);
-	player stats::function_dad108fa(#"hash_6ed8aab88512306b", 1);
+	player stats::function_dad108fa(#"plants_defuses", 1);
 	player globallogic_score::incpersstat(#"objectivescore", 1, 0, 1);
 	player contracts::function_a54e2068(#"hash_7fb3342ea8ac7e7c");
 	globallogic_audio::leader_dialog("bombPlanted");
@@ -1169,7 +1169,7 @@ function onusedefuseobject(player)
 	player.pers[#"objectives"]++;
 	player.objectives = player.pers[#"objectives"];
 	player stats::function_bb7eedf0(#"defuses", 1);
-	player stats::function_dad108fa(#"hash_6ed8aab88512306b", 1);
+	player stats::function_dad108fa(#"plants_defuses", 1);
 	player contracts::function_a54e2068(#"hash_7fb3342ea8ac7e7c");
 	demo::bookmark(#"event", gettime(), player);
 	potm::bookmark(#"event", gettime(), player);

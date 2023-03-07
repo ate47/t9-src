@@ -1,14 +1,14 @@
-#using script_1650e0411c055aa7;
+#using scripts\abilities\gadgets\gadget_concertina_wire.gsc;
 #using script_47fb62300ac0bd60;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-#namespace namespace_33994c00;
+#namespace gadget_concertina_wire;
 
 /*
 	Name: function_44dbdd68
-	Namespace: namespace_33994c00
+	Namespace: gadget_concertina_wire
 	Checksum: 0x6B614531
 	Offset: 0xD0
 	Size: 0x14
@@ -33,7 +33,7 @@ function private autoexec function_44dbdd68()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_2089d7dfe76d99c6", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"gadget_concertina_wire", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

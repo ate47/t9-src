@@ -1,5 +1,5 @@
 #using script_2c49ae69cd8ce30c;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_590bc513b5881751;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -22,11 +22,11 @@ function private autoexec function_ce273ac5()
 	level notify(653782628);
 }
 
-#namespace namespace_7ef26eea;
+#namespace ac130_mp;
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_7ef26eea
+	Namespace: ac130_mp
 	Checksum: 0x59A967DE
 	Offset: 0xD8
 	Size: 0x54
@@ -40,7 +40,7 @@ function private autoexec function_89f2df9()
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_7ef26eea
+	Namespace: ac130_mp
 	Checksum: 0x21170833
 	Offset: 0x138
 	Size: 0x5E
@@ -56,7 +56,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_3675de8b
-	Namespace: namespace_7ef26eea
+	Namespace: ac130_mp
 	Checksum: 0xE13769EC
 	Offset: 0x1A0
 	Size: 0x14
@@ -70,7 +70,7 @@ function private function_3675de8b()
 
 /*
 	Name: spawnac130
-	Namespace: namespace_7ef26eea
+	Namespace: ac130_mp
 	Checksum: 0xBF84859
 	Offset: 0x1C0
 	Size: 0x118
@@ -96,7 +96,7 @@ function private spawnac130(killstreaktype)
 
 /*
 	Name: function_d45a1f8d
-	Namespace: namespace_7ef26eea
+	Namespace: ac130_mp
 	Checksum: 0x22BD7EEF
 	Offset: 0x2E0
 	Size: 0x16C
@@ -135,7 +135,7 @@ function function_d45a1f8d(einflictor, attacker, idamage, smeansofdeath, weapon,
 
 /*
 	Name: function_6b26dd0c
-	Namespace: namespace_7ef26eea
+	Namespace: ac130_mp
 	Checksum: 0xE157DAF9
 	Offset: 0x458
 	Size: 0x64

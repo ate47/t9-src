@@ -103,7 +103,7 @@ function function_330a13a6(params)
 */
 function function_bd054816(params)
 {
-	if(level.var_c27600b0 != params.var_e088b6aa)
+	if(level.var_c27600b0 != params.offhand_weapon)
 	{
 		return;
 	}

@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -49,11 +49,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"use_magicbox", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"use_magicbox", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_3642494f
 	Checksum: 0xC90D163
 	Offset: 0x158
@@ -61,7 +61,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_519131bc)
+function private on_begin(var_519131bc)
 {
 	if(!isdefined(var_519131bc))
 	{
@@ -83,7 +83,7 @@ function private function_d1de6a85(var_519131bc)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_3642494f
 	Checksum: 0x3124CAA5
 	Offset: 0x278
@@ -91,11 +91,11 @@ function private function_d1de6a85(var_519131bc)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
-		player namespace_b22c99a5::function_f3aacffb();
+		player zm_trial_util::function_f3aacffb();
 	}
 	if(!round_reset)
 	{
@@ -137,18 +137,18 @@ function private function_1685cc9b()
 	var_fa5d7ea0 = 0;
 	self.var_8f30dd57 = 0;
 	var_6bec3070 = 0;
-	self namespace_b22c99a5::function_2190356a(self.var_8f30dd57);
-	self namespace_b22c99a5::function_c2cd0cba(level.var_519131bc);
+	self zm_trial_util::function_2190356a(self.var_8f30dd57);
+	self zm_trial_util::function_c2cd0cba(level.var_519131bc);
 	while(true)
 	{
 		self waittill(#"hash_b0cc77b1ab98c08");
 		if(self.var_8f30dd57 == level.var_519131bc)
 		{
-			self namespace_b22c99a5::function_63060af4(1);
+			self zm_trial_util::function_63060af4(1);
 		}
 		else if(self.var_8f30dd57 < level.var_519131bc)
 		{
-			self namespace_b22c99a5::function_2190356a(self.var_8f30dd57);
+			self zm_trial_util::function_2190356a(self.var_8f30dd57);
 		}
 	}
 }

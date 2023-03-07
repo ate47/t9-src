@@ -2,7 +2,7 @@
 #using script_2da073d4aa78c206;
 #using script_305d57cf0618009d;
 #using script_348ce871561476c9;
-#using script_4663ec59d864e437;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_57f7003580bb15e0;
 #using script_6e9b46ba8331f1f;
 #using script_d43f0658aa1a5e5;
@@ -1554,7 +1554,7 @@ function private function_afdad0c8(insertion, plane, startpoint, endpoint, var_6
 		assert(total_distance > (var_671fc488 - var_5e24c814));
 	#/
 	var_f26cf241 = (var_671fc488 - var_5e24c814) / total_distance;
-	var_1da12059 = var_671fc488 / total_distance;
+	end_t = var_671fc488 / total_distance;
 	/#
 		level thread function_63793dbe();
 	#/
@@ -1571,7 +1571,7 @@ function private function_afdad0c8(insertion, plane, startpoint, endpoint, var_6
 		}
 		player clientfield::set_to_player("infiltration_final_warning", 1);
 	}
-	plane function_85635daf(startpoint, total_distance, var_1da12059);
+	plane function_85635daf(startpoint, total_distance, end_t);
 	/#
 		debug_sphere(plane.origin, 75, (0, 1, 1));
 	#/
@@ -1642,14 +1642,14 @@ function private function_6da3daa0(insertion, plane, startpoint, endpoint, var_6
 	/#
 		assert(total_distance > (var_6a694ed8 - var_7cd0d619));
 	#/
-	var_309de265 = (var_6a694ed8 - var_7cd0d619) / total_distance;
-	var_ed08031a = var_6a694ed8 / total_distance;
-	plane function_85635daf(startpoint, total_distance, var_309de265);
+	cargo_t = (var_6a694ed8 - var_7cd0d619) / total_distance;
+	start_t = var_6a694ed8 / total_distance;
+	plane function_85635daf(startpoint, total_distance, cargo_t);
 	/#
 		debug_sphere(plane.origin, 75, (0, 1, 1));
 	#/
 	insertion thread function_d11a5f0c(insertion);
-	plane function_85635daf(startpoint, total_distance, var_ed08031a);
+	plane function_85635daf(startpoint, total_distance, start_t);
 	/#
 		debug_sphere(plane.origin, 75, (0, 1, 1));
 	#/
@@ -2309,7 +2309,7 @@ function private function_943c98fb(insertion)
 		/#
 			assert(isstruct(insertion));
 		#/
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		waitframe(1);
 		adddebugcommand(("" + mapname) + "");

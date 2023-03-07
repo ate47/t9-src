@@ -8,7 +8,7 @@
 #using script_1ac263b07ef50ab6;
 #using script_21ae8fb2d5ff7b5e;
 #using script_225941405db7c1fd;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_27d214e32f50853d;
 #using script_2bbe50c8dcca218e;
 #using script_35d3717bf2cbee8f;
@@ -35,7 +35,7 @@
 #using script_6951ea86fdae9ae0;
 #using script_698dd790cdc4965f;
 #using script_6a50094713ea0a94;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_6d813fcbc979603a;
 #using script_6ef496a1b77e83a4;
 #using script_6ffdcde0fe52cb6f;
@@ -96,7 +96,7 @@ event main(eventstruct)
 	level.onstartgametype = &onstartgametype;
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
-	level._round_start_func = &namespace_a28acff3::round_start;
+	level._round_start_func = &zm_round_logic::round_start;
 	level.var_57cc29f3 = &function_491101ba;
 	level.var_d0b54199 = &function_b8839207;
 	level.var_9093a47e = &function_b8839207;
@@ -109,7 +109,7 @@ event main(eventstruct)
 }
 
 /*
-	Name: function_a97958c3
+	Name: levelinit
 	Namespace: ztrials
 	Checksum: 0x789C63A2
 	Offset: 0x480
@@ -117,7 +117,7 @@ event main(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_a97958c3(eventstruct)
+event levelinit(eventstruct)
 {
 	var_189d26ca = "";
 	/#
@@ -126,11 +126,11 @@ event function_a97958c3(eventstruct)
 	var_3b363b7a = getgametypesetting(#"zmtrialsvariant");
 	if(isdefined(var_3b363b7a) && var_3b363b7a > 0)
 	{
-		var_189d26ca = (util::function_53bbf9d2() + "_variant_") + var_3b363b7a;
+		var_189d26ca = (util::get_map_name() + "_variant_") + var_3b363b7a;
 	}
 	else if(var_189d26ca == "")
 	{
-		var_189d26ca = util::function_53bbf9d2() + "_default";
+		var_189d26ca = util::get_map_name() + "_default";
 	}
 	/#
 		assert(var_189d26ca != "", "");
@@ -296,7 +296,7 @@ function private function_61fd0e87()
 	}
 	if(!level flag::get("round_reset") && !level flag::get(#"hash_6acab8bde7078239"))
 	{
-		namespace_b22c99a5::function_96e10d88(1);
+		zm_trial_util::function_96e10d88(1);
 		wait(3);
 	}
 }
@@ -523,7 +523,7 @@ function private function_9a6b2309()
 			}
 			if(getdvarint(#"hash_145033f5271f2651", 0) == 1)
 			{
-				namespace_b22c99a5::function_9c1092f6();
+				zm_trial_util::function_9c1092f6();
 				setdvar(#"hash_145033f5271f2651", 0);
 			}
 			waitframe(1);

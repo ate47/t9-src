@@ -1,4 +1,4 @@
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_3d703ef87a841fe4;
 #using script_4194df57536e11ed;
@@ -6121,7 +6121,7 @@ function delayed_delete(f_delay_seconds)
 */
 function is_safehouse()
 {
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	return false;
 }
 
@@ -6136,7 +6136,7 @@ function is_safehouse()
 */
 function is_new_cp_map()
 {
-	mapname = function_53bbf9d2();
+	mapname = get_map_name();
 	switch(mapname)
 	{
 		default:
@@ -6743,7 +6743,7 @@ function waittill_can_add_debug_command()
 }
 
 /*
-	Name: function_345e5b9a
+	Name: add_debug_command
 	Namespace: util
 	Checksum: 0xE19F8204
 	Offset: 0xC0B8
@@ -6751,7 +6751,7 @@ function waittill_can_add_debug_command()
 	Parameters: 1
 	Flags: Linked
 */
-function function_345e5b9a(cmd)
+function add_debug_command(cmd)
 {
 	/#
 		waittill_can_add_debug_command();
@@ -7353,7 +7353,7 @@ function function_5df4294()
 }
 
 /*
-	Name: function_53bbf9d2
+	Name: get_map_name
 	Namespace: util
 	Checksum: 0x9716878D
 	Offset: 0xD0D0
@@ -7361,7 +7361,7 @@ function function_5df4294()
 	Parameters: 0
 	Flags: Linked
 */
-function function_53bbf9d2()
+function get_map_name()
 {
 	return tolower(getdvarstring(#"hash_3b7b241b78207c96"));
 }
@@ -7377,7 +7377,7 @@ function function_53bbf9d2()
 */
 function function_3f165ee8()
 {
-	return function_53bbf9d2() === "core_frontend";
+	return get_map_name() === "core_frontend";
 }
 
 /*
@@ -7424,7 +7424,7 @@ function function_d84da933(menu_path)
 function function_3f749abc(menu_path, commands)
 {
 	/#
-		function_345e5b9a(((("" + menu_path) + "") + commands) + "");
+		add_debug_command(((("" + menu_path) + "") + commands) + "");
 	#/
 }
 
@@ -7440,7 +7440,7 @@ function function_3f749abc(menu_path, commands)
 function function_85c62761(menu_path)
 {
 	/#
-		function_345e5b9a(("" + menu_path) + "");
+		add_debug_command(("" + menu_path) + "");
 	#/
 }
 

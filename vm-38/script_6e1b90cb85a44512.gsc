@@ -3,12 +3,12 @@
 #using script_2c49ae69cd8ce30c;
 #using script_2f46c01b9eb62847;
 #using script_335d0650ed05d36d;
-#using script_3539cbff3042175f;
+#using scripts\killstreaks\mp\uav.gsc;
 #using script_3d703ef87a841fe4;
 #using script_3f27a7b2232674db;
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;

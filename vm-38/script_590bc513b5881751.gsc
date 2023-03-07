@@ -1,15 +1,15 @@
 #using script_15022fca9ab99080;
 #using script_1d1a97b78f64bfd;
-#using script_2c74a7b5eea1ec89;
-#using script_3728b3b9606c4299;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_4a03c204316cf33;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_6d9aa3cb389aa46a;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\hacker_tool.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -51,7 +51,7 @@ function private autoexec function_ff600e26()
 function function_70a657d8(var_9dedc222)
 {
 	init_shared();
-	killstreaks::function_e4ef8390(var_9dedc222, &activatemaingunner);
+	killstreaks::register_killstreak(var_9dedc222, &activatemaingunner);
 	killstreaks::function_94c74046("ac130");
 	killcam::function_4789a39a(#"hash_17df39d53492b0bf", &function_91ba5c69);
 	killcam::function_4789a39a(#"hash_7b24d0d0d2823bca", &function_91ba5c69);
@@ -286,9 +286,9 @@ function init_shared()
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(var_2f03ffd6, var_dbd1a594)
+function function_bff5c062(var_2f03ffd6, attackingplayer)
 {
-	var_2f03ffd6 killstreaks::function_73566ec7(var_dbd1a594, getweapon(#"gadget_icepick"), var_2f03ffd6.owner);
+	var_2f03ffd6 killstreaks::function_73566ec7(attackingplayer, getweapon(#"gadget_icepick"), var_2f03ffd6.owner);
 	var_2f03ffd6.destroyscoreeventgiven = 1;
 	function_8721028e(var_2f03ffd6.owner, 1);
 }

@@ -1,10 +1,10 @@
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_b121f976;
+#namespace zm_silver_ffotd;
 
 /*
 	Name: function_6bf36e04
-	Namespace: namespace_b121f976
+	Namespace: zm_silver_ffotd
 	Checksum: 0x4CD146B5
 	Offset: 0x68
 	Size: 0x14
@@ -18,7 +18,7 @@ function private autoexec function_6bf36e04()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_b121f976
+	Namespace: zm_silver_ffotd
 	Checksum: 0xE86CCB23
 	Offset: 0x88
 	Size: 0x3C
@@ -32,7 +32,7 @@ function private autoexec function_89f2df9()
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_b121f976
+	Namespace: zm_silver_ffotd
 	Checksum: 0x80F724D1
 	Offset: 0xD0
 	Size: 0x4

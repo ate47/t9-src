@@ -1,4 +1,4 @@
-#using script_64ac23dbb2d7d587;
+#using scripts\weapons\weaponobjects.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 

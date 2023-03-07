@@ -1,9 +1,9 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_47fb62300ac0bd60;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_68d2ee1489345a1d;
 #using script_7e59d7bba853fe4b;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\popups_shared.gsc;
@@ -148,7 +148,7 @@ function function_af57ad40()
 	function_9451b95c(#"eq_sticky_grenade", "semtex_killingblow_zm", "semtex_killingblow_special_zm", "semtex_killingblow_elite_zm");
 	function_9451b95c(#"satchel_charge", "satchel_charge_killingblow_zm", "satchel_charge_killingblow_special_zm", "satchel_charge_killingblow_elite_zm");
 	function_9451b95c(#"cymbal_monkey", "monkey_bomb_killingblow_zm", "monkey_bomb_killingblow_zm", "monkey_bomb_killingblow_zm");
-	function_9451b95c(#"hash_23dd6039fe2f36c6", "molotov_killingblow_zm", "molotov_killingblow_special_zm", "molotov_killingblow_elite_zm");
+	function_9451b95c(#"molotov_fire", "molotov_killingblow_zm", "molotov_killingblow_special_zm", "molotov_killingblow_elite_zm");
 	function_9451b95c(#"eq_slow_grenade", "concussion_grenade_killingblow_zm", "concussion_grenade_killingblow_special_zm", "concussion_grenade_killingblow_elite_zm");
 	function_9451b95c(#"hash_36a6454f13b54f18", "sentry_turret_kill_zm", "sentry_turret_special_kill_zm", "sentry_turret_elite_kill_zm");
 	function_9451b95c(#"sig_lmg", "death_machine_kill_zm", "death_machine_special_kill_zm", "death_machine_elite_kill_zm");
@@ -602,20 +602,20 @@ function function_970a97b2(params)
 		}
 		if(isdefined(level.var_4bcd94b[params.weapon.name]) && (!killstreaks::is_killstreak_weapon(params.weapon) || (killstreaks::is_killstreak_weapon(params.weapon) && var_a0345f37.damagemod !== "MOD_MELEE")))
 		{
-			var_30d3139 = level.var_4bcd94b[params.weapon.name];
+			event_struct = level.var_4bcd94b[params.weapon.name];
 			params.eattacker.var_9c448324 = 1;
 			scoreevent = undefined;
 			if(var_a0345f37.var_6f84b820 === #"elite")
 			{
-				scoreevent = var_30d3139.var_9b275351;
+				scoreevent = event_struct.var_9b275351;
 			}
 			else if(var_a0345f37.var_6f84b820 === #"special")
 			{
-				scoreevent = var_30d3139.special_event;
+				scoreevent = event_struct.special_event;
 			}
 			if(!isdefined(scoreevent))
 			{
-				scoreevent = var_30d3139.var_fd2db56a;
+				scoreevent = event_struct.var_fd2db56a;
 			}
 			processscoreevent(scoreevent, params.eattacker, var_a0345f37, params.weapon, undefined, params);
 		}
@@ -925,7 +925,7 @@ function function_82234b38(victim, attacker, weapon, meansofdeath, var_a3660fca,
 		}
 		else
 		{
-			if(weapon.name === #"eq_sticky_grenade" || weapon.name === #"satchel_charge" || weapon.name === #"frag_grenade" || weapon.name === #"cymbal_monkey" || weapon.name === #"hash_23dd6039fe2f36c6" || weapon.name === #"concussion_grenade" || weapon.name === #"hatchet")
+			if(weapon.name === #"eq_sticky_grenade" || weapon.name === #"satchel_charge" || weapon.name === #"frag_grenade" || weapon.name === #"cymbal_monkey" || weapon.name === #"molotov_fire" || weapon.name === #"concussion_grenade" || weapon.name === #"hatchet")
 			{
 				victim.var_c2dcab66[attacker getentitynumber()] = {#hash_569e4e47:var_569e4e47, #hash_b8fea68d:1, #weapon:weapon, #time:gettime(), #player:attacker};
 			}
@@ -1317,7 +1317,7 @@ function function_4ffff5df(attacker, weapon, var_9c448324, enemy)
 				}
 			}
 		}
-		if(weapon.name === #"hash_23dd6039fe2f36c6")
+		if(weapon.name === #"molotov_fire")
 		{
 			processscoreevent("molotov_assist_zm", attacker, enemy);
 		}
@@ -1345,7 +1345,7 @@ function is_equipment(weapon)
 	}
 	switch(weapon.name)
 	{
-		case "hash_23dd6039fe2f36c6":
+		case "molotov_fire":
 		case "frag_grenade":
 		case "hatchet":
 		case "eq_sticky_grenade":
@@ -1948,7 +1948,7 @@ function function_4d412da8(params)
 							var_da42dc1e = 1;
 							break;
 						}
-						case "hash_23dd6039fe2f36c6":
+						case "molotov_fire":
 						{
 							params.eattacker zm_stats::increment_challenge_stat(#"hash_60594d8f8bc8764b");
 							params.eattacker contracts::function_5b88297d(#"hash_57299228edd7d8ad");

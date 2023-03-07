@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -48,11 +48,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"no_sprint", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"no_sprint", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_88af4af0
 	Checksum: 0xF9A1C2E6
 	Offset: 0x168
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	callback::on_spawned(&function_dc856fd8);
 	foreach(player in getplayers())
@@ -73,7 +73,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_88af4af0
 	Checksum: 0xD771AF4A
 	Offset: 0x258
@@ -81,7 +81,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::remove_on_spawned(&function_dc856fd8);
 	foreach(player in getplayers())
@@ -133,7 +133,7 @@ function private function_31f500f()
 	{
 		if(isalive(self) && self sprintbuttonpressed())
 		{
-			self namespace_b22c99a5::function_97444b02();
+			self zm_trial_util::function_97444b02();
 			while(self sprintbuttonpressed())
 			{
 				waitframe(1);

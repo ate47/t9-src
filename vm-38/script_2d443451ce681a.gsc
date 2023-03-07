@@ -457,11 +457,11 @@ function function_c3314131(var_2795777d, var_82706add, var_69747751, var_7b2eb76
 	e_goal = spawnstruct();
 	if(isdefined(var_2795777d))
 	{
-		var_a2e909e9 = getaiarray(var_2795777d, var_82706add);
+		a_e_ai = getaiarray(var_2795777d, var_82706add);
 	}
 	else
 	{
-		var_a2e909e9 = getaiarray();
+		a_e_ai = getaiarray();
 	}
 	if(!isdefined(var_69747751))
 	{
@@ -469,15 +469,15 @@ function function_c3314131(var_2795777d, var_82706add, var_69747751, var_7b2eb76
 			assertmsg("");
 		#/
 	}
-	function_1eaaceab(var_a2e909e9);
-	e_goal thread function_53f3fb5(var_a2e909e9, var_89c6f2db, n_timeout);
+	function_1eaaceab(a_e_ai);
+	e_goal thread function_53f3fb5(a_e_ai, var_89c6f2db, n_timeout);
 	e_goal thread function_b7bb4bb5(var_371cea52);
 	if(isdefined(var_89c6f2db) || isdefined(var_371cea52))
 	{
 		e_goal waittill(array("aGuys_kill_count", "aGuys_flag_hit"));
 	}
-	function_1eaaceab(var_a2e909e9);
-	level thread function_6706a21c(var_a2e909e9, var_69747751, var_7b2eb76f, b_shoot);
+	function_1eaaceab(a_e_ai);
+	level thread function_6706a21c(a_e_ai, var_69747751, var_7b2eb76f, b_shoot);
 	e_goal struct::delete();
 }
 

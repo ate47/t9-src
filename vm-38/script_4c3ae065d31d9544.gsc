@@ -1,5 +1,5 @@
-#using script_1611421ee9b880d3;
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_wallbuy.csc;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using script_2c5f2d4e7aa698c4;
 #using script_64ba9fcabd6381a1;
 #using script_76b36ed1b7a51ed2;

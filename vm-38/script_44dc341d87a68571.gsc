@@ -1585,9 +1585,9 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 									self ai::set_behavior_attribute("run", 1);
 									self setblackboardattribute("_gladiator_arm", "right_arm");
 								}
-								if(!self isattached(#"hash_3634f266929240d1"))
+								if(!self isattached(#"c_t8_zmb_dlc0_zombie_destroyer_larm1_dam"))
 								{
-									self attach(#"hash_3634f266929240d1");
+									self attach(#"c_t8_zmb_dlc0_zombie_destroyer_larm1_dam");
 								}
 								self.var_9b959f19 = 1;
 								self clientfield::set("gladiator_arm_effect", 1);
@@ -1609,9 +1609,9 @@ function private function_75f32da6(inflictor, attacker, damage, idflags, meansof
 								{
 									self setblackboardattribute("_gladiator_arm", "left_arm");
 								}
-								if(!self isattached(#"hash_2c9ad2bed0d2bcdf"))
+								if(!self isattached(#"c_t8_zmb_dlc0_zombie_destroyer_rarm1_dam"))
 								{
-									self attach(#"hash_2c9ad2bed0d2bcdf");
+									self attach(#"c_t8_zmb_dlc0_zombie_destroyer_rarm1_dam");
 								}
 								self.var_9b959f19 = 1;
 								self clientfield::set("gladiator_arm_effect", 2);

@@ -107,8 +107,8 @@ function grab_bonfire_sale(player)
 */
 function start_bonfire_sale(item)
 {
-	level notify(#"hash_4873b8fc3ebd2283");
-	level endon(#"hash_4873b8fc3ebd2283");
+	level notify(#"powerup bonfire sale");
+	level endon(#"powerup bonfire sale");
 	temp_ent = spawn("script_origin", (0, 0, 0));
 	temp_ent playloopsound(#"zmb_double_point_loop");
 	zombie_utility::set_zombie_var(#"zombie_powerup_bonfire_sale_on", 1);
@@ -144,7 +144,7 @@ function start_bonfire_sale(item)
 */
 function toggle_bonfire_sale_on()
 {
-	level endon(#"hash_4873b8fc3ebd2283");
+	level endon(#"powerup bonfire sale");
 	if(!isdefined(zombie_utility::function_d2dfacfd(#"zombie_powerup_bonfire_sale_on")))
 	{
 		return;

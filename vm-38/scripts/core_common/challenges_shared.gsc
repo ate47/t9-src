@@ -1,15 +1,15 @@
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_40fc784c60f9fa7b;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
 #using script_67ce8e728d8f37ba;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
 #using script_7133a4d461308099;
 #using script_7a8059ca02b7b09e;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
 #using scripts\core_common\drown.gsc;
@@ -627,7 +627,7 @@ function genericbulletkill(data, victim, weapon)
 	{
 		if(weapon.victim.idflags & 8)
 		{
-			player stats::function_dad108fa(#"hash_2df2ce58360b7c03", 1);
+			player stats::function_dad108fa(#"kill_enemy_through_objects", 1);
 		}
 	}
 }
@@ -1424,7 +1424,7 @@ function capturedcrate(owner)
 	}
 	if(owner == self)
 	{
-		self stats::function_dad108fa(#"hash_26662af4f77f01fe", 1);
+		self stats::function_dad108fa(#"capture_own_carepackage", 1);
 	}
 	else if(level.teambased && owner.team != self.team || !level.teambased)
 	{
@@ -1454,7 +1454,7 @@ function destroyscorestreak(weapon, playercontrolled, groundbased, countaskillst
 	}
 	if(groundbased)
 	{
-		self stats::function_dad108fa(#"hash_436bb8e11434ff63", 1);
+		self stats::function_dad108fa(#"destroy_groundbased_scorestreak", 1);
 		self stats::function_e24eec31(weapon, #"destroy_vehicle_ground", 1);
 	}
 	else
@@ -1534,7 +1534,7 @@ function destroyscorestreak(weapon, playercontrolled, groundbased, countaskillst
 	self stats::function_dad108fa(#"hash_55becb3a18f3c612", 1);
 	if(self function_6c32d092(#"talent_engineer"))
 	{
-		self stats::function_dad108fa(#"hash_481f9ede13340c00", 1);
+		self stats::function_dad108fa(#"destroy_scorestreaks_equipment_engineer", 1);
 	}
 	if(isdefined(weapon.attachments) && weapon.attachments.size > 0)
 	{
@@ -1582,7 +1582,7 @@ function function_24db0c33(weapon, destroyedobject)
 	var_e535460 = self function_6c32d092(#"talent_engineer");
 	if(var_e535460)
 	{
-		self stats::function_dad108fa(#"hash_481f9ede13340c00", 1);
+		self stats::function_dad108fa(#"destroy_scorestreaks_equipment_engineer", 1);
 		self contracts::function_a54e2068(#"hash_448a34bf383a87a6", 1);
 	}
 	if(isdefined(weaponclass) && weaponclass == #"weapon_launcher")

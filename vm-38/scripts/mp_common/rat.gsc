@@ -1,4 +1,4 @@
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\rat_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

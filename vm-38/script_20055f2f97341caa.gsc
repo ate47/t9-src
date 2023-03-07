@@ -144,7 +144,7 @@ function private function_67189b6b(localclientnum, newval)
 					item_world::function_84964a9e(localclientnum, self.var_a6762160, model, self.var_bd027dd9);
 				}
 			}
-			namespace_b376ff3f::function_b1136fc8(localclientnum, self);
+			item_inventory::function_b1136fc8(localclientnum, self);
 		}
 		else if(newval == 2 || newval == 3)
 		{
@@ -153,11 +153,11 @@ function private function_67189b6b(localclientnum, newval)
 			if(newval == 2)
 			{
 				item_world::function_3de69770(localclientnum, self);
-				namespace_b376ff3f::function_31868137(localclientnum, self);
+				item_inventory::function_31868137(localclientnum, self);
 			}
 			else
 			{
-				namespace_b376ff3f::function_d1da833d(localclientnum, self);
+				item_inventory::function_d1da833d(localclientnum, self);
 			}
 			item_world::function_b78a9820(localclientnum);
 			item_world::function_2990e5f(localclientnum, self);
@@ -240,7 +240,7 @@ function function_1fe1281(localclientnum, newval)
 	{
 		if(isdefined(self.amount) && newval !== self.amount)
 		{
-			namespace_b376ff3f::function_31868137(localclientnum, self);
+			item_inventory::function_31868137(localclientnum, self);
 		}
 		self.amount = newval;
 		self.count = 1;
@@ -249,7 +249,7 @@ function function_1fe1281(localclientnum, newval)
 	{
 		if(isdefined(self.count) && newval !== self.count)
 		{
-			namespace_b376ff3f::function_31868137(localclientnum, self);
+			item_inventory::function_31868137(localclientnum, self);
 		}
 		self.amount = 0;
 		self.count = newval;

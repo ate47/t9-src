@@ -436,7 +436,7 @@ function zombie_death_time_limit(e_attacker, weapon, var_fd90b0bb, tier)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a22e41ec(var_5a5260d8)
+function function_a22e41ec(_hash)
 {
 	if(!isdefined(level.ai))
 	{

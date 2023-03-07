@@ -1,11 +1,11 @@
-#using script_3a3d4c4130baf173;
+#using scripts\abilities\gadgets\gadget_concertina_wire.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_33994c00;
+#namespace gadget_concertina_wire;
 
 /*
 	Name: function_14db743e
-	Namespace: namespace_33994c00
+	Namespace: gadget_concertina_wire
 	Checksum: 0xD64155E3
 	Offset: 0x90
 	Size: 0x14
@@ -30,7 +30,7 @@ function private autoexec function_14db743e()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_2089d7dfe76d99c6", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"gadget_concertina_wire", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

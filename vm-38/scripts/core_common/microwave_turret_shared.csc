@@ -1,11 +1,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_502f6ccb;
+#namespace microwave_turret_shared;
 
 /*
 	Name: function_e1e859d9
-	Namespace: namespace_502f6ccb
+	Namespace: microwave_turret_shared
 	Checksum: 0x56926FAA
 	Offset: 0x230
 	Size: 0x14

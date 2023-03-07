@@ -1,8 +1,8 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_471b31bd963b388e;
 #using script_4ccfb58a9443a60b;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
 #using script_6167e26342be354b;
 #using script_7a5293d92c61c788;
@@ -82,7 +82,7 @@ function function_27473e44()
 {
 	zm_perks::register_perk_basic_info(#"hash_38c08136902fd553", #"perk_tombstone", 2000, #"hash_30c002174ad27054", getweapon("zombie_perk_bottle_tombstone"), undefined, #"hash_46862a73c93d9338");
 	zm_perks::register_perk_precache_func(#"hash_38c08136902fd553", &precache);
-	zm_perks::register_perk_clientfields(#"hash_38c08136902fd553", &register_clientfield, &function_b0c4e363);
+	zm_perks::register_perk_clientfields(#"hash_38c08136902fd553", &register_clientfield, &set_clientfield);
 	zm_perks::register_perk_machine(#"hash_38c08136902fd553", &function_1fe63170);
 	zm_perks::register_perk_threads(#"hash_38c08136902fd553", &function_190ff809, &function_6df7ba74);
 	zm_perks::register_perk_host_migration_params(#"hash_38c08136902fd553", "vending_tombstone", "tombstone_light");
@@ -137,7 +137,7 @@ function register_clientfield()
 }
 
 /*
-	Name: function_b0c4e363
+	Name: set_clientfield
 	Namespace: namespace_9b007fc4
 	Checksum: 0xE362EDAC
 	Offset: 0x8E8
@@ -145,7 +145,7 @@ function register_clientfield()
 	Parameters: 1
 	Flags: Linked
 */
-function function_b0c4e363(state)
+function set_clientfield(state)
 {
 	self clientfield::set_player_uimodel("hud_items.tombstonePerkAvailable", state);
 }
@@ -1298,8 +1298,8 @@ function function_8bc73ff9()
 	}
 	weapon1 = var_12a9e30a.weapon1;
 	var_a85dc309 = self.inventory.items[17 + 1];
-	var_7accd6f7 = namespace_b376ff3f::function_a33744de(var_a85dc309.var_627c698b);
-	dropweapon = self namespace_b376ff3f::function_b76f46a0(weapon1, var_7accd6f7, 1);
+	var_7accd6f7 = item_inventory::function_a33744de(var_a85dc309.var_627c698b);
+	dropweapon = self item_inventory::function_b76f46a0(weapon1, var_7accd6f7, 1);
 	self setweaponammoclip(weapon1.var_627c698b, weapon1.clipammo);
 	self setweaponammostock(weapon1.var_627c698b, weapon1.stockammo);
 	if(isdefined(weapon1.var_7fa2b50b))
@@ -1316,8 +1316,8 @@ function function_8bc73ff9()
 		}
 		else
 		{
-			var_1f321fb7 = namespace_b376ff3f::function_a33744de(var_bacb67e4.var_627c698b);
-			dropweapon = self namespace_b376ff3f::function_b76f46a0(weapon2, var_1f321fb7, 1);
+			var_1f321fb7 = item_inventory::function_a33744de(var_bacb67e4.var_627c698b);
+			dropweapon = self item_inventory::function_b76f46a0(weapon2, var_1f321fb7, 1);
 		}
 		self setweaponammoclip(weapon2.var_627c698b, weapon2.clipammo);
 		self setweaponammostock(weapon2.var_627c698b, weapon2.stockammo);

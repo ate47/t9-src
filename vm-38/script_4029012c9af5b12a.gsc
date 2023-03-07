@@ -1,6 +1,6 @@
 #using script_13da4e6b98ca81a1;
 #using script_4daa124bc391e7ed;
-#using script_7db26be178c873e2;
+#using scripts\weapons\smokegrenade.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\flag_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -35,7 +35,7 @@ function private autoexec function_5a3fc64a()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_413cdfff74818010", &function_70a657d8, undefined, undefined, "renderoverridebundle");
+	system::register(#"player_mp", &function_70a657d8, undefined, undefined, "renderoverridebundle");
 }
 
 /*

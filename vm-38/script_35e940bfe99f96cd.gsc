@@ -1,11 +1,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_8f7da5cc;
+#namespace archetype_nosferatu;
 
 /*
 	Name: function_38259ea5
-	Namespace: namespace_8f7da5cc
+	Namespace: archetype_nosferatu
 	Checksum: 0x831D62CB
 	Offset: 0xC0
 	Size: 0x14
@@ -19,7 +19,7 @@ function private autoexec function_38259ea5()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_8f7da5cc
+	Namespace: archetype_nosferatu
 	Checksum: 0x3F43C7AF
 	Offset: 0xE0
 	Size: 0x3C
@@ -33,7 +33,7 @@ function private autoexec function_89f2df9()
 
 /*
 	Name: precache
-	Namespace: namespace_8f7da5cc
+	Namespace: archetype_nosferatu
 	Checksum: 0x80F724D1
 	Offset: 0x128
 	Size: 0x4
@@ -46,7 +46,7 @@ function autoexec precache()
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_8f7da5cc
+	Namespace: archetype_nosferatu
 	Checksum: 0x814A8CD3
 	Offset: 0x138
 	Size: 0x4C
@@ -60,7 +60,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_5b1f1713
-	Namespace: namespace_8f7da5cc
+	Namespace: archetype_nosferatu
 	Checksum: 0x3799E38A
 	Offset: 0x190
 	Size: 0x15C

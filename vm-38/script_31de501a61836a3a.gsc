@@ -180,7 +180,7 @@ function on_player_spawned()
 {
 	if(level.var_7d45d0d4.var_3385b421.content_script_name === "payload_escort")
 	{
-		level.var_31028c5d prototype_hud::function_953da284(self, #"hash_838284821745ec7");
+		level.var_31028c5d prototype_hud::set_active_objective_string(self, #"hash_838284821745ec7");
 		level.var_31028c5d prototype_hud::function_817e4d10(self, 2);
 		if(isdefined(level.progress_bar))
 		{
@@ -860,7 +860,7 @@ function function_d137dbd4(instance, activator)
 		wait(6);
 		foreach(player in getplayers())
 		{
-			level.var_31028c5d prototype_hud::function_953da284(player, #"hash_838284821745ec7");
+			level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_838284821745ec7");
 			level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 		}
 	}

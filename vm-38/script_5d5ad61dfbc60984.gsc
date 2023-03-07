@@ -144,7 +144,7 @@ function function_4427fb0e()
 }
 
 /*
-	Name: function_c89d0204
+	Name: startgametype
 	Namespace: namespace_3f3933bc
 	Checksum: 0xFDB40906
 	Offset: 0x9C0
@@ -152,7 +152,7 @@ function function_4427fb0e()
 	Parameters: 1
 	Flags: Event
 */
-event function_c89d0204(eventstruct)
+event startgametype(eventstruct)
 {
 	function_ba34436e();
 	function_38411346();

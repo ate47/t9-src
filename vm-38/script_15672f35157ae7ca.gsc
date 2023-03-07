@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_276088fe : class_6aaccc24
+class class_276088fe : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_276088fe : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_276088fe : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("LUIelem_entity_bar");
+		cLUIelem::function_5c1bb138("LUIelem_entity_bar");
 	}
 
 	/*
@@ -110,15 +110,15 @@ class class_276088fe : class_6aaccc24
 	*/
 	function setup_clientfields(var_aabf01c7, var_5a7b4b38, var_bda3bf84, var_f228b5fa, var_5957697a, var_90efc226, var_b77f41ee, var_255edd98, var_2c8aa656)
 	{
-		namespace_6aaccc24::setup_clientfields("LUIelem_entity_bar");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 3, "int");
-		namespace_6aaccc24::function_da693cbe("progress_percent", 1, 7, "float", var_bda3bf84);
-		namespace_6aaccc24::function_da693cbe("entnum", 1, 7, "int", var_f228b5fa);
-		namespace_6aaccc24::function_da693cbe("offset_x", 1, 6, "int", var_5957697a);
-		namespace_6aaccc24::function_da693cbe("offset_y", 1, 6, "int", var_90efc226);
-		namespace_6aaccc24::function_da693cbe("offset_z", 1, 6, "int", var_b77f41ee);
-		namespace_6aaccc24::function_da693cbe("entityClamp", 1, 1, "int", var_255edd98);
-		namespace_6aaccc24::function_da693cbe("entityScale", 1, 1, "int", var_2c8aa656);
+		cLUIelem::setup_clientfields("LUIelem_entity_bar");
+		cLUIelem::function_da693cbe("_state", 1, 3, "int");
+		cLUIelem::function_da693cbe("progress_percent", 1, 7, "float", var_bda3bf84);
+		cLUIelem::function_da693cbe("entnum", 1, 7, "int", var_f228b5fa);
+		cLUIelem::function_da693cbe("offset_x", 1, 6, "int", var_5957697a);
+		cLUIelem::function_da693cbe("offset_y", 1, 6, "int", var_90efc226);
+		cLUIelem::function_da693cbe("offset_z", 1, 6, "int", var_b77f41ee);
+		cLUIelem::function_da693cbe("entityClamp", 1, 1, "int", var_255edd98);
+		cLUIelem::function_da693cbe("entityScale", 1, 1, "int", var_2c8aa656);
 	}
 
 	/*
@@ -136,7 +136,7 @@ class class_276088fe : class_6aaccc24
 	}
 
 	/*
-		Name: function_c8350e33
+		Name: set_entNum
 		Namespace: namespace_276088fe
 		Checksum: 0x57F89024
 		Offset: 0xB38
@@ -144,7 +144,7 @@ class class_276088fe : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_c8350e33(localclientnum, value)
+	function set_entNum(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", value);
 	}
@@ -241,7 +241,7 @@ class class_276088fe : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "progress_percent", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", 0);
@@ -295,7 +295,7 @@ function function_78098d4b(localclientnum, value)
 */
 function function_919052d(localclientnum, entnum, bonetag)
 {
-	self function_c8350e33(localclientnum, entnum);
+	self set_entNum(localclientnum, entnum);
 	self function_78098d4b(localclientnum, bonetag);
 }
 
@@ -434,7 +434,7 @@ function function_ecacbaa5(localclientnum, value)
 }
 
 /*
-	Name: function_c8350e33
+	Name: set_entNum
 	Namespace: luielem_entity_bar
 	Checksum: 0xB1CDABCD
 	Offset: 0x540
@@ -442,9 +442,9 @@ function function_ecacbaa5(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_c8350e33(localclientnum, value)
+function set_entNum(localclientnum, value)
 {
-	[[ self ]]->function_c8350e33(localclientnum, value);
+	[[ self ]]->set_entNum(localclientnum, value);
 }
 
 /*

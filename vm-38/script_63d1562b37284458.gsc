@@ -261,7 +261,7 @@ function debug_zipline()
 			return;
 		}
 		ziplines = level.var_e02fab68;
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		while(getdvarint(#"hash_13a9fb4be8e86e13", 0))
 		{

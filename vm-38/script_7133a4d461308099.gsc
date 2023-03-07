@@ -539,7 +539,7 @@ function function_d005b26d(activecamo, var_3a8a1e00, isdeath)
 	Parameters: 3
 	Flags: Linked
 */
-function function_896ac347(var_8659b480, statname, value)
+function function_896ac347(oweapon, statname, value)
 {
 	if(!isplayer(self))
 	{
@@ -549,7 +549,7 @@ function function_896ac347(var_8659b480, statname, value)
 	{
 		return;
 	}
-	if(!isdefined(var_8659b480))
+	if(!isdefined(oweapon))
 	{
 		/#
 			/#
@@ -558,12 +558,12 @@ function function_896ac347(var_8659b480, statname, value)
 		#/
 		return;
 	}
-	weapon = function_94c2605(var_8659b480);
+	weapon = function_94c2605(oweapon);
 	if(!isdefined(weapon))
 	{
 		/#
 			/#
-				assertmsg("" + function_9e72a96(var_8659b480.name));
+				assertmsg("" + function_9e72a96(oweapon.name));
 			#/
 		#/
 		return;
@@ -1271,7 +1271,7 @@ function devgui_player_disconnect()
 		}
 		root = level.var_630fbd77 + "";
 		cmd = (("" + root) + self.playername) + "";
-		thread util::function_345e5b9a(cmd);
+		thread util::add_debug_command(cmd);
 	#/
 }
 
@@ -1308,7 +1308,7 @@ function function_1039ce5c(root)
 {
 	/#
 		cmd = (root + "") + "";
-		thread util::function_345e5b9a(cmd);
+		thread util::add_debug_command(cmd);
 	#/
 }
 
@@ -1330,9 +1330,9 @@ function function_f1d01720(root, index)
 			index = 0;
 		}
 		cmd = (((root + "") + "") + index) + "";
-		thread util::function_345e5b9a(cmd);
+		thread util::add_debug_command(cmd);
 		cmd = (((root + "") + "") + index) + "";
-		thread util::function_345e5b9a(cmd);
+		thread util::add_debug_command(cmd);
 	#/
 }
 
@@ -1362,7 +1362,7 @@ function function_85cb822d(root, index)
 			}
 			activecamoname = function_9e72a96(activecamo);
 			cmd = (((((var_37949de1 + activecamoname) + "") + activecamoname) + "") + index) + "";
-			thread util::function_345e5b9a(cmd);
+			thread util::add_debug_command(cmd);
 		}
 	#/
 }
@@ -1392,7 +1392,7 @@ function function_de358bfd(root, index)
 		foreach(weapon in weapons)
 		{
 			cmd = (((((var_1520a1da + weapon) + "") + weapon) + "") + index) + "";
-			thread util::function_345e5b9a(cmd);
+			thread util::add_debug_command(cmd);
 		}
 	#/
 }
@@ -1418,7 +1418,7 @@ function function_50d79d31(root, index)
 		foreach(stage in stages)
 		{
 			cmd = (((((var_82c49718 + stage) + "") + stage) + "") + index) + "";
-			thread util::function_345e5b9a(cmd);
+			thread util::add_debug_command(cmd);
 		}
 	#/
 }

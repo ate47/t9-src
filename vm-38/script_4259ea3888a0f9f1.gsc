@@ -14,7 +14,7 @@
 #using script_3a97cf7fe4b3bc97;
 #using script_3c0e0fe36a7ec024;
 #using script_3dc7e0c7f9c90bdb;
-#using script_3f6516099f1d5ff1;
+#using scripts\core_common\map.csc;
 #using script_41e32418d719f2dd;
 #using script_44c87b4589ee1f93;
 #using script_45ed9e2916a5d657;

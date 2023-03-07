@@ -5,11 +5,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\zm_common\zm_perks.csc;
 
-#namespace namespace_e1e7cabf;
+#namespace zm_perk_death_perception;
 
 /*
 	Name: function_7ed0d9d9
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xEA9C0B6C
 	Offset: 0x2D8
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_7ed0d9d9()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x26FF8758
 	Offset: 0x2F8
 	Size: 0x3C
@@ -32,12 +32,12 @@ function private autoexec function_7ed0d9d9()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_31eaab29298885c6", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_perk_death_perception", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x713813A8
 	Offset: 0x340
 	Size: 0x12C
@@ -66,7 +66,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_7a04ad0d
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xCB68CCDF
 	Offset: 0x478
 	Size: 0xE4
@@ -78,12 +78,12 @@ function function_7a04ad0d()
 	zm_perks::register_perk_clientfields(#"hash_1ea1a9cfee998e89", &function_6e0b6101, &function_95ed7b4a);
 	zm_perks::register_perk_effects(#"hash_1ea1a9cfee998e89", "deathperception_light");
 	zm_perks::register_perk_init_thread(#"hash_1ea1a9cfee998e89", &function_9b484511);
-	zm_perks::function_b60f4a9f(#"hash_1ea1a9cfee998e89", #"hash_3135c5c88bb80ce5", "zombie/fx8_perk_altar_symbol_ambient_death_perception", #"hash_7d2a55a87f693582");
+	zm_perks::function_b60f4a9f(#"hash_1ea1a9cfee998e89", #"p8_zm_vapor_altar_icon_01_deathperception", "zombie/fx8_perk_altar_symbol_ambient_death_perception", #"zmperksdeathperception");
 }
 
 /*
 	Name: function_9b484511
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x80F724D1
 	Offset: 0x568
 	Size: 0x4
@@ -96,7 +96,7 @@ function function_9b484511()
 
 /*
 	Name: function_6e0b6101
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x7FC436BC
 	Offset: 0x578
 	Size: 0x16C
@@ -114,7 +114,7 @@ function function_6e0b6101()
 
 /*
 	Name: function_95ed7b4a
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x80F724D1
 	Offset: 0x6F0
 	Size: 0x4
@@ -127,7 +127,7 @@ function function_95ed7b4a()
 
 /*
 	Name: function_fcfd6064
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x49D5199C
 	Offset: 0x700
 	Size: 0x53A
@@ -276,7 +276,7 @@ function function_fcfd6064(localclientnum, var_a6762160, var_8040e225, var_bd027
 
 /*
 	Name: function_a759ad17
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xB007E33E
 	Offset: 0xC48
 	Size: 0xFC
@@ -306,7 +306,7 @@ function function_a759ad17(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_3a73a8b0
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xFEF837FA
 	Offset: 0xD50
 	Size: 0xAE
@@ -327,7 +327,7 @@ function function_3a73a8b0(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_30fe2a1b
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x3C9BA397
 	Offset: 0xE08
 	Size: 0x1A8
@@ -363,7 +363,7 @@ function function_30fe2a1b(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_1300c2fe
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x58C1E9B
 	Offset: 0xFB8
 	Size: 0x152
@@ -396,7 +396,7 @@ function function_1300c2fe()
 
 /*
 	Name: perk_death_perception_visuals
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x2FBA4CD1
 	Offset: 0x1118
 	Size: 0x1A0
@@ -431,7 +431,7 @@ function perk_death_perception_visuals(localclientnum, oldval, newval, bnewent, 
 
 /*
 	Name: function_6c1f79e3
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x95D4EAA5
 	Offset: 0x12C0
 	Size: 0x15A
@@ -462,7 +462,7 @@ function function_6c1f79e3(localclientnum)
 
 /*
 	Name: function_731d83de
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xF8275515
 	Offset: 0x1428
 	Size: 0x9C
@@ -487,7 +487,7 @@ function function_731d83de(localclientnum)
 
 /*
 	Name: function_fff5377e
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x2FC45F8E
 	Offset: 0x14D0
 	Size: 0x28C
@@ -528,7 +528,7 @@ function function_fff5377e(localclientnum)
 
 /*
 	Name: function_793a9f3d
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xE27EAB83
 	Offset: 0x1768
 	Size: 0xB2
@@ -549,7 +549,7 @@ function private function_793a9f3d(localclientnum)
 
 /*
 	Name: function_6a5f77
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xC19A1C73
 	Offset: 0x1828
 	Size: 0x24
@@ -563,7 +563,7 @@ function function_6a5f77(val)
 
 /*
 	Name: function_25410869
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xC5FA64F7
 	Offset: 0x1858
 	Size: 0x74
@@ -581,7 +581,7 @@ function function_25410869(localclientnum)
 
 /*
 	Name: function_dd6c1a8b
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0xA66584EF
 	Offset: 0x18D8
 	Size: 0x2C
@@ -595,7 +595,7 @@ function function_dd6c1a8b(localclientnum, b_igc_active)
 
 /*
 	Name: function_1f15c4b5
-	Namespace: namespace_e1e7cabf
+	Namespace: zm_perk_death_perception
 	Checksum: 0x95382A1
 	Offset: 0x1910
 	Size: 0x158

@@ -9,7 +9,7 @@
 #using script_40fc784c60f9fa7b;
 #using script_4163291d6e693552;
 #using script_5f261a5d57de5f7c;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_72401f526ba71638;
 #using script_7fc996fe8678852;
 #using scripts\core_common\ai_shared.gsc;
@@ -430,7 +430,7 @@ function truck_setup(instance)
 	self thread function_6e3b7f88(instance);
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_23ebc154fc5d24b1");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_23ebc154fc5d24b1");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 }
@@ -538,14 +538,14 @@ function function_bfdd779(instance)
 	self.n_start_health = self.health;
 	self.max_health = self.n_start_health;
 	var_8da3e170 = self.health / self.n_start_health;
-	namespace_ee206246::sndonoverride_eye_(var_8da3e170);
-	namespace_ee206246::function_2398ab16("objective_ended");
+	zm_sq::sndonoverride_eye_(var_8da3e170);
+	zm_sq::function_2398ab16("objective_ended");
 	while(true)
 	{
 		var_c3a3ae13 = self.health / self.n_start_health;
 		if(var_c3a3ae13 >= 0 && var_8da3e170 != var_c3a3ae13)
 		{
-			namespace_ee206246::sndonoverride_eye_(var_c3a3ae13);
+			zm_sq::sndonoverride_eye_(var_c3a3ae13);
 		}
 		var_8da3e170 = var_c3a3ae13;
 		waitframe(1);
@@ -1527,7 +1527,7 @@ function function_913f0e5a()
 	self.vh_truck flag::clear(#"hash_46ec4489ed0e4649");
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_5d39ad2d717d21c3");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_5d39ad2d717d21c3");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 }
@@ -1960,7 +1960,7 @@ function function_8346a72c()
 	self thread function_fbaf0bd(self.var_c7f8f5a6);
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_759f0287fd5b1e64");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_759f0287fd5b1e64");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 }
@@ -2251,7 +2251,7 @@ function function_494fde88()
 	self waittill(#"hash_7ae25b738e2655a3");
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_23ebc154fc5d24b1");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_23ebc154fc5d24b1");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 	if(isdefined(self.vh_truck))

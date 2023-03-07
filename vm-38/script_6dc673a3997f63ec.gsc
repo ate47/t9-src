@@ -1,11 +1,11 @@
 #using script_15022fca9ab99080;
 #using script_1d1a97b78f64bfd;
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -58,7 +58,7 @@ function private autoexec function_89f2df9()
 function private init_shared()
 {
 	remote_weapons::init_shared();
-	killstreaks::function_e4ef8390("killstreak_hoverjet", &function_6bbdb500);
+	killstreaks::register_killstreak("killstreak_hoverjet", &function_6bbdb500);
 	remote_weapons::registerremoteweapon("hoverjet", #"", &function_80586c75, &function_cb79fdd4, 1);
 	clientfield::register("toplayer", "" + #"hash_312f8015c2d5dff", 1, 1, "int");
 	clientfield::register("toplayer", "" + #"hash_1a4b729551097abf", 1, 1, "int");
@@ -599,7 +599,7 @@ function function_58b50fe4(jet)
 function function_7725894b()
 {
 	self endon(#"hash_7a12fabba51d2882");
-	self notify(#"hash_51364ded7e42dc41");
+	self notify(#"destintation reached");
 	self notify(#"leaving");
 	self.leaving = 1;
 	if(!self.destroyscoreeventgiven === 1)

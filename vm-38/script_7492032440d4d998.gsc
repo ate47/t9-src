@@ -172,7 +172,7 @@ function function_902089af(e_player)
 	e_player val::set(#"hash_20ca625deb016343", "allow_prone", 0);
 	e_player val::set(#"hash_20ca625deb016343", "allow_jump", 0);
 	e_player namespace_553954de::function_14bada94();
-	e_player namespace_5c4c9a39::function_b488623(1);
+	e_player zm_gold_util::function_b488623(1);
 	level.terminal.screen.entity setmodel(level.terminal.screen.model);
 	level.terminal.screen.entity playsound(#"hash_50335038922faab3");
 	level.terminal.screen.entity playloopsound(#"hash_5037543892339a56");
@@ -187,7 +187,7 @@ function function_902089af(e_player)
 	level.terminal.screen.entity setmodel(#"hash_117b941d47272b4f");
 	if(isdefined(e_player))
 	{
-		e_player namespace_5c4c9a39::function_b488623(0);
+		e_player zm_gold_util::function_b488623(0);
 		e_player val::reset_all(#"hash_20ca625deb016343");
 		e_player namespace_553954de::function_548f282();
 	}

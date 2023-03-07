@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_ba33e0c1 : class_6aaccc24
+class class_ba33e0c1 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_ba33e0c1 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_ba33e0c1 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("EncodedRadio_UseBar");
+		cLUIelem::function_5c1bb138("EncodedRadio_UseBar");
 	}
 
 	/*
@@ -82,10 +82,10 @@ class class_ba33e0c1 : class_6aaccc24
 	*/
 	function setup_clientfields(var_ec85b709, var_193163f7)
 	{
-		namespace_6aaccc24::setup_clientfields("EncodedRadio_UseBar");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 1, "int");
-		namespace_6aaccc24::function_da693cbe("progressFrac", 1, 10, "float", var_ec85b709);
-		namespace_6aaccc24::function_da693cbe("activatorCount", 1, 3, "int", var_193163f7);
+		cLUIelem::setup_clientfields("EncodedRadio_UseBar");
+		cLUIelem::function_da693cbe("_state", 1, 1, "int");
+		cLUIelem::function_da693cbe("progressFrac", 1, 10, "float", var_ec85b709);
+		cLUIelem::function_da693cbe("activatorCount", 1, 3, "int", var_193163f7);
 	}
 
 	/*
@@ -145,7 +145,7 @@ class class_ba33e0c1 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "progressFrac", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "activatorCount", 0);

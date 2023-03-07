@@ -1,14 +1,14 @@
 #using script_1c65dbfc2f1c8d8f;
-#using script_2c74a7b5eea1ec89;
+#using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_383a3b1bb18ba876;
 #using script_4108035fe400ce67;
-#using script_4663ec59d864e437;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_47fb62300ac0bd60;
-#using script_6c8abe14025b47c4;
-#using script_79a7e1c31a3e8cc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\deployable.gsc;
 #using script_7bacb32f8222fa3e;
-#using script_7bafaa95bb1b427e;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weapons.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -62,7 +62,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	killstreaks::function_e4ef8390("killstreak_spy_med_pack", &function_12db55ec);
+	killstreaks::register_killstreak("killstreak_spy_med_pack", &function_12db55ec);
 	level.var_c9404b0a = spawnstruct();
 	level.var_c9404b0a.var_8e10bc5d = [];
 	level.var_c9404b0a.var_bbb51a2a = [];

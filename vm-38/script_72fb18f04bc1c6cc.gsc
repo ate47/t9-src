@@ -19,11 +19,11 @@
 #using scripts\zm_common\zm_stats.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_a7cf6436;
+#namespace zm_perk_slider;
 
 /*
 	Name: function_39239882
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xD47A2D84
 	Offset: 0x2C0
 	Size: 0x14
@@ -37,7 +37,7 @@ function private autoexec function_39239882()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x255B04CD
 	Offset: 0x2E0
 	Size: 0x4C
@@ -46,12 +46,12 @@ function private autoexec function_39239882()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_2813a2fd40c93f23", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_perk_slider", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x45F29FEE
 	Offset: 0x338
 	Size: 0xB4
@@ -71,7 +71,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_8ac3bea9
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x3F8
 	Size: 0x4
@@ -84,7 +84,7 @@ function private function_8ac3bea9()
 
 /*
 	Name: function_481123c
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xDADC560F
 	Offset: 0x408
 	Size: 0x1AC
@@ -93,7 +93,7 @@ function private function_8ac3bea9()
 */
 function function_481123c()
 {
-	zm_perks::register_perk_basic_info(#"hash_3417450e1347185", #"hash_63e46074d37d524b", 2000, #"hash_692a7dbdc35fb5e0", getweapon("zombie_perk_bottle_slider"), undefined, #"hash_402b9d6529500b72");
+	zm_perks::register_perk_basic_info(#"hash_3417450e1347185", #"perk_slider", 2000, #"hash_692a7dbdc35fb5e0", getweapon("zombie_perk_bottle_slider"), undefined, #"hash_402b9d6529500b72");
 	zm_perks::register_perk_precache_func(#"hash_3417450e1347185", &function_1781c013);
 	zm_perks::register_perk_clientfields(#"hash_3417450e1347185", &function_5ba17a72, &function_90f58801);
 	zm_perks::register_perk_machine(#"hash_3417450e1347185", &function_ef14badb, &function_15d03600);
@@ -104,7 +104,7 @@ function function_481123c()
 
 /*
 	Name: function_15d03600
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x5C0
 	Size: 0x4
@@ -117,7 +117,7 @@ function function_15d03600()
 
 /*
 	Name: function_1781c013
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xF901F49F
 	Offset: 0x5D0
 	Size: 0x106
@@ -136,7 +136,7 @@ function function_1781c013()
 
 /*
 	Name: function_5ba17a72
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x87ED97F0
 	Offset: 0x6E0
 	Size: 0xA4
@@ -155,7 +155,7 @@ function function_5ba17a72()
 
 /*
 	Name: function_90f58801
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xFA74F57A
 	Offset: 0x790
 	Size: 0xC
@@ -168,7 +168,7 @@ function function_90f58801(state)
 
 /*
 	Name: function_c60d9d72
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x81E9CA95
 	Offset: 0x7A8
 	Size: 0x54
@@ -184,7 +184,7 @@ function function_c60d9d72()
 
 /*
 	Name: function_5fd3f2ba
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xD304D798
 	Offset: 0x808
 	Size: 0x44
@@ -199,7 +199,7 @@ function function_5fd3f2ba(player)
 
 /*
 	Name: function_ef14badb
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x3239347B
 	Offset: 0x858
 	Size: 0x9A
@@ -222,7 +222,7 @@ function function_ef14badb(use_trigger, perk_machine, bump_trigger, collision)
 
 /*
 	Name: function_1d4d3034
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x64C6E6D7
 	Offset: 0x900
 	Size: 0x4C
@@ -240,7 +240,7 @@ function function_1d4d3034()
 
 /*
 	Name: function_ae56fb1a
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xEF0D499A
 	Offset: 0x958
 	Size: 0x46
@@ -255,7 +255,7 @@ function function_ae56fb1a(b_pause, str_perk, str_result, n_slot)
 
 /*
 	Name: function_dc9a257a
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x94A73038
 	Offset: 0x9A8
 	Size: 0x198
@@ -286,7 +286,7 @@ function function_dc9a257a()
 
 /*
 	Name: function_d2991c92
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x24E6D132
 	Offset: 0xB48
 	Size: 0x1B0
@@ -324,7 +324,7 @@ function function_d2991c92(v_start_position)
 
 /*
 	Name: slide_explosion
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xDDAD9F6
 	Offset: 0xD00
 	Size: 0x14C
@@ -381,7 +381,7 @@ function slide_explosion(var_980edc69, var_8b77e4de)
 
 /*
 	Name: function_4d806c6a
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x2B27458D
 	Offset: 0xE58
 	Size: 0x95A
@@ -532,7 +532,7 @@ function function_4d806c6a(var_a25d1f0, explosion_radius, var_8b77e4de)
 
 /*
 	Name: function_3fb4ce3b
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xDA3AE6CD
 	Offset: 0x17C0
 	Size: 0x84
@@ -564,7 +564,7 @@ function function_3fb4ce3b()
 
 /*
 	Name: function_9e712df
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xBFC06568
 	Offset: 0x1850
 	Size: 0xC2
@@ -584,7 +584,7 @@ function function_9e712df(einflictor, eattacker, idamage, idflags, smeansofdeath
 
 /*
 	Name: function_de916514
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x70441C0C
 	Offset: 0x1920
 	Size: 0x54
@@ -601,7 +601,7 @@ event function_de916514(eventstruct)
 
 /*
 	Name: function_feb0a2aa
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0x2CF13795
 	Offset: 0x1980
 	Size: 0x4E
@@ -618,7 +618,7 @@ event function_feb0a2aa(eventstruct)
 
 /*
 	Name: function_55fdc82d
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xC357DED5
 	Offset: 0x19D8
 	Size: 0x92
@@ -639,7 +639,7 @@ function function_55fdc82d(vehicle)
 
 /*
 	Name: function_815172d1
-	Namespace: namespace_a7cf6436
+	Namespace: zm_perk_slider
 	Checksum: 0xD671B4C1
 	Offset: 0x1A78
 	Size: 0x3C4

@@ -7,12 +7,12 @@
 #using script_2c49ae69cd8ce30c;
 #using script_2da073d4aa78c206;
 #using script_335d0650ed05d36d;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
 #using script_5ebc70029e06b264;
 #using script_5ee699b0aaf564c4;
-#using script_65d4fc42e5e94766;
+#using scripts\wz_common\spawn.gsc;
 #using script_6652a3edaad1063c;
 #using script_67ce8e728d8f37ba;
 #using script_68d2ee1489345a1d;
@@ -75,7 +75,7 @@ function init()
 	level.var_79219af4 = 0;
 	if(getdvarint(#"hash_2cc9b0ef1896d89a", 1) != 0)
 	{
-		level.var_79219af4 = (isdefined(getgametypesetting(#"hash_21ff0f3139be8f97")) ? getgametypesetting(#"hash_21ff0f3139be8f97") : 0);
+		level.var_79219af4 = (isdefined(getgametypesetting(#"startplayers")) ? getgametypesetting(#"startplayers") : 0);
 	}
 	level.var_f2814a96 = (isdefined(getgametypesetting(#"hash_6be1c95551e78384")) ? getgametypesetting(#"hash_6be1c95551e78384") : 0);
 	if(level.var_f2814a96 !== 1 && level.var_f2814a96 !== 2)
@@ -88,7 +88,7 @@ function init()
 	level.var_e16a689f = (isdefined(getgametypesetting(#"hash_557cb4680634f585")) ? getgametypesetting(#"hash_557cb4680634f585") : 0);
 	level.onstartgametype = &function_d81f6eb7;
 	level.onspawnplayer = &on_spawn_player;
-	level.var_f6d301b = &function_66cbd790;
+	level.onendround = &on_end_round;
 	level.onendgame = &on_end_game;
 	level.ondeadevent = &function_40843d72;
 	level.ononeleftevent = &function_80efb8b1;
@@ -119,7 +119,7 @@ function init()
 	callback::on_spawned(&on_player_spawned);
 	callback::on_connect(&on_player_connect);
 	callback::on_disconnect(&on_player_disconnect);
-	callback::function_98a0917d(&function_1bcd6e1e);
+	callback::function_98a0917d(&start_warzone);
 	callback::add_callback(#"hash_84d8c1164d90313", &function_5af3a29);
 	callback::add_callback(#"hash_40cd438036ae13df", &function_1f93e91f);
 	callback::function_10a4dd0a(&function_10a4dd0a);
@@ -178,14 +178,14 @@ function function_d81f6eb7()
 	level thread spawn::function_e93291ff();
 	level callback::add_callback(#"hash_774be40ec06d5212", &function_bcde1e07);
 	level flag::clear(#"spawning_allowed");
-	namespace_674e6435::function_414115a0(90, 150);
-	namespace_674e6435::function_414115a0(25, 150);
-	namespace_674e6435::function_414115a0(15, 150);
-	namespace_674e6435::function_414115a0(10, 150);
-	namespace_674e6435::function_414115a0(5, 150);
-	namespace_674e6435::function_414115a0(3, 150);
-	namespace_674e6435::function_414115a0(1, 150);
-	namespace_674e6435::function_414115a0(0, 150);
+	laststand_mp::function_414115a0(90, 150);
+	laststand_mp::function_414115a0(25, 150);
+	laststand_mp::function_414115a0(15, 150);
+	laststand_mp::function_414115a0(10, 150);
+	laststand_mp::function_414115a0(5, 150);
+	laststand_mp::function_414115a0(3, 150);
+	laststand_mp::function_414115a0(1, 150);
+	laststand_mp::function_414115a0(0, 150);
 	death_circle::init();
 	if(is_true(level.var_4cea2bec))
 	{
@@ -260,7 +260,7 @@ function private function_70171add()
 }
 
 /*
-	Name: function_1bcd6e1e
+	Name: start_warzone
 	Namespace: namespace_17baa64d
 	Checksum: 0x62B4D785
 	Offset: 0xEA0
@@ -268,9 +268,9 @@ function private function_70171add()
 	Parameters: 0
 	Flags: None
 */
-function function_1bcd6e1e()
+function start_warzone()
 {
-	level notify(#"hash_1c605a92cc507414");
+	level notify(#"start_warzone");
 	/#
 		println("");
 	#/
@@ -417,7 +417,7 @@ function function_5d7553c9()
 function private function_c2a75696()
 {
 	/#
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");
 		while(true)
@@ -507,7 +507,7 @@ function private function_23600e7d()
 			return;
 		}
 	#/
-	level endon(#"hash_1c605a92cc507414");
+	level endon(#"start_warzone");
 	level.var_8fcd8a61 = (isdefined(getgametypesetting(#"hash_35c2d850e39fa704")) ? getgametypesetting(#"hash_35c2d850e39fa704") : 100);
 	level.var_e9d6c52f = (isdefined(getgametypesetting(#"hash_46f957248efbd39a")) ? getgametypesetting(#"hash_46f957248efbd39a") : 10);
 	level.var_f414be13 = (isdefined(getgametypesetting(#"hash_21e0d28e8692d5a")) ? getgametypesetting(#"hash_21e0d28e8692d5a") : 4);
@@ -803,7 +803,7 @@ function on_player_spawned()
 	self endon(#"death");
 	level endon(#"game_ended");
 	self.var_1ab1ec0c = self.origin;
-	self namespace_674e6435::function_7e714b6a();
+	self laststand_mp::function_7e714b6a();
 	dogtag = self.var_c0ad34c;
 	if(isdefined(dogtag))
 	{
@@ -894,7 +894,7 @@ function on_player_spawned()
 }
 
 /*
-	Name: function_66cbd790
+	Name: on_end_round
 	Namespace: namespace_17baa64d
 	Checksum: 0x70C58E11
 	Offset: 0x2C88
@@ -902,7 +902,7 @@ function on_player_spawned()
 	Parameters: 1
 	Flags: None
 */
-function function_66cbd790(var_c1e98979)
+function on_end_round(var_c1e98979)
 {
 	teams::function_f1394038();
 	function_16e6bd2e(var_c1e98979);

@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_b7f44132 : class_6aaccc24
+class cSpectreRisingIndicator : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_b7f44132
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0xB776CD1A
 		Offset: 0x390
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_b7f44132 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_b7f44132
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0x4DDD4D34
 		Offset: 0x568
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_b7f44132 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_b7f44132
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0x67E5735
 		Offset: 0x4C8
 		Size: 0x24
@@ -40,26 +40,26 @@ class class_b7f44132 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
-		Name: function_3b7b386a
-		Namespace: namespace_b7f44132
+		Name: set_clientnum
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0xD09E8A22
 		Offset: 0x4F8
 		Size: 0x30
 		Parameters: 2
 		Flags: None
 	*/
-	function function_3b7b386a(localclientnum, value)
+	function set_clientnum(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", value);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_b7f44132
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0xA76C33
 		Offset: 0x438
 		Size: 0x1C
@@ -68,26 +68,26 @@ class class_b7f44132 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("SpectreRisingIndicator");
+		cLUIelem::function_5c1bb138("SpectreRisingIndicator");
 	}
 
 	/*
-		Name: function_7f5a9fed
-		Namespace: namespace_b7f44132
+		Name: set_isAlive
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0x3C5A0B5F
 		Offset: 0x530
 		Size: 0x30
 		Parameters: 2
 		Flags: None
 	*/
-	function function_7f5a9fed(localclientnum, value)
+	function set_isAlive(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "isAlive", value);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_b7f44132
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0x22A1B197
 		Offset: 0x3B0
 		Size: 0x7C
@@ -96,14 +96,14 @@ class class_b7f44132 : class_6aaccc24
 	*/
 	function setup_clientfields(var_c05c67e2, var_f25b9f45)
 	{
-		namespace_6aaccc24::setup_clientfields("SpectreRisingIndicator");
-		namespace_6aaccc24::function_da693cbe("clientnum", 1, 7, "int", var_c05c67e2);
-		namespace_6aaccc24::function_da693cbe("isAlive", 1, 1, "int", var_f25b9f45);
+		cLUIelem::setup_clientfields("SpectreRisingIndicator");
+		cLUIelem::function_da693cbe("clientnum", 1, 7, "int", var_c05c67e2);
+		cLUIelem::function_da693cbe("isAlive", 1, 1, "int", var_f25b9f45);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_b7f44132
+		Namespace: cSpectreRisingIndicator
 		Checksum: 0x17F0D1A5
 		Offset: 0x460
 		Size: 0x5C
@@ -112,7 +112,7 @@ class class_b7f44132 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "isAlive", 0);
 	}
@@ -146,7 +146,7 @@ function private autoexec function_654ee4fb()
 */
 function register(var_c05c67e2, var_f25b9f45)
 {
-	elem = new class_b7f44132();
+	elem = new cSpectreRisingIndicator();
 	[[ elem ]]->setup_clientfields(var_c05c67e2, var_f25b9f45);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -178,7 +178,7 @@ function register(var_c05c67e2, var_f25b9f45)
 */
 function function_5c1bb138()
 {
-	elem = new class_b7f44132();
+	elem = new cSpectreRisingIndicator();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -226,7 +226,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_3b7b386a
+	Name: set_clientnum
 	Namespace: spectrerisingindicator
 	Checksum: 0xF65160FF
 	Offset: 0x330
@@ -234,13 +234,13 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_3b7b386a(localclientnum, value)
+function set_clientnum(localclientnum, value)
 {
-	[[ self ]]->function_3b7b386a(localclientnum, value);
+	[[ self ]]->set_clientnum(localclientnum, value);
 }
 
 /*
-	Name: function_7f5a9fed
+	Name: set_isAlive
 	Namespace: spectrerisingindicator
 	Checksum: 0x45AAB21A
 	Offset: 0x360
@@ -248,8 +248,8 @@ function function_3b7b386a(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_7f5a9fed(localclientnum, value)
+function set_isAlive(localclientnum, value)
 {
-	[[ self ]]->function_7f5a9fed(localclientnum, value);
+	[[ self ]]->set_isAlive(localclientnum, value);
 }
 

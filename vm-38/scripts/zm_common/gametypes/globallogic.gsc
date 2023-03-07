@@ -1,4 +1,4 @@
-#using script_16f6e32fce786c0d;
+#using scripts\weapons\zm\weaponobjects.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_41b18a77720c5395;
 #using script_44b0b8420eabacad;
@@ -127,7 +127,7 @@ function init()
 			level.rankedmatch = 1;
 		}
 	#/
-	level.script = util::function_53bbf9d2();
+	level.script = util::get_map_name();
 	level.gametype = util::function_5df4294();
 	level.var_837aa533 = hash(level.gametype);
 	if(isdefined(level.gametype))
@@ -825,7 +825,7 @@ function updategameevents()
 			else if(someoneoneachteam())
 			{
 				level.gameforfeited = 0;
-				level notify(#"hash_39a00a79045884ca");
+				level notify(#"abort forfeit");
 			}
 		}
 		else
@@ -841,7 +841,7 @@ function updategameevents()
 			else if(util::totalplayercount() > 1)
 			{
 				level.gameforfeited = 0;
-				level notify(#"hash_39a00a79045884ca");
+				level notify(#"abort forfeit");
 			}
 		}
 	}

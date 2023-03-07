@@ -4,7 +4,7 @@
 #using script_3a88f428c6d8ef90;
 #using script_3fda550bc6e1089a;
 #using script_437ce686d29bb81b;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_68d2ee1489345a1d;
 #using script_7fc996fe8678852;
 #using script_bf0c2c69ce5745e;
@@ -229,7 +229,7 @@ function function_685a8288(instance)
 	vh_heli.var_99582f14 = 1;
 	vh_heli.var_1b9f096d = 1;
 	vh_heli.var_ac1388df = 1;
-	if(util::function_53bbf9d2() === #"hash_2ef022fa4966a6ae")
+	if(util::get_map_name() === #"hash_2ef022fa4966a6ae")
 	{
 		vh_heli vehicle::toggle_lights_group(3, 1);
 		vh_heli turretsettargetangles(0, (0, 0, 0));
@@ -442,7 +442,7 @@ function function_be51796c(einflictor, eattacker, idamage, idflags, smeansofdeat
 					damage = damage * 0.1;
 				}
 			}
-			item = vpoint namespace_b376ff3f::function_230ceec4(psoffsettime);
+			item = vpoint item_inventory::function_230ceec4(psoffsettime);
 			if(isdefined(item))
 			{
 				var_528363fd = self namespace_b61a349a::function_b3496fde(var_fd90b0bb, vpoint, damage, shitloc, vdamageorigin, psoffsettime, damagefromunderneath, modelindex, partname, vsurfacenormal);

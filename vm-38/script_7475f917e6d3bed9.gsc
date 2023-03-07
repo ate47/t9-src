@@ -1,13 +1,13 @@
 #using script_1d0f884737f7cbe8;
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
 #using script_4721de209091b1a6;
-#using script_57c900a7e39234be;
+#using scripts\killstreaks\airsupport.gsc;
 #using script_57f7003580bb15e0;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_7bafaa95bb1b427e;
-#using script_bc6a9a35c229565;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\weapons.gsc;
+#using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\influencers_shared.gsc;
 #using scripts\core_common\killcam_shared.gsc;
@@ -49,7 +49,7 @@ function init_shared(bundlename, var_b083dcd0)
 	/#
 		assert(!isdefined(var_b083dcd0) || isfunctionptr(var_b083dcd0));
 	#/
-	killstreaks::function_e4ef8390(bundlename, (isdefined(var_b083dcd0) ? var_b083dcd0 : &function_aad649e1));
+	killstreaks::register_killstreak(bundlename, (isdefined(var_b083dcd0) ? var_b083dcd0 : &function_aad649e1));
 	clientfield::register("scriptmover", "" + #"hash_72f92383f772d276", 1, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_3d8e05debfa62f2d", 1, 1, "int");
 	clientfield::register("missile", "" + #"hash_77346335cbe9ecde", 1, 1, "int");
@@ -849,7 +849,7 @@ function private function_e3bc95f2(killstreakbundle)
 function function_1db9aa5e()
 {
 	params = function_4d1e7b48("dot_napalm_strike");
-	self status_effect::function_408158ef(params.var_67e2281d, params.var_18d16a6b);
+	self status_effect::function_408158ef(params.setype, params.var_18d16a6b);
 }
 
 /*

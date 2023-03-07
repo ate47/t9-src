@@ -5,7 +5,7 @@
 #using script_2c49ae69cd8ce30c;
 #using script_32c8b5b0eb2854f3;
 #using script_3f27a7b2232674db;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_44b0b8420eabacad;
 #using script_6167e26342be354b;
 #using script_67ce8e728d8f37ba;

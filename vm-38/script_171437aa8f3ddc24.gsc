@@ -167,7 +167,7 @@ function function_c67a5089()
 		var_f279f28f = [];
 		for(i = 0; i < var_743d50f5.size; i++)
 		{
-			if(var_743d50f5[i] == #"hash_de683235345aa4b" || var_743d50f5[i] == #"hash_7c61b9fd505b42dc" || var_743d50f5[i] == #"hash_4dcc9053e0685c94" || var_743d50f5[i] == #"hash_77a2176db1d8a05c" || var_743d50f5[i] == "#dempsey_unlock" || var_743d50f5[i] == #"hash_4bb047708704a065" || var_743d50f5[i] == #"hash_7993541af41c24ec" || var_743d50f5[i] == #"hash_3e631def73c3efa8")
+			if(var_743d50f5[i] == #"hash_de683235345aa4b" || var_743d50f5[i] == #"scarlett_unlock" || var_743d50f5[i] == #"diego_unlock" || var_743d50f5[i] == #"bruno_unlock" || var_743d50f5[i] == "#dempsey_unlock" || var_743d50f5[i] == #"nikolai_unlock" || var_743d50f5[i] == #"richtofen_unlock" || var_743d50f5[i] == #"takeo_unlock")
 			{
 				if(!isdefined(var_f279f28f))
 				{

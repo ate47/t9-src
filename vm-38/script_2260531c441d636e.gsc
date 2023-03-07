@@ -1,8 +1,8 @@
 #using script_1cc417743d7c262d;
 #using script_545a0bac37bda541;
 #using script_57f7003580bb15e0;
-#using script_79a7e1c31a3e8cc;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\deployable.gsc;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -79,18 +79,18 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: None
 */
-function function_bff5c062(teargas, var_dbd1a594)
+function function_bff5c062(teargas, attackingplayer)
 {
 	var_f3ab6571 = teargas.owner weaponobjects::function_8481fc06(teargas.weapon) > 1;
 	teargas.owner thread globallogic_audio::function_a2cde53d(teargas.weapon, var_f3ab6571);
 	teargas.owner weaponobjects::hackerremoveweapon(teargas);
 	teargas weaponobjects::function_fb7b0024(teargas.owner);
-	teargas.team = var_dbd1a594.team;
-	teargas setteam(var_dbd1a594.team);
-	teargas.owner = var_dbd1a594;
-	teargas setowner(var_dbd1a594);
-	teargas weaponobjects::function_386fa470(var_dbd1a594);
-	teargas weaponobjects::function_931041f8(var_dbd1a594);
+	teargas.team = attackingplayer.team;
+	teargas setteam(attackingplayer.team);
+	teargas.owner = attackingplayer;
+	teargas setowner(attackingplayer);
+	teargas weaponobjects::function_386fa470(attackingplayer);
+	teargas weaponobjects::function_931041f8(attackingplayer);
 	if(isdefined(teargas) && isdefined(level.var_f1edf93f))
 	{
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
@@ -100,7 +100,7 @@ function function_bff5c062(teargas, var_dbd1a594)
 			teargas thread weaponobjects::weapon_object_timeout(teargas.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
-	teargas thread weaponobjects::function_6d8aa6a0(var_dbd1a594, teargas.var_2d045452);
+	teargas thread weaponobjects::function_6d8aa6a0(attackingplayer, teargas.var_2d045452);
 }
 
 /*
@@ -473,11 +473,11 @@ function private function_ac86e0a9(notifyhash)
 		{
 			var_c62d6d34 = level.var_29115f03[self.var_1b05dcde];
 			slow = function_4d1e7b48(var_c62d6d34.slow);
-			self status_effect::function_408158ef(slow.var_67e2281d, slow.var_18d16a6b);
+			self status_effect::function_408158ef(slow.setype, slow.var_18d16a6b);
 			self.var_1b05dcde = undefined;
 		}
 		dot = (level.hardcoremode === 1 ? function_4d1e7b48(#"hash_5f651c0a59d8c40d") : function_4d1e7b48(#"hash_69c2a47bf2322b6b"));
-		self status_effect::function_408158ef(dot.var_67e2281d, dot.var_18d16a6b);
+		self status_effect::function_408158ef(dot.setype, dot.var_18d16a6b);
 		self clientfield::set_to_player("in_tear_gas", 0);
 		self.var_2ee59975 = undefined;
 	}
@@ -515,8 +515,8 @@ function private function_9eda41cd(var_160d2855, var_7e6e7f9f, owner)
 	slow = function_4d1e7b48(var_c62d6d34.slow);
 	var_18c0a09d = function_4d1e7b48(var_c62d6d34.var_18c0a09d);
 	dot = (level.hardcoremode === 1 ? function_4d1e7b48(#"hash_5f651c0a59d8c40d") : function_4d1e7b48(#"hash_69c2a47bf2322b6b"));
-	self status_effect::function_408158ef(dot.var_67e2281d, dot.var_18d16a6b);
-	self status_effect::function_408158ef(slow.var_67e2281d, slow.var_18d16a6b);
+	self status_effect::function_408158ef(dot.setype, dot.var_18d16a6b);
+	self status_effect::function_408158ef(slow.setype, slow.var_18d16a6b);
 	self thread status_effect::status_effect_apply(var_18c0a09d, var_7e6e7f9f, owner);
 	self clientfield::set_to_player("in_tear_gas", 0);
 	self.var_1b05dcde = undefined;

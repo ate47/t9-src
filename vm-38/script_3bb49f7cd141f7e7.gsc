@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -51,11 +51,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_b7f913776f85df2", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_b7f913776f85df2", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_5c493a54
 	Checksum: 0x1FBEE890
 	Offset: 0x168
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	Parameters: 3
 	Flags: Private
 */
-function private function_d1de6a85(var_2e5ed433, var_1532dab3, var_94d24883)
+function private on_begin(var_2e5ed433, var_1532dab3, var_94d24883)
 {
 	level.var_2e5ed433 = zm_trial::function_5769f26a(var_2e5ed433) * 1000;
 	if(isdefined(var_1532dab3))
@@ -81,7 +81,7 @@ function private function_d1de6a85(var_2e5ed433, var_1532dab3, var_94d24883)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_5c493a54
 	Checksum: 0xB214D494
 	Offset: 0x288
@@ -89,7 +89,7 @@ function private function_d1de6a85(var_2e5ed433, var_1532dab3, var_94d24883)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level.var_2e5ed433 = undefined;
 	level notify(#"hash_2669c6e7b1eb2e4b");

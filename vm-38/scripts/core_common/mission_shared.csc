@@ -1,11 +1,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_2a13cc4e;
+#namespace mission_shared;
 
 /*
 	Name: function_310407da
-	Namespace: namespace_2a13cc4e
+	Namespace: mission_shared
 	Checksum: 0xE8B2A1F8
 	Offset: 0x98
 	Size: 0x14

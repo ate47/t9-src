@@ -5,11 +5,11 @@
 #using scripts\core_common\util_shared.csc;
 #using scripts\zm_common\zm_utility.csc;
 
-#namespace namespace_9f845210;
+#namespace zm_silver_pap_quest;
 
 /*
 	Name: function_e49a36fd
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x3560F652
 	Offset: 0x1F8
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_e49a36fd()
 
 /*
 	Name: function_842831cf
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x84EFBB1F
 	Offset: 0x218
 	Size: 0x554
@@ -55,7 +55,7 @@ function function_842831cf()
 
 /*
 	Name: particle_accelerator_rumble
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x34DB448F
 	Offset: 0x778
 	Size: 0x6C
@@ -72,7 +72,7 @@ function particle_accelerator_rumble(localclientnum, oldval, newval, bnewent, bi
 
 /*
 	Name: function_b56e6c7e
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x23398826
 	Offset: 0x7F0
 	Size: 0x6C
@@ -89,7 +89,7 @@ function function_b56e6c7e(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_483f3ae0
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xC9B2B500
 	Offset: 0x868
 	Size: 0x6C
@@ -106,7 +106,7 @@ function function_483f3ae0(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_840cc260
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xC6686126
 	Offset: 0x8E0
 	Size: 0x134
@@ -136,7 +136,7 @@ function function_840cc260(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_6902ffa4
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xFA05B178
 	Offset: 0xA20
 	Size: 0x94
@@ -154,7 +154,7 @@ function function_6902ffa4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e5ffabef
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xF3DF9A8E
 	Offset: 0xAC0
 	Size: 0xE2
@@ -179,7 +179,7 @@ function function_e5ffabef(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_167fc35
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x54BDD9F7
 	Offset: 0xBB0
 	Size: 0x10C
@@ -204,7 +204,7 @@ function function_167fc35(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_33082eb4
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x3E608A17
 	Offset: 0xCC8
 	Size: 0xC4
@@ -224,7 +224,7 @@ function function_33082eb4(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4dff5056
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x4D47B43F
 	Offset: 0xD98
 	Size: 0x150
@@ -253,7 +253,7 @@ function function_4dff5056(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_b28348c
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xA29E2D13
 	Offset: 0xEF0
 	Size: 0x94
@@ -276,7 +276,7 @@ function function_b28348c(localclientnum)
 
 /*
 	Name: function_c4603212
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xEB0B5BD3
 	Offset: 0xF90
 	Size: 0x84
@@ -294,7 +294,7 @@ function function_c4603212(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_4fd00e1f
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x7022CBFB
 	Offset: 0x1020
 	Size: 0x334
@@ -376,7 +376,7 @@ function function_4fd00e1f(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_760c94c
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x28F036E4
 	Offset: 0x1360
 	Size: 0x15E
@@ -405,7 +405,7 @@ function function_760c94c(localclientnum, oldval, newval, bnewent, binitialsnap,
 
 /*
 	Name: function_2424f2ac
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x35AB98EE
 	Offset: 0x14C8
 	Size: 0x74
@@ -422,7 +422,7 @@ function function_2424f2ac(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_32b2a189
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0xBA624B3
 	Offset: 0x1548
 	Size: 0x194
@@ -451,7 +451,7 @@ function function_32b2a189(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_619cd4e5
-	Namespace: namespace_9f845210
+	Namespace: zm_silver_pap_quest
 	Checksum: 0x6F7AD1FE
 	Offset: 0x16E8
 	Size: 0x1B0

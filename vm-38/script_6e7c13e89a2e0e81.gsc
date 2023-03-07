@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_f57714e4 : class_6aaccc24
+class class_f57714e4 : cLUIelem
 {
 
 	/*
@@ -68,7 +68,7 @@ class class_f57714e4 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class class_f57714e4 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("HUD_Spy");
+		cLUIelem::function_5c1bb138("HUD_Spy");
 	}
 
 	/*
@@ -236,26 +236,26 @@ class class_f57714e4 : class_6aaccc24
 	*/
 	function setup_clientfields(var_9ec210c6, var_7674739c, var_202f443b, var_b8c3f033, var_ddd27460, var_9c8627ae, var_adf454f9, var_6fcb31c, var_227aceab, var_bc8fbd96, var_922c1cb1, var_22fdd4f2, var_12555826, var_441d6209, var_561d472e, var_ba985308, var_440ee553, var_357cb5f7)
 	{
-		namespace_6aaccc24::setup_clientfields("HUD_Spy");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 3, "int");
-		namespace_6aaccc24::function_da693cbe("player_role", 20000, 2, "int", var_9ec210c6);
-		namespace_6aaccc24::function_da693cbe("player_id_number", 20000, 5, "int", var_7674739c);
-		namespace_6aaccc24::function_da693cbe("alive_player_count", 20000, 4, "int", var_202f443b);
-		namespace_6aaccc24::function_da693cbe("missing_player_count", 20000, 4, "int", var_b8c3f033);
-		namespace_6aaccc24::function_da693cbe("operative_player_count", 20000, 4, "int", var_ddd27460);
-		namespace_6aaccc24::function_da693cbe("investigator_player_count", 20000, 2, "int", var_9c8627ae);
-		namespace_6aaccc24::function_da693cbe("double_agent_player_count", 20000, 3, "int", var_adf454f9);
-		namespace_6aaccc24::function_da693cbe("body_player_clientnum", 20000, 7, "int", var_6fcb31c);
-		namespace_6aaccc24::function_da693cbe("body_agent_id", 20000, 4, "int", var_227aceab);
-		namespace_6aaccc24::function_da693cbe("body_identity", 20000, 2, "int", var_bc8fbd96);
-		namespace_6aaccc24::function_da693cbe("display_autopsy", 20000, 1, "int", var_922c1cb1);
-		namespace_6aaccc24::function_da693cbe("timeSinceDeath", 20000, 16, "int", var_22fdd4f2);
-		namespace_6aaccc24::function_da693cbe("body_killed_by_mod", 20000, 5, "int", var_12555826);
-		namespace_6aaccc24::function_da693cbe("add_objective_id", 20000, 4, "int", var_441d6209);
-		namespace_6aaccc24::function_da693cbe("current_objective_count", 20000, 4, "int", var_561d472e);
-		namespace_6aaccc24::function_da693cbe("notification_id", 20000, 4, "int", var_ba985308);
-		namespace_6aaccc24::function_da693cbe("aux_notification_param", 20000, 5, "int", var_440ee553);
-		namespace_6aaccc24::function_da693cbe("dirty_bomb_id", 20000, 2, "int", var_357cb5f7);
+		cLUIelem::setup_clientfields("HUD_Spy");
+		cLUIelem::function_da693cbe("_state", 1, 3, "int");
+		cLUIelem::function_da693cbe("player_role", 20000, 2, "int", var_9ec210c6);
+		cLUIelem::function_da693cbe("player_id_number", 20000, 5, "int", var_7674739c);
+		cLUIelem::function_da693cbe("alive_player_count", 20000, 4, "int", var_202f443b);
+		cLUIelem::function_da693cbe("missing_player_count", 20000, 4, "int", var_b8c3f033);
+		cLUIelem::function_da693cbe("operative_player_count", 20000, 4, "int", var_ddd27460);
+		cLUIelem::function_da693cbe("investigator_player_count", 20000, 2, "int", var_9c8627ae);
+		cLUIelem::function_da693cbe("double_agent_player_count", 20000, 3, "int", var_adf454f9);
+		cLUIelem::function_da693cbe("body_player_clientnum", 20000, 7, "int", var_6fcb31c);
+		cLUIelem::function_da693cbe("body_agent_id", 20000, 4, "int", var_227aceab);
+		cLUIelem::function_da693cbe("body_identity", 20000, 2, "int", var_bc8fbd96);
+		cLUIelem::function_da693cbe("display_autopsy", 20000, 1, "int", var_922c1cb1);
+		cLUIelem::function_da693cbe("timeSinceDeath", 20000, 16, "int", var_22fdd4f2);
+		cLUIelem::function_da693cbe("body_killed_by_mod", 20000, 5, "int", var_12555826);
+		cLUIelem::function_da693cbe("add_objective_id", 20000, 4, "int", var_441d6209);
+		cLUIelem::function_da693cbe("current_objective_count", 20000, 4, "int", var_561d472e);
+		cLUIelem::function_da693cbe("notification_id", 20000, 4, "int", var_ba985308);
+		cLUIelem::function_da693cbe("aux_notification_param", 20000, 5, "int", var_440ee553);
+		cLUIelem::function_da693cbe("dirty_bomb_id", 20000, 2, "int", var_357cb5f7);
 	}
 
 	/*
@@ -406,7 +406,7 @@ class class_f57714e4 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "player_role", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "player_id_number", 0);

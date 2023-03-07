@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_6dd74b12 : class_6aaccc24
+class csuccess_screen : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_6dd74b12
+		Namespace: csuccess_screen
 		Checksum: 0x6847223E
 		Offset: 0x2F8
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_6dd74b12 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_6dd74b12
+		Namespace: csuccess_screen
 		Checksum: 0xD1288E34
 		Offset: 0x3C8
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_6dd74b12 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_6dd74b12
+		Namespace: csuccess_screen
 		Checksum: 0x6F7D0D69
 		Offset: 0x398
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_6dd74b12 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_6dd74b12
+		Namespace: csuccess_screen
 		Checksum: 0xF9C8F613
 		Offset: 0x340
 		Size: 0x1C
@@ -54,12 +54,12 @@ class class_6dd74b12 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("success_screen");
+		cLUIelem::function_5c1bb138("success_screen");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_6dd74b12
+		Namespace: csuccess_screen
 		Checksum: 0x23DE0498
 		Offset: 0x318
 		Size: 0x1C
@@ -68,12 +68,12 @@ class class_6dd74b12 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("success_screen");
+		cLUIelem::setup_clientfields("success_screen");
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_6dd74b12
+		Namespace: csuccess_screen
 		Checksum: 0xBF81C59
 		Offset: 0x368
 		Size: 0x24
@@ -82,7 +82,7 @@ class class_6dd74b12 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 	}
 
 }
@@ -114,7 +114,7 @@ function private autoexec function_5d206f93()
 */
 function register()
 {
-	elem = new class_6dd74b12();
+	elem = new csuccess_screen();
 	[[ elem ]]->setup_clientfields();
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -146,7 +146,7 @@ function register()
 */
 function function_5c1bb138()
 {
-	elem = new class_6dd74b12();
+	elem = new csuccess_screen();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

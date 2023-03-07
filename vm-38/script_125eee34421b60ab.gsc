@@ -12,7 +12,7 @@
 #using script_6809bf766eba194a;
 #using script_71dfbfdfba4489a0;
 #using script_7e59d7bba853fe4b;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
 #using scripts\core_common\ai_shared.gsc;

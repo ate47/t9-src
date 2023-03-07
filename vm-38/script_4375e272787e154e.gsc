@@ -1,4 +1,4 @@
-#using script_3f6516099f1d5ff1;
+#using scripts\core_common\map.csc;
 #using script_84f5590d2ac48f8;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;

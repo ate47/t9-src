@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_51a06b68 : class_6aaccc24
+class class_51a06b68 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_51a06b68 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_51a06b68 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_objective_reward_menu");
+		cLUIelem::function_5c1bb138("sr_objective_reward_menu");
 	}
 
 	/*
@@ -96,13 +96,13 @@ class class_51a06b68 : class_6aaccc24
 	*/
 	function setup_clientfields(var_e4dedc0e, var_c8914fcf, var_2f1b82f5, var_bf555938, var_18d66c99)
 	{
-		namespace_6aaccc24::setup_clientfields("sr_objective_reward_menu");
-		namespace_6aaccc24::function_da693cbe("_state", 1, 2, "int");
-		namespace_6aaccc24::function_da693cbe("promptProgress", 1, 7, "float", var_e4dedc0e);
-		namespace_6aaccc24::function_da693cbe("gunIndex1", 1, 4, "int", var_c8914fcf);
-		namespace_6aaccc24::function_da693cbe("gunindex2", 1, 4, "int", var_2f1b82f5);
-		namespace_6aaccc24::function_da693cbe("gunindex3", 1, 4, "int", var_bf555938);
-		namespace_6aaccc24::function_da693cbe("color", 1, 2, "int", var_18d66c99);
+		cLUIelem::setup_clientfields("sr_objective_reward_menu");
+		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::function_da693cbe("promptProgress", 1, 7, "float", var_e4dedc0e);
+		cLUIelem::function_da693cbe("gunIndex1", 1, 4, "int", var_c8914fcf);
+		cLUIelem::function_da693cbe("gunindex2", 1, 4, "int", var_2f1b82f5);
+		cLUIelem::function_da693cbe("gunindex3", 1, 4, "int", var_bf555938);
+		cLUIelem::function_da693cbe("color", 1, 2, "int", var_18d66c99);
 	}
 
 	/*
@@ -204,7 +204,7 @@ class class_51a06b68 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
 		[[ self ]]->function_d7d2fcce(localclientnum, "promptProgress", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "gunIndex1", 0);

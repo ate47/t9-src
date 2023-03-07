@@ -409,7 +409,7 @@ function sndlevelstartduck_shutoff()
 function function_22a92b8b()
 {
 	ignore = 1;
-	mapname = util::function_53bbf9d2();
+	mapname = util::get_map_name();
 	switch(mapname)
 	{
 		case "hash_15642edd0e4376f1":
@@ -922,7 +922,7 @@ function audio_step_trigger(localclientnum)
 		waitresult = self waittill(#"trigger");
 		if(!waitresult.activator trigger::ent_already_in(var_887fc615))
 		{
-			self thread trigger::function_521edc64(waitresult.activator, &trig_enter_audio_step_trigger, &trig_leave_audio_step_trigger);
+			self thread trigger::function_thread(waitresult.activator, &trig_enter_audio_step_trigger, &trig_leave_audio_step_trigger);
 		}
 		waitframe(1);
 	}
@@ -943,7 +943,7 @@ function audio_material_trigger(trig)
 	{
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
-		self thread trigger::function_521edc64(waitresult.activator, &trig_enter_audio_material_trigger, &trig_leave_audio_material_trigger);
+		self thread trigger::function_thread(waitresult.activator, &trig_enter_audio_material_trigger, &trig_leave_audio_material_trigger);
 	}
 }
 
@@ -1111,7 +1111,7 @@ function thread_bump_trigger(localclientnum)
 	{
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
-		self thread trigger::function_521edc64(waitresult.activator, &trig_enter_bump, &trig_leave_bump);
+		self thread trigger::function_thread(waitresult.activator, &trig_enter_bump, &trig_leave_bump);
 	}
 }
 
@@ -1287,7 +1287,7 @@ function absolute_value(fowd)
 */
 function closest_point_on_line_to_point(point, linestart, lineend)
 {
-	self endon(#"hash_66fcfbe39e07bd83");
+	self endon(#"end line sound");
 	linemagsqrd = lengthsquared(lineend - linestart);
 	t = (point[0] - linestart[0]) * (lineend[0] - linestart[0]) + (point[1] - linestart[1]) * (lineend[1] - linestart[1]) + (point[2] - linestart[2]) * (lineend[2] - linestart[2]) / linemagsqrd;
 	if(t < 0)

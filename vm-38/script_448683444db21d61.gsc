@@ -1,5 +1,5 @@
 #using script_1254ac024174d9c0;
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_340a2e805e35f7a2;
 #using script_471b31bd963b388e;
 #using script_5e96d104c70be5ac;
@@ -7,7 +7,7 @@
 #using script_7a8059ca02b7b09e;
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

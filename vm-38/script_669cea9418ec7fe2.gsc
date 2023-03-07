@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_c982469d : class_6aaccc24
+class class_c982469d : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_c982469d : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_c982469d : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_corrupted_health_bar");
+		cLUIelem::function_5c1bb138("zm_corrupted_health_bar");
 	}
 
 	/*
@@ -82,10 +82,10 @@ class class_c982469d : class_6aaccc24
 	*/
 	function setup_clientfields(var_663a86fa, var_4ec2b207, var_ed81ff07)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_corrupted_health_bar");
-		namespace_6aaccc24::function_da693cbe("health", 4000, 7, "float", var_663a86fa);
-		namespace_6aaccc24::function_da693cbe("armor", 4000, 7, "float", var_4ec2b207);
-		namespace_6aaccc24::function_da693cbe("armor_vis", 4000, 1, "int", var_ed81ff07);
+		cLUIelem::setup_clientfields("zm_corrupted_health_bar");
+		cLUIelem::function_da693cbe("health", 4000, 7, "float", var_663a86fa);
+		cLUIelem::function_da693cbe("armor", 4000, 7, "float", var_4ec2b207);
+		cLUIelem::function_da693cbe("armor_vis", 4000, 1, "int", var_ed81ff07);
 	}
 
 	/*
@@ -127,7 +127,7 @@ class class_c982469d : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "health", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "armor", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "armor_vis", 0);

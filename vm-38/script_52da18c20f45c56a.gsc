@@ -1,6 +1,6 @@
 #using script_3626f1b2cf51a99c;
-#using script_4663ec59d864e437;
-#using script_5399f402045d7abd;
+#using scripts\abilities\gadgets\gadget_health_regen.gsc;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_6eea75edd4d830a;
 #using script_7d0013bbc05623b9;
 #using scripts\core_common\animation_shared.gsc;

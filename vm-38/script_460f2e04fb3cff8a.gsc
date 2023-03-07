@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -52,11 +52,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"headshots_only", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"headshots_only", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_25f0796c
 	Checksum: 0x44981BEA
 	Offset: 0x1A0
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_d1de6a85(weapon_name)
+function private on_begin(weapon_name)
 {
 	level.var_b38bb71 = 1;
 	level.var_ef0aada0 = 1;
@@ -78,8 +78,8 @@ function private function_d1de6a85(weapon_name)
 				player function_28602a03(w_hero, 1, 1);
 			}
 		}
-		player namespace_b22c99a5::function_9bf8e274();
-		player namespace_b22c99a5::function_dc9ab223(1);
+		player zm_trial_util::function_9bf8e274();
+		player zm_trial_util::function_dc9ab223(1);
 	}
 	callback::function_33f0ddd3(&function_33f0ddd3);
 	level zm_trial::function_44200d07(1);
@@ -87,7 +87,7 @@ function private function_d1de6a85(weapon_name)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_25f0796c
 	Checksum: 0x71A525DC
 	Offset: 0x3E0
@@ -95,7 +95,7 @@ function private function_d1de6a85(weapon_name)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	level.var_b38bb71 = 0;
 	level.var_ef0aada0 = 0;
@@ -109,15 +109,15 @@ function private function_9e7b3f4d(round_reset)
 				player unlockweapon(w_hero);
 			}
 		}
-		player namespace_b22c99a5::function_73ff0096();
-		foreach(var_64225f6c in level.zombie_weapons)
+		player zm_trial_util::function_73ff0096();
+		foreach(w_equip in level.zombie_weapons)
 		{
-			if(var_64225f6c.weapon_classname === "equipment")
+			if(w_equip.weapon_classname === "equipment")
 			{
-				player unlockweapon(var_64225f6c.weapon);
+				player unlockweapon(w_equip.weapon);
 			}
 		}
-		player namespace_b22c99a5::function_dc9ab223(0);
+		player zm_trial_util::function_dc9ab223(0);
 	}
 	callback::function_824d206(&function_33f0ddd3);
 	level zm_trial::function_44200d07(0);

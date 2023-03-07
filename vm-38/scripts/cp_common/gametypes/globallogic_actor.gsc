@@ -3,7 +3,7 @@
 #using script_41fe08c37d53a635;
 #using script_4ab78e327b76395f;
 #using script_4c5c4a64a59247a2;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_70a43d6ba27cff6a;
 #using scripts\core_common\ammo_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;

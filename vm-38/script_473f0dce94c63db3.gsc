@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\vehicle_shared.csc;
 
-#namespace namespace_dff38fd8;
+#namespace player_pbr;
 
 /*
 	Name: function_e253600c
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0xB6173AFF
 	Offset: 0x88
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_e253600c()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x5F04E17D
 	Offset: 0xA8
 	Size: 0x44
@@ -29,12 +29,12 @@ function private autoexec function_e253600c()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_5899c013879294b7", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_pbr", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x4945D806
 	Offset: 0xF8
 	Size: 0x5C
@@ -49,7 +49,7 @@ function private function_70a657d8(localclientnum)
 
 /*
 	Name: function_cc0af45d
-	Namespace: namespace_dff38fd8
+	Namespace: player_pbr
 	Checksum: 0x18925099
 	Offset: 0x160
 	Size: 0x2E

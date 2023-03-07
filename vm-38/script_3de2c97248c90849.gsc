@@ -105,10 +105,10 @@ function grab_shield_charge(player)
 function shield_charge_powerup(item, player)
 {
 	var_2cacdde7 = 50;
-	var_b619c089 = player.inventory.items[6];
-	if(isdefined(var_b619c089))
+	inventoryitem = player.inventory.items[6];
+	if(isdefined(inventoryitem))
 	{
-		var_2cacdde7 = (isdefined(var_b619c089.var_a6762160.var_a3aa1ca2) ? var_b619c089.var_a6762160.var_a3aa1ca2 : 50);
+		var_2cacdde7 = (isdefined(inventoryitem.var_a6762160.var_a3aa1ca2) ? inventoryitem.var_a6762160.var_a3aa1ca2 : 50);
 		if(var_2cacdde7 == 0)
 		{
 			var_2cacdde7 = 50;

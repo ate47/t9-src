@@ -1,4 +1,4 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -49,11 +49,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_27897abffa9137fc", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_27897abffa9137fc", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_e01afe67
 	Checksum: 0x357C343C
 	Offset: 0x158
@@ -61,13 +61,13 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	zm::register_actor_damage_callback(&height_check);
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_e01afe67
 	Checksum: 0x403DF306
 	Offset: 0x188
@@ -75,7 +75,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	if(isinarray(level.actor_damage_callbacks, &height_check))
 	{

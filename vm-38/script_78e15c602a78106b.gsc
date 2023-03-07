@@ -1,13 +1,13 @@
-#using script_14f4a3c583c77d4b;
-#using script_3cebb48c37fc271;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3f9e0dc8454d98e1;
-#using script_42b51e4a369b0f95;
-#using script_43ce7284919bced2;
+#using scripts\zm\zm_tungsten_zones.gsc;
+#using scripts\zm\zm_tungsten_pap_quest.gsc;
 #using script_4ce5d94e8c797350;
 #using script_52c6c2d1a2ef1b46;
-#using script_5bb072c3abf4652c;
-#using script_6d148b720e2af260;
-#using script_7224d61ed502ea07;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm\zm_tungsten_gamemodes.gsc;
+#using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7b1cd3908a825fdd;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -1105,8 +1105,8 @@ function private function_e0beead2()
 function function_cd7a3de4()
 {
 	/#
-		util::function_345e5b9a("");
-		util::function_345e5b9a("");
+		util::add_debug_command("");
+		util::add_debug_command("");
 		zm_devgui::add_custom_devgui_callback(&cmd);
 	#/
 }

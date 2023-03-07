@@ -1,10 +1,10 @@
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_e3ee7b12;
+#namespace zm_gold_ffotd;
 
 /*
 	Name: function_e2d7eb86
-	Namespace: namespace_e3ee7b12
+	Namespace: zm_gold_ffotd
 	Checksum: 0x5771428F
 	Offset: 0x68
 	Size: 0x14
@@ -18,7 +18,7 @@ function private autoexec function_e2d7eb86()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_e3ee7b12
+	Namespace: zm_gold_ffotd
 	Checksum: 0xF9B48D51
 	Offset: 0x88
 	Size: 0x3C
@@ -27,12 +27,12 @@ function private autoexec function_e2d7eb86()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_32d9547523810505", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_gold_ffotd", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_e3ee7b12
+	Namespace: zm_gold_ffotd
 	Checksum: 0x80F724D1
 	Offset: 0xD0
 	Size: 0x4

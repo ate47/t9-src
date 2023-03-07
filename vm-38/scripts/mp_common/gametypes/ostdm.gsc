@@ -2,11 +2,11 @@
 #using scripts\mp_common\gametypes\os.gsc;
 #using scripts\mp_common\gametypes\tdm.gsc;
 
-#namespace namespace_140b10cf;
+#namespace ostdm;
 
 /*
 	Name: function_e46297dd
-	Namespace: namespace_140b10cf
+	Namespace: ostdm
 	Checksum: 0xF3A52ADF
 	Offset: 0xA0
 	Size: 0x14
@@ -20,7 +20,7 @@ function private autoexec function_e46297dd()
 
 /*
 	Name: main
-	Namespace: namespace_140b10cf
+	Namespace: ostdm
 	Checksum: 0x34292B11
 	Offset: 0xC0
 	Size: 0x64

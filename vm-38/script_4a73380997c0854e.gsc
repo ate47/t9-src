@@ -4,7 +4,7 @@
 #using script_26850092de25d970;
 #using script_2b1257dca3b9fd1e;
 #using script_2c1348b5a72ac8cf;
-#using script_2dc48f46bfeac894;
+#using scripts\abilities\ability_player.gsc;
 #using script_31786c2dc684e9b;
 #using script_31e9b35aaacbbd93;
 #using script_35e4637ff0faed7f;
@@ -17,7 +17,7 @@
 #using script_499673e499d3dc1a;
 #using script_4ab78e327b76395f;
 #using script_51c03a543ea0ed19;
-#using script_56ca01b3b31455b5;
+#using scripts\abilities\ability_util.gsc;
 #using script_61cfc2ab8e60625;
 #using script_67c9a990c0db216c;
 #using script_693a0b9bd751df83;

@@ -3,7 +3,7 @@
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
 #using script_68d2ee1489345a1d;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -81,18 +81,18 @@ function function_1c601b99()
 	Parameters: 2
 	Flags: None
 */
-function function_bff5c062(trophysystem, var_dbd1a594)
+function function_bff5c062(trophysystem, attackingplayer)
 {
 	trophysystem notify(#"hacked");
 	var_f3ab6571 = trophysystem.owner weaponobjects::function_7cdcc8ba(trophysystem.var_2d045452) > 1;
 	trophysystem.owner thread globallogic_audio::function_a2cde53d(trophysystem.weapon, var_f3ab6571);
 	trophysystem.owner weaponobjects::hackerremoveweapon(trophysystem);
-	trophysystem.team = var_dbd1a594.team;
-	trophysystem setteam(var_dbd1a594.team);
-	trophysystem.owner = var_dbd1a594;
-	trophysystem setowner(var_dbd1a594);
-	trophysystem thread trophyactive(var_dbd1a594);
-	trophysystem weaponobjects::function_386fa470(var_dbd1a594);
+	trophysystem.team = attackingplayer.team;
+	trophysystem setteam(attackingplayer.team);
+	trophysystem.owner = attackingplayer;
+	trophysystem setowner(attackingplayer);
+	trophysystem thread trophyactive(attackingplayer);
+	trophysystem weaponobjects::function_386fa470(attackingplayer);
 	if(isdefined(trophysystem) && isdefined(level.var_f1edf93f))
 	{
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
@@ -102,7 +102,7 @@ function function_bff5c062(trophysystem, var_dbd1a594)
 			trophysystem thread weaponobjects::weapon_object_timeout(trophysystem.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
-	trophysystem thread weaponobjects::function_6d8aa6a0(var_dbd1a594, trophysystem.var_2d045452);
+	trophysystem thread weaponobjects::function_6d8aa6a0(attackingplayer, trophysystem.var_2d045452);
 	if(isdefined(trophysystem) && isdefined(level.var_fc1bbaef))
 	{
 		[[level.var_fc1bbaef]](trophysystem);
@@ -157,7 +157,7 @@ function on_player_killed(s_params)
 	}
 	if(weapon.name == #"trophy_system")
 	{
-		scoreevents::processscoreevent(#"hash_54e0385adc2f806e", attacker, self, weapon);
+		scoreevents::processscoreevent(#"trophy_system_kill", attacker, self, weapon);
 	}
 }
 

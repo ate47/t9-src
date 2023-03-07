@@ -1,5 +1,5 @@
-#using script_14f4a3c583c77d4b;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_loadout.gsc;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -54,11 +54,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_149b9c514fee8fc3", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_149b9c514fee8fc3", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_b28d86fd
 	Checksum: 0x4B5ACD78
 	Offset: 0x1B0
@@ -66,13 +66,13 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	callback::function_33f0ddd3(&function_33f0ddd3);
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_bf710271();
-		player namespace_b22c99a5::function_7dbb1712(1);
+		player thread zm_trial_util::function_bf710271();
+		player zm_trial_util::function_7dbb1712(1);
 	}
 	var_ec9e2b1d = getentarray("zombie_trap", "targetname");
 	str_text = #"hash_24a438482954901";
@@ -100,7 +100,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_b28d86fd
 	Checksum: 0x53B72FA9
 	Offset: 0x500
@@ -108,7 +108,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_824d206(&function_33f0ddd3);
 	level.var_b38bb71 = undefined;
@@ -116,8 +116,8 @@ function private function_9e7b3f4d(round_reset)
 	level zm_trial::function_25ee130(0);
 	foreach(player in getplayers())
 	{
-		player thread namespace_b22c99a5::function_dc0859e();
-		player namespace_b22c99a5::function_7dbb1712(1);
+		player thread zm_trial_util::function_dc0859e();
+		player zm_trial_util::function_7dbb1712(1);
 	}
 	var_ec9e2b1d = getentarray("zombie_trap", "targetname");
 	str_text = #"hash_23c1c09e94181fdb";

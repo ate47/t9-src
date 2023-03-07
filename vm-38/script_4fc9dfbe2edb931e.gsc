@@ -1,5 +1,5 @@
 #using script_167b322dbacbc3f5;
-#using script_18309c5377e297c0;
+#using scripts\wz_common\wz_rat.gsc;
 #using script_1cc417743d7c262d;
 #using script_26187575f84f8d07;
 #using script_2c49ae69cd8ce30c;
@@ -83,7 +83,7 @@ event main(eventstruct)
 	callback::on_spawned(&onplayerspawned);
 	callback::on_player_killed(&on_player_killed);
 	level callback::add_callback(#"hash_259e3bcba73a2f14", &function_c0e544cc);
-	namespace_674e6435::function_367cfa1b(&function_95002a59);
+	laststand_mp::function_367cfa1b(&function_95002a59);
 	player::function_3c5cc656(&function_610d3790);
 	clientfield::register("toplayer", "using_bomb", 1, 2, "int");
 	clientfield::function_a8bbc967("hudItems.uraniumCarryCount", 1, 4, "int");
@@ -92,7 +92,7 @@ event main(eventstruct)
 	clientfield::register("allplayers", "carryingUranium", 1, 1, "int");
 	clientfield::register("scriptmover", "bombsound", 1, 1, "int");
 	clientfield::function_5b7d846d("hud_items_dirty_bomb.bomb_respawn_disabled", 1, 1, "int");
-	namespace_674e6435::function_eb8c0e47(&function_114f1da7);
+	laststand_mp::function_eb8c0e47(&function_114f1da7);
 	level.var_574cc797 = &namespace_234f0efc::function_588a586d;
 	level.can_revive = &canrevive;
 	level.var_64731636 = dirtybomb_usebar::register();

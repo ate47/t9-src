@@ -1,4 +1,4 @@
-#using script_135d639e83b15d2f;
+#using scripts\zm\ai\zm_ai_hulk.gsc;
 #using script_1940fc077a028a81;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;

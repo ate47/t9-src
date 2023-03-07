@@ -1,7 +1,7 @@
 #using script_1254ac024174d9c0;
 #using script_1c65dbfc2f1c8d8f;
 #using script_3f9e0dc8454d98e1;
-#using script_5b18db57724ff7be;
+#using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
 #using script_6e3c826b1814cab6;
 #using script_7133a4d461308099;
@@ -23,11 +23,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_4707b2f0;
+#namespace zm_pack_a_punch_util;
 
 /*
 	Name: function_4cbf8043
-	Namespace: namespace_4707b2f0
+	Namespace: zm_pack_a_punch_util
 	Checksum: 0x21EBF090
 	Offset: 0x1D8
 	Size: 0x14
@@ -608,7 +608,7 @@ function function_b81da3fd(weapon)
 	{
 		return false;
 	}
-	item = self namespace_b376ff3f::function_230ceec4(weapon);
+	item = self item_inventory::function_230ceec4(weapon);
 	if(isdefined(item.var_a8bccf69) && item.var_a8bccf69 > 1)
 	{
 		return true;
@@ -631,7 +631,7 @@ function function_2a196eff(weapon)
 	{
 		return;
 	}
-	item = self namespace_b376ff3f::function_230ceec4(weapon);
+	item = self item_inventory::function_230ceec4(weapon);
 	if(isdefined(item.var_a8bccf69))
 	{
 		return item.var_a8bccf69;
@@ -649,7 +649,7 @@ function function_2a196eff(weapon)
 */
 function function_7352d8cc(weapon)
 {
-	item = self namespace_b376ff3f::function_230ceec4(weapon);
+	item = self item_inventory::function_230ceec4(weapon);
 	if(isdefined(item.var_a8bccf69) && item.var_a8bccf69 >= 3)
 	{
 		return true;

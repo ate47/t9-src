@@ -49,11 +49,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_2fc73bc20035fe8", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_2fc73bc20035fe8", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_983e5028
 	Checksum: 0x7982A27
 	Offset: 0x170
@@ -61,7 +61,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Private
 */
-function private function_d1de6a85(var_d34d02af)
+function private on_begin(var_d34d02af)
 {
 	level.var_d34d02af = zm_trial::function_5769f26a(var_d34d02af);
 	callback::function_78ccee50(&function_78ccee50);
@@ -72,7 +72,7 @@ function private function_d1de6a85(var_d34d02af)
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_983e5028
 	Checksum: 0x32F5EFA4
 	Offset: 0x250
@@ -80,7 +80,7 @@ function private function_d1de6a85(var_d34d02af)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	callback::function_deba137d(&function_78ccee50);
 	level.var_d34d02af = undefined;

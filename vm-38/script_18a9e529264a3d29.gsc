@@ -29,7 +29,7 @@ function function_10672567()
 {
 	if(!isdefined(level.var_4ada4f1f))
 	{
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		fields = getmapfields(mapname);
 		level.var_4ada4f1f = fields;
 	}
@@ -68,7 +68,7 @@ function function_90500af5()
 function function_166646a6()
 {
 	var_26ea2807 = function_90500af5();
-	if(var_26ea2807 === #"hash_517389c0ae1875f9")
+	if(var_26ea2807 === #"story1")
 	{
 		return 1;
 	}

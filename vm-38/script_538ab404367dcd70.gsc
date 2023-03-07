@@ -611,7 +611,7 @@ function onuseobject(player)
 			demo::bookmark(#"event", gettime(), player);
 			potm::bookmark(#"event", gettime(), player);
 			player stats::function_bb7eedf0(#"plants", 1);
-			player stats::function_dad108fa(#"hash_6ed8aab88512306b", 1);
+			player stats::function_dad108fa(#"plants_defuses", 1);
 			player recordgameevent("plant");
 			level thread telemetry::function_18135b72(#"hash_540cddd637f71a5e", {#eventtype:#"plant", #player:player});
 		}
@@ -644,7 +644,7 @@ function onuseobject(player)
 		{
 			demo::bookmark(#"event", gettime(), player);
 			player stats::function_bb7eedf0(#"defuses", 1);
-			player stats::function_dad108fa(#"hash_6ed8aab88512306b", 1);
+			player stats::function_dad108fa(#"plants_defuses", 1);
 			player recordgameevent("defuse");
 			level thread telemetry::function_18135b72(#"hash_540cddd637f71a5e", {#eventtype:#"defuse", #player:player});
 		}

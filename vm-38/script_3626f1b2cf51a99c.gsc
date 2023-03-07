@@ -1,5 +1,5 @@
 #using script_52da18c20f45c56a;
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_7d0013bbc05623b9;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

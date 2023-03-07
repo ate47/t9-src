@@ -3,7 +3,7 @@
 #using scripts\core_common\spawner_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
-class class_5f632c1e 
+class aisquad 
 {
 	var squadmembers;
 	var squadleader;
@@ -11,7 +11,7 @@ class class_5f632c1e
 
 	/*
 		Name: constructor
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0x51397290
 		Offset: 0x188
 		Size: 0x26
@@ -27,7 +27,7 @@ class class_5f632c1e
 
 	/*
 		Name: destructor
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0x80F724D1
 		Offset: 0x428
 		Size: 0x4
@@ -40,7 +40,7 @@ class class_5f632c1e
 
 	/*
 		Name: getmembers
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0xED6F75D4
 		Offset: 0x290
 		Size: 0xA
@@ -54,7 +54,7 @@ class class_5f632c1e
 
 	/*
 		Name: removeaifromsqaud
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0x88DAC8DF
 		Offset: 0x330
 		Size: 0x5E
@@ -75,7 +75,7 @@ class class_5f632c1e
 
 	/*
 		Name: getsquadbreadcrumb
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0xF7785400
 		Offset: 0x260
 		Size: 0xA
@@ -89,7 +89,7 @@ class class_5f632c1e
 
 	/*
 		Name: think
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0xCF91A374
 		Offset: 0x398
 		Size: 0x86
@@ -115,7 +115,7 @@ class class_5f632c1e
 
 	/*
 		Name: addsquadbreadcrumbs
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0xC15294C5
 		Offset: 0x1B8
 		Size: 0x9E
@@ -138,7 +138,7 @@ class class_5f632c1e
 
 	/*
 		Name: addaitosquad
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0x5140D50D
 		Offset: 0x2A8
 		Size: 0x7C
@@ -159,7 +159,7 @@ class class_5f632c1e
 
 	/*
 		Name: getleader
-		Namespace: namespace_5f632c1e
+		Namespace: aisquad
 		Checksum: 0x8932A8E6
 		Offset: 0x278
 		Size: 0xA
@@ -232,7 +232,7 @@ function private function_70a657d8()
 */
 function private createsquad(squadname)
 {
-	level._squads[squadname] = new class_5f632c1e();
+	level._squads[squadname] = new aisquad();
 	return level._squads[squadname];
 }
 

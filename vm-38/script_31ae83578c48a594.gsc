@@ -1,4 +1,4 @@
-#using script_3c362258ff800237;
+#using scripts\zm_common\zm_trial.csc;
 #using script_4c875fef517e2061;
 #using scripts\core_common\system_shared.csc;
 #using scripts\zm_common\zm.csc;
@@ -48,11 +48,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_5d3b4424c6d47835", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_5507dc3
 	Checksum: 0x1A1B5706
 	Offset: 0x150
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Private
 */
-function private function_d1de6a85(local_client_num, params)
+function private on_begin(local_client_num, params)
 {
 	level thread function_40349f7c();
 }
@@ -90,14 +90,14 @@ function function_40349f7c(localclientnum)
 			}
 			foreach(player in getplayers(localclientnum))
 			{
-				player namespace_e1e7cabf::function_25410869(localclientnum);
+				player zm_perk_death_perception::function_25410869(localclientnum);
 			}
 		}
 	}
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_5507dc3
 	Checksum: 0xA3998CFC
 	Offset: 0x340
@@ -105,7 +105,7 @@ function function_40349f7c(localclientnum)
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(local_client_num)
+function private on_end(local_client_num)
 {
 	level notify(#"hash_38932f8deb28b470");
 	level.var_dc60105c = undefined;
@@ -120,7 +120,7 @@ function private function_9e7b3f4d(local_client_num)
 			}
 			foreach(player in getplayers(localclientnum))
 			{
-				player namespace_e1e7cabf::function_25410869(localclientnum);
+				player zm_perk_death_perception::function_25410869(localclientnum);
 			}
 		}
 	}

@@ -60,8 +60,8 @@ function starting(str_skipto)
 	level.var_49a5d2a4 vehicle::toggle_force_driver_taillights(1);
 	level.var_49a5d2a4 namespace_db2381c4::function_4c265dee();
 	namespace_7d4dd7f0::function_a2015343();
-	var_7e4a7b32 = getweapon(#"ar_accurate_t9");
-	level.adler setweapon(var_7e4a7b32);
+	a_ar = getweapon(#"ar_accurate_t9");
+	level.adler setweapon(a_ar);
 	level flag::set("af_start_enemy_crash_vehs");
 	setdvar(#"hash_76c0d7e6385ee6de", 0.05);
 	thread namespace_a052577e::function_3dbad6f5();
@@ -207,12 +207,12 @@ function function_c5eaa394()
 */
 function function_243c9d46(player)
 {
-	var_7256d0b6 = getvehiclearray("af_chase_veh", "targetname")[0];
-	level.var_49a5d2a4 = var_7256d0b6;
+	player_veh = getvehiclearray("af_chase_veh", "targetname")[0];
+	level.var_49a5d2a4 = player_veh;
 	level.player = getplayers()[0];
 	thread function_c0f9442c();
 	thread function_e99dbb58(player);
-	var_7256d0b6 vehicle::get_off_path();
+	player_veh vehicle::get_off_path();
 	woods = getactorarray("af_woods", "targetname");
 	if(woods.size > 0)
 	{

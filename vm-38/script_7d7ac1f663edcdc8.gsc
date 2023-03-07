@@ -3,7 +3,7 @@
 #using script_2618e0f3e5e11649;
 #using script_3f9e0dc8454d98e1;
 #using script_437ce686d29bb81b;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\math_shared.gsc;

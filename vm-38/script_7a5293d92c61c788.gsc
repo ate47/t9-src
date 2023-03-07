@@ -515,7 +515,7 @@ function function_cb2d9b9b(machine, trigger)
 		if(menu == #"sr_armor_menu")
 		{
 			weapon = self getcurrentweapon();
-			item = namespace_b376ff3f::function_230ceec4(weapon);
+			item = item_inventory::function_230ceec4(weapon);
 			switch(waitresult.response)
 			{
 				case "hash_1028a1675bc987fe":
@@ -589,7 +589,7 @@ function function_cb2d9b9b(machine, trigger)
 								}
 								else
 								{
-									var_af76aeca = function_44368952(weapon, item.var_a6762160.rarity);
+									item_weapon = function_44368952(weapon, item.var_a6762160.rarity);
 									var_79770f09 = function_137f88c6(item.var_a6762160.rarity);
 									has_enough = self sr_scrap::function_c29a8aa1(250);
 									if(has_enough)
@@ -602,13 +602,13 @@ function function_cb2d9b9b(machine, trigger)
 											var_7fa2b50b = self getweaponammoclip(currentweapon.dualwieldweapon);
 										}
 										weaponoptions = self function_ade49959(currentweapon);
-										self zm_weapons::function_8fdfe5e4(weapon, item, var_af76aeca, var_79770f09, clipsize, var_9839b3b1, var_7fa2b50b);
+										self zm_weapons::function_8fdfe5e4(weapon, item, item_weapon, var_79770f09, clipsize, var_9839b3b1, var_7fa2b50b);
 										if(isplayer(self))
 										{
 											currentweapon = self getcurrentweapon();
 											if(isdefined(item.var_a8bccf69))
 											{
-												self namespace_b376ff3f::function_d92c6b5b(currentweapon, undefined, item.var_a8bccf69);
+												self item_inventory::function_d92c6b5b(currentweapon, undefined, item.var_a8bccf69);
 											}
 											self playrumbleonentity(#"hash_410bd55524ae7d");
 											machine scene::stop("p9_fxanim_zm_gp_armor_station_bundle");
@@ -736,9 +736,9 @@ function give_armor(var_cc87b623)
 	if(isdefined(point) && isdefined(point.var_a6762160))
 	{
 		self function_b2f69241();
-		var_fa3df96 = self namespace_b376ff3f::function_e66dcff5(point);
-		self namespace_b376ff3f::function_e274f1fe(point, 1, point.var_a6762160.amount, var_fa3df96);
-		self namespace_b376ff3f::equip_armor(point);
+		var_fa3df96 = self item_inventory::function_e66dcff5(point);
+		self item_inventory::function_e274f1fe(point, 1, point.var_a6762160.amount, var_fa3df96);
+		self item_inventory::equip_armor(point);
 		self function_f3ce6afc(var_cc87b623);
 	}
 	self.armor = self.maxarmor;
@@ -758,7 +758,7 @@ function function_b2f69241()
 	var_416640e8 = self.inventory.items[6];
 	if(var_416640e8.var_bd027dd9 != 32767)
 	{
-		var_4d7e11d8 = self namespace_b376ff3f::function_418f9eb8(var_416640e8.var_bd027dd9);
+		var_4d7e11d8 = self item_inventory::function_418f9eb8(var_416640e8.var_bd027dd9);
 		if(isdefined(var_4d7e11d8))
 		{
 			var_4d7e11d8 delete();

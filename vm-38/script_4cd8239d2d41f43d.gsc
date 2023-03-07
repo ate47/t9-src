@@ -1,9 +1,9 @@
 #using script_15022fca9ab99080;
 #using script_1d1a97b78f64bfd;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_79a7e1c31a3e8cc;
-#using script_bc6a9a35c229565;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\deployable.gsc;
+#using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -182,15 +182,15 @@ function function_fdcfd41d()
 	{
 		var_d39fdf94 = getaiarchetypearray(#"hulk");
 		var_d39fdf94 = arraysortclosest(var_d39fdf94, self.origin, undefined, 0, 1000);
-		foreach(var_a0b59f75 in var_d39fdf94)
+		foreach(ai_hulk in var_d39fdf94)
 		{
-			if(isalive(var_a0b59f75))
+			if(isalive(ai_hulk))
 			{
-				var_a3a77704 = var_a0b59f75 gettagorigin("j_ball_le");
-				var_feafc7a2 = var_a0b59f75 gettagorigin("j_ball_ri");
+				var_a3a77704 = ai_hulk gettagorigin("j_ball_le");
+				var_feafc7a2 = ai_hulk gettagorigin("j_ball_ri");
 				if(isdefined(var_a3a77704) && distancesquared(self.origin, var_a3a77704) <= 2025 || (isdefined(var_feafc7a2) && distancesquared(self.origin, var_feafc7a2) <= 2025))
 				{
-					self notify(#"veh_predictedcollision", {#target:var_a0b59f75});
+					self notify(#"veh_predictedcollision", {#target:ai_hulk});
 					return;
 				}
 			}

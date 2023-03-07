@@ -9,9 +9,9 @@
 #using script_3f9e0dc8454d98e1;
 #using script_3fda550bc6e1089a;
 #using script_4421226bbc54b398;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_669400ff5aadcc83;
-#using script_6ce38ab036223e6e;
+#using scripts\zm_common\zm_round_logic.gsc;
 #using script_72d96920f15049b8;
 #using script_7fc996fe8678852;
 #using script_92d4d637814fefa;
@@ -88,7 +88,7 @@ event main(eventstruct)
 function function_d5ab66bf()
 {
 	callback::function_74872db6(&function_74872db6);
-	callback::function_189f87c1(&function_189f87c1);
+	callback::on_round_end(&on_round_end);
 	level.var_41eb9e50 = 0;
 	var_155f12e4 = struct::get("round_accelerant");
 	if(isdefined(var_155f12e4))
@@ -169,8 +169,8 @@ function onuse(player)
 					zombie zombie_utility::set_zombie_run_cycle_restore_from_override();
 				}
 			}
-			level.func_get_zombie_spawn_delay = &namespace_a28acff3::get_zombie_spawn_delay;
-			level.func_get_delay_between_rounds = &namespace_a28acff3::get_delay_between_rounds;
+			level.func_get_zombie_spawn_delay = &zm_round_logic::get_zombie_spawn_delay;
+			level.func_get_delay_between_rounds = &zm_round_logic::get_delay_between_rounds;
 			activated = 0;
 			luinotifyevent(#"hash_1b98c5956f94d5c7", 1, activated);
 			clientfield::set_world_uimodel("hud_items_rampage_inducer.rampage_state", 2);
@@ -365,7 +365,7 @@ function function_74872db6()
 }
 
 /*
-	Name: function_189f87c1
+	Name: on_round_end
 	Namespace: namespace_d592c983
 	Checksum: 0x617E4E18
 	Offset: 0x1118
@@ -373,7 +373,7 @@ function function_74872db6()
 	Parameters: 0
 	Flags: Linked
 */
-function function_189f87c1()
+function on_round_end()
 {
 	if(is_true(level.var_41eb9e50) && is_true(level.var_c50b705e))
 	{
@@ -410,8 +410,8 @@ function function_c531a378()
 			level.var_c50b705e = undefined;
 			level.var_41eb9e50 = undefined;
 			level.var_deb2145c = undefined;
-			level.func_get_zombie_spawn_delay = &namespace_a28acff3::get_zombie_spawn_delay;
-			level.func_get_delay_between_rounds = &namespace_a28acff3::get_delay_between_rounds;
+			level.func_get_zombie_spawn_delay = &zm_round_logic::get_zombie_spawn_delay;
+			level.func_get_delay_between_rounds = &zm_round_logic::get_delay_between_rounds;
 			if(isdefined(level.var_b03d5c95.var_51c14c0b))
 			{
 				level.var_b03d5c95.var_51c14c0b delete();

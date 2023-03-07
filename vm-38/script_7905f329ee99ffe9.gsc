@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_c3742963 : class_6aaccc24
+class class_c3742963 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_c3742963 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_c3742963 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("consequences_notification");
+		cLUIelem::function_5c1bb138("consequences_notification");
 	}
 
 	/*
@@ -68,9 +68,9 @@ class class_c3742963 : class_6aaccc24
 	*/
 	function setup_clientfields(var_6ad1a3bb, var_b8233aa2)
 	{
-		namespace_6aaccc24::setup_clientfields("consequences_notification");
-		namespace_6aaccc24::function_da693cbe("visible", 1, 1, "int", var_6ad1a3bb);
-		namespace_6aaccc24::function_da693cbe("content_index", 1, 4, "int", var_b8233aa2);
+		cLUIelem::setup_clientfields("consequences_notification");
+		cLUIelem::function_da693cbe("visible", 1, 1, "int", var_6ad1a3bb);
+		cLUIelem::function_da693cbe("content_index", 1, 4, "int", var_b8233aa2);
 	}
 
 	/*
@@ -112,7 +112,7 @@ class class_c3742963 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "visible", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "content_index", 0);
 	}

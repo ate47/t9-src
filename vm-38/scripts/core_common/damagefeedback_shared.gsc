@@ -1,4 +1,4 @@
-#using script_5399f402045d7abd;
+#using scripts\weapons\weapon_utils.gsc;
 #using script_68d2ee1489345a1d;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -232,7 +232,7 @@ function hit_alert_sfx_mp(mod, inflictor, perkfeedback, weapon, victim, psoffset
 				}
 				else
 				{
-					if(victim.name == #"hash_1888d1367d69b3a7")
+					if(victim.name == #"waterballoon")
 					{
 						hitalias = #"hash_1fd605562fb1fd3a";
 					}

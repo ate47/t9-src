@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_de1125b5;
+#namespace helicopter_sounds_shared;
 
 /*
 	Name: function_9e8c4fe
-	Namespace: namespace_de1125b5
+	Namespace: helicopter_sounds_shared
 	Checksum: 0xA14D500E
 	Offset: 0x228
 	Size: 0x14

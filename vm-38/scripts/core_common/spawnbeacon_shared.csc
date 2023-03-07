@@ -1,11 +1,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_f2029649;
+#namespace spawnbeacon_shared;
 
 /*
 	Name: function_6dfbd99a
-	Namespace: namespace_f2029649
+	Namespace: spawnbeacon_shared
 	Checksum: 0x7DB72FFE
 	Offset: 0x100
 	Size: 0x14

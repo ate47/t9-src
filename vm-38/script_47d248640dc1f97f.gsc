@@ -1,15 +1,15 @@
 #using script_1cc417743d7c262d;
-#using script_3728b3b9606c4299;
+#using scripts\weapons\heatseekingmissile.gsc;
 #using script_383a3b1bb18ba876;
-#using script_3f9e54c7a9a7e1e2;
+#using scripts\mp_common\teams\teams.gsc;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_4a03c204316cf33;
 #using script_545a0bac37bda541;
-#using script_57c900a7e39234be;
+#using scripts\killstreaks\airsupport.gsc;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_bc6a9a35c229565;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -87,7 +87,7 @@ function private function_70a657d8()
 	level.counter_uav_entities = [];
 	if(tweakables::gettweakablevalue("killstreak", "allowcounteruav"))
 	{
-		killstreaks::function_e4ef8390(function_1f11d560(), &activatecounteruav);
+		killstreaks::register_killstreak(function_1f11d560(), &activatecounteruav);
 	}
 	level.var_69f91847 = &function_eb065a52;
 	level.var_3d960463 = &function_4148fbc9;
@@ -258,12 +258,12 @@ function private function_eb065a52(ent)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bff5c062(cuav, var_dbd1a594)
+function function_bff5c062(cuav, attackingplayer)
 {
-	cuav hackedprefunction(var_dbd1a594);
-	cuav.owner = var_dbd1a594;
-	cuav setowner(var_dbd1a594);
-	cuav killstreaks::configure_team_internal(var_dbd1a594, 1);
+	cuav hackedprefunction(attackingplayer);
+	cuav.owner = attackingplayer;
+	cuav setowner(attackingplayer);
+	cuav killstreaks::configure_team_internal(attackingplayer, 1);
 	if(isdefined(level.var_f1edf93f))
 	{
 		cuav notify(#"hacked");

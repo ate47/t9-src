@@ -1,4 +1,4 @@
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -699,7 +699,7 @@ function function_84947a87()
 			player_zone = player zm_zonemgr::get_player_zone();
 			if(isdefined(player_zone) && player_zone == var_778b20f3)
 			{
-				level namespace_af171776::function_b9a3fa11(#"hash_467a44d6adea637a", #"hash_467a34d6adea484a", #"hash_467a30d6adea417e");
+				level zm_gold_main_quest::function_b9a3fa11(#"hash_467a44d6adea637a", #"hash_467a34d6adea484a", #"hash_467a30d6adea417e");
 				b_play = 1;
 			}
 		}
@@ -789,7 +789,7 @@ function private function_543f9e02()
 			if(!is_true(player.var_e0059718))
 			{
 				var_a74e1ff8 = 0;
-				var_be17187b.var_c40fb40b thread function_9a419851(player, var_b3b54a4);
+				var_be17187b.ai_mimic thread function_9a419851(player, var_b3b54a4);
 			}
 		}
 		if(var_a74e1ff8)

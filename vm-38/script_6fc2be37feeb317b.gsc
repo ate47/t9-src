@@ -3,7 +3,7 @@
 #using script_35598499769dbb3d;
 #using script_3ddf84b7bb3bf47d;
 #using script_5a8a1aa32dea1a04;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_68d2ee1489345a1d;
 #using script_7d7ac1f663edcdc8;
 #using script_7fc996fe8678852;
@@ -326,10 +326,10 @@ function function_e3af0084()
 	weapon = self getcurrentweapon();
 	while(true)
 	{
-		var_bd027dd9 = namespace_b376ff3f::function_ec087745();
+		var_bd027dd9 = item_inventory::function_ec087745();
 		if(var_bd027dd9 != 32767)
 		{
-			var_d2648452 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9);
+			var_d2648452 = item_inventory::function_dfcacdc2(var_bd027dd9);
 			if(isdefined(var_d2648452.var_a8bccf69))
 			{
 				self clientfield::set_player_uimodel("pap_current", var_d2648452.var_a8bccf69);
@@ -616,7 +616,7 @@ function function_4609e67c(machine, trigger)
 		{
 			level.var_2457162c sr_weapon_upgrade_menu::function_83d182e9(self, 0);
 		}
-		item = namespace_b376ff3f::function_230ceec4(weapon);
+		item = item_inventory::function_230ceec4(weapon);
 		var_c3317960 = gibserverutils::function_de4d9d(weapon, item.var_e91aba42);
 		waitresult = undefined;
 		waitresult = self waittill(#"menuresponse");
@@ -705,7 +705,7 @@ function function_4609e67c(machine, trigger)
 						if(isdefined(item) && has_enough && var_a8bccf69 <= 3 && item.var_bd027dd9 != 32767 && !killstreaks::is_killstreak_weapon(weapon) && !function_ef9d58d0(item))
 						{
 							self playlocalsound(#"hash_1a8a0ca90d106338" + var_a8bccf69);
-							self namespace_b376ff3f::function_73ae3380(item, var_a8bccf69);
+							self item_inventory::function_73ae3380(item, var_a8bccf69);
 							self playrumbleonentity(#"hash_410bd55524ae7d");
 							self zm_score::minus_to_player_score(var_340eb1b);
 							self zm_stats::increment_client_stat(#"hash_14f07bc6dbeaab78" + var_a8bccf69);

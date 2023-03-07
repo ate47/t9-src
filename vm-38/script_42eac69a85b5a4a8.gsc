@@ -220,7 +220,7 @@ function function_3037364a(e_revivee)
 			e_revivee.var_6fc48a11 = e_revivee.var_6fc48a11 + 0.05;
 			if(isdefined(level.var_ff482f76))
 			{
-				level.var_ff482f76 zm_laststand_client::function_d50fdde9(e_revivee, e_revivee.var_6fc48a11 / revivetime);
+				level.var_ff482f76 zm_laststand_client::set_revive_progress(e_revivee, e_revivee.var_6fc48a11 / revivetime);
 			}
 			if(e_revivee.var_6fc48a11 >= revivetime)
 			{
@@ -242,7 +242,7 @@ function function_3037364a(e_revivee)
 */
 function enable_quick_revive_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_7f98b3dd3cce95aa", #"perk_quick_revive", 2000, #"hash_8f2aa407d227799", getweapon("zombie_perk_bottle_revive"), undefined, #"hash_4a827056d0e273fd");
+	zm_perks::register_perk_basic_info(#"hash_7f98b3dd3cce95aa", #"perk_quick_revive", 2000, #"hash_8f2aa407d227799", getweapon("zombie_perk_bottle_revive"), undefined, #"zmperksquickrevive");
 	zm_perks::register_perk_precache_func(#"hash_7f98b3dd3cce95aa", &quick_revive_precache);
 	zm_perks::register_perk_clientfields(#"hash_7f98b3dd3cce95aa", &quick_revive_register_clientfield, &quick_revive_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_7f98b3dd3cce95aa", &quick_revive_perk_machine_setup);

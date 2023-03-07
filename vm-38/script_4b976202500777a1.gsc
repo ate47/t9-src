@@ -1,8 +1,8 @@
 #using script_15022fca9ab99080;
 #using script_1d1a97b78f64bfd;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_bc6a9a35c229565;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;

@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_4c6a0e72 : class_6aaccc24
+class class_4c6a0e72 : cLUIelem
 {
 
 	/*
@@ -54,7 +54,7 @@ class class_4c6a0e72 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class class_4c6a0e72 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("cp_chyron");
+		cLUIelem::function_5c1bb138("cp_chyron");
 	}
 
 	/*
@@ -138,13 +138,13 @@ class class_4c6a0e72 : class_6aaccc24
 	*/
 	function setup_clientfields(var_27185c26, var_9da4cb62, var_865fc474, var_1909e1e7, var_2ff7635c, var_eaf012fc)
 	{
-		namespace_6aaccc24::setup_clientfields("cp_chyron");
-		namespace_6aaccc24::function_dcb34c80("string", "line1", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line2", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line3", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line4", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "line5", 1);
-		namespace_6aaccc24::function_da693cbe("index", 1, 4, "int", var_eaf012fc);
+		cLUIelem::setup_clientfields("cp_chyron");
+		cLUIelem::function_dcb34c80("string", "line1", 1);
+		cLUIelem::function_dcb34c80("string", "line2", 1);
+		cLUIelem::function_dcb34c80("string", "line3", 1);
+		cLUIelem::function_dcb34c80("string", "line4", 1);
+		cLUIelem::function_dcb34c80("string", "line5", 1);
+		cLUIelem::function_da693cbe("index", 1, 4, "int", var_eaf012fc);
 	}
 
 	/*
@@ -172,7 +172,7 @@ class class_4c6a0e72 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "line1", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "line2", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "line3", #"");

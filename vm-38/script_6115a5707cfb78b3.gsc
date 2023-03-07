@@ -1,6 +1,6 @@
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_6021ce59143452c3;
-#using script_61a734c95edc17aa;
+#using scripts\zm_common\zm_bgb_pack.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\zm_common\zm_perks.gsc;
@@ -51,11 +51,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"randomize_perks", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"randomize_perks", &on_begin, &on_end);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_7b1a5a90
 	Checksum: 0xDADE7CC
 	Offset: 0x180
@@ -63,9 +63,9 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
-	namespace_b22c99a5::function_8036c103();
+	zm_trial_util::function_8036c103();
 	foreach(player in getplayers())
 	{
 		player thread function_83fa47e8();
@@ -73,7 +73,7 @@ function private function_d1de6a85()
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_7b1a5a90
 	Checksum: 0xE142DBB4
 	Offset: 0x228
@@ -81,13 +81,13 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
 		player thread function_50b92441();
 	}
-	level util::delay(1, "end_game", &namespace_b22c99a5::function_302c6014);
+	level util::delay(1, "end_game", &zm_trial_util::function_302c6014);
 }
 
 /*
@@ -103,7 +103,7 @@ function private function_83fa47e8()
 {
 	self endon(#"disconnect");
 	level endon(#"hash_7646638df88a3656");
-	self bgb_pack::function_59004002(#"hash_16f5a81348e35487", 1);
+	self bgb_pack::function_59004002(#"zm_bgb_perk_up", 1);
 	self bgb_pack::function_59004002(#"zm_bgb_perkaholic", 1);
 	wait(8);
 	if(isdefined(self.var_2a62e678))
@@ -111,7 +111,7 @@ function private function_83fa47e8()
 		self.var_cdc2b986 = self zm_weapons::get_player_weapondata(self.var_2a62e678);
 	}
 	var_45a6b64a = arraycopy(self.var_cd5d9345);
-	self.var_5046ea5e = self namespace_b22c99a5::function_3f8a4145(0);
+	self.var_5046ea5e = self zm_trial_util::function_3f8a4145(0);
 	self.var_5046ea5e.var_cd5d9345 = var_45a6b64a;
 	wait(1);
 	self.var_cd5d9345 = [];
@@ -175,7 +175,7 @@ function private function_50b92441()
 			util::wait_network_frame();
 		}
 	}
-	self namespace_b22c99a5::function_d37a769(self.var_5046ea5e);
+	self zm_trial_util::function_d37a769(self.var_5046ea5e);
 	self function_3a95c571();
 	if(isarray(self.var_5046ea5e.var_cd5d9345))
 	{
@@ -183,7 +183,7 @@ function private function_50b92441()
 	}
 	self.var_5046ea5e = undefined;
 	self.var_cdc2b986 = undefined;
-	self bgb_pack::function_59004002(#"hash_16f5a81348e35487", 0);
+	self bgb_pack::function_59004002(#"zm_bgb_perk_up", 0);
 	self bgb_pack::function_59004002(#"zm_bgb_perkaholic", 0);
 }
 

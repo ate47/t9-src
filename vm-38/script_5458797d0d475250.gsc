@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_25c5977f : class_6aaccc24
+class czm_tungsten_title_cards : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_25c5977f
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0x44410434
 		Offset: 0x358
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_25c5977f : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_25c5977f
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0x3D6E3C51
 		Offset: 0x4A8
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_25c5977f : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_25c5977f
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0x8D2E111F
 		Offset: 0x440
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_25c5977f : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_25c5977f
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0x2B7CA68B
 		Offset: 0x3D0
 		Size: 0x1C
@@ -54,26 +54,26 @@ class class_25c5977f : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("zm_tungsten_title_cards");
+		cLUIelem::function_5c1bb138("zm_tungsten_title_cards");
 	}
 
 	/*
-		Name: function_89134efb
-		Namespace: namespace_25c5977f
+		Name: set_is_title_card_02
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0x1D0AF15E
 		Offset: 0x470
 		Size: 0x30
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_89134efb(localclientnum, value)
+	function set_is_title_card_02(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "is_title_card_02", value);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_25c5977f
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0x419AAB67
 		Offset: 0x378
 		Size: 0x4C
@@ -82,13 +82,13 @@ class class_25c5977f : class_6aaccc24
 	*/
 	function setup_clientfields(var_cb91ced3)
 	{
-		namespace_6aaccc24::setup_clientfields("zm_tungsten_title_cards");
-		namespace_6aaccc24::function_da693cbe("is_title_card_02", 4000, 1, "int", var_cb91ced3);
+		cLUIelem::setup_clientfields("zm_tungsten_title_cards");
+		cLUIelem::function_da693cbe("is_title_card_02", 4000, 1, "int", var_cb91ced3);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_25c5977f
+		Namespace: czm_tungsten_title_cards
 		Checksum: 0xE95DF02F
 		Offset: 0x3F8
 		Size: 0x40
@@ -97,7 +97,7 @@ class class_25c5977f : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "is_title_card_02", 0);
 	}
 
@@ -130,7 +130,7 @@ function private autoexec function_63423176()
 */
 function register(var_cb91ced3)
 {
-	elem = new class_25c5977f();
+	elem = new czm_tungsten_title_cards();
 	[[ elem ]]->setup_clientfields(var_cb91ced3);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -162,7 +162,7 @@ function register(var_cb91ced3)
 */
 function function_5c1bb138()
 {
-	elem = new class_25c5977f();
+	elem = new czm_tungsten_title_cards();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }
@@ -210,7 +210,7 @@ function is_open(localclientnum)
 }
 
 /*
-	Name: function_89134efb
+	Name: set_is_title_card_02
 	Namespace: namespace_6783631d
 	Checksum: 0xAB1DD420
 	Offset: 0x328
@@ -218,8 +218,8 @@ function is_open(localclientnum)
 	Parameters: 2
 	Flags: None
 */
-function function_89134efb(localclientnum, value)
+function set_is_title_card_02(localclientnum, value)
 {
-	[[ self ]]->function_89134efb(localclientnum, value);
+	[[ self ]]->set_is_title_card_02(localclientnum, value);
 }
 

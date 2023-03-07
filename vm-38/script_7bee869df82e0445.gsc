@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_5c5263e2 : class_6aaccc24
+class cremote_missile_targets : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0x742D7204
 		Offset: 0x440
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_5c5263e2 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0xDAB67A13
 		Offset: 0x720
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_5c5263e2 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0x1960C79
 		Offset: 0x610
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_5c5263e2 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_46609401
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0x9687247D
 		Offset: 0x640
 		Size: 0x30
@@ -59,7 +59,7 @@ class class_5c5263e2 : class_6aaccc24
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0x6FDE43E
 		Offset: 0x548
 		Size: 0x1C
@@ -68,12 +68,12 @@ class class_5c5263e2 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("remote_missile_targets");
+		cLUIelem::function_5c1bb138("remote_missile_targets");
 	}
 
 	/*
 		Name: function_808f0a7c
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0x7516D72A
 		Offset: 0x6B0
 		Size: 0x30
@@ -87,7 +87,7 @@ class class_5c5263e2 : class_6aaccc24
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0x4EC9301D
 		Offset: 0x460
 		Size: 0xDC
@@ -96,16 +96,16 @@ class class_5c5263e2 : class_6aaccc24
 	*/
 	function setup_clientfields(var_9318c80d, var_82a5247c, var_afbc846a, var_4c87c083)
 	{
-		namespace_6aaccc24::setup_clientfields("remote_missile_targets");
-		namespace_6aaccc24::function_da693cbe("player_target_active", 1, 16, "int", var_9318c80d);
-		namespace_6aaccc24::function_da693cbe("extra_target_1", 1, 10, "int", var_82a5247c);
-		namespace_6aaccc24::function_da693cbe("extra_target_2", 1, 10, "int", var_afbc846a);
-		namespace_6aaccc24::function_da693cbe("extra_target_3", 1, 10, "int", var_4c87c083);
+		cLUIelem::setup_clientfields("remote_missile_targets");
+		cLUIelem::function_da693cbe("player_target_active", 1, 16, "int", var_9318c80d);
+		cLUIelem::function_da693cbe("extra_target_1", 1, 10, "int", var_82a5247c);
+		cLUIelem::function_da693cbe("extra_target_2", 1, 10, "int", var_afbc846a);
+		cLUIelem::function_da693cbe("extra_target_3", 1, 10, "int", var_4c87c083);
 	}
 
 	/*
 		Name: function_d798388d
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0xE2A4EFE6
 		Offset: 0x678
 		Size: 0x30
@@ -119,7 +119,7 @@ class class_5c5263e2 : class_6aaccc24
 
 	/*
 		Name: function_ec1de198
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0xCCE590D0
 		Offset: 0x6E8
 		Size: 0x30
@@ -133,7 +133,7 @@ class class_5c5263e2 : class_6aaccc24
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_5c5263e2
+		Namespace: cremote_missile_targets
 		Checksum: 0xC995359D
 		Offset: 0x570
 		Size: 0x94
@@ -142,7 +142,7 @@ class class_5c5263e2 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "player_target_active", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_1", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_2", 0);
@@ -178,7 +178,7 @@ function private autoexec function_261d5245()
 */
 function register(var_9318c80d, var_82a5247c, var_afbc846a, var_4c87c083)
 {
-	elem = new class_5c5263e2();
+	elem = new cremote_missile_targets();
 	[[ elem ]]->setup_clientfields(var_9318c80d, var_82a5247c, var_afbc846a, var_4c87c083);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -210,7 +210,7 @@ function register(var_9318c80d, var_82a5247c, var_afbc846a, var_4c87c083)
 */
 function function_5c1bb138()
 {
-	elem = new class_5c5263e2();
+	elem = new cremote_missile_targets();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

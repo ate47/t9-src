@@ -1,4 +1,4 @@
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\weapons_shared.gsc;
 

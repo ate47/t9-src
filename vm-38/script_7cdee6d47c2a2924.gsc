@@ -1,4 +1,4 @@
-#using script_2efbf80b6e18c0ab;
+#using scripts\mp_common\teams\teamset.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace teamset_allies;

@@ -3,7 +3,7 @@
 #using script_301f64a4090c381a;
 #using script_5660bae5b402a1eb;
 #using script_6e3c826b1814cab6;
-#using script_ab890501c40b73c;
+#using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\exploder_shared.gsc;
@@ -1424,7 +1424,7 @@ function function_3f401e8d(e_player)
 			return true;
 		}
 	}
-	if(e_player bgb::is_enabled(#"hash_7c80df83e002a4d6"))
+	if(e_player bgb::is_enabled(#"zm_bgb_anti_entrapment"))
 	{
 		if(!isdefined(e_player.var_410e7c36))
 		{

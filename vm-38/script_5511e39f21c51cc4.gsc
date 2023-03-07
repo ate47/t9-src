@@ -2,7 +2,7 @@
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	}
 	if(sessionmodeismultiplayergame() || function_f99d2668())
 	{
-		killstreaks::function_e4ef8390(bundle, &usekillstreakhelicopter);
+		killstreaks::register_killstreak(bundle, &usekillstreakhelicopter);
 	}
 	init_shared();
 	player::function_cf3aa03d(&function_d45a1f8d, 0);

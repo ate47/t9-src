@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1ac263b07ef50ab6;
 #using script_1c65dbfc2f1c8d8f;
 #using script_1caf36ff04a85ff6;
@@ -153,7 +153,7 @@ function function_ae7afb91(player)
 	player zm_placeable_mine::disable_all_prompts_for_player();
 	foreach(slotid in array(17 + 1, ((17 + 1) + 8) + 1, ((((17 + 1) + 8) + 1) + 8) + 1))
 	{
-		weapon1 = player namespace_a0d533d1::function_2b83d3ff(player namespace_b376ff3f::function_2e711614(slotid));
+		weapon1 = player namespace_a0d533d1::function_2b83d3ff(player item_inventory::function_2e711614(slotid));
 		player function_7374e868(weapon1);
 	}
 	if(is_true(level.var_2f5a329e))

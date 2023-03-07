@@ -159,13 +159,13 @@ function function_cc2216e2(eplayer)
 	}
 	mission_list = skipto::function_228558fd(0, 0);
 	var_d8222c25 = 0;
-	foreach(var_9ea95904 in mission_list)
+	foreach(msn in mission_list)
 	{
-		if(!eplayer stats::get_stat(#"mapdata", var_9ea95904, #"complete"))
+		if(!eplayer stats::get_stat(#"mapdata", msn, #"complete"))
 		{
 			continue;
 		}
-		highestdifficulty = eplayer stats::get_stat(#"mapdata", var_9ea95904, #"highestdifficulty");
+		highestdifficulty = eplayer stats::get_stat(#"mapdata", msn, #"highestdifficulty");
 		if(!isdefined(var_b0abc67b[highestdifficulty]))
 		{
 			var_b0abc67b[highestdifficulty] = 0;

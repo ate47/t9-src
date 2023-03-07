@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_6b831806 : class_6aaccc24
+class class_6b831806 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_6b831806 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_6b831806 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("BlackSeaJetskiDeployPrompt");
+		cLUIelem::function_5c1bb138("BlackSeaJetskiDeployPrompt");
 	}
 
 	/*
@@ -82,8 +82,8 @@ class class_6b831806 : class_6aaccc24
 	*/
 	function setup_clientfields(var_8c9ddf96)
 	{
-		namespace_6aaccc24::setup_clientfields("BlackSeaJetskiDeployPrompt");
-		namespace_6aaccc24::function_da693cbe("deployProgress", 1, 5, "float", var_8c9ddf96);
+		cLUIelem::setup_clientfields("BlackSeaJetskiDeployPrompt");
+		cLUIelem::function_da693cbe("deployProgress", 1, 5, "float", var_8c9ddf96);
 	}
 
 	/*
@@ -97,7 +97,7 @@ class class_6b831806 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "deployProgress", 0);
 	}
 

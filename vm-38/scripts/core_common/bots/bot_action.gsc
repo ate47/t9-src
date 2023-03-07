@@ -1,5 +1,5 @@
 #using script_1a36b1b297e29367;
-#using script_2255a7ad3edc838f;
+#using scripts\core_common\bots\bot.gsc;
 #using script_bc437ea5aebf041;
 #using scripts\core_common\util_shared.gsc;
 

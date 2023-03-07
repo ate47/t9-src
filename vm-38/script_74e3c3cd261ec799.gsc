@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_b5586f52 : class_6aaccc24
+class class_b5586f52 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_b5586f52 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_b5586f52 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("sr_objective_timer");
+		cLUIelem::function_5c1bb138("sr_objective_timer");
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_b5586f52 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("sr_objective_timer");
+		cLUIelem::setup_clientfields("sr_objective_timer");
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_b5586f52 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 	}
 
 }

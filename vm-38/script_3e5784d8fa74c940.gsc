@@ -2,7 +2,7 @@
 #using script_24c32478acf44108;
 #using script_35598499769dbb3d;
 #using script_3f9e0dc8454d98e1;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -96,7 +96,7 @@ function private function_70a657d8()
 		level.var_1a4cc228[#"hash_6904f5c7bef64405"] = [0:#"hash_5eafd160d077670d"];
 		level.var_1a4cc228[#"hash_7f957e36b4f6160f"] = [0:#"hash_61df3be05096e9e2"];
 	}
-	else if(util::function_53bbf9d2() == "zm_gold")
+	else if(util::get_map_name() == "zm_gold")
 	{
 		level.var_1a4cc228[#"hash_579653d9eb129d4a"] = [7:#"hash_63d74789d0b11dbc", 6:#"hash_15e17500f1c8d0e9", 5:#"hash_1b6585308f85be40", 4:#"hash_e3b20622eb68c2b", 3:#"hash_735b3e8785d43fdb", 2:#"hash_3b5927d61466dc58", 1:#"hash_36991df55c87dbcb", 0:#"hash_a80d8840eaa4e7e"];
 		level.var_1a4cc228[#"hash_257d03ac72a268f6"] = [0:#"hash_4729aed4cfa43476"];
@@ -1011,7 +1011,7 @@ function private function_e28429db()
 */
 function private function_4a074587(weapon)
 {
-	var_4bd40253 = self namespace_b376ff3f::function_230ceec4(weapon);
+	var_4bd40253 = self item_inventory::function_230ceec4(weapon);
 	if(isdefined(var_4bd40253.var_a8bccf69))
 	{
 		switch(var_4bd40253.var_a8bccf69)

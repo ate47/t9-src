@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_b51b47cd;
+#namespace player_motorcycle_2wd;
 
 /*
 	Name: function_d11142ec
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0x5F654AE2
 	Offset: 0xB0
 	Size: 0x14
@@ -21,7 +21,7 @@ function private autoexec function_d11142ec()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0x29A0D620
 	Offset: 0xD0
 	Size: 0x44
@@ -30,12 +30,12 @@ function private autoexec function_d11142ec()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_1aa3be97c5bfcefa", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_motorcycle_2wd", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0xFFCCDEFB
 	Offset: 0x120
 	Size: 0x2C
@@ -49,7 +49,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_9835edf5
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0xEB5E320E
 	Offset: 0x158
 	Size: 0x134
@@ -71,7 +71,7 @@ function private function_9835edf5()
 
 /*
 	Name: function_e1f72671
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0x8A42AABA
 	Offset: 0x298
 	Size: 0x1A4
@@ -104,7 +104,7 @@ function private function_e1f72671(params)
 
 /*
 	Name: function_d0a9a026
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0x12B18010
 	Offset: 0x448
 	Size: 0x3C
@@ -121,7 +121,7 @@ function private function_d0a9a026(params)
 
 /*
 	Name: function_177abcbb
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0xD2FAEB79
 	Offset: 0x490
 	Size: 0xA4
@@ -150,7 +150,7 @@ function function_177abcbb(params)
 
 /*
 	Name: function_8892a46e
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0xABE2327A
 	Offset: 0x540
 	Size: 0x4E
@@ -166,7 +166,7 @@ function private function_8892a46e()
 
 /*
 	Name: function_164c8246
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0x6FBED8E2
 	Offset: 0x598
 	Size: 0x6C
@@ -187,7 +187,7 @@ function private function_164c8246()
 
 /*
 	Name: function_45cb4291
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0xCC7F545
 	Offset: 0x610
 	Size: 0xC0
@@ -219,7 +219,7 @@ function private function_45cb4291()
 
 /*
 	Name: function_8ba31952
-	Namespace: namespace_b51b47cd
+	Namespace: player_motorcycle_2wd
 	Checksum: 0xAAA4F637
 	Offset: 0x6D8
 	Size: 0x84

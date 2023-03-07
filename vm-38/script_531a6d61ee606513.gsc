@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.gsc;
 
-class class_eaf2482a : class_6aaccc24
+class class_eaf2482a : cLUIelem
 {
 
 	/*
@@ -44,7 +44,7 @@ class class_eaf2482a : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
@@ -58,7 +58,7 @@ class class_eaf2482a : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
@@ -72,7 +72,7 @@ class class_eaf2482a : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("zm_gold_align_satellite_hud");
+		cLUIelem::setup_clientfields("zm_gold_align_satellite_hud");
 	}
 
 }

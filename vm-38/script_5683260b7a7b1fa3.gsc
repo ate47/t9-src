@@ -3,7 +3,7 @@
 #using script_1c65dbfc2f1c8d8f;
 #using script_340a2e805e35f7a2;
 #using script_34e9dd62fc371077;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
 #using script_f11fc6f7a3ad5b9;
 #using scripts\core_common\array_shared.gsc;
@@ -348,7 +348,7 @@ function function_e3871553(var_4d2ad93e)
 		}
 		if(var_27751b99 > 0)
 		{
-			self namespace_b376ff3f::function_d92c6b5b(self.currentweapon, 0, var_27751b99, point);
+			self item_inventory::function_d92c6b5b(self.currentweapon, 0, var_27751b99, point);
 			maxammo = self.currentweapon.maxammo;
 			var_53b14ebf = self function_b7f1fd2c(self.currentweapon);
 			self setweaponammoclip(self.currentweapon, var_53b14ebf);
@@ -375,11 +375,11 @@ function function_e3871553(var_4d2ad93e)
 	{
 		self clientfield::set_player_uimodel("hudItems.onslaught.lottoloadouts_atttype", 0);
 	}
-	var_bd027dd9 = namespace_b376ff3f::function_ec087745();
+	var_bd027dd9 = item_inventory::function_ec087745();
 	if(var_bd027dd9 != 32767)
 	{
-		var_a781b3e1 = namespace_b376ff3f::function_dfcacdc2(var_bd027dd9);
-		weapon = namespace_b376ff3f::get_current_weapon();
+		var_a781b3e1 = item_inventory::function_dfcacdc2(var_bd027dd9);
+		weapon = item_inventory::get_current_weapon();
 		if(var_27751b99 > 0)
 		{
 			var_a781b3e1.var_a8bccf69 = var_27751b99;
@@ -467,9 +467,9 @@ function function_4bac897(var_4d2ad93e)
 	Parameters: 1
 	Flags: None
 */
-function function_525c846d(var_1d5284b1)
+function function_525c846d(ammomod)
 {
-	switch(var_1d5284b1)
+	switch(ammomod)
 	{
 		case "ammomod_brainrot":
 		{

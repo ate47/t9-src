@@ -1,6 +1,6 @@
 #using script_4108035fe400ce67;
 #using script_68d2ee1489345a1d;
-#using script_7bafaa95bb1b427e;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

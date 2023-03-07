@@ -91,8 +91,8 @@ function grab_double_points(player)
 */
 function function_6fd6ae61(var_7d81025, player)
 {
-	player notify(#"hash_682647779288cf68");
-	player endon(#"hash_682647779288cf68", #"disconnect");
+	player notify(#"powerup points scaled");
+	player endon(#"powerup points scaled", #"disconnect");
 	player thread zm_powerups::function_5091b029("double_points");
 	if(isdefined(player) && isplayer(player) && isdefined(var_7d81025.hint))
 	{

@@ -438,17 +438,17 @@ function function_948b1eea(zombie)
 	Parameters: 2
 	Flags: Linked
 */
-function function_127fb8f3(cymbal_monkey, var_dbd1a594)
+function function_127fb8f3(cymbal_monkey, attackingplayer)
 {
-	var_dbd1a594 endon(#"death");
+	attackingplayer endon(#"death");
 	randangle = randomfloat(360);
 	if(isdefined(level._equipment_emp_destroy_fx))
 	{
-		playfx(level._equipment_emp_destroy_fx, var_dbd1a594.origin + vectorscale((0, 0, 1), 5), (cos(randangle), sin(randangle), 0), anglestoup(var_dbd1a594.angles));
+		playfx(level._equipment_emp_destroy_fx, attackingplayer.origin + vectorscale((0, 0, 1), 5), (cos(randangle), sin(randangle), 0), anglestoup(attackingplayer.angles));
 	}
 	wait(1.1);
-	playfx(#"hash_65c5042becfbaa7d", var_dbd1a594.origin);
-	var_dbd1a594 function_4f90c4c2();
+	playfx(#"hash_65c5042becfbaa7d", attackingplayer.origin);
+	attackingplayer function_4f90c4c2();
 }
 
 /*

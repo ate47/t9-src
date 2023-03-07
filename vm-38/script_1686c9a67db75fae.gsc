@@ -1,6 +1,6 @@
-#using script_3728b3b9606c4299;
-#using script_57c900a7e39234be;
-#using script_6c8abe14025b47c4;
+#using scripts\weapons\heatseekingmissile.gsc;
+#using scripts\killstreaks\airsupport.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_751513c609504a42;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\turret_shared.gsc;

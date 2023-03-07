@@ -4,11 +4,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
 
-#namespace namespace_f0fad81d;
+#namespace player_btr40;
 
 /*
 	Name: function_3e9518a7
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0x8F7227CC
 	Offset: 0x98
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_3e9518a7()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0xA656DDB
 	Offset: 0xB8
 	Size: 0x44
@@ -31,12 +31,12 @@ function private autoexec function_3e9518a7()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_5115ee7eff718e37", &function_70a657d8, undefined, undefined, #"player_vehicle");
+	system::register(#"player_btr40", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0x6B7E5B7B
 	Offset: 0x108
 	Size: 0x2C
@@ -50,7 +50,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_a5a8e361
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0x458F152F
 	Offset: 0x140
 	Size: 0x194
@@ -78,7 +78,7 @@ function private function_a5a8e361()
 
 /*
 	Name: function_658070e
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0x4CC74412
 	Offset: 0x2E0
 	Size: 0x94
@@ -101,7 +101,7 @@ function function_658070e(params)
 
 /*
 	Name: function_b3042635
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0x769F5CCE
 	Offset: 0x380
 	Size: 0x7C
@@ -119,7 +119,7 @@ function function_b3042635(params)
 
 /*
 	Name: function_32ff31aa
-	Namespace: namespace_f0fad81d
+	Namespace: player_btr40
 	Checksum: 0x37931D8A
 	Offset: 0x408
 	Size: 0xEC

@@ -182,16 +182,16 @@ function private function_e8a68a06(localclientnum, waittime)
 	}
 	if(isdefined(level.var_abfcab7a))
 	{
-		foreach(var_65837411 in level.var_abfcab7a)
+		foreach(tagfx in level.var_abfcab7a)
 		{
-			stopfx(localclientnum, var_65837411);
+			stopfx(localclientnum, tagfx);
 		}
 	}
 	if(isdefined(level.var_2efb73eb))
 	{
-		foreach(var_65837411 in level.var_2efb73eb)
+		foreach(tagfx in level.var_2efb73eb)
 		{
-			stopfx(localclientnum, var_65837411);
+			stopfx(localclientnum, tagfx);
 		}
 	}
 }

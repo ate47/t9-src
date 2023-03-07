@@ -1053,14 +1053,14 @@ function function_a2579c2d(map_name)
 	var_8c4114bc = function_6f647eeb(level.var_fc3c65a7);
 	var_a660a64f = function_6f647eeb(level.var_bc543de);
 	var_835505eb = function_6f647eeb(level.var_4b66954c);
-	if(map_name === #"hash_65e0f8450289b67b")
+	if(map_name === #"zm_gold")
 	{
 		self function_4bd91776(#"hash_255cd64167fc9d64", var_e1227fd2);
 		self function_4bd91776(#"hash_474edef2893daed1", var_8c4114bc);
 		self function_4bd91776(#"hash_57f49fd5e493248f", var_a660a64f);
 		self function_4bd91776(#"hash_56778cda5cdf54df", var_835505eb);
 	}
-	else if(map_name === #"hash_55a1ddeb84bc2ce8")
+	else if(map_name === #"zm_silver")
 	{
 		self function_4bd91776(#"hash_607cee7194682397", var_e1227fd2);
 		self function_4bd91776(#"hash_1cb9f04cdc593ac2", var_8c4114bc);
@@ -1700,9 +1700,9 @@ function function_ded2880a()
 		foreach(var_d5fa8477 in level.var_54f9341)
 		{
 			var_d5fa8477 = function_9e72a96(var_d5fa8477);
-			util::function_345e5b9a(((("" + var_d5fa8477) + "") + var_d5fa8477) + "");
-			util::function_345e5b9a(((("" + var_d5fa8477) + "") + var_d5fa8477) + "");
-			util::function_345e5b9a(((("" + var_d5fa8477) + "") + var_d5fa8477) + "");
+			util::add_debug_command(((("" + var_d5fa8477) + "") + var_d5fa8477) + "");
+			util::add_debug_command(((("" + var_d5fa8477) + "") + var_d5fa8477) + "");
+			util::add_debug_command(((("" + var_d5fa8477) + "") + var_d5fa8477) + "");
 		}
 	#/
 }

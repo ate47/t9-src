@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_1beae0 : class_6aaccc24
+class class_1beae0 : cLUIelem
 {
 
 	/*
@@ -40,11 +40,11 @@ class class_1beae0 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
-		Name: function_1bd2bb26
+		Name: set_horizontal_alignment
 		Namespace: namespace_1beae0
 		Checksum: 0x9BDCCFB6
 		Offset: 0x9F0
@@ -52,13 +52,13 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_1bd2bb26(localclientnum, value)
+	function set_horizontal_alignment(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "horizontal_alignment", value);
 	}
 
 	/*
-		Name: function_2208b8db
+		Name: set_green
 		Namespace: namespace_1beae0
 		Checksum: 0xE01984A8
 		Offset: 0x948
@@ -66,13 +66,13 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_2208b8db(localclientnum, value)
+	function set_green(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "green", value);
 	}
 
 	/*
-		Name: function_237ff433
+		Name: set_fadeOverTime
 		Namespace: namespace_1beae0
 		Checksum: 0xE8CC512A
 		Offset: 0x8A0
@@ -80,7 +80,7 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_237ff433(localclientnum, value)
+	function set_fadeOverTime(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", value);
 	}
@@ -96,7 +96,7 @@ class class_1beae0 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("LUIelemCounter");
+		cLUIelem::function_5c1bb138("LUIelemCounter");
 	}
 
 	/*
@@ -114,7 +114,7 @@ class class_1beae0 : class_6aaccc24
 	}
 
 	/*
-		Name: function_5dbd7024
+		Name: set_height
 		Namespace: namespace_1beae0
 		Checksum: 0x48183A5A
 		Offset: 0x868
@@ -122,13 +122,13 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_5dbd7024(localclientnum, value)
+	function set_height(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "height", value);
 	}
 
 	/*
-		Name: function_7420df0a
+		Name: set_blue
 		Namespace: namespace_1beae0
 		Checksum: 0x5E2BABCB
 		Offset: 0x980
@@ -136,7 +136,7 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_7420df0a(localclientnum, value)
+	function set_blue(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "blue", value);
 	}
@@ -150,9 +150,9 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 10
 		Flags: None
 	*/
-	function setup_clientfields(var_218de242, var_f6cc2724, var_fae6c0b5, var_a3e0a6ce, var_af074abc, var_9350f184, var_788c188f, var_3fb95ac9, var_4cf01ed6, var_cfabd75c)
+	function setup_clientfields(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_4cf01ed6, horizontal_alignmentcallback)
 	{
-		namespace_6aaccc24::setup_clientfields("LUIelemCounter");
+		cLUIelem::setup_clientfields("LUIelemCounter");
 	}
 
 	/*
@@ -170,7 +170,7 @@ class class_1beae0 : class_6aaccc24
 	}
 
 	/*
-		Name: function_aa5c711d
+		Name: set_alpha
 		Namespace: namespace_1beae0
 		Checksum: 0x2E4B5EBB
 		Offset: 0x8D8
@@ -178,7 +178,7 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_aa5c711d(localclientnum, value)
+	function set_alpha(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", value);
 	}
@@ -198,7 +198,7 @@ class class_1beae0 : class_6aaccc24
 	}
 
 	/*
-		Name: function_eccc151d
+		Name: set_red
 		Namespace: namespace_1beae0
 		Checksum: 0x277778E8
 		Offset: 0x910
@@ -206,7 +206,7 @@ class class_1beae0 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_eccc151d(localclientnum, value)
+	function set_red(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "red", value);
 	}
@@ -222,7 +222,7 @@ class class_1beae0 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "x", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "y", 0);
 		[[ self ]]->function_d7d2fcce(localclientnum, "height", 0);
@@ -262,10 +262,10 @@ function private autoexec function_3350ccaf()
 	Parameters: 10
 	Flags: None
 */
-function register(var_218de242, var_f6cc2724, var_fae6c0b5, var_a3e0a6ce, var_af074abc, var_9350f184, var_788c188f, var_3fb95ac9, var_4cf01ed6, var_cfabd75c)
+function register(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_4cf01ed6, horizontal_alignmentcallback)
 {
 	elem = new class_1beae0();
-	[[ elem ]]->setup_clientfields(var_218de242, var_f6cc2724, var_fae6c0b5, var_a3e0a6ce, var_af074abc, var_9350f184, var_788c188f, var_3fb95ac9, var_4cf01ed6, var_cfabd75c);
+	[[ elem ]]->setup_clientfields(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_4cf01ed6, horizontal_alignmentcallback);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -372,7 +372,7 @@ function set_y(localclientnum, value)
 }
 
 /*
-	Name: function_5dbd7024
+	Name: set_height
 	Namespace: luielemcounter
 	Checksum: 0xC1C42419
 	Offset: 0x420
@@ -380,13 +380,13 @@ function set_y(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_5dbd7024(localclientnum, value)
+function set_height(localclientnum, value)
 {
-	[[ self ]]->function_5dbd7024(localclientnum, value);
+	[[ self ]]->set_height(localclientnum, value);
 }
 
 /*
-	Name: function_237ff433
+	Name: set_fadeOverTime
 	Namespace: luielemcounter
 	Checksum: 0xE4A5D775
 	Offset: 0x450
@@ -394,13 +394,13 @@ function function_5dbd7024(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_237ff433(localclientnum, value)
+function set_fadeOverTime(localclientnum, value)
 {
-	[[ self ]]->function_237ff433(localclientnum, value);
+	[[ self ]]->set_fadeOverTime(localclientnum, value);
 }
 
 /*
-	Name: function_aa5c711d
+	Name: set_alpha
 	Namespace: luielemcounter
 	Checksum: 0xC66C4E3B
 	Offset: 0x480
@@ -408,13 +408,13 @@ function function_237ff433(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_aa5c711d(localclientnum, value)
+function set_alpha(localclientnum, value)
 {
-	[[ self ]]->function_aa5c711d(localclientnum, value);
+	[[ self ]]->set_alpha(localclientnum, value);
 }
 
 /*
-	Name: function_eccc151d
+	Name: set_red
 	Namespace: luielemcounter
 	Checksum: 0xDCDD2031
 	Offset: 0x4B0
@@ -422,13 +422,13 @@ function function_aa5c711d(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_eccc151d(localclientnum, value)
+function set_red(localclientnum, value)
 {
-	[[ self ]]->function_eccc151d(localclientnum, value);
+	[[ self ]]->set_red(localclientnum, value);
 }
 
 /*
-	Name: function_2208b8db
+	Name: set_green
 	Namespace: luielemcounter
 	Checksum: 0x6722FC30
 	Offset: 0x4E0
@@ -436,13 +436,13 @@ function function_eccc151d(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_2208b8db(localclientnum, value)
+function set_green(localclientnum, value)
 {
-	[[ self ]]->function_2208b8db(localclientnum, value);
+	[[ self ]]->set_green(localclientnum, value);
 }
 
 /*
-	Name: function_7420df0a
+	Name: set_blue
 	Namespace: luielemcounter
 	Checksum: 0xAEC423D0
 	Offset: 0x510
@@ -450,9 +450,9 @@ function function_2208b8db(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_7420df0a(localclientnum, value)
+function set_blue(localclientnum, value)
 {
-	[[ self ]]->function_7420df0a(localclientnum, value);
+	[[ self ]]->set_blue(localclientnum, value);
 }
 
 /*
@@ -470,7 +470,7 @@ function set_number(localclientnum, value)
 }
 
 /*
-	Name: function_1bd2bb26
+	Name: set_horizontal_alignment
 	Namespace: luielemcounter
 	Checksum: 0xC98C75AD
 	Offset: 0x570
@@ -478,8 +478,8 @@ function set_number(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_1bd2bb26(localclientnum, value)
+function set_horizontal_alignment(localclientnum, value)
 {
-	[[ self ]]->function_1bd2bb26(localclientnum, value);
+	[[ self ]]->set_horizontal_alignment(localclientnum, value);
 }
 

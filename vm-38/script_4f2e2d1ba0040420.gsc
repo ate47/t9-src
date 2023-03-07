@@ -7,8 +7,8 @@
 #using script_3411bb48d41bd3b;
 #using script_35598499769dbb3d;
 #using script_4163291d6e693552;
-#using script_5bb072c3abf4652c;
-#using script_6c5b51f98cd04fa3;
+#using scripts\zm_common\zm_vo.gsc;
+#using scripts\zm_common\zm_sq.gsc;
 #using script_7b1cd3908a825fdd;
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;
@@ -455,7 +455,7 @@ function function_f1425083()
 {
 	foreach(player in getplayers())
 	{
-		level.var_31028c5d prototype_hud::function_953da284(player, #"hash_5d493ad17e0173ea");
+		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_5d493ad17e0173ea");
 		level.var_31028c5d prototype_hud::function_817e4d10(player, 2);
 	}
 	level flag::wait_till(#"hash_6d6ca756d43c84ac");

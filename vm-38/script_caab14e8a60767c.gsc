@@ -231,7 +231,7 @@ function function_96d38b95(result)
 	var_906bdcf3.private_match = sessionmodeisprivate();
 	var_906bdcf3.esports_flag = level.leaguematch;
 	var_906bdcf3.ranked_play_flag = level.arenamatch;
-	var_906bdcf3.game_map = util::function_53bbf9d2();
+	var_906bdcf3.game_map = util::get_map_name();
 	var_906bdcf3.player_xuid = player getxuid(1);
 	var_906bdcf3.player_ip = player getipaddress();
 	var_906bdcf3.season_pass_owned = player hasseasonpass(0);
@@ -537,20 +537,20 @@ function function_7569c0fb()
 	{
 		case "control":
 		case "sd":
-		case "hash_1aaa255ba0911093":
-		case "hash_1acc245ba0adf546":
+		case "control_bb":
+		case "control_hc":
 		case "hash_1f03b546a8317f1d":
 		case "hash_2561ffe336f1f9e3":
 		case "hash_26d903aae5afc467":
-		case "hash_2b1e0466676a9e7d":
-		case "hash_2b3ffb6667877598":
+		case "dom_hc":
+		case "dom_bb":
 		case "hash_2dee5072d8b3cbe8":
 		case "hash_2e55eac851a6d21b":
-		case "hash_354e5bb03294546c":
+		case "dom_snipe_bb":
 		case "hash_35e9174ce58d5bc2":
 		case "escort":
 		case "fireteam_dirty_bomb":
-		case "hash_44e4ea594e784497":
+		case "ctf_bb_hc":
 		case "dem":
 		case "dom":
 		case "bounty":
@@ -565,12 +565,12 @@ function function_7569c0fb()
 		case "hash_69aed4920e1ebe82":
 		case "hash_7020e89c237486d0":
 		case "clean":
-		case "hash_75b0a741c66d6d93":
+		case "clean_bb":
 		case "ctf":
-		case "hash_7a7ae725ed4b63d7":
-		case "hash_7a9ce625ed68488a":
-		case "hash_7eee54ba2b077140":
-		case "hash_7f1055ba2b245959":
+		case "sd_bb":
+		case "sd_hc":
+		case "ctf_hc":
+		case "ctf_bb":
 		{
 			self stats::function_81f5c0fe(#"stat1", self.pers[#"objectivescore"]);
 			self stats::function_81f5c0fe(#"stat2", self.ekia);
@@ -579,7 +579,7 @@ function function_7569c0fb()
 		case "koth":
 		case "hash_156594d96f8a6568":
 		case "hash_35a6541d081acef5":
-		case "hash_4da32e29d9c195d8":
+		case "koth_bb":
 		case "dropkick":
 		case "hash_5ad222bb812ce35d":
 		{
@@ -592,15 +592,15 @@ function function_7569c0fb()
 		case "hash_c5acc1898a61b54":
 		case "hash_ff071780b17ebd4":
 		case "oic":
-		case "hash_2abbefd6e937a3e5":
-		case "hash_2ad10ed6e94a349c":
+		case "tdm_bb":
+		case "tdm_hc":
 		case "hash_40e7fa1f82c9a9a9":
-		case "hash_4109f11f82e680c4":
-		case "hash_48e8c4b8989a68bf":
-		case "hash_4b0e55dc36e1238d":
+		case "conf_bb":
+		case "dm_bb":
+		case "tdm_snipe_bb":
 		case "tdm":
 		case "gunfight":
-		case "hash_6cb10cb6a270c743":
+		case "tdm_bb_hc":
 		case "infect":
 		{
 			self stats::function_81f5c0fe(#"stat1", self.ekia);

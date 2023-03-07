@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_256b8879317373de;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\callbacks_shared.gsc;

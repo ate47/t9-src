@@ -401,18 +401,18 @@ function private function_94eab4fb(params)
 	loc = params.location;
 	if(!is_true(handled) || var_b5a47119)
 	{
-		var_e652e0bd = function_6ebaaf97(params.localclientnum);
-		if(isdefined(var_e652e0bd))
+		itemworld = function_6ebaaf97(params.localclientnum);
+		if(isdefined(itemworld))
 		{
-			param = (isdefined(var_e652e0bd.var_bd027dd9) ? var_e652e0bd.var_bd027dd9 : var_e652e0bd.id);
-			loc = var_e652e0bd.origin;
+			param = (isdefined(itemworld.var_bd027dd9) ? itemworld.var_bd027dd9 : itemworld.id);
+			loc = itemworld.origin;
 			event_type = 4;
 			handled = 1;
-			item = function_b1702735(var_e652e0bd.id);
+			item = function_b1702735(itemworld.id);
 			if(isdefined(item.var_a6762160))
 			{
 				originoffset = ((isdefined(item.var_a6762160.var_5dc4470b) ? item.var_a6762160.var_5dc4470b : 0), (isdefined(item.var_a6762160.var_54a3b4ca) ? item.var_a6762160.var_54a3b4ca : 0), (isdefined(item.var_a6762160.var_3e688854) ? item.var_a6762160.var_3e688854 : 0));
-				loc = loc - rotatepoint(originoffset, var_e652e0bd.angles);
+				loc = loc - rotatepoint(originoffset, itemworld.angles);
 			}
 		}
 	}
@@ -1612,10 +1612,10 @@ function private function_b7306aa(local_client_num, unique_id, event_type, locat
 			}
 			image = undefined;
 			var_52c78c2c = undefined;
-			var_51d5c26f = ent ai::function_9139c839();
-			if(isdefined(var_51d5c26f))
+			settingsbundle = ent ai::function_9139c839();
+			if(isdefined(settingsbundle))
 			{
-				category = var_51d5c26f.category;
+				category = settingsbundle.category;
 				if(isdefined(category))
 				{
 					switch(category)

@@ -163,7 +163,7 @@ function private function_44b9dd1d()
 		{
 			waitframe(1);
 		}
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");
 		adddebugcommand(("" + mapname) + "");

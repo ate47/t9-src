@@ -87,7 +87,7 @@ function private function_70a657d8()
 		level thread function_7904ef68(level.territory);
 	}
 	/#
-		mapname = util::function_53bbf9d2();
+		mapname = util::get_map_name();
 		foreach(territory in territories)
 		{
 			adddebugcommand(((((("" + mapname) + "") + territory.targetname) + "") + territory.targetname) + "");

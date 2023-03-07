@@ -3,11 +3,11 @@
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_9f2e6680;
+#namespace zm_gold_ww_quest;
 
 /*
 	Name: function_68ffd24a
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x61BDCB6A
 	Offset: 0x130
 	Size: 0x14
@@ -21,7 +21,7 @@ function private autoexec function_68ffd24a()
 
 /*
 	Name: init
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x6A733441
 	Offset: 0x150
 	Size: 0x214
@@ -40,7 +40,7 @@ function init()
 
 /*
 	Name: play_charge_fx
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x2430C17
 	Offset: 0x370
 	Size: 0x122
@@ -63,7 +63,7 @@ function play_charge_fx(localclientnum, oldval, newval, bnewent, binitialsnap, f
 
 /*
 	Name: function_b5268151
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x20205BB7
 	Offset: 0x4A0
 	Size: 0xD2
@@ -82,7 +82,7 @@ function function_b5268151(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_770151a9
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x6D526315
 	Offset: 0x580
 	Size: 0x14C
@@ -109,7 +109,7 @@ function function_770151a9(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_e9ae3d81
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x107CFC3D
 	Offset: 0x6D8
 	Size: 0x8C
@@ -124,7 +124,7 @@ function function_e9ae3d81(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_9b54b294
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0xF0261CCB
 	Offset: 0x770
 	Size: 0x1AC
@@ -159,7 +159,7 @@ function function_9b54b294(localclientnum, oldval, newval, bnewent, binitialsnap
 
 /*
 	Name: function_5d7d4dd0
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x96E68360
 	Offset: 0x928
 	Size: 0x16C
@@ -194,7 +194,7 @@ function private function_5d7d4dd0(localclientnum, var_76f1881e, b_clockwise)
 
 /*
 	Name: function_5824b6e
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x65744642
 	Offset: 0xAA0
 	Size: 0xC4
@@ -216,7 +216,7 @@ function function_5824b6e(var_76f1881e, b_clockwise, localclientnum)
 
 /*
 	Name: function_b2061f2f
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0x23589214
 	Offset: 0xB70
 	Size: 0x204
@@ -261,7 +261,7 @@ function function_b2061f2f(b_clockwise, localclientnum)
 
 /*
 	Name: function_aa1d2bf6
-	Namespace: namespace_9f2e6680
+	Namespace: zm_gold_ww_quest
 	Checksum: 0xFACC7B08
 	Offset: 0xD80
 	Size: 0x12C

@@ -1,14 +1,14 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_f4d68515 : class_6aaccc24
+class cinitial_black : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
 
 	/*
 		Name: constructor
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x7DB406EC
 		Offset: 0x1E8
 		Size: 0x14
@@ -21,7 +21,7 @@ class class_f4d68515 : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0xE4393D0
 		Offset: 0x320
 		Size: 0x14
@@ -34,7 +34,7 @@ class class_f4d68515 : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0xFC149B61
 		Offset: 0x258
 		Size: 0x3C
@@ -47,12 +47,12 @@ class class_f4d68515 : class_6aaccc24
 		{
 			flags = 0;
 		}
-		namespace_6aaccc24::function_8b8089ba(player, flags);
+		cLUIelem::function_8b8089ba(player, flags);
 	}
 
 	/*
 		Name: function_2eb3f6e8
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x898BC677
 		Offset: 0x2D0
 		Size: 0x44
@@ -66,7 +66,7 @@ class class_f4d68515 : class_6aaccc24
 
 	/*
 		Name: close
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x613304B5
 		Offset: 0x2A0
 		Size: 0x24
@@ -75,12 +75,12 @@ class class_f4d68515 : class_6aaccc24
 	*/
 	function close(player)
 	{
-		namespace_6aaccc24::function_a68f6e20(player);
+		cLUIelem::function_a68f6e20(player);
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_f4d68515
+		Namespace: cinitial_black
 		Checksum: 0x222E88B3
 		Offset: 0x208
 		Size: 0x44
@@ -89,8 +89,8 @@ class class_f4d68515 : class_6aaccc24
 	*/
 	function setup_clientfields()
 	{
-		namespace_6aaccc24::setup_clientfields("initial_black");
-		namespace_6aaccc24::function_da693cbe("developer_mode", 1, 1, "int");
+		cLUIelem::setup_clientfields("initial_black");
+		cLUIelem::function_da693cbe("developer_mode", 1, 1, "int");
 	}
 
 }
@@ -122,7 +122,7 @@ function private autoexec function_27fcd669()
 */
 function register()
 {
-	elem = new class_f4d68515();
+	elem = new cinitial_black();
 	[[ elem ]]->setup_clientfields();
 	return elem;
 }

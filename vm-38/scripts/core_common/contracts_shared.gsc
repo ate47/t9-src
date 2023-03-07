@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_5b241fb0;
+#namespace contracts_shared;
 
 /*
 	Name: function_31a420d4
-	Namespace: namespace_5b241fb0
+	Namespace: contracts_shared
 	Checksum: 0x286D36E6
 	Offset: 0x78
 	Size: 0x14
@@ -31,7 +31,7 @@ function private autoexec function_31a420d4()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_411235ee3f5d491c", undefined, undefined, undefined, undefined);
+	system::register(#"contracts_shared", undefined, undefined, undefined, undefined);
 }
 
 /*

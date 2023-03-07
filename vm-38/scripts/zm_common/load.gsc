@@ -1,12 +1,12 @@
 #using script_165beea08a63a243;
-#using script_16f6e32fce786c0d;
+#using scripts\weapons\zm\weaponobjects.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_2a30ac7aa0ee8988;
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;
 #using script_42f9a645e203120c;
 #using script_47495939f228e438;
-#using script_53f13b381cd4251d;
+#using scripts\zm_common\bots\zm_bot.gsc;
 #using script_54f593f5beb1464a;
 #using script_5e96d104c70be5ac;
 #using script_655e1025200f4d5b;

@@ -56,7 +56,7 @@ function private function_70a657d8()
 	level.var_73f51b52 = {};
 	level.var_73f51b52.teams = [];
 	level.var_268c70a7 = 1;
-	level.map_name = util::function_53bbf9d2();
+	level.map_name = util::get_map_name();
 	level.var_73f51b52.var_49d3ced6 = getdvarint(#"hash_61fde65a22e1f290", 5);
 	telemetry::add_callback(#"on_start_gametype", &on_start_gametype);
 	telemetry::add_callback(#"hash_361e06db4b210e", &function_e2603d58);
@@ -471,7 +471,7 @@ function function_e2603d58()
 function function_84b3ab79()
 {
 	util::function_64ebd94d();
-	self function_189f87c1();
+	self on_round_end();
 	if(util::isoneround() || util::waslastround())
 	{
 		self function_d519e318();
@@ -936,7 +936,7 @@ function function_2fda590d()
 }
 
 /*
-	Name: function_189f87c1
+	Name: on_round_end
 	Namespace: namespace_4b798cb0
 	Checksum: 0xBB466D78
 	Offset: 0x3400
@@ -944,7 +944,7 @@ function function_2fda590d()
 	Parameters: 0
 	Flags: None
 */
-function function_189f87c1()
+function on_round_end()
 {
 	var_48c6ec2e = function_d757edb5();
 	var_fb5fbbb8 = {#hash_c7a20fbb:function_1674a96a(var_48c6ec2e.var_c7a20fbb), #hash_9bfeafed:function_1674a96a(var_48c6ec2e.var_9bfeafed), #map_name:level.map_name, #game_type:level.gametype, #match_time:function_f8d53445(), #hash_77a9bf99:var_48c6ec2e.side, #result:function_3d01c1b3()};

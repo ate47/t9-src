@@ -1,5 +1,5 @@
 #using script_24c32478acf44108;
-#using script_27c22e1d8df4d852;
+#using scripts\zm_common\zm_trial_util.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_6021ce59143452c3;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -53,12 +53,12 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_d126cef79ee236d", &function_d1de6a85, &function_9e7b3f4d);
+	zm_trial::register_challenge(#"hash_d126cef79ee236d", &on_begin, &on_end);
 	namespace_9ff9f642::register_slowdown(#"hash_40e5fe122d652dc4", 1.5);
 }
 
 /*
-	Name: function_d1de6a85
+	Name: on_begin
 	Namespace: namespace_1419f4a9
 	Checksum: 0xC9525F5
 	Offset: 0x1C0
@@ -66,14 +66,14 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_d1de6a85()
+function private on_begin()
 {
 	level thread function_4458377c();
 	level thread zm_utility::play_sound_2d("zmb_trial_horror_round_start");
 }
 
 /*
-	Name: function_9e7b3f4d
+	Name: on_end
 	Namespace: namespace_1419f4a9
 	Checksum: 0xDDA6287
 	Offset: 0x208
@@ -81,7 +81,7 @@ function private function_d1de6a85()
 	Parameters: 1
 	Flags: Private
 */
-function private function_9e7b3f4d(round_reset)
+function private on_end(round_reset)
 {
 }
 

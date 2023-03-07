@@ -14,11 +14,11 @@
 #using scripts\core_common\util_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic.gsc;
 
-#namespace namespace_42a289ec;
+#namespace wz_medals;
 
 /*
 	Name: function_d7263c6f
-	Namespace: namespace_42a289ec
+	Namespace: wz_medals
 	Checksum: 0x3EDCA437
 	Offset: 0xD8
 	Size: 0x14
@@ -32,7 +32,7 @@ function private autoexec function_d7263c6f()
 
 /*
 	Name: function_89f2df9
-	Namespace: namespace_42a289ec
+	Namespace: wz_medals
 	Checksum: 0xF67F7A4
 	Offset: 0xF8
 	Size: 0x3C
@@ -41,12 +41,12 @@ function private autoexec function_d7263c6f()
 */
 function private autoexec function_89f2df9()
 {
-	system::register(#"hash_5b9c15de63c9b9b9", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"wz_medals", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_42a289ec
+	Namespace: wz_medals
 	Checksum: 0x4D04DB6A
 	Offset: 0x140
 	Size: 0x44
@@ -61,7 +61,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_843da215
-	Namespace: namespace_42a289ec
+	Namespace: wz_medals
 	Checksum: 0xC99C1082
 	Offset: 0x190
 	Size: 0xE4
@@ -84,7 +84,7 @@ function function_843da215(params)
 
 /*
 	Name: function_f4837321
-	Namespace: namespace_42a289ec
+	Namespace: wz_medals
 	Checksum: 0xF68C4E1B
 	Offset: 0x280
 	Size: 0x104

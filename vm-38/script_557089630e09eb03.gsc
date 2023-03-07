@@ -1,6 +1,6 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_b6739d61 : class_6aaccc24
+class class_b6739d61 : cLUIelem
 {
 
 	/*
@@ -40,7 +40,7 @@ class class_b6739d61 : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_b6739d61 : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("onslaught_hud");
+		cLUIelem::function_5c1bb138("onslaught_hud");
 	}
 
 	/*
@@ -96,16 +96,16 @@ class class_b6739d61 : class_6aaccc24
 	*/
 	function setup_clientfields(var_ef8933e3, var_61963aa5, var_964ac54, var_a584bc49, var_52a170c, var_4e7bf429, var_9a88505e, var_e805c474, var_f1a2774e)
 	{
-		namespace_6aaccc24::setup_clientfields("onslaught_hud");
-		namespace_6aaccc24::function_dcb34c80("string", "bossAlertText", 1);
-		namespace_6aaccc24::function_dcb34c80("string", "objective2Text", 1);
-		namespace_6aaccc24::function_da693cbe("score3Points", 1, 8, "int", var_a584bc49);
-		namespace_6aaccc24::function_dcb34c80("string", "objectiveText", 1);
-		namespace_6aaccc24::function_da693cbe("showEndScore", 1, 1, "int", var_52a170c);
-		namespace_6aaccc24::function_da693cbe("showScore", 1, 1, "int", var_4e7bf429);
-		namespace_6aaccc24::function_da693cbe("showObjective", 1, 1, "int", var_9a88505e);
-		namespace_6aaccc24::function_da693cbe("showBossAlert", 1, 1, "int", var_e805c474);
-		namespace_6aaccc24::function_da693cbe("showObjective2", 1, 1, "int", var_f1a2774e);
+		cLUIelem::setup_clientfields("onslaught_hud");
+		cLUIelem::function_dcb34c80("string", "bossAlertText", 1);
+		cLUIelem::function_dcb34c80("string", "objective2Text", 1);
+		cLUIelem::function_da693cbe("score3Points", 1, 8, "int", var_a584bc49);
+		cLUIelem::function_dcb34c80("string", "objectiveText", 1);
+		cLUIelem::function_da693cbe("showEndScore", 1, 1, "int", var_52a170c);
+		cLUIelem::function_da693cbe("showScore", 1, 1, "int", var_4e7bf429);
+		cLUIelem::function_da693cbe("showObjective", 1, 1, "int", var_9a88505e);
+		cLUIelem::function_da693cbe("showBossAlert", 1, 1, "int", var_e805c474);
+		cLUIelem::function_da693cbe("showObjective2", 1, 1, "int", var_f1a2774e);
 	}
 
 	/*
@@ -193,7 +193,7 @@ class class_b6739d61 : class_6aaccc24
 	}
 
 	/*
-		Name: function_eab3d36f
+		Name: set_objectiveText
 		Namespace: namespace_b6739d61
 		Checksum: 0x5198F88C
 		Offset: 0x9F0
@@ -201,7 +201,7 @@ class class_b6739d61 : class_6aaccc24
 		Parameters: 2
 		Flags: None
 	*/
-	function function_eab3d36f(localclientnum, value)
+	function set_objectiveText(localclientnum, value)
 	{
 		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveText", value);
 	}
@@ -217,7 +217,7 @@ class class_b6739d61 : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "bossAlertText", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "objective2Text", #"");
 		[[ self ]]->function_d7d2fcce(localclientnum, "score3Points", 0);
@@ -380,7 +380,7 @@ function function_2a0b1f84(localclientnum, value)
 }
 
 /*
-	Name: function_eab3d36f
+	Name: set_objectiveText
 	Namespace: namespace_6abbc37c
 	Checksum: 0xE2148DAD
 	Offset: 0x488
@@ -388,9 +388,9 @@ function function_2a0b1f84(localclientnum, value)
 	Parameters: 2
 	Flags: None
 */
-function function_eab3d36f(localclientnum, value)
+function set_objectiveText(localclientnum, value)
 {
-	[[ self ]]->function_eab3d36f(localclientnum, value);
+	[[ self ]]->set_objectiveText(localclientnum, value);
 }
 
 /*

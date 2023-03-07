@@ -1,6 +1,6 @@
 #using script_396f7d71538c9677;
 #using script_545a0bac37bda541;
-#using script_8988fdbc78d6c53;
+#using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -114,7 +114,7 @@ function function_3675de8b()
 	Parameters: 2
 	Flags: None
 */
-function function_bff5c062(tripwire, var_dbd1a594)
+function function_bff5c062(tripwire, attackingplayer)
 {
 	if(!isdefined(tripwire) || !isdefined(tripwire.watcher))
 	{
@@ -122,9 +122,9 @@ function function_bff5c062(tripwire, var_dbd1a594)
 	}
 	tripwire.owner weaponobjects::hackerremoveweapon(tripwire);
 	tripwire notify(#"hacked");
-	tripwire.owner = var_dbd1a594;
-	tripwire setowner(var_dbd1a594);
-	tripwire setteam(var_dbd1a594 getteam());
+	tripwire.owner = attackingplayer;
+	tripwire setowner(attackingplayer);
+	tripwire setteam(attackingplayer getteam());
 	if(isdefined(tripwire.hacked))
 	{
 		tripwire clientfield::set("tripwire_state", 3);
@@ -139,8 +139,8 @@ function function_bff5c062(tripwire, var_dbd1a594)
 	{
 		tripwire influencers::remove_influencer(tripwire.var_c922c2eb);
 	}
-	tripwire.var_c922c2eb = tripwire influencers::create_entity_enemy_influencer("claymore", var_dbd1a594.team);
-	tripwire thread weaponobjects::function_6d8aa6a0(var_dbd1a594, tripwire.watcher);
+	tripwire.var_c922c2eb = tripwire influencers::create_entity_enemy_influencer("claymore", attackingplayer.team);
+	tripwire thread weaponobjects::function_6d8aa6a0(attackingplayer, tripwire.watcher);
 	level function_d77f9442();
 }
 

@@ -1,6 +1,6 @@
 #using script_3f9e0dc8454d98e1;
 #using script_5660bae5b402a1eb;
-#using script_5bb072c3abf4652c;
+#using scripts\zm_common\zm_vo.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;

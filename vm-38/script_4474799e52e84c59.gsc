@@ -1,4 +1,4 @@
-#using script_14f4a3c583c77d4b;
+#using scripts\zm_common\zm_loadout.gsc;
 #using script_1c65dbfc2f1c8d8f;
 #using script_1caf36ff04a85ff6;
 #using script_36f4be19da8eb6d0;
@@ -127,7 +127,7 @@ function function_f5ccdd88(destination)
 		{
 			foreach(i, var_64c371d1 in level.var_f015cfb9)
 			{
-				util::function_345e5b9a(("" + i) + "");
+				util::add_debug_command(("" + i) + "");
 			}
 			zm_devgui::add_custom_devgui_callback(&function_21aca219);
 		}
@@ -339,7 +339,7 @@ function function_fb2bc4ac(eventstruct)
 	if(isplayer(player))
 	{
 		currentweapon = player getcurrentweapon();
-		var_e109db75 = player namespace_b376ff3f::function_230ceec4(currentweapon);
+		var_e109db75 = player item_inventory::function_230ceec4(currentweapon);
 		if(isdefined(var_e109db75) && function_165e54c9(var_e109db75))
 		{
 			model.opening = 1;
@@ -405,7 +405,7 @@ function function_35eeef70(var_e57cfd4a)
 		foreach(player in getplayers())
 		{
 			currentweapon = player getcurrentweapon();
-			var_e109db75 = player namespace_b376ff3f::function_230ceec4(currentweapon);
+			var_e109db75 = player item_inventory::function_230ceec4(currentweapon);
 			if(isdefined(var_e109db75) && function_165e54c9(var_e109db75))
 			{
 				switch(var_e57cfd4a)
@@ -660,11 +660,11 @@ function function_8d9ddc22(player, var_e7772c37)
 	self open_crate();
 	if(isalive(player) && !player inlaststand())
 	{
-		var_4e4f65c9 = player namespace_b376ff3f::function_2e711614(17 + 1);
+		var_4e4f65c9 = player item_inventory::function_2e711614(17 + 1);
 		primary_weapon = player namespace_a0d533d1::function_2b83d3ff(var_4e4f65c9);
-		var_ec323ef9 = player namespace_b376ff3f::function_2e711614(((17 + 1) + 8) + 1);
+		var_ec323ef9 = player item_inventory::function_2e711614(((17 + 1) + 8) + 1);
 		secondary_weapon = player namespace_a0d533d1::function_2b83d3ff(var_ec323ef9);
-		var_b8061637 = player namespace_b376ff3f::function_2e711614(((((17 + 1) + 8) + 1) + 8) + 1);
+		var_b8061637 = player item_inventory::function_2e711614(((((17 + 1) + 8) + 1) + 8) + 1);
 		var_5b871ec1 = player namespace_a0d533d1::function_2b83d3ff(var_b8061637);
 		if(namespace_b376a999::function_5fef4201(primary_weapon))
 		{

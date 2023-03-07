@@ -1,5 +1,5 @@
 #using script_44c87b4589ee1f93;
-#using script_7cc035282b6a585f;
+#using scripts\zm\ai\zm_ai_dog.csc;
 #using script_ac6a30f1991e105;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\array_shared.csc;

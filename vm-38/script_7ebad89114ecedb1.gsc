@@ -79,17 +79,17 @@ function private function_9cc6a162(localclientnum, sickness, var_46bdb64c)
 	var_5e7fb773 = function_1df4c3b0(localclientnum, #"hash_4f154d6820b7e836");
 	var_9ad901c3 = createuimodel(var_5e7fb773, "sickness");
 	var_a60a2640 = level.radiation.sickness.size;
-	var_e4130a92 = createuimodel(var_9ad901c3, "item" + var_a60a2640);
-	var_1c254c7e = createuimodel(var_e4130a92, "endStartFraction");
+	itemuimodel = createuimodel(var_9ad901c3, "item" + var_a60a2640);
+	var_1c254c7e = createuimodel(itemuimodel, "endStartFraction");
 	setuimodelvalue(var_1c254c7e, 1);
-	var_43df2991 = createuimodel(var_e4130a92, "info");
+	var_43df2991 = createuimodel(itemuimodel, "info");
 	setuimodelvalue(var_43df2991, var_46bdb64c.var_4bd5611f);
 	var_8e2253bd = {};
 	var_8e2253bd.var_a2c3987d = sickness;
 	var_8e2253bd.var_3a94cbe6 = gettime();
 	var_8e2253bd.var_cb9fc1f3 = gettime() + var_46bdb64c.duration;
 	var_8e2253bd.var_4bd5611f = var_46bdb64c.var_4bd5611f;
-	var_8e2253bd.var_e4130a92 = var_e4130a92;
+	var_8e2253bd.itemuimodel = itemuimodel;
 	level.var_96929d7f[localclientnum].sickness[level.var_96929d7f[localclientnum].sickness.size] = var_8e2253bd;
 	var_a25538fb = createuimodel(var_9ad901c3, "count");
 	setuimodelvalue(var_a25538fb, level.var_96929d7f[localclientnum].sickness.size);
@@ -159,10 +159,10 @@ function private function_162db916(localclientnum)
 	for(var_a60a2640 = 0; var_a60a2640 < level.var_96929d7f[localclientnum].sickness.size; var_a60a2640++)
 	{
 		var_8e2253bd = level.var_96929d7f[localclientnum].sickness[var_a60a2640];
-		var_e4130a92 = createuimodel(var_9ad901c3, "item" + var_a60a2640);
-		var_43df2991 = createuimodel(var_e4130a92, "info");
+		itemuimodel = createuimodel(var_9ad901c3, "item" + var_a60a2640);
+		var_43df2991 = createuimodel(itemuimodel, "info");
 		setuimodelvalue(var_43df2991, var_8e2253bd.var_4bd5611f);
-		var_8e2253bd.var_e4130a92 = var_e4130a92;
+		var_8e2253bd.itemuimodel = itemuimodel;
 	}
 	var_a25538fb = createuimodel(var_9ad901c3, "count");
 	setuimodelvalue(var_a25538fb, level.var_96929d7f[localclientnum].sickness.size);

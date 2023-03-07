@@ -1,5 +1,5 @@
 #using script_19f3d8b7a687a3f1;
-#using script_27ba6748d83412fd;
+#using scripts\zm_common\zm_fasttravel.csc;
 #using script_2d7a84fdf413563d;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\postfx_shared.csc;

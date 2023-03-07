@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_600b033d : class_6aaccc24
+class cself_revive_visuals_rush : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0x4D8CCE20
 		Offset: 0x350
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_600b033d : class_6aaccc24
 
 	/*
 		Name: destructor
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0x672A1259
 		Offset: 0x4A0
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_600b033d : class_6aaccc24
 
 	/*
 		Name: open
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0xA7BA79EA
 		Offset: 0x438
 		Size: 0x24
@@ -40,12 +40,12 @@ class class_600b033d : class_6aaccc24
 	*/
 	function open(localclientnum)
 	{
-		namespace_6aaccc24::open(localclientnum);
+		cLUIelem::open(localclientnum);
 	}
 
 	/*
 		Name: function_5c1bb138
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0xB732F866
 		Offset: 0x3C8
 		Size: 0x1C
@@ -54,12 +54,12 @@ class class_600b033d : class_6aaccc24
 	*/
 	function function_5c1bb138()
 	{
-		namespace_6aaccc24::function_5c1bb138("self_revive_visuals_rush");
+		cLUIelem::function_5c1bb138("self_revive_visuals_rush");
 	}
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0x6AEC6C4E
 		Offset: 0x370
 		Size: 0x4C
@@ -68,13 +68,13 @@ class class_600b033d : class_6aaccc24
 	*/
 	function setup_clientfields(var_2e62cab3)
 	{
-		namespace_6aaccc24::setup_clientfields("self_revive_visuals_rush");
-		namespace_6aaccc24::function_da693cbe("revive_time", 1, 4, "int", var_2e62cab3);
+		cLUIelem::setup_clientfields("self_revive_visuals_rush");
+		cLUIelem::function_da693cbe("revive_time", 1, 4, "int", var_2e62cab3);
 	}
 
 	/*
 		Name: set_revive_time
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0xCFC5B43F
 		Offset: 0x468
 		Size: 0x30
@@ -88,7 +88,7 @@ class class_600b033d : class_6aaccc24
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_600b033d
+		Namespace: cself_revive_visuals_rush
 		Checksum: 0xCE57D110
 		Offset: 0x3F0
 		Size: 0x40
@@ -97,7 +97,7 @@ class class_600b033d : class_6aaccc24
 	*/
 	function function_fa582112(localclientnum)
 	{
-		namespace_6aaccc24::function_fa582112(localclientnum);
+		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->function_d7d2fcce(localclientnum, "revive_time", 0);
 	}
 
@@ -130,7 +130,7 @@ function private autoexec function_c5ae037d()
 */
 function register(var_2e62cab3)
 {
-	elem = new class_600b033d();
+	elem = new cself_revive_visuals_rush();
 	[[ elem ]]->setup_clientfields(var_2e62cab3);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -162,7 +162,7 @@ function register(var_2e62cab3)
 */
 function function_5c1bb138()
 {
-	elem = new class_600b033d();
+	elem = new cself_revive_visuals_rush();
 	[[ elem ]]->function_5c1bb138();
 	return elem;
 }

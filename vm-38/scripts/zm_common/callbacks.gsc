@@ -1,7 +1,7 @@
 #using script_20ac552ee498eb9d;
 #using script_35b5ff21c2a0960f;
 #using script_522aeb6ae906391e;
-#using script_79a7e1c31a3e8cc;
+#using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -226,7 +226,7 @@ function function_50fdac80(func, obj)
 }
 
 /*
-	Name: function_189f87c1
+	Name: on_round_end
 	Namespace: callback
 	Checksum: 0x47ADDD4D
 	Offset: 0x608
@@ -234,9 +234,9 @@ function function_50fdac80(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_189f87c1(func, obj)
+function on_round_end(func, obj)
 {
-	add_callback(#"hash_193ded5c8932fe29", func, obj);
+	add_callback(#"on_round_end", func, obj);
 }
 
 /*
@@ -250,7 +250,7 @@ function function_189f87c1(func, obj)
 */
 function function_ec6dfc37(func, obj)
 {
-	remove_callback(#"hash_193ded5c8932fe29", func, obj);
+	remove_callback(#"on_round_end", func, obj);
 }
 
 /*

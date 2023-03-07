@@ -1,5 +1,5 @@
 #using script_3fda550bc6e1089a;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace helicopter;
@@ -45,7 +45,7 @@ function private function_70a657d8()
 {
 	if(sessionmodeismultiplayergame() || function_f99d2668())
 	{
-		killstreaks::function_e4ef8390("killstreak_helicopter_comlink" + "_cp", &usekillstreakhelicopter);
+		killstreaks::register_killstreak("killstreak_helicopter_comlink" + "_cp", &usekillstreakhelicopter);
 	}
 	init_shared();
 }

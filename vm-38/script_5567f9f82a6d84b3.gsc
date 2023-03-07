@@ -2,8 +2,8 @@
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_68d2ee1489345a1d;
-#using script_6c8abe14025b47c4;
-#using script_7bafaa95bb1b427e;
+#using scripts\killstreaks\killstreaks_shared.gsc;
+#using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\loadout_shared.gsc;
 #using scripts\core_common\popups_shared.gsc;

@@ -1,5 +1,5 @@
-#using script_2c74a7b5eea1ec89;
-#using script_6c8abe14025b47c4;
+#using scripts\killstreaks\killstreak_bundles.gsc;
+#using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\popups_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
