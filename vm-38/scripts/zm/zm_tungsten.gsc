@@ -3,7 +3,7 @@
 #using script_18077945bb84ede7;
 #using script_1a26712868b71ff6;
 #using script_1bb327fbdb3a211b;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1cd534c7e79b126f;
 #using script_221cb3c0b91a347a;
 #using scripts\zm\ai\zm_ai_mechz.gsc;
@@ -25,12 +25,12 @@
 #using script_57f7003580bb15e0;
 #using script_58860a35d0555f74;
 #using script_58c342edd81589fb;
-#using script_5c00791eb1bb8daf;
+#using scripts\core_common\ai\archetype_avogadro.gsc;
 #using script_5c8450156115b2ba;
 #using script_5ed2585bb7f6211f;
 #using scripts\zm\ai\zm_ai_soa.gsc;
 #using scripts\zm\zm_tungsten_main_quest.gsc;
-#using script_676fc0767562bc02;
+#using scripts\zm\ai\zm_ai_avogadro.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm\zm_tungsten_gamemodes.gsc;
@@ -45,7 +45,7 @@
 #using script_7b1cd3908a825fdd;
 #using script_7bacb32f8222fa3e;
 #using script_7d5c9b91cf8d272b;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
 #using script_b9d273dc917ee1f;
 #using script_db06eb511bd9b36;

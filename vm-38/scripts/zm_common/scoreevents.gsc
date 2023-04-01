@@ -1,8 +1,8 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_47fb62300ac0bd60;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_68d2ee1489345a1d;
-#using script_7e59d7bba853fe4b;
+#using scripts\killstreaks\killstreaks_util.gsc;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

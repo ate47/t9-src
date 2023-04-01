@@ -2,9 +2,9 @@
 #using script_1a26712868b71ff6;
 #using scripts\zm_common\zm_inventory.gsc;
 #using script_1bb327fbdb3a211b;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1cc417743d7c262d;
-#using script_1d1a97b78f64bfd;
+#using scripts\killstreaks\remote_weapons.gsc;
 #using script_25be5471a9c31833;
 #using script_2ddf7d76494fb52;
 #using script_33d1cd7cfb7477c4;
@@ -13,7 +13,7 @@
 #using scripts\zm_common\zm_items.gsc;
 #using script_4acbbbcdc7ef16a0;
 #using script_4ccfb58a9443a60b;
-#using script_4cd8239d2d41f43d;
+#using scripts\killstreaks\zm\recon_car.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_52c6c2d1a2ef1b46;
 #using script_5660bae5b402a1eb;
@@ -21,7 +21,7 @@
 #using script_5a525a75a8f1f7e4;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\ai\zm_ai_soa.gsc;
-#using script_676fc0767562bc02;
+#using scripts\zm\ai\zm_ai_avogadro.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_6fc2be37feeb317b;
@@ -30,7 +30,7 @@
 #using scripts\zm\ai\zm_ai_mimic.gsc;
 #using script_7a5293d92c61c788;
 #using script_7bacb32f8222fa3e;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_7fc996fe8678852;
 #using script_ab862743b3070a;
 #using script_b9d273dc917ee1f;
@@ -165,7 +165,7 @@ function function_e983f15a()
 	level zm_sq::register(#"hash_6deef93cdc13faf2", #"end_fight", #"hash_342e09211feb62a0", &namespace_95c839d1::function_79868b3b, &namespace_95c839d1::function_ec198408);
 	level zm_sq::register(#"hash_6deef93cdc13faf2", #"outro", #"hash_342e0a211feb6453", &function_197d500b, &outro_cleanup);
 	level zm_sq::register(#"hash_6deef93cdc13faf2", #"hash_54cd06dc58e5770d", #"hash_342e17211feb7a6a", &function_756178a, &function_3cccb124, 1);
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	callback::on_disconnect(&on_player_disconnect);
 	level thread function_e9c07a3d();
 }
@@ -440,7 +440,7 @@ function function_85e19b28()
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_tungsten_main_quest
 	Checksum: 0x2EB599D0
 	Offset: 0x31E0
@@ -448,7 +448,7 @@ function function_85e19b28()
 	Parameters: 1
 	Flags: None
 */
-function function_10a4dd0a(params)
+function on_item_pickup(params)
 {
 	if(isdefined(params.item) && isdefined(params.item.var_a6762160))
 	{
@@ -2039,7 +2039,7 @@ function function_5ceb4a8a(n_zombies, n_round)
 			{
 				if(level.var_8e259073 < level.var_248424c1 && function_e1403814() < n_round)
 				{
-					var_397a719 = namespace_f7516cdf::spawn_single(1, var_707cc758);
+					var_397a719 = zm_ai_avogadro::spawn_single(1, var_707cc758);
 					waitframe(1);
 					if(isdefined(var_397a719))
 					{
@@ -3546,7 +3546,7 @@ function function_1e31497f(s_spot)
 		{
 			if(self.var_8e259073 < self.var_171665a9)
 			{
-				ai_zombie = namespace_f7516cdf::spawn_single(1, s_spot);
+				ai_zombie = zm_ai_avogadro::spawn_single(1, s_spot);
 				self.var_8e259073++;
 			}
 			break;

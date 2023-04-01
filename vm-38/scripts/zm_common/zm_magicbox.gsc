@@ -1,14 +1,14 @@
 #using script_1254ac024174d9c0;
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_340a2e805e35f7a2;
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;
 #using script_471b31bd963b388e;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
-#using script_6021ce59143452c3;
-#using script_68d2ee1489345a1d;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_6e3c826b1814cab6;
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;

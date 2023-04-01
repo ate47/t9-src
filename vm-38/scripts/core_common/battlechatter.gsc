@@ -1,7 +1,7 @@
 #using script_1f17c601c8e8824c;
 #using script_396f7d71538c9677;
 #using scripts\weapons\weapon_utils.gsc;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_6d9bde564029bdf6;
 #using script_725554a59d6a75b9;
 #using scripts\core_common\animation_shared.gsc;

@@ -6,10 +6,10 @@
 #using script_5660bae5b402a1eb;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_camos.gsc;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;

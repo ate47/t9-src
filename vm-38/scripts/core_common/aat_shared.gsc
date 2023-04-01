@@ -1,4 +1,4 @@
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_35598499769dbb3d;
 #using script_47fb62300ac0bd60;
 #using scripts\core_common\array_shared.gsc;

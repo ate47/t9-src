@@ -2049,7 +2049,7 @@ function function_84f75222(str_text_to_show, b_should_blink, str_turn_off_notify
 		self hide_hint_text(0);
 	}
 	var_9620799e cp_hint_text::open(self);
-	var_9620799e cp_hint_text::function_a16f86c1(self, str_text_to_show);
+	var_9620799e cp_hint_text::set_hint_text(self, str_text_to_show);
 	wait_network_frame();
 	if(b_should_blink)
 	{

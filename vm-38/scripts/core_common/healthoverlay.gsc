@@ -1,7 +1,7 @@
 #using script_256b8879317373de;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_47fb62300ac0bd60;
-#using script_62d13df4c3e9336d;
+#using scripts\core_common\status_effects\status_effect_explosive_damage.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\math_shared.gsc;

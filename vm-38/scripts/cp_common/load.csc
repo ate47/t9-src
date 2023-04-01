@@ -1,10 +1,10 @@
 #using script_12578f6acd24ec34;
-#using script_17179876e0e27f8c;
+#using scripts\core_common\status_effects\status_effects.csc;
 #using script_1d4ca739cb476f50;
 #using script_31a4e84bd38b34e2;
 #using script_45af62df1bb6015d;
-#using script_45e0fb7326469ccf;
-#using script_4e38b3316a305ce7;
+#using scripts\core_common\vehicles\driving_fx.csc;
+#using scripts\weapons\cp\weaponobjects.csc;
 #using script_5f01badf05cc8ed1;
 #using script_6c15b80dfa790b53;
 #using script_c22b8fa254e64a0;

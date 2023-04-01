@@ -84,7 +84,7 @@ function init()
 	}
 	function_e983f15a();
 	level.var_3034d7b8 = &function_d5d67561;
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	level.var_2912d8c5 = 0;
 	level thread function_de84b08d();
 	level thread function_e12506e5();
@@ -1690,7 +1690,7 @@ function function_db7e1556(var_4ab05779, var_d7716b9c)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_gold_main_quest
 	Checksum: 0xEF3164E9
 	Offset: 0x61A8
@@ -1698,7 +1698,7 @@ function function_db7e1556(var_4ab05779, var_d7716b9c)
 	Parameters: 1
 	Flags: Linked
 */
-function function_10a4dd0a(params)
+function on_item_pickup(params)
 {
 	item = params.item;
 	if(isplayer(self))

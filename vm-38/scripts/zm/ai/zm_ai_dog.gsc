@@ -1,8 +1,8 @@
 #using script_178024232e91b0a1;
 #using script_1940fc077a028a81;
-#using script_1fae425933eac79f;
+#using scripts\zm\ai\zm_ai_dog_interface.gsc;
 #using script_20dc0f45753888c7;
-#using script_317aa6153a75c589;
+#using scripts\core_common\ai\archetype_mocomps_utility.gsc;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
 #using script_36f4be19da8eb6d0;
@@ -15,7 +15,7 @@
 #using script_5f261a5d57de5f7c;
 #using script_6809bf766eba194a;
 #using script_789f2367a00401d8;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\ai_shared.gsc;

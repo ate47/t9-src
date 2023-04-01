@@ -2,10 +2,10 @@
 #using script_3f9e0dc8454d98e1;
 #using script_460f2e04fb3cff8a;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
-#using script_6ffdcde0fe52cb6f;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\trials\zm_trial_no_powerups.gsc;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -537,9 +537,9 @@ function function_2ff352cc()
 	{
 		n_kill_count = floor(n_kill_count / 2);
 	}
-	if(namespace_e4df2f52::is_active())
+	if(zm_trial_no_powerups::is_active())
 	{
-		n_kill_count = n_kill_count / namespace_e4df2f52::function_2fc5f13();
+		n_kill_count = n_kill_count / zm_trial_no_powerups::function_2fc5f13();
 	}
 	if(n_kill_count < 1)
 	{
@@ -577,7 +577,7 @@ function private function_a7a5570e()
 */
 function zombie_can_drop_powerups(weapon)
 {
-	if(namespace_e4df2f52::is_active() && isdefined(weapon) && (is_true(weapon.isriotshield) || is_true(weapon.isheroweapon)))
+	if(zm_trial_no_powerups::is_active() && isdefined(weapon) && (is_true(weapon.isriotshield) || is_true(weapon.isheroweapon)))
 	{
 		return true;
 	}
@@ -1684,7 +1684,7 @@ function powerup_grab(powerup_team)
 						continue;
 					}
 				}
-				if(namespace_e4df2f52::is_active())
+				if(zm_trial_no_powerups::is_active())
 				{
 					var_57807cdc = [];
 					array::add(var_57807cdc, player, 0);

@@ -1,6 +1,6 @@
 #using script_1435f3c9fc699e04;
 #using script_3f27a7b2232674db;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

@@ -63,7 +63,7 @@ function init()
 	level thread function_f861601e();
 	level thread function_1b65b01d();
 	spawner::add_ai_spawn_function(&function_2d43051c);
-	callback::function_10a4dd0a(&function_eeecf07f);
+	callback::on_item_pickup(&function_eeecf07f);
 	level thread function_2b26d68b();
 	level thread function_7baaf94();
 	level thread function_2d9c01e4();

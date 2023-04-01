@@ -1,4 +1,4 @@
-#using script_3d4e88c949caf53e;
+#using scripts\zm_common\zm_bgb_pack.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;

@@ -1,6 +1,6 @@
 #using script_18077945bb84ede7;
 #using script_18f0d22c75b141a7;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_399c912938783695;
 #using script_4108035fe400ce67;

@@ -4,9 +4,9 @@
 #using script_383a3b1bb18ba876;
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
-#using script_5567f9f82a6d84b3;
+#using scripts\killstreaks\mp\killstreak_weapons.gsc;
 #using scripts\killstreaks\mp\killstreakrules.gsc;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

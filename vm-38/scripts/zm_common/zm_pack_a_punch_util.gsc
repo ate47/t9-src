@@ -1,10 +1,10 @@
 #using script_1254ac024174d9c0;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
 #using script_6e3c826b1814cab6;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

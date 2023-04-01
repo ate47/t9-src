@@ -15,7 +15,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_7b1cd3908a825fdd;
 #using script_7bacb32f8222fa3e;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_7fc996fe8678852;
 #using script_92d4d637814fefa;
 #using script_b9d273dc917ee1f;
@@ -93,7 +93,7 @@ function init()
 	level.var_c77198d7 = util::spawn_model("p9_zm_ndu_purifier_tank04", v_pos, v_ang);
 	function_3335f286();
 	level.var_3034d7b8 = &function_d5d67561;
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	callback::on_spawned(&on_player_spawned);
 	level callback::on_actor_killed(&function_17468758);
 	level.var_fc5dfa9 = gettime();
@@ -3266,7 +3266,7 @@ function function_664ae3fd()
 	foreach(player in getplayers())
 	{
 		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_2138b0d3ea594968");
-		level.var_31028c5d prototype_hud::function_817e4d10(player, 1);
+		level.var_31028c5d prototype_hud::set_active_obj_visibility(player, 1);
 	}
 	level thread objective_manager::start_timer(90, "exfil");
 	level thread function_c504b2d1();
@@ -5226,7 +5226,7 @@ function function_19986231()
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_silver_main_quest
 	Checksum: 0xE71F0C68
 	Offset: 0x12798
@@ -5234,7 +5234,7 @@ function function_19986231()
 	Parameters: 1
 	Flags: None
 */
-function function_10a4dd0a(params)
+function on_item_pickup(params)
 {
 	item = params.item;
 	if(isplayer(self))

@@ -1,6 +1,6 @@
 #using script_1254ac024174d9c0;
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_301f64a4090c381a;
 #using script_47fb62300ac0bd60;
 #using scripts\zm_common\zm_camos.gsc;

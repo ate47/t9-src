@@ -4,13 +4,13 @@
 #using script_35598499769dbb3d;
 #using script_35b5ff21c2a0960f;
 #using script_3657077a08b7f19e;
-#using script_3b034476f596d018;
+#using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_5660bae5b402a1eb;
 #using script_58c342edd81589fb;
 #using scripts\zm_common\zm_hud.gsc;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using script_db06eb511bd9b36;

@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_243ea03c7a285692;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
@@ -8,7 +8,7 @@
 #using script_58860a35d0555f74;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6e3c826b1814cab6;
 #using script_6ef496a1b77e83a4;
 #using scripts\weapons\weapons.gsc;
@@ -85,7 +85,7 @@ function private function_70a657d8()
 	callback::on_spawned(&on_spawned);
 	callback::on_disconnect(&function_4d3cb10);
 	callback::on_ai_killed(&on_ai_killed);
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	callback::on_player_killed(&on_player_killed);
 	callback::on_bleedout(&on_bleedout);
 	level.var_402b86e = &function_c3249e8c;
@@ -2842,7 +2842,7 @@ function on_ai_killed(s_params)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_laststand
 	Checksum: 0x1A28DE30
 	Offset: 0x7770
@@ -2850,7 +2850,7 @@ function on_ai_killed(s_params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_10a4dd0a(s_params)
+function on_item_pickup(s_params)
 {
 	item = s_params.item;
 	var_a6762160 = item.var_a6762160;

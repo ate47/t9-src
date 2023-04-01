@@ -1,6 +1,6 @@
 #using script_18f0d22c75b141a7;
 #using script_47fb62300ac0bd60;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;

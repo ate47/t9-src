@@ -531,8 +531,8 @@ function private _screen_fade(localclientnum, n_time, n_target_alpha, n_start_al
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_red(localclientnum, v_color[0]);
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_green(localclientnum, v_color[1]);
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_blue(localclientnum, v_color[2]);
-	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_9cd54463(localclientnum, n_start_alpha);
-	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->function_331f9dd(localclientnum, n_target_alpha);
+	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_startAlpha(localclientnum, n_start_alpha);
+	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_endAlpha(localclientnum, n_target_alpha);
 	[[ level.localclients[localclientnum].full_screen_black.lui_menu ]]->set_fadeOverTime(localclientnum, n_time_ms);
 	wait(n_time);
 	if(b_force_close_menu || n_target_alpha == 0)

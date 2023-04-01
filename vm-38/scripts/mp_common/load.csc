@@ -2,10 +2,10 @@
 #using script_26e61ae2e1d842a9;
 #using script_30496ec6b1f696ca;
 #using script_309ce7f5a9a023de;
-#using script_3d5887fc414a86fb;
+#using scripts\core_common\item_inventory.csc;
 #using scripts\core_common\map.csc;
 #using script_446b64250de153ef;
-#using script_45e0fb7326469ccf;
+#using scripts\core_common\vehicles\driving_fx.csc;
 #using script_57d93967806f601;
 #using script_618d6f5ff5d18933;
 #using script_644007a8c3885fc;

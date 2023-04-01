@@ -4,7 +4,7 @@
 #using script_3d35e2ff167b3a82;
 #using script_618d6f5ff5d18933;
 #using script_680dddbda86931fa;
-#using script_709bf7c56eb65adf;
+#using scripts\zm_common\zm_loadout.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\flag_shared.csc;

@@ -2,12 +2,12 @@
 #using script_2529b6df09e4d9d1;
 #using script_3706d21c449d0d14;
 #using script_3919f386abede84;
-#using script_3b034476f596d018;
+#using scripts\core_common\status_effects\status_effects.gsc;
 #using script_45a1c6f3704b3b15;
 #using script_5a9516c83d1ec8fc;
 #using script_68364cfa1098cdd4;
 #using script_691641bee32b9cd5;
-#using script_6ebe1f317c0117b3;
+#using scripts\weapons\cp\weaponobjects.gsc;
 #using script_7cc5fb39b97494c4;
 #using script_7f8766df179db65d;
 #using scripts\core_common\array_shared.gsc;

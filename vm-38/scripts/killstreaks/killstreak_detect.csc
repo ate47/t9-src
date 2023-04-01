@@ -1,5 +1,5 @@
 #using script_13da4e6b98ca81a1;
-#using script_50cd53b603b30ef5;
+#using scripts\killstreaks\killstreak_bundles.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

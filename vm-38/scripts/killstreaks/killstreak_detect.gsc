@@ -1,4 +1,4 @@
-#using script_4a03c204316cf33;
+#using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 

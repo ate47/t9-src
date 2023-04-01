@@ -3,9 +3,9 @@
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
-#using script_4a03c204316cf33;
+#using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\abilities\ability_util.gsc;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;

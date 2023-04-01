@@ -1,4 +1,4 @@
-#using script_158d50d476435605;
+#using scripts\core_common\activecamo_shared.csc;
 #using script_18b9d0e77614c97;
 #using scripts\core_common\delete.csc;
 #using scripts\core_common\dev_shared.csc;

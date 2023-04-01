@@ -1,4 +1,4 @@
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
 #using script_2f560596a9a134ab;
 #using script_36f4be19da8eb6d0;
@@ -133,7 +133,7 @@ function function_7b4dc906()
 	level endon(#"end_game");
 	level.var_632fe5ca = 0;
 	function_aee47035();
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	callback::function_f77ced93(&function_b8a1fcc2);
 }
 
@@ -2411,7 +2411,7 @@ function function_8a172c28(e_player)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_silver_ww_quest
 	Checksum: 0xD960DF
 	Offset: 0x9A38
@@ -2419,7 +2419,7 @@ function function_8a172c28(e_player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_10a4dd0a(params)
+function on_item_pickup(params)
 {
 	item = params.item;
 	if(isplayer(self))

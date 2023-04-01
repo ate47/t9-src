@@ -2,7 +2,7 @@
 #using script_58c342edd81589fb;
 #using script_744259b349d834c7;
 #using script_799de24f8ad427f7;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

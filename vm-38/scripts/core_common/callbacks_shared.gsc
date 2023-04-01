@@ -1655,7 +1655,7 @@ function function_96bbd5dc(func, obj)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: callback
 	Checksum: 0xD4B28245
 	Offset: 0x25D8
@@ -1663,7 +1663,7 @@ function function_96bbd5dc(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_10a4dd0a(func, obj)
+function on_item_pickup(func, obj)
 {
 	add_callback(#"hash_56d1805bfff3e65b", func, obj);
 }

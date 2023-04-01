@@ -3144,8 +3144,8 @@ function function_9a022fbc(str_state)
 				{
 					[[ lui_menu ]]->open(player);
 				}
-				[[ lui_menu ]]->function_9cd54463(player, 1);
-				[[ lui_menu ]]->function_331f9dd(player, 1);
+				[[ lui_menu ]]->set_startAlpha(player, 1);
+				[[ lui_menu ]]->set_endAlpha(player, 1);
 				[[ lui_menu ]]->set_fadeOverTime(player, int(2000));
 			}
 			continue;

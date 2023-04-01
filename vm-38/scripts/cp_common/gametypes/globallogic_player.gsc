@@ -9,10 +9,10 @@
 #using script_48294c0de5c37487;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_57f7003580bb15e0;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using script_725554a59d6a75b9;
 #using scripts\weapons\weapons.gsc;
 #using scripts\abilities\ability_power.gsc;

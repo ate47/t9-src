@@ -1,11 +1,11 @@
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
 #using script_1cc417743d7c262d;
 #using script_396f7d71538c9677;
 #using script_3f27a7b2232674db;
 #using script_437ce686d29bb81b;
 #using script_58c342edd81589fb;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -67,7 +67,7 @@ function private function_70a657d8()
 	level.var_62281818 = [];
 	callback::on_connect(&on_player_connect);
 	callback::on_spawned(&on_player_spawned);
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	callback::function_20263b9e(&function_20263b9e);
 	callback::function_f77ced93(&function_d773f2e);
 	level.var_3602c1be = &function_b47e0399;
@@ -290,7 +290,7 @@ function function_1084cf1d()
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_vo
 	Checksum: 0xF366BAE5
 	Offset: 0xC38
@@ -298,7 +298,7 @@ function function_1084cf1d()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_10a4dd0a(params)
+function private on_item_pickup(params)
 {
 	item = params.item;
 	if(!isplayer(self) || function_d122265c(self) || self scene::is_igc_active() || !level flag::get("start_zombie_round_logic") || is_true(item.var_99628f67))

@@ -1,4 +1,4 @@
-#using script_46259d8dc4abfd9c;
+#using scripts\weapons\cp\explosive_bolt.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\audio_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;

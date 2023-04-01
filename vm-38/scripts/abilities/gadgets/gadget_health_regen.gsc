@@ -172,13 +172,13 @@ function on_player_spawned()
 		if(getdvarint(#"hash_4a424b02130fa0c0", 0) > 0)
 		{
 			stim_count = getdvarint(#"hash_4a424b02130fa0c0", 0);
-			self function_6eef7f4f(stim_count);
+			self set_stim_count(stim_count);
 		}
 	#/
 }
 
 /*
-	Name: function_6eef7f4f
+	Name: set_stim_count
 	Namespace: gadget_health_regen
 	Checksum: 0x9FB07EC1
 	Offset: 0x660
@@ -186,13 +186,13 @@ function on_player_spawned()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6eef7f4f(stim_count)
+function set_stim_count(stim_count)
 {
 	stim_count = math::clamp(stim_count, 0, 9);
 	self.var_f2a5bd01 = stim_count;
 	if(isdefined(level.var_c018953f))
 	{
-		level.var_c018953f stim_count::function_6eef7f4f(self, stim_count);
+		level.var_c018953f stim_count::set_stim_count(self, stim_count);
 	}
 }
 
@@ -556,7 +556,7 @@ function enable_healing(slot, weapon, player)
 		{
 			if(isdefined(self.var_f2a5bd01) && self.var_f2a5bd01 > 0)
 			{
-				self function_6eef7f4f(self.var_f2a5bd01 - 1);
+				self set_stim_count(self.var_f2a5bd01 - 1);
 				var_b16fafc9 = 1;
 				self playrumbleonentity("stim_heal");
 			}

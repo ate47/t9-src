@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using script_32c8b5b0eb2854f3;
 #using script_44b0b8420eabacad;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7dc3a36c222eaf22;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;

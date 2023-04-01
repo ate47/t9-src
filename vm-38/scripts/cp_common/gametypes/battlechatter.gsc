@@ -1,6 +1,6 @@
 #using script_42e8ee8721f5e6ef;
 #using script_6809bf766eba194a;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;

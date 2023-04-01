@@ -1,12 +1,12 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_20ac552ee498eb9d;
 #using script_256b8879317373de;
 #using script_32c8b5b0eb2854f3;
 #using script_35598499769dbb3d;
 #using script_35b5ff21c2a0960f;
 #using script_3751b21462a54a7d;
-#using script_3b034476f596d018;
+#using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4194df57536e11ed;
 #using script_45fdb6cec5580007;
@@ -15,10 +15,10 @@
 #using scripts\zm_common\bots\zm_bot.gsc;
 #using script_57f7003580bb15e0;
 #using script_5f261a5d57de5f7c;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6167e26342be354b;
 #using script_6e3c826b1814cab6;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

@@ -1,5 +1,5 @@
 #using script_47fb62300ac0bd60;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_pack_a_punch_util.gsc;

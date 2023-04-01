@@ -1,6 +1,6 @@
 #using script_165beea08a63a243;
 #using scripts\weapons\zm\weaponobjects.gsc;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_2a30ac7aa0ee8988;
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;

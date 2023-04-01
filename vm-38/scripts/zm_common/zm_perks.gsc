@@ -5,7 +5,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_47fb62300ac0bd60;
 #using script_5f261a5d57de5f7c;
-#using script_6115a5707cfb78b3;
+#using scripts\zm_common\trials\zm_trial_randomize_perks.gsc;
 #using script_6e3c826b1814cab6;
 #using script_6ef496a1b77e83a4;
 #using scripts\zm_common\zm_contracts.gsc;
@@ -1050,7 +1050,7 @@ function function_a7ae070c(var_16c042b8, var_b169f6df)
 		self.var_ab375b18++;
 	}
 	var_9a0250b7 = level._custom_perks[var_32b5a32f].alias;
-	if(!namespace_7b1a5a90::is_active())
+	if(!zm_trial_randomize_perks::is_active())
 	{
 		demo::bookmark(#"zm_player_perk", gettime(), self);
 		potm::bookmark(#"zm_player_perk", gettime(), self);
@@ -3120,7 +3120,7 @@ function function_b7f2c635(player)
 		self sethintstringforplayer(player, #"hash_55d25caf8f7bbb2f");
 		return 1;
 	}
-	if(namespace_5f71460c::is_active() || !namespace_59ff1d6c::function_901b751c(#"hash_3d18f84f48bd5d1f") || namespace_7b1a5a90::is_active())
+	if(namespace_5f71460c::is_active() || !namespace_59ff1d6c::function_901b751c(#"hash_3d18f84f48bd5d1f") || zm_trial_randomize_perks::is_active())
 	{
 		self sethintstringforplayer(player, #"hash_77db65489366a43");
 		return 1;
@@ -3548,7 +3548,7 @@ function function_9bdf581f(perk, n_slot, b_bought)
 	self set_perk_clientfield(perk, 1);
 	demo::bookmark(#"zm_player_perk", gettime(), self);
 	potm::bookmark(#"zm_player_perk", gettime(), self);
-	if(!namespace_7b1a5a90::is_active())
+	if(!zm_trial_randomize_perks::is_active())
 	{
 		self zm_stats::increment_client_stat("perks_drank");
 		self zm_stats::increment_player_stat("perks_drank");

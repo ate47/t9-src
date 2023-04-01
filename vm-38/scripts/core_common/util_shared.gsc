@@ -8858,7 +8858,7 @@ function private function_d532c33b(player)
 		initial_black initial_black::open(player, 1);
 	}
 	/#
-		initial_black initial_black::function_2eb3f6e8(player, getdvarint(#"hash_73c93e31e0d1ea8b", 0) == 0);
+		initial_black initial_black::set_developer_mode(player, getdvarint(#"hash_73c93e31e0d1ea8b", 0) == 0);
 	#/
 }
 

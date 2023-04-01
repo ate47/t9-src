@@ -1,4 +1,4 @@
-#using script_704b65f4df3649e5;
+#using scripts\weapons\trophy_system.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\contracts_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

@@ -1,5 +1,5 @@
 #using script_12282e6b2cc91b42;
-#using script_158d50d476435605;
+#using scripts\core_common\activecamo_shared.csc;
 #using scripts\zm_common\zm_wallbuy.csc;
 #using script_18a9e529264a3d29;
 #using scripts\core_common\callbacks_shared.csc;

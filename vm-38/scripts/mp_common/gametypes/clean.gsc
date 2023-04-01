@@ -1,12 +1,12 @@
 #using script_1cc417743d7c262d;
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
-#using script_38af8be38c6709ff;
+#using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_44b0b8420eabacad;
 #using script_47fb62300ac0bd60;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_7b8ad364b9de169e;
+#using scripts\abilities\mp\gadgets\gadget_smart_cover.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

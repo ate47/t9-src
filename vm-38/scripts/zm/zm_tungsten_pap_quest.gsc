@@ -11,7 +11,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_772d4fbcb229f593;
 #using script_7bacb32f8222fa3e;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_92d4d637814fefa;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -539,7 +539,7 @@ function function_c754a36a(b_skipped)
 {
 	level endon(#"end_game");
 	level.var_ec7a1fe8 = [];
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	if(!isdefined(level.var_f3ec3e94))
 	{
 		level.var_f3ec3e94 = 0;
@@ -728,7 +728,7 @@ function private function_6badca5(var_de8de22d, str_item_name)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_tungsten_pap_quest
 	Checksum: 0x7F259449
 	Offset: 0x2A90
@@ -736,7 +736,7 @@ function private function_6badca5(var_de8de22d, str_item_name)
 	Parameters: 1
 	Flags: None
 */
-function function_10a4dd0a(params)
+function on_item_pickup(params)
 {
 	if(isdefined(params.item) && isdefined(params.item.var_a6762160))
 	{
@@ -899,7 +899,7 @@ function function_2d857fb2(b_skipped, var_19e802fa)
 	{
 		function_43828640();
 	}
-	callback::remove_callback(#"hash_56d1805bfff3e65b", &function_10a4dd0a);
+	callback::remove_callback(#"hash_56d1805bfff3e65b", &on_item_pickup);
 	zm_sq::objective_complete(#"hash_6b0d92dea8e98f10");
 	level flag::set(#"hash_bc6e6c4a2ea3f60");
 }

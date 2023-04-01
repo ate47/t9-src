@@ -1,4 +1,4 @@
-#using script_2e7b2ce35bae89d9;
+#using scripts\core_common\bots\bot_traversals.gsc;
 #using script_34e162235fb08844;
 #using script_3d703ef87a841fe4;
 #using script_3f27a7b2232674db;

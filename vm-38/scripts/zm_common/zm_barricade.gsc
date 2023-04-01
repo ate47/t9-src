@@ -1,4 +1,4 @@
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1cc417743d7c262d;
 #using script_3411bb48d41bd3b;
 #using script_3f9e0dc8454d98e1;

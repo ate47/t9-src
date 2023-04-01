@@ -1,12 +1,12 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
 #using script_47fb62300ac0bd60;
 #using script_5f261a5d57de5f7c;
 #using script_61828ad9e71c6616;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_6e3c826b1814cab6;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using script_b9d273dc917ee1f;
 #using scripts\core_common\ai_shared.gsc;

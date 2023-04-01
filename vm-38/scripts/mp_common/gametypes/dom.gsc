@@ -3,7 +3,7 @@
 #using script_335d0650ed05d36d;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\core_common\challenges_shared.gsc;

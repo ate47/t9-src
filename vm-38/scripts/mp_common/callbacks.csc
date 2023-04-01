@@ -1,5 +1,5 @@
 #using script_1b80a90bb1ce332e;
-#using script_7c21aca7f8a3572a;
+#using scripts\killstreaks\airsupport.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\footsteps_shared.csc;
 #using scripts\core_common\system_shared.csc;

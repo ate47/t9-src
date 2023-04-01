@@ -1,7 +1,7 @@
 #using script_345bb77d6298356c;
 #using script_47fb62300ac0bd60;
-#using script_6021ce59143452c3;
-#using script_68d2ee1489345a1d;
+#using scripts\zm_common\zm_trial.gsc;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

@@ -1,7 +1,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_1de6f3c239229d19;
 #using script_2595527427ea71eb;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using script_6ef496a1b77e83a4;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

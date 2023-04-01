@@ -5,9 +5,9 @@
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
 #using scripts\abilities\ability_util.gsc;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using script_7f6cd71c43c45c57;
 #using scripts\core_common\armor.gsc;

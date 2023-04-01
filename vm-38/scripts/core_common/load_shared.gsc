@@ -1,6 +1,6 @@
 #using script_25c09ccacf057919;
 #using script_69d3c825b6585548;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\delete.gsc;

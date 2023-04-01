@@ -1,6 +1,6 @@
 #using script_178024232e91b0a1;
 #using script_1b10fdf0addd52e;
-#using script_34bde5579203fa3;
+#using scripts\core_common\ai\archetype_catalyst.gsc;
 #using script_35598499769dbb3d;
 #using script_3657077a08b7f19e;
 #using script_3aa0f32b70d4f7cb;
@@ -8,7 +8,7 @@
 #using script_4d85e8de54b02198;
 #using script_57f7003580bb15e0;
 #using script_58c342edd81589fb;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_caf007e2a98afa2;
 #using script_db06eb511bd9b36;
 #using scripts\core_common\aat_shared.gsc;

@@ -1,10 +1,10 @@
 #using script_1cc417743d7c262d;
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
-#using script_38af8be38c6709ff;
+#using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_47fb62300ac0bd60;
 #using script_7a8059ca02b7b09e;
-#using script_7b8ad364b9de169e;
+#using scripts\abilities\mp\gadgets\gadget_smart_cover.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;

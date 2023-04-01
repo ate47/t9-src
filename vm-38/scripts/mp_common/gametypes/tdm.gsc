@@ -4,7 +4,7 @@
 #using script_335d0650ed05d36d;
 #using script_3f27a7b2232674db;
 #using script_44b0b8420eabacad;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\dogtags.gsc;
 #using scripts\core_common\gameobjects_shared.gsc;

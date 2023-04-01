@@ -1,4 +1,4 @@
-#using script_158d50d476435605;
+#using scripts\core_common\activecamo_shared.csc;
 #using script_474309807eb94f34;
 #using scripts\core_common\animation_shared.csc;
 #using scripts\core_common\array_shared.csc;

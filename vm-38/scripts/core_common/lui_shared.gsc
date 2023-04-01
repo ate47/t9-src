@@ -1191,8 +1191,8 @@ function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_
 		lui_menu = s_menu.lui_menu;
 		_one_screen_fade_per_network_frame(s_menu);
 		n_start_alpha = lerpfloat(s_menu.n_start_alpha, s_menu.n_target_alpha, (s_menu.n_target_time > 0 ? (gettime() - s_menu.n_start_time) / s_menu.n_target_time : 1));
-		[[ lui_menu ]]->function_9cd54463(self, n_start_alpha);
-		[[ lui_menu ]]->function_331f9dd(self, n_target_alpha);
+		[[ lui_menu ]]->set_startAlpha(self, n_start_alpha);
+		[[ lui_menu ]]->set_endAlpha(self, n_target_alpha);
 		waitframe(1);
 	}
 	else
@@ -1227,10 +1227,10 @@ function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_
 	}
 	else
 	{
-		[[ lui_menu ]]->function_9cd54463(self, n_start_alpha);
-		[[ lui_menu ]]->function_331f9dd(self, n_target_alpha);
+		[[ lui_menu ]]->set_startAlpha(self, n_start_alpha);
+		[[ lui_menu ]]->set_endAlpha(self, n_target_alpha);
 		[[ lui_menu ]]->set_fadeOverTime(self, n_time_ms);
-		[[ lui_menu ]]->function_ae1277a0(self, drawhud);
+		[[ lui_menu ]]->set_drawHUD(self, drawhud);
 	}
 	/#
 		if(!isdefined(level.n_fade_debug_time))

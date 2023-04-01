@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_items.csc;
-#using script_3004011995a14fa4;
+#using scripts\zm_common\zm_progress.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;

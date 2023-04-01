@@ -5,7 +5,7 @@
 #using script_47fb62300ac0bd60;
 #using script_5660bae5b402a1eb;
 #using scripts\zm_common\zm_camos.gsc;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using script_7e63597649100b1c;
 #using scripts\core_common\ai_shared.gsc;

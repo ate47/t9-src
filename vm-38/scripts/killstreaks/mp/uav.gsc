@@ -3,10 +3,10 @@
 #using scripts\mp_common\teams\teams.gsc;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
-#using script_4a03c204316cf33;
+#using scripts\killstreaks\killstreak_hacking.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\airsupport.gsc;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\killstreaks\killstreak_detect.gsc;
 #using scripts\core_common\battlechatter.gsc;

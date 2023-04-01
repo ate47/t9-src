@@ -1,5 +1,5 @@
 #using script_165beea08a63a243;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1cc417743d7c262d;
 #using script_2a30ac7aa0ee8988;
 #using script_3d9b397414d0a87d;

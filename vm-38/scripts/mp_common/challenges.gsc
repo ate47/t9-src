@@ -8,7 +8,7 @@
 #using script_545a0bac37bda541;
 #using script_6167e26342be354b;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using script_7f6cd71c43c45c57;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

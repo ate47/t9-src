@@ -7,7 +7,7 @@
 #using script_67ce8e728d8f37ba;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_70a43d6ba27cff6a;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

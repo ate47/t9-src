@@ -70,7 +70,7 @@ function private function_70a657d8()
 	score_cf_register_info("transform_kill", 1, 3);
 	clientfield::function_a8bbc967("hudItems.doublePointsActive", 1, 1, "int");
 	callback::on_spawned(&player_on_spawned);
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	level callback::on_ai_killed(&function_a3d16ee5);
 	level.score_total = 0;
 	level.a_func_score_events = [];
@@ -865,7 +865,7 @@ function can_player_purchase(n_cost, var_1c65f833)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_score
 	Checksum: 0x5DAC7254
 	Offset: 0x21C0
@@ -873,7 +873,7 @@ function can_player_purchase(n_cost, var_1c65f833)
 	Parameters: 1
 	Flags: Linked
 */
-function function_10a4dd0a(s_params)
+function on_item_pickup(s_params)
 {
 	var_a6762160 = s_params.item.var_a6762160;
 	if(var_a6762160.itemtype === #"hash_910bf9605abbcea")

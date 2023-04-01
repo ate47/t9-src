@@ -2,7 +2,7 @@
 #using script_256b8879317373de;
 #using script_47fb62300ac0bd60;
 #using script_545a0bac37bda541;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using script_6b221588ece2c4aa;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

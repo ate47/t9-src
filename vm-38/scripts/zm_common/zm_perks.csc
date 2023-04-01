@@ -1,5 +1,5 @@
 #using script_12282e6b2cc91b42;
-#using script_709bf7c56eb65adf;
+#using scripts\zm_common\zm_loadout.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

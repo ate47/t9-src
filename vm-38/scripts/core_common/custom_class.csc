@@ -1,4 +1,4 @@
-#using script_158d50d476435605;
+#using scripts\core_common\activecamo_shared.csc;
 #using script_240ef62ff60b2694;
 #using script_474309807eb94f34;
 #using script_53cd49b939f89fd7;

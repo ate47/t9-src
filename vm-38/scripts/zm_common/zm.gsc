@@ -1,22 +1,22 @@
 #using script_1029986e2bc8ca8e;
-#using script_13e745841a98f3cd;
+#using scripts\zm\perk\zm_perk_juggernaut.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_165beea08a63a243;
 #using script_190d6b82bcca0908;
 #using script_1b10fdf0addd52e;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
 #using script_20ac552ee498eb9d;
-#using script_224fbf657e32b616;
+#using scripts\killstreaks\warmachine.gsc;
 #using script_25be5471a9c31833;
-#using script_25ef58a2f6c13bd9;
+#using scripts\zm_common\zm_attachments.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using script_299f56e6d0b16416;
 #using script_2c5daa95f8fec03c;
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_2cb46c63a33c9b9c;
+#using scripts\zm_common\zm_playerzombie.gsc;
 #using script_301f64a4090c381a;
-#using script_317d8c6358364227;
+#using scripts\zm\perk\zm_perk_deadshot.gsc;
 #using script_345bb77d6298356c;
 #using script_35598499769dbb3d;
 #using script_35b5ff21c2a0960f;
@@ -24,21 +24,21 @@
 #using script_3751b21462a54a7d;
 #using script_383a3b1bb18ba876;
 #using script_3a88f428c6d8ef90;
-#using script_3b034476f596d018;
+#using scripts\core_common\status_effects\status_effects.gsc;
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;
 #using script_4194df57536e11ed;
 #using script_41b18a77720c5395;
-#using script_42eac69a85b5a4a8;
+#using scripts\zm\perk\zm_perk_quick_revive.gsc;
 #using script_437ce686d29bb81b;
 #using script_4421226bbc54b398;
 #using script_460f2e04fb3cff8a;
-#using script_46a552f21aa474d1;
+#using scripts\killstreaks\zm\ultimate_turret.gsc;
 #using script_471b31bd963b388e;
 #using script_4721de209091b1a6;
 #using script_47fb62300ac0bd60;
 #using script_48f7c4ab73137f8;
-#using script_4a03c204316cf33;
+#using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using scripts\killstreaks\zm\sparrow.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
@@ -48,14 +48,14 @@
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
-#using script_6021ce59143452c3;
+#using scripts\zm_common\zm_trial.gsc;
 #using scripts\killstreaks\zm\chopper_gunner.gsc;
 #using script_61828ad9e71c6616;
 #using script_62caa307a394c18c;
-#using script_663c3bd4763135c6;
+#using scripts\zm\powerup\zm_powerup_bonus_points_player.gsc;
 #using script_669400ff5aadcc83;
 #using script_6809bf766eba194a;
-#using script_68d2ee1489345a1d;
+#using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_6e3c826b1814cab6;
@@ -65,7 +65,7 @@
 #using script_7a5293d92c61c788;
 #using script_7b1cd3908a825fdd;
 #using script_7bdcff4f92f3d220;
-#using script_7e59d7bba853fe4b;
+#using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_armor.gsc;
 #using scripts\killstreaks\sparrow.gsc;
 #using scripts\zm_common\zm_characters.gsc;
@@ -1687,7 +1687,7 @@ function actor_damage_override(inflictor, attacker, damage, flags, meansofdeath,
 	{
 		if(isdefined(aat) && isplayer(attacker))
 		{
-			damage = attacker namespace_3e3637fc::function_6b15092(aat.name, damage, self);
+			damage = attacker zm_aat::function_6b15092(aat.name, damage, self);
 		}
 	}
 	if(is_true(level.bgb_in_use))

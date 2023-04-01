@@ -1,6 +1,6 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1ac263b07ef50ab6;
-#using script_1c65dbfc2f1c8d8f;
+#using scripts\zm_common\trials\zm_trial_reset_loadout.gsc;
+#using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
 #using script_340a2e805e35f7a2;
 #using script_3f9e0dc8454d98e1;
@@ -11,7 +11,7 @@
 #using scripts\zm_common\zm_camos.gsc;
 #using script_67c87580908a0a00;
 #using script_6e3c826b1814cab6;
-#using script_7133a4d461308099;
+#using scripts\core_common\activecamo_shared.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7bacb32f8222fa3e;
 #using scripts\weapons\weapons.gsc;
@@ -122,7 +122,7 @@ function private function_70a657d8()
 	level.var_f96e7a56 = [];
 	level.var_37c36b82 = &function_f4e096e4;
 	callback::function_f77ced93(&function_f77ced93);
-	callback::function_10a4dd0a(&function_10a4dd0a);
+	callback::on_item_pickup(&on_item_pickup);
 	function_30b08f95();
 	function_cf3f5b23();
 	weapons::init_shared();
@@ -4211,7 +4211,7 @@ function function_7c5dd4bd(w_weapon)
 	}
 	self setweaponammoclip(w_weapon, w_weapon.clipsize);
 	self notify(#"hash_278526d0bbdb4ce7");
-	if(namespace_4b9b8ded::is_active(1))
+	if(zm_trial_reset_loadout::is_active(1))
 	{
 		self function_7f7c1226(w_weapon);
 		return;
@@ -4439,7 +4439,7 @@ function function_ed29dde5(var_947d01ee, var_ccd1bc81, var_609a8d33)
 }
 
 /*
-	Name: function_10a4dd0a
+	Name: on_item_pickup
 	Namespace: zm_weapons
 	Checksum: 0x2D526210
 	Offset: 0xAB70
@@ -4447,7 +4447,7 @@ function function_ed29dde5(var_947d01ee, var_ccd1bc81, var_609a8d33)
 	Parameters: 1
 	Flags: Linked
 */
-function function_10a4dd0a(params)
+function on_item_pickup(params)
 {
 	self endon(#"death");
 	item = params.item;
@@ -4593,7 +4593,7 @@ function function_37e9e0cb(item, weapon, aat_name, var_9f36d483)
 	{
 		var_9f36d483 = 1;
 	}
-	var_4f0c684c = namespace_3e3637fc::function_296cde87(aat_name);
+	var_4f0c684c = zm_aat::function_296cde87(aat_name);
 	if(function_89e5e7dd(var_4f0c684c))
 	{
 		self notify(#"hash_30e4242806b5da87");
