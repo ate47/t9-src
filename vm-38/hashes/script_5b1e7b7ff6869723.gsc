@@ -31,7 +31,7 @@ function private autoexec function_c0520079()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_780aaec4
 	Checksum: 0xD46540B
 	Offset: 0x218
@@ -39,7 +39,7 @@ function private autoexec function_c0520079()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4d08eeea0f720e8d", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -63,7 +63,7 @@ function function_70a657d8()
 	{
 		return;
 	}
-	namespace_8b6a9d79::function_b3464a7c(#"hash_132e0a4325fb7ed5", &function_4ba28b7e);
+	namespace_8b6a9d79::function_b3464a7c(#"demented_echo", &function_4ba28b7e);
 	clientfield::register("scriptmover", "sr_demented_echo_fx", 1, 2, "int");
 }
 
@@ -99,8 +99,8 @@ function private function_4ba28b7e(s_instance)
 	var_3d014474 = level.var_41dd92fd[#"hash_7cba8a05511ceedf"].health;
 	var_85c920d0.health = int(var_3d014474 * 1.75);
 	var_85c920d0.instance = s_instance;
-	var_85c920d0 val::set(#"hash_132e0a4325fb7ed5", "takedamage", 1);
-	var_85c920d0 val::set(#"hash_132e0a4325fb7ed5", "allowdeath", 0);
+	var_85c920d0 val::set(#"demented_echo", "takedamage", 1);
+	var_85c920d0 val::set(#"demented_echo", "allowdeath", 0);
 	level thread function_a1ce8017(var_85c920d0);
 	trigger = getent(s_instance.targetname, "target");
 	if(!isdefined(trigger))
@@ -184,8 +184,8 @@ function private function_6f4653fd(player)
 		n_time = max(n_time - 0.1, 0.2);
 	}
 	self notify(#"hash_1a42ae1b66d06a7d");
-	self val::reset(#"hash_132e0a4325fb7ed5", "takedamage");
-	self val::reset(#"hash_132e0a4325fb7ed5", "allowdeath");
+	self val::reset(#"demented_echo", "takedamage");
+	self val::reset(#"demented_echo", "allowdeath");
 	/#
 		iprintlnbold("");
 	#/

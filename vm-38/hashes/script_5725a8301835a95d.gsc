@@ -24,7 +24,7 @@ function private autoexec function_7c41e210()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1ab3fb7b
 	Checksum: 0xB7B3ACAD
 	Offset: 0x100
@@ -32,7 +32,7 @@ function private autoexec function_7c41e210()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4e995bd55f8098d6", &function_70a657d8, undefined, &finalize, #"hash_f81b9dea74f0ee");
 }
@@ -245,15 +245,15 @@ function private function_2085db3b()
 {
 	/#
 		util::waittill_can_add_debug_command();
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
 	#/
 }
 

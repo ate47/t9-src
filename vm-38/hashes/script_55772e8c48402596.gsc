@@ -68,7 +68,7 @@ class csr_message_box : cLUIelem
 	*/
 	function set_messagebox(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "messagebox", value);
+		[[ self ]]->set_data(localclientnum, "messagebox", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class csr_message_box : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "messagebox", #"");
+		[[ self ]]->set_data(localclientnum, "messagebox", #"");
 	}
 
 }

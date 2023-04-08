@@ -20,7 +20,7 @@ function private autoexec function_7ad7c8fd()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_tank
 	Checksum: 0xAD96EF64
 	Offset: 0x180
@@ -28,7 +28,7 @@ function private autoexec function_7ad7c8fd()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_tank", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

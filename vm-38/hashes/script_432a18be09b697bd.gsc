@@ -15,7 +15,7 @@
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;
 #using script_bf0c2c69ce5745e;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1501,7 +1501,7 @@ function function_8d254596(var_a276c861, var_19e802fa)
 */
 function function_21c1b671(var_a276c861)
 {
-	level endon(#"hash_266ca46aafb25ae4");
+	level endon(#"dance_party_disabled");
 	level thread function_80c186cb();
 	var_17c3271a = [];
 	var_17c3271a = struct::get_array("dp_light_loc", "targetname");
@@ -1560,7 +1560,7 @@ function private function_e2d49973()
 */
 function private function_80c186cb()
 {
-	level endon(#"hash_76b83a765dea94a5", #"hash_266ca46aafb25ae4");
+	level endon(#"hash_76b83a765dea94a5", #"dance_party_disabled");
 	level flag::wait_till(#"hash_3e332b6888c86102");
 	if(isdefined(level.var_ae85d54b))
 	{
@@ -1594,7 +1594,7 @@ function private function_80c186cb()
 */
 function function_d54434e2()
 {
-	level endon(#"hash_266ca46aafb25ae4");
+	level endon(#"dance_party_disabled");
 	self endon(#"death");
 	t_damage = self.t_damage;
 	while(true)
@@ -1647,7 +1647,7 @@ function function_d54434e2()
 */
 function function_31fabc7c()
 {
-	level endon(#"hash_76b83a765dea94a5", #"hash_266ca46aafb25ae4");
+	level endon(#"hash_76b83a765dea94a5", #"dance_party_disabled");
 	self endon(#"death");
 	t_damage = self.t_damage;
 	var_7b423d38 = self.var_7b423d38;
@@ -1753,7 +1753,7 @@ function function_8d749d26(var_a276c861)
 	level flag::clear("spawn_zombies");
 	wait(7);
 	level thread function_23faa111();
-	level notify(#"hash_6990bc8ecd1b7d78");
+	level notify(#"dance_party_light_on");
 	level clientfield::set("" + #"hash_195f6fa038980aca", 1);
 	wait(1);
 	level thread function_2f2e92a7();
@@ -1959,7 +1959,7 @@ function function_2f2e92a7()
 		level notify(#"hash_61e8a39b3a4bee6a", {#hash_cbc8cfb4:var_10fb1677});
 	}
 	wait(7);
-	level notify(#"hash_7c5254a6859e80b2");
+	level notify(#"dance_party_light_off");
 	level clientfield::set("" + #"hash_195f6fa038980aca", 0);
 	level flag::set("spawn_zombies");
 	level scene::delete_scene_spawned_ents("aib_t9_cust_zm_silver_easter_egg_4_zombies");

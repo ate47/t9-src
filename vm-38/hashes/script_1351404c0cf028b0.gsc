@@ -18,7 +18,7 @@ function private autoexec function_4858d7e6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hacker_tool
 	Checksum: 0x5464AF37
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_4858d7e6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hacker_tool", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -19,7 +19,7 @@ function private autoexec function_5bc1034d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_61e6d095
 	Checksum: 0x71DB657E
 	Offset: 0x110
@@ -27,7 +27,7 @@ function private autoexec function_5bc1034d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7f2a4dd4a17f2f59", &preload, undefined, undefined, undefined);
 }

@@ -23,7 +23,7 @@ function private autoexec function_96597a23()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: abilities
 	Checksum: 0xB2BFE38B
 	Offset: 0xE0
@@ -31,7 +31,7 @@ function private autoexec function_96597a23()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4652e389efb9751f", &function_70a657d8, undefined, undefined, undefined);
 }

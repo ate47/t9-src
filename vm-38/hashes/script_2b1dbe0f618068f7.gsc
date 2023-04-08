@@ -20,7 +20,7 @@ function private autoexec function_897dfc9e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_2ed67032
 	Checksum: 0xC2C0D8A
 	Offset: 0x100
@@ -28,7 +28,7 @@ function private autoexec function_897dfc9e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7aac5c09cf9461e3", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -102,10 +102,10 @@ function private function_321bb79b(localclientnum, value)
 		setting = (gamepadusedlast(localclientnum) ? #"hash_682672bd6f1c579d" : #"hash_528fda2b50f86795");
 		value = (isdefined(function_ab88dbd2(localclientnum, setting)) ? function_ab88dbd2(localclientnum, setting) : 0);
 	}
-	if(player.var_8d801ee2 !== value)
+	if(player.armor_plate_behavior !== value)
 	{
 		player serverfield::set("armor_plate_behavior", value);
-		player.var_8d801ee2 = value;
+		player.armor_plate_behavior = value;
 	}
 }
 

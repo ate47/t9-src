@@ -22,7 +22,7 @@ function private autoexec function_4ac5cc2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_abfee9ba
 	Checksum: 0x1D4194F0
 	Offset: 0xE0
@@ -30,7 +30,7 @@ function private autoexec function_4ac5cc2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_55f568f82a7aea28", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -47,7 +47,7 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	clientfield::register("scriptmover", "" + #"hash_3220b44880f1807c", 24000, 1, "counter", &function_9eb59632, 0, 0);
-	ai::add_archetype_spawn_function(#"hash_1bc8194446d4722f", &function_a5cd9e54);
+	ai::add_archetype_spawn_function(#"tormentor", &function_a5cd9e54);
 }
 
 /*

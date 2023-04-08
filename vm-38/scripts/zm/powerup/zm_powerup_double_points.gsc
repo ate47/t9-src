@@ -27,7 +27,7 @@ function private autoexec function_c5d6cfcc()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_double_points
 	Checksum: 0x1953122C
 	Offset: 0x188
@@ -35,7 +35,7 @@ function private autoexec function_c5d6cfcc()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_double_points", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -20,7 +20,7 @@ function private autoexec function_c14479b6()
 #namespace spawner;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spawner
 	Checksum: 0xE32639BE
 	Offset: 0x90
@@ -28,7 +28,7 @@ function private autoexec function_c14479b6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"spawner", &function_70a657d8, undefined, undefined, undefined);
 }

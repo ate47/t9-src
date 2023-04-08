@@ -25,7 +25,7 @@ function private autoexec function_e4c72a92()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_841de7df
 	Checksum: 0x70FF3D82
 	Offset: 0x118
@@ -33,7 +33,7 @@ function private autoexec function_e4c72a92()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4ef9c479ac8da304", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -109,7 +109,7 @@ function private on_end(round_reset)
 	{
 		if(!round_reset && level.var_41d5077e < level.var_6f6736a8)
 		{
-			if(zm_utility::function_166646a6() === 1)
+			if(zm_utility::get_story() === 1)
 			{
 				zm_trial::fail(#"hash_11dba2735866a0f6");
 			}
@@ -141,7 +141,7 @@ function private on_end(round_reset)
 		}
 		if(!round_reset && var_ef7fbb73.size)
 		{
-			if(zm_utility::function_166646a6() === 1)
+			if(zm_utility::get_story() === 1)
 			{
 				zm_trial::fail(#"hash_11dba2735866a0f6", var_ef7fbb73);
 			}

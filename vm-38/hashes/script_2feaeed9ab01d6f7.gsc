@@ -40,7 +40,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_endAlpha(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "endAlpha", value);
+		[[ self ]]->set_data(localclientnum, "endAlpha", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_green(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "green", value);
+		[[ self ]]->set_data(localclientnum, "green", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_fadeOverTime(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", value);
+		[[ self ]]->set_data(localclientnum, "fadeOverTime", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_blue(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "blue", value);
+		[[ self ]]->set_data(localclientnum, "blue", value);
 	}
 
 	/*
@@ -145,7 +145,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_startAlpha(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "startAlpha", value);
+		[[ self ]]->set_data(localclientnum, "startAlpha", value);
 	}
 
 	/*
@@ -159,7 +159,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_drawHUD(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "drawHUD", value);
+		[[ self ]]->set_data(localclientnum, "drawHUD", value);
 	}
 
 	/*
@@ -173,7 +173,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function set_red(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "red", value);
+		[[ self ]]->set_data(localclientnum, "red", value);
 	}
 
 	/*
@@ -188,13 +188,13 @@ class cfull_screen_black : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "red", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "green", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "blue", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "startAlpha", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "endAlpha", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "drawHUD", 0);
+		[[ self ]]->set_data(localclientnum, "red", 0);
+		[[ self ]]->set_data(localclientnum, "green", 0);
+		[[ self ]]->set_data(localclientnum, "blue", 0);
+		[[ self ]]->set_data(localclientnum, "fadeOverTime", 0);
+		[[ self ]]->set_data(localclientnum, "startAlpha", 0);
+		[[ self ]]->set_data(localclientnum, "endAlpha", 0);
+		[[ self ]]->set_data(localclientnum, "drawHUD", 0);
 	}
 
 }

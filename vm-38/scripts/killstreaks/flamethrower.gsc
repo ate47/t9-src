@@ -19,7 +19,7 @@ function private autoexec function_785ed14d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: flamethrower
 	Checksum: 0xD07F3019
 	Offset: 0xF8
@@ -27,7 +27,7 @@ function private autoexec function_785ed14d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"flamethrower", &__init__, undefined, undefined, #"killstreaks");
 }

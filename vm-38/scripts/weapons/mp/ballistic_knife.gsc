@@ -18,7 +18,7 @@ function private autoexec function_e9c2417f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ballistic_knife
 	Checksum: 0x8D2DD6D3
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_e9c2417f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ballistic_knife", &function_70a657d8, undefined, undefined, undefined);
 }

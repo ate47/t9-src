@@ -155,9 +155,9 @@ function function_3c872f01()
 */
 function pickupsettype(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self.var_7266499a = bwastimejump & ((1 << 6) - 1);
+	self.pickupType = bwastimejump & ((1 << 6) - 1);
 	self.variant = bwastimejump >> 6;
-	def = function_c9502d74(self.var_7266499a, self.variant);
+	def = function_c9502d74(self.pickupType, self.variant);
 	/#
 		assert(isdefined(def), "");
 	#/

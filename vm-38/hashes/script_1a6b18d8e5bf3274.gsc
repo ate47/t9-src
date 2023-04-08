@@ -23,7 +23,7 @@ function private autoexec function_2d2b0cb7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_a5ef5769
 	Checksum: 0x622A29E5
 	Offset: 0x260
@@ -31,7 +31,7 @@ function private autoexec function_2d2b0cb7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_52556758a0c8acfe", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -227,11 +227,11 @@ function function_219213be(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_95ad29e7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self thread function_34d50615(binitialsnap, fieldname, bwastimejump, 1);
+	self thread wait_to_update_ammo_fx(binitialsnap, fieldname, bwastimejump, 1);
 }
 
 /*
-	Name: function_34d50615
+	Name: wait_to_update_ammo_fx
 	Namespace: namespace_a5ef5769
 	Checksum: 0xE935CAC4
 	Offset: 0xB10
@@ -239,7 +239,7 @@ function function_95ad29e7(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 4
 	Flags: Linked
 */
-function function_34d50615(localclientnum, oldval, newval, var_efe94974)
+function wait_to_update_ammo_fx(localclientnum, oldval, newval, var_efe94974)
 {
 	self endon(#"death");
 	var_17b7891d = "1caff36fc9c05c75" + "wait_to_update_ammo_fx";
@@ -447,14 +447,14 @@ function function_8175cdcb(localclientnum)
 	self endon(var_17b7891d);
 	while(true)
 	{
-		if(!self function_f69ceea9(localclientnum) && !isdefined(self.var_a0d6f528) && !is_true(self.var_c108a678))
+		if(!self function_f69ceea9(localclientnum) && !isdefined(self.var_a0d6f528) && !is_true(self.inspect_clip_out))
 		{
 			waitframe(1);
 			continue;
 		}
 		var_4695f796 = self.oldval;
 		self function_5962609c(localclientnum, self.oldval, 2, 0);
-		while(self function_f69ceea9(localclientnum) || isdefined(self.var_a0d6f528) || is_true(self.var_c108a678))
+		while(self function_f69ceea9(localclientnum) || isdefined(self.var_a0d6f528) || is_true(self.inspect_clip_out))
 		{
 			waitframe(1);
 		}
@@ -499,7 +499,7 @@ function function_b63cc0c6(localclientnum)
 	while(true)
 	{
 		self waittillmatch({#notetrack:"inspect_clip_out"}, #"notetrack");
-		self.var_c108a678 = 1;
+		self.inspect_clip_out = 1;
 	}
 }
 
@@ -521,7 +521,7 @@ function function_acb526aa(localclientnum)
 	while(true)
 	{
 		self waittillmatch({#notetrack:"inspect_done"}, #"notetrack");
-		self.var_c108a678 = 0;
+		self.inspect_clip_out = 0;
 	}
 }
 

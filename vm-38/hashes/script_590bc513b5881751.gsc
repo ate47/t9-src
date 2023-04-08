@@ -5,7 +5,7 @@
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -1565,11 +1565,11 @@ function function_631f02c5(var_f9e67747)
 	{
 		if(var_f9e67747 == 1)
 		{
-			self.var_6c81f48 = (isdefined(self.var_6c81f48) ? self.var_6c81f48 : 0) + 1;
+			self.secondaryKill = (isdefined(self.secondaryKill) ? self.secondaryKill : 0) + 1;
 		}
 		else
 		{
-			self.var_bcdeb5e6 = (isdefined(self.var_bcdeb5e6) ? self.var_bcdeb5e6 : 0) + 1;
+			self.tertiaryKill = (isdefined(self.tertiaryKill) ? self.tertiaryKill : 0) + 1;
 		}
 	}
 	wait(2.5);
@@ -1601,15 +1601,15 @@ function function_568f6426(var_f9e67747)
 	{
 		if(var_f9e67747 == 1)
 		{
-			kills = self.var_6c81f48;
+			kills = self.secondaryKill;
 			prefix = "secondaryKill";
-			self.var_6c81f48 = 0;
+			self.secondaryKill = 0;
 		}
 		else
 		{
-			kills = self.var_bcdeb5e6;
+			kills = self.tertiaryKill;
 			prefix = "tertiaryKill";
-			self.var_bcdeb5e6 = 0;
+			self.tertiaryKill = 0;
 		}
 	}
 	if(kills > 3)

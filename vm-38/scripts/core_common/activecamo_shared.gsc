@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_67c87580908a0a00;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -24,7 +24,7 @@ function private autoexec function_bef15a96()
 #namespace activecamo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: activecamo
 	Checksum: 0x895F032D
 	Offset: 0xF0
@@ -32,7 +32,7 @@ function private autoexec function_bef15a96()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"activecamo", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -828,7 +828,7 @@ function function_5d692cf(activecamo)
 		}
 		if(var_2cc4646f)
 		{
-			function_d2f57b97(activecamo, var_d1a848d9);
+			set_stage_activecamo(activecamo, var_d1a848d9);
 		}
 	}
 	else
@@ -837,7 +837,7 @@ function function_5d692cf(activecamo)
 		var_da075c23 = function_5442be13(weaponoptions);
 		if(var_da075c23 != var_d1a848d9 || activecamo.var_dd54a13b[activecamo.baseweapon].var_d1a848d9 !== var_d1a848d9)
 		{
-			function_d2f57b97(activecamo, var_d1a848d9);
+			set_stage_activecamo(activecamo, var_d1a848d9);
 		}
 	}
 }
@@ -920,12 +920,12 @@ function function_8eac065(activecamo)
 	var_da075c23 = function_5442be13(weaponoptions);
 	if(var_da075c23 != var_42d9b149 || activecamo.var_dd54a13b[activecamo.baseweapon].var_d1a848d9 !== var_42d9b149)
 	{
-		function_d2f57b97(activecamo, var_42d9b149);
+		set_stage_activecamo(activecamo, var_42d9b149);
 	}
 }
 
 /*
-	Name: function_d2f57b97
+	Name: set_stage_activecamo
 	Namespace: activecamo
 	Checksum: 0xE3685B31
 	Offset: 0x2AD0
@@ -933,7 +933,7 @@ function function_8eac065(activecamo)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d2f57b97(activecamo, var_d1a848d9)
+function set_stage_activecamo(activecamo, var_d1a848d9)
 {
 	stage = activecamo.stages[var_d1a848d9];
 	if(!isdefined(stage))
@@ -1469,7 +1469,7 @@ function devgui_think()
 					function_cc5baf7f(&function_3ac4d286, 1);
 					break;
 				}
-				case "hash_2f348f94b0a396c4":
+				case "set_camo":
 				{
 					function_cc5baf7f(&function_9c361e56, getdvarstring(#"hash_3fe8dd280c325e8"));
 					break;
@@ -1479,7 +1479,7 @@ function devgui_think()
 					function_cc5baf7f(&function_cc486b05, getdvarstring(#"hash_3fe8dd280c325e8"));
 					break;
 				}
-				case "hash_2f056683aacb9de2":
+				case "set_stage":
 				{
 					function_cc5baf7f(&function_779a9561, getdvarstring(#"hash_3fe8dd280c325e8"));
 					break;

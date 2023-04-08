@@ -57,7 +57,7 @@ event main(eventstruct)
 function on_player_spawned(localclientnum)
 {
 	self function_36b630a3(1);
-	if(util::get_map_name() === #"hash_7665a0b476d1b735")
+	if(util::get_map_name() === #"mp_tundra")
 	{
 		function_f58e42ae(localclientnum, 1);
 	}

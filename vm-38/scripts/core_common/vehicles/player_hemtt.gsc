@@ -19,7 +19,7 @@ function private autoexec function_43c73db3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_hemtt
 	Checksum: 0x96E1EF0E
 	Offset: 0x108
@@ -27,7 +27,7 @@ function private autoexec function_43c73db3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_hemtt", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

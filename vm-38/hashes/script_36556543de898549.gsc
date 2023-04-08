@@ -84,7 +84,7 @@ class cseeker_mine_prompt : cLUIelem
 	*/
 	function set_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", value);
+		[[ self ]]->set_data(localclientnum, "progress", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cseeker_mine_prompt : cLUIelem
 	*/
 	function set_promptState(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "promptState", value);
+		[[ self ]]->set_data(localclientnum, "promptState", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class cseeker_mine_prompt : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "promptState", 0);
+		[[ self ]]->set_data(localclientnum, "progress", 0);
+		[[ self ]]->set_data(localclientnum, "promptState", 0);
 	}
 
 }

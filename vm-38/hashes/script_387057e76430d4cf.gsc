@@ -42,11 +42,11 @@ function private autoexec function_269e4b20()
 	level notify(1298338835);
 }
 
-#namespace namespace_47eaac63;
+#namespace tkdn_af_wreck;
 
 /*
 	Name: starting
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x5F7B85F6
 	Offset: 0x468
 	Size: 0xC4
@@ -57,7 +57,7 @@ function starting(str_skipto)
 {
 	namespace_b100dd86::function_5aabc3fb();
 	flag::set("af_skid_complete");
-	level.var_2713b408 = spawner::simple_spawn_single("arash");
+	level.arash = spawner::simple_spawn_single("arash");
 	exploder::exploder("hit3_pcrash_enginefire_end");
 	exploder::exploder("airfield_crash_lighting");
 	thread namespace_a052577e::function_fc52119f();
@@ -67,7 +67,7 @@ function starting(str_skipto)
 
 /*
 	Name: main
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x73D0FD8A
 	Offset: 0x538
 	Size: 0x6FC
@@ -76,11 +76,11 @@ function starting(str_skipto)
 */
 function main(str_skipto, b_starting)
 {
-	if(!isalive(level.var_2713b408))
+	if(!isalive(level.arash))
 	{
-		level.var_2713b408 = spawner::simple_spawn_single("arash");
-		level.var_2713b408 namespace_979752dc::function_2324f175(0);
-		level.var_2713b408.ignoreall = 1;
+		level.arash = spawner::simple_spawn_single("arash");
+		level.arash namespace_979752dc::function_2324f175(0);
+		level.arash.ignoreall = 1;
 	}
 	plane = getent("cargo_plane", "targetname");
 	things = getentarray("af_plane_triggers", "targetname");
@@ -109,10 +109,10 @@ function main(str_skipto, b_starting)
 	level thread function_fa3409bb();
 	player clientfield::set_to_player("set_player_pbg_bank", 1);
 	thread namespace_a052577e::function_cbae87a2();
-	var_2713b408 = getactorarray("arash", "targetname")[0];
-	var_2713b408.var_c681e4c1 = 1;
+	arash = getactorarray("arash", "targetname")[0];
+	arash.var_c681e4c1 = 1;
 	music::setmusicstate("b7.0_aftermath");
-	level thread scene::play("scene_tkd_hit3_outro_interrogation", [0:var_2713b408]);
+	level thread scene::play("scene_tkd_hit3_outro_interrogation", [0:arash]);
 	level thread function_ea2f2e25(b_starting);
 	level waittill(#"hash_285b0696c88c644a");
 	thread namespace_a052577e::function_4788a209();
@@ -128,7 +128,7 @@ function main(str_skipto, b_starting)
 	level flag::set("af_hit3_interrogation_complete");
 	function_91d49d23(level.adler);
 	function_91d49d23(level.woods);
-	function_91d49d23(level.var_2713b408);
+	function_91d49d23(level.arash);
 	guys = getaiarray();
 	array::delete_all(guys);
 	player val::set(#"ending", "disable_weapon_cycling", 1);
@@ -143,7 +143,7 @@ function main(str_skipto, b_starting)
 
 /*
 	Name: function_fa3409bb
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0xE31221
 	Offset: 0xC40
 	Size: 0x6C
@@ -160,7 +160,7 @@ function function_fa3409bb()
 
 /*
 	Name: cleanup
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0xA0ED6EFA
 	Offset: 0xCB8
 	Size: 0x24
@@ -173,7 +173,7 @@ function cleanup(name, starting, direct, player)
 
 /*
 	Name: init_flags
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0xD02C3B69
 	Offset: 0xCE8
 	Size: 0x44
@@ -188,7 +188,7 @@ function init_flags()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x2ECD5C2B
 	Offset: 0xD38
 	Size: 0xC4
@@ -205,7 +205,7 @@ function init_clientfields()
 
 /*
 	Name: init_scenes
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x80F724D1
 	Offset: 0xE08
 	Size: 0x4
@@ -218,7 +218,7 @@ function init_scenes()
 
 /*
 	Name: function_cf191fff
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x80F724D1
 	Offset: 0xE18
 	Size: 0x4
@@ -231,7 +231,7 @@ function function_cf191fff()
 
 /*
 	Name: function_91d49d23
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x1EF6EFB3
 	Offset: 0xE28
 	Size: 0x44
@@ -249,7 +249,7 @@ function function_91d49d23(guy)
 
 /*
 	Name: function_70dd6f0e
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0xB7029FAF
 	Offset: 0xE78
 	Size: 0x1AC
@@ -258,19 +258,19 @@ function function_91d49d23(guy)
 */
 function function_70dd6f0e()
 {
-	var_ba0ab0f9 = getentarray("wreck_models", "targetname");
-	if(isdefined(var_ba0ab0f9))
+	wreck_models = getentarray("wreck_models", "targetname");
+	if(isdefined(wreck_models))
 	{
-		foreach(model in var_ba0ab0f9)
+		foreach(model in wreck_models)
 		{
 			model notsolid();
 			model hide();
 		}
 	}
 	level flag::wait_till("af_skid_complete");
-	if(isdefined(var_ba0ab0f9))
+	if(isdefined(wreck_models))
 	{
-		foreach(model in var_ba0ab0f9)
+		foreach(model in wreck_models)
 		{
 			model solid();
 			model show();
@@ -281,7 +281,7 @@ function function_70dd6f0e()
 
 /*
 	Name: function_ea2f2e25
-	Namespace: namespace_47eaac63
+	Namespace: tkdn_af_wreck
 	Checksum: 0x813D7A59
 	Offset: 0x1030
 	Size: 0x184

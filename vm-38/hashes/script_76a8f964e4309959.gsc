@@ -33,7 +33,7 @@ function private autoexec function_845dffd3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_abfee9ba
 	Checksum: 0xCD07A05D
 	Offset: 0x150
@@ -41,7 +41,7 @@ function private autoexec function_845dffd3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_55f568f82a7aea28", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -58,9 +58,9 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	clientfield::register("scriptmover", "" + #"hash_3220b44880f1807c", 24000, 1, "counter");
-	namespace_c3287616::register_archetype(#"hash_1bc8194446d4722f", &function_44d45595, &round_spawn, &function_dfa96d1f, 25);
-	spawner::add_archetype_spawn_function(#"hash_1bc8194446d4722f", &function_a5cd9e54);
-	zm_cleanup::function_cdf5a512(#"hash_1bc8194446d4722f", &function_d8461453);
+	namespace_c3287616::register_archetype(#"tormentor", &function_44d45595, &round_spawn, &function_dfa96d1f, 25);
+	spawner::add_archetype_spawn_function(#"tormentor", &function_a5cd9e54);
+	zm_cleanup::function_cdf5a512(#"tormentor", &function_d8461453);
 }
 
 /*
@@ -112,7 +112,7 @@ function function_a5cd9e54()
 */
 function private function_354a904e(inflictor, attacker, damage, dflags, mod, weapon, var_fd90b0bb, point, dir, hitloc, offsettime, boneindex, modelindex)
 {
-	if(boneindex.archetype === #"hash_1bc8194446d4722f" && boneindex.team === self.team)
+	if(boneindex.archetype === #"tormentor" && boneindex.team === self.team)
 	{
 		return 0;
 	}
@@ -252,7 +252,7 @@ function function_4b283bfa()
 */
 function function_9f679c3c()
 {
-	a_ais = getaiarchetypearray(#"hash_1bc8194446d4722f");
+	a_ais = getaiarchetypearray(#"tormentor");
 	n_ai_alive = a_ais.size;
 	foreach(ai in a_ais)
 	{
@@ -547,7 +547,7 @@ function function_d8461453()
 		self endon(#"death");
 		level thread function_55413772(s_spawn_loc);
 		wait(1);
-		self namespace_e0710ee6::function_a8dc3363(s_spawn_loc);
+		self zm_ai_utility::function_a8dc3363(s_spawn_loc);
 		earthquake(0.5, 0.75, self.origin, 1000);
 		self.no_powerups = 1;
 		if(isdefined(s_spawn_loc.script_string))

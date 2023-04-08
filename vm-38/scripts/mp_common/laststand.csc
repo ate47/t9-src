@@ -22,7 +22,7 @@ function private autoexec function_d8b6e409()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: laststand
 	Checksum: 0x20FD7ED7
 	Offset: 0x2A8
@@ -30,7 +30,7 @@ function private autoexec function_d8b6e409()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"laststand", &function_70a657d8, undefined, undefined, undefined);
 }

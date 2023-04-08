@@ -39,12 +39,12 @@ function private autoexec function_c97f46ee()
 */
 function init()
 {
-	clientfield::register("world", "" + #"hash_4976dec6e1aa8221", 1, getminbitcountfornum(2), "int", &function_165a271d, 0, 0);
+	clientfield::register("world", "" + #"hide_scene_models", 1, getminbitcountfornum(2), "int", &hide_scene_models, 0, 0);
 	clientfield::register("world", "" + #"hash_763dd8035e80f7c", 1, 1, "int", &function_44dc8dc9, 0, 0);
 }
 
 /*
-	Name: function_165a271d
+	Name: hide_scene_models
 	Namespace: namespace_c4d353e7
 	Checksum: 0x515F7C71
 	Offset: 0x200
@@ -52,7 +52,7 @@ function init()
 	Parameters: 7
 	Flags: Linked
 */
-function function_165a271d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function hide_scene_models(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	var_94a3aa7c = findstaticmodelindexarray("hide_scene_models");
 	var_fc98dc98 = findstaticmodelindexarray("hide_mid_scene_models");

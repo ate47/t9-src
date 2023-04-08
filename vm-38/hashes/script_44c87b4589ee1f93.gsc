@@ -25,7 +25,7 @@ function private autoexec function_f203995b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zombie_dog_toxic_cloud
 	Checksum: 0x254B7AFC
 	Offset: 0x150
@@ -33,7 +33,7 @@ function private autoexec function_f203995b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_33449a50d9656246", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

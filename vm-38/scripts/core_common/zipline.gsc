@@ -26,7 +26,7 @@ function private autoexec function_5051cec3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zipline
 	Checksum: 0x2A4CC719
 	Offset: 0x220
@@ -34,7 +34,7 @@ function private autoexec function_5051cec3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zipline", &function_70a657d8, undefined, undefined, undefined);
 }

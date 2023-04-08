@@ -26,7 +26,7 @@ function private autoexec function_3cf4377c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_d0ab5955
 	Checksum: 0x76FB8613
 	Offset: 0x250
@@ -34,7 +34,7 @@ function private autoexec function_3cf4377c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_d07e35f920d16a8", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -372,7 +372,7 @@ function function_dc15ad60()
 				entity function_8c7edff5();
 				continue;
 			}
-			if(!entity function_3824d2dc() && !is_true(entity.var_99582f14) && isdefined(entity.maxhealth))
+			if(!entity function_3824d2dc() && !is_true(entity.b_ignore_fow_damage) && isdefined(entity.maxhealth))
 			{
 				player = undefined;
 				vehicle = undefined;
@@ -401,7 +401,7 @@ function function_dc15ad60()
 				if(isplayer(entity))
 				{
 					entity clientfield::set("outsidetile", 1);
-					entity function_3ac75bd8(intensity);
+					entity show_effects(intensity);
 					player = entity;
 				}
 				if(dodamage)
@@ -465,7 +465,7 @@ function private function_a9d55ec2(notifyhash)
 }
 
 /*
-	Name: function_3ac75bd8
+	Name: show_effects
 	Namespace: namespace_d0ab5955
 	Checksum: 0xA2C8E5BF
 	Offset: 0x1548
@@ -473,7 +473,7 @@ function private function_a9d55ec2(notifyhash)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3ac75bd8(intensity)
+function show_effects(intensity)
 {
 	if(self clientfield::get_to_player("fogofwareffects") == 0 && !self isinmovemode("ufo", "noclip"))
 	{

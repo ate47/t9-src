@@ -19,11 +19,11 @@
 #using scripts\zm_common\zm_stats.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_2303c104;
+#namespace world_event_horde_hunt;
 
 /*
 	Name: function_faee6623
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xA70EC881
 	Offset: 0x218
 	Size: 0x14
@@ -36,22 +36,22 @@ function private autoexec function_faee6623()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_2303c104
+	Name: __init__system__
+	Namespace: world_event_horde_hunt
 	Checksum: 0x9015E434
 	Offset: 0x238
 	Size: 0x44
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1e60252f388011fb", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xA828782A
 	Offset: 0x288
 	Size: 0x10C
@@ -74,7 +74,7 @@ function function_70a657d8()
 
 /*
 	Name: function_8ebf52b6
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x883561F6
 	Offset: 0x3A0
 	Size: 0x262
@@ -105,7 +105,7 @@ function private function_8ebf52b6(instance)
 
 /*
 	Name: function_dbeb7b0f
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xB248ED4B
 	Offset: 0x610
 	Size: 0x184
@@ -134,7 +134,7 @@ function private function_dbeb7b0f(eventstruct)
 
 /*
 	Name: function_6400a64d
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xC92CDA3C
 	Offset: 0x7A0
 	Size: 0x74
@@ -150,7 +150,7 @@ function function_6400a64d(instance)
 
 /*
 	Name: function_deefa538
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x29B81DCE
 	Offset: 0x820
 	Size: 0x39C
@@ -197,7 +197,7 @@ function private function_deefa538(instance)
 
 /*
 	Name: function_963ac9d8
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xADC7D668
 	Offset: 0xBC8
 	Size: 0x5C
@@ -214,7 +214,7 @@ function function_963ac9d8(var_347a4920)
 
 /*
 	Name: function_8a9ecf71
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xFCFED7AB
 	Offset: 0xC30
 	Size: 0x386
@@ -285,7 +285,7 @@ function private function_8a9ecf71(instance, a_spawn_points, var_aa19ae, spawn_f
 
 /*
 	Name: function_283f2fb3
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x7C881A1D
 	Offset: 0xFC0
 	Size: 0x180
@@ -319,7 +319,7 @@ function private function_283f2fb3(&a_spawns)
 
 /*
 	Name: function_c7db899f
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x75A508B2
 	Offset: 0x1148
 	Size: 0x42
@@ -339,7 +339,7 @@ function private function_c7db899f()
 
 /*
 	Name: function_1b8f27ec
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x16DB1650
 	Offset: 0x1198
 	Size: 0x484
@@ -413,7 +413,7 @@ function private function_1b8f27ec()
 
 /*
 	Name: function_57a97c81
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x6316B87E
 	Offset: 0x1628
 	Size: 0x324
@@ -474,7 +474,7 @@ function private function_57a97c81(instance, spawn)
 
 /*
 	Name: function_c292b3fe
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x9A59AA34
 	Offset: 0x1958
 	Size: 0x11C
@@ -503,7 +503,7 @@ function private function_c292b3fe(v_loc, instance)
 
 /*
 	Name: function_ca46226a
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x6E75CB86
 	Offset: 0x1A80
 	Size: 0x438
@@ -579,7 +579,7 @@ function private function_ca46226a(instance, spawn)
 
 /*
 	Name: function_b55fe25b
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xE8C6032D
 	Offset: 0x1EC0
 	Size: 0x200
@@ -617,7 +617,7 @@ function private function_b55fe25b()
 
 /*
 	Name: function_2660ef47
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xA2AE8395
 	Offset: 0x20C8
 	Size: 0x110
@@ -649,7 +649,7 @@ function private function_2660ef47()
 
 /*
 	Name: function_e2f41f69
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x434C2DA0
 	Offset: 0x21E0
 	Size: 0x86
@@ -676,7 +676,7 @@ function private function_e2f41f69(var_74714668)
 
 /*
 	Name: function_92184323
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x352CED40
 	Offset: 0x2270
 	Size: 0x2B4
@@ -717,7 +717,7 @@ function private function_92184323(eventstruct)
 
 /*
 	Name: function_7d9c6082
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x54DFBAE7
 	Offset: 0x2530
 	Size: 0xBA
@@ -752,7 +752,7 @@ function private function_7d9c6082(instance, ai)
 
 /*
 	Name: function_9974f649
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x223C7998
 	Offset: 0x25F8
 	Size: 0x4D4
@@ -809,7 +809,7 @@ function private function_9974f649(eventstruct)
 
 /*
 	Name: function_f0abbc8b
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x2849982E
 	Offset: 0x2AD8
 	Size: 0x2A4
@@ -849,7 +849,7 @@ function private function_f0abbc8b()
 
 /*
 	Name: function_4cb6cdb8
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x5DC8327
 	Offset: 0x2D88
 	Size: 0xC2
@@ -890,7 +890,7 @@ function private function_4cb6cdb8()
 
 /*
 	Name: function_22e55954
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0x1B5BAE11
 	Offset: 0x2E58
 	Size: 0x12E
@@ -919,7 +919,7 @@ function private function_22e55954(instance)
 
 /*
 	Name: function_1226f6af
-	Namespace: namespace_2303c104
+	Namespace: world_event_horde_hunt
 	Checksum: 0xFC83BD48
 	Offset: 0x2F90
 	Size: 0x74

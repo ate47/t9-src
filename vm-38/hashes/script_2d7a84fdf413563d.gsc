@@ -87,11 +87,11 @@ class csr_beacon_menu : cLUIelem
 
 }
 
-#namespace namespace_d84b2e13;
+#namespace sr_beacon_menu;
 
 /*
 	Name: function_2529039
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0xF5335478
 	Offset: 0xA8
 	Size: 0x14
@@ -105,7 +105,7 @@ function private autoexec function_2529039()
 
 /*
 	Name: register
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0x9655FEE3
 	Offset: 0xC8
 	Size: 0x16E
@@ -120,24 +120,24 @@ function register()
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"]))
+	if(!isdefined(level.var_ae746e8f[#"sr_beacon_menu"]))
 	{
-		level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"] = [];
+		level.var_ae746e8f[#"sr_beacon_menu"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"]))
+	if(!isdefined(level.var_ae746e8f[#"sr_beacon_menu"]))
 	{
-		level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"] = [];
+		level.var_ae746e8f[#"sr_beacon_menu"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"]))
+	else if(!isarray(level.var_ae746e8f[#"sr_beacon_menu"]))
 	{
-		level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"] = array(level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"]);
+		level.var_ae746e8f[#"sr_beacon_menu"] = array(level.var_ae746e8f[#"sr_beacon_menu"]);
 	}
-	level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"][level.var_ae746e8f[#"hash_26e4ec7e2fffff8d"].size] = elem;
+	level.var_ae746e8f[#"sr_beacon_menu"][level.var_ae746e8f[#"sr_beacon_menu"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0xA0447803
 	Offset: 0x240
 	Size: 0x34
@@ -153,7 +153,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0x4C92B014
 	Offset: 0x280
 	Size: 0x1C
@@ -167,7 +167,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0x9DE286F
 	Offset: 0x2A8
 	Size: 0x1C
@@ -181,7 +181,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0xC32F1927
 	Offset: 0x2D0
 	Size: 0x1A

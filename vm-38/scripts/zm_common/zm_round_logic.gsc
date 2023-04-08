@@ -77,7 +77,7 @@ function private autoexec function_eddc3dba()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_round_logic
 	Checksum: 0x8446FC23
 	Offset: 0x488
@@ -85,7 +85,7 @@ function private autoexec function_eddc3dba()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_round_logic", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -1157,11 +1157,11 @@ function round_think(restart)
 		{
 			[[level.round_end_custom_logic]]();
 		}
-		if(!level flag::get("round_reset") && namespace_59ff1d6c::function_901b751c(#"zmroundcap") == level.round_number && level.round_number != 0)
+		if(!level flag::get("round_reset") && zm_custom::function_901b751c(#"zmroundcap") == level.round_number && level.round_number != 0)
 		{
 			level.var_458eec65 = 1;
 			wait(3);
-			namespace_59ff1d6c::function_9be9c072("zmRoundCap");
+			zm_custom::function_9be9c072("zmRoundCap");
 			return;
 		}
 		/#
@@ -1236,7 +1236,7 @@ function round_think(restart)
 			player zm_stats::set_global_stat("rounds", get_round_number());
 			player zm_stats::update_playing_utc_time(matchutctime);
 			player zm_stats::function_4dd876ad();
-			if(!is_true(namespace_59ff1d6c::function_901b751c(#"hash_54dfa988db5db24c")) && !player laststand::player_is_in_laststand() && is_true(player.heal.enabled))
+			if(!is_true(zm_custom::function_901b751c(#"hash_54dfa988db5db24c")) && !player laststand::player_is_in_laststand() && is_true(player.heal.enabled))
 			{
 				player zm_utility::function_e0448fec(1);
 			}

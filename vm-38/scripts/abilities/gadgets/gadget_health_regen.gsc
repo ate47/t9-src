@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using script_4a1e83805671ae57;
 #using scripts\abilities\ability_util.gsc;
@@ -27,7 +27,7 @@ function private autoexec function_f5f2f02b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_health_regen
 	Checksum: 0xD6E44BBE
 	Offset: 0x158
@@ -35,7 +35,7 @@ function private autoexec function_f5f2f02b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_health_regen", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -33,7 +33,7 @@ function private autoexec function_2f645b92()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_ca8676a3
 	Checksum: 0x6762A12D
 	Offset: 0x248
@@ -41,7 +41,7 @@ function private autoexec function_2f645b92()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_217942543a3e669b", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -241,7 +241,7 @@ function function_a3b94da7()
 */
 function function_87d77748()
 {
-	if(zodcompanionbehavior::function_eb957b75(self))
+	if(zodcompanionbehavior::zodCompanionHasDefendLocation(self))
 	{
 		self zodcompanionutility::function_34179e9a();
 	}

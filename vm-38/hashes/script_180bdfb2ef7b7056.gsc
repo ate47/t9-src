@@ -40,7 +40,7 @@ class cself_respawn : cLUIelem
 	*/
 	function set_percent(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "percent", value);
+		[[ self ]]->set_data(localclientnum, "percent", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cself_respawn : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "percent", 0);
+		[[ self ]]->set_data(localclientnum, "percent", 0);
 	}
 
 }

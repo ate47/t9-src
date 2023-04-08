@@ -83,7 +83,7 @@ class cself_revive_visuals_rush : cLUIelem
 	*/
 	function set_revive_time(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "revive_time", value);
+		[[ self ]]->set_data(localclientnum, "revive_time", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cself_revive_visuals_rush : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "revive_time", 0);
+		[[ self ]]->set_data(localclientnum, "revive_time", 0);
 	}
 
 }

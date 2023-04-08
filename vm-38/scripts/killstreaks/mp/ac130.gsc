@@ -25,7 +25,7 @@ function private autoexec function_ce273ac5()
 #namespace ac130_mp;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ac130_mp
 	Checksum: 0x59A967DE
 	Offset: 0xD8
@@ -33,7 +33,7 @@ function private autoexec function_ce273ac5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ac130", &function_70a657d8, undefined, &function_3675de8b, #"killstreaks");
 }

@@ -1,5 +1,5 @@
 #using script_399c912938783695;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -32,7 +32,7 @@ function private autoexec function_35570ff8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_characters
 	Checksum: 0xE08CC77A
 	Offset: 0x790
@@ -40,7 +40,7 @@ function private autoexec function_35570ff8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_characters", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -164,7 +164,7 @@ function onuse(player)
 			var_bbec6b17 = getentarraybytype(15);
 			foreach(zombie in var_bbec6b17)
 			{
-				if(zombie.var_6f84b820 === #"normal" && isalive(zombie) && zombie.archetype !== #"hash_1bc8194446d4722f")
+				if(zombie.var_6f84b820 === #"normal" && isalive(zombie) && zombie.archetype !== #"tormentor")
 				{
 					zombie zombie_utility::set_zombie_run_cycle_restore_from_override();
 				}
@@ -185,7 +185,7 @@ function onuse(player)
 			var_bbec6b17 = getentarraybytype(15);
 			foreach(zombie in var_bbec6b17)
 			{
-				if(zombie.var_6f84b820 === #"normal" && isalive(zombie) && zombie.archetype !== #"hash_1bc8194446d4722f")
+				if(zombie.var_6f84b820 === #"normal" && isalive(zombie) && zombie.archetype !== #"tormentor")
 				{
 					if(math::cointoss())
 					{

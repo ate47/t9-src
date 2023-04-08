@@ -84,7 +84,7 @@ class cmulti_stage_target_lockon : cLUIelem
 	*/
 	function set_entNum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", value);
+		[[ self ]]->set_data(localclientnum, "entNum", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cmulti_stage_target_lockon : cLUIelem
 	*/
 	function set_targetState(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "targetState", value);
+		[[ self ]]->set_data(localclientnum, "targetState", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class cmulti_stage_target_lockon : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "targetState", 0);
+		[[ self ]]->set_data(localclientnum, "entNum", 0);
+		[[ self ]]->set_data(localclientnum, "targetState", 0);
 	}
 
 }

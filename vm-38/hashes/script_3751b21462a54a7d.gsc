@@ -1,7 +1,7 @@
 #using scripts\core_common\item_inventory.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c5daa95f8fec03c;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -30,7 +30,7 @@ function private autoexec function_bc55259f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_791d0451
 	Checksum: 0xA08E9D17
 	Offset: 0x218
@@ -38,7 +38,7 @@ function private autoexec function_bc55259f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2d064899850813e2", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

@@ -264,7 +264,7 @@ class class_7da27482
 	{
 		if(isdefined(var_23904c1d.xuid))
 		{
-			[[ self ]]->function_3eaf9e07(var_23904c1d.xuid);
+			[[ self ]]->set_xuid(var_23904c1d.xuid);
 		}
 		[[ self ]]->set_character_mode(var_23904c1d.charactermode);
 		[[ self ]]->function_72e88afb(var_23904c1d.charactertype);
@@ -502,7 +502,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_3941dad9
+		Name: set_alt_render_mode
 		Namespace: namespace_7da27482
 		Checksum: 0x861CA15E
 		Offset: 0xD08
@@ -510,7 +510,7 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_3941dad9(alt_render_mode)
+	function set_alt_render_mode(alt_render_mode)
 	{
 		self.var_bf4feef5 = alt_render_mode;
 	}
@@ -554,7 +554,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_3eaf9e07
+		Name: set_xuid
 		Namespace: namespace_7da27482
 		Checksum: 0xAB5429E3
 		Offset: 0xDF0
@@ -562,7 +562,7 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_3eaf9e07(xuid)
+	function set_xuid(xuid)
 	{
 		self.var_61e64cb8 = xuid;
 	}
@@ -1957,7 +1957,7 @@ class class_7da27482
 	}
 
 	/*
-		Name: function_d41f7478
+		Name: set_show_helmets
 		Namespace: namespace_7da27482
 		Checksum: 0xFE49E646
 		Offset: 0xD80
@@ -1965,7 +1965,7 @@ class class_7da27482
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_d41f7478(show_helmets)
+	function set_show_helmets(show_helmets)
 	{
 		if(var_609efd3e != show_helmets)
 		{
@@ -2315,7 +2315,7 @@ function private autoexec function_1caede2a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_customization
 	Checksum: 0xBCDA3A7F
 	Offset: 0x358
@@ -2323,7 +2323,7 @@ function private autoexec function_1caede2a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"character_customization", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -3354,7 +3354,7 @@ function setup_character_extracam_settings(localclientnum, var_d0b01271, extraca
 	camera_ent playextracamxcam(extracam_data_struct.xcam, 0, extracam_data_struct.subxcam);
 	params = {#hide_helmet:is_true(extracam_data_struct.hidehelmet), #sessionmode:extracam_data_struct.sessionmode, #extracam_data:extracam_data_struct, #anim_name:extracam_data_struct.anim_name};
 	[[ var_d0b01271 ]]->function_79f89fb6(extracam_data_struct.sessionmode === 2);
-	[[ var_d0b01271 ]]->function_3941dad9(0);
+	[[ var_d0b01271 ]]->set_alt_render_mode(0);
 	[[ var_d0b01271 ]]->set_character_mode(extracam_data_struct.sessionmode);
 	[[ var_d0b01271 ]]->function_72e88afb(extracam_data_struct.characterindex);
 	if(is_true(extracam_data_struct.isdefaulthero) || is_true(extracam_data_struct.defaultimagerender))

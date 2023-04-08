@@ -24,7 +24,7 @@ function private autoexec function_d0bab2de()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_reset_loadout
 	Checksum: 0xAA3DE343
 	Offset: 0x110
@@ -32,9 +32,9 @@ function private autoexec function_d0bab2de()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_5bdca5e9d7130244", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_reset_loadout", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

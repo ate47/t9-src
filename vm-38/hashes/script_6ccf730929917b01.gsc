@@ -22,7 +22,7 @@ function private autoexec function_2cd51c97()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_93648050
 	Checksum: 0x6808CEDB
 	Offset: 0x140
@@ -30,7 +30,7 @@ function private autoexec function_2cd51c97()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7ccb313a097bf40", &preload, undefined, undefined, undefined);
 }
@@ -510,7 +510,7 @@ function private _think()
 		var_a74a4e75 = anglestoforward(self getplayerangles());
 		text = #"";
 		var_36247bfb = #"";
-		if(!namespace_61e6d095::exists(#"hash_66c6997fe4c5ccf") && !self flag::get(#"lockpicking") && function_185fc34e(eye, var_a74a4e75))
+		if(!namespace_61e6d095::exists(#"hint_tutorial") && !self flag::get(#"lockpicking") && function_185fc34e(eye, var_a74a4e75))
 		{
 			end = eye + (var_a74a4e75 * level.var_93648050.trace_dist);
 			trace = bullettrace(eye, end, 1, self, 1, 0);

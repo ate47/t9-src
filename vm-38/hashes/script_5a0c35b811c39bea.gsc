@@ -42,7 +42,7 @@ function private autoexec function_5c17ad81()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_9f3d3e9
 	Checksum: 0xFE461728
 	Offset: 0x410
@@ -50,7 +50,7 @@ function private autoexec function_5c17ad81()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_78bf0dc450091c57", &function_70a657d8, undefined, &function_4df027f2, #"archetype_avogadro");
 }
@@ -506,7 +506,7 @@ function function_905d3c1a(entity)
 	timeout = getanimlength("ai_t9_zm_avogadro_arrival");
 	new_origin = (entity.origin[0], entity.origin[1], entity.origin[2] - delta[2]);
 	entity animscripted("avogadro_arrival_finished", new_origin, (0, entity.angles[1], 0), "ai_t9_zm_avogadro_arrival", "normal", "root", 1, 0);
-	entity waittilltimeout(timeout, #"hash_10eac2bbf85bab17");
+	entity waittilltimeout(timeout, #"avogadro_arrival_finished");
 }
 
 /*
@@ -541,7 +541,7 @@ function function_ad2f1327(entity)
 	timeout = getanimlength("ai_t9_zm_avogadro_exit");
 	entity animscripted("avogadro_exit_finished", self.origin, self.angles, "ai_t9_zm_avogadro_exit", "normal", "root", 1, 0);
 	waitresult = undefined;
-	waitresult = entity waittilltimeout(timeout, #"hash_7f362d7c2b78b3ae");
+	waitresult = entity waittilltimeout(timeout, #"avogadro_exit_finished");
 	entity ghost();
 	entity notsolid();
 	entity val::set(#"hash_5dc24322003886a3", "ignoreall", 1);

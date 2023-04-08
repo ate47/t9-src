@@ -1,5 +1,5 @@
 #using script_1435f3c9fc699e04;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -555,7 +555,7 @@ event private function_e0a8e4ba(struct)
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gameobjects
 	Checksum: 0xF7FA38F3
 	Offset: 0x6B8
@@ -563,7 +563,7 @@ event private function_e0a8e4ba(struct)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gameobjects", &function_70a657d8, undefined, undefined, undefined);
 }

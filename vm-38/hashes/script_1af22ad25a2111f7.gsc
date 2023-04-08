@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\weapons\deployable.gsc;
 #using scripts\weapons\weaponobjects.gsc;
@@ -31,7 +31,7 @@ function private autoexec function_2fe3205d()
 #namespace jammer;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: jammer
 	Checksum: 0xFB2C5250
 	Offset: 0x280
@@ -39,7 +39,7 @@ function private autoexec function_2fe3205d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_jammer", &function_70a657d8, undefined, undefined, undefined);
 }

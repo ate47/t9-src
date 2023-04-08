@@ -20,7 +20,7 @@ function private autoexec function_eb51d4a3()
 #namespace antipersonnel_guidance;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: antipersonnel_guidance
 	Checksum: 0xF8EF937
 	Offset: 0x90
@@ -28,7 +28,7 @@ function private autoexec function_eb51d4a3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"multilockap_guidance", &function_70a657d8, undefined, undefined, undefined);
 }

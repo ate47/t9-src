@@ -68,7 +68,7 @@ class class_c982469d : cLUIelem
 	*/
 	function set_armor_vis(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor_vis", value);
+		[[ self ]]->set_data(localclientnum, "armor_vis", value);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class class_c982469d : cLUIelem
 	*/
 	function set_armor(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor", value);
+		[[ self ]]->set_data(localclientnum, "armor", value);
 	}
 
 	/*
@@ -113,7 +113,7 @@ class class_c982469d : cLUIelem
 	*/
 	function set_health(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "health", value);
+		[[ self ]]->set_data(localclientnum, "health", value);
 	}
 
 	/*
@@ -128,18 +128,18 @@ class class_c982469d : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "health", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor_vis", 0);
+		[[ self ]]->set_data(localclientnum, "health", 0);
+		[[ self ]]->set_data(localclientnum, "armor", 0);
+		[[ self ]]->set_data(localclientnum, "armor_vis", 0);
 	}
 
 }
 
-#namespace namespace_d0cd3b4a;
+#namespace zm_corrupted_health_bar;
 
 /*
 	Name: function_e9b6493a
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x8492187C
 	Offset: 0xE0
 	Size: 0x14
@@ -153,7 +153,7 @@ function private autoexec function_e9b6493a()
 
 /*
 	Name: register
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0xA0D5B6F8
 	Offset: 0x100
 	Size: 0x18E
@@ -168,24 +168,24 @@ function register(var_663a86fa, var_4ec2b207, var_ed81ff07)
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_33a4fb36c458f0c0"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_corrupted_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_33a4fb36c458f0c0"] = [];
+		level.var_ae746e8f[#"zm_corrupted_health_bar"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_33a4fb36c458f0c0"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_corrupted_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_33a4fb36c458f0c0"] = [];
+		level.var_ae746e8f[#"zm_corrupted_health_bar"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_33a4fb36c458f0c0"]))
+	else if(!isarray(level.var_ae746e8f[#"zm_corrupted_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_33a4fb36c458f0c0"] = array(level.var_ae746e8f[#"hash_33a4fb36c458f0c0"]);
+		level.var_ae746e8f[#"zm_corrupted_health_bar"] = array(level.var_ae746e8f[#"zm_corrupted_health_bar"]);
 	}
-	level.var_ae746e8f[#"hash_33a4fb36c458f0c0"][level.var_ae746e8f[#"hash_33a4fb36c458f0c0"].size] = elem;
+	level.var_ae746e8f[#"zm_corrupted_health_bar"][level.var_ae746e8f[#"zm_corrupted_health_bar"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x6FE368B5
 	Offset: 0x298
 	Size: 0x34
@@ -201,7 +201,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x81FAE813
 	Offset: 0x2D8
 	Size: 0x1C
@@ -215,7 +215,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x7382A142
 	Offset: 0x300
 	Size: 0x1C
@@ -229,7 +229,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0xF859143F
 	Offset: 0x328
 	Size: 0x1A
@@ -243,7 +243,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_health
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x4A40A87E
 	Offset: 0x350
 	Size: 0x28
@@ -257,7 +257,7 @@ function set_health(localclientnum, value)
 
 /*
 	Name: set_armor
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x13351E94
 	Offset: 0x380
 	Size: 0x28
@@ -271,7 +271,7 @@ function set_armor(localclientnum, value)
 
 /*
 	Name: set_armor_vis
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0xF04C075D
 	Offset: 0x3B0
 	Size: 0x28

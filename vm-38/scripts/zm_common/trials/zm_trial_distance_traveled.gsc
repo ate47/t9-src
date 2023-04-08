@@ -24,7 +24,7 @@ function private autoexec function_9d9edb98()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_distance_traveled
 	Checksum: 0x759DDBD9
 	Offset: 0xC0
@@ -32,9 +32,9 @@ function private autoexec function_9d9edb98()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_4d627d417c74336d", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_distance_traveled", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

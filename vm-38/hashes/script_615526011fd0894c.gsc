@@ -54,7 +54,7 @@ class class_1a456b75 : cLUIelem
 	*/
 	function set_progFracA(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progFracA", value);
+		[[ self ]]->set_data(localclientnum, "progFracA", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class class_1a456b75 : cLUIelem
 	*/
 	function set_progFracB(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progFracB", value);
+		[[ self ]]->set_data(localclientnum, "progFracB", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class class_1a456b75 : cLUIelem
 	*/
 	function set_objectiveWhiteA(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveWhiteA", value);
+		[[ self ]]->set_data(localclientnum, "objectiveWhiteA", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class class_1a456b75 : cLUIelem
 	*/
 	function set_objectiveWhiteB(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveWhiteB", value);
+		[[ self ]]->set_data(localclientnum, "objectiveWhiteB", value);
 	}
 
 	/*
@@ -139,19 +139,19 @@ class class_1a456b75 : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "progFracA", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "progFracB", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveWhiteA", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveWhiteB", 0);
+		[[ self ]]->set_data(localclientnum, "progFracA", 0);
+		[[ self ]]->set_data(localclientnum, "progFracB", 0);
+		[[ self ]]->set_data(localclientnum, "objectiveWhiteA", 0);
+		[[ self ]]->set_data(localclientnum, "objectiveWhiteB", 0);
 	}
 
 }
 
-#namespace namespace_30e191ea;
+#namespace sr_objective_secure_hud;
 
 /*
 	Name: function_5a723dd2
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x4EEFAB08
 	Offset: 0xF0
 	Size: 0x14
@@ -165,7 +165,7 @@ function private autoexec function_5a723dd2()
 
 /*
 	Name: register
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x5BFE41BC
 	Offset: 0x110
 	Size: 0x196
@@ -180,24 +180,24 @@ function register(var_62534560, var_de4b1193, var_b661e7d8, var_2c613188)
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_2005a876548b4b56"]))
+	if(!isdefined(level.var_ae746e8f[#"sr_objective_secure_hud"]))
 	{
-		level.var_ae746e8f[#"hash_2005a876548b4b56"] = [];
+		level.var_ae746e8f[#"sr_objective_secure_hud"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_2005a876548b4b56"]))
+	if(!isdefined(level.var_ae746e8f[#"sr_objective_secure_hud"]))
 	{
-		level.var_ae746e8f[#"hash_2005a876548b4b56"] = [];
+		level.var_ae746e8f[#"sr_objective_secure_hud"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_2005a876548b4b56"]))
+	else if(!isarray(level.var_ae746e8f[#"sr_objective_secure_hud"]))
 	{
-		level.var_ae746e8f[#"hash_2005a876548b4b56"] = array(level.var_ae746e8f[#"hash_2005a876548b4b56"]);
+		level.var_ae746e8f[#"sr_objective_secure_hud"] = array(level.var_ae746e8f[#"sr_objective_secure_hud"]);
 	}
-	level.var_ae746e8f[#"hash_2005a876548b4b56"][level.var_ae746e8f[#"hash_2005a876548b4b56"].size] = elem;
+	level.var_ae746e8f[#"sr_objective_secure_hud"][level.var_ae746e8f[#"sr_objective_secure_hud"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xB3504105
 	Offset: 0x2B0
 	Size: 0x34
@@ -213,7 +213,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xB9E73D81
 	Offset: 0x2F0
 	Size: 0x1C
@@ -227,7 +227,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x6F5221DB
 	Offset: 0x318
 	Size: 0x1C
@@ -241,7 +241,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xA104C566
 	Offset: 0x340
 	Size: 0x1A
@@ -255,7 +255,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_progFracA
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xD05D616A
 	Offset: 0x368
 	Size: 0x28
@@ -269,7 +269,7 @@ function set_progFracA(localclientnum, value)
 
 /*
 	Name: set_progFracB
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xA8046A4C
 	Offset: 0x398
 	Size: 0x28
@@ -283,7 +283,7 @@ function set_progFracB(localclientnum, value)
 
 /*
 	Name: set_objectiveWhiteA
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x95128040
 	Offset: 0x3C8
 	Size: 0x28
@@ -297,7 +297,7 @@ function set_objectiveWhiteA(localclientnum, value)
 
 /*
 	Name: set_objectiveWhiteB
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x9D76353E
 	Offset: 0x3F8
 	Size: 0x28

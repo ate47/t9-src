@@ -24,7 +24,7 @@ function private autoexec function_e41a1412()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_2ed67032
 	Checksum: 0x2907D96
 	Offset: 0x120
@@ -32,7 +32,7 @@ function private autoexec function_e41a1412()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7aac5c09cf9461e3", &function_70a657d8, undefined, &finalize, undefined);
 }
@@ -86,7 +86,7 @@ function function_deb3cb98(oldval, newval)
 	{
 		return;
 	}
-	self.var_8d801ee2 = newval;
+	self.armor_plate_behavior = newval;
 }
 
 /*
@@ -100,9 +100,9 @@ function function_deb3cb98(oldval, newval)
 */
 function private on_player_connect()
 {
-	if(!isdefined(self.var_8d801ee2))
+	if(!isdefined(self.armor_plate_behavior))
 	{
-		self.var_8d801ee2 = (isdefined(self serverfield::get("armor_plate_behavior")) ? self serverfield::get("armor_plate_behavior") : 0);
+		self.armor_plate_behavior = (isdefined(self serverfield::get("armor_plate_behavior")) ? self serverfield::get("armor_plate_behavior") : 0);
 	}
 }
 
@@ -179,7 +179,7 @@ function private function_86b9a404()
 	{
 		return 0;
 	}
-	return self.var_7d7d976a > 0 && armor::function_4f977182() < 225;
+	return self.var_7d7d976a > 0 && armor::get_armor() < 225;
 }
 
 /*
@@ -219,7 +219,7 @@ function private function_d66636df()
 	{
 		self.var_7d7d976a = self.var_7d7d976a - 1;
 		self clientfield::set_player_uimodel("hudItems.armorPlateCount", self.var_7d7d976a);
-		var_8b8faf32 = armor::function_4f977182();
+		var_8b8faf32 = armor::get_armor();
 		var_3d557ef9 = var_8b8faf32 + 75;
 		var_3d557ef9 = int(min(var_3d557ef9, 225));
 		self armor::set_armor(var_3d557ef9, 225, 3, 0.4, 1, 0.5, 0, 1, 1, 1);
@@ -259,13 +259,13 @@ function private function_a7879258(lastweapon)
 	}
 	if(self getcurrentweapon() === level.var_8ef8b9e8)
 	{
-		if(!isdefined(self.var_8d801ee2))
+		if(!isdefined(self.armor_plate_behavior))
 		{
-			self.var_8d801ee2 = (isdefined(self serverfield::get("armor_plate_behavior")) ? self serverfield::get("armor_plate_behavior") : 0);
+			self.armor_plate_behavior = (isdefined(self serverfield::get("armor_plate_behavior")) ? self serverfield::get("armor_plate_behavior") : 0);
 		}
 		self.var_6a0f2dd7 = 0;
 		self.var_32b4a72a = 0;
-		if(self.var_8d801ee2 != 1)
+		if(self.armor_plate_behavior != 1)
 		{
 			self thread function_c81e4a7c();
 		}

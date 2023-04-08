@@ -20,7 +20,7 @@ function private autoexec function_da8fed71()
 #namespace ray_gun;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ray_gun
 	Checksum: 0xC845CB81
 	Offset: 0xA8
@@ -28,7 +28,7 @@ function private autoexec function_da8fed71()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ray_gun", &__init__, undefined, undefined, #"killstreaks");
 }

@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -68,7 +68,7 @@ function init_shared()
 		level.var_6964d56c.var_d67ec774[#"remote_missile"] = 1;
 		level.var_6964d56c.var_d67ec774[#"straferun"] = 1;
 		level.var_6964d56c.var_1543185c = array("ac130", "inventory_ac130", "helicopter_guard", "inventory_helicopter_guard", "chopper_gunner", "inventory_chopper_gunner", "hoverjet", "inventory_hoverjet", "helicopter_comlink", "inventory_helicopter_comlink", "recon_plane", "inventory_recon_plane", "uav", "inventory_uav", "counteruav", "inventory_counteruav");
-		level.var_6964d56c.var_512625a1 = [#"hash_73f41ae07ef2ba54":"uav", #"uav":"uav", #"hash_62a2088c3368ea":"spy_plane_alt", #"recon_plane":"spy_plane_alt", #"hash_511b5c81a984baf9":"hover_jet", #"hoverjet":"hover_jet", #"inventory_helicopter_comlink":"lgt_chop", #"helicopter_comlink":"lgt_chop", #"inventory_helicopter_guard":"lgt_chop", #"helicopter_guard":"lgt_chop", #"hash_65f8a13931095b50":"cuav", #"counteruav":"cuav", #"hash_1bf811fa5d684607":"chop_gun", #"chopper_gunner":"chop_gun", #"hash_459c0007ec5e2470":"gunship", #"ac130":"gunship"];
+		level.var_6964d56c.var_512625a1 = [#"inventory_uav":"uav", #"uav":"uav", #"inventory_recon_plane":"spy_plane_alt", #"recon_plane":"spy_plane_alt", #"inventory_hoverjet":"hover_jet", #"hoverjet":"hover_jet", #"inventory_helicopter_comlink":"lgt_chop", #"helicopter_comlink":"lgt_chop", #"inventory_helicopter_guard":"lgt_chop", #"helicopter_guard":"lgt_chop", #"inventory_counteruav":"cuav", #"counteruav":"cuav", #"inventory_chopper_gunner":"chop_gun", #"chopper_gunner":"chop_gun", #"inventory_ac130":"gunship", #"ac130":"gunship"];
 		level.var_6964d56c.var_e321cb16 = [];
 		if(!isdefined(level.var_2d90c17e))
 		{

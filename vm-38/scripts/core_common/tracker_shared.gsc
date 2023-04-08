@@ -1,4 +1,4 @@
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

@@ -15,7 +15,7 @@
 #using script_40f967ad5d18ea74;
 #using script_413ab8fe25a61c50;
 #using script_47851dbeea22fe66;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4d748e58ce25b60c;
 #using script_4d8045dbc17aa3ee;
 #using script_50fca1a24ae351;
@@ -814,7 +814,7 @@ function function_e591be12()
 {
 	self notify("6e9bc0427b140bde");
 	self endon("6e9bc0427b140bde");
-	level endon(#"hash_3a4493c309cc9b06");
+	level endon(#"doa_roj_visited");
 	if(level flag::get("doa_roj_visited"))
 	{
 		return;

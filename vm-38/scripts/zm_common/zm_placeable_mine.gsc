@@ -31,7 +31,7 @@ function private autoexec function_942e4ef6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_placeable_mine
 	Checksum: 0x7A3ECC37
 	Offset: 0x188
@@ -39,7 +39,7 @@ function private autoexec function_942e4ef6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"placeable_mine", undefined, &function_8ac3bea9, undefined, undefined);
 }

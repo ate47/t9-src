@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\hud_message_shared.gsc;
 #using scripts\core_common\hud_util_shared.gsc;
@@ -28,7 +28,7 @@ function private autoexec function_2f26617a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_ui
 	Checksum: 0x77BA18E3
 	Offset: 0x140
@@ -36,7 +36,7 @@ function private autoexec function_2f26617a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic_ui", &function_70a657d8, undefined, undefined, undefined);
 }

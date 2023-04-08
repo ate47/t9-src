@@ -29,7 +29,7 @@ function private autoexec function_afb2afb5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: userspawnselection
 	Checksum: 0xE5637958
 	Offset: 0x1E0
@@ -37,7 +37,7 @@ function private autoexec function_afb2afb5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"userspawnselection", &function_70a657d8, undefined, undefined, undefined);
 }

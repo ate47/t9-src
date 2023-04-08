@@ -20,7 +20,7 @@ function private autoexec set_lock_on_target()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock_fixup
 	Checksum: 0x8F8D426C
 	Offset: 0xB8
@@ -28,9 +28,9 @@ function private autoexec set_lock_on_target()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_1fd69f0c10bde41c", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"character_unlock_fixup", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
@@ -48,7 +48,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_82330491
+	Name: register_character_unlock
 	Namespace: character_unlock_fixup
 	Checksum: 0x3EB5FB09
 	Offset: 0x118
@@ -56,7 +56,7 @@ function private function_70a657d8()
 	Parameters: 5
 	Flags: Variadic
 */
-function function_82330491(var_79cf244b, var_933cd28f, item, var_f27097cc, ...)
+function register_character_unlock(var_79cf244b, var_933cd28f, item, var_f27097cc, ...)
 {
 	/#
 		assert(vararg.size > 0, "");
@@ -162,7 +162,7 @@ function function_c67a5089()
 	}
 	level.var_755e455a = [];
 	level.var_c70f02d7 = undefined;
-	if(is_true(getgametypesetting(#"hash_58981ece00ffa6bc")))
+	if(is_true(getgametypesetting(#"wzblightfather")))
 	{
 		var_f279f28f = [];
 		for(i = 0; i < var_743d50f5.size; i++)

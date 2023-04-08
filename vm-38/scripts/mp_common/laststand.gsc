@@ -1,9 +1,9 @@
 #using script_184abbae9afad370;
 #using script_243ea03c7a285692;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_29ed825598140ca0;
 #using script_45fdb6cec5580007;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5394c653bafe1358;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\weapons\weapons.gsc;
@@ -46,7 +46,7 @@ function private autoexec function_7802c15d()
 #namespace laststand_mp;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: laststand_mp
 	Checksum: 0xE254804
 	Offset: 0x478
@@ -54,7 +54,7 @@ function private autoexec function_7802c15d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"laststand_mp", &function_70a657d8, undefined, undefined, undefined);
 }

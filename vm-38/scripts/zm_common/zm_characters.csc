@@ -22,7 +22,7 @@ function private autoexec function_4f0a8eeb()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_characters
 	Checksum: 0x514B6B23
 	Offset: 0xF30
@@ -30,7 +30,7 @@ function private autoexec function_4f0a8eeb()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_characters", &function_70a657d8, undefined, undefined, undefined);
 }

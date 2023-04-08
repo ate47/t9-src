@@ -110,11 +110,11 @@ class class_90c2e4ec : cLUIelem
 
 }
 
-#namespace namespace_e7b931aa;
+#namespace sr_orda_health_bar;
 
 /*
 	Name: function_37e53dd1
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xA1C8AD0
 	Offset: 0xE0
 	Size: 0x14
@@ -128,7 +128,7 @@ function private autoexec function_37e53dd1()
 
 /*
 	Name: register
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xC6B82780
 	Offset: 0x100
 	Size: 0x34
@@ -144,7 +144,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x22B7D0A0
 	Offset: 0x140
 	Size: 0x38
@@ -162,7 +162,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xBEEC1AC2
 	Offset: 0x180
 	Size: 0x1C
@@ -176,7 +176,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xD0CA6291
 	Offset: 0x1A8
 	Size: 0x1A
@@ -190,7 +190,7 @@ function is_open(player)
 
 /*
 	Name: set_health
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x8B533391
 	Offset: 0x1D0
 	Size: 0x28
@@ -204,7 +204,7 @@ function set_health(player, value)
 
 /*
 	Name: set_is_beast
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xB6F369C1
 	Offset: 0x200
 	Size: 0x28

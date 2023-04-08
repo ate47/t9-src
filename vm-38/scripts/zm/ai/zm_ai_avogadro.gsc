@@ -36,7 +36,7 @@ function private autoexec function_efa18549()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_avogadro
 	Checksum: 0x155F5924
 	Offset: 0x188
@@ -44,9 +44,9 @@ function private autoexec function_efa18549()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_2d983ef9e336df0b", &function_70a657d8, &function_8ac3bea9, undefined, #"archetype_avogadro");
+	system::register(#"zm_ai_avogadro", &function_70a657d8, &function_8ac3bea9, undefined, #"archetype_avogadro");
 }
 
 /*
@@ -405,7 +405,7 @@ function function_c9791011()
 	/#
 		iprintln((("" + self.origin) + "") + var_b2aa54a9.origin);
 	#/
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	return true;
 }
 

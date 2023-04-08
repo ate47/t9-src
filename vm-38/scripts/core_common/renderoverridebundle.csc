@@ -22,7 +22,7 @@ function private autoexec function_11854b85()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: renderoverridebundle
 	Checksum: 0xC3E2E290
 	Offset: 0x128
@@ -30,7 +30,7 @@ function private autoexec function_11854b85()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register("renderoverridebundle", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -27,7 +27,7 @@ function private autoexec function_f6ab5af1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: oed
 	Checksum: 0xEFB54035
 	Offset: 0x198
@@ -35,7 +35,7 @@ function private autoexec function_f6ab5af1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"oed", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

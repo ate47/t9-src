@@ -2,7 +2,7 @@
 #using scripts\killstreaks\mp\killstreaks.gsc;
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_44b0b8420eabacad;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;

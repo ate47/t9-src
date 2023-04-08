@@ -39,7 +39,7 @@ function private autoexec function_e0643c0f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: archetype_avogadro
 	Checksum: 0xE5D34EFD
 	Offset: 0x3B8
@@ -47,7 +47,7 @@ function private autoexec function_e0643c0f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"archetype_avogadro", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -1522,7 +1522,7 @@ function function_17be9890(eventstruct)
 			break;
 		}
 		case "ambient":
-		case "hash_7609057ae05fd29a":
+		case "ambient_alert":
 		{
 			n_priority = 1;
 			break;

@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -19,7 +19,7 @@ function private autoexec function_bcabca21()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: squads
 	Checksum: 0x8D809BE4
 	Offset: 0xA8
@@ -27,7 +27,7 @@ function private autoexec function_bcabca21()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"squads", &__init__, undefined, undefined, undefined);
 }

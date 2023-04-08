@@ -126,49 +126,49 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionKeepsCurrentMovementMode", &zodcompanionkeepscurrentmovementmode);
 	/#
-		assert(isscriptfunctionptr(&function_ad245111));
+		assert(isscriptfunctionptr(&zodCompanionShouldMelee));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionShouldMelee", &function_ad245111);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionShouldMelee", &zodCompanionShouldMelee);
 	/#
-		assert(isscriptfunctionptr(&function_11e6aca));
+		assert(isscriptfunctionptr(&zodCompanionIsInMeleeCooldown));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsInMeleeCooldown", &function_11e6aca);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsInMeleeCooldown", &zodCompanionIsInMeleeCooldown);
 	/#
-		assert(isscriptfunctionptr(&function_6d669535));
+		assert(isscriptfunctionptr(&zodShouldAttackEnemy));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodShouldAttackEnemy", &function_6d669535);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodShouldAttackEnemy", &zodShouldAttackEnemy);
 	/#
-		assert(isscriptfunctionptr(&function_6379110b));
+		assert(isscriptfunctionptr(&zodCompanionIsExhausted));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsExhausted", &function_6379110b);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsExhausted", &zodCompanionIsExhausted);
 	/#
-		assert(isscriptfunctionptr(&function_b227bb80));
+		assert(isscriptfunctionptr(&zodCompanionHasAttackable));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionHasAttackable", &function_b227bb80);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionHasAttackable", &zodCompanionHasAttackable);
 	/#
 		assert(isscriptfunctionptr(&function_b0f37bd1));
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_20604332da3960bd", &function_b0f37bd1);
 	/#
-		assert(isscriptfunctionptr(&function_eb957b75));
+		assert(isscriptfunctionptr(&zodCompanionHasDefendLocation));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionHasDefendLocation", &function_eb957b75);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionHasDefendLocation", &zodCompanionHasDefendLocation);
 	/#
-		assert(isscriptfunctionptr(&function_7a02ee66));
+		assert(isscriptfunctionptr(&zodCompanionDontShootWhileMoving));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionDontShootWhileMoving", &function_7a02ee66);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionDontShootWhileMoving", &zodCompanionDontShootWhileMoving);
 	/#
-		assert(isscriptfunctionptr(&function_63ea1da8));
+		assert(isscriptfunctionptr(&zodCompanionIsCarryingBomb));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsCarryingBomb", &function_63ea1da8);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsCarryingBomb", &zodCompanionIsCarryingBomb);
 	/#
-		assert(isscriptfunctionptr(&function_f09ebebd));
+		assert(isscriptfunctionptr(&zodCompanionCarryBombCanMove));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionCarryBombCanMove", &function_f09ebebd);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionCarryBombCanMove", &zodCompanionCarryBombCanMove);
 	/#
-		assert(isscriptfunctionptr(&function_4c27129));
+		assert(isscriptfunctionptr(&zodCompanionIsSprinting));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsSprinting", &function_4c27129);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionIsSprinting", &zodCompanionIsSprinting);
 	/#
 		assert(isscriptfunctionptr(&zodcompanioncanjuke));
 	#/
@@ -186,9 +186,9 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionPreemptiveJukeTerminate", &zodcompanionpreemptivejuketerminate);
 	/#
-		assert(isscriptfunctionptr(&function_295d18f9));
+		assert(isscriptfunctionptr(&zodCompanionLeapTerminate));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionLeapTerminate", &function_295d18f9);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionLeapTerminate", &zodCompanionLeapTerminate);
 	/#
 		assert(isscriptfunctionptr(&zodcompaniontargetservice));
 	#/
@@ -206,21 +206,21 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionCollisionService", &zodcompanioncollisionservice);
 	/#
-		assert(isscriptfunctionptr(&function_5e0202e4));
+		assert(isscriptfunctionptr(&tryStoppingCompanionService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("tryStoppingCompanionService", &function_5e0202e4);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("tryStoppingCompanionService", &tryStoppingCompanionService);
 	/#
-		assert(isscriptfunctionptr(&function_28f700f0));
+		assert(isscriptfunctionptr(&zodCompanionExhaustedBehaviorService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionExhaustedBehaviorService", &function_28f700f0);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionExhaustedBehaviorService", &zodCompanionExhaustedBehaviorService);
 	/#
-		assert(isscriptfunctionptr(&function_4c53c3ad));
+		assert(isscriptfunctionptr(&zodCompanionDefendLocationBehaviorService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionDefendLocationBehaviorService", &function_4c53c3ad);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionDefendLocationBehaviorService", &zodCompanionDefendLocationBehaviorService);
 	/#
-		assert(isscriptfunctionptr(&function_6a3f6a31));
+		assert(isscriptfunctionptr(&zodCompanionClearObstacleService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionClearObstacleService", &function_6a3f6a31);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCompanionClearObstacleService", &zodCompanionClearObstacleService);
 	/#
 		assert(!isdefined(&function_72edbea6) || isscriptfunctionptr(&function_72edbea6));
 	#/
@@ -232,22 +232,22 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreeaction("zodProceduralTraversal", &function_72edbea6, &function_7598aa02, &function_74ffdef5);
 	/#
-		assert(isscriptfunctionptr(&function_f5c4149e));
+		assert(isscriptfunctionptr(&zodCalcProceduralTraversal));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCalcProceduralTraversal", &function_f5c4149e);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodCalcProceduralTraversal", &zodCalcProceduralTraversal);
 	/#
 		assert(isscriptfunctionptr(&function_2b827272));
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("zodProceduralLanding", &function_2b827272);
 	/#
-		assert(isscriptfunctionptr(&function_7942d9f2));
+		assert(isscriptfunctionptr(&zodTraverseEnd));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("zodTraverseEnd", &function_7942d9f2);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("zodTraverseEnd", &zodTraverseEnd);
 	animationstatenetwork::registeranimationmocomp("mocomp_procedural_traversal", &function_26cc92cd, &function_7d1f506, &function_dd922f46);
 }
 
 /*
-	Name: function_ad245111
+	Name: zodCompanionShouldMelee
 	Namespace: zodcompanionbehavior
 	Checksum: 0xE5DA91F3
 	Offset: 0x1A60
@@ -255,7 +255,7 @@ function registerbehaviorscriptfunctions()
 	Parameters: 1
 	Flags: Private
 */
-function private function_ad245111(behaviortreeentity)
+function private zodCompanionShouldMelee(behaviortreeentity)
 {
 	if(function_b0f37bd1(behaviortreeentity))
 	{
@@ -302,7 +302,7 @@ function private function_ad245111(behaviortreeentity)
 }
 
 /*
-	Name: function_11e6aca
+	Name: zodCompanionIsInMeleeCooldown
 	Namespace: zodcompanionbehavior
 	Checksum: 0x562AF5BC
 	Offset: 0x1CA0
@@ -310,7 +310,7 @@ function private function_ad245111(behaviortreeentity)
 	Parameters: 1
 	Flags: Private
 */
-function private function_11e6aca(behaviortreeentity)
+function private zodCompanionIsInMeleeCooldown(behaviortreeentity)
 {
 	if(!isdefined(behaviortreeentity))
 	{
@@ -342,7 +342,7 @@ function private function_a8bce123(entity)
 }
 
 /*
-	Name: function_6d669535
+	Name: zodShouldAttackEnemy
 	Namespace: zodcompanionbehavior
 	Checksum: 0x82587A31
 	Offset: 0x1D58
@@ -350,14 +350,14 @@ function private function_a8bce123(entity)
 	Parameters: 1
 	Flags: Private
 */
-function private function_6d669535(entity)
+function private zodShouldAttackEnemy(entity)
 {
 	var_d81e0034 = isdefined(entity.enemy) || isdefined(entity.favoriteenemy);
-	return var_d81e0034 && !function_b227bb80(entity);
+	return var_d81e0034 && !zodCompanionHasAttackable(entity);
 }
 
 /*
-	Name: function_5e0202e4
+	Name: tryStoppingCompanionService
 	Namespace: zodcompanionbehavior
 	Checksum: 0xD39F32E
 	Offset: 0x1DB8
@@ -365,7 +365,7 @@ function private function_6d669535(entity)
 	Parameters: 1
 	Flags: None
 */
-function function_5e0202e4(entity)
+function tryStoppingCompanionService(entity)
 {
 	if(is_true(entity.exhausted) || isdefined(entity.var_9140144d) || isdefined(entity.v_zombie_custom_goal_pos) || is_true(self.reviving_a_player))
 	{
@@ -802,7 +802,7 @@ function private zodcompanionpreemptivejuketerminate(entity)
 }
 
 /*
-	Name: function_295d18f9
+	Name: zodCompanionLeapTerminate
 	Namespace: zodcompanionbehavior
 	Checksum: 0xBFAB9A3E
 	Offset: 0x2E18
@@ -810,7 +810,7 @@ function private zodcompanionpreemptivejuketerminate(entity)
 	Parameters: 1
 	Flags: Private
 */
-function private function_295d18f9(entity)
+function private zodCompanionLeapTerminate(entity)
 {
 	entity setblackboardattribute("_locomotion_speed", "locomotion_speed_walk");
 }
@@ -908,7 +908,7 @@ function private manage_companion_movement(entity)
 	{
 		return;
 	}
-	if(function_63ea1da8(entity))
+	if(zodCompanionIsCarryingBomb(entity))
 	{
 		return;
 	}
@@ -969,7 +969,7 @@ function private manage_companion_movement(entity)
 	}
 	if(isdefined(entity.attackable) && isdefined(entity.var_b238ef38) && isdefined(entity.var_b238ef38.position))
 	{
-		if(function_eb957b75(entity))
+		if(zodCompanionHasDefendLocation(entity))
 		{
 			entity zodcompanionutility::function_34179e9a();
 		}
@@ -1249,7 +1249,7 @@ function private pick_new_movement_point()
 		self.next_move_time = gettime() + randomintrange(20000, 30000);
 		return;
 	}
-	if(namespace_47c5b560::function_a69c4b69(self) || is_true(self.var_2b5f41fd))
+	if(namespace_47c5b560::aiShouldLeap(self) || is_true(self.var_2b5f41fd))
 	{
 		/#
 			if(getdvarint(#"hash_1b2cf8e5ac354d32", 0))
@@ -1659,7 +1659,7 @@ function private zodcompanionsprinttransitioning(behaviortreeentity)
 }
 
 /*
-	Name: function_6379110b
+	Name: zodCompanionIsExhausted
 	Namespace: zodcompanionbehavior
 	Checksum: 0x9A09F14C
 	Offset: 0x5678
@@ -1667,13 +1667,13 @@ function private zodcompanionsprinttransitioning(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_6379110b(behaviortreeentity)
+function zodCompanionIsExhausted(behaviortreeentity)
 {
 	return is_true(behaviortreeentity.exhausted);
 }
 
 /*
-	Name: function_28f700f0
+	Name: zodCompanionExhaustedBehaviorService
 	Namespace: zodcompanionbehavior
 	Checksum: 0xFC3D3C9A
 	Offset: 0x56A8
@@ -1681,7 +1681,7 @@ function function_6379110b(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_28f700f0(behaviortreeentity)
+function zodCompanionExhaustedBehaviorService(behaviortreeentity)
 {
 	if(!is_true(behaviortreeentity.exhausted))
 	{
@@ -1697,7 +1697,7 @@ function function_28f700f0(behaviortreeentity)
 }
 
 /*
-	Name: function_eb957b75
+	Name: zodCompanionHasDefendLocation
 	Namespace: zodcompanionbehavior
 	Checksum: 0x4E49CB28
 	Offset: 0x5778
@@ -1705,7 +1705,7 @@ function function_28f700f0(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_eb957b75(behaviortreeentity)
+function zodCompanionHasDefendLocation(behaviortreeentity)
 {
 	return isdefined(behaviortreeentity.var_9140144d);
 }
@@ -1725,7 +1725,7 @@ function function_55a341c9(behaviortreeentity)
 }
 
 /*
-	Name: function_4c53c3ad
+	Name: zodCompanionDefendLocationBehaviorService
 	Namespace: zodcompanionbehavior
 	Checksum: 0x1638C395
 	Offset: 0x57D0
@@ -1733,13 +1733,13 @@ function function_55a341c9(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_4c53c3ad(behaviortreeentity)
+function zodCompanionDefendLocationBehaviorService(behaviortreeentity)
 {
-	if(!function_eb957b75(behaviortreeentity))
+	if(!zodCompanionHasDefendLocation(behaviortreeentity))
 	{
 		return;
 	}
-	if(function_6379110b(behaviortreeentity))
+	if(zodCompanionIsExhausted(behaviortreeentity))
 	{
 		return;
 	}
@@ -1782,7 +1782,7 @@ function function_4c53c3ad(behaviortreeentity)
 }
 
 /*
-	Name: function_6a3f6a31
+	Name: zodCompanionClearObstacleService
 	Namespace: zodcompanionbehavior
 	Checksum: 0x2921D5E9
 	Offset: 0x59E8
@@ -1790,7 +1790,7 @@ function function_4c53c3ad(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_6a3f6a31(behaviortreeentity)
+function zodCompanionClearObstacleService(behaviortreeentity)
 {
 	var_126918fc = function_55a341c9(behaviortreeentity);
 	time = gettime();
@@ -1859,7 +1859,7 @@ function function_6a3f6a31(behaviortreeentity)
 }
 
 /*
-	Name: function_7a02ee66
+	Name: zodCompanionDontShootWhileMoving
 	Namespace: zodcompanionbehavior
 	Checksum: 0x1174F71F
 	Offset: 0x5D50
@@ -1867,13 +1867,13 @@ function function_6a3f6a31(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_7a02ee66(behaviortreeentity)
+function zodCompanionDontShootWhileMoving(behaviortreeentity)
 {
-	return function_6379110b(behaviortreeentity) || function_eb957b75(behaviortreeentity);
+	return zodCompanionIsExhausted(behaviortreeentity) || zodCompanionHasDefendLocation(behaviortreeentity);
 }
 
 /*
-	Name: function_4c27129
+	Name: zodCompanionIsSprinting
 	Namespace: zodcompanionbehavior
 	Checksum: 0x7F5404DC
 	Offset: 0x5D98
@@ -1881,13 +1881,13 @@ function function_7a02ee66(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_4c27129(behaviortreeentity)
+function zodCompanionIsSprinting(behaviortreeentity)
 {
 	return behaviortreeentity getblackboardattribute("_locomotion_speed") === "locomotion_speed_sprint";
 }
 
 /*
-	Name: function_b227bb80
+	Name: zodCompanionHasAttackable
 	Namespace: zodcompanionbehavior
 	Checksum: 0x3344D6B3
 	Offset: 0x5DD8
@@ -1895,7 +1895,7 @@ function function_4c27129(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_b227bb80(behaviortreeentity)
+function zodCompanionHasAttackable(behaviortreeentity)
 {
 	return isdefined(behaviortreeentity.attackable);
 }
@@ -1927,7 +1927,7 @@ function function_b0f37bd1(behaviortreeentity)
 }
 
 /*
-	Name: function_f5c4149e
+	Name: zodCalcProceduralTraversal
 	Namespace: zodcompanionbehavior
 	Checksum: 0xD6939960
 	Offset: 0x5EA0
@@ -1935,7 +1935,7 @@ function function_b0f37bd1(behaviortreeentity)
 	Parameters: 1
 	Flags: Private
 */
-function private function_f5c4149e(entity)
+function private zodCalcProceduralTraversal(entity)
 {
 	if(isdefined(entity.traversestartnode) && isdefined(entity.traverseendnode))
 	{
@@ -2104,7 +2104,7 @@ function private function_74ffdef5(entity, asmstatename)
 }
 
 /*
-	Name: function_7942d9f2
+	Name: zodTraverseEnd
 	Namespace: zodcompanionbehavior
 	Checksum: 0xE2AE9FCE
 	Offset: 0x6688
@@ -2112,7 +2112,7 @@ function private function_74ffdef5(entity, asmstatename)
 	Parameters: 1
 	Flags: Private
 */
-function private function_7942d9f2(entity)
+function private zodTraverseEnd(entity)
 {
 	function_74ffdef5(entity);
 	entity.skipdeath = 0;
@@ -2220,7 +2220,7 @@ function private calculatecubicbezier(t, p1, p2, p3, p4)
 }
 
 /*
-	Name: function_63ea1da8
+	Name: zodCompanionIsCarryingBomb
 	Namespace: zodcompanionbehavior
 	Checksum: 0x4718AF46
 	Offset: 0x6BA0
@@ -2228,13 +2228,13 @@ function private calculatecubicbezier(t, p1, p2, p3, p4)
 	Parameters: 1
 	Flags: None
 */
-function function_63ea1da8(behaviortreeentity)
+function zodCompanionIsCarryingBomb(behaviortreeentity)
 {
 	return is_true(behaviortreeentity.var_fee1e0f4);
 }
 
 /*
-	Name: function_f09ebebd
+	Name: zodCompanionCarryBombCanMove
 	Namespace: zodcompanionbehavior
 	Checksum: 0x2D4D08DE
 	Offset: 0x6BD0
@@ -2242,7 +2242,7 @@ function function_63ea1da8(behaviortreeentity)
 	Parameters: 1
 	Flags: None
 */
-function function_f09ebebd(behaviortreeentity)
+function zodCompanionCarryBombCanMove(behaviortreeentity)
 {
 	if(behaviortreeentity zodcompanionutility::function_be70ddb1() <= 0)
 	{
@@ -2559,7 +2559,7 @@ function manage_companion()
 	self endon(#"death");
 	while(true)
 	{
-		if(!self.reviving_a_player && !zodcompanionbehavior::function_6379110b(self))
+		if(!self.reviving_a_player && !zodcompanionbehavior::zodCompanionIsExhausted(self))
 		{
 			if(!isdefined(self.leader) || !self.leader.eligible_leader)
 			{
@@ -2722,7 +2722,7 @@ function function_14f3d97b(goalpos, var_ff1d11ed)
 	}
 	self endon(#"death");
 	var_5a7117fb = undefined;
-	if(is_true(var_ff1d11ed) && zodcompanionbehavior::function_eb957b75(self))
+	if(is_true(var_ff1d11ed) && zodcompanionbehavior::zodCompanionHasDefendLocation(self))
 	{
 		self function_34179e9a();
 	}
@@ -2792,7 +2792,7 @@ function function_633d6f7b(var_ff1d11ed)
 	{
 		var_ff1d11ed = 1;
 	}
-	if(is_true(var_ff1d11ed) && zodcompanionbehavior::function_eb957b75(self))
+	if(is_true(var_ff1d11ed) && zodcompanionbehavior::zodCompanionHasDefendLocation(self))
 	{
 		self function_34179e9a();
 	}
@@ -2817,15 +2817,15 @@ function function_fc7a4f48(goalpos, var_f36009e2)
 	{
 		var_f36009e2 = 0;
 	}
-	if(zodcompanionbehavior::function_6379110b(self))
+	if(zodcompanionbehavior::zodCompanionIsExhausted(self))
 	{
 		return 0;
 	}
-	if(zodcompanionbehavior::function_63ea1da8(self))
+	if(zodcompanionbehavior::zodCompanionIsCarryingBomb(self))
 	{
 		return 0;
 	}
-	if(namespace_47c5b560::function_a69c4b69(self))
+	if(namespace_47c5b560::aiShouldLeap(self))
 	{
 		/#
 			if(getdvarint(#"hash_1b2cf8e5ac354d32", 0))
@@ -3173,7 +3173,7 @@ function function_681263de()
 		}
 	#/
 	self.var_c7f5b6e1 = undefined;
-	if(zodcompanionbehavior::function_eb957b75(self))
+	if(zodcompanionbehavior::zodCompanionHasDefendLocation(self))
 	{
 		/#
 			if(getdvarint(#"hash_1b2cf8e5ac354d32", 0))

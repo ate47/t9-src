@@ -1233,7 +1233,7 @@ class class_f4bf8a8
 	}
 
 	/*
-		Name: function_cb179d87
+		Name: setWild
 		Namespace: namespace_f4bf8a8
 		Checksum: 0xB4A4524
 		Offset: 0x2330
@@ -1241,7 +1241,7 @@ class class_f4bf8a8
 		Parameters: 1
 		Flags: None
 	*/
-	function function_cb179d87(set)
+	function setWild(set)
 	{
 		self.var_c0023851 = set;
 	}
@@ -1667,7 +1667,7 @@ function function_afa7d50a(arena_struct, index)
 	level.doa.arenas[[[ arena ]]->getid()] = arena;
 	var_663588d = "Zombietron/Arenas/";
 	var_59ea00e = ("scr_arena_activate " + ([[ arena ]]->getname())) + "; zombie_devgui arena";
-	util::function_e2e9d901(((var_663588d + ([[ arena ]]->getname())) + ":") + ([[ arena ]]->getid()), var_59ea00e);
+	util::add_devgui(((var_663588d + ([[ arena ]]->getname())) + ":") + ([[ arena ]]->getid()), var_59ea00e);
 }
 
 /*
@@ -2169,7 +2169,7 @@ function function_6d6bfe1f(var_e1dd1170, rounds)
 			level namespace_a6ddb172::function_7a0e5387(10);
 			result = undefined;
 			result = level waittill(#"doa_exit_taken");
-			playsoundatposition(#"hash_3959c4c416ecc9e3", (0, 0, 0));
+			playsoundatposition(#"evt_doa_travel_doors_chosen", (0, 0, 0));
 			namespace_1e25ad94::debugmsg(("Arena (" + var_4a140058) + ") waiting for doa_exit_taken recieved");
 			[[ level.doa.var_39e3fa99 ]]->function_7ce9bb97();
 			var_1075516b = result.direction;

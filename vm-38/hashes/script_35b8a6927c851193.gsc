@@ -45,7 +45,7 @@ function private autoexec function_8232c56d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_98decc78
 	Checksum: 0x91D1FCCD
 	Offset: 0x340
@@ -53,7 +53,7 @@ function private autoexec function_8232c56d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5cb28995c23c44a", &function_70a657d8, &main, undefined, undefined);
 }
@@ -111,7 +111,7 @@ function private main()
 	{
 		callback::add_callback(#"hash_70eeb7d813f149b2", &namespace_85745671::function_cf065988);
 		callback::add_callback(#"hash_15858698313c5f32", &namespace_85745671::function_b0503d98);
-		turretweapon = getweapon(#"hash_36a6454f13b54f18");
+		turretweapon = getweapon(#"gun_ultimate_turret");
 		if(isdefined(turretweapon))
 		{
 			turretweapon = turretweapon.rootweapon;

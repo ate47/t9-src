@@ -19,7 +19,7 @@ function private autoexec function_4a9fd469()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scythe
 	Checksum: 0x70785597
 	Offset: 0x98
@@ -27,9 +27,9 @@ function private autoexec function_4a9fd469()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_ddd96714b2ba3e5", &__init__, undefined, undefined, #"killstreaks");
+	system::register(#"scythe", &__init__, undefined, undefined, #"killstreaks");
 }
 
 /*

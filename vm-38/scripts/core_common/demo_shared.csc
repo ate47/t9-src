@@ -22,7 +22,7 @@ function private autoexec function_9eb68cc3()
 #namespace demo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: demo
 	Checksum: 0x59B4E56
 	Offset: 0xA0
@@ -30,7 +30,7 @@ function private autoexec function_9eb68cc3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"demo", &function_70a657d8, undefined, undefined, undefined);
 }

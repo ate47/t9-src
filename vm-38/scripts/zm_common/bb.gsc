@@ -20,7 +20,7 @@ function private autoexec function_263830df()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bb
 	Checksum: 0xA277CF56
 	Offset: 0xD8
@@ -28,7 +28,7 @@ function private autoexec function_263830df()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bb", &function_70a657d8, undefined, undefined, undefined);
 }

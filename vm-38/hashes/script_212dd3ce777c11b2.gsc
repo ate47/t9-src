@@ -36,12 +36,12 @@ event main(eventstruct)
 	{
 		return;
 	}
-	clientfield::register("scriptmover", "zm_round_accelerant_fx", 15000, 2, "int", &function_bb1b5812, 0, 0);
+	clientfield::register("scriptmover", "zm_round_accelerant_fx", 15000, 2, "int", &zm_round_accelerant_fx, 0, 0);
 	clientfield::function_5b7d846d("hud_items_rampage_inducer.rampage_state", #"hash_5c79bc8ee1ef9f4c", #"hash_19252472c38c39f6", 15000, 2, "int", undefined, 0, 0);
 }
 
 /*
-	Name: function_bb1b5812
+	Name: zm_round_accelerant_fx
 	Namespace: namespace_d592c983
 	Checksum: 0x2A7B2002
 	Offset: 0x1F8
@@ -49,7 +49,7 @@ event main(eventstruct)
 	Parameters: 7
 	Flags: Linked
 */
-function function_bb1b5812(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function zm_round_accelerant_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump >= 2)
 	{

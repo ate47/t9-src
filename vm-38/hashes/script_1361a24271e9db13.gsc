@@ -48,11 +48,11 @@ function private autoexec function_3c569b71()
 	level notify(1876230091);
 }
 
-#namespace namespace_4926d69e;
+#namespace tkdn_af_intro;
 
 /*
 	Name: starting
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0x4E4B5FA3
 	Offset: 0x348
 	Size: 0x9C
@@ -68,14 +68,14 @@ function starting(str_skipto)
 			iprintlnbold("");
 		}
 	#/
-	namespace_7d4dd7f0::function_a2015343();
+	tkdn_af_hill::function_a2015343();
 	level scene::init("scene_tkd_hit3_intro");
 	player freezecontrols(1);
 }
 
 /*
 	Name: main
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0x4513B1A5
 	Offset: 0x3F0
 	Size: 0x67C
@@ -118,7 +118,7 @@ function main(str_skipto, b_starting)
 	thread function_d12ea338();
 	music::setmusicstate("b1.0_opening_part_2");
 	snd::function_7db65a93("af_intro_camera_whoosh");
-	namespace_a052577e::function_7c1cb9f9();
+	namespace_a052577e::evt_transition_roof_to_airfield_camera_pt2();
 	wait(1.5);
 	level thread function_1dee368();
 	wait(2);
@@ -146,8 +146,8 @@ function main(str_skipto, b_starting)
 	music::playstinger("b1.5_airfield_reveal");
 	player util::blend_movespeedscale(0.6, 2);
 	namespace_82bfe441::fade(0, "FadeSlow");
-	var_19a8c4d9 = vehicle::simple_spawn_and_drive("plane_flyover");
-	thread namespace_a052577e::function_92a6fd6a(var_19a8c4d9);
+	plane_flyover = vehicle::simple_spawn_and_drive("plane_flyover");
+	thread namespace_a052577e::function_92a6fd6a(plane_flyover);
 	level flag::wait_till("start_tarmac");
 	if(isdefined(b_starting))
 	{
@@ -157,7 +157,7 @@ function main(str_skipto, b_starting)
 
 /*
 	Name: function_b598d07b
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0x672E0954
 	Offset: 0xA78
 	Size: 0x3C
@@ -172,7 +172,7 @@ function function_b598d07b()
 
 /*
 	Name: function_1dee368
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0xA45AB851
 	Offset: 0xAC0
 	Size: 0xC4
@@ -196,7 +196,7 @@ function function_1dee368(var_54fed624)
 
 /*
 	Name: function_d12ea338
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0xE3824562
 	Offset: 0xB90
 	Size: 0x4C
@@ -211,7 +211,7 @@ function function_d12ea338()
 
 /*
 	Name: function_cc5aa221
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0xD3031848
 	Offset: 0xBE8
 	Size: 0x3C
@@ -226,7 +226,7 @@ function function_cc5aa221()
 
 /*
 	Name: cleanup
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0xFC6B5C22
 	Offset: 0xC30
 	Size: 0x64
@@ -241,7 +241,7 @@ function cleanup(name, starting, direct, player)
 
 /*
 	Name: init_flags
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0xF18C1B93
 	Offset: 0xCA0
 	Size: 0x24
@@ -255,7 +255,7 @@ function init_flags()
 
 /*
 	Name: init_clientfields
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0x80F724D1
 	Offset: 0xCD0
 	Size: 0x4
@@ -268,7 +268,7 @@ function init_clientfields()
 
 /*
 	Name: init_scenes
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0x80F724D1
 	Offset: 0xCE0
 	Size: 0x4
@@ -281,7 +281,7 @@ function init_scenes()
 
 /*
 	Name: function_78bc26d5
-	Namespace: namespace_4926d69e
+	Namespace: tkdn_af_intro
 	Checksum: 0xE4E9772D
 	Offset: 0xCF0
 	Size: 0x34

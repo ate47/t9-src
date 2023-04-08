@@ -121,8 +121,8 @@ function init()
 	level._effect[#"timeshift"] = "doa/fx_powerup_timeshift_doa";
 	level._effect[#"timeshift_contact"] = "doa/fx_powerup_timeshift_impact_doa";
 	level._effect[#"timeshift_fade"] = "doa/fx_powerup_timeshift_fade_doa";
-	level._effect[#"hash_1dee926669ace9b2"] = "doa/fx_powerup_timeshift_impact_nolight_doa";
-	level._effect[#"hash_1c8fc56785d941e4"] = "doa/fx_powerup_timeshift_nolight_os";
+	level._effect[#"divine_shield"] = "doa/fx_powerup_timeshift_impact_nolight_doa";
+	level._effect[#"divine_shield_off"] = "doa/fx_powerup_timeshift_nolight_os";
 	level._effect[#"teamshift_contact"] = "doa/fx_horn_doa";
 	level._effect[#"teamshift"] = "doa/fx_powerup_timeshift_red_doa";
 	level._effect[#"monkey_light"] = "zm_weapons/fx8_cymbal_monkey_light";
@@ -222,10 +222,10 @@ function init()
 	level._effect[#"pole_zombie_elecburst"] = "electric/fx_sparks_burst_dir_md_z270_blue_os";
 	level._effect[#"hash_28c1e4ce78b7e9aa"] = "weapon/fx9_muz_md_gas_3p";
 	level._effect[#"water_explosion"] = "explosions/fx9_bm_exp_surface_water_250";
-	level._effect[#"hash_22c8fdd42917578a"] = "doa/fx8_geyser";
-	level._effect[#"hash_5ce628ec3001069b"] = "water/fx_water_geyser_md";
-	level._effect[#"hash_37ed381b36957f5c"] = "doa/fx9_water_boil_area_ambient";
-	level._effect[#"hash_7f7f1be6055f9f8"] = "doa/fx9_water_boil_death_area_rnr";
+	level._effect[#"water_geyser"] = "doa/fx8_geyser";
+	level._effect[#"water_geyser_sm"] = "water/fx_water_geyser_md";
+	level._effect[#"water_boil_ambient"] = "doa/fx9_water_boil_area_ambient";
+	level._effect[#"water_boil_deathzone"] = "doa/fx9_water_boil_death_area_rnr";
 	level._effect[#"remote_player_busy"] = "doa/fx9_marker_lightbulb";
 	namespace_7e1ec234::function_10d1200d();
 	level.var_8056ac44 = array(level._effect[#"hash_551e1d0fcdb105e6"], level._effect[#"hash_4b37c12194af9a3b"], level._effect[#"hash_7ce5c47eb2a473c1"], level._effect[#"hash_551e1d0fcdb105e6"], level._effect[#"hash_4b37c12194af9a3b"]);

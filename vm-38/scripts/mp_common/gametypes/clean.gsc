@@ -3,7 +3,7 @@
 #using script_335d0650ed05d36d;
 #using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\abilities\mp\gadgets\gadget_smart_cover.gsc;
@@ -45,7 +45,7 @@ function private autoexec function_87d73a7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: clean
 	Checksum: 0xE5E1DEE6
 	Offset: 0x618
@@ -53,7 +53,7 @@ function private autoexec function_87d73a7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"clean", &function_70a657d8, undefined, undefined, undefined);
 }

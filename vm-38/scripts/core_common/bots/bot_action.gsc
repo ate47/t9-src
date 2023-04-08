@@ -1,6 +1,6 @@
-#using script_1a36b1b297e29367;
+#using scripts\core_common\bots\bot_actions.gsc;
 #using scripts\core_common\bots\bot.gsc;
-#using script_bc437ea5aebf041;
+#using scripts\core_common\bots\bot_weapons.gsc;
 #using scripts\core_common\util_shared.gsc;
 
 #namespace bot_action;
@@ -32,8 +32,8 @@ function function_70a657d8()
 {
 	level.botactions = [];
 	level.botweapons = [];
-	namespace_eed5a117::function_70a657d8();
-	namespace_d9f3dd47::function_70a657d8();
+	bot_actions::function_70a657d8();
+	bot_weapons::function_70a657d8();
 }
 
 /*

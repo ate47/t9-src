@@ -27,7 +27,7 @@ function private autoexec function_6d5ea4eb()
 #namespace trigger;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: trigger
 	Checksum: 0x665AFA31
 	Offset: 0x238
@@ -35,7 +35,7 @@ function private autoexec function_6d5ea4eb()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"trigger", &function_70a657d8, undefined, undefined, undefined);
 }

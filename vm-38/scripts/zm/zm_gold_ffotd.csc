@@ -17,7 +17,7 @@ function private autoexec function_e2d7eb86()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_gold_ffotd
 	Checksum: 0xF9B48D51
 	Offset: 0x88
@@ -25,7 +25,7 @@ function private autoexec function_e2d7eb86()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_gold_ffotd", &function_70a657d8, undefined, undefined, undefined);
 }

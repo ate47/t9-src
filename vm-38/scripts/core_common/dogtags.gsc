@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6167e26342be354b;
 #using script_7a8059ca02b7b09e;
 #using scripts\core_common\callbacks_shared.gsc;

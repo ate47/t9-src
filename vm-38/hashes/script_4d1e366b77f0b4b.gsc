@@ -1,7 +1,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_178024232e91b0a1;
 #using script_1940fc077a028a81;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\zm\powerup\zm_powerup_nuke.gsc;
 #using script_2c5daa95f8fec03c;
 #using scripts\core_common\ai\archetype_mocomps_utility.gsc;
@@ -76,7 +76,7 @@ function private autoexec function_e1a65ec8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_88795f45
 	Checksum: 0xCF8CA5D
 	Offset: 0x6F8
@@ -84,7 +84,7 @@ function private autoexec function_e1a65ec8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_338a74f5c94ba66a", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -986,7 +986,7 @@ function function_99c14949()
 		function_ee21651d((("" + self.origin) + "") + var_b2aa54a9.origin);
 	#/
 	self function_bf898e7e(0);
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	self clientfield::increment("steiner_cleanup_teleport_clientfield");
 	self function_bf898e7e(1);
 	return true;
@@ -4236,12 +4236,12 @@ function private function_aed09e18(var_2fa3c4c9, location)
 	}
 	if(isdefined(location))
 	{
-		spawner = #"hash_1a09a8e1ac15a85";
+		spawner = #"spawner_zm_steiner_f";
 		if(var_2fa3c4c9[0] function_1e521615())
 		{
 			spawner = #"spawner_zm_steiner_hvt";
 		}
-		steiner = spawnactor(#"hash_1a09a8e1ac15a85", location.origin, location.angles);
+		steiner = spawnactor(#"spawner_zm_steiner_f", location.origin, location.angles);
 		if(isdefined(steiner))
 		{
 			steiner forceteleport(location.origin, location.angles);
@@ -4274,7 +4274,7 @@ function private function_aed09e18(var_2fa3c4c9, location)
 */
 function function_f045e7c(location, var_c406df14)
 {
-	steiner = spawnactor(#"hash_1a09a8e1ac15a85", location.origin, location.angles);
+	steiner = spawnactor(#"spawner_zm_steiner_f", location.origin, location.angles);
 	if(isdefined(steiner))
 	{
 		steiner forceteleport(location.origin, location.angles);

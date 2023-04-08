@@ -31,7 +31,7 @@ function private autoexec function_471a7872()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_weapon_minigun
 	Checksum: 0x84F24CE
 	Offset: 0x180
@@ -39,7 +39,7 @@ function private autoexec function_471a7872()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_weapon_minigun", &function_70a657d8, undefined, undefined, undefined);
 }

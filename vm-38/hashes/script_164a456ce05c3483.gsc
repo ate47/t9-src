@@ -9,7 +9,7 @@
 #using script_2474a362752098d2;
 #using script_2a5bf5b4a00cee0d;
 #using script_350cffecd05ef6cf;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_40f967ad5d18ea74;
 #using script_4611af4073d18808;
 #using script_47851dbeea22fe66;
@@ -264,7 +264,7 @@ function function_fcc90081(var_45b95f80)
 		self.doa.var_909a4dd5 = 0;
 		self.doa.var_484cc88b = 0;
 		self.doa.rof = undefined;
-		self.doa.var_a653de3f = undefined;
+		self.doa.roj = undefined;
 		self.doa.color = function_83fe843d(self);
 		self.doa.var_d6b75dff = 0;
 		self.doa.var_1106edda = 0;
@@ -1275,11 +1275,11 @@ function function_5ed5daa7()
 	#/
 	if(self doa_fate::function_d17f9bcb())
 	{
-		self.doa.score.var_7a3c00a0 = int(max(self.doa.score.var_7a3c00a0, 2));
+		self.doa.score.boosts = int(max(self.doa.score.boosts, 2));
 	}
 	else
 	{
-		self.doa.score.var_7a3c00a0 = int(max(self.doa.score.var_7a3c00a0, 1));
+		self.doa.score.boosts = int(max(self.doa.score.boosts, 1));
 	}
 	if(self doa_fate::function_8a19ece())
 	{
@@ -1338,7 +1338,7 @@ function function_d0251f76(var_8987df35)
 		player.doa.var_d320bb5d = undefined;
 		player namespace_83eb6304::turnofffx("lantern_fade");
 		player namespace_83eb6304::turnofffx("lantern");
-		player notify(#"hash_432f04354a59ffb1");
+		player notify(#"lantern_terminated");
 		if(isdefined(player.doa.var_ad639ebd))
 		{
 			player.doa.var_ad639ebd delete();

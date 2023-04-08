@@ -20,7 +20,7 @@ function private autoexec function_8e9b43f6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gravity_spikes
 	Checksum: 0x4BB679E0
 	Offset: 0xD0
@@ -28,7 +28,7 @@ function private autoexec function_8e9b43f6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gravity_spikes", &function_70a657d8, undefined, undefined, undefined);
 }

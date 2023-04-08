@@ -34,7 +34,7 @@ function private autoexec function_575bffe0()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_c09ae6c3
 	Checksum: 0x5FCAD040
 	Offset: 0x1A0
@@ -42,7 +42,7 @@ function private autoexec function_575bffe0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_50d62958d724dac2", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -478,7 +478,7 @@ function function_7c1cc13c(player, weapon, model)
 	currentclip = player getweaponammoclip(weapon);
 	maxammo = weapon.maxammo;
 	var_53b14ebf = weapon.clipsize;
-	player playrumbleonentity(#"hash_410bd55524ae7d");
+	player playrumbleonentity(#"zm_interact_rumble");
 	if(currentclip < weapon.clipsize && (maxammo == 0 || is_true(weapon.cliponly)) && has_enough)
 	{
 		if(player hasweapon(weapon))

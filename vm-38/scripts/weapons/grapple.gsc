@@ -23,7 +23,7 @@ function private autoexec function_a1b1878d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: grapple
 	Checksum: 0xB919E64
 	Offset: 0xB8
@@ -31,7 +31,7 @@ function private autoexec function_a1b1878d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"grapple", &function_70a657d8, undefined, undefined, undefined);
 }

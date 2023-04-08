@@ -7,7 +7,7 @@
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7d7ac1f663edcdc8;
 #using script_7fc996fe8678852;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -40,7 +40,7 @@ function private autoexec function_b6d82f08()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_4b9fccd8
 	Checksum: 0x3091B662
 	Offset: 0x298
@@ -48,7 +48,7 @@ function private autoexec function_b6d82f08()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_794c3bb2e36b3278", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -671,7 +671,7 @@ function function_4609e67c(machine, trigger)
 										break;
 									}
 								}
-								self playrumbleonentity(#"hash_410bd55524ae7d");
+								self playrumbleonentity(#"zm_interact_rumble");
 								self zm_weapons::function_37e9e0cb(item, weapon, aat_name);
 								self zm_score::minus_to_player_score(var_dfa2c41b);
 								self zm_stats::increment_client_stat(#"hash_1bcba3bbca05dee0");
@@ -706,7 +706,7 @@ function function_4609e67c(machine, trigger)
 						{
 							self playlocalsound(#"hash_1a8a0ca90d106338" + var_a8bccf69);
 							self item_inventory::function_73ae3380(item, var_a8bccf69);
-							self playrumbleonentity(#"hash_410bd55524ae7d");
+							self playrumbleonentity(#"zm_interact_rumble");
 							self zm_score::minus_to_player_score(var_340eb1b);
 							self zm_stats::increment_client_stat(#"hash_14f07bc6dbeaab78" + var_a8bccf69);
 							self zm_stats::increment_player_stat(#"hash_14f07bc6dbeaab78" + var_a8bccf69);

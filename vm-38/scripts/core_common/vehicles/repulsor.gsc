@@ -24,7 +24,7 @@ function private autoexec function_a9f527d7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: repulsor
 	Checksum: 0x6CA6B2B4
 	Offset: 0x1F0
@@ -32,7 +32,7 @@ function private autoexec function_a9f527d7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"repulsor", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -1,5 +1,5 @@
 #using script_32c8b5b0eb2854f3;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\persistence_shared.gsc;
 #using scripts\core_common\spectating.gsc;
@@ -26,7 +26,7 @@ function private autoexec function_61e55cd9()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: teams
 	Checksum: 0x42102778
 	Offset: 0xF8
@@ -34,7 +34,7 @@ function private autoexec function_61e55cd9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"teams", &function_70a657d8, undefined, undefined, undefined);
 }

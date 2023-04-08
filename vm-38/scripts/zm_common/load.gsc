@@ -5,7 +5,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;
 #using script_42f9a645e203120c;
-#using script_47495939f228e438;
+#using scripts\zm_common\zm_aoe.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
 #using script_54f593f5beb1464a;
 #using script_5e96d104c70be5ac;

@@ -29,7 +29,7 @@ function private autoexec function_b0702527()
 #namespace rat;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: rat
 	Checksum: 0x640A85A9
 	Offset: 0xD8
@@ -37,7 +37,7 @@ function private autoexec function_b0702527()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"hash_2a909a3d7374cf00", &function_70a657d8, undefined, undefined, undefined);
@@ -435,7 +435,7 @@ function function_92891f6e(params)
 			return 0;
 		}
 		instance = level.var_7d45d0d4.var_3385b421;
-		objective_manager::function_2c679cc2(level.var_7d45d0d4.var_3385b421, var_4f7fa3d1);
+		objective_manager::objective_ended(level.var_7d45d0d4.var_3385b421, var_4f7fa3d1);
 		return instance.success;
 	#/
 }

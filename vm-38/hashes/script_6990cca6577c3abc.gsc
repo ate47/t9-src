@@ -32,7 +32,7 @@ function private autoexec function_92bf3fd3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_6fc19861
 	Checksum: 0xE85F1F9E
 	Offset: 0x280
@@ -40,7 +40,7 @@ function private autoexec function_92bf3fd3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4c62174ea005e84e", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -274,8 +274,8 @@ function function_16139ef4(params)
 		}
 		if(function_565c848a(params.weapon))
 		{
-			self thread function_db4bf625(params.weapon);
-			self thread function_219565f5(params.weapon);
+			self thread axe_right_melee_attack_think(params.weapon);
+			self thread axe_left_throw_attack_think(params.weapon);
 			self clientfield::set("" + #"hash_5d6139b1ce0e7c82", 1);
 			if(!is_true(self.var_7fe71a4d))
 			{
@@ -541,7 +541,7 @@ function function_6c14b72a()
 }
 
 /*
-	Name: function_db4bf625
+	Name: axe_right_melee_attack_think
 	Namespace: namespace_6fc19861
 	Checksum: 0xFA74FF92
 	Offset: 0x1888
@@ -549,7 +549,7 @@ function function_6c14b72a()
 	Parameters: 1
 	Flags: Private
 */
-function private function_db4bf625(weapon)
+function private axe_right_melee_attack_think(weapon)
 {
 	self endon(#"death");
 	var_17b7891d = "7bd8bdfda99d045d" + "axe_right_melee_attack_think";
@@ -721,7 +721,7 @@ function function_b9b06e2(e_target, weapon, swing_dir, v_to_target, n_damage)
 }
 
 /*
-	Name: function_219565f5
+	Name: axe_left_throw_attack_think
 	Namespace: namespace_6fc19861
 	Checksum: 0x9F60A542
 	Offset: 0x20C0
@@ -729,7 +729,7 @@ function function_b9b06e2(e_target, weapon, swing_dir, v_to_target, n_damage)
 	Parameters: 1
 	Flags: Private
 */
-function private function_219565f5(weapon)
+function private axe_left_throw_attack_think(weapon)
 {
 	self endon(#"death");
 	var_17b7891d = "ee911055e03280b" + "axe_left_throw_attack_think";

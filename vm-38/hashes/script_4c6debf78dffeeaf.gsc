@@ -1,19 +1,19 @@
-#using script_18f0d22c75b141a7;
-#using script_1bd0552c85e48ebe;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\mp_common\player\player.gsc;
 #using script_1cc417743d7c262d;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_29ed825598140ca0;
 #using script_32c8b5b0eb2854f3;
 #using scripts\killstreaks\mp\uav.gsc;
 #using script_3d703ef87a841fe4;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_44b0b8420eabacad;
 #using script_457dc1cc11263d2b;
 #using script_45fdb6cec5580007;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_67ce8e728d8f37ba;
-#using script_6eb0d63d4a90adcf;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_monitor.gsc;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -332,7 +332,7 @@ function callback_playerconnect()
 	}
 	if(util::isfirstround())
 	{
-		self namespace_42fe87d::record_global_mp_stats_for_player_at_match_start();
+		self player_record::record_global_mp_stats_for_player_at_match_start();
 	}
 	self hvo::function_2ce5cb7e();
 	num_con = getnumconnectedplayers(0);

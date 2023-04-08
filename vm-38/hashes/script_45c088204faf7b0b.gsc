@@ -18,7 +18,7 @@ function private autoexec function_196d3d43()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: teamset_axis
 	Checksum: 0xFEFE3027
 	Offset: 0xF0
@@ -26,7 +26,7 @@ function private autoexec function_196d3d43()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"teamset_axis", &function_70a657d8, undefined, undefined, undefined);
 }

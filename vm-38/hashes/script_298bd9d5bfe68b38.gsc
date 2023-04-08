@@ -1,4 +1,4 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_75da5547b1822294;
 #using script_d9b5c8b1ad38ef5;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -26,7 +26,7 @@ function private autoexec function_ca52a7f5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: weapon_cache
 	Checksum: 0xF1D5CF45
 	Offset: 0x1D8
@@ -34,7 +34,7 @@ function private autoexec function_ca52a7f5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"weapon_cache", &function_70a657d8, undefined, &finalize, undefined);
 }

@@ -53,7 +53,7 @@ function private autoexec function_dbe6dcb9()
 #namespace mechzbehavior;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: mechzbehavior
 	Checksum: 0xB03905E4
 	Offset: 0xA18
@@ -61,7 +61,7 @@ function private autoexec function_dbe6dcb9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"mechz", &init, undefined, &finalize, undefined);
 }
@@ -133,9 +133,9 @@ function private initmechzbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzBerserkKnockdownService", &mechzberserkknockdownservice);
 	/#
-		assert(isscriptfunctionptr(&function_277f0392));
+		assert(isscriptfunctionptr(&mechzLongJumpService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzLongJumpService", &function_277f0392, 1);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzLongJumpService", &mechzLongJumpService, 1);
 	/#
 		assert(isscriptfunctionptr(&mechzshouldmelee));
 	#/
@@ -145,13 +145,13 @@ function private initmechzbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShouldShowPain", &mechzshouldshowpain);
 	/#
-		assert(isscriptfunctionptr(&function_843546a7));
+		assert(isscriptfunctionptr(&mechzShouldShowJetpackPain));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShouldShowJetpackPain", &function_843546a7);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShouldShowJetpackPain", &mechzShouldShowJetpackPain);
 	/#
-		assert(isscriptfunctionptr(&function_3b7595ba));
+		assert(isscriptfunctionptr(&mechzEnemyInAim));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("mechzEnemyInAim", &function_3b7595ba);
+	behaviorstatemachine::registerbsmscriptapiinternal("mechzEnemyInAim", &mechzEnemyInAim);
 	/#
 		assert(isscriptfunctionptr(&mechzshouldshootgrenade));
 	#/
@@ -173,17 +173,17 @@ function private initmechzbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShouldStumble", &mechzshouldstumble);
 	/#
-		assert(isscriptfunctionptr(&function_a7b88d7a));
+		assert(isscriptfunctionptr(&mechzShouldLongJump));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShouldLongJump", &function_a7b88d7a);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShouldLongJump", &mechzShouldLongJump);
 	/#
-		assert(isscriptfunctionptr(&function_b6dbf1e0));
+		assert(isscriptfunctionptr(&mechzIsJumping));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzIsJumping", &function_b6dbf1e0);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzIsJumping", &mechzIsJumping);
 	/#
-		assert(isscriptfunctionptr(&function_77bd7d26));
+		assert(isscriptfunctionptr(&mechzIsInSafeZone));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzIsInSafeZone", &function_77bd7d26);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzIsInSafeZone", &mechzIsInSafeZone);
 	/#
 		assert(!isdefined(&mechzstumblestart) || isscriptfunctionptr(&mechzstumblestart));
 	#/
@@ -215,45 +215,45 @@ function private initmechzbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreeaction("mechzLongJumpLoop", undefined, &function_ecd21bd2, undefined);
 	/#
-		assert(isscriptfunctionptr(&function_d40c590a));
+		assert(isscriptfunctionptr(&mechzPrepToShootGrenadeStart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzPrepToShootGrenadeStart", &function_d40c590a);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzPrepToShootGrenadeStart", &mechzPrepToShootGrenadeStart);
 	/#
-		assert(isscriptfunctionptr(&function_d40c590a));
+		assert(isscriptfunctionptr(&mechzPrepToShootGrenadeStart));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("mechzPrepToShootGrenadeStart", &function_d40c590a);
+	behaviorstatemachine::registerbsmscriptapiinternal("mechzPrepToShootGrenadeStart", &mechzPrepToShootGrenadeStart);
 	/#
-		assert(isscriptfunctionptr(&function_f5ffcbb4));
+		assert(isscriptfunctionptr(&mechzPrepToShootGrenadesTerminate));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzPrepToShootGrenadesTerminate", &function_f5ffcbb4);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzPrepToShootGrenadesTerminate", &mechzPrepToShootGrenadesTerminate);
 	/#
-		assert(isscriptfunctionptr(&function_f5ffcbb4));
+		assert(isscriptfunctionptr(&mechzPrepToShootGrenadesTerminate));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("mechzPrepToShootGrenadesTerminate", &function_f5ffcbb4);
+	behaviorstatemachine::registerbsmscriptapiinternal("mechzPrepToShootGrenadesTerminate", &mechzPrepToShootGrenadesTerminate);
 	/#
-		assert(isscriptfunctionptr(&function_61dd507d));
+		assert(isscriptfunctionptr(&mechzShootGrenadeStart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShootGrenadeStart", &function_61dd507d);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShootGrenadeStart", &mechzShootGrenadeStart);
 	/#
-		assert(isscriptfunctionptr(&function_61dd507d));
+		assert(isscriptfunctionptr(&mechzShootGrenadeStart));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("mechzShootGrenadeStart", &function_61dd507d);
+	behaviorstatemachine::registerbsmscriptapiinternal("mechzShootGrenadeStart", &mechzShootGrenadeStart);
 	/#
-		assert(isscriptfunctionptr(&function_e8c59ca8));
+		assert(isscriptfunctionptr(&mechzShootGrenadeTerminate));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShootGrenadeTerminate", &function_e8c59ca8);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzShootGrenadeTerminate", &mechzShootGrenadeTerminate);
 	/#
-		assert(isscriptfunctionptr(&function_e8c59ca8));
+		assert(isscriptfunctionptr(&mechzShootGrenadeTerminate));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("mechzShootGrenadeTerminate", &function_e8c59ca8);
+	behaviorstatemachine::registerbsmscriptapiinternal("mechzShootGrenadeTerminate", &mechzShootGrenadeTerminate);
 	/#
-		assert(isscriptfunctionptr(&function_fc05dfd3));
+		assert(isscriptfunctionptr(&mechzSetSpeedWalk));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("mechzSetSpeedWalk", &function_fc05dfd3);
+	behaviorstatemachine::registerbsmscriptapiinternal("mechzSetSpeedWalk", &mechzSetSpeedWalk);
 	/#
-		assert(isscriptfunctionptr(&function_1a37c206));
+		assert(isscriptfunctionptr(&mechzSetSpeedRun));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzSetSpeedRun", &function_1a37c206);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzSetSpeedRun", &mechzSetSpeedRun);
 	/#
 		assert(isscriptfunctionptr(&mechzshootflame));
 	#/
@@ -291,17 +291,17 @@ function private initmechzbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzPainTerminate", &mechzpainterminate);
 	/#
-		assert(isscriptfunctionptr(&function_2726bc43));
+		assert(isscriptfunctionptr(&mechzJetpackPainTerminate));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzJetpackPainTerminate", &function_2726bc43);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzJetpackPainTerminate", &mechzJetpackPainTerminate);
 	/#
-		assert(isscriptfunctionptr(&function_16c82231));
+		assert(isscriptfunctionptr(&mechzLongJumpStart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzLongJumpStart", &function_16c82231);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzLongJumpStart", &mechzLongJumpStart);
 	/#
-		assert(isscriptfunctionptr(&function_4af53b9a));
+		assert(isscriptfunctionptr(&mechzLongJumpTerminate));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzLongJumpTerminate", &function_4af53b9a);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("mechzLongJumpTerminate", &mechzLongJumpTerminate);
 	animationstatenetwork::registeranimationmocomp("mocomp_mechz_long_jump", &function_e2c3704e, &function_9ba82c0a, &function_62826a8e);
 	animationstatenetwork::registeranimationmocomp("mocomp_mechz_long_jump_face_goal", &function_1cc76960, undefined, &function_65225d1f);
 	animationstatenetwork::registernotetrackhandlerfunction("melee_soldat", &mechznotetrackmelee);
@@ -693,7 +693,7 @@ function function_12925fd(entity)
 }
 
 /*
-	Name: function_277f0392
+	Name: mechzLongJumpService
 	Namespace: mechzbehavior
 	Checksum: 0x4893DDE5
 	Offset: 0x2F60
@@ -701,7 +701,7 @@ function function_12925fd(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_277f0392(entity)
+function mechzLongJumpService(entity)
 {
 	if(isdefined(entity.var_80dcda45) || gettime() < entity.jump_cooldown || !is_true(entity.var_7c4488fd))
 	{
@@ -836,7 +836,7 @@ function private mechzshouldshowpain(entity)
 }
 
 /*
-	Name: function_843546a7
+	Name: mechzShouldShowJetpackPain
 	Namespace: mechzbehavior
 	Checksum: 0xB0BAB09D
 	Offset: 0x38B8
@@ -844,7 +844,7 @@ function private mechzshouldshowpain(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_843546a7(entity)
+function private mechzShouldShowJetpackPain(entity)
 {
 	if(entity.var_97601164 === 1)
 	{
@@ -854,7 +854,7 @@ function private function_843546a7(entity)
 }
 
 /*
-	Name: function_3b7595ba
+	Name: mechzEnemyInAim
 	Namespace: mechzbehavior
 	Checksum: 0x279C0194
 	Offset: 0x38E8
@@ -862,7 +862,7 @@ function private function_843546a7(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_3b7595ba(entity)
+function private mechzEnemyInAim(entity)
 {
 	if(entity mechzserverutils::mechzcheckinarc())
 	{
@@ -894,7 +894,7 @@ function mechzshouldshootgrenade(entity)
 	{
 		return false;
 	}
-	enemy = namespace_e0710ee6::function_825317c(entity);
+	enemy = zm_ai_utility::function_825317c(entity);
 	if(!isdefined(enemy))
 	{
 		return false;
@@ -1044,7 +1044,7 @@ function private mechzshouldstumble(entity)
 }
 
 /*
-	Name: function_a7b88d7a
+	Name: mechzShouldLongJump
 	Namespace: mechzbehavior
 	Checksum: 0x91DB8843
 	Offset: 0x3DC0
@@ -1052,7 +1052,7 @@ function private mechzshouldstumble(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_a7b88d7a(entity)
+function private mechzShouldLongJump(entity)
 {
 	if(isdefined(entity.var_80dcda45))
 	{
@@ -1062,7 +1062,7 @@ function private function_a7b88d7a(entity)
 }
 
 /*
-	Name: function_b6dbf1e0
+	Name: mechzIsJumping
 	Namespace: mechzbehavior
 	Checksum: 0xABFB957A
 	Offset: 0x3DF0
@@ -1070,7 +1070,7 @@ function private function_a7b88d7a(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_b6dbf1e0(entity)
+function private mechzIsJumping(entity)
 {
 	if(is_true(entity.isjumping))
 	{
@@ -1080,7 +1080,7 @@ function private function_b6dbf1e0(entity)
 }
 
 /*
-	Name: function_77bd7d26
+	Name: mechzIsInSafeZone
 	Namespace: mechzbehavior
 	Checksum: 0xEB41BA6B
 	Offset: 0x3E28
@@ -1088,7 +1088,7 @@ function private function_b6dbf1e0(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_77bd7d26(entity)
+function mechzIsInSafeZone(entity)
 {
 	if(!isdefined(entity.favoriteenemy))
 	{
@@ -1297,7 +1297,7 @@ function function_ecd21bd2(entity, asmstatename)
 }
 
 /*
-	Name: function_d40c590a
+	Name: mechzPrepToShootGrenadeStart
 	Namespace: mechzbehavior
 	Checksum: 0x4987AF55
 	Offset: 0x4500
@@ -1305,14 +1305,14 @@ function function_ecd21bd2(entity, asmstatename)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_d40c590a(entity)
+function private mechzPrepToShootGrenadeStart(entity)
 {
 	entity.blindaim = 1;
 	return true;
 }
 
 /*
-	Name: function_f5ffcbb4
+	Name: mechzPrepToShootGrenadesTerminate
 	Namespace: mechzbehavior
 	Checksum: 0xBF2418FF
 	Offset: 0x4528
@@ -1320,14 +1320,14 @@ function private function_d40c590a(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f5ffcbb4(entity)
+function private mechzPrepToShootGrenadesTerminate(entity)
 {
 	entity.blindaim = 0;
 	return true;
 }
 
 /*
-	Name: function_61dd507d
+	Name: mechzShootGrenadeStart
 	Namespace: mechzbehavior
 	Checksum: 0x484D6EB
 	Offset: 0x4550
@@ -1335,7 +1335,7 @@ function private function_f5ffcbb4(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_61dd507d(entity)
+function private mechzShootGrenadeStart(entity)
 {
 	entity.burstgrenadesfired++;
 	if(entity.burstgrenadesfired >= 1)
@@ -1347,7 +1347,7 @@ function private function_61dd507d(entity)
 }
 
 /*
-	Name: function_e8c59ca8
+	Name: mechzShootGrenadeTerminate
 	Namespace: mechzbehavior
 	Checksum: 0xC60377CB
 	Offset: 0x45A8
@@ -1355,7 +1355,7 @@ function private function_61dd507d(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_e8c59ca8(entity)
+function private mechzShootGrenadeTerminate(entity)
 {
 	entity.blindaim = 0;
 	entity clearpath();
@@ -1364,7 +1364,7 @@ function private function_e8c59ca8(entity)
 }
 
 /*
-	Name: function_fc05dfd3
+	Name: mechzSetSpeedWalk
 	Namespace: mechzbehavior
 	Checksum: 0x4E3F296C
 	Offset: 0x4600
@@ -1372,13 +1372,13 @@ function private function_e8c59ca8(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_fc05dfd3(entity)
+function private mechzSetSpeedWalk(entity)
 {
 	entity setblackboardattribute("_locomotion_speed", "locomotion_speed_walk");
 }
 
 /*
-	Name: function_1a37c206
+	Name: mechzSetSpeedRun
 	Namespace: mechzbehavior
 	Checksum: 0x62C1F4CB
 	Offset: 0x4640
@@ -1386,7 +1386,7 @@ function private function_fc05dfd3(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_1a37c206(entity)
+function private mechzSetSpeedRun(entity)
 {
 	entity setblackboardattribute("_locomotion_speed", "locomotion_speed_run");
 }
@@ -1712,7 +1712,7 @@ function private mechzpainterminate(entity)
 }
 
 /*
-	Name: function_2726bc43
+	Name: mechzJetpackPainTerminate
 	Namespace: mechzbehavior
 	Checksum: 0xC2CD3F6
 	Offset: 0x5058
@@ -1720,14 +1720,14 @@ function private mechzpainterminate(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_2726bc43(entity)
+function private mechzJetpackPainTerminate(entity)
 {
 	entity.var_97601164 = 0;
 	mechzpainterminate(entity);
 }
 
 /*
-	Name: function_16c82231
+	Name: mechzLongJumpStart
 	Namespace: mechzbehavior
 	Checksum: 0xD5A14EAB
 	Offset: 0x5090
@@ -1735,14 +1735,14 @@ function private function_2726bc43(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_16c82231(entity)
+function private mechzLongJumpStart(entity)
 {
 	entity.isjumping = 1;
 	entity callback::callback(#"hash_1c5ac76933317a1d");
 }
 
 /*
-	Name: function_4af53b9a
+	Name: mechzLongJumpTerminate
 	Namespace: mechzbehavior
 	Checksum: 0x4EAD903C
 	Offset: 0x50D8
@@ -1750,7 +1750,7 @@ function private function_16c82231(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_4af53b9a(entity)
+function private mechzLongJumpTerminate(entity)
 {
 	entity.isjumping = undefined;
 	entity.jump_cooldown = (gettime() + 3000) + randomfloat(2000);
@@ -2169,7 +2169,7 @@ function private mechzweapondamagemodifier(damage, weapon)
 {
 	if(isdefined(weapon) && isdefined(weapon.name))
 	{
-		if(weapon.name == #"hash_566413d54185cd2a")
+		if(weapon.name == #"eq_mechz_firebomb")
 		{
 			return 0;
 		}
@@ -2454,8 +2454,8 @@ function function_53f176ae(eventstruct)
 			break;
 		}
 		case "ambient":
-		case "hash_4320680add0fb1ee":
-		case "hash_7609057ae05fd29a":
+		case "ambient_enraged":
+		case "ambient_alert":
 		{
 			n_priority = 1;
 			break;

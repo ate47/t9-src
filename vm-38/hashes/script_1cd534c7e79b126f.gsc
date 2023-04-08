@@ -41,7 +41,7 @@ function private autoexec function_841dc29f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_63c7213c
 	Checksum: 0xBFD0E40
 	Offset: 0x658
@@ -49,7 +49,7 @@ function private autoexec function_841dc29f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3c43448fdb77ea73", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -76,7 +76,7 @@ function function_70a657d8()
 	clientfield::register("actor", "soul_capture_zombie_fire", 1, 1, "int");
 	clientfield::register("scriptmover", "soul_capture_leave", 1, 1, "int");
 	clientfield::register("scriptmover", "soul_capture_timer", 1, 1, "int");
-	namespace_8b6a9d79::function_b3464a7c(#"hash_767b79143e823d0b", &spawn_callback, 1);
+	namespace_8b6a9d79::function_b3464a7c(#"soul_capture", &spawn_callback, 1);
 	level.var_e31c7b0d = struct::get_array("soul_capture", "content_script_name");
 }
 
@@ -461,7 +461,7 @@ function function_544f03e3(s_instance)
 		{
 			s_instance.var_2348a8fb = #"small";
 			s_instance.var_91c84189 = #"hash_5815cc7ba68d56e";
-			s_instance.var_31919730 = #"hash_27f68725fa24b68";
+			s_instance.var_31919730 = #"p9_fxanim_zm_gp_chest_01_sml_low_xmodel";
 			s_instance.var_dae71351 = 1;
 			s_instance.var_c9df36f = "takeoff level 1";
 			str_shot = "fuel level 1";
@@ -472,7 +472,7 @@ function function_544f03e3(s_instance)
 		{
 			s_instance.var_2348a8fb = #"medium";
 			s_instance.var_91c84189 = #"hash_7d3c5ac38ba069f0";
-			s_instance.var_31919730 = #"hash_4392142b99d9d79a";
+			s_instance.var_31919730 = #"p9_fxanim_zm_gp_chest_01_med_low_xmodel";
 			s_instance.var_dae71351 = 2;
 			s_instance.var_c9df36f = "takeoff level 2";
 			str_shot = "fuel level 2";
@@ -483,7 +483,7 @@ function function_544f03e3(s_instance)
 		{
 			s_instance.var_2348a8fb = #"large";
 			s_instance.var_91c84189 = #"hash_473df02427c669ff";
-			s_instance.var_31919730 = #"hash_39c86bb99fc237d";
+			s_instance.var_31919730 = #"p9_fxanim_zm_gp_chest_01_lrg_low_xmodel";
 			s_instance.var_dae71351 = 3;
 			s_instance.var_c9df36f = "takeoff level 3";
 			str_shot = "fuel level 3";
@@ -738,7 +738,7 @@ function function_df7d32bc()
 */
 function function_21700f1d()
 {
-	self endon(#"hash_61e83b55d9a270d9", #"hash_7fcb6ebe84624215", #"cleanup");
+	self endon(#"eater_leaving", #"looking_at_zombie", #"cleanup");
 	self thread function_c57d25ff();
 	str_scene = "aib_t9_zm_dragonhead";
 	var_b2a60109 = array("dragonhead_idle", "dragonhead_idle_b", "dragonhead_idle_twitch_roar");
@@ -760,7 +760,7 @@ function function_21700f1d()
 */
 function function_c57d25ff()
 {
-	self endon(#"hash_61e83b55d9a270d9", #"hash_7fcb6ebe84624215", #"cleanup");
+	self endon(#"eater_leaving", #"looking_at_zombie", #"cleanup");
 	var_f9cc146 = self.var_f9cc146;
 	var_f9cc146 endon(#"death");
 	while(true)

@@ -37,7 +37,7 @@ function function_10672567()
 }
 
 /*
-	Name: function_90500af5
+	Name: get_cast
 	Namespace: namespace_cb7cafc3
 	Checksum: 0xF05A6F18
 	Offset: 0xF8
@@ -45,7 +45,7 @@ function function_10672567()
 	Parameters: 0
 	Flags: Linked
 */
-function function_90500af5()
+function get_cast()
 {
 	cast = #"other";
 	fields = function_10672567();
@@ -57,7 +57,7 @@ function function_90500af5()
 }
 
 /*
-	Name: function_166646a6
+	Name: get_story
 	Namespace: namespace_cb7cafc3
 	Checksum: 0x3360542
 	Offset: 0x158
@@ -65,9 +65,9 @@ function function_90500af5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_166646a6()
+function get_story()
 {
-	var_26ea2807 = function_90500af5();
+	var_26ea2807 = get_cast();
 	if(var_26ea2807 === #"story1")
 	{
 		return 1;

@@ -19,7 +19,7 @@ function private autoexec function_effce9c5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: weapons
 	Checksum: 0x9AEF2E4B
 	Offset: 0xB0
@@ -27,7 +27,7 @@ function private autoexec function_effce9c5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"weapons", &function_70a657d8, undefined, undefined, undefined);
 }

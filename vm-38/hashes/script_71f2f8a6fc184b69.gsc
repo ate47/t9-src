@@ -83,7 +83,7 @@ class cinsertion_passenger_count : cLUIelem
 	*/
 	function set_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "count", value);
+		[[ self ]]->set_data(localclientnum, "count", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cinsertion_passenger_count : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "count", 0);
+		[[ self ]]->set_data(localclientnum, "count", 0);
 	}
 
 }

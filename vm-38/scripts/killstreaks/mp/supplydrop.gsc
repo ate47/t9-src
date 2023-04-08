@@ -4,7 +4,7 @@
 #using script_383a3b1bb18ba876;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_52d2de9b438adc78;
 #using scripts\killstreaks\mp\killstreak_weapons.gsc;
 #using scripts\killstreaks\airsupport.gsc;
@@ -49,7 +49,7 @@ function private autoexec function_8973235a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: supplydrop
 	Checksum: 0x48D2B406
 	Offset: 0x8B0
@@ -57,7 +57,7 @@ function private autoexec function_8973235a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"supplydrop", &function_70a657d8, undefined, &function_1c601b99, #"killstreaks");
 }

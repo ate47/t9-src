@@ -5,7 +5,7 @@
 #using script_3d703ef87a841fe4;
 #using script_3e196d275a6fb180;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_75da5547b1822294;
 #using script_7a8059ca02b7b09e;
 #using script_7d712f77ab8d0c16;

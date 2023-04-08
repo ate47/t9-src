@@ -20,7 +20,7 @@ function private autoexec function_754e60df()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_7c1d0bac
 	Checksum: 0x7FC81668
 	Offset: 0x108
@@ -28,7 +28,7 @@ function private autoexec function_754e60df()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5fe7a854b630ef02", &function_70a657d8, undefined, undefined, undefined);
 }

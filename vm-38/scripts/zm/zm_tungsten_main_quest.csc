@@ -44,7 +44,7 @@ function init()
 	clientfield::register("toplayer", "fogofwareffects", 1, 1, "int", undefined, 0, 1);
 	clientfield::register("toplayer", "" + #"hash_1509a2aa5d40a44c", 1, 1, "int", &function_b0f10fd9, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_55456562f670860", 1, 1, "int", &function_9b05e2c0, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_7289d683073752c8", 1, 1, "int", &function_e495fd3e, 0, 0);
+	clientfield::register("scriptmover", "" + #"player_barrier", 1, 1, "int", &function_e495fd3e, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_5b48c7bf93fc3a4b", 1, 1, "int", &function_f621928c, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_4b03e692ae3dfa64", 1, 1, "counter", &function_a84c11f7, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_6ba3e6fd544c34a5", 1, 2, "int", &function_5c05a55e, 0, 0);
@@ -53,16 +53,16 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_54a76d632c7c51", 1, 1, "int", &crystal_fx, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_4d2911e91cdb1e91", 1, 1, "int", &function_bb8c1f5e, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_1b9d966608efb40e", 1, 1, "counter", &function_8d5df064, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_1588c103924da726", 1, 1, "int", &function_7c1ee869, 0, 0);
+	clientfield::register("scriptmover", "" + #"crystal_shard", 1, 1, "int", &function_7c1ee869, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_5e0a6fc6597e6e03", 1, 1, "counter", &function_5066198d, 0, 0);
 	clientfield::register("scriptmover", "" + #"wall_smash", 1, 1, "counter", &function_d147715f, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_485fe8f642043f78", 1, 1, "counter", &function_e2f489c, 0, 0);
-	clientfield::register("vehicle", "" + #"hash_4145b0d4262e2782", 1, 1, "counter", &function_26e6cccc, 0, 0);
+	clientfield::register("vehicle", "" + #"gp_spawn", 1, 1, "counter", &function_26e6cccc, 0, 0);
 	clientfield::register("world", "" + #"hash_2509c24cd62ed5bc", 1, 1, "int", &function_e9a10998, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_419ce223196785ef", 1, 1, "counter", &function_a5f3bfc2, 0, 0);
 	clientfield::register("world", "" + #"hash_5940bc2717a75c96", 1, 1, "int", &function_aecabc8a, 0, 0);
 	clientfield::register("world", "" + #"hash_7b50097ac4242bc9", 1, getminbitcountfornum(3), "int", &function_6b85db33, 0, 0);
-	level.var_9b6e1cc9 = namespace_6783631d::register();
+	level.var_9b6e1cc9 = zm_tungsten_title_cards::register();
 	if(!zm_utility::function_e51dc2d8())
 	{
 		return;
@@ -377,7 +377,7 @@ function function_bb8c1f5e(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_7bb3107e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self setanim(#"hash_1e7cab02cd774616");
+	self setanim(#"aib_t9_zm_abom_swallow_crystal_01");
 	wait(getanimlength("aib_t9_zm_abom_swallow_crystal_01"));
 	if(isalive(self))
 	{

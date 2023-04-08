@@ -25,7 +25,7 @@ function private autoexec function_e64b9334()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_util
 	Checksum: 0x7DDB897B
 	Offset: 0x450
@@ -33,7 +33,7 @@ function private autoexec function_e64b9334()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_trial_util", &function_70a657d8, &finalize_clientfields, undefined, undefined);
 }
@@ -169,13 +169,13 @@ function private function_88806df3(localclientnum, oldval, newval, bnewent, bini
 	var_ef0a371f = bwastimejump - 1;
 	if(isdefined(level.var_6d87ac05) && isdefined(level.var_6d87ac05.rounds[var_ef0a371f]))
 	{
-		function_f036a6da(fieldname);
+		on_challenge_end(fieldname);
 		level.var_1420e3f6 = level.var_6d87ac05.rounds[var_ef0a371f];
 		function_c3febfe1(fieldname);
 	}
 	else
 	{
-		function_f036a6da(fieldname);
+		on_challenge_end(fieldname);
 		level.var_1420e3f6 = undefined;
 	}
 	function_d59810a5();
@@ -274,7 +274,7 @@ function private function_c3febfe1(local_client_num)
 }
 
 /*
-	Name: function_f036a6da
+	Name: on_challenge_end
 	Namespace: zm_trial_util
 	Checksum: 0xBA0EB368
 	Offset: 0x1490
@@ -282,7 +282,7 @@ function private function_c3febfe1(local_client_num)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f036a6da(local_client_num)
+function private on_challenge_end(local_client_num)
 {
 	if(isdefined(level.var_1420e3f6))
 	{

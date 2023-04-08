@@ -1,5 +1,5 @@
 #using script_32399001bdb550da;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6e46300ab1cb7adb;
 #using script_7d0013bbc05623b9;
 #using scripts\core_common\array_shared.gsc;
@@ -23,7 +23,7 @@ function private autoexec function_72c8ef00()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: collectibles
 	Checksum: 0x2A7ECDAB
 	Offset: 0xB8
@@ -31,7 +31,7 @@ function private autoexec function_72c8ef00()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"collectibles", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

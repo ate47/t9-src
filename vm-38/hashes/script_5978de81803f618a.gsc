@@ -68,7 +68,7 @@ class class_5c7b7dcc : cLUIelem
 	*/
 	function set_infectionTimeRemaining(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "infectionTimeRemaining", value);
+		[[ self ]]->set_data(localclientnum, "infectionTimeRemaining", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class class_5c7b7dcc : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "infectionTimeRemaining", 0);
+		[[ self ]]->set_data(localclientnum, "infectionTimeRemaining", 0);
 	}
 
 }

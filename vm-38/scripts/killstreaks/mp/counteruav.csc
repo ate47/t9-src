@@ -19,7 +19,7 @@ function private autoexec function_a77c214f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: counteruav
 	Checksum: 0x77CD4A97
 	Offset: 0x110
@@ -27,7 +27,7 @@ function private autoexec function_a77c214f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"counteruav", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

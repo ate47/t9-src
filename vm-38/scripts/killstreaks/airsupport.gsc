@@ -1,5 +1,5 @@
 #using script_383a3b1bb18ba876;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

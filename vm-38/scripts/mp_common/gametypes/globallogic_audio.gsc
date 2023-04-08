@@ -33,7 +33,7 @@ function private autoexec function_190f6e1d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_audio
 	Checksum: 0x80E622D3
 	Offset: 0x550
@@ -41,7 +41,7 @@ function private autoexec function_190f6e1d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_410d0d4132d5f263", &function_70a657d8, undefined, undefined, undefined);
 }

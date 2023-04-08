@@ -1,5 +1,5 @@
 #using script_396f7d71538c9677;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using script_57f7003580bb15e0;
 #using scripts\weapons\weapons.gsc;
@@ -33,7 +33,7 @@ function private autoexec function_dced4d5f()
 #namespace namespace_ad7d66e9;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_ad7d66e9
 	Checksum: 0xDB4739AB
 	Offset: 0x1F8
@@ -41,7 +41,7 @@ function private autoexec function_dced4d5f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6cc8dc4627aa0eaa", &init_shared, undefined, undefined, undefined);
 }

@@ -18,7 +18,7 @@ function private autoexec function_506e3b6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: cheat
 	Checksum: 0x952A970E
 	Offset: 0xB8
@@ -26,7 +26,7 @@ function private autoexec function_506e3b6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"cheat", &function_70a657d8, undefined, undefined, undefined);
 }

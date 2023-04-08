@@ -35,7 +35,7 @@ function private autoexec function_43b10765()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_soa
 	Checksum: 0x93FC66D3
 	Offset: 0x1B0
@@ -43,9 +43,9 @@ function private autoexec function_43b10765()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_b28e5c36b880701", &function_70a657d8, undefined, undefined, "zm_destination_manager");
+	system::register(#"zm_ai_soa", &function_70a657d8, undefined, undefined, "zm_destination_manager");
 }
 
 /*
@@ -59,10 +59,10 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	spawner::add_archetype_spawn_function(#"hash_24f9e195cf2de42", &function_49bf8a32);
-	spawner::function_89a2cd87(#"hash_24f9e195cf2de42", &function_751146f8);
-	namespace_c3287616::register_archetype(#"hash_24f9e195cf2de42", &function_76a7a9ef, &function_ecce5272, &function_e803632f, 80);
-	zm_cleanup::function_cdf5a512(#"hash_24f9e195cf2de42", &function_9310b9ca);
+	spawner::add_archetype_spawn_function(#"soa", &function_49bf8a32);
+	spawner::function_89a2cd87(#"soa", &function_751146f8);
+	namespace_c3287616::register_archetype(#"soa", &function_76a7a9ef, &function_ecce5272, &function_e803632f, 80);
+	zm_cleanup::function_cdf5a512(#"soa", &function_9310b9ca);
 	callback::add_callback(#"hash_72fd23232c4c7ab1", &function_53bc3572);
 	callback::add_callback(#"hash_2a040f8b8142266d", &function_3138c2d5);
 }
@@ -138,7 +138,7 @@ function function_9310b9ca()
 				self forceteleport(self.origin, angles);
 				self thread namespace_19c99142::function_940cd1d8();
 				waitframe(1);
-				namespace_e0710ee6::function_a8dc3363({#origin:point});
+				zm_ai_utility::function_a8dc3363({#origin:point});
 				self.completed_emerging_into_playable_area = 1;
 				self.var_9817f19a = 0;
 				break;
@@ -884,7 +884,7 @@ function private function_f761f651()
 */
 function function_ff7527d6()
 {
-	var_805eef4e = getaiarchetypearray(#"hash_24f9e195cf2de42");
+	var_805eef4e = getaiarchetypearray(#"soa");
 	var_268fb71d = var_805eef4e.size;
 	foreach(var_c23daab2 in var_805eef4e)
 	{

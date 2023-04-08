@@ -35,7 +35,7 @@ function private autoexec function_805e28b2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_cda50904
 	Checksum: 0xD0008EC3
 	Offset: 0x350
@@ -43,7 +43,7 @@ function private autoexec function_805e28b2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_57d1b71f57332413", &function_70a657d8, undefined, &finalize, #"hash_f81b9dea74f0ee");
 }
@@ -820,7 +820,7 @@ function function_2085db3b()
 {
 	/#
 		util::waittill_can_add_debug_command();
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
 		level thread function_578918d1();
 	#/
 }

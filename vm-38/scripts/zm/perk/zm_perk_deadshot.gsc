@@ -31,7 +31,7 @@ function private autoexec function_965fda41()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_deadshot
 	Checksum: 0x3A3146F
 	Offset: 0x210
@@ -39,7 +39,7 @@ function private autoexec function_965fda41()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_deadshot", &function_70a657d8, undefined, undefined, #"hash_2d064899850813e2");
 }
@@ -70,7 +70,7 @@ function private function_70a657d8()
 */
 function enable_deadshot_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_210097a75bb6c49a", #"perk_dead_shot", 2000, #"hash_3ac784b3888e0dab", getweapon("zombie_perk_bottle_deadshot"), undefined, #"zmperksdeadshot");
+	zm_perks::register_perk_basic_info(#"hash_210097a75bb6c49a", #"perk_dead_shot", 2000, #"zombie/perk_deadshot", getweapon("zombie_perk_bottle_deadshot"), undefined, #"zmperksdeadshot");
 	zm_perks::register_perk_precache_func(#"hash_210097a75bb6c49a", &deadshot_precache);
 	zm_perks::register_perk_clientfields(#"hash_210097a75bb6c49a", &deadshot_register_clientfield, &deadshot_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_210097a75bb6c49a", &deadshot_perk_machine_setup);
@@ -196,7 +196,7 @@ function function_4d088c19(inflictor, attacker, damage, flags, meansofdeath, wea
 		{
 			return vdir;
 		}
-		var_84ed9a13 = self namespace_e0710ee6::function_de3dda83(surfacetype, boneindex, psoffsettime);
+		var_84ed9a13 = self zm_ai_utility::function_de3dda83(surfacetype, boneindex, psoffsettime);
 		if(vpoint namespace_e86ffa8::function_7bf30775(1))
 		{
 			if(self.health >= self.maxhealth)

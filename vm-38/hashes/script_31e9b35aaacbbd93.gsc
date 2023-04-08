@@ -77,35 +77,35 @@ function private _objective(objective)
 {
 	switch(objective)
 	{
-		case "hash_43fda5a71e2cf1d9":
+		case "tkdn_raid_bar":
 		{
 			snd::function_7db65a93("triton_on");
 			level thread function_a20133bd();
 			break;
 		}
-		case "hash_512e8aab43df84ba":
+		case "tkdn_raid_gearup":
 		{
 			snd::function_7db65a93("triton_on");
 			break;
 		}
-		case "hash_3ccd7ea71a859e23":
+		case "tkdn_raid_apt":
 		{
 			snd::function_7db65a93("triton_on");
 			level notify(#"hash_7ad75056b30c451a");
 			level notify(#"hash_63850bb43dbc38de");
 			break;
 		}
-		case "hash_5a554c85a405b832":
+		case "tkdn_raid_rooftops":
 		{
 			snd::function_7db65a93("triton_on");
 			break;
 		}
-		case "hash_6d11215cb2f229c1":
+		case "tkdn_raid_slide":
 		{
 			snd::function_7db65a93("triton_on");
 			break;
 		}
-		case "hash_284d0daaf024071e":
+		case "tkdn_raid_capture":
 		{
 			snd::function_7db65a93("triton_on");
 			break;
@@ -115,38 +115,38 @@ function private _objective(objective)
 			snd::function_7db65a93("triton_on");
 			break;
 		}
-		case "hash_3131dfbc0ce5b7d9":
+		case "tkdn_af_intro":
 		{
 			snd::function_7db65a93("triton_off");
 			break;
 		}
-		case "hash_35cbe00e084c6cf2":
+		case "tkdn_af_hill":
 		{
 			snd::function_7db65a93("triton_off");
 			break;
 		}
-		case "hash_c8e65be67e56b17":
+		case "tkdn_af_tarmac":
 		{
 			snd::function_7db65a93("triton_off");
 			break;
 		}
-		case "hash_12044e7569915825":
+		case "tkdn_af_chase":
 		{
 			snd::function_7db65a93("triton_off");
 			snd::function_7db65a93(#"hash_55e0585ab6221a00");
 			break;
 		}
-		case "hash_2ca6b61fed7d1f53":
+		case "tkdn_af_rc_chase":
 		{
 			snd::function_7db65a93("triton_off");
 			break;
 		}
-		case "hash_55356ede737cfa8e":
+		case "tkdn_af_skid":
 		{
 			snd::function_7db65a93("triton_off");
 			break;
 		}
-		case "hash_4582a1402b7d9111":
+		case "tkdn_af_wreck":
 		{
 			snd::function_7db65a93("triton_off");
 			break;
@@ -342,7 +342,7 @@ function function_ec4a61d9()
 	Parameters: 2
 	Flags: Linked
 */
-function function_6b5c2a3(var_b76ced44, veh)
+function function_6b5c2a3(bustout_driver, veh)
 {
 }
 
@@ -661,7 +661,7 @@ function function_60c0a46b()
 }
 
 /*
-	Name: function_7c1cb9f9
+	Name: evt_transition_roof_to_airfield_camera_pt2
 	Namespace: namespace_a052577e
 	Checksum: 0x149DE064
 	Offset: 0x1C78
@@ -669,7 +669,7 @@ function function_60c0a46b()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7c1cb9f9()
+function evt_transition_roof_to_airfield_camera_pt2()
 {
 	snd::play("evt_transition_roof_to_airfield_camera_pt2");
 	snd::function_7db65a93("cp_takedown_raid_af_transition_complete");
@@ -797,7 +797,7 @@ function function_b3b2671a(player)
 	snd::stop(level.var_79f25ee7);
 	level waittill(#"hash_2b34ed034183965");
 	snd::play("wpn_tkd_rcxd_start_trans");
-	player waittill(#"hash_23f138b7bfc6234");
+	player waittill(#"blow_rc_car");
 	snd::play("wpn_tkd_rcxd_detonate_trigger", [1:"tag_fx_light_rear", 0:level.var_e561515d]);
 	level music::setmusicstate("none");
 }

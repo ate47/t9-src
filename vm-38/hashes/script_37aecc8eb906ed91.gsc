@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
@@ -32,7 +32,7 @@ function private autoexec function_712c2d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: nightingale
 	Checksum: 0x5221B645
 	Offset: 0x178
@@ -40,7 +40,7 @@ function private autoexec function_712c2d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"nightingale", &function_70a657d8, undefined, undefined, undefined);
 }

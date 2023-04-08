@@ -29,7 +29,7 @@ function private autoexec function_2ed3d70f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: battlechatter
 	Checksum: 0xE7B6A82B
 	Offset: 0x478
@@ -37,7 +37,7 @@ function private autoexec function_2ed3d70f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"battlechatter", &function_70a657d8, undefined, undefined, undefined);
 }

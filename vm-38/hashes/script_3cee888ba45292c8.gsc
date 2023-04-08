@@ -31,7 +31,7 @@ function private autoexec function_cd0ef621()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_119be0ad
 	Checksum: 0x72FBD43B
 	Offset: 0x120
@@ -39,7 +39,7 @@ function private autoexec function_cd0ef621()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5c9db1b706c2571", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -55,11 +55,11 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	spawner::add_archetype_spawn_function(#"hash_24f9e195cf2de42", &function_49bf8a32);
-	spawner::function_89a2cd87(#"hash_24f9e195cf2de42", &function_751146f8);
+	spawner::add_archetype_spawn_function(#"soa", &function_49bf8a32);
+	spawner::function_89a2cd87(#"soa", &function_751146f8);
 	callback::add_callback(#"hash_72fd23232c4c7ab1", &function_53bc3572);
 	callback::add_callback(#"hash_2a040f8b8142266d", &function_3138c2d5);
-	namespace_ce1f29cc::add_archetype_spawn_function(#"hash_24f9e195cf2de42", &function_f18b95c7);
+	namespace_ce1f29cc::add_archetype_spawn_function(#"soa", &function_f18b95c7);
 }
 
 /*
@@ -459,7 +459,7 @@ function private function_d2e99333(entity)
 	{
 		case "circle":
 		{
-			var_b9dab425 = namespace_e0710ee6::function_825317c(entity);
+			var_b9dab425 = zm_ai_utility::function_825317c(entity);
 			if(!awareness::function_2bc424fd(entity, var_b9dab425))
 			{
 				awareness::set_state(entity, (isdefined(entity.var_78f5fd91) ? entity.var_78f5fd91 : #"wander"));

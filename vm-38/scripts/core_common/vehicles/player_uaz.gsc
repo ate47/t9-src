@@ -19,7 +19,7 @@ function private autoexec function_40dea75b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_uaz
 	Checksum: 0x218B77A5
 	Offset: 0xA8
@@ -27,7 +27,7 @@ function private autoexec function_40dea75b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_uaz", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

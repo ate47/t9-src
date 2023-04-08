@@ -1,6 +1,6 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\status_effects\status_effect_explosive_damage.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -26,7 +26,7 @@ function private autoexec function_d098ae98()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: healthoverlay
 	Checksum: 0xBB386636
 	Offset: 0xF0
@@ -34,7 +34,7 @@ function private autoexec function_d098ae98()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"healthoverlay", &function_70a657d8, undefined, undefined, undefined);
 }

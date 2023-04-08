@@ -1,5 +1,5 @@
 #using script_396f7d71538c9677;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using script_57f7003580bb15e0;
 #using scripts\weapons\weapons.gsc;
@@ -31,7 +31,7 @@ function private autoexec function_cab8364()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: molotov
 	Checksum: 0xDF66BCC9
 	Offset: 0x240
@@ -39,7 +39,7 @@ function private autoexec function_cab8364()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"molotov", &init_shared, undefined, undefined, undefined);
 }

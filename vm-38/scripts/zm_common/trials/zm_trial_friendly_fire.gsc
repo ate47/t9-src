@@ -36,7 +36,7 @@ function private autoexec function_ce4b86aa()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_friendly_fire
 	Checksum: 0xF402420D
 	Offset: 0x158
@@ -44,7 +44,7 @@ function private autoexec function_ce4b86aa()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_trial_friendly_fire", undefined, &__main__, undefined, undefined);
 }
@@ -104,8 +104,8 @@ function private on_begin(var_9e0a2a85)
 	{
 		var_9e0a2a85 = zm_trial::function_5769f26a(var_9e0a2a85);
 	}
-	level.var_3c2226ce = namespace_59ff1d6c::function_901b751c(#"hash_3f8f02e8109b6e93");
-	namespace_59ff1d6c::function_928be07c(var_9e0a2a85);
+	level.var_3c2226ce = zm_custom::function_901b751c(#"hash_3f8f02e8109b6e93");
+	zm_custom::function_928be07c(var_9e0a2a85);
 	callback::on_player_damage(&on_player_damage);
 	level.var_edae191d = 1;
 	var_6a94fd5e = 4 - getplayers().size;
@@ -149,7 +149,7 @@ function private on_begin(var_9e0a2a85)
 */
 function private on_end(round_reset)
 {
-	namespace_59ff1d6c::function_928be07c(level.var_3c2226ce);
+	zm_custom::function_928be07c(level.var_3c2226ce);
 	level.var_3c2226ce = undefined;
 	callback::remove_on_player_damage(&on_player_damage);
 	level.var_edae191d = undefined;

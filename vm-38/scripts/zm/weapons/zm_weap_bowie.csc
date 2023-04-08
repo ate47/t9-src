@@ -18,7 +18,7 @@ function private autoexec function_e03c0537()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weap_bowie
 	Checksum: 0xAACA5B8F
 	Offset: 0x118
@@ -26,7 +26,7 @@ function private autoexec function_e03c0537()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bowie_knife", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -58,7 +58,7 @@ function private function_8ac3bea9()
 	level.var_8e4168e9 = "bowie_knife";
 	level.var_63af3e00 = "bowie_flourish";
 	var_57858dd5 = "zombie_fists_bowie";
-	if(namespace_cb7cafc3::function_166646a6() == 1)
+	if(namespace_cb7cafc3::get_story() == 1)
 	{
 		level.var_8e4168e9 = "bowie_knife_story_1";
 		level.var_63af3e00 = "bowie_flourish_story_1";

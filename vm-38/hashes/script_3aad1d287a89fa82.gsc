@@ -58,7 +58,7 @@ function init()
 	clientfield::register("world", "" + #"hash_6c47531bdf01d52c", 28000, 1, "int", &function_7ebf8c0a, 0, 0);
 	clientfield::register("world", "" + #"hash_78e149e0b7cb80e8", 28000, 1, "int", &function_381bdf6a, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_6cc7dece6cee40e1", 28000, 1, "int", &function_940af073, 0, 0);
-	level.var_87a3c4d1 = namespace_fb27ba0b::register();
+	level.var_87a3c4d1 = zm_roots_health_bar::register();
 	level.var_75a7d6 = struct::get(#"hash_5d6c93a20ed01a31");
 	if(!zm_utility::function_e51dc2d8())
 	{
@@ -1206,7 +1206,7 @@ function function_20193edf(localclientnum, oldval, newval, bnewent, binitialsnap
 			stopfx(fieldname, self.var_292dd2b3);
 			self.var_292dd2b3 = undefined;
 		}
-		playfx(fieldname, #"hash_789bae8e3744f666", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
+		playfx(fieldname, #"maps/zm_tungsten/fx9_zm_dark_aether_crystals_exp", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
 	}
 	else
 	{
@@ -1226,7 +1226,7 @@ function function_20193edf(localclientnum, oldval, newval, bnewent, binitialsnap
 			}
 			self stoprumble(fieldname, #"hash_6a557ef73676fea");
 			playfx(fieldname, #"hash_2452dd6eef500ad9", self.origin - vectorscale((0, 0, 1), 80), anglestoforward(vectorscale((1, 0, 0), 270)), anglestoup(vectorscale((1, 0, 0), 270)));
-			self.var_292dd2b3 = playfx(fieldname, #"hash_69bd2397ba4a3525", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
+			self.var_292dd2b3 = playfx(fieldname, #"maps/zm_tungsten/fx9_zm_dark_crystals_ambient", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
 		}
 	}
 }
@@ -1422,7 +1422,7 @@ function function_381bdf6a(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			if(!isdefined(var_48c75d3e.var_f356849d))
 			{
-				var_48c75d3e.var_f356849d = playfx(fieldname, #"hash_8478c81c667da1", var_48c75d3e.origin, anglestoforward(var_48c75d3e.angles), anglestoup(var_48c75d3e.angles));
+				var_48c75d3e.var_f356849d = playfx(fieldname, #"sr/fx9_obj_holdout_env_signifier", var_48c75d3e.origin, anglestoforward(var_48c75d3e.angles), anglestoup(var_48c75d3e.angles));
 			}
 		}
 		else if(isdefined(var_48c75d3e.var_f356849d))

@@ -27,7 +27,7 @@ function private autoexec function_d6f6ac23()
 #namespace callback;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: callback
 	Checksum: 0x2F5016A8
 	Offset: 0xD0
@@ -35,7 +35,7 @@ function private autoexec function_d6f6ac23()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"callback", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -112,7 +112,7 @@ function set_default_callbacks()
 	level.callbackplayerdisconnect = &globallogic_player::callback_playerdisconnect;
 	level.callbackplayerdamage = &globallogic_player::callback_playerdamage;
 	level.callbackplayerkilled = &globallogic_player::callback_playerkilled;
-	level.var_7509c7d8 = &globallogic_player::function_452827de;
+	level.var_7509c7d8 = &globallogic_player::callback_playershielddamageblocked;
 	level.var_3a9881cb = &globallogic_player::function_74b6d714;
 	level.callbackplayermelee = &globallogic_player::callback_playermelee;
 	level.callbackactorspawned = &globallogic_actor::callback_actorspawned;

@@ -496,7 +496,7 @@ function private function_3f795dc3(ee, step, var_5ea5c94d)
 		self endon(#"disconnect");
 	}
 	self endon(#"game_ended");
-	step endoncallback(&function_df365859, #"hash_74e7dcfac985bd3e");
+	step endoncallback(&function_df365859, #"end_early");
 	self notify(step.var_e788cdd7 + "_started");
 	if(isdefined(step.var_6cc77d4e))
 	{
@@ -1394,7 +1394,7 @@ function function_614612f(ee_name)
 		ee = self.var_ec84950b[ee_name];
 		if(ee.started)
 		{
-			ee.steps[ee.current_step] notify(#"hash_74e7dcfac985bd3e");
+			ee.steps[ee.current_step] notify(#"end_early");
 		}
 		else if(getdvarint(#"hash_7919e37cd5d57659", 0))
 		{

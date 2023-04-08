@@ -31,7 +31,7 @@ function private autoexec function_5e9eaea5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_b376a999
 	Checksum: 0xCD1E5B34
 	Offset: 0x2D0
@@ -39,7 +39,7 @@ function private autoexec function_5e9eaea5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_36cdf1547e49b57a", &function_70a657d8, &function_8ac3bea9, undefined, "zm_weapons");
 }

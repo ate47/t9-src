@@ -6,11 +6,11 @@
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_b63b5857;
+#namespace snd_shared;
 
 /*
 	Name: function_9ad96771
-	Namespace: namespace_b63b5857
+	Namespace: snd_shared
 	Checksum: 0x7B1AF8E
 	Offset: 0x878
 	Size: 0x14

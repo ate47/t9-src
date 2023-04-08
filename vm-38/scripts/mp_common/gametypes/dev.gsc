@@ -3,7 +3,7 @@
 #using script_3fda550bc6e1089a;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_7d712f77ab8d0c16;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
@@ -40,7 +40,7 @@ function private autoexec function_4d2b0d51()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: dev
 	Checksum: 0x40AF7EB2
 	Offset: 0x140
@@ -48,7 +48,7 @@ function private autoexec function_4d2b0d51()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"dev", &function_70a657d8, undefined, undefined, #"spawning_shared");
@@ -965,7 +965,7 @@ function updatedevsettings()
 			{
 				for(j = 0; j < specialties.size; j++)
 				{
-					players[i] perks::function_7637bafa(specialties[j]);
+					players[i] perks::perk_setperk(specialties[j]);
 					players[i].extraperks[specialties[j]] = 1;
 				}
 			}
@@ -1075,7 +1075,7 @@ function updatedevsettings()
 			perk = getdvarstring(#"scr_takeperk");
 			for(i = 0; i < level.players.size; i++)
 			{
-				level.players[i] perks::function_45d12554(perk);
+				level.players[i] perks::perk_unsetperk(perk);
 				level.players[i].extraperks[perk] = undefined;
 			}
 			setdvar(#"scr_takeperk", "");
@@ -1413,7 +1413,7 @@ function giveextraperks()
 			/#
 				println(((("" + self.name) + "") + perks[i]) + "");
 			#/
-			self perks::function_7637bafa(perks[i]);
+			self perks::perk_setperk(perks[i]);
 		}
 	#/
 }

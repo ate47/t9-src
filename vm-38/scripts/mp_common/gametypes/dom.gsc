@@ -1,7 +1,7 @@
 #using script_1304295570304027;
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;

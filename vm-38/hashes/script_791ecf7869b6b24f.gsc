@@ -40,7 +40,7 @@ function init()
 	clientfield::register("scriptmover", "" + #"hash_48cdaba6cfee3ee8", 16000, 1, "int", &function_4c4184dd, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_11d9c3835adcaece", 16000, 1, "int", &function_6909812d, 0, 0);
 	clientfield::register("actor", "" + #"zombie_soul", 16000, 1, "int", &function_bb5d646a, 0, 0);
-	namespace_72133e5::register();
+	zm_control_point_hud::register();
 }
 
 /*
@@ -192,7 +192,7 @@ function function_33827fb9(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_773683a7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
-	playfx(bwasdemojump, #"hash_2fc05993f58131bf", self.origin + vectorscale((0, 0, 1), 32), anglestoforward(self.angles), anglestoup(self.angles));
+	playfx(bwasdemojump, #"sr/fx9_obj_console_defend_dmg_os", self.origin + vectorscale((0, 0, 1), 32), anglestoforward(self.angles), anglestoup(self.angles));
 }
 
 /*
@@ -217,12 +217,12 @@ function function_bb5d646a(localclientnum, oldval, newval, bnewent, binitialsnap
 	e_fx = util::spawn_model(bwasdemojump, "tag_origin", self gettagorigin("J_Spine4"));
 	playsound(bwasdemojump, #"hash_61be08677fe8683", e_fx.origin);
 	var_5e7d1e09 = struct::get_array("satellite_pos", "script_noteworthy");
-	var_3edac3b4 = arraygetclosest(self.origin, var_5e7d1e09);
+	satellite_pos = arraygetclosest(self.origin, var_5e7d1e09);
 	util::playfxontag(bwasdemojump, #"zombie/fx9_onslaught_orb_soul", e_fx, "tag_origin");
 	e_fx moveto(e_fx.origin + vectorscale((0, 0, 1), 40), 0.8);
 	wait(0.75);
-	n_time = distance(e_fx.origin, var_3edac3b4.origin) / 400;
-	e_fx moveto(var_3edac3b4.origin + vectorscale((0, 0, 1), 50), n_time);
+	n_time = distance(e_fx.origin, satellite_pos.origin) / 400;
+	e_fx moveto(satellite_pos.origin + vectorscale((0, 0, 1), 50), n_time);
 	e_fx waittill(#"movedone");
 	util::playfxontag(bwasdemojump, #"maps/zm_red/fx8_soul_charge_purple", e_fx, "tag_origin");
 	playsound(bwasdemojump, #"hash_77a638eb74142796", e_fx.origin);

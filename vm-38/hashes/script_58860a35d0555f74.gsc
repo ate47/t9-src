@@ -1,5 +1,5 @@
 #using script_176597095ddfaa17;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_72401f526ba71638;
 #using scripts\core_common\ai_shared.gsc;
@@ -30,7 +30,7 @@ function private autoexec function_380c63f7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1fd59e39
 	Checksum: 0xC0704401
 	Offset: 0x258
@@ -38,7 +38,7 @@ function private autoexec function_380c63f7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7fd3c8de50685459", &function_70a657d8, undefined, undefined, #"hash_13a43d760497b54d");
 }
@@ -273,7 +273,7 @@ function function_ff022837(n_duration, weapon)
 	self clientfield::set("" + #"hash_59400ab6cbfaec5d", 1);
 	self val::set(#"aether_shroud", "ignoreme", 1);
 	var_be17187b = undefined;
-	var_be17187b = self waittilltimeout(n_duration, #"hash_57d4f53c12705eac", #"death");
+	var_be17187b = self waittilltimeout(n_duration, #"scene_igc_shot_started", #"death");
 	if(var_be17187b._notify != "death")
 	{
 		self thread battlechatter::play_gadget_success(weapon);
@@ -403,7 +403,7 @@ function function_df6782a4(var_77d307ea, n_duration)
 		self.var_98346cd3 = var_af6c0f7c;
 	}
 	self setmovespeedscale(var_77d307ea);
-	self waittilltimeout(n_duration, #"hash_57d4f53c12705eac");
+	self waittilltimeout(n_duration, #"scene_igc_shot_started");
 	self setmovespeedscale(self.var_98346cd3);
 	self.var_98346cd3 = undefined;
 }

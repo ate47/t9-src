@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\map.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -25,7 +25,7 @@ function private autoexec function_cd1ca98()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: death_circle
 	Checksum: 0x4091571E
 	Offset: 0x2F0
@@ -33,7 +33,7 @@ function private autoexec function_cd1ca98()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"death_circle", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -1503,7 +1503,7 @@ function function_dc15ad60(deathcircle)
 				}
 				player function_60d14da8(1);
 				player clientfield::set("outsidedeathcircle", 1);
-				player function_3ac75bd8(intensity);
+				player show_effects(intensity);
 				player function_8bd303cc();
 				if(dodamage)
 				{
@@ -1655,7 +1655,7 @@ function function_936b3f09(p, d, circle)
 }
 
 /*
-	Name: function_3ac75bd8
+	Name: show_effects
 	Namespace: death_circle
 	Checksum: 0x5516FC52
 	Offset: 0x4868
@@ -1663,7 +1663,7 @@ function function_936b3f09(p, d, circle)
 	Parameters: 1
 	Flags: Linked
 */
-function function_3ac75bd8(intensity)
+function show_effects(intensity)
 {
 	self clientfield::set_to_player("deathcircleeffects", intensity);
 }

@@ -54,7 +54,7 @@ class cinitial_black : cLUIelem
 	*/
 	function set_developer_mode(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "developer_mode", value);
+		[[ self ]]->set_data(localclientnum, "developer_mode", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cinitial_black : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "developer_mode", 0);
+		[[ self ]]->set_data(localclientnum, "developer_mode", 0);
 	}
 
 }

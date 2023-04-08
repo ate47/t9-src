@@ -1,20 +1,20 @@
 #using scripts\weapons\mp\weapons.gsc;
 #using script_1417f739c5b20576;
-#using script_18f0d22c75b141a7;
-#using script_1bd0552c85e48ebe;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\mp_common\player\player.gsc;
 #using script_1cc417743d7c262d;
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\killstreaks\mp\killstreaks.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
-#using script_2d050f995be06579;
+#using scripts\mp_common\gametypes\radar_sweeps.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_335d0650ed05d36d;
 #using script_3d703ef87a841fe4;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_44b0b8420eabacad;
 #using script_457dc1cc11263d2b;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_57f7003580bb15e0;
 #using script_6167e26342be354b;
@@ -22,11 +22,11 @@
 #using script_66052559f4fc2bf9;
 #using script_67ce8e728d8f37ba;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_6eb0d63d4a90adcf;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_monitor.gsc;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\abilities\ability_power.gsc;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\bb_shared.gsc;
@@ -109,7 +109,7 @@ function private autoexec function_db03b8ee()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic
 	Checksum: 0xA582CE62
 	Offset: 0xF78
@@ -117,7 +117,7 @@ function private autoexec function_db03b8ee()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic", &function_70a657d8, undefined, undefined, #"visionset_mgr");
 }
@@ -1697,12 +1697,12 @@ function updateandfinalizematchrecord()
 		{
 			continue;
 		}
-		player namespace_42fe87d::record_special_move_data_for_life(undefined);
+		player player_record::record_special_move_data_for_life(undefined);
 		if(isbot(player))
 		{
 			continue;
 		}
-		player namespace_42fe87d::record_global_mp_stats_for_player_at_match_end();
+		player player_record::record_global_mp_stats_for_player_at_match_end();
 		nemesis = player.pers[#"nemesis_name"];
 		if(!isdefined(player.pers[#"killed_players"][nemesis]))
 		{
@@ -1964,12 +1964,12 @@ function function_8111babb()
 	setmatchtalkflag("LivingChatWithSquad", level.voip.livingchatwithsquad);
 	setmatchtalkflag("DeadHearTeamLiving", level.voip.deadhearteamliving);
 	setmatchtalkflag("DeadHearAllLiving", level.voip.deadhearallliving);
-	setmatchtalkflag("EveryoneHearsAlive", level.voip.var_76acec56);
+	setmatchtalkflag("EveryoneHearsAlive", level.voip.EveryoneHearsAlive);
 	setmatchtalkflag("EveryoneHearsEveryone", level.voip.everyonehearseveryone);
 	setmatchtalkflag("EveryoneHearsFriendly", level.voip.everyonehearsfriendly);
 	setmatchtalkflag("DeadHearKiller", level.voip.deadhearkiller);
 	setmatchtalkflag("KillersHearVictim", level.voip.killershearvictim);
-	setmatchtalkflag("PrivateChannel", level.voip.var_d64cd4cf);
+	setmatchtalkflag("PrivateChannel", level.voip.PrivateChannel);
 }
 
 /*
@@ -2797,8 +2797,8 @@ function private function_6a4a86()
 {
 	result = function_e8cd6051();
 	recordgameresult(result);
-	player::function_2f80d95b(&namespace_42fe87d::function_96d38b95, result);
-	player::function_2f80d95b(&namespace_42fe87d::record_misc_player_stats);
+	player::function_2f80d95b(&player_record::function_96d38b95, result);
+	player::function_2f80d95b(&player_record::record_misc_player_stats);
 	skillupdate();
 	if(function_f99d2668())
 	{
@@ -3015,7 +3015,7 @@ function function_4636deca(player)
 	{
 		return;
 	}
-	player namespace_42fe87d::function_7569c0fb();
+	player player_record::function_7569c0fb();
 	nemesis = player.pers[#"nemesis_name"];
 	/#
 		assert(isdefined(nemesis), "" + player.name);
@@ -3135,7 +3135,7 @@ function function_9a022fbc(str_state)
 	}
 	foreach(player in players)
 	{
-		lui_menu = lui::function_e810a527("FullScreenBlack");
+		lui_menu = lui::get_luimenu("FullScreenBlack");
 		if(str_state == "open")
 		{
 			if(isdefined(lui_menu))
@@ -5124,13 +5124,13 @@ function function_b9b7618()
 	level.voip.livingchatwithsquad = getgametypesetting(#"hash_6e6991561babdd7e");
 	level.voip.deadhearallliving = getgametypesetting(#"voipdeadhearallliving");
 	level.voip.deadhearteamliving = getgametypesetting(#"voipdeadhearteamliving");
-	level.voip.var_76acec56 = getgametypesetting(#"hash_50a46f60312cf53c");
+	level.voip.EveryoneHearsAlive = getgametypesetting(#"hash_50a46f60312cf53c");
 	level.voip.everyonehearseveryone = getgametypesetting(#"voipeveryonehearseveryone");
 	level.voip.everyonehearsfriendly = getgametypesetting(#"hash_2a76bf462f4c2f50");
 	level.voip.deadhearkiller = getgametypesetting(#"voipdeadhearkiller");
 	level.voip.killershearvictim = getgametypesetting(#"voipkillershearvictim");
 	level.voip.partychat = getgametypesetting(#"hash_33bc6781006ae83d");
-	level.voip.var_d64cd4cf = getgametypesetting(#"hash_5cc3c32813d17039");
+	level.voip.PrivateChannel = getgametypesetting(#"hash_5cc3c32813d17039");
 	level.droppedtagrespawn = getgametypesetting(#"droppedtagrespawn");
 	level.var_5b544215 = (isdefined(getgametypesetting(#"hash_444634d99df7a661")) ? getgametypesetting(#"hash_444634d99df7a661") : 0);
 	if(is_true(level.droppedtagrespawn))
@@ -5464,7 +5464,7 @@ function callback_startgametype()
 	level thread simple_hostmigration::updatehostmigrationdata();
 	if(!is_true(level.var_f16f6c66))
 	{
-		level thread radar_sweeps::function_ce66ebf2();
+		level thread radar_sweeps::radarsweeps();
 	}
 	/#
 		if(getdvarint(#"scr_writeconfigstrings", 0) == 1)
@@ -6090,8 +6090,8 @@ function function_411eb759(var_48d0aaac, var_d60264ca)
 {
 	if(util::function_7f7a77ab() && function_bfd92dc5())
 	{
-		level notify(#"hash_2f6b9eb577a60965");
-		luinotifyevent(#"hash_2f6b9eb577a60965", 1, 1);
+		level notify(#"esports_game_paused");
+		luinotifyevent(#"esports_game_paused", 1, 1);
 		thread function_5074c286();
 		if(isdefined(var_d60264ca) && var_d60264ca)
 		{
@@ -6121,7 +6121,7 @@ function function_411eb759(var_48d0aaac, var_d60264ca)
 		globallogic_utils::resumetimer();
 		function_d533e53d();
 		level notify(#"hash_22962c7c3ae16f30");
-		luinotifyevent(#"hash_2f6b9eb577a60965", 1, 0);
+		luinotifyevent(#"esports_game_paused", 1, 0);
 	}
 }
 

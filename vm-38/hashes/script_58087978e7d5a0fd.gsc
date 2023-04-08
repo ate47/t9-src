@@ -77,11 +77,11 @@ class class_d1ed471a : cLUIelem
 
 }
 
-#namespace namespace_82d7691b;
+#namespace zm_gold_hud;
 
 /*
 	Name: function_f310382b
-	Namespace: namespace_82d7691b
+	Namespace: zm_gold_hud
 	Checksum: 0xA6CDD314
 	Offset: 0xA8
 	Size: 0x14
@@ -95,7 +95,7 @@ function private autoexec function_f310382b()
 
 /*
 	Name: register
-	Namespace: namespace_82d7691b
+	Namespace: zm_gold_hud
 	Checksum: 0x1ED96D3
 	Offset: 0xC8
 	Size: 0x34
@@ -111,7 +111,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_82d7691b
+	Namespace: zm_gold_hud
 	Checksum: 0xF79EBB64
 	Offset: 0x108
 	Size: 0x38
@@ -129,7 +129,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_82d7691b
+	Namespace: zm_gold_hud
 	Checksum: 0x8223FA61
 	Offset: 0x148
 	Size: 0x1C
@@ -143,7 +143,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_82d7691b
+	Namespace: zm_gold_hud
 	Checksum: 0xC4970C2C
 	Offset: 0x170
 	Size: 0x1A

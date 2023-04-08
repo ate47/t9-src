@@ -41,7 +41,7 @@ function private autoexec function_4b4719bd()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_58949729
 	Checksum: 0x5610FCB9
 	Offset: 0x3E8
@@ -49,7 +49,7 @@ function private autoexec function_4b4719bd()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5f19cd68b4607f52", &function_70a657d8, undefined, &finalize, #"hash_f81b9dea74f0ee");
 }
@@ -88,7 +88,7 @@ function function_70a657d8()
 	function_6ac967bf(#"large", 2, #"hash_4651e6abf3256e06");
 	function_6ac967bf(#"large", 3, #"hash_4651e7abf3256fb9");
 	function_6ac967bf(#"large", 4, #"hash_4651e8abf325716c");
-	function_6ac967bf(#"large", 5, #"hash_4651e9abf325731f");
+	function_6ac967bf(#"large", 5, #"large_chest_level_5");
 	function_6ac967bf(#"large", 6, #"hash_4651eaabf32574d2");
 	function_6ac967bf(#"medium", 1, #"hash_570210f86dd830fd");
 	function_6ac967bf(#"medium", 2, #"hash_57020df86dd82be4");
@@ -622,19 +622,19 @@ function function_6e72c1e2(instance)
 		{
 			return 5;
 		}
-		case "hash_2d1de2a0a5c25bd9":
+		case "destination_forest":
 		{
 			return 5;
 		}
-		case "hash_43272f4dc95dce62":
+		case "destination_golova":
 		{
 			return 5;
 		}
-		case "hash_1cc277407eed9c27":
+		case "destination_sanatorium":
 		{
 			return 5;
 		}
-		case "hash_13e66a07a0ef569d":
+		case "destination_ski":
 		{
 			return 5;
 		}
@@ -679,19 +679,19 @@ function function_933f4c09(instance)
 		{
 			return 10;
 		}
-		case "hash_2d1de2a0a5c25bd9":
+		case "destination_forest":
 		{
 			return 10;
 		}
-		case "hash_43272f4dc95dce62":
+		case "destination_golova":
 		{
 			return 10;
 		}
-		case "hash_1cc277407eed9c27":
+		case "destination_sanatorium":
 		{
 			return 10;
 		}
-		case "hash_13e66a07a0ef569d":
+		case "destination_ski":
 		{
 			return 10;
 		}
@@ -736,19 +736,19 @@ function function_7cd90066(instance)
 		{
 			return 10;
 		}
-		case "hash_2d1de2a0a5c25bd9":
+		case "destination_forest":
 		{
 			return 10;
 		}
-		case "hash_43272f4dc95dce62":
+		case "destination_golova":
 		{
 			return 10;
 		}
-		case "hash_1cc277407eed9c27":
+		case "destination_sanatorium":
 		{
 			return 10;
 		}
-		case "hash_13e66a07a0ef569d":
+		case "destination_ski":
 		{
 			return 10;
 		}
@@ -779,7 +779,7 @@ function function_7cd90066(instance)
 function function_c3e93273(instance)
 {
 	var_cc1fb2d0 = function_fd5e77fa(#"large");
-	var_3a053962 = #"hash_39c86bb99fc237d";
+	var_3a053962 = #"p9_fxanim_zm_gp_chest_01_lrg_low_xmodel";
 	/#
 		str_dvar = "";
 	#/
@@ -803,7 +803,7 @@ function function_c3e93273(instance)
 function function_50855654(instance)
 {
 	var_cc1fb2d0 = function_fd5e77fa(#"medium");
-	var_3a053962 = #"hash_4392142b99d9d79a";
+	var_3a053962 = #"p9_fxanim_zm_gp_chest_01_med_low_xmodel";
 	/#
 		str_dvar = "";
 	#/
@@ -827,7 +827,7 @@ function function_50855654(instance)
 function function_61f1a62e(instance)
 {
 	var_cc1fb2d0 = function_fd5e77fa(#"small");
-	var_3a053962 = #"hash_27f68725fa24b68";
+	var_3a053962 = #"p9_fxanim_zm_gp_chest_01_sml_low_xmodel";
 	/#
 		str_dvar = "";
 	#/
@@ -1168,7 +1168,7 @@ function function_7e02195f(s_spawn_point, var_3a053962, var_dae71351)
 	{
 		var_68455141 = #"hash_4c4e28d400b974a8";
 	}
-	var_c590f74 = namespace_be0f9d50::function_b309db61([0:s_spawn_point], undefined, undefined, var_68455141);
+	var_c590f74 = mimic_prop_spawn::function_b309db61([0:s_spawn_point], undefined, undefined, var_68455141);
 	var_c590f74 clientfield::set("reward_chest_fx", var_dae71351);
 	/#
 		if(getdvarint(#"hash_6e805904860dca0d", 0))
@@ -1423,12 +1423,12 @@ function function_3e953077(instance)
 				{
 					if(math::cointoss(50))
 					{
-						model = #"hash_40ce47dd15f047d6";
+						model = #"p9_gold_surcrystal_medium_01";
 						str_scene = "p9_zm_gold_sur_crystal_medium_01_bundle";
 					}
 					else
 					{
-						model = #"hash_40ce46dd15f04623";
+						model = #"p9_gold_surcrystal_medium_02";
 						str_scene = "p9_zm_gold_sur_crystal_medium_02_bundle";
 					}
 					e_pod = util::spawn_model(model, spawn.origin, spawn.angles, undefined, 1);
@@ -1716,14 +1716,14 @@ function function_2085db3b()
 {
 	/#
 		util::waittill_can_add_debug_command();
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
 		level thread function_b6b13cf8();
 	#/
 }

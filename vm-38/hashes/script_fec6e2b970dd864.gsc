@@ -26,7 +26,7 @@ function private autoexec function_8ceef761()
 #namespace scoreevents;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scoreevents
 	Checksum: 0xF86D00C3
 	Offset: 0x260
@@ -34,7 +34,7 @@ function private autoexec function_8ceef761()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2f9a92f69b207b7c", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -50,7 +50,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	registerscoreeventcallback("scoreEventSR", &function_abce7fd5);
+	registerscoreeventcallback("scoreEventSR", &scoreEventSR);
 	level.var_ade393f4 = &function_ade393f4;
 	level.var_f8b76690 = &function_f8b76690;
 	level.var_88e6f8b7 = &function_88e6f8b7;
@@ -60,7 +60,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_abce7fd5
+	Name: scoreEventSR
 	Namespace: scoreevents
 	Checksum: 0x746D586B
 	Offset: 0x380
@@ -68,7 +68,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_abce7fd5(params)
+function scoreEventSR(params)
 {
 	if(is_true(params.allplayers))
 	{

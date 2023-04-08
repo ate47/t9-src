@@ -19,7 +19,7 @@ function private autoexec function_db498246()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: claymore
 	Checksum: 0x2F9A9279
 	Offset: 0x98
@@ -27,7 +27,7 @@ function private autoexec function_db498246()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"claymore", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_35598499769dbb3d;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -30,7 +30,7 @@ function private autoexec function_2cb9543b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_armor
 	Checksum: 0xF40DEEF
 	Offset: 0x100
@@ -38,7 +38,7 @@ function private autoexec function_2cb9543b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_armor", &function_70a657d8, undefined, undefined, undefined);
 }

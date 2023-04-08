@@ -22,7 +22,7 @@ function private autoexec function_3827db29()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: deployable
 	Checksum: 0x72CE963
 	Offset: 0xF8
@@ -30,7 +30,7 @@ function private autoexec function_3827db29()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"deployable", &function_70a657d8, undefined, undefined, undefined);
 }

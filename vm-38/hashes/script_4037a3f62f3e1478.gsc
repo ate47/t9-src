@@ -25,7 +25,7 @@ function private autoexec function_f4b741a1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1a2bd81f
 	Checksum: 0xC327070C
 	Offset: 0xF8
@@ -33,7 +33,7 @@ function private autoexec function_f4b741a1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_d287d6d0be9f28c", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -74,7 +74,7 @@ function on_actor_spawned(localclientnum)
 	{
 		switch(self.archetype)
 		{
-			case "hash_1bc8194446d4722f":
+			case "tormentor":
 			case "zombie":
 			case "avogadro":
 			{
@@ -123,7 +123,7 @@ function on_actor_spawned(localclientnum)
 				self.var_fbfc64db = #"hash_567c329bd17fa23e";
 				break;
 			}
-			case "hash_24f9e195cf2de42":
+			case "soa":
 			{
 				self.var_6ffc5953 = #"hash_73aa050fa52a8f98";
 				self.var_dee85a7a = "j_head";
@@ -236,7 +236,7 @@ function function_4ebcb98d(localclientnum)
 {
 	/#
 		util::init_dvar(#"hash_4cf563ada0725f21", "", &function_5f56213c);
-		util::function_e2e9d901(localclientnum, "", "");
+		util::add_devgui(localclientnum, "", "");
 	#/
 }
 

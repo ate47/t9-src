@@ -84,7 +84,7 @@ class class_90c2e4ec : cLUIelem
 	*/
 	function set_is_beast(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "is_beast", value);
+		[[ self ]]->set_data(localclientnum, "is_beast", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class class_90c2e4ec : cLUIelem
 	*/
 	function set_health(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "health", value);
+		[[ self ]]->set_data(localclientnum, "health", value);
 	}
 
 	/*
@@ -113,17 +113,17 @@ class class_90c2e4ec : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "health", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "is_beast", 0);
+		[[ self ]]->set_data(localclientnum, "health", 0);
+		[[ self ]]->set_data(localclientnum, "is_beast", 0);
 	}
 
 }
 
-#namespace namespace_e7b931aa;
+#namespace sr_orda_health_bar;
 
 /*
 	Name: function_41a7b58c
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x21AD2A18
 	Offset: 0xD8
 	Size: 0x14
@@ -137,7 +137,7 @@ function private autoexec function_41a7b58c()
 
 /*
 	Name: register
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x45795D4D
 	Offset: 0xF8
 	Size: 0x17E
@@ -152,24 +152,24 @@ function register(var_663a86fa, var_d79cca54)
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_51902cdefeaf2cf0"]))
+	if(!isdefined(level.var_ae746e8f[#"sr_orda_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_51902cdefeaf2cf0"] = [];
+		level.var_ae746e8f[#"sr_orda_health_bar"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_51902cdefeaf2cf0"]))
+	if(!isdefined(level.var_ae746e8f[#"sr_orda_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_51902cdefeaf2cf0"] = [];
+		level.var_ae746e8f[#"sr_orda_health_bar"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_51902cdefeaf2cf0"]))
+	else if(!isarray(level.var_ae746e8f[#"sr_orda_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_51902cdefeaf2cf0"] = array(level.var_ae746e8f[#"hash_51902cdefeaf2cf0"]);
+		level.var_ae746e8f[#"sr_orda_health_bar"] = array(level.var_ae746e8f[#"sr_orda_health_bar"]);
 	}
-	level.var_ae746e8f[#"hash_51902cdefeaf2cf0"][level.var_ae746e8f[#"hash_51902cdefeaf2cf0"].size] = elem;
+	level.var_ae746e8f[#"sr_orda_health_bar"][level.var_ae746e8f[#"sr_orda_health_bar"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x74AAB41F
 	Offset: 0x280
 	Size: 0x34
@@ -185,7 +185,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x3E0ABCB0
 	Offset: 0x2C0
 	Size: 0x1C
@@ -199,7 +199,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xBB0D2404
 	Offset: 0x2E8
 	Size: 0x1C
@@ -213,7 +213,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0x7102EF49
 	Offset: 0x310
 	Size: 0x1A
@@ -227,7 +227,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_health
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xD838DDD4
 	Offset: 0x338
 	Size: 0x28
@@ -241,7 +241,7 @@ function set_health(localclientnum, value)
 
 /*
 	Name: set_is_beast
-	Namespace: namespace_e7b931aa
+	Namespace: sr_orda_health_bar
 	Checksum: 0xA26FEADC
 	Offset: 0x368
 	Size: 0x28

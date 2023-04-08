@@ -24,7 +24,7 @@ function private autoexec function_abe33121()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: districts
 	Checksum: 0x29B09891
 	Offset: 0x100
@@ -32,7 +32,7 @@ function private autoexec function_abe33121()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register("cp_districts_system", &function_70a657d8, undefined, undefined, undefined);
 }

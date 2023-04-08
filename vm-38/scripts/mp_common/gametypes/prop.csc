@@ -70,13 +70,13 @@ function function_357207b9(localclientnum)
 	}
 	if(function_65b9eb0f(localclientnum))
 	{
-		level thread function_29794d02(localclientnum);
+		level thread localPlayerSpectating(localclientnum);
 	}
-	level thread function_b5a6504c(localclientnum);
+	level thread setupPropPlayerNames(localclientnum);
 }
 
 /*
-	Name: function_29794d02
+	Name: localPlayerSpectating
 	Namespace: prop
 	Checksum: 0x5E83EBBD
 	Offset: 0x740
@@ -84,7 +84,7 @@ function function_357207b9(localclientnum)
 	Parameters: 1
 	Flags: None
 */
-function function_29794d02(localclientnum)
+function localPlayerSpectating(localclientnum)
 {
 	level notify("localPlayerSpectating" + localclientnum);
 	level endon("localPlayerSpectatingEnd" + localclientnum);
@@ -179,7 +179,7 @@ function function_1d9539dd(localclientnum, player)
 }
 
 /*
-	Name: function_b5a6504c
+	Name: setupPropPlayerNames
 	Namespace: prop
 	Checksum: 0x3B02261F
 	Offset: 0xA58
@@ -187,7 +187,7 @@ function function_1d9539dd(localclientnum, player)
 	Parameters: 1
 	Flags: None
 */
-function function_b5a6504c(localclientnum)
+function setupPropPlayerNames(localclientnum)
 {
 	level notify("setupPropPlayerNames" + localclientnum);
 	level endon("setupPropPlayerNames" + localclientnum);

@@ -1,10 +1,10 @@
 #using script_1292451e284848cc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_267e1d16ae28392b;
 #using script_272c4fcff156116d;
 #using script_32399001bdb550da;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4ae261b2785dda9f;
 #using script_7b4396f5e8e35b28;
 #using scripts\core_common\array_shared.gsc;
@@ -52,7 +52,7 @@ function private autoexec function_735ef6d8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: skipto
 	Checksum: 0x179F378A
 	Offset: 0x818
@@ -60,7 +60,7 @@ function private autoexec function_735ef6d8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"skipto", &function_70a657d8, &function_8ac3bea9, &on_finalize_initialization, undefined);
 }

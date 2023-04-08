@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using script_340a2e805e35f7a2;
 #using script_34ab99a4ca1a43d;
 #using script_399c912938783695;
@@ -43,7 +43,7 @@ function private autoexec function_1def8ff7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1a2bd81f
 	Checksum: 0x441E07CD
 	Offset: 0x330
@@ -51,7 +51,7 @@ function private autoexec function_1def8ff7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_d287d6d0be9f28c", &function_70a657d8, &function_8ac3bea9, undefined, #"zm_loadout");
 }
@@ -283,7 +283,7 @@ function function_3ba5772b()
 		{
 			case "raz":
 			case "mimic":
-			case "hash_1bc8194446d4722f":
+			case "tormentor":
 			case "zombie_dog":
 			case "mechz":
 			case "zombie":
@@ -293,7 +293,7 @@ function function_3ba5772b()
 				self.var_4356b0bd = 1;
 				break;
 			}
-			case "hash_24f9e195cf2de42":
+			case "soa":
 			{
 				wait(1.4 + (float(function_60d95f53()) / 1000));
 				self.var_4356b0bd = 1;
@@ -411,10 +411,10 @@ function private function_5da12481(params)
 				{
 					if(math::cointoss(15) || level flag::get(#"hash_6ef5c2fd97dfb8ba"))
 					{
-						ai_mimic = spawnactor(#"hash_785d6a6acd470388", item.origin, item.angles, "mimic_jackolantern_spawn", 1);
+						ai_mimic = spawnactor(#"spawner_bo5_mimic", item.origin, item.angles, "mimic_jackolantern_spawn", 1);
 						if(isdefined(ai_mimic))
 						{
-							playfx(#"hash_16d245700e1be792", ai_mimic.origin);
+							playfx(#"zm_ai/fx9_mimic_prop_spawn_out", ai_mimic.origin);
 							ai_mimic playsound(#"hash_408f33e5cf20df9d");
 						}
 						else

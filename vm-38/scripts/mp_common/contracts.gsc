@@ -1,5 +1,5 @@
-#using script_18f0d22c75b141a7;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using scripts\core_common\armor.gsc;
@@ -30,7 +30,7 @@ function private autoexec function_4d406410()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: contracts
 	Checksum: 0x9B5A5451
 	Offset: 0x168
@@ -38,7 +38,7 @@ function private autoexec function_4d406410()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"contracts", &function_70a657d8, undefined, &finalize_init, undefined);
 }
@@ -124,13 +124,13 @@ function function_2065738f(killstreaktype)
 	switch(killstreaktype)
 	{
 		case "counteruav":
-		case "hash_65f8a13931095b50":
+		case "inventory_counteruav":
 		{
 			self function_a54e2068(#"hash_55d5fc464b179a45");
 			break;
 		}
 		case "uav":
-		case "hash_73f41ae07ef2ba54":
+		case "inventory_uav":
 		{
 			self function_a54e2068(#"hash_5faef94f35522583");
 			break;
@@ -257,7 +257,7 @@ function on_player_connect()
 */
 function can_process_contracts()
 {
-	if(getdvarint(#"hash_5f85c5979e163766", 0) == 0)
+	if(getdvarint(#"contracts_enabled", 0) == 0)
 	{
 		return 0;
 	}
@@ -642,7 +642,7 @@ function function_71eb8a5a(weapon, victim)
 	{
 		attacker function_fd9fb79b(#"hash_26d4790af9efa59c");
 	}
-	if(armor::function_4f977182() > 0 && isdefined(self.var_c79fb13d))
+	if(armor::get_armor() > 0 && isdefined(self.var_c79fb13d))
 	{
 		attacker function_fd9fb79b(#"hash_7d90475d2d43eefd");
 	}
@@ -654,7 +654,7 @@ function function_71eb8a5a(weapon, victim)
 	{
 		attacker function_fd9fb79b(#"hash_4213c8e332e36c4d");
 	}
-	if(attacker hasperk(#"hash_48d89fda4346187f"))
+	if(attacker hasperk(#"specialty_paranoia"))
 	{
 		attacker function_fd9fb79b(#"hash_3ad67e164e5906b2");
 	}

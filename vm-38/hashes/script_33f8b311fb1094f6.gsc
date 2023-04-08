@@ -84,7 +84,7 @@ class class_302a48fc : cLUIelem
 	*/
 	function set_alpha(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", value);
+		[[ self ]]->set_data(localclientnum, "alpha", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class class_302a48fc : cLUIelem
 	*/
 	function set_vipmessage(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "vipmessage", value);
+		[[ self ]]->set_data(localclientnum, "vipmessage", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class class_302a48fc : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "vipmessage", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", 0);
+		[[ self ]]->set_data(localclientnum, "vipmessage", #"");
+		[[ self ]]->set_data(localclientnum, "alpha", 0);
 	}
 
 }

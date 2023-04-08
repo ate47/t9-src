@@ -54,7 +54,7 @@ class cremote_missile_target_lockon : cLUIelem
 	*/
 	function set_target_locked(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "target_locked", value);
+		[[ self ]]->set_data(localclientnum, "target_locked", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cremote_missile_target_lockon : cLUIelem
 	*/
 	function set_clientnum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", value);
+		[[ self ]]->set_data(localclientnum, "clientnum", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cremote_missile_target_lockon : cLUIelem
 	*/
 	function set_isHawkTag(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "isHawkTag", value);
+		[[ self ]]->set_data(localclientnum, "isHawkTag", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class cremote_missile_target_lockon : cLUIelem
 	*/
 	function set_isVehicle(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "isVehicle", value);
+		[[ self ]]->set_data(localclientnum, "isVehicle", value);
 	}
 
 	/*
@@ -138,7 +138,7 @@ class cremote_missile_target_lockon : cLUIelem
 	*/
 	function set_killed(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "killed", value);
+		[[ self ]]->set_data(localclientnum, "killed", value);
 	}
 
 	/*
@@ -153,11 +153,11 @@ class cremote_missile_target_lockon : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "target_locked", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "isHawkTag", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "killed", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "isVehicle", 0);
+		[[ self ]]->set_data(localclientnum, "clientnum", 0);
+		[[ self ]]->set_data(localclientnum, "target_locked", 0);
+		[[ self ]]->set_data(localclientnum, "isHawkTag", 0);
+		[[ self ]]->set_data(localclientnum, "killed", 0);
+		[[ self ]]->set_data(localclientnum, "isVehicle", 0);
 	}
 
 }

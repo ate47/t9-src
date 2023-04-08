@@ -18,7 +18,7 @@ function private autoexec function_6cd5f7a5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_survive
 	Checksum: 0x3795A9B0
 	Offset: 0x90
@@ -26,9 +26,9 @@ function private autoexec function_6cd5f7a5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_6d08a8a99b71d29e", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_survive", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

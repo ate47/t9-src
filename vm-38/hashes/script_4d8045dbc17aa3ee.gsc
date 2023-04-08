@@ -1370,9 +1370,9 @@ function function_ddde8af6(delay)
 			{
 				self.doa.score.bombs = 9;
 			}
-			if(self.doa.score.var_7a3c00a0 <= 1)
+			if(self.doa.score.boosts <= 1)
 			{
-				self.doa.score.var_7a3c00a0 = 9;
+				self.doa.score.boosts = 9;
 			}
 		}
 		wait(1);
@@ -1468,7 +1468,7 @@ function function_1552e594()
 			{
 				guy setplayerangles((0, randomint(360), 0));
 				guy.doa.var_d524abd8 = 1;
-				namespace_1e25ad94::debugmsg("Bot is boosting.  Boosts Left:" + guy.doa.score.var_7a3c00a0);
+				namespace_1e25ad94::debugmsg("Bot is boosting.  Boosts Left:" + guy.doa.score.boosts);
 			}
 			if(roll == 0)
 			{
@@ -1683,15 +1683,15 @@ function function_a4037f83(pickup)
 			wait(1);
 			continue;
 		}
-		if(self.doa.score.var_7a3c00a0 == 0 && randomint(500) == 0)
+		if(self.doa.score.boosts == 0 && randomint(500) == 0)
 		{
-			self.doa.score.var_7a3c00a0 = 2;
+			self.doa.score.boosts = 2;
 		}
 		yaw = self namespace_ec06fe4a::getyaw2d(pickup.origin);
 		angles = (0, yaw, 0);
 		self setplayerangles(angles);
 		self.doa.var_d524abd8 = 1;
-		namespace_1e25ad94::debugmsg((("Bot is boosting at pickup:" + ([[ pickup.def ]]->getname())) + ".  Boosts Left:") + self.doa.score.var_7a3c00a0);
+		namespace_1e25ad94::debugmsg((("Bot is boosting at pickup:" + ([[ pickup.def ]]->getname())) + ".  Boosts Left:") + self.doa.score.boosts);
 		wait(0.5);
 	}
 }
@@ -1797,7 +1797,7 @@ function function_61b604bf()
 				label = label + toks[i];
 			}
 			var_59ea00e = ("" + name) + "";
-			util::function_e2e9d901(label, var_59ea00e);
+			util::add_devgui(label, var_59ea00e);
 		}
 		var_663588d = "";
 		foreach(def in level.doa.pickups.itemdefs)
@@ -1818,7 +1818,7 @@ function function_61b604bf()
 				label = label + toks[i];
 			}
 			var_59ea00e = ("" + name) + "";
-			util::function_e2e9d901(label, var_59ea00e);
+			util::add_devgui(label, var_59ea00e);
 		}
 		var_663588d = "";
 		foreach(def in level.doa.pickups.itemdefs)
@@ -1839,7 +1839,7 @@ function function_61b604bf()
 				label = label + toks[i];
 			}
 			var_59ea00e = ("" + name) + "";
-			util::function_e2e9d901(label, var_59ea00e);
+			util::add_devgui(label, var_59ea00e);
 		}
 	#/
 }

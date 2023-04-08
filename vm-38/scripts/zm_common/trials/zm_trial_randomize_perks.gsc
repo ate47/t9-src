@@ -23,7 +23,7 @@ function private autoexec function_89f75cdc()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_randomize_perks
 	Checksum: 0xD8A2D11A
 	Offset: 0xD0
@@ -31,9 +31,9 @@ function private autoexec function_89f75cdc()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_6e77e2b9be911a71", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_randomize_perks", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

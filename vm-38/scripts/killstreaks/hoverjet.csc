@@ -21,7 +21,7 @@ function private autoexec function_437f3999()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hoverjet
 	Checksum: 0x90C3E8D7
 	Offset: 0x178
@@ -29,7 +29,7 @@ function private autoexec function_437f3999()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hoverjet", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

@@ -29,7 +29,7 @@ function private autoexec function_da4f8f50()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_util
 	Checksum: 0x312252C8
 	Offset: 0x4B0
@@ -37,7 +37,7 @@ function private autoexec function_da4f8f50()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_trial_util", &function_70a657d8, &finalize_clientfields, undefined, undefined);
 }

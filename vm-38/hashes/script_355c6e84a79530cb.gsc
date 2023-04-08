@@ -40,7 +40,7 @@ function private autoexec function_eefe9674()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_73df937d
 	Checksum: 0x199FFDBA
 	Offset: 0x270
@@ -48,7 +48,7 @@ function private autoexec function_eefe9674()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5ff56dba9074b0b4", &function_70a657d8, undefined, &finalize, #"hash_f81b9dea74f0ee");
 }
@@ -67,7 +67,7 @@ function function_70a657d8()
 	namespace_8b6a9d79::function_b3464a7c("safehouse", &function_d0e7af66);
 	level clientfield::register("scriptmover", "safehouse_claim_fx", 1, 1, "int");
 	callback::add_callback(#"objective_started", &function_83b6d24a);
-	callback::add_callback(#"hash_69090774fec4a17b", &function_2b1da4a6);
+	callback::add_callback(#"objective_ended", &function_2b1da4a6);
 }
 
 /*
@@ -549,7 +549,7 @@ function function_2085db3b()
 		util::waittill_can_add_debug_command();
 		level thread function_dab40c5f();
 		adddebugcommand("");
-		util::function_e2e9d901(namespace_8b6a9d79::function_7956c7ac("", 105), "");
+		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 105), "");
 	#/
 }
 

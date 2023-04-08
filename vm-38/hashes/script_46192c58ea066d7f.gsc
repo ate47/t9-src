@@ -25,7 +25,7 @@ function private autoexec function_41fccd45()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_234f0efc
 	Checksum: 0xEB3C0873
 	Offset: 0x138
@@ -33,7 +33,7 @@ function private autoexec function_41fccd45()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_296b16535a22f50f", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -375,7 +375,7 @@ function function_8d066de9(var_feb0fc80, var_27ad329a, var_40f483c8, var_212c905
 	level.var_c121bd48 = var_40f483c8;
 	level.var_a17d47bf = var_212c9055;
 	level waittill(#"hash_38a387462f3a9ad");
-	level thread function_588a586d(#"hash_3aa45f7379bfb316", level.var_f8299840);
+	level thread function_588a586d(#"dirty_bomb_stash", level.var_f8299840);
 }
 
 /*

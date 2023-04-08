@@ -42,7 +42,7 @@ function private autoexec function_25fc29f3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1b312da5
 	Checksum: 0xFE33BC89
 	Offset: 0x528
@@ -50,7 +50,7 @@ function private autoexec function_25fc29f3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3cd3b81be4386726", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -93,7 +93,7 @@ function function_70a657d8()
 */
 function function_abb99222(s_instance)
 {
-	callback::add_callback(#"hash_56d1805bfff3e65b", &function_910ec836);
+	callback::add_callback(#"on_item_pickup", &function_910ec836);
 	var_db9e2dd = (isdefined(s_instance.var_fe2612fe[#"hash_1d0b38fd6d8376de"]) ? s_instance.var_fe2612fe[#"hash_1d0b38fd6d8376de"] : []);
 	foreach(var_e24a3dff in var_db9e2dd)
 	{
@@ -180,7 +180,7 @@ function function_910ec836(s_params)
 {
 	if(isplayer(self) && s_params.item.var_a6762160.name === #"hash_7f84b365b2cc9223")
 	{
-		callback::remove_callback(#"hash_56d1805bfff3e65b", &function_910ec836);
+		callback::remove_callback(#"on_item_pickup", &function_910ec836);
 		level flag::set(#"hash_4b6a4d58908490c7");
 	}
 }
@@ -200,7 +200,7 @@ function function_5b063814()
 	var_7d8d1545 = struct::get(#"hash_11d094b3d64e7524");
 	var_7d8d1545.var_a440edde = namespace_8b6a9d79::spawn_script_model(var_7d8d1545, #"tag_origin", 0, 0);
 	var_7d8d1545.var_a440edde playloopsound(#"hash_7b112ed62e5af352");
-	callback::add_callback(#"hash_56d1805bfff3e65b", &function_87528dce);
+	callback::add_callback(#"on_item_pickup", &function_87528dce);
 	var_9489860d = struct::get(#"hash_408fe7cd53675acd");
 	point = function_4ba8fde(#"hash_9853cc6c19e9098");
 	item_drop::drop_item(0, undefined, 1, 0, point.id, var_9489860d.origin, var_9489860d.angles, 0);
@@ -219,7 +219,7 @@ function function_87528dce(s_params)
 {
 	if(isplayer(self) && s_params.item.var_a6762160.name === #"hash_9853cc6c19e9098")
 	{
-		callback::remove_callback(#"hash_56d1805bfff3e65b", &function_87528dce);
+		callback::remove_callback(#"on_item_pickup", &function_87528dce);
 		level flag::set(#"hash_389597c20633a9d8");
 		var_7d8d1545 = struct::get(#"hash_11d094b3d64e7524");
 		var_7d8d1545.var_a440edde stoploopsound();

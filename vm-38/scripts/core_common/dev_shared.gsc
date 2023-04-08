@@ -585,7 +585,7 @@ function function_970d4891(mode)
 		foreach(playerbodytype in bodies)
 		{
 			body_name = (function_2c6232e5(makelocalizedstring(getcharacterdisplayname(playerbodytype, mode))) + "") + function_9e72a96(getcharacterassetname(playerbodytype, mode));
-			util::function_e2e9d901(("" + body_name) + "", (("" + "") + "") + body_name);
+			util::add_devgui(("" + body_name) + "", (("" + "") + "") + body_name);
 		}
 	#/
 }
@@ -853,7 +853,7 @@ function function_373068ca(name, postfix)
 		util::waittill_can_add_debug_command();
 		talentname = ("" + name) + postfix;
 		cmd = (("" + "") + "") + talentname;
-		util::function_e2e9d901("" + talentname, cmd);
+		util::add_devgui("" + talentname, cmd);
 	#/
 }
 
@@ -884,7 +884,7 @@ function function_8263c0d5(name, postfix)
 		util::waittill_can_add_debug_command();
 		talentname = ("" + getsubstr(name, 7)) + postfix;
 		cmd = (("" + "") + "") + talentname;
-		util::function_e2e9d901("" + talentname, cmd);
+		util::add_devgui("" + talentname, cmd);
 	#/
 }
 

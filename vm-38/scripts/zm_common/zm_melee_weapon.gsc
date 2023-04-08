@@ -34,7 +34,7 @@ function private autoexec function_cf1513ad()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_melee_weapon
 	Checksum: 0xA0AC0519
 	Offset: 0x180
@@ -42,7 +42,7 @@ function private autoexec function_cf1513ad()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"melee_weapon", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -632,7 +632,7 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 					{
 						level clientfield::set(self.clientfieldname, 1);
 					}
-					if(zm_utility::function_166646a6() != 1 && !isdefined(model))
+					if(zm_utility::get_story() != 1 && !isdefined(model))
 					{
 						var_6ff4b667 = struct::get(self.target, "targetname");
 						if(isdefined(var_6ff4b667) && isdefined(var_6ff4b667.target))

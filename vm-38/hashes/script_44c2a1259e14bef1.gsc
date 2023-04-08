@@ -1,7 +1,7 @@
 #using script_24c32478acf44108;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_72401f526ba71638;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -30,7 +30,7 @@ function private autoexec function_e6b74913()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_32e85820
 	Checksum: 0xFF02FBD8
 	Offset: 0x248
@@ -38,7 +38,7 @@ function private autoexec function_e6b74913()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_36a2cb0be45d9374", &function_70a657d8, undefined, undefined, #"hash_13a43d760497b54d");
 }

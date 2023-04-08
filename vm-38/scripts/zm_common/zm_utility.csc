@@ -27,7 +27,7 @@ function private autoexec function_ec66576b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_utility
 	Checksum: 0x64F2A5A9
 	Offset: 0x298
@@ -35,7 +35,7 @@ function private autoexec function_ec66576b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_utility", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -401,7 +401,7 @@ function function_e51dc2d8()
 	{
 		return false;
 	}
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_3c5363541b97ca3e"))
+	if(!zm_custom::function_901b751c(#"hash_3c5363541b97ca3e"))
 	{
 		return false;
 	}
@@ -637,7 +637,7 @@ function function_ae3780f1(localclientnum, n_fx_id, var_3ab46b9)
 }
 
 /*
-	Name: function_90500af5
+	Name: get_cast
 	Namespace: zm_utility
 	Checksum: 0xAF5709E8
 	Offset: 0x1708
@@ -645,13 +645,13 @@ function function_ae3780f1(localclientnum, n_fx_id, var_3ab46b9)
 	Parameters: 0
 	Flags: None
 */
-function function_90500af5()
+function get_cast()
 {
-	return namespace_cb7cafc3::function_90500af5();
+	return namespace_cb7cafc3::get_cast();
 }
 
 /*
-	Name: function_166646a6
+	Name: get_story
 	Namespace: zm_utility
 	Checksum: 0xF714A75B
 	Offset: 0x1728
@@ -659,9 +659,9 @@ function function_90500af5()
 	Parameters: 0
 	Flags: Linked
 */
-function function_166646a6()
+function get_story()
 {
-	return namespace_cb7cafc3::function_166646a6();
+	return namespace_cb7cafc3::get_story();
 }
 
 /*
@@ -774,7 +774,7 @@ function model_rarity_rob(localclientnum, oldval, newval, bnewent, binitialsnap,
 		}
 		case 7:
 		{
-			self.var_d9e5ccb2 = #"hash_7bed6d31a7d8d425";
+			self.var_d9e5ccb2 = #"rob_sr_item_gold";
 			break;
 		}
 		case 0:
@@ -828,7 +828,7 @@ function set_compass_icon(localclientnum, oldval, newval, bnewent, binitialsnap,
 				str_objective = #"hash_5ae3492cc261d9c9";
 				break;
 			}
-			case "hash_45169d3166db3fb3":
+			case "p9_zm_gold_teleporter_b":
 			{
 				str_objective = #"hash_48c296f58e75bbc7";
 				break;
@@ -838,7 +838,7 @@ function set_compass_icon(localclientnum, oldval, newval, bnewent, binitialsnap,
 				str_objective = #"hash_7ccf11b4a680682a";
 				break;
 			}
-			case "hash_1557d871821b884f":
+			case "p9_zm_gold_jumppads_machine_sub":
 			{
 				str_objective = #"hash_7f5d2d61a6f36e5d";
 				break;

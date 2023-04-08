@@ -27,7 +27,7 @@ function private autoexec function_7af779fe()
 #namespace colors;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: colors
 	Checksum: 0xCF03E250
 	Offset: 0x1B8
@@ -35,7 +35,7 @@ function private autoexec function_7af779fe()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"colors", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

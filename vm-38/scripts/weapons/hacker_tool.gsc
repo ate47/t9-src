@@ -1,6 +1,6 @@
 #using scripts\weapons\heatseekingmissile.gsc;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\weaponobjects.gsc;

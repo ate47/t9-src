@@ -54,7 +54,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_green(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "green", value);
+		[[ self ]]->set_data(localclientnum, "green", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_fadeOverTime(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", value);
+		[[ self ]]->set_data(localclientnum, "fadeOverTime", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_height(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "height", value);
+		[[ self ]]->set_data(localclientnum, "height", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_blue(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "blue", value);
+		[[ self ]]->set_data(localclientnum, "blue", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_width(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "width", value);
+		[[ self ]]->set_data(localclientnum, "width", value);
 	}
 
 	/*
@@ -152,7 +152,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_y(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "y", value);
+		[[ self ]]->set_data(localclientnum, "y", value);
 	}
 
 	/*
@@ -166,7 +166,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_alpha(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", value);
+		[[ self ]]->set_data(localclientnum, "alpha", value);
 	}
 
 	/*
@@ -180,7 +180,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_x(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "x", value);
+		[[ self ]]->set_data(localclientnum, "x", value);
 	}
 
 	/*
@@ -194,7 +194,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_red(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "red", value);
+		[[ self ]]->set_data(localclientnum, "red", value);
 	}
 
 	/*
@@ -209,16 +209,16 @@ class cLUIelemBar : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "x", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "y", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "width", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "height", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "red", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "green", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "blue", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", 0);
+		[[ self ]]->set_data(localclientnum, "x", 0);
+		[[ self ]]->set_data(localclientnum, "y", 0);
+		[[ self ]]->set_data(localclientnum, "width", 0);
+		[[ self ]]->set_data(localclientnum, "height", 0);
+		[[ self ]]->set_data(localclientnum, "fadeOverTime", 0);
+		[[ self ]]->set_data(localclientnum, "alpha", 0);
+		[[ self ]]->set_data(localclientnum, "red", 0);
+		[[ self ]]->set_data(localclientnum, "green", 0);
+		[[ self ]]->set_data(localclientnum, "blue", 0);
+		[[ self ]]->set_data(localclientnum, "bar_percent", 0);
 	}
 
 	/*
@@ -232,7 +232,7 @@ class cLUIelemBar : cLUIelem
 	*/
 	function set_bar_percent(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", value);
+		[[ self ]]->set_data(localclientnum, "bar_percent", value);
 	}
 
 }

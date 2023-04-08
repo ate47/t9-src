@@ -6,7 +6,7 @@
 #using scripts\wz_common\wz_loadouts.gsc;
 #using script_5495f0bb06045dc7;
 #using script_5ebc70029e06b264;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\mp_common\gametypes\gametype.gsc;
 #using scripts\mp_common\gametypes\globallogic_score.gsc;

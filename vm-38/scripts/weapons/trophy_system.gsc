@@ -1,6 +1,6 @@
 #using script_1435f3c9fc699e04;
 #using script_1cc417743d7c262d;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;

@@ -26,7 +26,7 @@ function private autoexec function_cc2436f1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: napalm_strike
 	Checksum: 0x4A53564D
 	Offset: 0x1E8
@@ -34,7 +34,7 @@ function private autoexec function_cc2436f1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"napalm_strike", &function_70a657d8, undefined, &function_3675de8b, #"killstreaks");
 }

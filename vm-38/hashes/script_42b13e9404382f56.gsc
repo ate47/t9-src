@@ -125,11 +125,11 @@ class class_c982469d : cLUIelem
 
 }
 
-#namespace namespace_d0cd3b4a;
+#namespace zm_corrupted_health_bar;
 
 /*
 	Name: function_5cfe9464
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0xFC7921B5
 	Offset: 0xE8
 	Size: 0x14
@@ -143,7 +143,7 @@ function private autoexec function_5cfe9464()
 
 /*
 	Name: register
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x7FD4BDF9
 	Offset: 0x108
 	Size: 0x34
@@ -159,7 +159,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x584B4B43
 	Offset: 0x148
 	Size: 0x38
@@ -177,7 +177,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x5189623B
 	Offset: 0x188
 	Size: 0x1C
@@ -191,7 +191,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0xC3D6EA8D
 	Offset: 0x1B0
 	Size: 0x1A
@@ -205,7 +205,7 @@ function is_open(player)
 
 /*
 	Name: set_health
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x4538EA91
 	Offset: 0x1D8
 	Size: 0x28
@@ -219,7 +219,7 @@ function set_health(player, value)
 
 /*
 	Name: set_armor
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x2F5A58B5
 	Offset: 0x208
 	Size: 0x28
@@ -233,7 +233,7 @@ function set_armor(player, value)
 
 /*
 	Name: set_armor_vis
-	Namespace: namespace_d0cd3b4a
+	Namespace: zm_corrupted_health_bar
 	Checksum: 0x58AD17FA
 	Offset: 0x238
 	Size: 0x28

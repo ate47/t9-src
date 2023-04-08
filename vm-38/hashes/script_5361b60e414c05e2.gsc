@@ -10,7 +10,7 @@
 #using script_5ee699b0aaf564c4;
 #using scripts\wz_common\spawn.gsc;
 #using script_69514c4c056c768;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_b9a55edd207e4ca;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -44,7 +44,7 @@ function private autoexec function_d96cb85d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: fireteam_elimination
 	Checksum: 0xA90A9E8A
 	Offset: 0x410
@@ -52,7 +52,7 @@ function private autoexec function_d96cb85d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_112a74f076cda31", &function_62730899, undefined, undefined, #"territory");
 }

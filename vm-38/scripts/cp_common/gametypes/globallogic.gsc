@@ -1,7 +1,7 @@
 #using script_32399001bdb550da;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\player\player_stats.gsc;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -65,7 +65,7 @@ function private autoexec function_b8ef4f02()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic
 	Checksum: 0x65E101DA
 	Offset: 0x698
@@ -73,7 +73,7 @@ function private autoexec function_b8ef4f02()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic", &function_70a657d8, undefined, undefined, #"visionset_mgr");
 }
@@ -2657,12 +2657,12 @@ function callback_startgametype()
 		game.strings[#"last_stand"] = #"hash_5732d212e4511a00";
 		game.strings[#"cowards_way"] = #"hash_268e464278a2f8ff";
 		game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
-		game.strings[#"round_draw"] = #"hash_7d3ae25e0187143e";
+		game.strings[#"round_draw"] = #"mp/round_draw";
 		game.strings[#"enemies_eliminated"] = #"mp_enemies_eliminated";
-		game.strings[#"score_limit_reached"] = #"hash_3050eee23c6a3574";
-		game.strings[#"round_limit_reached"] = #"hash_3b23cb510ab5970a";
-		game.strings[#"time_limit_reached"] = #"hash_4e2680278af76571";
-		game.strings[#"players_forfeited"] = #"hash_4b172be7ce459674";
+		game.strings[#"score_limit_reached"] = #"mp/score_limit_reached";
+		game.strings[#"round_limit_reached"] = #"mp/round_limit_reached";
+		game.strings[#"time_limit_reached"] = #"mp/time_limit_reached";
+		game.strings[#"players_forfeited"] = #"mp/players_forfeited";
 		game.strings[#"other_teams_forfeited"] = #"mp_other_teams_forfeited";
 		if(isdefined(level.onprecachegametype))
 		{

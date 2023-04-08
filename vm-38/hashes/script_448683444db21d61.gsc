@@ -48,7 +48,7 @@ function private autoexec function_8c17fa74()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_207ea311
 	Checksum: 0xFD92F2F
 	Offset: 0x1C0
@@ -56,7 +56,7 @@ function private autoexec function_8c17fa74()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_684573a459d68beb", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -207,7 +207,7 @@ function function_3ba2978d()
 		{
 			self clientfield::set("" + #"hash_63af42145e260fb5", 0);
 		}
-		self waittill(#"hash_2d4daa9e80b86b60");
+		self waittill(#"zone_change");
 	}
 }
 

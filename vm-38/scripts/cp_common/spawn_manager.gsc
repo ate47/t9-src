@@ -24,7 +24,7 @@ function private autoexec function_8a455fc9()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spawn_manager
 	Checksum: 0xEE02B929
 	Offset: 0x1D8
@@ -32,7 +32,7 @@ function private autoexec function_8a455fc9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"spawn_manager", &function_70a657d8, undefined, undefined, undefined);
 }

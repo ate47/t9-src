@@ -18,7 +18,7 @@ function private autoexec function_de9bbb64()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_other
 	Checksum: 0x48D71400
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_de9bbb64()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_other", &function_70a657d8, undefined, undefined, undefined);
 }

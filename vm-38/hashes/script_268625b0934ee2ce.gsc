@@ -398,23 +398,23 @@ function private stealth_noteworthy_priority(eventname)
 	}
 	switch(eventname)
 	{
-		case "hash_48d20ba57ac4bfc9":
+		case "civilian_kill":
 		{
 			return 70;
 		}
-		case "hash_1660e53a237b361f":
+		case "good_kill_double":
 		{
 			return 60;
 		}
-		case "hash_69549d190b855fff":
+		case "good_kill_impressive":
 		{
 			return 50;
 		}
-		case "hash_3dba80d5e594e48e":
+		case "good_kill_bullet":
 		{
 			return 40;
 		}
-		case "hash_3ad2f4667e2f7219":
+		case "good_kill":
 		{
 			return 30;
 		}

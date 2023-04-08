@@ -22,7 +22,7 @@ function private autoexec function_509b260c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_4b76712
 	Checksum: 0x483CA67
 	Offset: 0x110
@@ -30,7 +30,7 @@ function private autoexec function_509b260c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_698dcdb18ce4f995", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -46,7 +46,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	level.var_7abaaef1 = getdvarint(#"hash_57d06cd277d610a", 0);
+	level.var_7abaaef1 = getdvarint(#"player_freefall", 0);
 	if(is_true(level.var_7abaaef1))
 	{
 		function_7c19fac2();

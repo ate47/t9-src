@@ -47,7 +47,7 @@ function private autoexec function_3670eb05()
 #namespace namespace_dedc3cb9;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_dedc3cb9
 	Checksum: 0x17FEACC6
 	Offset: 0x3C0
@@ -55,7 +55,7 @@ function private autoexec function_3670eb05()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_146fecdc090c227e", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -226,10 +226,10 @@ function function_685a8288(instance)
 	vh_heli setforcenocull();
 	vh_heli vehicle::toggle_tread_fx(1);
 	vh_heli vehicle::toggle_sounds(1);
-	vh_heli.var_99582f14 = 1;
+	vh_heli.b_ignore_fow_damage = 1;
 	vh_heli.var_1b9f096d = 1;
 	vh_heli.var_ac1388df = 1;
-	if(util::get_map_name() === #"hash_2ef022fa4966a6ae")
+	if(util::get_map_name() === #"wz_sanatorium")
 	{
 		vh_heli vehicle::toggle_lights_group(3, 1);
 		vh_heli turretsettargetangles(0, (0, 0, 0));

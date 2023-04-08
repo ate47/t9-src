@@ -74,16 +74,16 @@ function function_48f7c5e6(localclientnum, oldval, newval, bnewent, binitialsnap
 		self.var_358ffe83 = undefined;
 		if(isdefined(var_eb1526b6) && isarray(var_eb1526b6))
 		{
-			foreach(var_912570af in var_eb1526b6)
+			foreach(sub_satellite_fx_pos in var_eb1526b6)
 			{
-				if(isdefined(var_912570af.fx))
+				if(isdefined(sub_satellite_fx_pos.fx))
 				{
-					stopfx(fieldname, var_912570af.fx);
-					if(isdefined(var_912570af.tag_fx))
+					stopfx(fieldname, sub_satellite_fx_pos.fx);
+					if(isdefined(sub_satellite_fx_pos.tag_fx))
 					{
-						var_912570af.tag_fx delete();
+						sub_satellite_fx_pos.tag_fx delete();
 					}
-					var_912570af.fx = undefined;
+					sub_satellite_fx_pos.fx = undefined;
 				}
 			}
 		}
@@ -94,17 +94,17 @@ function function_48f7c5e6(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(bwasdemojump == 1)
 	{
 		self.var_358ffe83 = playfx(fieldname, #"hash_4b0034bfed0b13a0", self.origin, anglestoup(self.angles), anglestoforward(self.angles));
-		foreach(var_912570af in var_eb1526b6)
+		foreach(sub_satellite_fx_pos in var_eb1526b6)
 		{
-			var_912570af.tag_fx = var_912570af util::spawn_model(fieldname, "tag_origin", var_912570af.origin, var_912570af.angles);
-			if(var_912570af.script_noteworthy === "a")
+			sub_satellite_fx_pos.tag_fx = sub_satellite_fx_pos util::spawn_model(fieldname, "tag_origin", sub_satellite_fx_pos.origin, sub_satellite_fx_pos.angles);
+			if(sub_satellite_fx_pos.script_noteworthy === "a")
 			{
-				var_912570af.fx = util::playfxontag(fieldname, #"hash_4142f503f17f18c4", var_912570af.tag_fx, "tag_origin");
+				sub_satellite_fx_pos.fx = util::playfxontag(fieldname, #"hash_4142f503f17f18c4", sub_satellite_fx_pos.tag_fx, "tag_origin");
 				continue;
 			}
-			if(var_912570af.script_noteworthy === "b")
+			if(sub_satellite_fx_pos.script_noteworthy === "b")
 			{
-				var_912570af.fx = util::playfxontag(fieldname, #"hash_4142f803f17f1ddd", var_912570af.tag_fx, "tag_origin");
+				sub_satellite_fx_pos.fx = util::playfxontag(fieldname, #"hash_4142f803f17f1ddd", sub_satellite_fx_pos.tag_fx, "tag_origin");
 			}
 		}
 		soundlineemitter(#"hash_243e8130bf816d5a", (478, -15202, 7913), (-2140, -15285, 8125));
@@ -175,7 +175,7 @@ function function_78d36eb1(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(bwasdemojump == 1)
 	{
 		util::playfxontag(fieldname, #"wz/fx9_dirtybomb_radiation_zone", self, "tag_origin");
-		util::playfxontag(fieldname, #"hash_7585d77a1bbdba84", self, "tag_origin");
+		util::playfxontag(fieldname, #"wz/fx9_dirtybomb_radiation_zone_spawn", self, "tag_origin");
 		self setcompassicon("ui_icon_minimap_collapse_ring");
 		self function_811196d1(0);
 		self function_95bc465d(1);
@@ -279,7 +279,7 @@ function function_3131e413(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwasdemojump == 1)
 	{
-		self.fx = playfx(fieldname, #"hash_16d245700e1be792", self.origin + vectorscale((0, 0, 1), 15), anglestoforward(self.angles), anglestoup(self.angles));
+		self.fx = playfx(fieldname, #"zm_ai/fx9_mimic_prop_spawn_out", self.origin + vectorscale((0, 0, 1), 15), anglestoforward(self.angles), anglestoup(self.angles));
 		playsound(fieldname, #"hash_41dc3cf755c57009", self.origin + vectorscale((0, 0, 1), 15));
 	}
 }
@@ -379,7 +379,7 @@ function function_807a046(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(bwasdemojump == 1)
 	{
-		util::playfxontag(fieldname, #"hash_16d245700e1be792", self, "j_spinelower");
+		util::playfxontag(fieldname, #"zm_ai/fx9_mimic_prop_spawn_out", self, "j_spinelower");
 	}
 }
 

@@ -46,7 +46,7 @@ function private autoexec function_2fd800a5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_420b39d3
 	Checksum: 0xB8AF6715
 	Offset: 0x170
@@ -54,7 +54,7 @@ function private autoexec function_2fd800a5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"hash_3a0015e9f67cadaf", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
@@ -1187,7 +1187,7 @@ function function_2fab7a62(str_type)
 		{
 			str_dvar = "" + str_type;
 			util::init_dvar(str_dvar, 0, &function_2a3a4bf6);
-			util::function_e2e9d901(namespace_8b6a9d79::function_7956c7ac("", function_9e72a96(str_type), 103), ("" + str_dvar) + "");
+			util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", function_9e72a96(str_type), 103), ("" + str_dvar) + "");
 		}
 	#/
 }
@@ -1366,8 +1366,8 @@ function function_34f85f1b(str_flag, var_1303e212)
 			a_spawn_points = [];
 			if(var_1303e212)
 			{
-				var_d194d219 = arraygetclosest(getplayers()[0].origin, level.var_f804b293);
-				a_spawn_points = struct::get_array(var_d194d219.targetname, "");
+				hotzone = arraygetclosest(getplayers()[0].origin, level.var_f804b293);
+				a_spawn_points = struct::get_array(hotzone.targetname, "");
 			}
 			else
 			{

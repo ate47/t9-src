@@ -1,6 +1,6 @@
-#using script_18f0d22c75b141a7;
-#using script_256b8879317373de;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_shared.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_6b221588ece2c4aa;
@@ -2544,7 +2544,7 @@ function hackerresult(player, owner)
 				self.progressbar hud::showelem();
 				self.progressbar hud::updatebar(0.01, 1 / hacktime);
 				self.progresstext = player hud::function_48badcf4();
-				self.progresstext settext(#"hash_34924cb5891895f0");
+				self.progresstext settext(#"mp/hacking");
 				self.progresstext hud::showelem();
 				player playlocalsound(#"evt_hacker_hacking");
 			}

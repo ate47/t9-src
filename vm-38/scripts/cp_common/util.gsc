@@ -47,7 +47,7 @@ function private autoexec function_e07f8544()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: util
 	Checksum: 0x2F9745DA
 	Offset: 0x630
@@ -55,7 +55,7 @@ function private autoexec function_e07f8544()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3b7610eda5a02b79", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -2028,7 +2028,7 @@ function show_hint_text(str_text_to_show, b_should_blink, str_turn_off_notify, n
 	}
 	if(!level flag::get(#"mission_failed"))
 	{
-		self thread namespace_fe8e9929::function_4c2d4fc4(b_should_blink, #"", 0, #"", 2, n_display_time, str_turn_off_notify, 0);
+		self thread hint_tutorial::function_4c2d4fc4(b_should_blink, #"", 0, #"", 2, n_display_time, str_turn_off_notify, 0);
 	}
 }
 
@@ -2077,7 +2077,7 @@ function hide_hint_text(b_fade_before_hiding)
 	{
 		b_fade_before_hiding = 1;
 	}
-	self namespace_fe8e9929::function_9f427d88((b_fade_before_hiding ? 2 : 0));
+	self hint_tutorial::function_9f427d88((b_fade_before_hiding ? 2 : 0));
 }
 
 /*

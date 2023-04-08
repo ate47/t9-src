@@ -28,7 +28,7 @@ function private autoexec function_d3bd8e0()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_73df937d
 	Checksum: 0xC43E2D53
 	Offset: 0x158
@@ -36,7 +36,7 @@ function private autoexec function_d3bd8e0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5ff56dba9074b0b4", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -52,11 +52,11 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	level clientfield::register("scriptmover", "safehouse_claim_fx", 1, 1, "int", &function_2a388744, 0, 0);
+	level clientfield::register("scriptmover", "safehouse_claim_fx", 1, 1, "int", &safehouse_claim_fx, 0, 0);
 }
 
 /*
-	Name: function_2a388744
+	Name: safehouse_claim_fx
 	Namespace: namespace_73df937d
 	Checksum: 0x37097271
 	Offset: 0x1F8
@@ -64,7 +64,7 @@ function function_70a657d8()
 	Parameters: 7
 	Flags: Linked
 */
-function function_2a388744(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function safehouse_claim_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{

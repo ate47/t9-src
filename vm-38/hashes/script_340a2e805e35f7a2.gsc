@@ -371,7 +371,7 @@ function private function_98013deb(row)
 }
 
 /*
-	Name: function_a0a5aec6
+	Name: _spawn_item
 	Namespace: namespace_65181344
 	Checksum: 0xEEC1C122
 	Offset: 0xFD0
@@ -379,7 +379,7 @@ function private function_98013deb(row)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_a0a5aec6(point, row, var_be90d3da)
+function private _spawn_item(point, row, var_be90d3da)
 {
 	if(!isdefined(var_be90d3da))
 	{
@@ -716,7 +716,7 @@ function private function_ea39d1fa(stash)
 				var_8107154f[var_8107154f.size] = point.id;
 				if(!var_bbe618cc)
 				{
-					function_a0a5aec6(point, row, 1);
+					_spawn_item(point, row, 1);
 				}
 				available--;
 			}
@@ -948,7 +948,7 @@ function private _setup()
 }
 
 /*
-	Name: function_a71c4d18
+	Name: _teardown
 	Namespace: namespace_65181344
 	Checksum: 0x2195ADED
 	Offset: 0x3148
@@ -956,7 +956,7 @@ function private _setup()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_a71c4d18()
+function private _teardown()
 {
 	self.points = undefined;
 	self.var_8107154f = undefined;
@@ -1496,7 +1496,7 @@ function private function_e25c9d12(var_f16b79a, &var_8107154f, spawncount, var_b
 						{
 						}
 					}
-					self function_a0a5aec6(var_f77e15f6, var_75aa5cbb, var_be90d3da);
+					self _spawn_item(var_f77e15f6, var_75aa5cbb, var_be90d3da);
 				}
 				else
 				{
@@ -1814,7 +1814,7 @@ function function_50a2c746(&var_f38d5b52, var_87e9f374)
 		group function_9db93def();
 		group _setup();
 		group _spawn();
-		group function_a71c4d18();
+		group _teardown();
 		if(getrealtime() - level.var_d0676b07 > level.var_3e9c9a35)
 		{
 			waitframe(1);

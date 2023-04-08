@@ -675,7 +675,7 @@ function function_b195a021(func, obj)
 }
 
 /*
-	Name: function_e9e16e2f
+	Name: on_killcam_begin
 	Namespace: callback
 	Checksum: 0x14C81623
 	Offset: 0x1198
@@ -683,13 +683,13 @@ function function_b195a021(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e9e16e2f(func, obj)
+function on_killcam_begin(func, obj)
 {
 	add_callback(#"killcam_begin", func, obj);
 }
 
 /*
-	Name: function_4f6cafea
+	Name: on_killcam_end
 	Namespace: callback
 	Checksum: 0x29F3DFCF
 	Offset: 0x11E0
@@ -697,7 +697,7 @@ function function_e9e16e2f(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_4f6cafea(func, obj)
+function on_killcam_end(func, obj)
 {
 	add_callback(#"killcam_end", func, obj);
 }
@@ -731,7 +731,7 @@ function function_fb65b7c2(func, obj)
 }
 
 /*
-	Name: function_10a8ebd8
+	Name: on_melee
 	Namespace: callback
 	Checksum: 0x3C796608
 	Offset: 0x12B8
@@ -739,7 +739,7 @@ function function_fb65b7c2(func, obj)
 	Parameters: 2
 	Flags: None
 */
-function function_10a8ebd8(func, obj)
+function on_melee(func, obj)
 {
 	add_callback(#"melee", func, obj);
 }

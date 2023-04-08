@@ -1,12 +1,12 @@
 #using script_18077945bb84ede7;
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_399c912938783695;
 #using script_4108035fe400ce67;
 #using script_437ce686d29bb81b;
 #using scripts\zm_common\zm_items.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using script_6e3c826b1814cab6;
 #using script_72401f526ba71638;
@@ -54,7 +54,7 @@ function private autoexec function_c3ae83d0()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_loadout
 	Checksum: 0xFE37101B
 	Offset: 0x460
@@ -62,7 +62,7 @@ function private autoexec function_c3ae83d0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_loadout", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -988,7 +988,7 @@ function register_offhand_weapons_for_level_defaults()
 		[[level.var_22fda912]]();
 	}
 	register_melee_weapon_for_level(level.weaponbasemelee.name);
-	if(namespace_cb7cafc3::function_166646a6() == 1)
+	if(namespace_cb7cafc3::get_story() == 1)
 	{
 		register_melee_weapon_for_level(#"bowie_knife_story_1");
 	}
@@ -1209,7 +1209,7 @@ function give_start_weapon(b_switch_weapon)
 		self zm_weapons::weapon_give(getweapon(#"bowie_knife"));
 	}
 	s_weapon = getunlockableiteminfofromindex(primary_weapon.statindex, 1);
-	if(isdefined(s_weapon) && isdefined(s_weapon.var_3cf2d21) && namespace_59ff1d6c::function_bce642a1(s_weapon) && namespace_59ff1d6c::function_901b751c(#"hash_7bc64c0823c87e41"))
+	if(isdefined(s_weapon) && isdefined(s_weapon.var_3cf2d21) && zm_custom::function_bce642a1(s_weapon) && zm_custom::function_901b751c(#"hash_7bc64c0823c87e41"))
 	{
 		var_9e4954fa = ((isdefined(self.var_3b511a7c) ? self.var_3b511a7c : 0) > 0 ? 1 : 0);
 		if(var_9e4954fa)
@@ -1231,7 +1231,7 @@ function give_start_weapon(b_switch_weapon)
 		{
 			self zm_weapons::weapon_give(primary_weapon, 1, b_switch_weapon, 0, 1, undefined, undefined, var_9e4954fa);
 		}
-		if(namespace_59ff1d6c::function_901b751c(#"hash_7bc64c0823c87e41") && isdefined(self.var_8313fee5))
+		if(zm_custom::function_901b751c(#"hash_7bc64c0823c87e41") && isdefined(self.var_8313fee5))
 		{
 			self thread function_d9153457(b_switch_weapon);
 		}
@@ -1240,15 +1240,15 @@ function give_start_weapon(b_switch_weapon)
 	{
 		var_abb79409 = getweapon(getdvarstring(#"hash_35d047ae6d3ad4a", "pistol_semiauto_t9"));
 		self zm_weapons::weapon_give(var_abb79409, 1, b_switch_weapon);
-		if(isdefined(s_weapon) && (!namespace_59ff1d6c::function_bce642a1(s_weapon) || !namespace_59ff1d6c::function_901b751c(#"hash_7bc64c0823c87e41")))
+		if(isdefined(s_weapon) && (!zm_custom::function_bce642a1(s_weapon) || !zm_custom::function_901b751c(#"hash_7bc64c0823c87e41")))
 		{
-			self thread namespace_59ff1d6c::function_343353f8();
+			self thread zm_custom::function_343353f8();
 		}
 	}
 }
 
 /*
-	Name: function_2dfb9150
+	Name: get_loadout_item
 	Namespace: zm_loadout
 	Checksum: 0xED5D3F0C
 	Offset: 0x2900
@@ -1256,7 +1256,7 @@ function give_start_weapon(b_switch_weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_2dfb9150(slot)
+function get_loadout_item(slot)
 {
 	if(!isdefined(self.class_num))
 	{

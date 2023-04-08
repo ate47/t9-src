@@ -1,11 +1,11 @@
 #using script_1caf36ff04a85ff6;
 #using script_1f41849126bfc83d;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using script_4108035fe400ce67;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using script_471b31bd963b388e;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_67c87580908a0a00;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -38,7 +38,7 @@ function private autoexec function_a164ffcf()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_inventory
 	Checksum: 0xA9E04209
 	Offset: 0x628
@@ -46,7 +46,7 @@ function private autoexec function_a164ffcf()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"item_inventory", &function_70a657d8, undefined, undefined, #"item_world");
 }
@@ -79,7 +79,7 @@ function private function_70a657d8()
 	level.var_6ec46eeb = &function_d85c5382;
 	level.sensor_darts = [];
 	level.var_c3a003ad = &function_ce3288cf;
-	ability_player::register_gadget_activation_callbacks(23, &function_f7d084ce, &function_cb475dfc);
+	ability_player::register_gadget_activation_callbacks(23, &_gadget_health_regen_on, &_gadget_health_regen_off);
 	ability_player::register_gadget_primed_callbacks(23, &function_d116a346);
 	level.var_d3b4a4db = &function_64d3e50;
 	level thread function_d2f05352();
@@ -96,13 +96,13 @@ function private function_70a657d8()
 	{
 		level.var_4cf92425 = [];
 	}
-	callback::on_connect(&function_4d97b664);
-	callback::on_spawned(&function_e4a4b07b);
+	callback::on_connect(&_on_player_connect);
+	callback::on_spawned(&_on_player_spawned);
 	callback::add_callback(#"hash_4a1cdf56005f9fb3", &function_7b39c6f9);
 }
 
 /*
-	Name: function_4d97b664
+	Name: _on_player_connect
 	Namespace: item_inventory
 	Checksum: 0x61A7C6EE
 	Offset: 0x930
@@ -110,13 +110,13 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_4d97b664()
+function private _on_player_connect()
 {
 	self function_814b5785();
 }
 
 /*
-	Name: function_e4a4b07b
+	Name: _on_player_spawned
 	Namespace: item_inventory
 	Checksum: 0x85F1B5F9
 	Offset: 0x958
@@ -124,7 +124,7 @@ function private function_4d97b664()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_e4a4b07b()
+function private _on_player_spawned()
 {
 	if(!isdefined(self.inventory))
 	{
@@ -852,7 +852,7 @@ function private function_bdc03d88()
 		inventoryitem = self.inventory.items[6];
 		if(inventoryitem.var_bd027dd9 != 32767 && inventoryitem.var_a6762160.itemtype == #"armor")
 		{
-			inventoryitem.amount = armor::function_4f977182();
+			inventoryitem.amount = armor::get_armor();
 			if(function_27cd171b(inventoryitem))
 			{
 				self setperk(#"hash_4df21972dd2a3a87");
@@ -928,7 +928,7 @@ function private function_434d0c2b(itemtype, var_da328e7b, var_ab9610ad)
 }
 
 /*
-	Name: function_c42f2717
+	Name: _cycle_item
 	Namespace: item_inventory
 	Checksum: 0x7062393B
 	Offset: 0x2880
@@ -936,7 +936,7 @@ function private function_434d0c2b(itemtype, var_da328e7b, var_ab9610ad)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_c42f2717(itemtype, var_da328e7b, var_bcc2655a)
+function private _cycle_item(itemtype, var_da328e7b, var_bcc2655a)
 {
 	/#
 		assert(isplayer(self));
@@ -1740,7 +1740,7 @@ function private function_d116a346(slot, weapon)
 }
 
 /*
-	Name: function_f7d084ce
+	Name: _gadget_health_regen_on
 	Namespace: item_inventory
 	Checksum: 0x8431ECD1
 	Offset: 0x4DC8
@@ -1748,7 +1748,7 @@ function private function_d116a346(slot, weapon)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_f7d084ce(slot, weapon)
+function private _gadget_health_regen_on(slot, weapon)
 {
 	if(isplayer(self))
 	{
@@ -1757,7 +1757,7 @@ function private function_f7d084ce(slot, weapon)
 }
 
 /*
-	Name: function_cb475dfc
+	Name: _gadget_health_regen_off
 	Namespace: item_inventory
 	Checksum: 0x5B3BE831
 	Offset: 0x4E10
@@ -1765,7 +1765,7 @@ function private function_f7d084ce(slot, weapon)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_cb475dfc(slot, weapon)
+function private _gadget_health_regen_off(slot, weapon)
 {
 	if(isplayer(self))
 	{
@@ -1885,7 +1885,7 @@ function private function_ee9ce1c4(var_a6762160, var_dfe6c7e5)
 			break;
 		}
 	}
-	self function_5110caa3(namespace_ad5a0cd6::function_35e06774(var_dfe6c7e5), var_cbdeb265);
+	self replace_weapon(namespace_ad5a0cd6::function_35e06774(var_dfe6c7e5), var_cbdeb265);
 	self function_c6be9f7f(var_cbdeb265, 0);
 	self.var_10abd91d = 0;
 }
@@ -1912,7 +1912,7 @@ function private function_8214f1b6(var_a6762160, var_dfe6c7e5)
 			waitframe(1);
 		}
 	}
-	self function_5110caa3(weapon, level.var_ef61b4b5);
+	self replace_weapon(weapon, level.var_ef61b4b5);
 	self function_755a35c5();
 	self.var_10abd91d = 0;
 }
@@ -2253,7 +2253,7 @@ function function_20ecd64d()
 	}
 	if(getdvarint(#"hash_4cd4e3d15cf4ee7e", 1))
 	{
-		item = function_c42f2717(#"equipment", array(#"hash_53a2516ec1d3a096", #"hash_29548403dc2ff36d", #"hash_49b7001ce02a0797", #"hash_3074c41bb205ed8c", #"hash_732cfbea10210169", #"hash_6174ad2674c82ec3", #"hash_2b5027622c0b6d07", #"hash_4cec712579f1202f", #"hash_6d0e3a9a902d2201", #"hash_1223df8e913d431b", #"hash_57504010ce1814dc", #"hash_5752a7e130ea202a", #"hash_73b7240912c1f754", #"hash_49c0448e11cb523c", #"hash_4edf613e9b9032da", #"hash_28da32d9304b6296", #"hash_4a2739676c12d92a", #"hash_140318e970e711ce", #"hash_50b970644e43947b", #"hash_49bb95f2912e68ad", #"hash_3c9430c4ac7d082e", #"hash_6a5294b915f32d32", #"hash_6cd8041bb6cd21b1", #"hash_6a07ccefe7f84985", #"hash_17f8849a56eba20f", #"hash_281638550b45be2a", #"hash_61247be669e9b732", #"hash_2c9b75b17410f2de", #"hash_665eccfe5d58f636", #"hash_12fde8b0da04d262", #"hash_2b06a3f530395182", #"hash_16a1f841da0b877d", #"hash_1242946e889704c7", #"hash_14b578e446580ad5", #"hash_300914db9caf4033", #"hash_3a3d830a9a4559d4", #"hash_743b859c2367ff54", #"hash_5e5f2ed57ac4601f", #"hash_105f32560e2fb0fe", #"hash_18056dab055a44c9", #"hash_2e8b13391f6544", #"wz_snowball", #"wz_waterballoon", #"hash_1ae9ade20084359f"), var_bcc2655a);
+		item = _cycle_item(#"equipment", array(#"hash_53a2516ec1d3a096", #"hash_29548403dc2ff36d", #"hash_49b7001ce02a0797", #"hash_3074c41bb205ed8c", #"hash_732cfbea10210169", #"hash_6174ad2674c82ec3", #"hash_2b5027622c0b6d07", #"hash_4cec712579f1202f", #"hash_6d0e3a9a902d2201", #"hash_1223df8e913d431b", #"hash_57504010ce1814dc", #"hash_5752a7e130ea202a", #"hash_73b7240912c1f754", #"hash_49c0448e11cb523c", #"hash_4edf613e9b9032da", #"hash_28da32d9304b6296", #"hash_4a2739676c12d92a", #"hash_140318e970e711ce", #"hash_50b970644e43947b", #"hash_49bb95f2912e68ad", #"hash_3c9430c4ac7d082e", #"hash_6a5294b915f32d32", #"hash_6cd8041bb6cd21b1", #"hash_6a07ccefe7f84985", #"hash_17f8849a56eba20f", #"hash_281638550b45be2a", #"hash_61247be669e9b732", #"hash_2c9b75b17410f2de", #"hash_665eccfe5d58f636", #"hash_12fde8b0da04d262", #"hash_2b06a3f530395182", #"hash_16a1f841da0b877d", #"hash_1242946e889704c7", #"hash_14b578e446580ad5", #"hash_300914db9caf4033", #"hash_3a3d830a9a4559d4", #"hash_743b859c2367ff54", #"hash_5e5f2ed57ac4601f", #"hash_105f32560e2fb0fe", #"hash_18056dab055a44c9", #"hash_2e8b13391f6544", #"wz_snowball", #"wz_waterballoon", #"hash_1ae9ade20084359f"), var_bcc2655a);
 	}
 	else
 	{
@@ -2291,7 +2291,7 @@ function function_e46ef859()
 	}
 	if(getdvarint(#"hash_4cd4e3d15cf4ee7e", 1))
 	{
-		item = function_c42f2717(#"health", array(#"hash_1abfcce0e9955057", #"hash_ff50c93155e445f", #"hash_80292d121740f6f", #"hash_45ced3880667df22", #"hash_20699a922abaf2e1"), var_bcc2655a);
+		item = _cycle_item(#"health", array(#"hash_1abfcce0e9955057", #"hash_ff50c93155e445f", #"hash_80292d121740f6f", #"hash_45ced3880667df22", #"hash_20699a922abaf2e1"), var_bcc2655a);
 	}
 	else
 	{
@@ -2329,7 +2329,7 @@ function function_fa4bb600()
 	}
 	if(getdvarint(#"hash_4cd4e3d15cf4ee7e", 1))
 	{
-		item = function_c42f2717(#"scorestreak", array(#"hash_6eb09ea5da35e18f", #"hash_654445f6cc7a7e1c", #"hash_5f6d7361258230a", #"hash_ba416827a85877c", #"hash_24a1df9928527c11", #"hash_2294e52d4ac78b9a", #"hash_cefb3af28fb800b", #"hash_18fa1f3e4e43437c"), var_bcc2655a);
+		item = _cycle_item(#"scorestreak", array(#"hash_6eb09ea5da35e18f", #"hash_654445f6cc7a7e1c", #"hash_5f6d7361258230a", #"hash_ba416827a85877c", #"hash_24a1df9928527c11", #"hash_2294e52d4ac78b9a", #"hash_cefb3af28fb800b", #"hash_18fa1f3e4e43437c"), var_bcc2655a);
 	}
 	else
 	{
@@ -2367,7 +2367,7 @@ function function_a50547af()
 	}
 	if(getdvarint(#"hash_4cd4e3d15cf4ee7e", 1))
 	{
-		item = function_c42f2717(#"field_upgrade", array(#"hash_3f154f45479130ed", #"hash_2c9b75b17410f2de", #"hash_7ea42360bdf2de16", #"hash_649e3a841620150f", #"hash_47954c9090e3f900", #"hash_12f4d7321d9c5005", #"hash_681471b56324b3e"), var_bcc2655a);
+		item = _cycle_item(#"field_upgrade", array(#"hash_3f154f45479130ed", #"hash_2c9b75b17410f2de", #"hash_7ea42360bdf2de16", #"hash_649e3a841620150f", #"hash_47954c9090e3f900", #"hash_12f4d7321d9c5005", #"hash_681471b56324b3e"), var_bcc2655a);
 	}
 	else
 	{
@@ -3489,7 +3489,7 @@ function equip_equipment(item)
 				break;
 			}
 		}
-		self function_5110caa3(var_cbdeb265, weapon, undefined, undefined, undefined, weaponoptions, var_e91aba42, var_908f65ca);
+		self replace_weapon(var_cbdeb265, weapon, undefined, undefined, undefined, weaponoptions, var_e91aba42, var_908f65ca);
 		self function_b00db06(6, item.var_bd027dd9);
 		for(i = 0; i < self.inventory.items.size; i++)
 		{
@@ -3609,7 +3609,7 @@ function equip_health(item)
 		{
 			function_26c87da8(slotid, 5);
 		}
-		self function_5110caa3(level.var_ef61b4b5, weapon);
+		self replace_weapon(level.var_ef61b4b5, weapon);
 		self function_b00db06(6, item.var_bd027dd9);
 		self clientfield::set_player_uimodel("hudItems.healthItemstackCount", function_bba770de(item.var_a6762160));
 		slot = self gadgetgetslot(weapon);
@@ -4038,10 +4038,10 @@ function equip_weapon(item, switchweapon, var_9fa01da8, var_a3a17c55, initialwea
 			}
 		}
 		item.weaponoptions = self function_fc04b237(weapon, item.weaponoptions);
-		self function_5110caa3(currentweapon, weapon, 1, initialweaponraise, var_a3a17c55, item.weaponoptions, item.var_e91aba42, item.var_908f65ca);
+		self replace_weapon(currentweapon, weapon, 1, initialweaponraise, var_a3a17c55, item.weaponoptions, item.var_e91aba42, item.var_908f65ca);
 		if(var_6073ab7b)
 		{
-			self function_5110caa3(level.weaponnone, level.weaponbasemeleeheld);
+			self replace_weapon(level.weaponnone, level.weaponbasemeleeheld);
 		}
 		self function_b00db06(6, item.var_bd027dd9);
 		inventoryitem = function_dfcacdc2(item.var_bd027dd9);
@@ -4917,7 +4917,7 @@ function function_461de298()
 		return;
 	}
 	var_73869e24 = function_4ba8fde(#"hash_211559ff9a516b7d");
-	var_bcb39afb = self namespace_a0d533d1::function_169cea63();
+	var_bcb39afb = self namespace_a0d533d1::get_loot_weapons();
 	var_51c5992 = min(var_bcb39afb.size, 2);
 	if(var_51c5992 > 0)
 	{
@@ -5489,7 +5489,7 @@ function function_5852cb7b(var_bd027dd9, var_dfe6c7e5, var_b44c0e7e, var_cda2ff1
 }
 
 /*
-	Name: function_5110caa3
+	Name: replace_weapon
 	Namespace: item_inventory
 	Checksum: 0x712A14D6
 	Offset: 0xF620
@@ -5497,7 +5497,7 @@ function function_5852cb7b(var_bd027dd9, var_dfe6c7e5, var_b44c0e7e, var_cda2ff1
 	Parameters: 8
 	Flags: Linked
 */
-function function_5110caa3(old_weapon, new_weapon, primary_weapon, var_e47b0bf, var_6086c488, options, var_f879230e, var_cf5d5d60)
+function replace_weapon(old_weapon, new_weapon, primary_weapon, var_e47b0bf, var_6086c488, options, var_f879230e, var_cf5d5d60)
 {
 	if(!isdefined(primary_weapon))
 	{
@@ -5898,7 +5898,7 @@ function function_a2c7ce35()
 	/#
 		assert(isplayer(self));
 	#/
-	var_3e9ef0a1 = array(array(#"hash_53a2516ec1d3a096", #"hash_29548403dc2ff36d", #"hash_49b7001ce02a0797", #"hash_3074c41bb205ed8c", #"hash_732cfbea10210169", #"hash_6174ad2674c82ec3", #"hash_2b5027622c0b6d07", #"hash_4cec712579f1202f", #"hash_6d0e3a9a902d2201", #"hash_1223df8e913d431b", #"hash_57504010ce1814dc", #"hash_5752a7e130ea202a", #"hash_73b7240912c1f754", #"hash_49c0448e11cb523c", #"hash_4edf613e9b9032da", #"hash_28da32d9304b6296", #"hash_4a2739676c12d92a", #"hash_140318e970e711ce", #"hash_50b970644e43947b", #"hash_49bb95f2912e68ad", #"hash_3c9430c4ac7d082e", #"hash_6a5294b915f32d32", #"hash_6cd8041bb6cd21b1", #"hash_6a07ccefe7f84985", #"hash_17f8849a56eba20f", #"hash_281638550b45be2a", #"hash_61247be669e9b732", #"hash_2c9b75b17410f2de"), array(#"hash_627144159973c325", #"hash_676aa70930960427", #"hash_1a7edb90a484158b", #"hash_234815c9f71b452d", #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc", #"hash_7126c22f114c7382", #"hash_213093d947c30be6", #"hash_7e8c84081fafaea4", #"hash_5f67f7b32b01ae53", #"hash_725e305ff465e73d", #"hash_6ab225c69027e657", #"hash_7f37566c7dd7ecb", #"hash_76ebb51bb24696a1", #"hash_51f70aff8a2ad330", #"hash_689c84ba4e75b1c8", #"hash_655ce01a6ec0cc8b", #"hash_77975eb76986243d"), array(#"hash_665eccfe5d58f636", #"hash_12fde8b0da04d262", #"hash_2b06a3f530395182", #"hash_16a1f841da0b877d", #"hash_1242946e889704c7", #"hash_14b578e446580ad5", #"hash_300914db9caf4033", #"hash_3a3d830a9a4559d4", #"hash_743b859c2367ff54", #"hash_5e5f2ed57ac4601f", #"hash_105f32560e2fb0fe", #"hash_18056dab055a44c9", #"hash_2e8b13391f6544", #"wz_snowball", #"wz_waterballoon", #"hash_1ae9ade20084359f"));
+	var_3e9ef0a1 = array(array(#"hash_53a2516ec1d3a096", #"hash_29548403dc2ff36d", #"hash_49b7001ce02a0797", #"hash_3074c41bb205ed8c", #"hash_732cfbea10210169", #"hash_6174ad2674c82ec3", #"hash_2b5027622c0b6d07", #"hash_4cec712579f1202f", #"hash_6d0e3a9a902d2201", #"hash_1223df8e913d431b", #"hash_57504010ce1814dc", #"hash_5752a7e130ea202a", #"hash_73b7240912c1f754", #"hash_49c0448e11cb523c", #"hash_4edf613e9b9032da", #"hash_28da32d9304b6296", #"hash_4a2739676c12d92a", #"hash_140318e970e711ce", #"hash_50b970644e43947b", #"hash_49bb95f2912e68ad", #"hash_3c9430c4ac7d082e", #"hash_6a5294b915f32d32", #"hash_6cd8041bb6cd21b1", #"hash_6a07ccefe7f84985", #"hash_17f8849a56eba20f", #"hash_281638550b45be2a", #"hash_61247be669e9b732", #"hash_2c9b75b17410f2de"), array(#"hash_627144159973c325", #"hash_676aa70930960427", #"hash_1a7edb90a484158b", #"hash_234815c9f71b452d", #"hash_745d80b3e4f28da1", #"hash_56e573d15c6402bc", #"hash_7126c22f114c7382", #"hash_213093d947c30be6", #"hash_7e8c84081fafaea4", #"hash_5f67f7b32b01ae53", #"hash_725e305ff465e73d", #"hash_6ab225c69027e657", #"hash_7f37566c7dd7ecb", #"hash_76ebb51bb24696a1", #"hash_51f70aff8a2ad330", #"hash_689c84ba4e75b1c8", #"hash_655ce01a6ec0cc8b", #"snowball_item_sr"), array(#"hash_665eccfe5d58f636", #"hash_12fde8b0da04d262", #"hash_2b06a3f530395182", #"hash_16a1f841da0b877d", #"hash_1242946e889704c7", #"hash_14b578e446580ad5", #"hash_300914db9caf4033", #"hash_3a3d830a9a4559d4", #"hash_743b859c2367ff54", #"hash_5e5f2ed57ac4601f", #"hash_105f32560e2fb0fe", #"hash_18056dab055a44c9", #"hash_2e8b13391f6544", #"wz_snowball", #"wz_waterballoon", #"hash_1ae9ade20084359f"));
 	var_c77511ea = array(2048, 4096, 8192);
 	var_710be50e = array(7);
 	for(itemindex = 0; itemindex < 5; itemindex++)
@@ -6443,7 +6443,7 @@ function function_3f5b2e2e(item, var_b44c0e7e, var_8eb4edca)
 	item.weaponoptions = self function_fc04b237(weapon, item.weaponoptions);
 	if(function_57eac2ca() > 1)
 	{
-		self function_5110caa3(weapon, level.weaponbasemeleeheld, 1);
+		self replace_weapon(weapon, level.weaponbasemeleeheld, 1);
 		foreach(slotid in array(17 + 1, ((17 + 1) + 8) + 1, ((((17 + 1) + 8) + 1) + 8) + 1))
 		{
 			if(self.inventory.items[slotid].var_bd027dd9 != 32767 && self.inventory.items[slotid].var_bd027dd9 != item.var_bd027dd9)
@@ -6461,7 +6461,7 @@ function function_3f5b2e2e(item, var_b44c0e7e, var_8eb4edca)
 	}
 	else
 	{
-		self function_5110caa3(weapon, level.weaponbasemeleeheld, 1);
+		self replace_weapon(weapon, level.weaponbasemeleeheld, 1);
 		if(weapon == get_current_weapon())
 		{
 			currentweapon = self getcurrentweapon();

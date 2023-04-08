@@ -23,7 +23,7 @@ function private autoexec function_b724c059()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_919f68ad
 	Checksum: 0x81D899B3
 	Offset: 0xB8
@@ -31,7 +31,7 @@ function private autoexec function_b724c059()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_37398b26e502cdde", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -167,7 +167,7 @@ function private on_ai_killed(params)
 	{
 		if(zm_utility::function_850e7499(params.weapon, 1))
 		{
-			w_root = getweapon(#"hash_c78156ba6aeda14");
+			w_root = getweapon(#"eq_wraith_fire");
 		}
 		else
 		{

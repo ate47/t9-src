@@ -35,7 +35,7 @@ function private autoexec function_ca216652()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_quick_revive
 	Checksum: 0xAA11578F
 	Offset: 0x280
@@ -43,7 +43,7 @@ function private autoexec function_ca216652()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_quick_revive", &function_70a657d8, undefined, undefined, #"hash_2d064899850813e2");
 }

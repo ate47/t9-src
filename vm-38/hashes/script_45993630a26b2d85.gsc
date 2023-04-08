@@ -21,7 +21,7 @@ function private autoexec function_90ed90aa()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_983e5028
 	Checksum: 0xE14E7959
 	Offset: 0xC0
@@ -29,7 +29,7 @@ function private autoexec function_90ed90aa()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1633972af838a447", &function_70a657d8, undefined, undefined, undefined);
 }

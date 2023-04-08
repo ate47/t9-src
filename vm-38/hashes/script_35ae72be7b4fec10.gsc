@@ -22,7 +22,7 @@ function private autoexec function_7ecfa4da()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_61e6d095
 	Checksum: 0x9E52226F
 	Offset: 0x548
@@ -30,7 +30,7 @@ function private autoexec function_7ecfa4da()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7f2a4dd4a17f2f59", &preload, undefined, undefined, undefined);
 }
@@ -574,17 +574,17 @@ function function_b0bad5ff(endons, var_daf05886, var_d53ecf2)
 	endons[endons.size] = "request_menu_exit";
 	if(!var_d53ecf2)
 	{
-		self thread function_4bfa9617(endons, var_daf05886);
+		self thread block_kbm_pause_menu(endons, var_daf05886);
 	}
 	while(!self function_70217795(var_d53ecf2))
 	{
 		waitframe(1);
 	}
-	self notify(#"hash_6da7a77674810115");
+	self notify(#"request_menu_exit");
 }
 
 /*
-	Name: function_4bfa9617
+	Name: block_kbm_pause_menu
 	Namespace: namespace_61e6d095
 	Checksum: 0x3E107DDA
 	Offset: 0x1748
@@ -592,7 +592,7 @@ function function_b0bad5ff(endons, var_daf05886, var_d53ecf2)
 	Parameters: 2
 	Flags: Linked
 */
-function function_4bfa9617(endons, var_daf05886)
+function block_kbm_pause_menu(endons, var_daf05886)
 {
 	/#
 		assert(isplayer(self));
@@ -679,7 +679,7 @@ function private function_5302a8d6(waittills, var_b68dbe65)
 function private function_18a00acf(var_b68dbe65)
 {
 	level waittill(var_b68dbe65);
-	self notify(#"hash_6da7a77674810115");
+	self notify(#"request_menu_exit");
 }
 
 /*
@@ -1766,7 +1766,7 @@ function function_fbe9f25e(uid, flags, var_10e09b46)
 }
 
 /*
-	Name: function_d7d2fcce
+	Name: set_data
 	Namespace: namespace_61e6d095
 	Checksum: 0x7EA3BF4F
 	Offset: 0x3BD8
@@ -1774,13 +1774,13 @@ function function_fbe9f25e(uid, flags, var_10e09b46)
 	Parameters: 7
 	Flags: Linked
 */
-function function_d7d2fcce(uid, name, value, var_80d5359e, var_1f7d0ca0, var_7b030046, var_2226bd51)
+function set_data(uid, name, value, var_80d5359e, var_1f7d0ca0, var_7b030046, var_2226bd51)
 {
 	function_3efa2f37(uid, ("data" + ".") + name, value, var_80d5359e, var_1f7d0ca0, var_7b030046, var_2226bd51);
 }
 
 /*
-	Name: function_92ba69fa
+	Name: get_data
 	Namespace: namespace_61e6d095
 	Checksum: 0xD5185788
 	Offset: 0x3C58
@@ -1788,7 +1788,7 @@ function function_d7d2fcce(uid, name, value, var_80d5359e, var_1f7d0ca0, var_7b0
 	Parameters: 2
 	Flags: Linked
 */
-function function_92ba69fa(uid, name)
+function get_data(uid, name)
 {
 	function_80157d8(uid, ("data" + ".") + name);
 }

@@ -70,7 +70,7 @@ function main(str_skipto, b_starting)
 	if(is_true(level.var_33621ea7))
 	{
 		thread function_27c66141();
-		thread function_b657bfdd();
+		thread bustout_house_guys();
 		thread function_e78650d8();
 		thread player_exits_house();
 		level.var_7c11765c = 0;
@@ -250,7 +250,7 @@ function function_e78650d8()
 	while(!level flag::get("bustout_player_start"))
 	{
 		ret = undefined;
-		ret = level waittill(#"hash_7e4bcb956ddf5b40", #"hash_37caa0d42a34eb70");
+		ret = level waittill(#"bustout_player_start", #"bustout_player_entered_house");
 		if(level flag::get("bustout_player_start") || !level flag::get("bustout_player_entered_house"))
 		{
 			player setmovespeedscale(1);
@@ -265,7 +265,7 @@ function function_e78650d8()
 }
 
 /*
-	Name: function_b657bfdd
+	Name: bustout_house_guys
 	Namespace: namespace_29b42773
 	Checksum: 0x8004A8C3
 	Offset: 0x10A0
@@ -273,7 +273,7 @@ function function_e78650d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_b657bfdd()
+function bustout_house_guys()
 {
 	guys = getentarray("bustout_house_guys", "script_noteworthy", 1);
 	if(isdefined(guys) && guys.size > 0)
@@ -341,11 +341,11 @@ function function_c000638d()
 	door hide();
 	door notsolid();
 	level.var_97dd00f8 = vehicle::simple_spawn_and_drive("intro_garage_bustout");
-	var_b76ced44 = undefined;
-	while(!isdefined(var_b76ced44))
+	bustout_driver = undefined;
+	while(!isdefined(bustout_driver))
 	{
 		waitframe(1);
-		var_b76ced44 = getent("bustout_driver", "targetname", 1);
+		bustout_driver = getent("bustout_driver", "targetname", 1);
 	}
 	waitframe(2);
 	level.var_97dd00f8[0] vehicle::lights_on();
@@ -354,14 +354,14 @@ function function_c000638d()
 		level.var_9a3944f4.var_71664ae5 = 100;
 		level.var_9a3944f4 thread namespace_e66dabaf::function_cbe25a41(level.var_97dd00f8[0], "tag_origin", 0, 0, 0, 1);
 	}
-	player thread namespace_a052577e::function_6b5c2a3(var_b76ced44, level.var_97dd00f8);
+	player thread namespace_a052577e::function_6b5c2a3(bustout_driver, level.var_97dd00f8);
 	level flag::wait_till("bustout_start_slomo");
 	level flag::wait_till("bustout_veeroff");
 	level.var_664fd741 val::reset(#"hash_7a39ed2821b68c00", "ignoreall");
 	wait(0.5);
-	if(isalive(var_b76ced44))
+	if(isalive(bustout_driver))
 	{
-		var_b76ced44 ai::bloody_death(0.2);
+		bustout_driver ai::bloody_death(0.2);
 	}
 	if(isdefined(level.var_9a3944f4))
 	{
@@ -535,7 +535,7 @@ function function_17162917()
 */
 function function_ba2c935e(mover, next_target)
 {
-	level endon(#"hash_19462bead9046022");
+	level endon(#"bustout_house_shotup");
 	while(true)
 	{
 		mover moveto(next_target.origin, 1.5, 1.5 * 0.33, 1.5 * 0.33);

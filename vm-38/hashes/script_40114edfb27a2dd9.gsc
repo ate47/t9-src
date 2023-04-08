@@ -40,9 +40,9 @@ class cscavenger_icon : cLUIelem
 	*/
 	function function_65b281a(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "armorPlatePulse");
+		current_val = [[ self ]]->get_data(localclientnum, "armorPlatePulse");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "armorPlatePulse", new_val);
+		[[ self ]]->set_data(localclientnum, "armorPlatePulse", new_val);
 	}
 
 	/*
@@ -70,9 +70,9 @@ class cscavenger_icon : cLUIelem
 	*/
 	function function_417df30c(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "rareScrapPulse");
+		current_val = [[ self ]]->get_data(localclientnum, "rareScrapPulse");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "rareScrapPulse", new_val);
+		[[ self ]]->set_data(localclientnum, "rareScrapPulse", new_val);
 	}
 
 	/*
@@ -86,9 +86,9 @@ class cscavenger_icon : cLUIelem
 	*/
 	function function_47e82a09(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "scrapPulse");
+		current_val = [[ self ]]->get_data(localclientnum, "scrapPulse");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "scrapPulse", new_val);
+		[[ self ]]->set_data(localclientnum, "scrapPulse", new_val);
 	}
 
 	/*
@@ -134,9 +134,9 @@ class cscavenger_icon : cLUIelem
 	*/
 	function function_e4e9c303(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "ammoPulse");
+		current_val = [[ self ]]->get_data(localclientnum, "ammoPulse");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "ammoPulse", new_val);
+		[[ self ]]->set_data(localclientnum, "ammoPulse", new_val);
 	}
 
 	/*
@@ -151,10 +151,10 @@ class cscavenger_icon : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "ammoPulse", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "armorPlatePulse", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "scrapPulse", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "rareScrapPulse", 0);
+		[[ self ]]->set_data(localclientnum, "ammoPulse", 0);
+		[[ self ]]->set_data(localclientnum, "armorPlatePulse", 0);
+		[[ self ]]->set_data(localclientnum, "scrapPulse", 0);
+		[[ self ]]->set_data(localclientnum, "rareScrapPulse", 0);
 	}
 
 }

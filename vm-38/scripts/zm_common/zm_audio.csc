@@ -23,7 +23,7 @@ function private autoexec function_992adbe3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_audio
 	Checksum: 0x7E371201
 	Offset: 0x2A0
@@ -31,7 +31,7 @@ function private autoexec function_992adbe3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_audio", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -309,9 +309,9 @@ function function_42e50d5()
 	{
 		switch(self.weapon.name)
 		{
-			case "hash_50f35c4cfb775a9c":
-			case "hash_50f35d4cfb775c4f":
-			case "hash_50f35e4cfb775e02":
+			case "hero_scepter_lv3":
+			case "hero_scepter_lv2":
+			case "hero_scepter_lv1":
 			{
 				return true;
 			}

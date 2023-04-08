@@ -316,7 +316,7 @@ function setupclientmenus()
 	}
 	namespace_d5a9ff55::function_866692f8("PressStart", #"room1", str_start_scene, undefined, "start", undefined);
 	namespace_d5a9ff55::function_866692f8("PressStart", #"room2", str_start_scene, undefined, "start", undefined);
-	namespace_d5a9ff55::function_866692f8("PressStart", #"hash_4fa72b207520c357", str_start_scene, undefined, "main", undefined);
+	namespace_d5a9ff55::function_866692f8("PressStart", #"mode_select", str_start_scene, undefined, "main", undefined);
 	namespace_d5a9ff55::function_866692f8("PressStart", #"cp_story", #"scene_frontend_t9_cp_mission_select", undefined, "idle");
 	namespace_d5a9ff55::function_866692f8("PressStart", #"cp_evidence", #"scene_frontend_t9_cp_evidence", undefined, "idle");
 	namespace_d5a9ff55::function_866692f8("PressStart", #"hash_3262189f972fcd0e", #"scene_frontend_t9_mtx_store", undefined, "idle");
@@ -351,8 +351,8 @@ function setupclientmenus()
 	namespace_d5a9ff55::function_969a2881("GunsmithAttachmentSelect", undefined);
 	namespace_d5a9ff55::function_f852c52c("GunsmithAttachmentSelect", undefined, 1);
 	namespace_d5a9ff55::function_6425472c("GunsmithMTXPreview", #"scene_frontend_t9_gunsmith", undefined, "overview");
-	namespace_d5a9ff55::function_866692f8("GunsmithMTXPreview", #"hash_31d38a7a8046ce05", #"scene_frontend_t9_gunsmith", undefined, "stickers_mtx", undefined);
-	namespace_d5a9ff55::function_866692f8("GunsmithMTXPreview", #"hash_1214ec1f019f3cd9", #"scene_frontend_t9_gunsmith", undefined, "charms_mtx", undefined);
+	namespace_d5a9ff55::function_866692f8("GunsmithMTXPreview", #"stickers_mtx", #"scene_frontend_t9_gunsmith", undefined, "stickers_mtx", undefined);
+	namespace_d5a9ff55::function_866692f8("GunsmithMTXPreview", #"charms_mtx", #"scene_frontend_t9_gunsmith", undefined, "charms_mtx", undefined);
 	namespace_d5a9ff55::function_f852c52c("GunsmithMTXPreview", undefined, 1);
 	namespace_d5a9ff55::function_969a2881("WeaponInspect", undefined, 0);
 	namespace_d5a9ff55::function_f852c52c("WeaponInspect", undefined, 1);
@@ -429,11 +429,11 @@ function function_527d7706(localclientnum, a_ents)
 	e_probe = getent(localclientnum, "probe_lobby_s2", "targetname");
 	if(!isdefined(level.var_1c6b904f))
 	{
-		level.var_1c6b904f = a_ents[#"hash_34d363af721d4719"];
+		level.var_1c6b904f = a_ents[#"s2_lobby_geo_1"];
 	}
 	if(!isdefined(level.var_9c4a1006))
 	{
-		level.var_9c4a1006 = a_ents[#"hash_34d360af721d4200"];
+		level.var_9c4a1006 = a_ents[#"s2_lobby_geo_2"];
 	}
 	level.var_1c6b904f setdedicatedshadow(0);
 	level.var_9c4a1006 setdedicatedshadow(0);
@@ -1128,7 +1128,7 @@ function function_92087f1b(localclientnum)
 			level thread function_fb399a61(localclientnum);
 			return;
 		}
-		util::function_e2e9d901(localclientnum, "" + "", "");
+		util::add_devgui(localclientnum, "" + "", "");
 		level thread function_622b5dc0(localclientnum);
 	#/
 }
@@ -1520,7 +1520,7 @@ function function_db3c4c69(localclientnum)
 function function_3d29f330(localclientnum)
 {
 	/#
-		util::function_e2e9d901(localclientnum, "" + "", "");
+		util::add_devgui(localclientnum, "" + "", "");
 		while(getdvarint(#"hash_2a806885aa30e65b", 0) == 0)
 		{
 			wait(1);
@@ -2424,7 +2424,7 @@ function function_f00765ad(localclientnum, xuid, var_87c045d1, index, var_3f0e79
 		iterations++;
 	}
 	[[ var_87c045d1 ]]->show_model();
-	[[ var_87c045d1 ]]->function_3eaf9e07(xuid);
+	[[ var_87c045d1 ]]->set_xuid(xuid);
 	[[ var_87c045d1 ]]->set_character_mode(1);
 	var_136f48d7 = [[ var_87c045d1 ]]->function_8567daf2();
 	if(index == 0 || (getdvarint(#"hash_60d812bef0f782fb", 1) == 2 || getdvarint(#"hash_7f0099222a51b5f6", 2) == 2))
@@ -2700,7 +2700,7 @@ function function_f00ff0c7(localclientnum)
 						var_7d4d74d3 = (i < var_3a76595.size ? var_3a76595[i] : undefined);
 						if(isdefined(var_7d4d74d3))
 						{
-							if(level.lastlobbystate === #"hash_4fa72b207520c357" || level.lastlobbystate === #"hash_5fcd2ccfa1bd57d9" || level.lastlobbystate === #"room1" || level.lastlobbystate === #"room2")
+							if(level.lastlobbystate === #"mode_select" || level.lastlobbystate === #"hash_5fcd2ccfa1bd57d9" || level.lastlobbystate === #"room1" || level.lastlobbystate === #"room2")
 							{
 								continue;
 							}
@@ -3021,7 +3021,7 @@ function function_c47e078a(var_bf321a0c, var_302876c9, character, localclientnum
 			}
 			if(character == 0 && !(isdefined([[ localclientnum ]]->function_25725c05())))
 			{
-				[[ localclientnum ]]->function_3eaf9e07(function_9bed6a71(xuid));
+				[[ localclientnum ]]->set_xuid(function_9bed6a71(xuid));
 			}
 			var_b2a60109 = scene::get_all_shot_names(str_scene);
 			var_559c5c3e = array::random(var_b2a60109);
@@ -3282,7 +3282,7 @@ function lobby_main(localclientnum, menu_name, state)
 	}
 	else
 	{
-		if(state == #"hash_4fa72b207520c357" || state == #"hash_5fcd2ccfa1bd57d9")
+		if(state == #"mode_select" || state == #"hash_5fcd2ccfa1bd57d9")
 		{
 			level function_4431001a(localclientnum, "main", menu_name);
 		}
@@ -3705,7 +3705,7 @@ function function_97b4eb2c(localclientnum, var_2a4208a4, str_state)
 	level endon(#"disconnect");
 	switch(str_state)
 	{
-		case "hash_4fa72b207520c357":
+		case "mode_select":
 		case "hash_5fcd2ccfa1bd57d9":
 		{
 			return;
@@ -3849,7 +3849,7 @@ function function_49efdec6(localclientnum, menu_name, str_state)
 	{
 		case "room2":
 		case "room1":
-		case "hash_4fa72b207520c357":
+		case "mode_select":
 		case "hash_5fcd2ccfa1bd57d9":
 		default:
 		{

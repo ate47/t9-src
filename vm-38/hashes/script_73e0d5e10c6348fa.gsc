@@ -1,5 +1,5 @@
 #using script_1292451e284848cc;
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_263b7f2982258785;
 #using script_3706d21c449d0d14;
 #using script_3819e7a1427df6d2;

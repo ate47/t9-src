@@ -1,5 +1,5 @@
-#using script_3f27a7b2232674db;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -22,7 +22,7 @@ function private autoexec function_94727f35()
 #namespace hvo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hvo
 	Checksum: 0x1820431A
 	Offset: 0xB8
@@ -30,7 +30,7 @@ function private autoexec function_94727f35()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3a7ac32272007c6d", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -25,7 +25,7 @@ function private autoexec function_7711b402()
 #namespace bgb;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bgb
 	Checksum: 0x40C0B6AF
 	Offset: 0x1F0
@@ -33,7 +33,7 @@ function private autoexec function_7711b402()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bgb", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

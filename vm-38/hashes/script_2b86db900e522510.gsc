@@ -143,11 +143,11 @@ class class_ba33e0c1 : cLUIelem
 
 }
 
-#namespace namespace_4d6a580c;
+#namespace EncodedRadio_UseBar;
 
 /*
 	Name: function_75903978
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x94E9A22F
 	Offset: 0xF0
 	Size: 0x14
@@ -161,7 +161,7 @@ function private autoexec function_75903978()
 
 /*
 	Name: register
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x931AA89E
 	Offset: 0x110
 	Size: 0x34
@@ -177,7 +177,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x584B4B43
 	Offset: 0x150
 	Size: 0x38
@@ -195,7 +195,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x5189623B
 	Offset: 0x190
 	Size: 0x1C
@@ -209,7 +209,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xC3D6EA8D
 	Offset: 0x1B8
 	Size: 0x1A
@@ -223,7 +223,7 @@ function is_open(player)
 
 /*
 	Name: set_state
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x9478374C
 	Offset: 0x1E0
 	Size: 0x28
@@ -237,7 +237,7 @@ function set_state(player, state_name)
 
 /*
 	Name: set_progressFrac
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xFB3969DB
 	Offset: 0x210
 	Size: 0x28
@@ -251,7 +251,7 @@ function set_progressFrac(player, value)
 
 /*
 	Name: set_activatorCount
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xB75C7889
 	Offset: 0x240
 	Size: 0x28

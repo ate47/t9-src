@@ -1,5 +1,5 @@
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -957,7 +957,7 @@ function givekillstats(smeansofdeath, weapon, evictim)
 	pixbeginevent();
 	self incpersstat(#"kills", 1, 1, 1);
 	self.kills = self getpersstat(#"kills");
-	self.var_3f62a666 = self getpersstat(#"hash_7472529eae501802");
+	self.kills_critical = self getpersstat(#"kills_critical");
 	self updatestatratio("kdratio", "kills", "deaths");
 	attacker = self;
 	if(evictim == "MOD_HEAD_SHOT")

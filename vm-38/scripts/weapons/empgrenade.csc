@@ -21,7 +21,7 @@ function private autoexec function_e2c60b8a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: empgrenade
 	Checksum: 0x9DD558D8
 	Offset: 0x120
@@ -29,7 +29,7 @@ function private autoexec function_e2c60b8a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"empgrenade", &function_70a657d8, undefined, undefined, undefined);
 }

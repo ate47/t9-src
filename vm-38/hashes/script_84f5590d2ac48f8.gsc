@@ -40,7 +40,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function set_movieName(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "movieName", value);
+		[[ self ]]->set_data(localclientnum, "movieName", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function set_movieKey(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "movieKey", value);
+		[[ self ]]->set_data(localclientnum, "movieKey", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function set_playOutroMovie(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "playOutroMovie", value);
+		[[ self ]]->set_data(localclientnum, "playOutroMovie", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function set_additive(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "additive", value);
+		[[ self ]]->set_data(localclientnum, "additive", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function set_looping(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "looping", value);
+		[[ self ]]->set_data(localclientnum, "looping", value);
 	}
 
 	/*
@@ -138,7 +138,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function registerplayer_callout_traversal(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "skippable", value);
+		[[ self ]]->set_data(localclientnum, "skippable", value);
 	}
 
 	/*
@@ -152,7 +152,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function set_showBlackScreen(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showBlackScreen", value);
+		[[ self ]]->set_data(localclientnum, "showBlackScreen", value);
 	}
 
 	/*
@@ -188,13 +188,13 @@ class cfull_screen_movie : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "movieName", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "showBlackScreen", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "looping", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "additive", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "playOutroMovie", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "skippable", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "movieKey", #"");
+		[[ self ]]->set_data(localclientnum, "movieName", #"");
+		[[ self ]]->set_data(localclientnum, "showBlackScreen", 0);
+		[[ self ]]->set_data(localclientnum, "looping", 0);
+		[[ self ]]->set_data(localclientnum, "additive", 0);
+		[[ self ]]->set_data(localclientnum, "playOutroMovie", 0);
+		[[ self ]]->set_data(localclientnum, "skippable", 0);
+		[[ self ]]->set_data(localclientnum, "movieKey", #"");
 	}
 
 }

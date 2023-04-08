@@ -54,7 +54,7 @@ class cstealth_meter_display : cLUIelem
 	*/
 	function set_direction(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "direction", value);
+		[[ self ]]->set_data(localclientnum, "direction", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cstealth_meter_display : cLUIelem
 	*/
 	function set_awarenessState(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "awarenessState", value);
+		[[ self ]]->set_data(localclientnum, "awarenessState", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cstealth_meter_display : cLUIelem
 	*/
 	function set_awarenessProgress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "awarenessProgress", value);
+		[[ self ]]->set_data(localclientnum, "awarenessProgress", value);
 	}
 
 	/*
@@ -129,7 +129,7 @@ class cstealth_meter_display : cLUIelem
 	*/
 	function set_entNum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", value);
+		[[ self ]]->set_data(localclientnum, "entNum", value);
 	}
 
 	/*
@@ -144,11 +144,11 @@ class cstealth_meter_display : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "awarenessState", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "awarenessProgress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "direction", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "clamped", 0);
+		[[ self ]]->set_data(localclientnum, "entNum", 0);
+		[[ self ]]->set_data(localclientnum, "awarenessState", 0);
+		[[ self ]]->set_data(localclientnum, "awarenessProgress", 0);
+		[[ self ]]->set_data(localclientnum, "direction", 0);
+		[[ self ]]->set_data(localclientnum, "clamped", 0);
 	}
 
 	/*
@@ -162,7 +162,7 @@ class cstealth_meter_display : cLUIelem
 	*/
 	function set_clamped(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "clamped", value);
+		[[ self ]]->set_data(localclientnum, "clamped", value);
 	}
 
 }

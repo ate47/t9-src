@@ -54,7 +54,7 @@ class cmp_prop_timer : cLUIelem
 	*/
 	function set_isProp(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "isProp", value);
+		[[ self ]]->set_data(localclientnum, "isProp", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cmp_prop_timer : cLUIelem
 	*/
 	function set_timeRemaining(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "timeRemaining", value);
+		[[ self ]]->set_data(localclientnum, "timeRemaining", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class cmp_prop_timer : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "timeRemaining", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "isProp", 0);
+		[[ self ]]->set_data(localclientnum, "timeRemaining", 0);
+		[[ self ]]->set_data(localclientnum, "isProp", 0);
 	}
 
 }

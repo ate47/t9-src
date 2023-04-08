@@ -18,7 +18,7 @@ function private autoexec function_34f2eae3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: battletracks
 	Checksum: 0x3994545D
 	Offset: 0xB8
@@ -26,7 +26,7 @@ function private autoexec function_34f2eae3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"battletracks", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -56,7 +56,7 @@ function private function_70a657d8()
 */
 function private function_14657fe9(local_client_num, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self.var_23944654 = bwastimejump;
+	self.battletrack_active = bwastimejump;
 	waitframe(1);
 	players = getlocalplayers();
 	foreach(player in players)
@@ -64,7 +64,7 @@ function private function_14657fe9(local_client_num, oldval, newval, bnewent, bi
 		vehicle = getplayervehicle(player);
 		if(isdefined(vehicle))
 		{
-			if(vehicle.var_23944654 !== 0)
+			if(vehicle.battletrack_active !== 0)
 			{
 				setdvar(#"hash_30d02c7f5a4acf54", 1);
 				return;

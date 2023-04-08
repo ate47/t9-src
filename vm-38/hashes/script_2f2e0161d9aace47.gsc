@@ -87,11 +87,11 @@ class czm_gold_align_satellite_hud : cLUIelem
 
 }
 
-#namespace namespace_2d060063;
+#namespace zm_gold_align_satellite_hud;
 
 /*
 	Name: function_11404e50
-	Namespace: namespace_2d060063
+	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0xAA6382CA
 	Offset: 0xB8
 	Size: 0x14
@@ -105,7 +105,7 @@ function private autoexec function_11404e50()
 
 /*
 	Name: register
-	Namespace: namespace_2d060063
+	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0xB4981A7E
 	Offset: 0xD8
 	Size: 0x16E
@@ -120,24 +120,24 @@ function register()
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_5bc5fa54cf66129d"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_gold_align_satellite_hud"]))
 	{
-		level.var_ae746e8f[#"hash_5bc5fa54cf66129d"] = [];
+		level.var_ae746e8f[#"zm_gold_align_satellite_hud"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_5bc5fa54cf66129d"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_gold_align_satellite_hud"]))
 	{
-		level.var_ae746e8f[#"hash_5bc5fa54cf66129d"] = [];
+		level.var_ae746e8f[#"zm_gold_align_satellite_hud"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_5bc5fa54cf66129d"]))
+	else if(!isarray(level.var_ae746e8f[#"zm_gold_align_satellite_hud"]))
 	{
-		level.var_ae746e8f[#"hash_5bc5fa54cf66129d"] = array(level.var_ae746e8f[#"hash_5bc5fa54cf66129d"]);
+		level.var_ae746e8f[#"zm_gold_align_satellite_hud"] = array(level.var_ae746e8f[#"zm_gold_align_satellite_hud"]);
 	}
-	level.var_ae746e8f[#"hash_5bc5fa54cf66129d"][level.var_ae746e8f[#"hash_5bc5fa54cf66129d"].size] = elem;
+	level.var_ae746e8f[#"zm_gold_align_satellite_hud"][level.var_ae746e8f[#"zm_gold_align_satellite_hud"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_2d060063
+	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0x97CE3BCE
 	Offset: 0x250
 	Size: 0x34
@@ -153,7 +153,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_2d060063
+	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0xDC8037A3
 	Offset: 0x290
 	Size: 0x1C
@@ -167,7 +167,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_2d060063
+	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0x9A28CCE
 	Offset: 0x2B8
 	Size: 0x1C
@@ -181,7 +181,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_2d060063
+	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0x9AC1CC48
 	Offset: 0x2E0
 	Size: 0x1A

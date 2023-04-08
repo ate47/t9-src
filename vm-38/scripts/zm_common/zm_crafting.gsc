@@ -44,7 +44,7 @@ function private autoexec function_fdd95943()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_crafting
 	Checksum: 0x4046639E
 	Offset: 0x2A0
@@ -52,7 +52,7 @@ function private autoexec function_fdd95943()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_crafting", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -87,7 +87,7 @@ function private function_8ac3bea9()
 	function_7a8f3cbd();
 	function_60a6c623();
 	setup_tables();
-	if(zombie_utility::function_d2dfacfd(#"hash_44737d225ec3b9d7") || namespace_59ff1d6c::function_901b751c(#"hash_2a5dc43e6de87347"))
+	if(zombie_utility::function_d2dfacfd(#"hash_44737d225ec3b9d7") || zm_custom::function_901b751c(#"hash_2a5dc43e6de87347"))
 	{
 		level thread function_40f32480();
 	}
@@ -402,7 +402,7 @@ function function_4c2f8683(component, blueprint)
 	{
 		if(is_true(blueprint.result.isriotshield))
 		{
-			if(!namespace_59ff1d6c::function_901b751c(#"zmshieldisenabled"))
+			if(!zm_custom::function_901b751c(#"zmshieldisenabled"))
 			{
 				a_items = getitemarray();
 				foreach(e_item in a_items)
@@ -833,12 +833,12 @@ function function_f665fde0(trig)
 	}
 	unitrigger_stub = spawnstruct();
 	unitrigger_stub.craftfoundry = trig.craftfoundry;
-	if(zm_utility::function_166646a6() == 1 && isdefined(trig.target2))
+	if(zm_utility::get_story() == 1 && isdefined(trig.target2))
 	{
 		unitrigger_stub.var_c2f40a58 = getent(trig.target2, "targetname");
 		unitrigger_stub.var_c2f40a58 ghost();
 	}
-	if(zm_utility::function_166646a6() == 1 && isdefined(trig.target3))
+	if(zm_utility::get_story() == 1 && isdefined(trig.target3))
 	{
 		unitrigger_stub.var_4f749ffe = getent(trig.target3, "targetname");
 		unitrigger_stub.var_4f749ffe ghost();
@@ -1392,7 +1392,7 @@ function private function_8109ae21(player)
 	if(blueprints.size < 1 || !array::contains(blueprints, self.blueprint))
 	{
 		self.hint_string = #"hash_64cb545dd18c607";
-		if(zm_utility::function_166646a6() == 1 && isdefined(self.var_c2f40a58) && is_true(self.var_c2f40a58.is_visible))
+		if(zm_utility::get_story() == 1 && isdefined(self.var_c2f40a58) && is_true(self.var_c2f40a58.is_visible))
 		{
 			self.var_c2f40a58 ghost();
 			self.var_c2f40a58.is_visible = undefined;
@@ -1412,7 +1412,7 @@ function private function_8109ae21(player)
 	{
 		self.hint_string = self.blueprint.var_4dbc4aee;
 	}
-	if(zm_utility::function_166646a6() == 1 && isdefined(self.var_c2f40a58))
+	if(zm_utility::get_story() == 1 && isdefined(self.var_c2f40a58))
 	{
 		if(isdefined(self.blueprint.var_db27a7f7))
 		{

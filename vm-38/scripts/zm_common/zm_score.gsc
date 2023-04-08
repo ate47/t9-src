@@ -1,7 +1,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_27d214e32f50853d;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -35,7 +35,7 @@ function private autoexec function_53b607b5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_score
 	Checksum: 0x494C25BA
 	Offset: 0x320
@@ -43,7 +43,7 @@ function private autoexec function_53b607b5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_score", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -569,9 +569,9 @@ function player_reduce_points(event, n_amount)
 		}
 		case "no_revive_penalty":
 		{
-			if(namespace_59ff1d6c::function_901b751c(#"hash_64291919b16c489a"))
+			if(zm_custom::function_901b751c(#"hash_64291919b16c489a"))
 			{
-				percent = namespace_59ff1d6c::function_901b751c(#"hash_64291919b16c489a") / 100;
+				percent = zm_custom::function_901b751c(#"hash_64291919b16c489a") / 100;
 				points = self.score * percent;
 			}
 			else if(level.round_number >= 50)
@@ -583,9 +583,9 @@ function player_reduce_points(event, n_amount)
 		}
 		case "died":
 		{
-			if(namespace_59ff1d6c::function_901b751c(#"hash_1158d006a3913ef6"))
+			if(zm_custom::function_901b751c(#"hash_1158d006a3913ef6"))
 			{
-				percent = namespace_59ff1d6c::function_901b751c(#"hash_1158d006a3913ef6") / 100;
+				percent = zm_custom::function_901b751c(#"hash_1158d006a3913ef6") / 100;
 				points = self.score * percent;
 			}
 			else if(level.round_number >= 50)
@@ -597,15 +597,15 @@ function player_reduce_points(event, n_amount)
 		}
 		case "downed":
 		{
-			if(level.round_number < 50 && !namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040"))
+			if(level.round_number < 50 && !zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040"))
 			{
 				percent = 0;
 			}
 			else
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040"))
+				if(zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040"))
 				{
-					percent = namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040") / 100;
+					percent = zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040") / 100;
 				}
 				else
 				{

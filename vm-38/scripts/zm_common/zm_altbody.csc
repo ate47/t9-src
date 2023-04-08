@@ -28,7 +28,7 @@ function private autoexec function_e15cd206()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_altbody
 	Checksum: 0x43E0E1F6
 	Offset: 0x158
@@ -36,7 +36,7 @@ function private autoexec function_e15cd206()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_altbody", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -39,7 +39,7 @@ function private autoexec function_ab987e77()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_5b3a52eb
 	Checksum: 0x407EC1BA
 	Offset: 0x2E0
@@ -47,7 +47,7 @@ function private autoexec function_ab987e77()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_244949c60a0b2941", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -108,7 +108,7 @@ function function_f5ccdd88(destination)
 {
 	foreach(location in destination.locations)
 	{
-		var_602cb577 = location.instances[#"hash_5f54da4c86489779"];
+		var_602cb577 = location.instances[#"die_container"];
 		if(isdefined(var_602cb577))
 		{
 			namespace_8b6a9d79::function_20d7e9c7(var_602cb577);
@@ -589,7 +589,7 @@ function function_217a625a(a_ents)
 	}
 	var_2faa8624 linkto(var_bf71a40b, "tag_tank", (0, 0, 0), vectorscale((-1, 0, 0), 28));
 	waitresult = undefined;
-	waitresult = level waittill(#"hash_77e3468feebf997e", #"hash_685e9797cabb8ed", #"hash_142e9131e668557d");
+	waitresult = level waittill(#"silver_weapon_crate_closed", #"hash_685e9797cabb8ed", #"hash_142e9131e668557d");
 	var_2faa8624 unlink();
 	if(isdefined(var_2faa8624))
 	{
@@ -597,7 +597,7 @@ function function_217a625a(a_ents)
 	}
 	if(waitresult._notify !== "silver_weapon_crate_closed")
 	{
-		level waittill(#"hash_77e3468feebf997e");
+		level waittill(#"silver_weapon_crate_closed");
 	}
 	if(isdefined(var_a100665d))
 	{
@@ -771,7 +771,7 @@ function function_8d9ddc22(player, var_e7772c37)
 		}
 		level notify(#"hash_685e9797cabb8ed");
 		self function_72ffec4f();
-		level notify(#"hash_77e3468feebf997e");
+		level notify(#"silver_weapon_crate_closed");
 	}
 }
 

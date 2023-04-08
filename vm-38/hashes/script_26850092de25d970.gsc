@@ -69,11 +69,11 @@ function starting(str_skipto)
 	level.adler forceteleport(var_fcbd93e0.origin, var_fcbd93e0.angles);
 	level.woods forceteleport(var_1100faeb.origin, var_1100faeb.angles);
 	player clientfield::set_to_player("force_stream_weapons", 1);
-	level thread namespace_5df9d277::function_68461db2();
+	level thread tkdn_raid_bar::function_68461db2();
 	level util::function_3e65fe0b(1);
 	level notify(#"hash_4aade1e09ed49814");
 	level notify(#"hash_41a9df66948f9e8a");
-	scene::add_scene_func("scene_tkd_hit2_intro_bar_v2", &namespace_5df9d277::function_e2d2754d, "civilians");
+	scene::add_scene_func("scene_tkd_hit2_intro_bar_v2", &tkdn_raid_bar::function_e2d2754d, "civilians");
 	level thread scene::play("scene_tkd_hit2_intro_bar_v2", "civilians");
 	var_b7ec8c4b = getent("bar_door_clip", "targetname");
 	var_b7ec8c4b delete();
@@ -96,8 +96,8 @@ function main(str_skipto, b_starting)
 		player setmovespeedscale(0.4);
 		objectives::scripted("obj_takedown_capture", undefined, #"hash_49c1d860c97e3792");
 		objectives::follow("follow_adler", level.adler, undefined, 0, 0);
-		level.var_2f3bf638 = getent("raid_car", "targetname");
-		level thread scene::play("scene_tkd_hit2_intro_bar_v2", "Adler_part_3", [0:level.var_2f3bf638]);
+		level.raid_car = getent("raid_car", "targetname");
+		level thread scene::play("scene_tkd_hit2_intro_bar_v2", "Adler_part_3", [0:level.raid_car]);
 		if(isdefined(level.str_player_start_flag))
 		{
 			player flag::set(level.str_player_start_flag);
@@ -121,8 +121,8 @@ function main(str_skipto, b_starting)
 	level flag::wait_till("flag_move_on_to_alley");
 	level thread function_3df72127();
 	level notify(#"hash_5c41a54cd623966e");
-	var_d582d701 = getent("alley_clip", "targetname");
-	var_d582d701 delete();
+	alley_clip = getent("alley_clip", "targetname");
+	alley_clip delete();
 	player val::reset(#"bar", "allow_sprint");
 	player val::reset(#"bar", "allow_mantle");
 	player val::reset(#"bar", "allow_jump");
@@ -132,7 +132,7 @@ function main(str_skipto, b_starting)
 	player util::blend_movespeedscale(0.45, 2);
 	level thread function_c05edfd0();
 	namespace_a052577e::function_b26ed576();
-	level thread scene::init_streamer(#"hash_511c915b0909fb99", getplayers());
+	level thread scene::init_streamer(#"scene_tkd_hit2_bar_alley", getplayers());
 	level thread scene::init("scene_tkd_hit2_bar_alley");
 	level thread scene::init("scene_tkd_hit2_adler_alley");
 	level thread scene::play("scene_tkd_hit2_bar_alley", "Alley");
@@ -215,7 +215,7 @@ function function_c05edfd0()
 	var_d7e0979c = getspawnerarray("kitchen_guys", "script_aigroup");
 	foreach(spawner in var_d7e0979c)
 	{
-		spawner spawner::add_spawn_function(&namespace_b331012d::function_306807e5);
+		spawner spawner::add_spawn_function(&tkdn_raid_apt::function_306807e5);
 	}
 	level thread function_d5cc022();
 	level flag::wait_till("flag_setup_kitchen_guys");
@@ -287,7 +287,7 @@ function function_4bc3dba()
 	level flag::wait_till("flag_close_bar_door");
 	level thread scene::play("scene_tkd_hit2_intro_bar_v2", "Bar_Door_Close");
 	wait(3);
-	level thread namespace_5df9d277::function_a5d7de3c();
+	level thread tkdn_raid_bar::function_a5d7de3c();
 	setsaveddvar(#"hash_6b57212fd4fcdd3a", 300);
 }
 

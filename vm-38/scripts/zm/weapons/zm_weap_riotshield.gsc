@@ -18,11 +18,11 @@
 #using scripts\zm_common\zm_powerups.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_5ba3a6b1;
+#namespace zm_weap_riotshield;
 
 /*
 	Name: function_d9769fc
-	Namespace: namespace_5ba3a6b1
+	Namespace: zm_weap_riotshield
 	Checksum: 0x7308184D
 	Offset: 0x1F8
 	Size: 0x14
@@ -37,7 +37,7 @@ function private autoexec function_d9769fc()
 #namespace riotshield;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: riotshield
 	Checksum: 0xC067D361
 	Offset: 0x218
@@ -45,7 +45,7 @@ function private autoexec function_d9769fc()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_equip_riotshield", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -102,7 +102,7 @@ function private function_70a657d8()
 	}
 	if(!isdefined(level.var_7509c7d8))
 	{
-		level.var_7509c7d8 = &function_452827de;
+		level.var_7509c7d8 = &callback_playershielddamageblocked;
 	}
 	if(!isdefined(level.var_2677b8bb))
 	{
@@ -172,7 +172,7 @@ function player_init_shield_health(weapon, var_cd9d17e0)
 			weapon = self.weaponriotshield;
 		}
 	}
-	switch(namespace_59ff1d6c::function_901b751c(#"hash_7ee9177eb922ddfa"))
+	switch(zm_custom::function_901b751c(#"hash_7ee9177eb922ddfa"))
 	{
 		case 0:
 		{
@@ -289,7 +289,7 @@ function player_shield_absorb_damage(eattacker, idamage, shitloc, smeansofdeath)
 }
 
 /*
-	Name: function_452827de
+	Name: callback_playershielddamageblocked
 	Namespace: riotshield
 	Checksum: 0x145B25A0
 	Offset: 0xC70
@@ -297,7 +297,7 @@ function player_shield_absorb_damage(eattacker, idamage, shitloc, smeansofdeath)
 	Parameters: 1
 	Flags: None
 */
-function function_452827de(damage)
+function callback_playershielddamageblocked(damage)
 {
 }
 

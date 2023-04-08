@@ -26,7 +26,7 @@ function private autoexec function_430c327f()
 #namespace poi;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: poi
 	Checksum: 0xA18907F8
 	Offset: 0x130
@@ -34,7 +34,7 @@ function private autoexec function_430c327f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"poi", &function_f64316de, undefined, undefined, undefined);
 }

@@ -54,7 +54,7 @@ class cmp_revive_prompt : cLUIelem
 	*/
 	function set_clientnum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", value);
+		[[ self ]]->set_data(localclientnum, "clientnum", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cmp_revive_prompt : cLUIelem
 	*/
 	function set_reviveProgress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "reviveProgress", value);
+		[[ self ]]->set_data(localclientnum, "reviveProgress", value);
 	}
 
 	/*
@@ -113,7 +113,7 @@ class cmp_revive_prompt : cLUIelem
 	*/
 	function set_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", value);
+		[[ self ]]->set_data(localclientnum, "progress", value);
 	}
 
 	/*
@@ -128,9 +128,9 @@ class cmp_revive_prompt : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "reviveProgress", 0);
+		[[ self ]]->set_data(localclientnum, "clientnum", 0);
+		[[ self ]]->set_data(localclientnum, "progress", 0);
+		[[ self ]]->set_data(localclientnum, "reviveProgress", 0);
 	}
 
 }

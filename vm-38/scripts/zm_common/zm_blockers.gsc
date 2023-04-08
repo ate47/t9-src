@@ -49,7 +49,7 @@ function private autoexec function_79570f3d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_blockers
 	Checksum: 0x9713E80F
 	Offset: 0xAC8
@@ -57,7 +57,7 @@ function private autoexec function_79570f3d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_blockers", &function_70a657d8, &function_8ac3bea9, undefined, #"zm");
 }
@@ -368,7 +368,7 @@ function door_init()
 			targets[i].og_angles = targets[i].angles;
 		}
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2c6b5594940cc305") === 0)
+	if(zm_custom::function_901b751c(#"hash_2c6b5594940cc305") === 0)
 	{
 		self setinvisibletoall();
 		self.var_1661d836 = 1;
@@ -383,7 +383,7 @@ function door_init()
 	{
 		if(self.script_noteworthy == "electric_door" || self.script_noteworthy == "electric_buyable_door")
 		{
-			if(zm_utility::is_grief() || namespace_59ff1d6c::function_901b751c(#"zmpowerstate") === 0)
+			if(zm_utility::is_grief() || zm_custom::function_901b751c(#"zmpowerstate") === 0)
 			{
 				self setinvisibletoall();
 				return;
@@ -1358,7 +1358,7 @@ function door_think()
 		{
 			case "local_electric_door":
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") === 0)
+				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") === 0)
 				{
 					return;
 				}
@@ -1399,7 +1399,7 @@ function door_think()
 			}
 			case "electric_door":
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") === 0)
+				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") === 0)
 				{
 					return;
 				}
@@ -1444,7 +1444,7 @@ function door_think()
 			}
 			case "electric_buyable_door":
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") === 0)
+				if(zm_custom::function_901b751c(#"hash_29004a67830922b6") === 0)
 				{
 					return;
 				}
@@ -1833,7 +1833,7 @@ function debris_init()
 		self zm_utility::set_hint_string(self, "default_buy_debris", n_cost);
 	}
 	self setcursorhint("HINT_NOICON");
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2c6b5594940cc305") === 0)
+	if(zm_custom::function_901b751c(#"hash_2c6b5594940cc305") === 0)
 	{
 		self setinvisibletoall();
 		self.var_1661d836 = 1;
@@ -3579,7 +3579,7 @@ function replace_chunk(barrier, chunk, has_perk, via_powerup, player)
 	wait(waitduration);
 	if(isplayer(player))
 	{
-		player playrumbleonentity(#"hash_410bd55524ae7d");
+		player playrumbleonentity(#"zm_interact_rumble");
 	}
 }
 

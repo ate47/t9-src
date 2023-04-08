@@ -22,7 +22,7 @@
 #using script_40f967ad5d18ea74;
 #using script_4611af4073d18808;
 #using script_47851dbeea22fe66;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4d748e58ce25b60c;
 #using script_4f80bd5a062c37a8;
 #using script_51351e47175c6116;
@@ -2202,7 +2202,7 @@ function function_5bcfaaa1(type, player)
 	}
 	if(type == 9)
 	{
-		return player.doa.score.var_7a3c00a0 < player namespace_eccff4fb::function_fd3d9ee0();
+		return player.doa.score.boosts < player namespace_eccff4fb::function_fd3d9ee0();
 	}
 	if(type == 16)
 	{
@@ -2433,9 +2433,9 @@ function function_2ebebd0c()
 				{
 					if(isdefined(player.doa.score))
 					{
-						if(player.doa.score.var_7a3c00a0 < player namespace_eccff4fb::function_fd3d9ee0())
+						if(player.doa.score.boosts < player namespace_eccff4fb::function_fd3d9ee0())
 						{
-							player.doa.score.var_7a3c00a0++;
+							player.doa.score.boosts++;
 							level thread namespace_9fc66ac::announce(27, 1 << player.entnum);
 						}
 					}
@@ -2731,13 +2731,13 @@ function function_cbae9ca3()
 	{
 		playerz = self.doa.var_baad518e[2];
 	}
-	var_8adf26a4 = 72;
-	var_a592dbab = 25;
-	var_b2876baf = playerz + var_8adf26a4;
-	var_4eae5a61 = playerx - var_a592dbab;
-	var_a82b48d6 = playerx + var_a592dbab;
-	var_a2eaa855 = playery - var_a592dbab;
-	var_ec175a2f = playery + var_a592dbab;
+	playerh = 72;
+	playerw = 25;
+	var_b2876baf = playerz + playerh;
+	var_4eae5a61 = playerx - playerw;
+	var_a82b48d6 = playerx + playerw;
+	var_a2eaa855 = playery - playerw;
+	var_ec175a2f = playery + playerw;
 	foreach(pickup in self.doa.var_ad888d1f)
 	{
 		if(!isdefined(pickup))
@@ -3317,7 +3317,7 @@ function function_32370b0d(timeout)
 		self.doa.var_ad639ebd thread namespace_ec06fe4a::function_d55f042c(self, "lantern_terminated");
 	}
 	self.doa.var_ad639ebd linkto(self);
-	self endon(#"hash_432f04354a59ffb1", #"disconnect");
+	self endon(#"lantern_terminated", #"disconnect");
 	self.doa.var_ad639ebd namespace_83eb6304::turnofffx("lantern_fade");
 	self.doa.var_ad639ebd namespace_83eb6304::function_3ecfde67("lantern");
 	while(gettime() < self.doa.var_d320bb5d && !is_true(self.laststand))

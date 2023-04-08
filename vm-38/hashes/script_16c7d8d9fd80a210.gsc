@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -22,7 +22,7 @@ function private autoexec function_c58fa492()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_34cc3243
 	Checksum: 0x7761CFA5
 	Offset: 0xD8
@@ -30,7 +30,7 @@ function private autoexec function_c58fa492()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_76d53a060efc848a", &function_70a657d8, undefined, undefined, undefined);
 }

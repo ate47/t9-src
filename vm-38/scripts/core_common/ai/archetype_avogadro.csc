@@ -23,7 +23,7 @@ function private autoexec function_27720ae()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: archetype_avogadro
 	Checksum: 0x21E2ED1E
 	Offset: 0x258
@@ -31,7 +31,7 @@ function private autoexec function_27720ae()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"archetype_avogadro", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

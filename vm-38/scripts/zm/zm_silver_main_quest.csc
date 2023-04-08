@@ -615,7 +615,7 @@ function function_6f615c6d(localclientnum, oldval, newval, bnewent, binitialsnap
 	else
 	{
 		level notify(#"hash_3bbf8d3383f43cdf");
-		audio::stoploopat(#"hash_b2bcc3355f1b804", (-144, 2019, -170));
+		audio::stoploopat(#"zmb_silver_mq_6_alarm_2_lp", (-144, 2019, -170));
 		playsound(fieldname, #"hash_3d7e471c91f5482c", (-144, 2019, -170));
 		playsound(fieldname, #"hash_3d7e471c91f5482c", (565, 2137, -178));
 	}

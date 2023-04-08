@@ -26,7 +26,7 @@ function private autoexec function_3bcf98d7()
 #namespace vehicle;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: vehicle
 	Checksum: 0xF0EEEE99
 	Offset: 0xA90
@@ -34,7 +34,7 @@ function private autoexec function_3bcf98d7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"vehicle_shared", &function_70a657d8, undefined, undefined, undefined);
 }

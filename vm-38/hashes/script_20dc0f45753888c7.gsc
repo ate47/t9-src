@@ -1,5 +1,5 @@
 #using script_24c32478acf44108;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_57f7003580bb15e0;
 #using script_5f261a5d57de5f7c;
 #using script_62caa307a394c18c;
@@ -33,7 +33,7 @@ function private autoexec function_ebb8512e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zombie_dog_toxic_cloud
 	Checksum: 0x9E64CE5
 	Offset: 0x1F8
@@ -41,7 +41,7 @@ function private autoexec function_ebb8512e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_33449a50d9656246", &init_shared, undefined, undefined, undefined);
 }

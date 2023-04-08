@@ -23,7 +23,7 @@ function private autoexec function_7260a0ba()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: oed
 	Checksum: 0xB9A86276
 	Offset: 0x1C0
@@ -31,7 +31,7 @@ function private autoexec function_7260a0ba()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"oed", &function_70a657d8, undefined, undefined, undefined);
 }

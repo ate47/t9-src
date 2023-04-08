@@ -1,4 +1,4 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
 #using script_2da073d4aa78c206;
 #using script_305d57cf0618009d;

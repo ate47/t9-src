@@ -1,8 +1,8 @@
-#using script_256b8879317373de;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_shared.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\zm_common\zm_characters.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;

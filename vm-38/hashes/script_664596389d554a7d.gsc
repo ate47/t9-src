@@ -186,7 +186,7 @@ event main(eventstruct)
 	callback::on_ai_killed(&on_ai_killed);
 	callback::on_bleedout(&on_bleedout);
 	callback::add_callback(#"objective_started", &function_e58dff05);
-	callback::add_callback(#"hash_69090774fec4a17b", &function_37c1c391);
+	callback::add_callback(#"objective_ended", &function_37c1c391);
 	spawner::add_global_spawn_function(level.zombie_team, &namespace_85745671::function_2089690e);
 	callback::on_spawned(&on_player_spawn);
 	callback::on_connect(&on_player_connect);
@@ -296,7 +296,7 @@ function function_acafdd66()
 		{
 			self.var_4fe4e626 = 1;
 		}
-		enemy = namespace_e0710ee6::function_825317c(self);
+		enemy = zm_ai_utility::function_825317c(self);
 		if(isdefined(self.enemy.var_125d950b) && isdefined(enemy))
 		{
 			enemy.var_125d950b = undefined;
@@ -318,7 +318,7 @@ function function_acafdd66()
 			if(var_ca9a5b88 < sqr(500))
 			{
 				self flag::set(#"hash_29e9ce4afa4f11d2");
-				namespace_e0710ee6::function_68ab868a(self);
+				zm_ai_utility::function_68ab868a(self);
 				if(isplayer(self.enemy))
 				{
 					self.enemy.var_dbb28b34 = -1;
@@ -758,7 +758,7 @@ function function_98a0917d()
 			level waittill(#"hash_581a9d913f67821a");
 		}
 	#/
-	level thread namespace_ce1f29cc::function_5edfba39();
+	level thread namespace_ce1f29cc::update_hotzone_states();
 	level thread namespace_ce1f29cc::function_9e0aba37();
 	level thread zm_powerups::powerup_round_start();
 	level thread namespace_9b972177::function_5d985962(1);
@@ -954,7 +954,7 @@ function function_889c6660()
 function function_fef3deb1()
 {
 	level flag::wait_till(#"hash_7ace2c0d668c5128");
-	a_spawn_points = namespace_b57ebf44::function_f3be07d7(level.var_7d45d0d4.var_5f2429b1);
+	a_spawn_points = zm_destination_manager::function_f3be07d7(level.var_7d45d0d4.var_5f2429b1);
 	var_58b02068 = struct::get(a_spawn_points[0].target, "targetname");
 	level flag::set(#"hash_39574fd530246717");
 	/#
@@ -976,7 +976,7 @@ function private function_33cac8e7()
 {
 	level endon(#"game_ended");
 	level flag::wait_till(#"hash_7ace2c0d668c5128");
-	destinations = namespace_b57ebf44::function_2e165386();
+	destinations = zm_destination_manager::function_2e165386();
 	triggers = undefined;
 	if(isdefined(destinations) && getdvarint(#"hash_d07e35f920d16a8", 1))
 	{
@@ -1590,7 +1590,7 @@ function function_447a93ab(params)
 				namespace_ce1f29cc::function_368a7cde();
 				wait(1);
 				level flag::set(#"hash_1460b3afd614fb6c");
-				level notify(#"hash_69090774fec4a17b", {#completed:1});
+				level notify(#"objective_ended", {#completed:1});
 				break;
 			}
 			case "hash_579280d018cff87a":
@@ -1620,7 +1620,7 @@ function function_447a93ab(params)
 						}
 						case 1:
 						{
-							namespace_b57ebf44::load_next_map();
+							zm_destination_manager::load_next_map();
 							break;
 						}
 					}

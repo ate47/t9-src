@@ -50,7 +50,7 @@ function private autoexec function_8904e6ee()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_mechz
 	Checksum: 0xD9835AA0
 	Offset: 0x1D8
@@ -58,7 +58,7 @@ function private autoexec function_8904e6ee()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_ai_mechz", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -261,7 +261,7 @@ function function_66247c2()
 	/#
 		iprintln((("" + self.origin) + "") + var_b2aa54a9.origin);
 	#/
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	self.completed_emerging_into_playable_area = 1;
 	self.var_5e54763a = var_b2aa54a9.zone_name;
 	return true;
@@ -696,7 +696,7 @@ function private function_ea7b33b6()
 		var_c84ba99b = 0;
 		if(waitresult._notify == #"bad_path")
 		{
-			if(!self function_dd070839() && !namespace_47c5b560::function_602211f7(self))
+			if(!self function_dd070839() && !namespace_47c5b560::aiIsLeaping(self))
 			{
 				var_1f2328d0 = self function_4794d6a3();
 				if(!isdefined(var_686cf729) || var_1f2328d0.goalpos !== var_686cf729)

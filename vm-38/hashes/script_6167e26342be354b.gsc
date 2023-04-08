@@ -1,7 +1,7 @@
 #using script_2da073d4aa78c206;
 #using script_396f7d71538c9677;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5ee699b0aaf564c4;
 #using script_75da5547b1822294;
 #using script_7dc3a36c222eaf22;
@@ -42,7 +42,7 @@ function private autoexec function_bcac182b()
 #namespace squad_spawn;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: squad_spawn
 	Checksum: 0xA2C867DA
 	Offset: 0x438
@@ -50,7 +50,7 @@ function private autoexec function_bcac182b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"squad_spawning", &init, undefined, undefined, undefined);
 }
@@ -1362,7 +1362,7 @@ function function_403f2d91(var_53227942)
 */
 function function_d072f205()
 {
-	return currentsessionmode() != 4 && level.var_d0252074 && !util::function_3f165ee8();
+	return currentsessionmode() != 4 && level.var_d0252074 && !util::is_frontend_map();
 }
 
 /*

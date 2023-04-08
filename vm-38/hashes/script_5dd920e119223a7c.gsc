@@ -139,7 +139,7 @@ function function_17f1d0f3()
 */
 function function_39f990f4()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	var_812457c = 0;
 	while(!var_812457c)
 	{
@@ -166,7 +166,7 @@ function function_39f990f4()
 */
 function function_6945ef43()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self thread namespace_7589cf5c::function_34cc6b36(#"hash_586699a0dc62b981", #"hash_42f1b5c3d59fbf0a");
 	self thread function_8b062964();
 	self thread function_a3df0b62();
@@ -183,7 +183,7 @@ function function_6945ef43()
 */
 function function_a3df0b62()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	var_35dfb407 = 0;
 	foreach(model in self.a_models)
 	{
@@ -224,7 +224,7 @@ function function_a3df0b62()
 */
 function function_8b062964()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self waittill(#"hash_7faf9eb6d229862c");
 	foreach(model in self.a_models)
 	{
@@ -516,7 +516,7 @@ function function_1a2e6a13()
 		var_6ee5c0f2 show();
 		var_6ee5c0f2 playloopsound(#"hash_307d764934337e7c");
 	}
-	self waittill(#"hash_69090774fec4a17b");
+	self waittill(#"objective_ended");
 	if(isdefined(var_6ee5c0f2))
 	{
 		var_6ee5c0f2 delete();
@@ -620,7 +620,7 @@ function private start_callback(instance, activator)
 		var_a1042f77 thread function_4b4ffd20(instance, activator);
 	}
 	var_be17187b = undefined;
-	var_be17187b = instance waittill(#"hash_69090774fec4a17b");
+	var_be17187b = instance waittill(#"objective_ended");
 	namespace_7589cf5c::function_ed193293(instance);
 	if(is_true(instance.success))
 	{
@@ -650,9 +650,9 @@ function private start_callback(instance, activator)
 */
 function function_78f3b160()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	level waittill(#"hash_8202877a3aadac8");
-	objective_manager::function_2c679cc2(self, 0);
+	objective_manager::objective_ended(self, 0);
 }
 
 /*
@@ -1514,7 +1514,7 @@ function function_72213470(s_instance)
 */
 function private function_15bda870(s_spawn, var_109708e0, s_instance)
 {
-	s_instance endon(#"hash_69090774fec4a17b");
+	s_instance endon(#"objective_ended");
 	self.a_ai_spawned = [];
 	self.var_f186cef3 = [];
 	self.var_ed0a75a3 = [];
@@ -1654,7 +1654,7 @@ function private function_15bda870(s_spawn, var_109708e0, s_instance)
 		s_instance.var_4675adc1++;
 		var_109708e0.var_4675adc1++;
 		self struct::delete();
-		objective_manager::function_2c679cc2(s_instance);
+		objective_manager::objective_ended(s_instance);
 	}
 }
 
@@ -1669,7 +1669,7 @@ function private function_15bda870(s_spawn, var_109708e0, s_instance)
 */
 function function_14f57c1e(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	instance flag::wait_till(#"hash_23d9abe3dd42b6d7");
 	level namespace_7589cf5c::play_vo("objectiveKillHVTSpottedResponse");
 }
@@ -1685,7 +1685,7 @@ function function_14f57c1e(instance)
 */
 function function_c51cc257(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	wait(1);
 	if(self.aitype === #"hash_3ff43755c44e6d3d")
@@ -3281,9 +3281,9 @@ function private get_spawner(var_82706add)
 		{
 			return #"hash_7cba8a05511ceedf";
 		}
-		case "hash_785d6a6acd470388":
+		case "spawner_bo5_mimic":
 		{
-			return #"hash_785d6a6acd470388";
+			return #"spawner_bo5_mimic";
 		}
 		case "hash_338eb4103e0ed797":
 		case "hash_7d0b1229ae633c6c":

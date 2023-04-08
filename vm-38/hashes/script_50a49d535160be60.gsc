@@ -84,7 +84,7 @@ class czm_hint_text : cLUIelem
 	*/
 	function set_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", value);
+		[[ self ]]->set_data(localclientnum, "text", value);
 	}
 
 	/*
@@ -100,13 +100,13 @@ class czm_hint_text : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"visible" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
@@ -132,7 +132,7 @@ class czm_hint_text : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", #"");
+		[[ self ]]->set_data(localclientnum, "text", #"");
 	}
 
 }

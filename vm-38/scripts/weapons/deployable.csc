@@ -18,7 +18,7 @@ function private autoexec function_c9df55ae()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: deployable
 	Checksum: 0xD5C02352
 	Offset: 0x110
@@ -26,7 +26,7 @@ function private autoexec function_c9df55ae()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"deployable", &function_70a657d8, undefined, undefined, undefined);
 }

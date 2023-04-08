@@ -22,7 +22,7 @@ function private autoexec function_9130c875()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_close_quarters
 	Checksum: 0x85DC6C3A
 	Offset: 0xB0
@@ -30,9 +30,9 @@ function private autoexec function_9130c875()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_14545d2d685e6304", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_close_quarters", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
@@ -50,7 +50,7 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	zm_trial::register_challenge(#"hash_53d304fe41545371", &on_begin, &on_end);
+	zm_trial::register_challenge(#"close_quarters", &on_begin, &on_end);
 }
 
 /*
@@ -95,7 +95,7 @@ function private on_end(round_reset)
 */
 function is_active()
 {
-	challenge = zm_trial::function_a36e8c38(#"hash_53d304fe41545371");
+	challenge = zm_trial::function_a36e8c38(#"close_quarters");
 	return isdefined(challenge);
 }
 

@@ -135,11 +135,11 @@ class class_1a456b75 : cLUIelem
 
 }
 
-#namespace namespace_30e191ea;
+#namespace sr_objective_secure_hud;
 
 /*
 	Name: function_45d1349a
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xA0D8106E
 	Offset: 0xB0
 	Size: 0x14
@@ -153,7 +153,7 @@ function private autoexec function_45d1349a()
 
 /*
 	Name: register
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x85ED5E28
 	Offset: 0xD0
 	Size: 0x34
@@ -169,7 +169,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x584B4B43
 	Offset: 0x110
 	Size: 0x38
@@ -187,7 +187,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x5189623B
 	Offset: 0x150
 	Size: 0x1C
@@ -201,7 +201,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xC3D6EA8D
 	Offset: 0x178
 	Size: 0x1A
@@ -215,7 +215,7 @@ function is_open(player)
 
 /*
 	Name: set_progFracA
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xB7D1BD41
 	Offset: 0x1A0
 	Size: 0x28
@@ -229,7 +229,7 @@ function set_progFracA(player, value)
 
 /*
 	Name: set_progFracB
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xAA4788EA
 	Offset: 0x1D0
 	Size: 0x28
@@ -243,7 +243,7 @@ function set_progFracB(player, value)
 
 /*
 	Name: set_objectiveWhiteA
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0xF6E20BA7
 	Offset: 0x200
 	Size: 0x28
@@ -257,7 +257,7 @@ function set_objectiveWhiteA(player, value)
 
 /*
 	Name: set_objectiveWhiteB
-	Namespace: namespace_30e191ea
+	Namespace: sr_objective_secure_hud
 	Checksum: 0x1B306AD6
 	Offset: 0x230
 	Size: 0x28

@@ -21,7 +21,7 @@ function private autoexec function_eada1612()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: listening_device
 	Checksum: 0xF6EB167C
 	Offset: 0x180
@@ -29,7 +29,7 @@ function private autoexec function_eada1612()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"listening_device", &function_70a657d8, undefined, undefined, undefined);
 }

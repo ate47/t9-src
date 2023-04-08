@@ -653,9 +653,9 @@ function function_1b105d5b(insertion, fadeouttime, var_8e0c0121, fadeintime, rum
 	/#
 		assert(isstruct(insertion));
 	#/
-	if(isdefined(lui::function_e810a527("FullScreenBlack")))
+	if(isdefined(lui::get_luimenu("FullScreenBlack")))
 	{
-		lui_menu = lui::function_e810a527("FullScreenBlack");
+		lui_menu = lui::get_luimenu("FullScreenBlack");
 	}
 	else
 	{

@@ -20,7 +20,7 @@ function private autoexec function_d1f4eaf2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: nightingale
 	Checksum: 0x271B4096
 	Offset: 0xC8
@@ -28,7 +28,7 @@ function private autoexec function_d1f4eaf2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"nightingale", &function_70a657d8, undefined, undefined, undefined);
 }

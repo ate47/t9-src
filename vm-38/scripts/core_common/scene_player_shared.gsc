@@ -1,6 +1,6 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_24c15fbbb838c794;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1672,7 +1672,7 @@ class csceneplayer : csceneobject
 		if(isplayer(player) && !is_true(_s.showhud) && !is_true(_s.allowdeath) && !player scene::is_igc_active())
 		{
 			player scene::set_igc_active(1);
-			player notify(#"hash_57d4f53c12705eac", {#str_scene:_o_scene._str_name});
+			player notify(#"scene_igc_shot_started", {#str_scene:_o_scene._str_name});
 		}
 		[[ self ]]->_set_values(player);
 		player sethighdetail(1);

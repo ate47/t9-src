@@ -23,7 +23,7 @@ function private autoexec function_43bde7ff()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_8b6a9d79
 	Checksum: 0x27FEA21D
 	Offset: 0xF8
@@ -31,7 +31,7 @@ function private autoexec function_43bde7ff()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_f81b9dea74f0ee", &function_70a657d8, undefined, &finalize, undefined);
 }
@@ -825,7 +825,7 @@ function private function_2085db3b()
 	/#
 		util::waittill_can_add_debug_command();
 		adddebugcommand("");
-		util::function_e2e9d901(function_7956c7ac("", 0), "");
+		util::add_devgui(function_7956c7ac("", 0), "");
 		foreach(destination in level.var_7d45d0d4.destinations)
 		{
 			foreach(location in destination.locations)
@@ -834,7 +834,7 @@ function private function_2085db3b()
 				{
 					var_4eb7bd13 = (location.targetname + "") + instance.content_script_name;
 					path = function_7956c7ac("", 1, destination.targetname, location.targetname, instance.content_script_name);
-					util::function_e2e9d901(path, "" + var_4eb7bd13);
+					util::add_devgui(path, "" + var_4eb7bd13);
 				}
 			}
 		}
@@ -844,7 +844,7 @@ function private function_2085db3b()
 			{
 				var_4eb7bd13 = (location.targetname + "") + instance.content_script_name;
 				path = function_7956c7ac("", 2, location.targetname, instance.content_script_name);
-				util::function_e2e9d901(path, "" + var_4eb7bd13);
+				util::add_devgui(path, "" + var_4eb7bd13);
 			}
 		}
 		level thread debug_draw();

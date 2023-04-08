@@ -20,7 +20,7 @@ function private autoexec function_69f2df12()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_explosive_damage
 	Checksum: 0x8154CCAD
 	Offset: 0xB8
@@ -28,9 +28,9 @@ function private autoexec function_69f2df12()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_48046696e6c2176f", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"status_effect_explosive_damage", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

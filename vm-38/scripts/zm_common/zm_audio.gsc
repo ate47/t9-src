@@ -42,7 +42,7 @@ function private autoexec function_e39e530()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_audio
 	Checksum: 0xF6CC5A16
 	Offset: 0x560
@@ -50,7 +50,7 @@ function private autoexec function_e39e530()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_audio", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -836,12 +836,12 @@ function function_350fc8cc(weapon, zombie, mod, player)
 				str_weapon = #"galva";
 				break;
 			}
-			case "hash_c78156ba6aeda14":
+			case "eq_wraith_fire":
 			case "molotov_fire":
-			case "hash_308049a67e5afecf":
-			case "hash_55a4aa4a1077e2cc":
+			case "eq_molotov_extra":
+			case "wraith_fire_fire":
 			case "eq_molotov":
-			case "hash_6cb687e3f8c569fd":
+			case "eq_wraith_fire_extra":
 			{
 				str_weapon = #"molotov";
 				break;
@@ -903,7 +903,7 @@ function function_2d93d659(w_weapon)
 		if(self.var_8095a228 === n_variant)
 		{
 			self.var_8095a228++;
-			self create_and_play_dialog(#"hash_14214c4848ae30d9", str_weapon_name, n_variant, 1, #"hash_2eed9998dba1b252");
+			self create_and_play_dialog(#"hero_ready", str_weapon_name, n_variant, 1, #"hash_2eed9998dba1b252");
 		}
 	}
 }
@@ -921,9 +921,9 @@ function function_fa4dfde0(w_weapon)
 {
 	switch(w_weapon.name)
 	{
-		case "hash_50f35c4cfb775a9c":
-		case "hash_50f35d4cfb775c4f":
-		case "hash_50f35e4cfb775e02":
+		case "hero_scepter_lv3":
+		case "hero_scepter_lv2":
+		case "hero_scepter_lv1":
 		{
 			return #"scepter";
 		}
@@ -1466,7 +1466,7 @@ function sndvoxoverride(b_toggle)
 {
 	if(isdefined(b_toggle))
 	{
-		level thread function_82f4b1cd(b_toggle);
+		level thread _sndvoxoverride(b_toggle);
 	}
 	else
 	{
@@ -1476,7 +1476,7 @@ function sndvoxoverride(b_toggle)
 }
 
 /*
-	Name: function_82f4b1cd
+	Name: _sndvoxoverride
 	Namespace: zm_audio
 	Checksum: 0x164EC367
 	Offset: 0x3AD0
@@ -1484,7 +1484,7 @@ function sndvoxoverride(b_toggle)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_82f4b1cd(b_toggle)
+function private _sndvoxoverride(b_toggle)
 {
 	self notify("1e7b780640fb7ae4");
 	self endon("1e7b780640fb7ae4");
@@ -3106,7 +3106,7 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"hash_6f8668b64fa3cfaf", #"hash_3867b4fd5932968a");
 		sndannouncervoxadd(#"hash_5b141f82a55645a9", #"hash_70503fc906187e02");
 		sndannouncervoxadd(#"specialty_phdflopper", #"hash_7b66342b9cdb1b0d");
-		sndannouncervoxadd(#"hash_37aa3a5919757781", #"hash_4b9e2835c9165954");
+		sndannouncervoxadd(#"specialty_cooldown", #"hash_4b9e2835c9165954");
 		sndannouncervoxadd(#"specialty_shield", #"hash_21a6409eae2b8aa9");
 		sndannouncervoxadd(#"specialty_awareness", #"hash_4fb2d077e5dcb19c");
 		sndannouncervoxadd(#"specialty_extraammo", #"hash_52fd3e1c86fae905");
@@ -3117,9 +3117,9 @@ function sndannouncer_init()
 		sndannouncervoxadd(#"specialty_widowswine", #"hash_12cddd02a9942f4");
 		sndannouncervoxadd(#"hash_602a1b6107105f07", #"hash_aa9d8fbea60223c");
 		sndannouncervoxadd(#"hash_34c7d1e8a059f87e", #"hash_7eede5144457270f");
-		sndannouncervoxadd(#"hash_6da63d760c1788e2", #"hash_5cc1d7e95e2997f1");
-		sndannouncervoxadd(#"hash_36b9957a693185ea", #"hash_128987fbb6bdfef");
-		sndannouncervoxadd(#"hash_4519dc1d3ac79139", #"hash_10a34f0962908792");
+		sndannouncervoxadd(#"specialty_etherealrazor", #"hash_5cc1d7e95e2997f1");
+		sndannouncervoxadd(#"specialty_zombshell", #"hash_128987fbb6bdfef");
+		sndannouncervoxadd(#"specialty_wolf_protector", #"hash_10a34f0962908792");
 		sndannouncervoxadd(#"perk_generic", #"hash_43dafce207fa7ff4");
 		sndannouncervoxadd(#"hash_3fee8792a6abec06", #"hash_279b4769ea79b472");
 		sndannouncervoxadd(#"extra_life", #"hash_788159511078e87f");
@@ -3496,7 +3496,7 @@ function vo_clear_underwater()
 		}
 	}
 	self stopsounds();
-	zm_vo::function_57b8cd17();
+	zm_vo::vo_stop();
 }
 
 /*
@@ -3620,9 +3620,9 @@ function checkforvalidweapon(weapon)
 		case "hash_18829d56b3fbd75b":
 		case "hash_18829e56b3fbd90e":
 		case "hash_18829f56b3fbdac1":
-		case "hash_50f35c4cfb775a9c":
-		case "hash_50f35d4cfb775c4f":
-		case "hash_50f35e4cfb775e02":
+		case "hero_scepter_lv3":
+		case "hero_scepter_lv2":
+		case "hero_scepter_lv1":
 		{
 			var_439ed98e = 0;
 			break;

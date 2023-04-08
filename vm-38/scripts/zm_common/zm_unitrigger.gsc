@@ -27,7 +27,7 @@ function private autoexec function_e752c6d3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_unitrigger
 	Checksum: 0x9D42FB1D
 	Offset: 0x1F8
@@ -35,7 +35,7 @@ function private autoexec function_e752c6d3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_unitrigger", &function_70a657d8, &function_8ac3bea9, undefined, #"zm_zonemgr");
 }
@@ -1303,7 +1303,7 @@ function private function_358a2fc7()
 	while(isdefined(self))
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_2d4daa9e80b86b60");
+		waitresult = self waittill(#"zone_change");
 		self thread function_d7eef1bc(waitresult.zone, waitresult.zone_name);
 	}
 }
@@ -1345,7 +1345,7 @@ function private function_5b353bb7()
 */
 function private function_d7eef1bc(zone, zone_name)
 {
-	self endon(#"hash_2d4daa9e80b86b60");
+	self endon(#"zone_change");
 	function_5b353bb7();
 	candidate_list = level.zones[zone_name].unitrigger_stubs;
 	if(isarray(candidate_list))

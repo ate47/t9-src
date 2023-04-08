@@ -28,7 +28,7 @@ function private autoexec function_d6f8ed44()
 #namespace vehicle_ai;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: vehicle_ai
 	Checksum: 0xDF8F6AA0
 	Offset: 0x2D0
@@ -36,7 +36,7 @@ function private autoexec function_d6f8ed44()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"vehicle_ai", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -3,7 +3,7 @@
 #using script_383a3b1bb18ba876;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\airsupport.gsc;
@@ -39,7 +39,7 @@ function private autoexec function_6c2afc30()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: counteruav
 	Checksum: 0xF8B2311D
 	Offset: 0x2A0
@@ -47,7 +47,7 @@ function private autoexec function_6c2afc30()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"counteruav", &function_70a657d8, undefined, &function_3675de8b, #"killstreaks");
 }

@@ -3,7 +3,7 @@
 #using script_243ea03c7a285692;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_48f7c4ab73137f8;
 #using script_58860a35d0555f74;
 #using scripts\zm_common\zm_vo.gsc;
@@ -54,7 +54,7 @@ function private autoexec function_8a758636()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_laststand
 	Checksum: 0xD2A5E181
 	Offset: 0x550
@@ -62,7 +62,7 @@ function private autoexec function_8a758636()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_laststand", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -376,7 +376,7 @@ function playerlaststand(einflictor, attacker, idamage, smeansofdeath, weapon, v
 	}
 	self.n_downs = self.n_downs + 1;
 	bleedout_time = getdvarfloat(#"hash_1116ba0f929df636", (isdefined(self.var_b92e42da) ? self.var_b92e42da : getdvarfloat(#"player_laststandbleedouttime", 0)));
-	if(namespace_59ff1d6c::function_901b751c(#"hash_2d34a5d9024db85f") && self.n_downs > namespace_59ff1d6c::function_901b751c(#"hash_2d34a5d9024db85f"))
+	if(zm_custom::function_901b751c(#"hash_2d34a5d9024db85f") && self.n_downs > zm_custom::function_901b751c(#"hash_2d34a5d9024db85f"))
 	{
 		bleedout_time = 0;
 	}
@@ -813,7 +813,7 @@ function function_6155752d()
 		}
 		switch(s_result.weapon.weapclass)
 		{
-			case "hash_69055a4af9ca989":
+			case "pistol spread":
 			case "pistolspread":
 			case "pistol":
 			{
@@ -1530,7 +1530,7 @@ function function_b7c101fa()
 	{
 		var_7f2e1d50 = self.var_5d4c5daf;
 	}
-	var_48f2f554 = namespace_59ff1d6c::function_901b751c(#"hash_21ae4d5b707b063");
+	var_48f2f554 = zm_custom::function_901b751c(#"hash_21ae4d5b707b063");
 	if(var_48f2f554)
 	{
 		self.var_d66589da = int(var_48f2f554);
@@ -1569,7 +1569,7 @@ function function_3699b145()
 */
 function function_76043ec3()
 {
-	self endon(#"disconnect", #"zombified", #"player_revived", #"bled_out", #"hash_5c0553bb6c8d08d1");
+	self endon(#"disconnect", #"zombified", #"player_revived", #"bled_out", #"tombstone_shadow");
 	level endon(#"end_game");
 	while(self usebuttonpressed())
 	{
@@ -1837,7 +1837,7 @@ function revive_trigger_think(t_secondary)
 			}
 			if(isdefined(e_reviver))
 			{
-				e_reviver zm_vo::function_57b8cd17();
+				e_reviver zm_vo::vo_stop();
 			}
 		}
 	}
@@ -1855,7 +1855,7 @@ function revive_trigger_think(t_secondary)
 function function_8fd9d8b9(e_reviver)
 {
 	self endon(#"death");
-	self zm_vo::function_57b8cd17();
+	self zm_vo::vo_stop();
 	self notify(#"hash_1fe68a6b935c321d", {#reviver:e_reviver});
 	if(isplayer(e_reviver) && e_reviver != self && !isdefined(self.var_6d772cb) && !is_true(self.var_54cb40e6))
 	{

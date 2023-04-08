@@ -27,7 +27,7 @@ function private autoexec function_c703b42d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ui
 	Checksum: 0x3773F8A8
 	Offset: 0x2A0
@@ -35,7 +35,7 @@ function private autoexec function_c703b42d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ui", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

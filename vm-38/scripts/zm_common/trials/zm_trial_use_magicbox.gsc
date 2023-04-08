@@ -21,7 +21,7 @@ function private autoexec function_9a89e783()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_use_magicbox
 	Checksum: 0xE402D0C2
 	Offset: 0xA8
@@ -29,9 +29,9 @@ function private autoexec function_9a89e783()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_57deab0f67e4368c", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_use_magicbox", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

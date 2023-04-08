@@ -22,7 +22,7 @@ function private autoexec function_b515b14b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_bonus_points_team
 	Checksum: 0x1FFD0E8A
 	Offset: 0x110
@@ -30,7 +30,7 @@ function private autoexec function_b515b14b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_bonus_points_team", &function_70a657d8, undefined, undefined, undefined);
 }

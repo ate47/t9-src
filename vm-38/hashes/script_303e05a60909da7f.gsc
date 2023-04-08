@@ -22,7 +22,7 @@ function private autoexec function_dce756af()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: high_value_target
 	Checksum: 0xF8831DA
 	Offset: 0xC8
@@ -30,7 +30,7 @@ function private autoexec function_dce756af()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"high_value_target", &function_70a657d8, undefined, undefined, undefined);
 }

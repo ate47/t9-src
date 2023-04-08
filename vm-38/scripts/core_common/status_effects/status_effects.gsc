@@ -22,7 +22,7 @@ function private autoexec function_8e6fd1a9()
 #namespace status_effect;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect
 	Checksum: 0xAAAF74F7
 	Offset: 0xA0
@@ -30,7 +30,7 @@ function private autoexec function_8e6fd1a9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"status_effects", &function_70a657d8, undefined, undefined, undefined);
 }

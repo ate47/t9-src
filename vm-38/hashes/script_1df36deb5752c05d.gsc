@@ -170,11 +170,11 @@ class class_a0b518ca : cLUIelem
 
 }
 
-#namespace namespace_72133e5;
+#namespace zm_control_point_hud;
 
 /*
 	Name: function_eb17663
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x52660878
 	Offset: 0x118
 	Size: 0x14
@@ -188,7 +188,7 @@ function private autoexec function_eb17663()
 
 /*
 	Name: register
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xC0B971F3
 	Offset: 0x138
 	Size: 0x34
@@ -204,7 +204,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x3A6790E3
 	Offset: 0x178
 	Size: 0x38
@@ -222,7 +222,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x2AD0B106
 	Offset: 0x1B8
 	Size: 0x1C
@@ -236,7 +236,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x1E0592EA
 	Offset: 0x1E0
 	Size: 0x1A
@@ -250,7 +250,7 @@ function is_open(player)
 
 /*
 	Name: set_chargePct
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x49892A03
 	Offset: 0x208
 	Size: 0x28
@@ -264,7 +264,7 @@ function set_chargePct(player, value)
 
 /*
 	Name: set_damagePct
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xB40559A1
 	Offset: 0x238
 	Size: 0x28
@@ -278,7 +278,7 @@ function set_damagePct(player, value)
 
 /*
 	Name: set_ordaHealthPct
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x240FB947
 	Offset: 0x268
 	Size: 0x28
@@ -292,7 +292,7 @@ function set_ordaHealthPct(player, value)
 
 /*
 	Name: set_hasOrda
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x418AC2F9
 	Offset: 0x298
 	Size: 0x28
@@ -306,7 +306,7 @@ function set_hasOrda(player, value)
 
 /*
 	Name: set_hasCharge
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xDD69489
 	Offset: 0x2C8
 	Size: 0x28
@@ -320,7 +320,7 @@ function set_hasCharge(player, value)
 
 /*
 	Name: set_hasDamage
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xD973F8D9
 	Offset: 0x2F8
 	Size: 0x28

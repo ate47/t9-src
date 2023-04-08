@@ -21,7 +21,7 @@ function private autoexec function_ddde0509()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ability_gadgets
 	Checksum: 0xAC77A6ED
 	Offset: 0x100
@@ -29,7 +29,7 @@ function private autoexec function_ddde0509()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ability_gadgets", &function_70a657d8, undefined, undefined, undefined);
 }

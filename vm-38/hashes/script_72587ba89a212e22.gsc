@@ -54,7 +54,7 @@ class cdirtybomb_usebar : cLUIelem
 	*/
 	function set_activatorCount(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "activatorCount", value);
+		[[ self ]]->set_data(localclientnum, "activatorCount", value);
 	}
 
 	/*
@@ -101,37 +101,37 @@ class cdirtybomb_usebar : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"detonating" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"hash_1a2812055c330ee0" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
 					if(#"hash_59e0e869fbae7705" == state_name)
 					{
-						[[ self ]]->function_d7d2fcce(localclientnum, "_state", 3);
+						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
 						if(#"hash_b86ebfb5a93f57f" == state_name)
 						{
-							[[ self ]]->function_d7d2fcce(localclientnum, "_state", 4);
+							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
 						else
 						{
 							if(#"hash_4ff55a42344e567e" == state_name)
 							{
-								[[ self ]]->function_d7d2fcce(localclientnum, "_state", 5);
+								[[ self ]]->set_data(localclientnum, "_state", 5);
 							}
 							else
 							{
@@ -159,7 +159,7 @@ class cdirtybomb_usebar : cLUIelem
 	*/
 	function set_progressFrac(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progressFrac", value);
+		[[ self ]]->set_data(localclientnum, "progressFrac", value);
 	}
 
 	/*
@@ -175,8 +175,8 @@ class cdirtybomb_usebar : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "progressFrac", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "activatorCount", 0);
+		[[ self ]]->set_data(localclientnum, "progressFrac", 0);
+		[[ self ]]->set_data(localclientnum, "activatorCount", 0);
 	}
 
 }

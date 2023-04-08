@@ -27,7 +27,7 @@ function private autoexec function_a239a68f()
 #namespace audio;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: audio
 	Checksum: 0x3613576
 	Offset: 0x5E8
@@ -35,7 +35,7 @@ function private autoexec function_a239a68f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"audio", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -364,7 +364,7 @@ function snd_snapshot_init()
 {
 	level._sndactivesnapshot = "default";
 	level._sndnextsnapshot = "default";
-	if(!util::function_3f165ee8())
+	if(!util::is_frontend_map())
 	{
 		if(sessionmodeiscampaigngame() && !function_22a92b8b() && !function_c9705ad4())
 		{

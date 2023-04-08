@@ -22,7 +22,7 @@ function private autoexec function_43c5947e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_tripwire
 	Checksum: 0x1A804E09
 	Offset: 0x200
@@ -30,7 +30,7 @@ function private autoexec function_43c5947e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_tripwire", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -46,8 +46,8 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	callback::function_e9e16e2f(&function_330a13a6);
-	callback::function_4f6cafea(&function_330a13a6);
+	callback::on_killcam_begin(&function_330a13a6);
+	callback::on_killcam_end(&function_330a13a6);
 	callback::add_callback(#"hash_2fc4cfecaed47583", &function_bd054816);
 	clientfield::register("missile", "tripwire_state", 1, 2, "int", &function_6868fab3, 1, 1);
 	clientfield::register("scriptmover", "tripwire_solo_beam_fx", 1, 1, "int", &function_9233eb94, 0, 0);

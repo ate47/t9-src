@@ -54,7 +54,7 @@ class class_ba33e0c1 : cLUIelem
 	*/
 	function set_activatorCount(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "activatorCount", value);
+		[[ self ]]->set_data(localclientnum, "activatorCount", value);
 	}
 
 	/*
@@ -101,13 +101,13 @@ class class_ba33e0c1 : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"hash_5fba3d476e0b33f8" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
@@ -131,7 +131,7 @@ class class_ba33e0c1 : cLUIelem
 	*/
 	function set_progressFrac(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progressFrac", value);
+		[[ self ]]->set_data(localclientnum, "progressFrac", value);
 	}
 
 	/*
@@ -147,17 +147,17 @@ class class_ba33e0c1 : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "progressFrac", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "activatorCount", 0);
+		[[ self ]]->set_data(localclientnum, "progressFrac", 0);
+		[[ self ]]->set_data(localclientnum, "activatorCount", 0);
 	}
 
 }
 
-#namespace namespace_4d6a580c;
+#namespace EncodedRadio_UseBar;
 
 /*
 	Name: function_73aa7ff5
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x8351EA6
 	Offset: 0xE8
 	Size: 0x14
@@ -171,7 +171,7 @@ function private autoexec function_73aa7ff5()
 
 /*
 	Name: register
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xB2AAE15B
 	Offset: 0x108
 	Size: 0x17E
@@ -203,7 +203,7 @@ function register(var_ec85b709, var_193163f7)
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xF3BD5896
 	Offset: 0x290
 	Size: 0x34
@@ -219,7 +219,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x6B8F324B
 	Offset: 0x2D0
 	Size: 0x1C
@@ -233,7 +233,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xB381FE23
 	Offset: 0x2F8
 	Size: 0x1C
@@ -247,7 +247,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xA3FFB018
 	Offset: 0x320
 	Size: 0x1A
@@ -261,7 +261,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_state
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0xA1F35BE2
 	Offset: 0x348
 	Size: 0x28
@@ -275,7 +275,7 @@ function set_state(localclientnum, state_name)
 
 /*
 	Name: set_progressFrac
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x49B4A999
 	Offset: 0x378
 	Size: 0x28
@@ -289,7 +289,7 @@ function set_progressFrac(localclientnum, value)
 
 /*
 	Name: set_activatorCount
-	Namespace: namespace_4d6a580c
+	Namespace: EncodedRadio_UseBar
 	Checksum: 0x2C4FBCC9
 	Offset: 0x3A8
 	Size: 0x28

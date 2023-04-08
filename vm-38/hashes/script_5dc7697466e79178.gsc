@@ -19,7 +19,7 @@ function private autoexec function_279d9f12()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: location
 	Checksum: 0x69964807
 	Offset: 0xA8
@@ -27,7 +27,7 @@ function private autoexec function_279d9f12()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"location", &function_70a657d8, undefined, undefined, undefined);
 }

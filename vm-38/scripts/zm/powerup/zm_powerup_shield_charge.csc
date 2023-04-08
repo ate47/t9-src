@@ -18,7 +18,7 @@ function private autoexec function_20e23221()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_shield_charge
 	Checksum: 0xB068C112
 	Offset: 0xA8
@@ -26,7 +26,7 @@ function private autoexec function_20e23221()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_shield_charge", &function_70a657d8, undefined, undefined, undefined);
 }

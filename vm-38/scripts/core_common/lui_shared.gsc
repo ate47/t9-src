@@ -166,7 +166,7 @@ class cLUIelem
 		{
 			var_59f69872 = 1;
 		}
-		clientfield::function_346f95ba(var_d5213cbb, var_bf9c8c95, field_name, version, bits, type, var_59f69872);
+		clientfield::register_luielem(var_d5213cbb, var_bf9c8c95, field_name, version, bits, type, var_59f69872);
 	}
 
 	/*
@@ -208,7 +208,7 @@ function private autoexec function_ce311244()
 #namespace lui;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: lui
 	Checksum: 0xE582CF52
 	Offset: 0x248
@@ -216,7 +216,7 @@ function private autoexec function_ce311244()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"lui_shared", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -357,7 +357,7 @@ function function_b95a3ba5(alias, registerfunc)
 }
 
 /*
-	Name: function_e810a527
+	Name: get_luimenu
 	Namespace: lui
 	Checksum: 0x48E3052E
 	Offset: 0x710
@@ -365,7 +365,7 @@ function function_b95a3ba5(alias, registerfunc)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e810a527(alias)
+function get_luimenu(alias)
 {
 	return level.luimenus[alias];
 }
@@ -775,7 +775,7 @@ function private _play_movie_for_player(str_movie, str_type, show_black_screen, 
 	{
 		self playsoundtoplayer(#"uin_pip_open", self);
 	}
-	lui_menu = function_e810a527(str_menu);
+	lui_menu = get_luimenu(str_menu);
 	if(![[ lui_menu ]]->function_7bfd10e6(self))
 	{
 		[[ lui_menu ]]->open(self);
@@ -896,7 +896,7 @@ function play_outro_movie(outro_movie)
 */
 function private function_1bc580af()
 {
-	lui_menu = function_e810a527("full_screen_movie");
+	lui_menu = get_luimenu("full_screen_movie");
 	if(![[ lui_menu ]]->function_7bfd10e6(self))
 	{
 		[[ lui_menu ]]->open(self);
@@ -1197,9 +1197,9 @@ function private _screen_fade(n_time, n_target_alpha, n_start_alpha, v_color, b_
 	}
 	else
 	{
-		if(isdefined(function_e810a527(str_menu)))
+		if(isdefined(get_luimenu(str_menu)))
 		{
-			lui_menu = function_e810a527(str_menu);
+			lui_menu = get_luimenu(str_menu);
 			if(![[ lui_menu ]]->function_7bfd10e6(self))
 			{
 				[[ lui_menu ]]->open(self);

@@ -21,7 +21,7 @@ function private autoexec function_1d74249e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_d579463e
 	Checksum: 0x771ECE15
 	Offset: 0xA8
@@ -29,7 +29,7 @@ function private autoexec function_1d74249e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5993cb43cbe55c17", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -83,7 +83,7 @@ function private on_end(round_reset)
 	{
 		if(!level flag::get(level.var_5bfd847e))
 		{
-			if(zm_utility::function_166646a6() == 1)
+			if(zm_utility::get_story() == 1)
 			{
 				zm_trial::fail(#"hash_ad3c47f53414b85");
 			}

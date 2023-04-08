@@ -54,7 +54,7 @@ class crevive_hud : cLUIelem
 	*/
 	function set_fadeTime(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeTime", value);
+		[[ self ]]->set_data(localclientnum, "fadeTime", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class crevive_hud : cLUIelem
 	*/
 	function set_clientnum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientNum", value);
+		[[ self ]]->set_data(localclientnum, "clientNum", value);
 	}
 
 	/*
@@ -113,7 +113,7 @@ class crevive_hud : cLUIelem
 	*/
 	function set_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", value);
+		[[ self ]]->set_data(localclientnum, "text", value);
 	}
 
 	/*
@@ -128,9 +128,9 @@ class crevive_hud : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientNum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeTime", 0);
+		[[ self ]]->set_data(localclientnum, "text", #"");
+		[[ self ]]->set_data(localclientnum, "clientNum", 0);
+		[[ self ]]->set_data(localclientnum, "fadeTime", 0);
 	}
 
 }

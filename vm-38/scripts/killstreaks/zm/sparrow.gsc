@@ -27,7 +27,7 @@ function private autoexec function_5a034f43()
 #namespace zm_sparrow;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_sparrow
 	Checksum: 0xB87C291F
 	Offset: 0x100
@@ -35,7 +35,7 @@ function private autoexec function_5a034f43()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_sparrow", &__init__, undefined, undefined, #"killstreaks");
 }

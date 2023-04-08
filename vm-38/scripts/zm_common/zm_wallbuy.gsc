@@ -47,7 +47,7 @@ function private autoexec function_b64d615f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_wallbuy
 	Checksum: 0x52F597FF
 	Offset: 0x478
@@ -55,7 +55,7 @@ function private autoexec function_b64d615f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_wallbuy", &function_70a657d8, &function_8ac3bea9, undefined, array(#"zm", #"zm_zonemgr", #"zm_unitrigger", #"zm_weapons", #"hash_5bcba15330839867"));
 }
@@ -71,7 +71,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_51a2cf319e12d9ae"))
+	if(!zm_custom::function_901b751c(#"hash_51a2cf319e12d9ae"))
 	{
 		var_b936460 = getentarray("wallbuy_outline", "targetname");
 		foreach(var_160326ff in var_b936460)
@@ -80,7 +80,7 @@ function private function_70a657d8()
 		}
 		return;
 	}
-	if(zm_utility::function_166646a6() != 1 && !zm_utility::is_survival())
+	if(zm_utility::get_story() != 1 && !zm_utility::is_survival())
 	{
 		clientfield::register("scriptmover", "wallbuy_ambient_fx", 1, 3, "int");
 		clientfield::register("scriptmover", "wallbuy_reveal_fx", 1, 1, "int");
@@ -714,7 +714,7 @@ function init_spawnable_weapon_upgrade(s_destination)
 			spawnable_weapon = spawnable_weapon_spawns[i];
 			spawnable_weapon.weapon = getweapon(spawnable_weapon.zombie_weapon_upgrade);
 			weapon_group = zm_utility::getweaponclasszm(spawnable_weapon.weapon);
-			if(weapon_group == #"weapon_pistol" && !namespace_59ff1d6c::function_901b751c(#"hash_6f1440098d849316") || (weapon_group == #"weapon_cqb" && !namespace_59ff1d6c::function_901b751c(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !namespace_59ff1d6c::function_901b751c(#"hash_1f6665b5581f6b6e")) || (weapon_group == #"weapon_assault" && !namespace_59ff1d6c::function_901b751c(#"hash_1d5c8e6f0e20201a")) || (weapon_group == #"weapon_tactical" && !namespace_59ff1d6c::function_901b751c(#"hash_1d88786f0e4535a3")) || (weapon_group == #"weapon_lmg" && !namespace_59ff1d6c::function_901b751c(#"hash_2f6740b518dbeb8f")) || (weapon_group == #"weapon_sniper" && !namespace_59ff1d6c::function_901b751c(#"hash_5bfd047c58816496")) || (weapon_group == #"weapon_knife" && !namespace_59ff1d6c::function_901b751c(#"zmweaponsknife")))
+			if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"hash_6f1440098d849316") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"hash_1d5c8e6f0e20201a")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"hash_2f6740b518dbeb8f")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"hash_5bfd047c58816496")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
 			{
 				continue;
 			}
@@ -1547,7 +1547,7 @@ function show_all_weapon_buys(player, cost, ammo_cost, is_grenade, var_4ee4441d)
 	{
 		level clientfield::set(self.clientfieldname, 1);
 	}
-	if(zm_utility::function_166646a6() != 1 && !isdefined(model))
+	if(zm_utility::get_story() != 1 && !isdefined(model))
 	{
 		var_6ff4b667 = struct::get(self.target, "targetname");
 		if(isdefined(var_6ff4b667) && isdefined(var_6ff4b667.target))

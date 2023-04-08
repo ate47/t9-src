@@ -49,10 +49,10 @@ function private autoexec function_9ee9aca9()
 */
 function init()
 {
-	clientfield::register("world", "setWild", 1, 2, "int", &function_cb179d87, 0, 0);
+	clientfield::register("world", "setWild", 1, 2, "int", &setWild, 0, 0);
 	clientfield::register("world", "setWildTOD", 1, 3, "int", &settod, 0, 0);
 	clientfield::register("world", "setWildSection", 1, 3, "int", &function_68800b79, 0, 0);
-	clientfield::register("world", "wilddeactivated", 1, 1, "counter", &function_e961485f, 0, 0);
+	clientfield::register("world", "wilddeactivated", 1, 1, "counter", &wilddeactivated, 0, 0);
 	var_581c8f9a = struct::get_array("doa_wild");
 	level.doa.var_581c8f9a = [];
 	foreach(wild in var_581c8f9a)
@@ -87,7 +87,7 @@ function function_32d5e898(localclientnum)
 }
 
 /*
-	Name: function_e961485f
+	Name: wilddeactivated
 	Namespace: doa_wild
 	Checksum: 0x47E5D4F
 	Offset: 0x4D8
@@ -95,13 +95,13 @@ function function_32d5e898(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_e961485f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function wilddeactivated(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	function_32d5e898(bwastimejump);
 }
 
 /*
-	Name: function_cb179d87
+	Name: setWild
 	Namespace: doa_wild
 	Checksum: 0xE6EE4851
 	Offset: 0x538
@@ -109,7 +109,7 @@ function function_e961485f(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_cb179d87(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function setWild(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level.doa.var_47dcd1f = undefined;
 	foreach(wild in level.doa.var_581c8f9a)

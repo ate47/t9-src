@@ -1,6 +1,6 @@
 #using script_176597095ddfaa17;
 #using script_4108035fe400ce67;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_73bd646be3641c07;
 #using script_7bacb32f8222fa3e;
 #using scripts\core_common\animation_shared.gsc;
@@ -34,7 +34,7 @@ function private autoexec function_47222bef()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_4abf1500
 	Checksum: 0xA89843D5
 	Offset: 0x1B0
@@ -42,7 +42,7 @@ function private autoexec function_47222bef()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_63e00d742a373f5f", &function_70a657d8, &function_8ac3bea9, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -862,7 +862,7 @@ function collect_intel(var_d5fa8477, var_bdb97676, var_eac6151d)
 	}
 	self function_7e211a10(var_d5fa8477);
 	self zm_stats::function_a6b15f2c(var_d5fa8477, 1);
-	self function_bc82f900(#"hash_410bd55524ae7d");
+	self function_bc82f900(#"zm_interact_rumble");
 	if(!isdefined(self.var_9d781602))
 	{
 		self.var_9d781602 = [];
@@ -1655,7 +1655,7 @@ function private function_44fcc093(v_pos)
 			}
 		}
 	}
-	else if(zm_utility::check_point_in_playable_area(self.origin) || is_true(level.var_374c2805))
+	else if(zm_utility::check_point_in_playable_area(self.origin) || is_true(level.onslaught_game))
 	{
 		return true;
 	}

@@ -2,11 +2,11 @@
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using script_67ce8e728d8f37ba;
 #using script_725554a59d6a75b9;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\weapons.gsc;
 #using script_7fb8e6e31dd139d;
 #using script_8abbc35fe12516a;

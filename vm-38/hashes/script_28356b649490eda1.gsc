@@ -86,13 +86,13 @@ class cvehicleturretoverheat : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"overheat" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
@@ -118,7 +118,7 @@ class cvehicleturretoverheat : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", 0);
+		[[ self ]]->set_data(localclientnum, "bar_percent", 0);
 	}
 
 	/*
@@ -132,7 +132,7 @@ class cvehicleturretoverheat : cLUIelem
 	*/
 	function set_bar_percent(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", value);
+		[[ self ]]->set_data(localclientnum, "bar_percent", value);
 	}
 
 }

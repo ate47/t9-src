@@ -26,7 +26,7 @@ function private autoexec function_1446b351()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_bot
 	Checksum: 0x8A823906
 	Offset: 0x108
@@ -34,7 +34,7 @@ function private autoexec function_1446b351()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_bot", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -82,7 +82,7 @@ function on_player_connect()
 function function_e16b5033(actor)
 {
 	var_88f4c6ec = (isdefined(actor.basehealth) ? actor.basehealth : 99);
-	max_health = actor namespace_e0710ee6::function_f7014c3d(var_88f4c6ec);
+	max_health = actor zm_ai_utility::function_f7014c3d(var_88f4c6ec);
 	return (max_health / var_88f4c6ec) * 1;
 }
 

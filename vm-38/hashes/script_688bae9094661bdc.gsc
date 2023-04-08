@@ -42,7 +42,7 @@ function scalevolume(ent, vol)
 #namespace namespace_393f6012;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_393f6012
 	Checksum: 0xD2A7C697
 	Offset: 0x1A8
@@ -50,7 +50,7 @@ function scalevolume(ent, vol)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"stealth", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -204,13 +204,13 @@ function threat_sight_set_state_parameters(statename)
 			self.threatsightratemax = 0.5 * var_8c0a9bbb;
 			break;
 		}
-		case "hash_34309b724f4a2e41":
+		case "investigate_grace_period":
 		{
 			self.threatsightratemin = 1 * var_8c0a9bbb;
 			self.threatsightratemax = 0.8 * var_8c0a9bbb;
 			break;
 		}
-		case "hash_4b55a59a56c4bdb3":
+		case "combat_hunt":
 		{
 			self.threatsightratemin = 1 * var_8c0a9bbb;
 			self.threatsightratemax = 0.8 * var_8c0a9bbb;
@@ -427,7 +427,7 @@ function addeventplaybcs(eventaction, eventtype, modifier, delay, eventstruct, f
 	switch(force)
 	{
 		case "idle":
-		case "hash_7f696e6d1dbd7282":
+		case "idle_alert":
 		{
 			self.stealth.investigatecallin = 0;
 			var_9c201ccd = "callin";

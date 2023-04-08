@@ -107,9 +107,9 @@ function function_2ce126c4()
 	{
 		level.var_7e2af8d5 = array(level.var_7e2af8d5);
 	}
-	if(!isinarray(level.var_7e2af8d5, #"hash_785d6a6acd470388"))
+	if(!isinarray(level.var_7e2af8d5, #"spawner_bo5_mimic"))
 	{
-		level.var_7e2af8d5[level.var_7e2af8d5.size] = #"hash_785d6a6acd470388";
+		level.var_7e2af8d5[level.var_7e2af8d5.size] = #"spawner_bo5_mimic";
 	}
 	level.custom_end_screen = &custom_end_screen;
 	spawner::add_archetype_spawn_function(#"zombie", &zombiespawnsetup);

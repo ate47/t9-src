@@ -3,7 +3,7 @@
 #using scripts\mp_common\teams\teams.gsc;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\airsupport.gsc;
@@ -38,7 +38,7 @@ function private autoexec function_e6cdb201()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: recon_plane
 	Checksum: 0x62C199C0
 	Offset: 0x288
@@ -46,7 +46,7 @@ function private autoexec function_e6cdb201()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"recon_plane", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

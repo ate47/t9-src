@@ -54,7 +54,7 @@ class csr_objective_reward_menu : cLUIelem
 	*/
 	function set_gunindex2(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "gunindex2", value);
+		[[ self ]]->set_data(localclientnum, "gunindex2", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class csr_objective_reward_menu : cLUIelem
 	*/
 	function set_gunIndex1(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "gunIndex1", value);
+		[[ self ]]->set_data(localclientnum, "gunIndex1", value);
 	}
 
 	/*
@@ -116,7 +116,7 @@ class csr_objective_reward_menu : cLUIelem
 	*/
 	function set_color(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "color", value);
+		[[ self ]]->set_data(localclientnum, "color", value);
 	}
 
 	/*
@@ -130,7 +130,7 @@ class csr_objective_reward_menu : cLUIelem
 	*/
 	function set_gunindex3(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "gunindex3", value);
+		[[ self ]]->set_data(localclientnum, "gunindex3", value);
 	}
 
 	/*
@@ -144,7 +144,7 @@ class csr_objective_reward_menu : cLUIelem
 	*/
 	function set_promptProgress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "promptProgress", value);
+		[[ self ]]->set_data(localclientnum, "promptProgress", value);
 	}
 
 	/*
@@ -160,25 +160,25 @@ class csr_objective_reward_menu : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"hash_aae094fcdbbfdf5" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"hash_6e088fcf60bf0124" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
 					if(#"hash_7ca278cf4669f74b" == state_name)
 					{
-						[[ self ]]->function_d7d2fcce(localclientnum, "_state", 3);
+						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
@@ -206,11 +206,11 @@ class csr_objective_reward_menu : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "promptProgress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "gunIndex1", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "gunindex2", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "gunindex3", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "color", 0);
+		[[ self ]]->set_data(localclientnum, "promptProgress", 0);
+		[[ self ]]->set_data(localclientnum, "gunIndex1", 0);
+		[[ self ]]->set_data(localclientnum, "gunindex2", 0);
+		[[ self ]]->set_data(localclientnum, "gunindex3", 0);
+		[[ self ]]->set_data(localclientnum, "color", 0);
 	}
 
 }

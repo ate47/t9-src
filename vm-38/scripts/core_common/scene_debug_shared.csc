@@ -24,7 +24,7 @@ function private autoexec function_1452c11c()
 #namespace scene;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scene
 	Checksum: 0x69CFA57C
 	Offset: 0xB0
@@ -32,7 +32,7 @@ function private autoexec function_1452c11c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"scene_debug", &function_c3c9d0e5, undefined, undefined, undefined);
@@ -534,12 +534,12 @@ function function_c0f30783(s_scenedef)
 function scene_list_settext(strings, n_selected, str_title, var_444abf97)
 {
 	/#
-		level thread function_e67dabcc(strings, n_selected, str_title, var_444abf97);
+		level thread _scene_list_settext(strings, n_selected, str_title, var_444abf97);
 	#/
 }
 
 /*
-	Name: function_e67dabcc
+	Name: _scene_list_settext
 	Namespace: scene
 	Checksum: 0x1EACB8B9
 	Offset: 0x18B0
@@ -547,7 +547,7 @@ function scene_list_settext(strings, n_selected, str_title, var_444abf97)
 	Parameters: 4
 	Flags: None
 */
-function function_e67dabcc(strings, n_selected, str_title, var_444abf97)
+function _scene_list_settext(strings, n_selected, str_title, var_444abf97)
 {
 	/#
 		if(!isdefined(var_444abf97))

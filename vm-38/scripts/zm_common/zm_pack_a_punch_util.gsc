@@ -225,7 +225,7 @@ function update_hint_string(player)
 	{
 		if(zm_utility::is_standard())
 		{
-			if(!namespace_59ff1d6c::function_901b751c(#"hash_57a5c7a9dcf94d61") || !b_weapon_supports_aat)
+			if(!zm_custom::function_901b751c(#"hash_57a5c7a9dcf94d61") || !b_weapon_supports_aat)
 			{
 				self sethintstringforplayer(player, #"hash_fea06394ae21371");
 				return true;

@@ -27,7 +27,7 @@ function private autoexec function_c962a5a3()
 #namespace smart_cover;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: smart_cover
 	Checksum: 0xA34D3656
 	Offset: 0xC8
@@ -35,7 +35,7 @@ function private autoexec function_c962a5a3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_smart_cover", &function_70a657d8, undefined, undefined, undefined);
 }

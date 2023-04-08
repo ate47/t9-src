@@ -27,7 +27,7 @@ function private autoexec function_b207a44b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_inventory
 	Checksum: 0x1B74FFFA
 	Offset: 0xA10
@@ -35,7 +35,7 @@ function private autoexec function_b207a44b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"item_inventory", &function_70a657d8, undefined, undefined, #"item_world");
 }
@@ -62,7 +62,7 @@ function private function_70a657d8()
 	clientfield::register("toplayer", "inventoryThirdWeapon", 8000, 1, "int", undefined, 0, 0);
 	clientfield::function_a8bbc967("hudItems.healthItemstackCount", #"hud_items", #"hash_6a60c3e33988b66f", 1, 8, "int", undefined, 0, 0);
 	clientfield::function_a8bbc967("hudItems.equipmentStackCount", #"hud_items", #"hash_3ae366d663c0f130", 1, 8, "int", undefined, 0, 0);
-	callback::on_localplayer_spawned(&function_1877f414);
+	callback::on_localplayer_spawned(&_on_localplayer_spawned);
 	level thread function_d2f05352();
 	level.var_53854c4 = &function_53854c4;
 }
@@ -82,7 +82,7 @@ function function_7d5553ac()
 }
 
 /*
-	Name: function_1877f414
+	Name: _on_localplayer_spawned
 	Namespace: item_inventory
 	Checksum: 0xAB647A1D
 	Offset: 0xC18
@@ -90,7 +90,7 @@ function function_7d5553ac()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_1877f414(localclientnum)
+function private _on_localplayer_spawned(localclientnum)
 {
 	if(self function_da43934d())
 	{
@@ -1648,7 +1648,7 @@ function private function_1a99656a(localclientnum, inventoryitem, var_bd027dd9, 
 			if(isdefined(var_2cf6fb05))
 			{
 				function_cb7cfe5b(localclientnum, var_2cf6fb05, inventoryitem);
-				hasattachments = function_850588f4(localclientnum, var_2cf6fb05);
+				hasattachments = has_attachments(localclientnum, var_2cf6fb05);
 				var_508262d4 = data.inventory.items[var_2cf6fb05];
 				if(hasattachments)
 				{
@@ -1669,7 +1669,7 @@ function private function_1a99656a(localclientnum, inventoryitem, var_bd027dd9, 
 		else if(var_d5042302)
 		{
 			var_a4250c2b = player function_d768ea30(localclientnum);
-			hasattachments = function_850588f4(localclientnum, var_a4250c2b);
+			hasattachments = has_attachments(localclientnum, var_a4250c2b);
 			if(isdefined(var_a4250c2b))
 			{
 				var_508262d4 = data.inventory.items[var_a4250c2b];
@@ -3277,7 +3277,7 @@ function function_c48cd17f(localclientnum, var_bd027dd9)
 }
 
 /*
-	Name: function_850588f4
+	Name: has_attachments
 	Namespace: item_inventory
 	Checksum: 0xBC5104E2
 	Offset: 0xBE48
@@ -3285,7 +3285,7 @@ function function_c48cd17f(localclientnum, var_bd027dd9)
 	Parameters: 2
 	Flags: Linked
 */
-function function_850588f4(localclientnum, var_4838b749)
+function has_attachments(localclientnum, var_4838b749)
 {
 	/#
 		assert(isdefined(localclientnum));

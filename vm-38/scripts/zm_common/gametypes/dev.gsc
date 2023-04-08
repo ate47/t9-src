@@ -32,7 +32,7 @@ function private autoexec function_a31ccfd5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: dev
 	Checksum: 0x775AFB45
 	Offset: 0x100
@@ -40,7 +40,7 @@ function private autoexec function_a31ccfd5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"dev", &function_70a657d8, undefined, undefined, #"spawnlogic");

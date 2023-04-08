@@ -129,7 +129,7 @@ function private autoexec function_3abba8ee()
 #namespace namespace_96ff9fb2;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x73AA3ABD
 	Offset: 0x208
@@ -137,7 +137,7 @@ function private autoexec function_3abba8ee()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register("wave_manager", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -157,7 +157,7 @@ function private function_70a657d8()
 	level.var_a3688653 = [];
 	/#
 		setdvar(#"hash_1feb7de8a9fa6573", -1);
-		level thread function_c4c03054();
+		level thread debug_think();
 	#/
 }
 
@@ -214,7 +214,7 @@ function private function_b14456ef()
 }
 
 /*
-	Name: function_c4c03054
+	Name: debug_think
 	Namespace: namespace_96ff9fb2
 	Checksum: 0x9868CA26
 	Offset: 0x720
@@ -222,7 +222,7 @@ function private function_b14456ef()
 	Parameters: 0
 	Flags: Private
 */
-function private function_c4c03054()
+function private debug_think()
 {
 	/#
 		while(true)

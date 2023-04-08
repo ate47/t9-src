@@ -23,7 +23,7 @@ function private autoexec function_4b1de0f3()
 #namespace exploder;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: exploder
 	Checksum: 0x1B8D35BD
 	Offset: 0x128
@@ -31,7 +31,7 @@ function private autoexec function_4b1de0f3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"exploder", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -121,7 +121,7 @@ function player_init(clientnum)
 		level.createfxent = [];
 	}
 	acceptabletargetnames = [];
-	acceptabletargetnames[#"hash_7a9dcee99d931917"] = 1;
+	acceptabletargetnames[#"exploderchunk visible"] = 1;
 	acceptabletargetnames[#"exploderchunk"] = 1;
 	acceptabletargetnames[#"exploder"] = 1;
 	exploder_id = 1;

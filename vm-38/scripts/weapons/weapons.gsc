@@ -1,5 +1,5 @@
-#using script_18f0d22c75b141a7;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\weapons\weaponobjects.gsc;
@@ -1152,7 +1152,7 @@ function function_f2c53bb2(curweapon)
 		switch(curweapon.weapclass)
 		{
 			case "smg":
-			case "hash_69055a4af9ca989":
+			case "pistol spread":
 			case "mg":
 			case "spread":
 			case "pistol":

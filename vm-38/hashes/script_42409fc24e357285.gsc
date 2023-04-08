@@ -54,7 +54,7 @@ class czm_game_timer : cLUIelem
 	*/
 	function set_minutes(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "minutes", value);
+		[[ self ]]->set_data(localclientnum, "minutes", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class czm_game_timer : cLUIelem
 	*/
 	function set_showzero(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showzero", value);
+		[[ self ]]->set_data(localclientnum, "showzero", value);
 	}
 
 	/*
@@ -113,7 +113,7 @@ class czm_game_timer : cLUIelem
 	*/
 	function set_seconds(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "seconds", value);
+		[[ self ]]->set_data(localclientnum, "seconds", value);
 	}
 
 	/*
@@ -128,9 +128,9 @@ class czm_game_timer : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "seconds", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "minutes", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showzero", 0);
+		[[ self ]]->set_data(localclientnum, "seconds", 0);
+		[[ self ]]->set_data(localclientnum, "minutes", 0);
+		[[ self ]]->set_data(localclientnum, "showzero", 0);
 	}
 
 }

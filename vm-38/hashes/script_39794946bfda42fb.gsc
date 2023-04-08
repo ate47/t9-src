@@ -140,11 +140,11 @@ class class_c33e75d1 : cLUIelem
 
 }
 
-#namespace namespace_5ac3cdbb;
+#namespace zm_tungsten_grandprix;
 
 /*
 	Name: function_7412301b
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x6AA776DF
 	Offset: 0x100
 	Size: 0x14
@@ -158,7 +158,7 @@ function private autoexec function_7412301b()
 
 /*
 	Name: register
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x759888E7
 	Offset: 0x120
 	Size: 0x34
@@ -174,7 +174,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x584B4B43
 	Offset: 0x160
 	Size: 0x38
@@ -192,7 +192,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x5189623B
 	Offset: 0x1A0
 	Size: 0x1C
@@ -206,7 +206,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xC3D6EA8D
 	Offset: 0x1C8
 	Size: 0x1A
@@ -220,7 +220,7 @@ function is_open(player)
 
 /*
 	Name: set_raceRanking
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x88DFDB3D
 	Offset: 0x1F0
 	Size: 0x28
@@ -234,7 +234,7 @@ function set_raceRanking(player, value)
 
 /*
 	Name: set_raceCurrentLap
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xE25ED9EE
 	Offset: 0x220
 	Size: 0x28
@@ -248,7 +248,7 @@ function set_raceCurrentLap(player, value)
 
 /*
 	Name: set_raceTotalLap
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xD1C97B0A
 	Offset: 0x250
 	Size: 0x28
@@ -262,7 +262,7 @@ function set_raceTotalLap(player, value)
 
 /*
 	Name: set_raceRewardTier
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x1AC53E22
 	Offset: 0x280
 	Size: 0x28

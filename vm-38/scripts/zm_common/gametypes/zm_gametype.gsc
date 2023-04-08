@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_4194df57536e11ed;
 #using scripts\core_common\array_shared.gsc;
@@ -53,7 +53,7 @@ function private autoexec function_600aea4e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_gametype
 	Checksum: 0xFFDAF234
 	Offset: 0x5F0
@@ -61,7 +61,7 @@ function private autoexec function_600aea4e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_gametype", &function_70a657d8, undefined, undefined, undefined);
 }

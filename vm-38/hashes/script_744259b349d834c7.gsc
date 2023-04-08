@@ -42,7 +42,7 @@ function private autoexec function_33cdc9fa()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_19c99142
 	Checksum: 0xAA86553D
 	Offset: 0x650
@@ -50,7 +50,7 @@ function private autoexec function_33cdc9fa()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2f2eba883d5db256", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -66,12 +66,12 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	if(!isarchetypeloaded(#"hash_24f9e195cf2de42"))
+	if(!isarchetypeloaded(#"soa"))
 	{
 		return;
 	}
 	registerbehaviorscriptfunctions();
-	spawner::add_archetype_spawn_function(#"hash_24f9e195cf2de42", &function_7ba58c09);
+	spawner::add_archetype_spawn_function(#"soa", &function_7ba58c09);
 	clientfield::register("actor", "soaBindTurnCF", 14000, 1, "int");
 	clientfield::register("actor", "soaBindProcessCF", 14000, 1, "int");
 	clientfield::register("actor", "soaHeadGlowCF", 14000, 2, "int");
@@ -100,8 +100,8 @@ function function_7ba58c09()
 {
 	function_ed796ba1();
 	self setblackboardattribute("_locomotion_speed", "locomotion_speed_walk");
-	level thread function_16d3af70();
-	level thread function_a55742e8();
+	level thread query_all_possible_targets();
+	level thread designate_preferred_soa_for_players();
 	if(!isdefined(level.var_8f50760e))
 	{
 		level.var_8f50760e = 0;
@@ -305,9 +305,9 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_6478754622c6e9a", &function_fa0a3cc);
 	/#
-		assert(isscriptfunctionptr(&function_718c627d));
+		assert(isscriptfunctionptr(&soaLocomotionStrafeUpdate));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("soaLocomotionStrafeUpdate", &function_718c627d);
+	behaviorstatemachine::registerbsmscriptapiinternal("soaLocomotionStrafeUpdate", &soaLocomotionStrafeUpdate);
 	/#
 		assert(isscriptfunctionptr(&function_7b84cb6a));
 	#/
@@ -401,13 +401,13 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_ad592f3057b5637", &function_7fe60089);
 	/#
-		assert(isscriptfunctionptr(&function_f5f0b614));
+		assert(isscriptfunctionptr(&soaShouldLocomotionStrafeFlip));
 	#/
-	behaviorstatemachine::registerbsmscriptapiinternal("soaShouldLocomotionStrafeFlip", &function_f5f0b614);
+	behaviorstatemachine::registerbsmscriptapiinternal("soaShouldLocomotionStrafeFlip", &soaShouldLocomotionStrafeFlip);
 	/#
-		assert(isscriptfunctionptr(&function_6d6bd946));
+		assert(isscriptfunctionptr(&soaShouldUseLocomotionBlendspace));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("soaShouldUseLocomotionBlendspace", &function_6d6bd946);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("soaShouldUseLocomotionBlendspace", &soaShouldUseLocomotionBlendspace);
 	animationstatenetwork::registeranimationmocomp("soa_move_to_retreat@soa", &function_190c6600, &function_2a8799e1, &function_1d3f5ac);
 	animationstatenetwork::registeranimationmocomp("soa_move_zipline@soa", &function_8b051aff, &function_90db0e6d, &function_d7a2a6d3);
 	animationstatenetwork::registeranimationmocomp("soa_move_sweep_noclip@soa", &function_f4e85274, &function_3b5becd0, &function_80985f6);
@@ -427,7 +427,7 @@ function registerbehaviorscriptfunctions()
 */
 function function_878b889a()
 {
-	if(self.archetype === #"hash_24f9e195cf2de42")
+	if(self.archetype === #"soa")
 	{
 		if(isdefined(level.var_8f50760e))
 		{
@@ -495,7 +495,7 @@ function private delete_corpse()
 	self endon(#"end_game", #"deleted", #"hash_1b5a2b3f9dfe9fad");
 	self waittill(#"actor_corpse", #"deleted");
 	waitframe(1);
-	zombie_utility::function_96e9d980(#"hash_24f9e195cf2de42");
+	zombie_utility::function_96e9d980(#"soa");
 }
 
 /*
@@ -545,7 +545,7 @@ function private function_a5b798b5(entity)
 */
 function function_42ea6b21(entity)
 {
-	self setmodel(#"hash_49aebf4cee019ce2");
+	self setmodel(#"c_t9_zmb_son_of_orda_3_ww1");
 	if(isdefined(entity))
 	{
 		entity clientfield::set("soaDeathDissolveCF", 2);
@@ -1407,7 +1407,7 @@ function function_a25a16fc(entity)
 }
 
 /*
-	Name: function_16d3af70
+	Name: query_all_possible_targets
 	Namespace: namespace_19c99142
 	Checksum: 0x88F66791
 	Offset: 0x4DD0
@@ -1415,7 +1415,7 @@ function function_a25a16fc(entity)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_16d3af70()
+function private query_all_possible_targets()
 {
 	self endon(#"hash_e87dc146d0a8050");
 	var_17b7891d = "2ee192f3d702f61f" + "query_all_possible_targets";
@@ -1429,7 +1429,7 @@ function private function_16d3af70()
 		{
 			potential_targets = [];
 		}
-		var_cfbaa047 = getaiarchetypearray(#"hash_1bc8194446d4722f");
+		var_cfbaa047 = getaiarchetypearray(#"tormentor");
 		if(!isdefined(var_cfbaa047))
 		{
 			var_cfbaa047 = [];
@@ -1477,7 +1477,7 @@ function private function_16d3af70()
 }
 
 /*
-	Name: function_a55742e8
+	Name: designate_preferred_soa_for_players
 	Namespace: namespace_19c99142
 	Checksum: 0xA00148D4
 	Offset: 0x50B0
@@ -1485,7 +1485,7 @@ function private function_16d3af70()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_a55742e8()
+function private designate_preferred_soa_for_players()
 {
 	self endon(#"hash_e87dc146d0a8050");
 	var_17b7891d = "1fa9689aaa1ba5bc" + "designate_preferred_soa_for_players";
@@ -1494,7 +1494,7 @@ function private function_a55742e8()
 	level.var_632f9a2e = [3:[], 2:[], 1:[], 0:[]];
 	while(true)
 	{
-		soas = getaiarchetypearray(#"hash_24f9e195cf2de42");
+		soas = getaiarchetypearray(#"soa");
 		level.var_a81a9504 = soas;
 		players = getplayers();
 		var_db920e6e = [3:[], 2:[], 1:[], 0:[]];
@@ -3310,7 +3310,7 @@ function private function_1a63a646()
 }
 
 /*
-	Name: function_718c627d
+	Name: soaLocomotionStrafeUpdate
 	Namespace: namespace_19c99142
 	Checksum: 0x7910E1CC
 	Offset: 0x9CC0
@@ -3318,7 +3318,7 @@ function private function_1a63a646()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_718c627d(entity)
+function private soaLocomotionStrafeUpdate(entity)
 {
 	entity.ai.var_798e85cd = (isdefined(entity.ai.var_7979fbb2) ? entity.ai.var_7979fbb2 : 0);
 	entity.ai.var_7979fbb2 = entity function_144f21ef();
@@ -3326,7 +3326,7 @@ function private function_718c627d(entity)
 }
 
 /*
-	Name: function_f5f0b614
+	Name: soaShouldLocomotionStrafeFlip
 	Namespace: namespace_19c99142
 	Checksum: 0x37A3B781
 	Offset: 0x9D40
@@ -3334,7 +3334,7 @@ function private function_718c627d(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_f5f0b614(entity)
+function private soaShouldLocomotionStrafeFlip(entity)
 {
 	if(!(isdefined(entity.ai.var_798e85cd) && isdefined(entity.ai.var_798e85cd)))
 	{
@@ -3349,7 +3349,7 @@ function private function_f5f0b614(entity)
 }
 
 /*
-	Name: function_6d6bd946
+	Name: soaShouldUseLocomotionBlendspace
 	Namespace: namespace_19c99142
 	Checksum: 0x247735FF
 	Offset: 0x9E10
@@ -3357,7 +3357,7 @@ function private function_f5f0b614(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_6d6bd946(entity)
+function private soaShouldUseLocomotionBlendspace(entity)
 {
 	return getdvarint(#"hash_191681a8103230c9", 1) > 0;
 }
@@ -4048,7 +4048,7 @@ function function_6b68419c(soa)
 	self callback::function_d8abfc3d(#"on_ai_killed", &function_a4a6ada4);
 	/#
 		/#
-			assert(self.archetype === #"zombie" || self.archetype === #"hash_1bc8194446d4722f", "");
+			assert(self.archetype === #"zombie" || self.archetype === #"tormentor", "");
 		#/
 	#/
 	if(math::cointoss())
@@ -4263,7 +4263,7 @@ function function_9dd68a24(zombie)
 */
 function function_9d13a2e7(zombie)
 {
-	return isdefined(zombie.var_3981459f.archetype) && zombie.var_3981459f.archetype === #"hash_24f9e195cf2de42";
+	return isdefined(zombie.var_3981459f.archetype) && zombie.var_3981459f.archetype === #"soa";
 }
 
 /*
@@ -5558,7 +5558,7 @@ function function_ae63c292(pos, text, col)
 function function_df254269()
 {
 	/#
-		return getaiarchetypearray(#"hash_24f9e195cf2de42");
+		return getaiarchetypearray(#"soa");
 	#/
 }
 

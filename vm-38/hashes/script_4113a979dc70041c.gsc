@@ -23,7 +23,7 @@ function private autoexec function_bd011d8f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_af1ba366
 	Checksum: 0x97319921
 	Offset: 0x358
@@ -31,7 +31,7 @@ function private autoexec function_bd011d8f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_779f30bffb82a50e", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -74,10 +74,10 @@ function function_70a657d8()
 	clientfield::register("vehicle", "" + #"hash_1e59af4706036a79", 1, 1, "int", &function_858fe85a, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_3178e1dcaee33fd3", 1, 1, "int", &laser_fx, 0, 0);
 	clientfield::register("world", "" + #"chopper_crash", 1, 1, "int", &function_3ec12c82, 0, 0);
-	clientfield::register("world", "" + #"hash_4c8a7e79b5a2c61d", 1, 1, "int", &function_1c47acdc, 0, 0);
-	clientfield::register("world", "" + #"hash_2c5407e7aece0a93", 1, 1, "int", &function_e4145df1, 0, 0);
+	clientfield::register("world", "" + #"end_of_level_corpses", 1, 1, "int", &function_1c47acdc, 0, 0);
+	clientfield::register("world", "" + #"end_of_level_exfil_outro_igc_props", 1, 1, "int", &function_e4145df1, 0, 0);
 	clientfield::register("world", "" + #"hash_46265c2ce587e427", 1, 1, "int", &function_62b0987f, 0, 0);
-	animation::add_notetrack_func("play_outro_music", &function_fdbfd57f);
+	animation::add_notetrack_func("play_outro_music", &play_outro_music);
 }
 
 /*
@@ -419,8 +419,8 @@ function private ambient_fx(localclientnum, oldval, newval, bnewent, binitialsna
 		}
 		else if(self.model === #"hash_46cb6387fd2006a7")
 		{
-			self.var_51d78901 = playfx(fieldname, #"hash_38c212dea1c32d51", self.origin + vectorscale((0, 0, 1), 7000), anglestoforward(self.angles), anglestoup(self.angles + vectorscale((1, 0, 0), 90)));
-			self.var_d63b9eb9 = playfx(fieldname, #"hash_3a2680041b2dde0c", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
+			self.var_51d78901 = playfx(fieldname, #"zm_ai/fx9_orda_spawn_portal_c", self.origin + vectorscale((0, 0, 1), 7000), anglestoforward(self.angles), anglestoup(self.angles + vectorscale((1, 0, 0), 90)));
+			self.var_d63b9eb9 = playfx(fieldname, #"sr/fx9_orda_aether_portal_beam", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
 			if(!isdefined(self.var_e1cd0eb7))
 			{
 				self.var_e1cd0eb7 = self.origin + vectorscale((0, 0, 1), 500);
@@ -470,7 +470,7 @@ function function_816573ad(localclientnum)
 }
 
 /*
-	Name: function_fdbfd57f
+	Name: play_outro_music
 	Namespace: namespace_af1ba366
 	Checksum: 0x26247793
 	Offset: 0x1A80
@@ -478,7 +478,7 @@ function function_816573ad(localclientnum)
 	Parameters: 1
 	Flags: None
 */
-function function_fdbfd57f(params)
+function play_outro_music(params)
 {
 	soundsetmusicstate("bad_jellyfish");
 }

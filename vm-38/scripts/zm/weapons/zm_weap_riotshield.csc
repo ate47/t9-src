@@ -3,11 +3,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_5ba3a6b1;
+#namespace zm_weap_riotshield;
 
 /*
 	Name: function_89fd8511
-	Namespace: namespace_5ba3a6b1
+	Namespace: zm_weap_riotshield
 	Checksum: 0x78CA51C
 	Offset: 0x128
 	Size: 0x14
@@ -22,7 +22,7 @@ function private autoexec function_89fd8511()
 #namespace zm_equip_shield;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_equip_shield
 	Checksum: 0x64E48F7C
 	Offset: 0x148
@@ -30,7 +30,7 @@ function private autoexec function_89fd8511()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_equip_shield", &function_70a657d8, undefined, undefined, undefined);
 }

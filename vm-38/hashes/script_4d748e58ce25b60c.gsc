@@ -8,7 +8,7 @@
 #using script_1d730eca5a7f1fa8;
 #using script_1ee011cd0961afd7;
 #using script_2474a362752098d2;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2a5bf5b4a00cee0d;
 #using script_350cffecd05ef6cf;
 #using script_3bbf85ab4cb9f3c2;
@@ -343,7 +343,7 @@ function function_fc61ee02()
 	{
 		self.doa.score.lives = 0;
 		self.doa.score.bombs = 0;
-		self.doa.score.var_7a3c00a0 = 1;
+		self.doa.score.boosts = 1;
 	}
 	if(isbot(self))
 	{
@@ -1107,10 +1107,10 @@ function function_ba8327d7()
 	{
 		self.doa.var_d524abd8 = 0;
 		self.doa.var_48d0af86 = 1;
-		if(self.doa.score.var_7a3c00a0 > 0)
+		if(self.doa.score.boosts > 0)
 		{
 			self.doa.var_c026f7c9 = 1;
-			self.doa.score.var_7a3c00a0--;
+			self.doa.score.boosts--;
 			self thread namespace_7f5aeb59::turnplayershieldon();
 			forward = anglestoforward(self.angles);
 			self namespace_e32bb68::function_3a59ec34("evt_doa_powerup_boost_activate");

@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -22,7 +22,7 @@ function private autoexec function_ae40e6eb()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_camos
 	Checksum: 0xD246A47D
 	Offset: 0xB0
@@ -30,7 +30,7 @@ function private autoexec function_ae40e6eb()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_camos", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -289,7 +289,7 @@ function function_7b29c2d2(weapon)
 	self.var_88ebd633.var_d9449a3++;
 	if(self.var_88ebd633.var_d9449a3 >= 5)
 	{
-		self thread activecamo::function_896ac347(weapon, #"hash_31b99e3970f80a7f", 1);
+		self thread activecamo::function_896ac347(weapon, #"rapid_kills", 1);
 		self.var_88ebd633.var_d9449a3 = 0;
 		self notify(#"hash_7e9b17b054c01cb3");
 	}

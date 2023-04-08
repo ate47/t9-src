@@ -22,7 +22,7 @@ function private autoexec function_a44e1ad8()
 #namespace visionset_mgr;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: visionset_mgr
 	Checksum: 0x16F7644B
 	Offset: 0x108
@@ -30,7 +30,7 @@ function private autoexec function_a44e1ad8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"visionset_mgr", &function_70a657d8, &finalize_clientfields, undefined, undefined);
 }

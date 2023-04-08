@@ -574,7 +574,7 @@ function private function_2cbae477(var_babebdbc, var_76361c1a)
 {
 	if(!isdefined(var_babebdbc))
 	{
-		var_babebdbc = #"hash_2742656099567e1e";
+		var_babebdbc = #"weapon/fx8_equip_swat_smk_signal";
 	}
 	if(!isdefined(var_76361c1a))
 	{

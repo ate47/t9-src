@@ -27,7 +27,7 @@ function private autoexec function_4e0d732()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_laststand
 	Checksum: 0x1658BB0B
 	Offset: 0x2C0
@@ -35,7 +35,7 @@ function private autoexec function_4e0d732()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_laststand", &function_70a657d8, undefined, undefined, undefined);
 }

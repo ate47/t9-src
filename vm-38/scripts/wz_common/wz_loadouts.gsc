@@ -22,7 +22,7 @@ function private autoexec function_b25c541a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_loadouts
 	Checksum: 0x94E92E20
 	Offset: 0xB0
@@ -30,7 +30,7 @@ function private autoexec function_b25c541a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"wz_loadouts", &function_70a657d8, undefined, undefined, #"item_inventory");
 }

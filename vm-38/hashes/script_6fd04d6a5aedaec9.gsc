@@ -63,7 +63,7 @@ function init_clientfields()
 {
 	clientfield::register("scriptmover", "" + #"hash_193cb3d6820f32c9", 28000, 1, "int");
 	clientfield::register("scriptmover", "" + #"hash_b386e95b77069e4", 28000, 1, "int");
-	clientfield::register("world", "" + #"hash_15ba92106568d817", 28000, 1, "int");
+	clientfield::register("world", "" + #"pistol_light_on", 28000, 1, "int");
 }
 
 /*
@@ -686,18 +686,18 @@ function devgui_cmd(cmd)
 				level thread function_fcc5783b();
 				break;
 			}
-			case "hash_7f6ac0f3490fc9e2":
+			case "shooting_gallery_easy_mode":
 			{
-				if(level flag::get(#"hash_7f6ac0f3490fc9e2"))
+				if(level flag::get(#"shooting_gallery_easy_mode"))
 				{
-					level flag::clear(#"hash_7f6ac0f3490fc9e2");
+					level flag::clear(#"shooting_gallery_easy_mode");
 					/#
 						iprintlnbold("");
 					#/
 				}
 				else
 				{
-					level flag::set(#"hash_7f6ac0f3490fc9e2");
+					level flag::set(#"shooting_gallery_easy_mode");
 					/#
 						iprintlnbold("");
 					#/
@@ -1372,7 +1372,7 @@ function function_d6ee3b1d(e_player, var_24b25ceb, var_ae876f40, var_eb891a8f, n
 		}
 		else
 		{
-			if(level flag::get(#"hash_7f6ac0f3490fc9e2"))
+			if(level flag::get(#"shooting_gallery_easy_mode"))
 			{
 				var_3d23ecc++;
 			}
@@ -1575,7 +1575,7 @@ function function_10418fa8(e_player, var_24b25ceb, var_ae876f40, var_eb891a8f, n
 		}
 		else
 		{
-			if(level flag::get(#"hash_7f6ac0f3490fc9e2"))
+			if(level flag::get(#"shooting_gallery_easy_mode"))
 			{
 				var_3d23ecc++;
 			}
@@ -1766,7 +1766,7 @@ function function_af0fa53c(e_player, a_params)
 	level flag::set(#"hash_51bc8a36bd7e5d27");
 	self flag::set(#"hash_5422d37665a74906");
 	a_params val::set("shooting_gallery_ignore", "ignoreme", 1);
-	level clientfield::set("" + #"hash_15ba92106568d817", 1);
+	level clientfield::set("" + #"pistol_light_on", 1);
 	b_complete = self function_c47f596a(a_params);
 	a_params val::reset("shooting_gallery_ignore", "ignoreme");
 	level thread function_a6b2956();
@@ -1890,7 +1890,7 @@ function function_1cb31d02(e_player, var_24b25ceb, n_round)
 		}
 		else
 		{
-			if(level flag::get(#"hash_7f6ac0f3490fc9e2"))
+			if(level flag::get(#"shooting_gallery_easy_mode"))
 			{
 				var_3d23ecc++;
 			}
@@ -2059,7 +2059,7 @@ function function_a6b2956()
 {
 	level endon(#"end_game");
 	wait(2);
-	level clientfield::set("" + #"hash_15ba92106568d817", 0);
+	level clientfield::set("" + #"pistol_light_on", 0);
 }
 
 /*

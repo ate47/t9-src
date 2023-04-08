@@ -83,9 +83,9 @@ function function_34eb3249(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(bwasdemojump)
 	{
 		var_1da0aee8 = getent(fieldname, "anytown_usa_teleporter", "targetname");
-		if(var_1da0aee8.model !== #"hash_45169d3166db3fb3")
+		if(var_1da0aee8.model !== #"p9_zm_gold_teleporter_b")
 		{
-			var_1da0aee8 setmodel(#"hash_45169d3166db3fb3");
+			var_1da0aee8 setmodel(#"p9_zm_gold_teleporter_b");
 		}
 		function_d93b0fff(fieldname, e_portal);
 		wait(1.5);

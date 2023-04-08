@@ -70,7 +70,7 @@ event private function_e0a8e4ba(struct)
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hud
 	Checksum: 0x1F198033
 	Offset: 0x5A0
@@ -78,7 +78,7 @@ event private function_e0a8e4ba(struct)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hud", &function_70a657d8, undefined, undefined, undefined);
 }

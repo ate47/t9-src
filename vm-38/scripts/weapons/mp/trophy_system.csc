@@ -18,7 +18,7 @@ function private autoexec function_ee3d2bf4()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: trophy_system
 	Checksum: 0xC37F88FC
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_ee3d2bf4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"trophy_system", &function_70a657d8, undefined, undefined, undefined);
 }

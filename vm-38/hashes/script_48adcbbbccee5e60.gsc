@@ -83,7 +83,7 @@ class cinteractive_shot : cLUIelem
 	*/
 	function set_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", value);
+		[[ self ]]->set_data(localclientnum, "text", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cinteractive_shot : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", #"");
+		[[ self ]]->set_data(localclientnum, "text", #"");
 	}
 
 }

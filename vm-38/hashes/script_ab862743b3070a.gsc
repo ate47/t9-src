@@ -40,7 +40,7 @@ function private autoexec function_3175c34f()
 #namespace namespace_c402654;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_c402654
 	Checksum: 0xF1B20DE4
 	Offset: 0x2B0
@@ -48,7 +48,7 @@ function private autoexec function_3175c34f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_29467933d0da473b", &function_70a657d8, undefined, undefined, #"aat");
 }
@@ -94,7 +94,7 @@ function function_aec3446d(b_ignore_cleanup)
 	{
 		b_ignore_cleanup = 1;
 	}
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4deb3ae7a73c87f3") || is_true(level.var_15747fb1))
+	if(!zm_custom::function_901b751c(#"hash_4deb3ae7a73c87f3") || is_true(level.var_15747fb1))
 	{
 		return;
 	}

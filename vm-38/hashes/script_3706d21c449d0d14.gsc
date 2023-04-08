@@ -1,5 +1,5 @@
 #using script_32399001bdb550da;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5f2ba47ebe695e43;
 #using script_62d87b28984d3246;
 #using scripts\core_common\clientfield_shared.gsc;

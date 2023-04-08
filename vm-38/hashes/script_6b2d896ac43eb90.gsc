@@ -59,7 +59,7 @@ function private autoexec function_a0caff93()
 */
 event main(eventstruct)
 {
-	level.var_8bef1f53 = namespace_d84b2e13::register();
+	level.var_8bef1f53 = sr_beacon_menu::register();
 	clientfield::register("toplayer", "" + #"hash_5616eb8cc6b9c498", 1, 1, "counter");
 	clientfield::register("toplayer", "" + #"hash_5752601fd90562e1", 1, 1, "counter");
 	namespace_52c8f34d::function_70a657d8();
@@ -140,10 +140,10 @@ function function_1fab9ee0(eventstruct)
 	#/
 	if(isplayer(player) && !level flag::get(#"hash_23350b678001fece"))
 	{
-		if(!level.var_8bef1f53 namespace_d84b2e13::is_open(player) && !player clientfield::get_player_uimodel("hudItems.srOverlayOpen"))
+		if(!level.var_8bef1f53 sr_beacon_menu::is_open(player) && !player clientfield::get_player_uimodel("hudItems.srOverlayOpen"))
 		{
 			player notify(#"hash_5f178db4550eeae9");
-			level.var_8bef1f53 namespace_d84b2e13::open(player, 0);
+			level.var_8bef1f53 sr_beacon_menu::open(player, 0);
 			player thread function_21ba74a1(machine, self);
 			player namespace_553954de::function_14bada94();
 		}
@@ -182,9 +182,9 @@ function function_6c71e778(machine, trigger, var_4bbc024b)
 			}
 		}
 	}
-	if(level.var_8bef1f53 namespace_d84b2e13::is_open(self) && self clientfield::get_player_uimodel("hudItems.srOverlayOpen"))
+	if(level.var_8bef1f53 sr_beacon_menu::is_open(self) && self clientfield::get_player_uimodel("hudItems.srOverlayOpen"))
 	{
-		level.var_8bef1f53 namespace_d84b2e13::close(self);
+		level.var_8bef1f53 sr_beacon_menu::close(self);
 		self namespace_553954de::function_548f282();
 	}
 	self notify(#"hash_11ed79645f6768e1");
@@ -211,7 +211,7 @@ function function_755edc7e(machine, trigger)
 			break;
 		}
 	}
-	if(level.var_8bef1f53 namespace_d84b2e13::is_open(self) && self clientfield::get_player_uimodel("hudItems.srOverlayOpen"))
+	if(level.var_8bef1f53 sr_beacon_menu::is_open(self) && self clientfield::get_player_uimodel("hudItems.srOverlayOpen"))
 	{
 		self function_6c71e778(machine, trigger);
 	}
@@ -306,7 +306,7 @@ function warp(var_6afa034c)
 		player clientfield::increment_to_player("" + #"hash_5616eb8cc6b9c498", 1);
 	}
 	destination = level.var_7d45d0d4.var_d60029a6[level.var_7d45d0d4.destinationindex];
-	level thread namespace_b57ebf44::function_ab94c270(destination);
+	level thread zm_destination_manager::function_ab94c270(destination);
 	function_526a0df4(destination.targetname);
 	level.var_fe6ca5e8 = 1;
 	level notify(#"hash_29edd9425510b40d");
@@ -317,7 +317,7 @@ function warp(var_6afa034c)
 	}
 	objective_manager::start_timer(10);
 	objective_manager::function_a8ad6895(destination);
-	var_b2e24cfc = namespace_b57ebf44::function_f3be07d7(destination);
+	var_b2e24cfc = zm_destination_manager::function_f3be07d7(destination);
 	/#
 		assert(var_b2e24cfc.size >= 4, "" + destination.targetname);
 	#/
@@ -435,7 +435,7 @@ function function_21ba74a1(machine, trigger)
 		waitresult = self waittill(#"menuresponse");
 		menu = waitresult.menu;
 		response = waitresult.response;
-		if(menu == #"hash_26e4ec7e2fffff8d")
+		if(menu == #"sr_beacon_menu")
 		{
 			switch(waitresult.response)
 			{

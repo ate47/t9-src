@@ -24,7 +24,7 @@ function private autoexec function_6ba561b6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_vtol
 	Checksum: 0x63F5A619
 	Offset: 0xF8
@@ -32,7 +32,7 @@ function private autoexec function_6ba561b6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_vtol", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -120,7 +120,7 @@ event function_49e8c140()
 		}
 	}
 	self.var_51e39f11 = [];
-	self notify(#"hash_48ff18e546254ecb");
+	self notify(#"dodge_missile");
 	bundle = killstreaks::get_script_bundle("hoverjet");
 	self thread heatseekingmissile::missiletarget_proximitydetonateincomingmissile(bundle, "death", "dodge_missile", 1);
 }

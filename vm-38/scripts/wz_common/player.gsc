@@ -21,7 +21,7 @@ function private autoexec function_a2d910f9()
 #namespace wz_player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_player
 	Checksum: 0xE06B8E0D
 	Offset: 0x98
@@ -29,7 +29,7 @@ function private autoexec function_a2d910f9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"wz_player", &function_70a657d8, undefined, undefined, undefined);
 }

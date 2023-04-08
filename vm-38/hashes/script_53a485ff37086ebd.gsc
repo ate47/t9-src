@@ -282,7 +282,7 @@ function on_player_spawn()
 function function_89af9d5f()
 {
 	level endon(#"end_game");
-	self endon(#"death", #"disconnect", #"hash_69cbfdd9542e6f85");
+	self endon(#"death", #"disconnect", #"become_cranked");
 	level flag::wait_till("start_zombie_round_logic");
 	wait(30);
 	self function_5d44c2ba();
@@ -302,7 +302,7 @@ function private function_cb952470()
 	level endon(#"end_game");
 	self endon(#"disconnect");
 	self val::set(#"hash_47e92389d3114637", "ignoreme", 1);
-	self waittilltimeout(5, #"death", #"hash_69cbfdd9542e6f85");
+	self waittilltimeout(5, #"death", #"become_cranked");
 	self val::reset(#"hash_47e92389d3114637", "ignoreme");
 }
 
@@ -843,9 +843,9 @@ function private function_bbdbb1b6()
 	self flag::set("become_cranked");
 	self playsoundtoplayer(#"hash_702e9fc4e46d0bf1", self);
 	scoreevents::processscoreevent("cranked_start_zm", self, undefined, undefined);
-	self perks::function_7637bafa(#"specialty_fastweaponswitch");
-	self perks::function_7637bafa(#"specialty_staminup");
-	self perks::function_7637bafa(#"specialty_fastreload");
+	self perks::perk_setperk(#"specialty_fastweaponswitch");
+	self perks::perk_setperk(#"specialty_staminup");
+	self perks::perk_setperk(#"specialty_fastreload");
 	while(isalive(self) && self.var_5f356773 > 0)
 	{
 		self.var_5f356773 = self.var_5f356773 - (float(function_60d95f53()) / 1000);
@@ -877,17 +877,17 @@ function private function_bbdbb1b6()
 	{
 		self thread function_50454ebf(0);
 	}
-	if(self perks::function_be94fe26(#"specialty_fastweaponswitch"))
+	if(self perks::perk_hasperk(#"specialty_fastweaponswitch"))
 	{
-		self perks::function_45d12554(#"specialty_fastweaponswitch");
+		self perks::perk_unsetperk(#"specialty_fastweaponswitch");
 	}
-	if(self perks::function_be94fe26(#"specialty_staminup"))
+	if(self perks::perk_hasperk(#"specialty_staminup"))
 	{
-		self perks::function_45d12554(#"specialty_staminup");
+		self perks::perk_unsetperk(#"specialty_staminup");
 	}
-	if(self perks::function_be94fe26(#"specialty_fastreload"))
+	if(self perks::perk_hasperk(#"specialty_fastreload"))
 	{
-		self perks::function_45d12554(#"specialty_fastreload");
+		self perks::perk_unsetperk(#"specialty_fastreload");
 	}
 	self flag::clear("become_cranked");
 }

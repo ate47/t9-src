@@ -28,7 +28,7 @@ function private autoexec function_832b6d7c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_carpenter
 	Checksum: 0x8B91C3B
 	Offset: 0x198
@@ -36,7 +36,7 @@ function private autoexec function_832b6d7c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_carpenter", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -159,7 +159,7 @@ function start_carpenter(var_264cf1f9, var_ea1d8f06)
 	level.carpenter_powerup_active = 1;
 	carp_ent = spawn("script_origin", (0, 0, 0));
 	carp_ent playloopsound(#"evt_carpenter");
-	if(namespace_59ff1d6c::function_901b751c(#"hash_3386caa315211c88"))
+	if(zm_custom::function_901b751c(#"hash_3386caa315211c88"))
 	{
 		window_boards = struct::get_array("exterior_goal", "targetname");
 		if(isdefined(level._additional_carpenter_nodes))

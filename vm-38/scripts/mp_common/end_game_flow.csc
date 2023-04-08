@@ -20,7 +20,7 @@ function private autoexec function_716175ca()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: end_game_flow
 	Checksum: 0xD316AC2C
 	Offset: 0xA0
@@ -28,7 +28,7 @@ function private autoexec function_716175ca()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"end_game_flow", &function_70a657d8, undefined, undefined, undefined);
 }

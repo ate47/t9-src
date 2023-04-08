@@ -28,7 +28,7 @@ function private autoexec function_4287f26c()
 #namespace namespace_f592a7b;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_f592a7b
 	Checksum: 0xE4B41309
 	Offset: 0x2F8
@@ -36,7 +36,7 @@ function private autoexec function_4287f26c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2846a4f4bd094545", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -53,9 +53,9 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	/#
-		assert(isscriptfunctionptr(&function_850bdbb2));
+		assert(isscriptfunctionptr(&civilianPanicCoverService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("civilianPanicCoverService", &function_850bdbb2, 1);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("civilianPanicCoverService", &civilianPanicCoverService, 1);
 	level.var_ec54dc19 = &function_251c139d;
 	callback::on_ai_killed(&on_ai_killed);
 	spawner::add_archetype_spawn_function(#"civilian", &function_478f2963);
@@ -345,7 +345,7 @@ function function_387a6908(node)
 }
 
 /*
-	Name: function_850bdbb2
+	Name: civilianPanicCoverService
 	Namespace: namespace_f592a7b
 	Checksum: 0x114E7474
 	Offset: 0xFE0
@@ -353,7 +353,7 @@ function function_387a6908(node)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_850bdbb2(entity)
+function private civilianPanicCoverService(entity)
 {
 	result = 0;
 	if(entity getblackboardattribute(#"hash_78e762abc4fbf1de") == "panic")

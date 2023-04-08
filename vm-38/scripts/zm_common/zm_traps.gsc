@@ -40,7 +40,7 @@ function private autoexec function_905aebb6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_traps
 	Checksum: 0xA4F10021
 	Offset: 0x400
@@ -48,7 +48,7 @@ function private autoexec function_905aebb6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_traps", &function_70a657d8, &function_8ac3bea9, &init, undefined);
 }
@@ -83,7 +83,7 @@ function private function_70a657d8()
 */
 function init()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
@@ -102,7 +102,7 @@ function init()
 */
 function private function_8ac3bea9()
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_4b16b22d8a0d3301"))
+	if(!zm_custom::function_901b751c(#"hash_4b16b22d8a0d3301"))
 	{
 		return;
 	}
@@ -476,7 +476,7 @@ function trap_activate(trap, who)
 	trap thread [[trap._trap_activate_func]]();
 	trap waittill(#"trap_done");
 	trap triggerenable(0);
-	trap trap_set_string(#"hash_21db2780833a8bfd");
+	trap trap_set_string(#"zombie/trap_cooldown");
 	/#
 		if(getdvarint(#"zombie_cheat", 0) >= 1)
 		{
@@ -1495,7 +1495,7 @@ function function_19d61a68()
 */
 function function_da13db45(n_cooldown, e_player)
 {
-	if(isdefined(e_player) && e_player hasperk(#"hash_37aa3a5919757781"))
+	if(isdefined(e_player) && e_player hasperk(#"specialty_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.5;
 	}

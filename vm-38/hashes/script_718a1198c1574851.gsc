@@ -5,7 +5,7 @@
 #using script_471b31bd963b388e;
 #using scripts\wz_common\wz_loadouts.gsc;
 #using script_5495f0bb06045dc7;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_7bacb32f8222fa3e;
 #using script_9279a21b1e8b6c9;
 #using scripts\core_common\callbacks_shared.gsc;

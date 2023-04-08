@@ -41,7 +41,7 @@ function private autoexec function_27d0fad2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_3bb7295f
 	Checksum: 0xE9EBC0B0
 	Offset: 0x368
@@ -49,7 +49,7 @@ function private autoexec function_27d0fad2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4e2289c68f35238d", &function_70a657d8, &init, undefined, undefined);
 }
@@ -864,17 +864,17 @@ function function_3a268da9(params)
 		{
 			switch(waitresult.itemname)
 			{
-				case "hash_607c15e4db6d797a":
+				case "item_zm_ltm_holiday_gift_01":
 				{
 					waitresult.item function_83cb84d3(#"hash_3adefdb432d5b064", 0, 1, waitresult.item.var_7b02ac6a);
 					break;
 				}
-				case "hash_607c14e4db6d77c7":
+				case "item_zm_ltm_holiday_gift_02":
 				{
 					waitresult.item function_83cb84d3(#"hash_3adefdb432d5b064", 0, 1, waitresult.item.var_7b02ac6a);
 					break;
 				}
-				case "hash_607c13e4db6d7614":
+				case "item_zm_ltm_holiday_gift_03":
 				{
 					waitresult.item function_83cb84d3(#"hash_3adefdb432d5b064", 0, 1, waitresult.item.var_7b02ac6a);
 					break;

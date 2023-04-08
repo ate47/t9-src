@@ -1,5 +1,5 @@
-#using script_18f0d22c75b141a7;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using script_7f6cd71c43c45c57;
@@ -29,7 +29,7 @@ function private autoexec function_d1b7dd0()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_score
 	Checksum: 0x971DAF10
 	Offset: 0x1A0
@@ -37,7 +37,7 @@ function private autoexec function_d1b7dd0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic_score", &function_70a657d8, undefined, undefined, undefined);
 }

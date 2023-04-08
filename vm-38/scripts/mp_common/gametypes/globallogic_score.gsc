@@ -2,7 +2,7 @@
 #using scripts\core_common\bots\bot.gsc;
 #using script_383a3b1bb18ba876;
 #using script_40fc784c60f9fa7b;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;

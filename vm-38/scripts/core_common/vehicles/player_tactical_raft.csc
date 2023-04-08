@@ -19,7 +19,7 @@ function private autoexec function_663c320d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_tactical_raft
 	Checksum: 0x29EB67B5
 	Offset: 0xB0
@@ -27,7 +27,7 @@ function private autoexec function_663c320d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_tactical_raft", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

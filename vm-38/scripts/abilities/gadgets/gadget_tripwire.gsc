@@ -29,7 +29,7 @@ function private autoexec function_aa1e9465()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: gadget_tripwire
 	Checksum: 0x1A5B298F
 	Offset: 0x240
@@ -37,7 +37,7 @@ function private autoexec function_aa1e9465()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_tripwire", &function_70a657d8, undefined, &function_3675de8b, undefined);
 }

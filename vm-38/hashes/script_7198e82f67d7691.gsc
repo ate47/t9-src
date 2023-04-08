@@ -54,7 +54,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_lvlDescriptionShort(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlDescriptionShort", value);
+		[[ self ]]->set_data(localclientnum, "lvlDescriptionShort", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_lvlDescriptionLong(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlDescriptionLong", value);
+		[[ self ]]->set_data(localclientnum, "lvlDescriptionLong", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_lvlProgress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlProgress", value);
+		[[ self ]]->set_data(localclientnum, "lvlProgress", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_activeState(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "activeState", value);
+		[[ self ]]->set_data(localclientnum, "activeState", value);
 	}
 
 	/*
@@ -145,7 +145,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_lvlName(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlName", value);
+		[[ self ]]->set_data(localclientnum, "lvlName", value);
 	}
 
 	/*
@@ -159,7 +159,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_lvlYear(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlYear", value);
+		[[ self ]]->set_data(localclientnum, "lvlYear", value);
 	}
 
 	/*
@@ -173,7 +173,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function set_entNum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", value);
+		[[ self ]]->set_data(localclientnum, "entNum", value);
 	}
 
 	/*
@@ -188,13 +188,13 @@ class cevidence_board_mission_preview : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entNum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "activeState", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlYear", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlName", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlDescriptionShort", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlDescriptionLong", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "lvlProgress", 0);
+		[[ self ]]->set_data(localclientnum, "entNum", 0);
+		[[ self ]]->set_data(localclientnum, "activeState", 0);
+		[[ self ]]->set_data(localclientnum, "lvlYear", 0);
+		[[ self ]]->set_data(localclientnum, "lvlName", #"");
+		[[ self ]]->set_data(localclientnum, "lvlDescriptionShort", #"");
+		[[ self ]]->set_data(localclientnum, "lvlDescriptionLong", #"");
+		[[ self ]]->set_data(localclientnum, "lvlProgress", 0);
 	}
 
 }

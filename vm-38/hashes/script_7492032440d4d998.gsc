@@ -445,7 +445,7 @@ function private function_d228e8b0(var_3f94a5b6)
 		waitresult = self waittill(#"menuresponse");
 		menu = waitresult.menu;
 		response = waitresult.response;
-		if(menu == #"hash_5bc5fa54cf66129d")
+		if(menu == #"zm_gold_align_satellite_hud")
 		{
 			switch(waitresult.response)
 			{

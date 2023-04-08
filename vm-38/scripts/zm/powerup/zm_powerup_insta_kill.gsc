@@ -26,7 +26,7 @@ function private autoexec function_f1fa0449()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_insta_kill
 	Checksum: 0x3B1BEB7C
 	Offset: 0x170
@@ -34,7 +34,7 @@ function private autoexec function_f1fa0449()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_insta_kill", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -20,7 +20,7 @@ function private autoexec function_c51c9b65()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_2943ccdc
 	Checksum: 0x2950AD4A
 	Offset: 0x168
@@ -28,7 +28,7 @@ function private autoexec function_c51c9b65()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_ee64d6a280a2e42", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -44,11 +44,11 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	clientfield::register("toplayer", "toggle_interactive_map", 1, 1, "int", &function_831986b, 0, 0);
+	clientfield::register("toplayer", "toggle_interactive_map", 1, 1, "int", &toggle_interactive_map, 0, 0);
 }
 
 /*
-	Name: function_831986b
+	Name: toggle_interactive_map
 	Namespace: namespace_2943ccdc
 	Checksum: 0xF8B8E58E
 	Offset: 0x208
@@ -56,7 +56,7 @@ function private function_70a657d8()
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_831986b(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function private toggle_interactive_map(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{
@@ -64,7 +64,7 @@ function private function_831986b(localclientnum, oldval, newval, bnewent, binit
 	}
 	else
 	{
-		self notify(#"hash_7d0c549b3fac0991");
+		self notify(#"close_interactive_map");
 	}
 }
 
@@ -80,7 +80,7 @@ function private function_831986b(localclientnum, oldval, newval, bnewent, binit
 function private function_f4804ac(localclientnum)
 {
 	self notify("736d32590bdc259");
-	self endon(#"death", "36e6f79cf9fe7521", #"hash_7d0c549b3fac0991");
+	self endon(#"death", "36e6f79cf9fe7521", #"close_interactive_map");
 	while(!isdefined(function_fecfab51("x")))
 	{
 		waitframe(1);

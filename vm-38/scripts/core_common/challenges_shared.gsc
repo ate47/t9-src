@@ -1,12 +1,12 @@
 #using scripts\abilities\ability_player.gsc;
 #using script_40fc784c60f9fa7b;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
 #using script_67ce8e728d8f37ba;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\weapons\weaponobjects.gsc;
@@ -38,7 +38,7 @@ function private autoexec function_69a5d6ea()
 #namespace challenges;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: challenges
 	Checksum: 0x357035E8
 	Offset: 0x4A8
@@ -46,7 +46,7 @@ function private autoexec function_69a5d6ea()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"challenges_shared", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -2759,11 +2759,11 @@ function playerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, shit
 			data.victimgadgetpower = victim gadgetpowerget(slot);
 		}
 	}
-	if(isdefined(victim.var_43c0c1a8) && victim.var_43c0c1a8 || (isdefined(victim.var_2118ca55) && victim.var_2118ca55))
+	if(isdefined(victim.in_enemy_mute_smoke) && victim.in_enemy_mute_smoke || (isdefined(victim.var_2118ca55) && victim.var_2118ca55))
 	{
 		data.var_ab4f5741 = 1;
 	}
-	data.var_504c7a2f = victim.var_43c0c1a8;
+	data.var_504c7a2f = victim.in_enemy_mute_smoke;
 	data.var_7006e4f4 = victim.var_fd0be7bd;
 	data.var_af1b39cb = victim.lastflashedby;
 	data.var_e020b97e = victim isflashbanged();

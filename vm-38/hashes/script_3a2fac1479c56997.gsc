@@ -83,7 +83,7 @@ class czm_build_progress : cLUIelem
 	*/
 	function set_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", value);
+		[[ self ]]->set_data(localclientnum, "progress", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class czm_build_progress : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", 0);
+		[[ self ]]->set_data(localclientnum, "progress", 0);
 	}
 
 }

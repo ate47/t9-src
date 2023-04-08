@@ -40,7 +40,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_body_killed_by_mod(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_killed_by_mod", value);
+		[[ self ]]->set_data(localclientnum, "body_killed_by_mod", value);
 	}
 
 	/*
@@ -54,7 +54,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_alive_player_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "alive_player_count", value);
+		[[ self ]]->set_data(localclientnum, "alive_player_count", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_missing_player_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "missing_player_count", value);
+		[[ self ]]->set_data(localclientnum, "missing_player_count", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_double_agent_player_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "double_agent_player_count", value);
+		[[ self ]]->set_data(localclientnum, "double_agent_player_count", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_add_objective_id(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "add_objective_id", value);
+		[[ self ]]->set_data(localclientnum, "add_objective_id", value);
 	}
 
 	/*
@@ -138,7 +138,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_player_role(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "player_role", value);
+		[[ self ]]->set_data(localclientnum, "player_role", value);
 	}
 
 	/*
@@ -152,7 +152,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_display_autopsy(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "display_autopsy", value);
+		[[ self ]]->set_data(localclientnum, "display_autopsy", value);
 	}
 
 	/*
@@ -166,7 +166,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_aux_notification_param(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "aux_notification_param", value);
+		[[ self ]]->set_data(localclientnum, "aux_notification_param", value);
 	}
 
 	/*
@@ -180,7 +180,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_operative_player_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "operative_player_count", value);
+		[[ self ]]->set_data(localclientnum, "operative_player_count", value);
 	}
 
 	/*
@@ -194,7 +194,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_player_id_number(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "player_id_number", value);
+		[[ self ]]->set_data(localclientnum, "player_id_number", value);
 	}
 
 	/*
@@ -208,7 +208,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_body_identity(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_identity", value);
+		[[ self ]]->set_data(localclientnum, "body_identity", value);
 	}
 
 	/*
@@ -222,7 +222,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_body_player_clientnum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_player_clientnum", value);
+		[[ self ]]->set_data(localclientnum, "body_player_clientnum", value);
 	}
 
 	/*
@@ -269,7 +269,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_notification_id(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "notification_id", value);
+		[[ self ]]->set_data(localclientnum, "notification_id", value);
 	}
 
 	/*
@@ -283,7 +283,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_current_objective_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "current_objective_count", value);
+		[[ self ]]->set_data(localclientnum, "current_objective_count", value);
 	}
 
 	/*
@@ -297,7 +297,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_timeSinceDeath(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "timeSinceDeath", value);
+		[[ self ]]->set_data(localclientnum, "timeSinceDeath", value);
 	}
 
 	/*
@@ -311,7 +311,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_dirty_bomb_id(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "dirty_bomb_id", value);
+		[[ self ]]->set_data(localclientnum, "dirty_bomb_id", value);
 	}
 
 	/*
@@ -325,7 +325,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_body_agent_id(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_agent_id", value);
+		[[ self ]]->set_data(localclientnum, "body_agent_id", value);
 	}
 
 	/*
@@ -341,31 +341,31 @@ class class_f57714e4 : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"hash_7d11e1c1b565495" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"hash_1d55d285e24b7d1a" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
 					if(#"hash_6724d4bba3d5bf31" == state_name)
 					{
-						[[ self ]]->function_d7d2fcce(localclientnum, "_state", 3);
+						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
 						if(#"hideall" == state_name)
 						{
-							[[ self ]]->function_d7d2fcce(localclientnum, "_state", 4);
+							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
 						else
 						{
@@ -392,7 +392,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function set_investigator_player_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "investigator_player_count", value);
+		[[ self ]]->set_data(localclientnum, "investigator_player_count", value);
 	}
 
 	/*
@@ -408,33 +408,33 @@ class class_f57714e4 : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "player_role", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "player_id_number", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "alive_player_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "missing_player_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "operative_player_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "investigator_player_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "double_agent_player_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_player_clientnum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_agent_id", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_identity", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "display_autopsy", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "timeSinceDeath", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "body_killed_by_mod", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "add_objective_id", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "current_objective_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "notification_id", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "aux_notification_param", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "dirty_bomb_id", 0);
+		[[ self ]]->set_data(localclientnum, "player_role", 0);
+		[[ self ]]->set_data(localclientnum, "player_id_number", 0);
+		[[ self ]]->set_data(localclientnum, "alive_player_count", 0);
+		[[ self ]]->set_data(localclientnum, "missing_player_count", 0);
+		[[ self ]]->set_data(localclientnum, "operative_player_count", 0);
+		[[ self ]]->set_data(localclientnum, "investigator_player_count", 0);
+		[[ self ]]->set_data(localclientnum, "double_agent_player_count", 0);
+		[[ self ]]->set_data(localclientnum, "body_player_clientnum", 0);
+		[[ self ]]->set_data(localclientnum, "body_agent_id", 0);
+		[[ self ]]->set_data(localclientnum, "body_identity", 0);
+		[[ self ]]->set_data(localclientnum, "display_autopsy", 0);
+		[[ self ]]->set_data(localclientnum, "timeSinceDeath", 0);
+		[[ self ]]->set_data(localclientnum, "body_killed_by_mod", 0);
+		[[ self ]]->set_data(localclientnum, "add_objective_id", 0);
+		[[ self ]]->set_data(localclientnum, "current_objective_count", 0);
+		[[ self ]]->set_data(localclientnum, "notification_id", 0);
+		[[ self ]]->set_data(localclientnum, "aux_notification_param", 0);
+		[[ self ]]->set_data(localclientnum, "dirty_bomb_id", 0);
 	}
 
 }
 
-#namespace namespace_bfc09150;
+#namespace HUD_Spy;
 
 /*
 	Name: function_59df56ac
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xDA85E789
 	Offset: 0x240
 	Size: 0x14
@@ -448,7 +448,7 @@ function private autoexec function_59df56ac()
 
 /*
 	Name: register
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xA2B31C31
 	Offset: 0x260
 	Size: 0x21E
@@ -480,7 +480,7 @@ function register(var_9ec210c6, var_7674739c, var_202f443b, var_b8c3f033, var_dd
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xB2C2B3D1
 	Offset: 0x488
 	Size: 0x34
@@ -496,7 +496,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xD2E91EB2
 	Offset: 0x4C8
 	Size: 0x1C
@@ -510,7 +510,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x66AA3A49
 	Offset: 0x4F0
 	Size: 0x1C
@@ -524,7 +524,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x88CDD17
 	Offset: 0x518
 	Size: 0x1A
@@ -538,7 +538,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_state
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xDAF8C30
 	Offset: 0x540
 	Size: 0x28
@@ -552,7 +552,7 @@ function set_state(localclientnum, state_name)
 
 /*
 	Name: set_player_role
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xA90ACEF8
 	Offset: 0x570
 	Size: 0x28
@@ -566,7 +566,7 @@ function set_player_role(localclientnum, value)
 
 /*
 	Name: set_player_id_number
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x788F3EED
 	Offset: 0x5A0
 	Size: 0x28
@@ -580,7 +580,7 @@ function set_player_id_number(localclientnum, value)
 
 /*
 	Name: set_alive_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xC7017F77
 	Offset: 0x5D0
 	Size: 0x28
@@ -594,7 +594,7 @@ function set_alive_player_count(localclientnum, value)
 
 /*
 	Name: set_missing_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x2C6F0DF6
 	Offset: 0x600
 	Size: 0x28
@@ -608,7 +608,7 @@ function set_missing_player_count(localclientnum, value)
 
 /*
 	Name: set_operative_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x713FE130
 	Offset: 0x630
 	Size: 0x28
@@ -622,7 +622,7 @@ function set_operative_player_count(localclientnum, value)
 
 /*
 	Name: set_investigator_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xB03CF24B
 	Offset: 0x660
 	Size: 0x28
@@ -636,7 +636,7 @@ function set_investigator_player_count(localclientnum, value)
 
 /*
 	Name: set_double_agent_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x246A90FA
 	Offset: 0x690
 	Size: 0x28
@@ -650,7 +650,7 @@ function set_double_agent_player_count(localclientnum, value)
 
 /*
 	Name: set_body_player_clientnum
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x70A7ED12
 	Offset: 0x6C0
 	Size: 0x28
@@ -664,7 +664,7 @@ function set_body_player_clientnum(localclientnum, value)
 
 /*
 	Name: set_body_agent_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x5F08DDFC
 	Offset: 0x6F0
 	Size: 0x28
@@ -678,7 +678,7 @@ function set_body_agent_id(localclientnum, value)
 
 /*
 	Name: set_body_identity
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xEE77C4F5
 	Offset: 0x720
 	Size: 0x28
@@ -692,7 +692,7 @@ function set_body_identity(localclientnum, value)
 
 /*
 	Name: set_display_autopsy
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xC65D4C6E
 	Offset: 0x750
 	Size: 0x28
@@ -706,7 +706,7 @@ function set_display_autopsy(localclientnum, value)
 
 /*
 	Name: set_timeSinceDeath
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x53FB5FE6
 	Offset: 0x780
 	Size: 0x28
@@ -720,7 +720,7 @@ function set_timeSinceDeath(localclientnum, value)
 
 /*
 	Name: set_body_killed_by_mod
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xB2849E23
 	Offset: 0x7B0
 	Size: 0x28
@@ -734,7 +734,7 @@ function set_body_killed_by_mod(localclientnum, value)
 
 /*
 	Name: set_add_objective_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xAB0C4CAD
 	Offset: 0x7E0
 	Size: 0x28
@@ -748,7 +748,7 @@ function set_add_objective_id(localclientnum, value)
 
 /*
 	Name: set_current_objective_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x5D1DE54
 	Offset: 0x810
 	Size: 0x28
@@ -762,7 +762,7 @@ function set_current_objective_count(localclientnum, value)
 
 /*
 	Name: set_notification_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x60333318
 	Offset: 0x840
 	Size: 0x28
@@ -776,7 +776,7 @@ function set_notification_id(localclientnum, value)
 
 /*
 	Name: set_aux_notification_param
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x768F507C
 	Offset: 0x870
 	Size: 0x28
@@ -790,7 +790,7 @@ function set_aux_notification_param(localclientnum, value)
 
 /*
 	Name: set_dirty_bomb_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xCD538BA4
 	Offset: 0x8A0
 	Size: 0x28

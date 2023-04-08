@@ -19,7 +19,7 @@ function private autoexec function_5f0c7fad()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spy_med_pack
 	Checksum: 0xA3072FD3
 	Offset: 0x98
@@ -27,9 +27,9 @@ function private autoexec function_5f0c7fad()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_2565a71514aa2b10", &function_70a657d8, undefined, undefined, #"killstreaks");
+	system::register(#"spy_med_pack", &function_70a657d8, undefined, undefined, #"killstreaks");
 }
 
 /*

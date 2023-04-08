@@ -20,7 +20,7 @@ function private autoexec function_a598c747()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_63c7213c
 	Checksum: 0x85D36A22
 	Offset: 0x188
@@ -28,7 +28,7 @@ function private autoexec function_a598c747()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3c43448fdb77ea73", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -52,14 +52,14 @@ function function_70a657d8()
 	{
 		return;
 	}
-	clientfield::register("actor", "soul_capture_zombie_fire", 1, 1, "int", &function_ad278032, 0, 0);
-	clientfield::register("scriptmover", "soul_capture_leave", 1, 1, "int", &function_ddc6498d, 0, 0);
+	clientfield::register("actor", "soul_capture_zombie_fire", 1, 1, "int", &soul_capture_zombie_fire, 0, 0);
+	clientfield::register("scriptmover", "soul_capture_leave", 1, 1, "int", &soul_capture_leave, 0, 0);
 	clientfield::register("scriptmover", "soul_capture_timer", 1, 1, "int", &function_86bba240, 0, 0);
 	level.var_1ffd81e8 = [];
 }
 
 /*
-	Name: function_ad278032
+	Name: soul_capture_zombie_fire
 	Namespace: namespace_63c7213c
 	Checksum: 0x1765A216
 	Offset: 0x338
@@ -67,7 +67,7 @@ function function_70a657d8()
 	Parameters: 7
 	Flags: Linked
 */
-function function_ad278032(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function soul_capture_zombie_fire(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{
@@ -84,7 +84,7 @@ function function_ad278032(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_ddc6498d
+	Name: soul_capture_leave
 	Namespace: namespace_63c7213c
 	Checksum: 0x9E94EBA2
 	Offset: 0x400
@@ -92,7 +92,7 @@ function function_ad278032(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_ddc6498d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function soul_capture_leave(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{
@@ -100,7 +100,7 @@ function function_ddc6498d(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			var_70609425 = self.origin + vectorscale((0, 0, 1), 5000);
 			self.b_success = 1;
-			self.var_c2310a57 = playfx(fieldname, #"hash_38c212dea1c32d51", var_70609425, (1, 0, 0), (0, 0, 1));
+			self.var_c2310a57 = playfx(fieldname, #"zm_ai/fx9_orda_spawn_portal_c", var_70609425, (1, 0, 0), (0, 0, 1));
 			self playrumbleonentity(fieldname, "sr_world_event_soul_capture_crystal_leave_rumble");
 		}
 		if(!isdefined(self.var_b8f825a3))

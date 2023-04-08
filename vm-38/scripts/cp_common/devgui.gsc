@@ -1,5 +1,5 @@
 #using script_32399001bdb550da;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_521cab335b496d29;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -32,7 +32,7 @@ function private autoexec function_aa695eed()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: devgui
 	Checksum: 0xC91788E8
 	Offset: 0x100
@@ -40,7 +40,7 @@ function private autoexec function_aa695eed()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"devgui", &function_70a657d8, undefined, undefined, undefined);
@@ -1499,8 +1499,8 @@ function function_505cd4da()
 function private function_57edec18()
 {
 	/#
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
 		while(true)
 		{
 			if(getdvarint(#"hash_428eca4823d65134", 0))

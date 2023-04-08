@@ -25,7 +25,7 @@ function private autoexec function_6b39cef3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: radiation
 	Checksum: 0x5BB788E4
 	Offset: 0x118
@@ -33,7 +33,7 @@ function private autoexec function_6b39cef3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"radiation", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -54,7 +54,7 @@ function private function_70a657d8()
 		return;
 	}
 	level thread function_1e3ac913();
-	callback::on_spawned(&function_e4a4b07b);
+	callback::on_spawned(&_on_player_spawned);
 	callback::on_player_killed(&function_9dece272);
 	clientfield::register("toplayer", "ftdb_inZone", 1, 1, "int");
 }
@@ -94,7 +94,7 @@ function private function_3c3e40b6()
 }
 
 /*
-	Name: function_e4a4b07b
+	Name: _on_player_spawned
 	Namespace: radiation
 	Checksum: 0x51449809
 	Offset: 0x308
@@ -102,7 +102,7 @@ function private function_3c3e40b6()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_e4a4b07b()
+function private _on_player_spawned()
 {
 	if(!namespace_956bd4dd::function_ab99e60c())
 	{
@@ -358,11 +358,11 @@ function function_6ade1bbf(timedelay)
 		self function_b5feff95(#"specialty_forwardspawninteract");
 		self function_b5feff95(#"specialty_slide");
 		self function_b5feff95(#"specialty_sprintheal");
-		self perks::function_7637bafa(#"specialty_sprint");
-		self perks::function_7637bafa(#"specialty_sprintreload");
-		self perks::function_7637bafa(#"specialty_forwardspawninteract");
-		self perks::function_7637bafa(#"specialty_slide");
-		self perks::function_7637bafa(#"specialty_sprintheal");
+		self perks::perk_setperk(#"specialty_sprint");
+		self perks::perk_setperk(#"specialty_sprintreload");
+		self perks::perk_setperk(#"specialty_forwardspawninteract");
+		self perks::perk_setperk(#"specialty_slide");
+		self perks::perk_setperk(#"specialty_sprintheal");
 		namespace_6615ea91::function_59621e3c(self, #"hash_376aa98c6fac7859");
 	}
 	else if(isdefined(level.var_eada15e7))

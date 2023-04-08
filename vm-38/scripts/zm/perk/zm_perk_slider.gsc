@@ -36,7 +36,7 @@ function private autoexec function_39239882()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_slider
 	Checksum: 0x255B04CD
 	Offset: 0x2E0
@@ -44,7 +44,7 @@ function private autoexec function_39239882()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_slider", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -93,7 +93,7 @@ function private function_8ac3bea9()
 */
 function function_481123c()
 {
-	zm_perks::register_perk_basic_info(#"hash_3417450e1347185", #"perk_slider", 2000, #"hash_692a7dbdc35fb5e0", getweapon("zombie_perk_bottle_slider"), undefined, #"hash_402b9d6529500b72");
+	zm_perks::register_perk_basic_info(#"hash_3417450e1347185", #"perk_slider", 2000, #"zombie/perk_slider", getweapon("zombie_perk_bottle_slider"), undefined, #"hash_402b9d6529500b72");
 	zm_perks::register_perk_precache_func(#"hash_3417450e1347185", &function_1781c013);
 	zm_perks::register_perk_clientfields(#"hash_3417450e1347185", &function_5ba17a72, &function_90f58801);
 	zm_perks::register_perk_machine(#"hash_3417450e1347185", &function_ef14badb, &function_15d03600);
@@ -126,7 +126,7 @@ function function_15d03600()
 */
 function function_1781c013()
 {
-	level._effect[#"hash_759d5fd62a2b5883"] = "zombie/fx9_perk_phd_slider";
+	level._effect[#"slider_light"] = "zombie/fx9_perk_phd_slider";
 	level.machine_assets[#"hash_3417450e1347185"] = spawnstruct();
 	level.machine_assets[#"hash_3417450e1347185"].weapon = getweapon("zombie_perk_bottle_slider");
 	level.machine_assets[#"hash_3417450e1347185"].off_model = "p9_sur_machine_phd_slider";

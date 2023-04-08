@@ -103,7 +103,7 @@ function function_b974aa72(origin, player)
 	}
 	if(!is_true(level.var_7fcdba66))
 	{
-		siegebot::function_5de06a3f();
+		siegebot::systeminit();
 	}
 	if(!is_true(level.doa.var_318aa67a))
 	{

@@ -1,7 +1,7 @@
 #using script_267e1d16ae28392b;
 #using script_32399001bdb550da;
 #using script_35ae72be7b4fec10;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -28,7 +28,7 @@ function private autoexec function_8f45f635()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: challenges
 	Checksum: 0x4FC13AD9
 	Offset: 0x1B0
@@ -36,7 +36,7 @@ function private autoexec function_8f45f635()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"challenges", &function_70a657d8, undefined, undefined, undefined);
 }

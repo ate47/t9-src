@@ -29,7 +29,7 @@ function private autoexec function_967a438e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: util
 	Checksum: 0x2F9745DA
 	Offset: 0x1B0
@@ -37,7 +37,7 @@ function private autoexec function_967a438e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3b7610eda5a02b79", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -238,7 +238,7 @@ function _force_streamer(localclientnum, oldval, newval, bnewent, binitialsnap, 
 }
 
 /*
-	Name: function_d126379e
+	Name: force_stream_weapons
 	Namespace: util
 	Checksum: 0x84A70DFA
 	Offset: 0x7A8
@@ -246,7 +246,7 @@ function _force_streamer(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	Parameters: 2
 	Flags: Linked
 */
-function function_d126379e(localclientnum, weaponarray)
+function force_stream_weapons(localclientnum, weaponarray)
 {
 	/#
 		assert(isplayer(self));

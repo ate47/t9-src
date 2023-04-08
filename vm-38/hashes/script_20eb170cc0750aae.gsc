@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_32399001bdb550da;
 #using script_3706d21c449d0d14;
 #using script_3dc93ca9902a9cda;

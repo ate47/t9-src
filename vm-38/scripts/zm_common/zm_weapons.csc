@@ -30,7 +30,7 @@ function private autoexec function_59f5f6e3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weapons
 	Checksum: 0x2EA2E787
 	Offset: 0x150
@@ -38,7 +38,7 @@ function private autoexec function_59f5f6e3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_weapons", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

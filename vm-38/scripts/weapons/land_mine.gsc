@@ -30,7 +30,7 @@ function private autoexec function_3d53c53f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: land_mine
 	Checksum: 0x6632B5F6
 	Offset: 0x1A0
@@ -38,7 +38,7 @@ function private autoexec function_3d53c53f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"land_mine", &function_70a657d8, undefined, &finalize, undefined);
 }

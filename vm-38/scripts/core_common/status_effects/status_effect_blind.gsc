@@ -22,7 +22,7 @@ function private autoexec function_b63ca3de()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_blind
 	Checksum: 0x703EB39D
 	Offset: 0xD8
@@ -30,7 +30,7 @@ function private autoexec function_b63ca3de()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"status_effect_blind", &function_70a657d8, undefined, undefined, undefined);
 }

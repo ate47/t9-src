@@ -21,7 +21,7 @@ function private autoexec function_f6ac272e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_cf48051e
 	Checksum: 0x7BAFDD6C
 	Offset: 0xB0
@@ -29,7 +29,7 @@ function private autoexec function_f6ac272e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_112a74f076cda31", &function_62730899, undefined, undefined, #"territory");
 }

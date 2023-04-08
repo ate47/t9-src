@@ -50,23 +50,23 @@ function function_df911075()
 		}
 		case 2:
 		{
-			var_5e36739b = [1:#"hash_4f87aa2a203d37d0", 0:#"hash_785d6a6acd470388"];
+			var_5e36739b = [1:#"hash_4f87aa2a203d37d0", 0:#"spawner_bo5_mimic"];
 			break;
 		}
 		case 3:
 		case 4:
 		{
-			var_5e36739b = [2:#"hash_4f87aa2a203d37d0", 1:#"hash_785d6a6acd470388", 0:#"hash_1aff4b71635bda08"];
+			var_5e36739b = [2:#"hash_4f87aa2a203d37d0", 1:#"spawner_bo5_mimic", 0:#"hash_1aff4b71635bda08"];
 			break;
 		}
 		case 5:
 		{
-			var_5e36739b = [3:#"spawner_zm_steiner", 2:#"hash_4f87aa2a203d37d0", 1:#"hash_785d6a6acd470388", 0:#"hash_1aff4b71635bda08"];
+			var_5e36739b = [3:#"spawner_zm_steiner", 2:#"hash_4f87aa2a203d37d0", 1:#"spawner_bo5_mimic", 0:#"hash_1aff4b71635bda08"];
 			break;
 		}
 		default:
 		{
-			var_5e36739b = [4:#"spawner_zm_steiner", 3:#"hash_4f87aa2a203d37d0", 2:#"hash_785d6a6acd470388", 1:#"hash_704a090ff9fcffd0", 0:#"hash_1aff4b71635bda08"];
+			var_5e36739b = [4:#"spawner_zm_steiner", 3:#"hash_4f87aa2a203d37d0", 2:#"spawner_bo5_mimic", 1:#"hash_704a090ff9fcffd0", 0:#"hash_1aff4b71635bda08"];
 			break;
 		}
 	}
@@ -84,7 +84,7 @@ function function_df911075()
 */
 function function_82e262cf(var_7ecdee63)
 {
-	if(var_7ecdee63 === #"hash_1aff4b71635bda08" || var_7ecdee63 === #"hash_704a090ff9fcffd0" || var_7ecdee63 === #"hash_785d6a6acd470388" || var_7ecdee63 === #"hash_4f87aa2a203d37d0" || var_7ecdee63 === #"spawner_zm_steiner")
+	if(var_7ecdee63 === #"hash_1aff4b71635bda08" || var_7ecdee63 === #"hash_704a090ff9fcffd0" || var_7ecdee63 === #"spawner_bo5_mimic" || var_7ecdee63 === #"hash_4f87aa2a203d37d0" || var_7ecdee63 === #"spawner_zm_steiner")
 	{
 		return true;
 	}
@@ -282,7 +282,7 @@ function function_190c51a9()
 */
 function function_ac709d66(instance, str_alias)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	function_64719f04(instance);
 	self thread zm_vo::function_d6f8bbd9(str_alias);
@@ -300,7 +300,7 @@ function function_ac709d66(instance, str_alias)
 */
 function function_64719f04(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	var_d951c76b = 0;
 	while(true)
 	{
@@ -335,7 +335,7 @@ function function_64719f04(instance)
 function function_34cc6b36(var_33e81c58, var_4469395e)
 {
 	level endon(#"end_game");
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	level flag::wait_till(#"hash_7e250b62cf326bf9");
 	if(namespace_cf6efd05::function_85b812c9())
 	{
@@ -423,7 +423,7 @@ function function_df51a2e8(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	level endon(#"end_game");
 	self endoncallback(&zm_fasttravel::function_79766c56, #"bled_out", #"death");
 	self.var_16735873 = 1;
-	self.var_99582f14 = 1;
+	self.b_ignore_fow_damage = 1;
 	self zm_fasttravel::function_7a607f29(var_5817f611);
 	self.var_f4e33249 = 1;
 	self val::set(#"fasttravel", "freezecontrols", 1);
@@ -492,7 +492,7 @@ function function_df51a2e8(var_5314bd63, nd_path_start, var_384528, str_notify, 
 		self thread zm_fasttravel::function_a78584c0(var_12230d08, var_896486fb);
 	}
 	self waittill(#"fasttravel_over");
-	self.var_99582f14 = 0;
+	self.b_ignore_fow_damage = 0;
 	if(isdefined(var_6c365dbf))
 	{
 		level notify(var_6c365dbf);
@@ -511,7 +511,7 @@ function function_df51a2e8(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	{
 		thread [[level.var_34eb792d]](self, var_5817f611);
 	}
-	self util::delay(0.3, undefined, &zm_audio::create_and_play_dialog, #"hash_110a819726ba35f4", #"end");
+	self util::delay(0.3, undefined, &zm_audio::create_and_play_dialog, #"fast_travel", #"end");
 }
 
 /*

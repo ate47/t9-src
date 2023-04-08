@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -29,7 +29,7 @@ function private autoexec function_843ab0f6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hostmigration
 	Checksum: 0xB2CA8CFE
 	Offset: 0x210
@@ -37,7 +37,7 @@ function private autoexec function_843ab0f6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hostmigration", &function_70a657d8, undefined, undefined, undefined);
 }

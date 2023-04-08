@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -319,11 +319,11 @@ function spawnplayer()
 		self.momentum = self.pers[#"momentum"];
 	}
 	pixendevent();
-	self thread function_7455b680();
+	self thread _spawnplayer();
 }
 
 /*
-	Name: function_7455b680
+	Name: _spawnplayer
 	Namespace: globallogic_spawn
 	Checksum: 0xCFBA460E
 	Offset: 0xD28
@@ -331,7 +331,7 @@ function spawnplayer()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7455b680()
+function _spawnplayer()
 {
 	self endon(#"disconnect", #"joined_spectators");
 	waittillframeend();

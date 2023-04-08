@@ -13,7 +13,7 @@
 #using script_69514c4c056c768;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_75da5547b1822294;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_d9b5c8b1ad38ef5;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -210,9 +210,9 @@ function function_c11071a8()
 */
 function function_38b14e59(players, fadeouttime, var_8e0c0121, fadeintime, rumble)
 {
-	if(isdefined(lui::function_e810a527("FullScreenBlack")))
+	if(isdefined(lui::get_luimenu("FullScreenBlack")))
 	{
-		lui_menu = lui::function_e810a527("FullScreenBlack");
+		lui_menu = lui::get_luimenu("FullScreenBlack");
 	}
 	players = function_e1ca24fe(players);
 	foreach(player in players)
@@ -791,8 +791,8 @@ function function_4212369d()
 		vehicles = [];
 		if(is_true(getgametypesetting(#"hash_183c8366c2eb71e2")))
 		{
-			vehicles[vehicles.size] = #"hash_46d0326fb76bfd27";
-			vehicles[vehicles.size] = #"hash_46d0326fb76bfd27";
+			vehicles[vehicles.size] = #"vehicle_t9_mil_fav_light";
+			vehicles[vehicles.size] = #"vehicle_t9_mil_fav_light";
 		}
 		if(is_true(getgametypesetting(#"hash_28b3c94342b6914c")))
 		{
@@ -855,7 +855,7 @@ function function_c3623479(vehicle)
 			objectivetype = "tank_drop";
 			break;
 		}
-		case "hash_46d0326fb76bfd27":
+		case "vehicle_t9_mil_fav_light":
 		{
 			objectivetype = "fav_drop";
 			break;

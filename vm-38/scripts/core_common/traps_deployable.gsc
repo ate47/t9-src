@@ -104,7 +104,7 @@ function private autoexec function_6c857a49()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: traps_deployable
 	Checksum: 0x9EB0B2E8
 	Offset: 0x290
@@ -112,7 +112,7 @@ function private autoexec function_6c857a49()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"traps_deployable", &function_70a657d8, undefined, undefined, #"load");
 }

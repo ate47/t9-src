@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\abilities\ability_power.gsc;

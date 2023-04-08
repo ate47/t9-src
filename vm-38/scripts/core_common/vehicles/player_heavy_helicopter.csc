@@ -21,7 +21,7 @@ function private autoexec function_4f503578()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_heavy_helicopter
 	Checksum: 0x455710DF
 	Offset: 0x110
@@ -29,7 +29,7 @@ function private autoexec function_4f503578()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_heavy_helicopter", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

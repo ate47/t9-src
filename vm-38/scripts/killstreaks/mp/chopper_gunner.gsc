@@ -23,7 +23,7 @@ function private autoexec function_fc5f630a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: chopper_gunner
 	Checksum: 0x3CB1918B
 	Offset: 0xD8
@@ -31,7 +31,7 @@ function private autoexec function_fc5f630a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"chopper_gunner", &function_70a657d8, undefined, &function_3675de8b, #"killstreaks");
 }

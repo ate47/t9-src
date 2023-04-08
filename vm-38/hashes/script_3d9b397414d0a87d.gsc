@@ -1,4 +1,4 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -25,7 +25,7 @@ function private autoexec function_590a0604()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_4b798cb0
 	Checksum: 0x84B584A5
 	Offset: 0x258
@@ -33,7 +33,7 @@ function private autoexec function_590a0604()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4b859fe530bf291d", &function_70a657d8, undefined, undefined, #"hash_53528dbbf6cd15c4");
 }

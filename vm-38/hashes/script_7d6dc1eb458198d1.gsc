@@ -54,7 +54,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function set_hasDamage(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "hasDamage", value);
+		[[ self ]]->set_data(localclientnum, "hasDamage", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function set_chargePct(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "chargePct", value);
+		[[ self ]]->set_data(localclientnum, "chargePct", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function set_hasCharge(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "hasCharge", value);
+		[[ self ]]->set_data(localclientnum, "hasCharge", value);
 	}
 
 	/*
@@ -130,7 +130,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function set_damagePct(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "damagePct", value);
+		[[ self ]]->set_data(localclientnum, "damagePct", value);
 	}
 
 	/*
@@ -144,7 +144,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function set_ordaHealthPct(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "ordaHealthPct", value);
+		[[ self ]]->set_data(localclientnum, "ordaHealthPct", value);
 	}
 
 	/*
@@ -158,7 +158,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function set_hasOrda(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "hasOrda", value);
+		[[ self ]]->set_data(localclientnum, "hasOrda", value);
 	}
 
 	/*
@@ -173,21 +173,21 @@ class class_a0b518ca : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "chargePct", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "damagePct", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "ordaHealthPct", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "hasOrda", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "hasCharge", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "hasDamage", 0);
+		[[ self ]]->set_data(localclientnum, "chargePct", 0);
+		[[ self ]]->set_data(localclientnum, "damagePct", 0);
+		[[ self ]]->set_data(localclientnum, "ordaHealthPct", 0);
+		[[ self ]]->set_data(localclientnum, "hasOrda", 0);
+		[[ self ]]->set_data(localclientnum, "hasCharge", 0);
+		[[ self ]]->set_data(localclientnum, "hasDamage", 0);
 	}
 
 }
 
-#namespace namespace_72133e5;
+#namespace zm_control_point_hud;
 
 /*
 	Name: function_4552498
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x77F7A34B
 	Offset: 0x110
 	Size: 0x14
@@ -201,7 +201,7 @@ function private autoexec function_4552498()
 
 /*
 	Name: register
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x593FE275
 	Offset: 0x130
 	Size: 0x1A6
@@ -216,24 +216,24 @@ function register(var_4bf38eea, var_7cc0b11d, var_14431277, var_db1c4294, var_87
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_53727b8181275445"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_control_point_hud"]))
 	{
-		level.var_ae746e8f[#"hash_53727b8181275445"] = [];
+		level.var_ae746e8f[#"zm_control_point_hud"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_53727b8181275445"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_control_point_hud"]))
 	{
-		level.var_ae746e8f[#"hash_53727b8181275445"] = [];
+		level.var_ae746e8f[#"zm_control_point_hud"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_53727b8181275445"]))
+	else if(!isarray(level.var_ae746e8f[#"zm_control_point_hud"]))
 	{
-		level.var_ae746e8f[#"hash_53727b8181275445"] = array(level.var_ae746e8f[#"hash_53727b8181275445"]);
+		level.var_ae746e8f[#"zm_control_point_hud"] = array(level.var_ae746e8f[#"zm_control_point_hud"]);
 	}
-	level.var_ae746e8f[#"hash_53727b8181275445"][level.var_ae746e8f[#"hash_53727b8181275445"].size] = elem;
+	level.var_ae746e8f[#"zm_control_point_hud"][level.var_ae746e8f[#"zm_control_point_hud"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x715F0657
 	Offset: 0x2E0
 	Size: 0x34
@@ -249,7 +249,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xB48954B
 	Offset: 0x320
 	Size: 0x1C
@@ -263,7 +263,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x1F89F37C
 	Offset: 0x348
 	Size: 0x1C
@@ -277,7 +277,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x68A997EB
 	Offset: 0x370
 	Size: 0x1A
@@ -291,7 +291,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_chargePct
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xFB1617AF
 	Offset: 0x398
 	Size: 0x28
@@ -305,7 +305,7 @@ function set_chargePct(localclientnum, value)
 
 /*
 	Name: set_damagePct
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x55D47F1F
 	Offset: 0x3C8
 	Size: 0x28
@@ -319,7 +319,7 @@ function set_damagePct(localclientnum, value)
 
 /*
 	Name: set_ordaHealthPct
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x979D2497
 	Offset: 0x3F8
 	Size: 0x28
@@ -333,7 +333,7 @@ function set_ordaHealthPct(localclientnum, value)
 
 /*
 	Name: set_hasOrda
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0xAB8A1C2
 	Offset: 0x428
 	Size: 0x28
@@ -347,7 +347,7 @@ function set_hasOrda(localclientnum, value)
 
 /*
 	Name: set_hasCharge
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x2A676EA9
 	Offset: 0x458
 	Size: 0x28
@@ -361,7 +361,7 @@ function set_hasCharge(localclientnum, value)
 
 /*
 	Name: set_hasDamage
-	Namespace: namespace_72133e5
+	Namespace: zm_control_point_hud
 	Checksum: 0x64D1EE95
 	Offset: 0x488
 	Size: 0x28

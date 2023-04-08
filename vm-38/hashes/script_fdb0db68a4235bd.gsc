@@ -14,7 +14,7 @@
 #using script_413ab8fe25a61c50;
 #using script_4780230832eb22a9;
 #using script_47851dbeea22fe66;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5133d88c555e460;
 #using script_5549681e1669c11a;
 #using script_5701633066d199f2;
@@ -94,7 +94,7 @@ event main(eventstruct)
 	setsaveddvar(#"player_strafespeedscale", 1);
 	setsaveddvar(#"player_backspeedscale", 1);
 	setsaveddvar(#"hash_5784cae91fb32baa", 0);
-	setsaveddvar(#"hash_608e38c8a93de439", 0);
+	setsaveddvar(#"ai_threatsight", 0);
 	setsaveddvar(#"hash_272f8d946ae3e82f", 0);
 	setsaveddvar(#"ai_threatupdateinterval", 0);
 	setsaveddvar(#"hash_61eba98da1c9944a", 0);
@@ -546,7 +546,7 @@ function function_863ffeba()
 		{
 			if(getplayers().size == 1 && getdvarint(#"hash_29afb60660d7bc06", 0))
 			{
-				level.doa.var_98e0f258 = 1;
+				level.doa.advancedStart = 1;
 				level.doa.var_a87ecf08 = 1;
 				player = getplayers()[0];
 				var_b0fa9a8d = player stats::get_stat(#"hash_64fd75a9ce18b89f", #"hash_5a6bd78423046ffb");
@@ -578,7 +578,7 @@ function function_863ffeba()
 					var_3961fa26 = int(var_e1dd1170 / 5);
 					player.doa.score.bombs = player.doa.score.bombs + var_3961fa26;
 					var_840025ed = int(var_e1dd1170 / 5);
-					player.doa.score.var_7a3c00a0 = player.doa.score.var_7a3c00a0 + var_840025ed;
+					player.doa.score.boosts = player.doa.score.boosts + var_840025ed;
 					return;
 				}
 			}
@@ -912,7 +912,7 @@ function function_d723726a()
 	if(level flag::get("doa_rof_visited"))
 	{
 		var_72bee225 = 0;
-		[[ level.doa.var_39e3fa99 ]]->function_cb179d87(undefined);
+		[[ level.doa.var_39e3fa99 ]]->setWild(undefined);
 		[[ level.doa.var_39e3fa99 ]]->function_68400720(1);
 	}
 	else
@@ -1243,7 +1243,7 @@ function function_8ff5e09()
 	if(level flag::get("doa_wild_section_j2_visited"))
 	{
 		var_72bee225 = 0;
-		[[ level.doa.var_39e3fa99 ]]->function_cb179d87(undefined);
+		[[ level.doa.var_39e3fa99 ]]->setWild(undefined);
 	}
 }
 
@@ -1620,7 +1620,7 @@ function function_c32a6622()
 	[[ level.doa.var_39e3fa99 ]]->function_68400720(0);
 	if(level.doa.var_6c58d51 > 0)
 	{
-		[[ level.doa.var_39e3fa99 ]]->function_cb179d87(undefined);
+		[[ level.doa.var_39e3fa99 ]]->setWild(undefined);
 		[[ level.doa.var_39e3fa99 ]]->function_68400720(1);
 	}
 	result = undefined;
@@ -2534,7 +2534,7 @@ function function_13471cec(minlevel)
 		if(!function_520814d5(player, minlevel))
 		{
 		}
-		if(player.doa.score.var_7a3c00a0 == 0)
+		if(player.doa.score.boosts == 0)
 		{
 		}
 		if(level.doa.var_25f4de97 & 0)

@@ -21,7 +21,7 @@ function private autoexec function_533e723a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_957938f0
 	Checksum: 0x49CB5A48
 	Offset: 0x208
@@ -29,7 +29,7 @@ function private autoexec function_533e723a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3256c1e06451aec4", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -54,9 +54,9 @@ function function_70a657d8()
 		return;
 	}
 	clientfield::register("scriptmover", "jump_pad_active", 1, 1, "int", &jump_pad_active, 0, 0);
-	clientfield::register("scriptmover", "jump_pad_essence_fx", 1, 1, "int", &function_c01b356c, 0, 0);
-	clientfield::register("scriptmover", "jump_pad_amb_sound_lp", 1, 1, "int", &function_da442c1, 0, 0);
-	clientfield::register("toplayer", "jump_pad_wind_sound", 1, 1, "int", &function_27dd512, 0, 0);
+	clientfield::register("scriptmover", "jump_pad_essence_fx", 1, 1, "int", &jump_pad_essence_fx, 0, 0);
+	clientfield::register("scriptmover", "jump_pad_amb_sound_lp", 1, 1, "int", &jump_pad_amb_sound_lp, 0, 0);
+	clientfield::register("toplayer", "jump_pad_wind_sound", 1, 1, "int", &jump_pad_wind_sound, 0, 0);
 	visionset_mgr::register_overlay_info_style_postfx_bundle("sr_jump_pad_visionset", 1, 1, "pstfx_jump_pad_launch");
 }
 
@@ -94,7 +94,7 @@ function jump_pad_active(localclientnum, oldval, newval, bnewent, binitialsnap, 
 }
 
 /*
-	Name: function_c01b356c
+	Name: jump_pad_essence_fx
 	Namespace: namespace_957938f0
 	Checksum: 0x4AD4BB8C
 	Offset: 0x590
@@ -102,7 +102,7 @@ function jump_pad_active(localclientnum, oldval, newval, bnewent, binitialsnap, 
 	Parameters: 7
 	Flags: Linked
 */
-function function_c01b356c(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function jump_pad_essence_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
 	self util::waittill_dobj(fieldname);
@@ -142,7 +142,7 @@ function function_6192b162()
 }
 
 /*
-	Name: function_da442c1
+	Name: jump_pad_amb_sound_lp
 	Namespace: namespace_957938f0
 	Checksum: 0xE5037F4A
 	Offset: 0x740
@@ -150,7 +150,7 @@ function function_6192b162()
 	Parameters: 7
 	Flags: Linked
 */
-function function_da442c1(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function jump_pad_amb_sound_lp(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{
@@ -159,7 +159,7 @@ function function_da442c1(localclientnum, oldval, newval, bnewent, binitialsnap,
 }
 
 /*
-	Name: function_27dd512
+	Name: jump_pad_wind_sound
 	Namespace: namespace_957938f0
 	Checksum: 0xE329D29F
 	Offset: 0x7B8
@@ -167,7 +167,7 @@ function function_da442c1(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 7
 	Flags: Linked
 */
-function function_27dd512(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function jump_pad_wind_sound(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{

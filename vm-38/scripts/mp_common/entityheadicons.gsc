@@ -18,7 +18,7 @@ function private autoexec function_3aa3c7db()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: entityheadicons
 	Checksum: 0x4C5E4256
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_3aa3c7db()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"entityheadicons", &function_70a657d8, undefined, undefined, undefined);
 }

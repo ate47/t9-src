@@ -22,7 +22,7 @@ function private autoexec function_fc7c112f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zombie_vortex
 	Checksum: 0x8078AAFA
 	Offset: 0x1E8
@@ -30,7 +30,7 @@ function private autoexec function_fc7c112f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"vortex_shared", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

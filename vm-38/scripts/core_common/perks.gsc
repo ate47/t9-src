@@ -19,7 +19,7 @@ function private autoexec function_fe7a6761()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: perks
 	Checksum: 0x7BC3A17E
 	Offset: 0x160
@@ -27,7 +27,7 @@ function private autoexec function_fe7a6761()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2af3fdb587243686", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -50,7 +50,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_7637bafa
+	Name: perk_setperk
 	Namespace: perks
 	Checksum: 0x69EB6340
 	Offset: 0x240
@@ -58,7 +58,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_7637bafa(str_perk)
+function perk_setperk(str_perk)
 {
 	if(!isdefined(self.var_fb3c9d6a))
 	{
@@ -79,7 +79,7 @@ function function_7637bafa(str_perk)
 }
 
 /*
-	Name: function_45d12554
+	Name: perk_unsetperk
 	Namespace: perks
 	Checksum: 0xBF1B52DD
 	Offset: 0x320
@@ -87,7 +87,7 @@ function function_7637bafa(str_perk)
 	Parameters: 1
 	Flags: Linked
 */
-function function_45d12554(str_perk)
+function perk_unsetperk(str_perk)
 {
 	if(!isdefined(self.var_fb3c9d6a))
 	{
@@ -108,7 +108,7 @@ function function_45d12554(str_perk)
 }
 
 /*
-	Name: function_be94fe26
+	Name: perk_hasperk
 	Namespace: perks
 	Checksum: 0x23E4C392
 	Offset: 0x3E0
@@ -116,7 +116,7 @@ function function_45d12554(str_perk)
 	Parameters: 1
 	Flags: Linked
 */
-function function_be94fe26(str_perk)
+function perk_hasperk(str_perk)
 {
 	if(isdefined(self.var_fb3c9d6a) && isdefined(self.var_fb3c9d6a[str_perk]) && self.var_fb3c9d6a[str_perk] > 0)
 	{

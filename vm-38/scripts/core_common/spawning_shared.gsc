@@ -35,7 +35,7 @@ function private autoexec function_16148aa1()
 #namespace spawning;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spawning
 	Checksum: 0x5E081A74
 	Offset: 0x150
@@ -43,7 +43,7 @@ function private autoexec function_16148aa1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"spawning_shared", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -59,7 +59,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}

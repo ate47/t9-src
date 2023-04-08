@@ -26,7 +26,7 @@ function private autoexec function_1a05cd40()
 #namespace activecamo;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: activecamo
 	Checksum: 0x895F032D
 	Offset: 0x190
@@ -34,7 +34,7 @@ function private autoexec function_1a05cd40()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"activecamo", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -322,7 +322,7 @@ function private function_350f0d(localclientnum, weapon, tagname, var_d1a848d9, 
 		{
 			self function_bf9d3071(stage.rob, tagname);
 		}
-		self callback::add_entity_callback(#"death", &function_ead17f98);
+		self callback::add_entity_callback(#"death", &player_on_death);
 		for(layer = 1; layer <= 3; layer++)
 		{
 			self thread function_b5b4013c(stage, tagname, layer, var_5e38d32e);
@@ -382,7 +382,7 @@ function private function_e1b6707f(localclientnum, weapon, exitstage, enterstage
 }
 
 /*
-	Name: function_ead17f98
+	Name: player_on_death
 	Namespace: activecamo
 	Checksum: 0xFCA4D196
 	Offset: 0x1028
@@ -390,10 +390,10 @@ function private function_e1b6707f(localclientnum, weapon, exitstage, enterstage
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ead17f98(params)
+function private player_on_death(params)
 {
 	self function_3e27a7cb(params.localclientnum, "tag_weapon_right");
-	self callback::function_52ac9652(#"death", &function_ead17f98);
+	self callback::function_52ac9652(#"death", &player_on_death);
 }
 
 /*

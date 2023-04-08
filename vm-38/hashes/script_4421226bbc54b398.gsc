@@ -1,5 +1,5 @@
 #using script_18077945bb84ede7;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -28,7 +28,7 @@ function private autoexec function_b2f667c8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_d4ecbbf0
 	Checksum: 0x16F4AC7E
 	Offset: 0x358
@@ -36,7 +36,7 @@ function private autoexec function_b2f667c8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6750752a31e788e2", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -53,7 +53,7 @@ function private autoexec function_89f2df9()
 function private function_70a657d8()
 {
 	callback::on_item_pickup(&on_item_pickup);
-	callback::add_callback(#"hash_69090774fec4a17b", &function_37c1c391);
+	callback::add_callback(#"objective_ended", &function_37c1c391);
 	level.var_da7a41e7 = 0;
 	level.var_e5e795ee = 0;
 	level.var_7d3f22bd = 0;

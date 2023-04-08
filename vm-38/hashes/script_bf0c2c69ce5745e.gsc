@@ -28,7 +28,7 @@ function private autoexec function_ea3e1d32()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_8f74625a
 	Checksum: 0x3C51522E
 	Offset: 0x5A8
@@ -36,7 +36,7 @@ function private autoexec function_ea3e1d32()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_c70352f852fda84", &function_70a657d8, undefined, undefined, #"item_world");
 }
@@ -59,7 +59,7 @@ function private function_70a657d8()
 	level.var_a5f063d = [];
 	level.var_3f771530 = [];
 	/#
-		level thread function_44b9dd1d();
+		level thread _setup_devgui();
 	#/
 	clientfield::register("scriptmover", "supply_drop_fx", 1, 1, "int");
 	clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int");
@@ -148,7 +148,7 @@ function private function_eaba72c9()
 }
 
 /*
-	Name: function_44b9dd1d
+	Name: _setup_devgui
 	Namespace: namespace_8f74625a
 	Checksum: 0x8B69B54E
 	Offset: 0xB08
@@ -156,7 +156,7 @@ function private function_eaba72c9()
 	Parameters: 0
 	Flags: Private
 */
-function private function_44b9dd1d()
+function private _setup_devgui()
 {
 	/#
 		while(!canadddebugcommand())
@@ -352,7 +352,7 @@ function private function_13339b58(supplydrop, var_d91c179d, index)
 	{
 		switch(var_d91c179d.vehicletype)
 		{
-			case "hash_46d0326fb76bfd27":
+			case "vehicle_t9_mil_fav_light":
 			{
 				var_13781019 = array(#"hash_43e87a7d1f494a6e", #"hash_aa76ca9894b87b", #"hash_19296420b7b82e4", #"hash_af5b730d0f9b749");
 				var_b91c8539 = array(#"hash_44a6ed2c48d1a597", #"hash_2230d366d30fca2c", #"hash_126bd9e565a0db35", #"hash_4e468b786b07a70a");
@@ -370,7 +370,7 @@ function private function_13339b58(supplydrop, var_d91c179d, index)
 	}
 	self animscripted("parachute_open", supplydrop.origin, supplydrop.angles, var_13781019[index], "normal", "root", 1, 0);
 	self waittill(#"parachute_open");
-	if(!is_true(self.var_b702030d))
+	if(!is_true(self.parachute_close))
 	{
 		self animscripted("parachute_idle", supplydrop.origin, supplydrop.angles, var_b91c8539[index], "normal", "root", 1, 0);
 	}
@@ -441,7 +441,7 @@ function private function_500a6615(itemspawnlist, var_93fe96a6, s_instance)
 			{
 				switch(supplydrop.var_d5552131.vehicletype)
 				{
-					case "hash_46d0326fb76bfd27":
+					case "vehicle_t9_mil_fav_light":
 					{
 						var_6d9635e7 = #"hash_3791502c5d089d79";
 						var_36ff1928 = #"hash_5e21433684751cdc";
@@ -499,9 +499,9 @@ function private function_500a6615(itemspawnlist, var_93fe96a6, s_instance)
 		}
 		foreach(var_81b62996 in var_d6cc4b8c)
 		{
-			var_81b62996 notify(#"hash_6c4de390ac1cb3d7");
+			var_81b62996 notify(#"parachute_close");
 			var_81b62996 flag::set("parachute_close");
-			var_81b62996.var_b702030d = 1;
+			var_81b62996.parachute_close = 1;
 		}
 		if(is_true(supplydrop.var_abd32694))
 		{
@@ -738,7 +738,7 @@ function private function_70f0b08a(var_d91c179d, vehicletype)
 	{
 		switch(vehicletype)
 		{
-			case "hash_46d0326fb76bfd27":
+			case "vehicle_t9_mil_fav_light":
 			{
 				var_c7acf5ad setmodel("p9_fxanim_wz_parachute_supplydrop_veh_fav_harness_mod");
 				break;
@@ -1668,7 +1668,7 @@ function function_47ec98c4(startpoint, endpoint, droppoint, var_d91c179d, vehicl
 			attachtag = "tag_vehicle_tank";
 			switch(supplydrop.var_d5552131.vehicletype)
 			{
-				case "hash_46d0326fb76bfd27":
+				case "vehicle_t9_mil_fav_light":
 				{
 					var_6fe5490e = #"hash_333ac707d1003c63";
 					break;

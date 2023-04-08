@@ -22,7 +22,7 @@ function private autoexec function_47ea6c5b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_4b9fccd8
 	Checksum: 0x3091B662
 	Offset: 0xF0
@@ -30,7 +30,7 @@ function private autoexec function_47ea6c5b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_794c3bb2e36b3278", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -47,7 +47,7 @@ function private autoexec function_89f2df9()
 function function_70a657d8()
 {
 	level.var_2457162c = sr_weapon_upgrade_menu::register();
-	clientfield::register("scriptmover", "weapon_machine_fx", 1, 1, "int", &function_3f010f7a, 0, 0);
+	clientfield::register("scriptmover", "weapon_machine_fx", 1, 1, "int", &weapon_machine_fx, 0, 0);
 	namespace_52c8f34d::function_70a657d8();
 }
 
@@ -65,7 +65,7 @@ function function_8ac3bea9()
 }
 
 /*
-	Name: function_3f010f7a
+	Name: weapon_machine_fx
 	Namespace: namespace_4b9fccd8
 	Checksum: 0x5F739DFA
 	Offset: 0x1D8
@@ -73,16 +73,16 @@ function function_8ac3bea9()
 	Parameters: 7
 	Flags: Linked
 */
-function function_3f010f7a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function weapon_machine_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{
-		self.var_3f010f7a = function_239993de(fieldname, #"zombie/fx9_pap_idle", self, "sphere_jnt");
+		self.weapon_machine_fx = function_239993de(fieldname, #"zombie/fx9_pap_idle", self, "sphere_jnt");
 	}
-	else if(isdefined(self.var_3f010f7a))
+	else if(isdefined(self.weapon_machine_fx))
 	{
-		stopfx(fieldname, self.var_3f010f7a);
-		self.var_3f010f7a = undefined;
+		stopfx(fieldname, self.weapon_machine_fx);
+		self.weapon_machine_fx = undefined;
 	}
 }
 

@@ -20,7 +20,7 @@ function private autoexec function_7299f99d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_avogadro
 	Checksum: 0xF37F215F
 	Offset: 0xA0
@@ -28,9 +28,9 @@ function private autoexec function_7299f99d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_2d983ef9e336df0b", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_ai_avogadro", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

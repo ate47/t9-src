@@ -18,11 +18,11 @@ function private autoexec function_7257608d()
 	level notify(887884285);
 }
 
-#namespace namespace_59ff1d6c;
+#namespace zm_custom;
 
 /*
 	Name: function_d776b402
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0x69B38C3D
 	Offset: 0x100
 	Size: 0x4
@@ -35,7 +35,7 @@ function autoexec function_d776b402()
 
 /*
 	Name: function_ecc5a0b9
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0xA81CFAEC
 	Offset: 0x248
 	Size: 0x44
@@ -53,7 +53,7 @@ function private function_ecc5a0b9(local_client_num, player, damage)
 
 /*
 	Name: function_901b751c
-	Namespace: namespace_59ff1d6c
+	Namespace: zm_custom
 	Checksum: 0xE889370C
 	Offset: 0x298
 	Size: 0x70

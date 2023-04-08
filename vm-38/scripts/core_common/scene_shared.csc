@@ -2843,7 +2843,7 @@ function get_existing_ent(clientnum, str_name)
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scene
 	Checksum: 0x1B8169CA
 	Offset: 0x9670
@@ -2851,7 +2851,7 @@ function get_existing_ent(clientnum, str_name)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"scene", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -2920,7 +2920,7 @@ function private function_70a657d8()
 			break;
 		}
 	}
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		var_a093876d = 24;
 	}

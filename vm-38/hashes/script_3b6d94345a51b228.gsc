@@ -20,7 +20,7 @@ function private autoexec function_44591b8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: missile_turret
 	Checksum: 0x61C37470
 	Offset: 0xC0
@@ -28,7 +28,7 @@ function private autoexec function_44591b8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"missile_turret", &function_70a657d8, undefined, undefined, undefined);
 }

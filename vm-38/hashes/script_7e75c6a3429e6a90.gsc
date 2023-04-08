@@ -68,7 +68,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 	*/
 	function set_cannotAmmoMod(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "cannotAmmoMod", value);
+		[[ self ]]->set_data(localclientnum, "cannotAmmoMod", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "cannotAmmoMod", 0);
+		[[ self ]]->set_data(localclientnum, "cannotAmmoMod", 0);
 	}
 
 }

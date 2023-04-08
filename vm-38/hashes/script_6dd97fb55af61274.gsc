@@ -25,7 +25,7 @@ function private autoexec function_3290702d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_d35b13b1
 	Checksum: 0x145EBB75
 	Offset: 0x110
@@ -33,7 +33,7 @@ function private autoexec function_3290702d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7eaac11b6cd35b05", &function_70a657d8, undefined, &function_4df027f2, undefined);
 }
@@ -264,7 +264,7 @@ function private function_333a7b23(entity)
 		{
 			entity.var_ba3e3319 = -1;
 		}
-		enemy = namespace_e0710ee6::function_825317c(entity);
+		enemy = zm_ai_utility::function_825317c(entity);
 		if(isdefined(enemy) && distance2dsquared(enemy.origin, entity.origin) < (2250000 * sqr(0.5)))
 		{
 			if(gettime() > entity.var_ba3e3319)
@@ -305,7 +305,7 @@ function private function_333a7b23(entity)
 		if(var_bd871069)
 		{
 			var_1f1f9cfa = entity function_4794d6a3();
-			enemy = namespace_e0710ee6::function_825317c(entity);
+			enemy = zm_ai_utility::function_825317c(entity);
 			if(is_true(var_1f1f9cfa.isatgoal) && isdefined(enemy))
 			{
 				to_enemy = enemy.origin - self.origin;

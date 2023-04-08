@@ -3,7 +3,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_165beea08a63a243;
 #using script_190d6b82bcca0908;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
 #using script_20ac552ee498eb9d;
@@ -36,7 +36,7 @@
 #using scripts\killstreaks\zm\ultimate_turret.gsc;
 #using script_471b31bd963b388e;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_48f7c4ab73137f8;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
@@ -72,7 +72,7 @@
 #using script_b9d273dc917ee1f;
 #using scripts\killstreaks\killstreak_detect.gsc;
 #using script_db06eb511bd9b36;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_puppeteer_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -180,7 +180,7 @@ function autoexec ignore_systems()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm
 	Checksum: 0x424EE84D
 	Offset: 0x1610
@@ -188,7 +188,7 @@ function autoexec ignore_systems()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -1112,22 +1112,22 @@ function init_levelvars()
 	}
 	level.gamedifficulty = getgametypesetting(#"zmdifficulty");
 	level.var_ab367500 = 1.5;
-	var_96e3723f = zm_utility::function_10e38d86();
-	zombie_utility::set_zombie_var(#"below_world_check", var_96e3723f.var_c9ca5291, 0);
-	zombie_utility::set_zombie_var(#"spectators_respawn", var_96e3723f.var_629f7daa, 0);
-	zombie_utility::set_zombie_var(#"zombie_use_failsafe", var_96e3723f.var_388eb2fd, 0);
-	zombie_utility::set_zombie_var(#"zombie_between_round_time", var_96e3723f.var_7c95cc24, 0);
-	zombie_utility::set_zombie_var(#"zombie_intermission_time", var_96e3723f.var_54e1d605, 0);
-	zombie_utility::set_zombie_var(#"hash_6bae95928bbe8f1", var_96e3723f.var_db686493, 0);
-	zombie_utility::set_zombie_var(#"hash_6f24d1fbe8a09727", var_96e3723f.var_e1b7f6c8, 0);
-	zombie_utility::set_zombie_var(#"zombie_score_bonus_melee", var_96e3723f.var_23244f59, 0);
-	zombie_utility::set_zombie_var(#"zombie_score_bonus_head", var_96e3723f.var_4a0240f3, 0);
-	zombie_utility::set_zombie_var(#"hash_68aa9b4c8de33261", var_96e3723f.var_86036d4, 0);
-	zombie_utility::set_zombie_var(#"zombify_player", var_96e3723f.var_d996cae, 0);
-	zombie_utility::set_zombie_var(#"hash_6ba259e60f87bb15", var_96e3723f.var_b39946c5, []);
+	zmsettings = zm_utility::function_10e38d86();
+	zombie_utility::set_zombie_var(#"below_world_check", zmsettings.var_c9ca5291, 0);
+	zombie_utility::set_zombie_var(#"spectators_respawn", zmsettings.var_629f7daa, 0);
+	zombie_utility::set_zombie_var(#"zombie_use_failsafe", zmsettings.var_388eb2fd, 0);
+	zombie_utility::set_zombie_var(#"zombie_between_round_time", zmsettings.var_7c95cc24, 0);
+	zombie_utility::set_zombie_var(#"zombie_intermission_time", zmsettings.var_54e1d605, 0);
+	zombie_utility::set_zombie_var(#"hash_6bae95928bbe8f1", zmsettings.var_db686493, 0);
+	zombie_utility::set_zombie_var(#"hash_6f24d1fbe8a09727", zmsettings.var_e1b7f6c8, 0);
+	zombie_utility::set_zombie_var(#"zombie_score_bonus_melee", zmsettings.var_23244f59, 0);
+	zombie_utility::set_zombie_var(#"zombie_score_bonus_head", zmsettings.var_4a0240f3, 0);
+	zombie_utility::set_zombie_var(#"hash_68aa9b4c8de33261", zmsettings.var_86036d4, 0);
+	zombie_utility::set_zombie_var(#"zombify_player", zmsettings.var_d996cae, 0);
+	zombie_utility::set_zombie_var(#"hash_6ba259e60f87bb15", zmsettings.var_b39946c5, []);
 	if(issplitscreen())
 	{
-		zombie_utility::set_zombie_var(#"zombie_timer_offset", var_96e3723f.var_37d2cb01, 0);
+		zombie_utility::set_zombie_var(#"zombie_timer_offset", zmsettings.var_37d2cb01, 0);
 	}
 	function_1442d44f();
 	level thread init_player_levelvars();
@@ -1150,7 +1150,7 @@ function init_levelvars()
 */
 function private function_b10f6843()
 {
-	n_starting = ((level.round_number - namespace_59ff1d6c::function_901b751c(#"startround")) + 1) * 500;
+	n_starting = ((level.round_number - zm_custom::function_901b751c(#"startround")) + 1) * 500;
 	return (isdefined(level.player_starting_points) ? level.player_starting_points : n_starting);
 }
 
@@ -1165,42 +1165,42 @@ function private function_b10f6843()
 */
 function function_1442d44f()
 {
-	var_96e3723f = zm_utility::function_10e38d86();
-	zombie_utility::set_zombie_var(#"zombie_health_start", var_96e3723f.difficultysettings[level.gamedifficulty].var_d2a37ad0, 0);
-	zombie_utility::set_zombie_var(#"zombie_health_increase", var_96e3723f.difficultysettings[level.gamedifficulty].var_2defce07, 0);
-	zombie_utility::set_zombie_var(#"zombie_health_increase_multiplier", var_96e3723f.difficultysettings[level.gamedifficulty].var_68f07704, 0);
-	zombie_utility::set_zombie_var(#"hash_7d5a25e2463f7fc5", var_96e3723f.difficultysettings[level.gamedifficulty].var_75236df1, 0);
-	zombie_utility::set_zombie_var(#"zombie_new_runner_interval", var_96e3723f.difficultysettings[level.gamedifficulty].var_8cb6013d, 0);
-	zombie_utility::set_zombie_var(#"zombie_max_ai", var_96e3723f.difficultysettings[level.gamedifficulty].var_e134c623, 0);
-	zombie_utility::set_zombie_var(#"zombie_ai_per_player", var_96e3723f.difficultysettings[level.gamedifficulty].var_8c9f998a);
-	zombie_utility::set_zombie_var(#"zombie_move_speed_multiplier", var_96e3723f.difficultysettings[level.gamedifficulty].var_ecafcfe9);
-	zombie_utility::set_zombie_var(#"hash_607bc50072c2a386", var_96e3723f.difficultysettings[level.gamedifficulty].var_9e2df5e5, 0);
-	zombie_utility::set_zombie_var(#"hash_67b3cbf79292e047", var_96e3723f.difficultysettings[level.gamedifficulty].var_24d886f5, 0);
+	zmsettings = zm_utility::function_10e38d86();
+	zombie_utility::set_zombie_var(#"zombie_health_start", zmsettings.difficultysettings[level.gamedifficulty].var_d2a37ad0, 0);
+	zombie_utility::set_zombie_var(#"zombie_health_increase", zmsettings.difficultysettings[level.gamedifficulty].var_2defce07, 0);
+	zombie_utility::set_zombie_var(#"zombie_health_increase_multiplier", zmsettings.difficultysettings[level.gamedifficulty].var_68f07704, 0);
+	zombie_utility::set_zombie_var(#"hash_7d5a25e2463f7fc5", zmsettings.difficultysettings[level.gamedifficulty].var_75236df1, 0);
+	zombie_utility::set_zombie_var(#"zombie_new_runner_interval", zmsettings.difficultysettings[level.gamedifficulty].var_8cb6013d, 0);
+	zombie_utility::set_zombie_var(#"zombie_max_ai", zmsettings.difficultysettings[level.gamedifficulty].var_e134c623, 0);
+	zombie_utility::set_zombie_var(#"zombie_ai_per_player", zmsettings.difficultysettings[level.gamedifficulty].var_8c9f998a);
+	zombie_utility::set_zombie_var(#"zombie_move_speed_multiplier", zmsettings.difficultysettings[level.gamedifficulty].var_ecafcfe9);
+	zombie_utility::set_zombie_var(#"hash_607bc50072c2a386", zmsettings.difficultysettings[level.gamedifficulty].var_9e2df5e5, 0);
+	zombie_utility::set_zombie_var(#"hash_67b3cbf79292e047", zmsettings.difficultysettings[level.gamedifficulty].var_24d886f5, 0);
 	zombie_utility::set_zombie_var(#"hash_115c28dc9ed1e60e", 0.84, 0);
 	zombie_utility::set_zombie_var(#"hash_3a53015873fb9c74", 0.6, 0);
 	zombie_utility::set_zombie_var(#"hash_4127e6c9e8fdd112", 29, 0);
 	zombie_utility::set_zombie_var(#"hash_40be0852fb086eb0", 20, 0);
-	zombie_utility::set_zombie_var(#"player_base_health", var_96e3723f.difficultysettings[level.gamedifficulty].var_edc0d364, 0);
-	zombie_utility::set_zombie_var(#"player_health_regen_rate", var_96e3723f.difficultysettings[level.gamedifficulty].var_d3001509, 0);
-	zombie_utility::set_zombie_var(#"player_health_regen_delay", var_96e3723f.difficultysettings[level.gamedifficulty].var_73b26261, 0);
-	zombie_utility::set_zombie_var(#"penalty_no_revive", var_96e3723f.difficultysettings[level.gamedifficulty].var_6e13b2b7, 0);
-	zombie_utility::set_zombie_var(#"penalty_died", var_96e3723f.difficultysettings[level.gamedifficulty].var_a93b7e4f, 0);
-	zombie_utility::set_zombie_var(#"penalty_downed", var_96e3723f.difficultysettings[level.gamedifficulty].var_415b24aa, 0);
-	zombie_utility::set_zombie_var(#"hash_3037a1f286b662e6", var_96e3723f.difficultysettings[level.gamedifficulty].var_b84141ad, 0);
-	zombie_utility::set_zombie_var(#"hash_3098c53bba6402d3", var_96e3723f.difficultysettings[level.gamedifficulty].var_6de8fcc4, 0);
-	zombie_utility::set_zombie_var(#"hash_67ae1b8cbb7c985", var_96e3723f.difficultysettings[level.gamedifficulty].var_e8996012, 0);
-	zombie_utility::set_zombie_var(#"hash_cc85b961f25c2ff", var_96e3723f.difficultysettings[level.gamedifficulty].var_4a94ab75, 0);
-	zombie_utility::set_zombie_var(#"retain_weapons", var_96e3723f.difficultysettings[level.gamedifficulty].var_3c177b07, 0);
-	zombie_utility::set_zombie_var(#"perks_decay", var_96e3723f.difficultysettings[level.gamedifficulty].var_792e5fa0, 0);
-	zombie_utility::set_zombie_var(#"hash_1ab42b4d7db4cb3c", var_96e3723f.difficultysettings[level.gamedifficulty].var_539d49a1, 0);
-	zombie_utility::set_zombie_var(#"hash_44737d225ec3b9d7", var_96e3723f.difficultysettings[level.gamedifficulty].var_93820904, 0);
-	zombie_utility::set_zombie_var(#"zombie_point_scalar", var_96e3723f.difficultysettings[level.gamedifficulty].var_5a60ae8, 0, 1);
-	zombie_utility::set_zombie_var(#"hash_3a4a041c1d674898", var_96e3723f.difficultysettings[level.gamedifficulty].var_dd67fc96, 0);
-	zombie_utility::set_zombie_var(#"hash_762b7db4166c70aa", var_96e3723f.difficultysettings[level.gamedifficulty].var_f40fa2be, 0);
-	zombie_utility::set_zombie_var(#"hash_6eb9b2d60babd5aa", var_96e3723f.difficultysettings[level.gamedifficulty].var_e97877db, 0);
-	zombie_utility::set_zombie_var(#"hash_376905ad360fc2e8", var_96e3723f.difficultysettings[level.gamedifficulty].var_5e295f7d, 0);
-	zombie_utility::set_zombie_var(#"hash_3b4ad7449c039d1b", var_96e3723f.difficultysettings[level.gamedifficulty].var_38e75b4c, 0);
-	zombie_utility::set_zombie_var(#"hash_2374f3ef775ac2c3", var_96e3723f.difficultysettings[level.gamedifficulty].var_bc2d6211, 0);
+	zombie_utility::set_zombie_var(#"player_base_health", zmsettings.difficultysettings[level.gamedifficulty].var_edc0d364, 0);
+	zombie_utility::set_zombie_var(#"player_health_regen_rate", zmsettings.difficultysettings[level.gamedifficulty].var_d3001509, 0);
+	zombie_utility::set_zombie_var(#"player_health_regen_delay", zmsettings.difficultysettings[level.gamedifficulty].var_73b26261, 0);
+	zombie_utility::set_zombie_var(#"penalty_no_revive", zmsettings.difficultysettings[level.gamedifficulty].var_6e13b2b7, 0);
+	zombie_utility::set_zombie_var(#"penalty_died", zmsettings.difficultysettings[level.gamedifficulty].var_a93b7e4f, 0);
+	zombie_utility::set_zombie_var(#"penalty_downed", zmsettings.difficultysettings[level.gamedifficulty].var_415b24aa, 0);
+	zombie_utility::set_zombie_var(#"hash_3037a1f286b662e6", zmsettings.difficultysettings[level.gamedifficulty].var_b84141ad, 0);
+	zombie_utility::set_zombie_var(#"hash_3098c53bba6402d3", zmsettings.difficultysettings[level.gamedifficulty].var_6de8fcc4, 0);
+	zombie_utility::set_zombie_var(#"hash_67ae1b8cbb7c985", zmsettings.difficultysettings[level.gamedifficulty].var_e8996012, 0);
+	zombie_utility::set_zombie_var(#"hash_cc85b961f25c2ff", zmsettings.difficultysettings[level.gamedifficulty].var_4a94ab75, 0);
+	zombie_utility::set_zombie_var(#"retain_weapons", zmsettings.difficultysettings[level.gamedifficulty].var_3c177b07, 0);
+	zombie_utility::set_zombie_var(#"perks_decay", zmsettings.difficultysettings[level.gamedifficulty].var_792e5fa0, 0);
+	zombie_utility::set_zombie_var(#"hash_1ab42b4d7db4cb3c", zmsettings.difficultysettings[level.gamedifficulty].var_539d49a1, 0);
+	zombie_utility::set_zombie_var(#"hash_44737d225ec3b9d7", zmsettings.difficultysettings[level.gamedifficulty].var_93820904, 0);
+	zombie_utility::set_zombie_var(#"zombie_point_scalar", zmsettings.difficultysettings[level.gamedifficulty].var_5a60ae8, 0, 1);
+	zombie_utility::set_zombie_var(#"hash_3a4a041c1d674898", zmsettings.difficultysettings[level.gamedifficulty].var_dd67fc96, 0);
+	zombie_utility::set_zombie_var(#"hash_762b7db4166c70aa", zmsettings.difficultysettings[level.gamedifficulty].var_f40fa2be, 0);
+	zombie_utility::set_zombie_var(#"hash_6eb9b2d60babd5aa", zmsettings.difficultysettings[level.gamedifficulty].var_e97877db, 0);
+	zombie_utility::set_zombie_var(#"hash_376905ad360fc2e8", zmsettings.difficultysettings[level.gamedifficulty].var_5e295f7d, 0);
+	zombie_utility::set_zombie_var(#"hash_3b4ad7449c039d1b", zmsettings.difficultysettings[level.gamedifficulty].var_38e75b4c, 0);
+	zombie_utility::set_zombie_var(#"hash_2374f3ef775ac2c3", zmsettings.difficultysettings[level.gamedifficulty].var_bc2d6211, 0);
 	level flag::set(#"hash_55d385069aec3065");
 }
 
@@ -1273,7 +1273,7 @@ function init_function_overrides()
 	level.custom_introscreen = &zombie_intro_screen;
 	level.custom_intermission = &zm_player::player_intermission;
 	level.reset_clientdvars = &zm_player::onplayerconnect_clientdvars;
-	level.player_becomes_zombie = &namespace_cc96b007::zombify_player;
+	level.player_becomes_zombie = &zm_playerzombie::zombify_player;
 	level.validate_enemy_path_length = &zm_utility::default_validate_enemy_path_length;
 	level.curclass = &zm_loadout::menuclass;
 }
@@ -2052,7 +2052,7 @@ function actor_damage_override_wrapper(inflictor, attacker, damage, flags, means
 	{
 		attacker.var_e7b05e99 = 1;
 	}
-	if(shitloc === "head" || shitloc === "helmet" && !namespace_e0710ee6::hashelmet(shitloc, self) && self.archetype !== #"zombie_dog" && meansofdeath != "MOD_MELEE")
+	if(shitloc === "head" || shitloc === "helmet" && !zm_ai_utility::hashelmet(shitloc, self) && self.archetype !== #"zombie_dog" && meansofdeath != "MOD_MELEE")
 	{
 		level scoreevents::doscoreeventcallback("scoreEventZM", {#weapon:weapon, #hitloc:shitloc, #enemy:self, #scoreevent:"hit_weak_point_zm", #attacker:attacker});
 	}
@@ -2215,14 +2215,14 @@ function actor_killed_override(einflictor, attacker, idamage, smeansofdeath, wea
 	{
 		self [[self.deathfunction]](einflictor, attacker, idamage, smeansofdeath, weapon, vdir, shitloc, psoffsettime);
 	}
-	var_82700ea5 = namespace_59ff1d6c::function_901b751c(#"zmkillcap");
+	var_82700ea5 = zm_custom::function_901b751c(#"zmkillcap");
 	if(!isdefined(var_82700ea5))
 	{
 		var_82700ea5 = 0;
 	}
 	if(var_82700ea5 > 0 && level.n_total_kills >= var_82700ea5)
 	{
-		namespace_59ff1d6c::function_9be9c072("zmKillCap");
+		zm_custom::function_9be9c072("zmKillCap");
 	}
 	if(isdefined(einflictor.var_443d78cc))
 	{
@@ -2230,7 +2230,7 @@ function actor_killed_override(einflictor, attacker, idamage, smeansofdeath, wea
 	}
 	scoreevents::function_82234b38(self, attacker, weapon, undefined, einflictor.var_443d78cc, einflictor);
 	params.enemy = self;
-	if(smeansofdeath !== "MOD_MELEE" && (shitloc === "head" || shitloc === "helmet") && !namespace_e0710ee6::hashelmet(shitloc, self) && self.archetype !== #"zombie_dog")
+	if(smeansofdeath !== "MOD_MELEE" && (shitloc === "head" || shitloc === "helmet") && !zm_ai_utility::hashelmet(shitloc, self) && self.archetype !== #"zombie_dog")
 	{
 		params.var_3fb48d9c = 1;
 	}
@@ -2240,13 +2240,13 @@ function actor_killed_override(einflictor, attacker, idamage, smeansofdeath, wea
 		attacker function_df94f87e(weapon);
 		switch(weapon.name)
 		{
-			case "hash_36a6454f13b54f18":
+			case "gun_ultimate_turret":
 			case "energy_mine":
-			case "hash_4ac3fda4add2a116":
+			case "energy_mine_4":
 			case "hash_4ac3fea4add2a2c9":
-			case "hash_4ac3ffa4add2a47c":
-			case "hash_4ac400a4add2a62f":
-			case "hash_4ac402a4add2a995":
+			case "energy_mine_2":
+			case "energy_mine_3":
+			case "energy_mine_1":
 			case "satchel_charge":
 			{
 				attacker zm_stats::increment_challenge_stat(#"hash_6b6279ca26024847");
@@ -2290,7 +2290,7 @@ function actor_killed_override(einflictor, attacker, idamage, smeansofdeath, wea
 */
 function function_df94f87e(weapon)
 {
-	if(killstreaks::is_killstreak_weapon(weapon) && weapon.name !== #"hash_36a6454f13b54f18")
+	if(killstreaks::is_killstreak_weapon(weapon) && weapon.name !== #"gun_ultimate_turret")
 	{
 		var_db574065 = self.inventory.items[17];
 		if(isdefined(var_db574065.kills))
@@ -2337,17 +2337,17 @@ function function_9dd8ba0b(weapon_name)
 		case "hash_631a223758cd92a":
 		case "hash_85edf3a63bb488c":
 		case "ring_of_fire":
-		case "hash_2f148f3f9c3812a8":
-		case "hash_2f14913f9c38160e":
-		case "hash_2f14923f9c3817c1":
+		case "frost_blast_1":
+		case "frost_blast_3":
+		case "frost_blast_2":
 		case "frost_blast_5":
-		case "hash_2f14943f9c381b27":
+		case "frost_blast_4":
 		case "energy_mine":
-		case "hash_4ac3fda4add2a116":
+		case "energy_mine_4":
 		case "hash_4ac3fea4add2a2c9":
-		case "hash_4ac3ffa4add2a47c":
-		case "hash_4ac400a4add2a62f":
-		case "hash_4ac402a4add2a995":
+		case "energy_mine_2":
+		case "energy_mine_3":
+		case "energy_mine_1":
 		{
 			self zm_stats::increment_challenge_stat(#"hash_2c0504992b5785f2");
 			break;
@@ -2725,7 +2725,7 @@ function end_game()
 			players[i] setclientuivisibilityflag("hud_visible", 0);
 			players[i] namespace_81c567a8::function_d7b5082e();
 			level.var_7c7c6c35 zm_game_over::open(players[i]);
-			level.var_7c7c6c35 zm_game_over::set_rounds(players[i], (level.round_number - namespace_59ff1d6c::function_901b751c(#"startround")) + var_5c965b78);
+			level.var_7c7c6c35 zm_game_over::set_rounds(players[i], (level.round_number - zm_custom::function_901b751c(#"startround")) + var_5c965b78);
 		}
 		if(waitresult.reason === #"all_players_dead" || waitresult.reason === #"last_player_died" || waitresult.reason === #"hash_22a0611dcd352614")
 		{
@@ -3941,7 +3941,7 @@ function register_perks()
 			{
 				continue;
 			}
-			self perks::function_7637bafa(perk);
+			self perks::perk_setperk(perk);
 		}
 	}
 	/#

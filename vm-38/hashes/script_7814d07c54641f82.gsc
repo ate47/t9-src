@@ -84,7 +84,7 @@ class cvehicleturretdurability : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", 0);
+		[[ self ]]->set_data(localclientnum, "bar_percent", 0);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cvehicleturretdurability : cLUIelem
 	*/
 	function set_bar_percent(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bar_percent", value);
+		[[ self ]]->set_data(localclientnum, "bar_percent", value);
 	}
 
 }

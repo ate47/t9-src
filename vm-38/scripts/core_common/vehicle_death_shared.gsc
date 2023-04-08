@@ -68,7 +68,7 @@ event private function_e0a8e4ba(struct)
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: vehicle_death
 	Checksum: 0x121CD725
 	Offset: 0x500
@@ -76,7 +76,7 @@ event private function_e0a8e4ba(struct)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"vehicle_death", &function_70a657d8, undefined, undefined, undefined);
 }

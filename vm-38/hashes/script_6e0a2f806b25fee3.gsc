@@ -68,7 +68,7 @@ class cstim_count : cLUIelem
 	*/
 	function set_stim_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "stim_count", value);
+		[[ self ]]->set_data(localclientnum, "stim_count", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cstim_count : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "stim_count", 0);
+		[[ self ]]->set_data(localclientnum, "stim_count", 0);
 	}
 
 }

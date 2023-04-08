@@ -68,7 +68,7 @@ class cmp_laststand_client : cLUIelem
 	*/
 	function set_bleedout_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bleedout_progress", value);
+		[[ self ]]->set_data(localclientnum, "bleedout_progress", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cmp_laststand_client : cLUIelem
 	*/
 	function set_revive_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "revive_progress", value);
+		[[ self ]]->set_data(localclientnum, "revive_progress", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class cmp_laststand_client : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "bleedout_progress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "revive_progress", 0);
+		[[ self ]]->set_data(localclientnum, "bleedout_progress", 0);
+		[[ self ]]->set_data(localclientnum, "revive_progress", 0);
 	}
 
 }

@@ -42,7 +42,7 @@ function private autoexec function_db609053()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_fasttravel
 	Checksum: 0x935375CB
 	Offset: 0x518
@@ -50,7 +50,7 @@ function private autoexec function_db609053()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_fasttravel", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -185,7 +185,7 @@ function wormhole_fx(a_ents)
 		util::wait_network_frame();
 	}
 	while(!var_fd99631b isplayinganimscripted());
-	var_fd99631b clientfield::set("" + #"wormhole_fx", zm_utility::function_166646a6());
+	var_fd99631b clientfield::set("" + #"wormhole_fx", zm_utility::get_story());
 }
 
 /*
@@ -869,7 +869,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	level endon(#"end_game");
 	self endoncallback(&function_79766c56, #"bled_out", #"death");
 	self.var_16735873 = 1;
-	self.var_99582f14 = 1;
+	self.b_ignore_fow_damage = 1;
 	if(var_1605b07a)
 	{
 		if(is_true(self.var_b895a3ff))
@@ -996,7 +996,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 		}
 	}
 	self waittill(#"fasttravel_over");
-	self.var_99582f14 = 0;
+	self.b_ignore_fow_damage = 0;
 	self flag::set(#"hash_66d02a378fc362d4");
 	if(isdefined(var_5314bd63))
 	{
@@ -1042,7 +1042,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	{
 		thread [[level.var_34eb792d]](self, var_12230d08);
 	}
-	self util::delay(0.3, undefined, &zm_audio::create_and_play_dialog, #"hash_110a819726ba35f4", #"end");
+	self util::delay(0.3, undefined, &zm_audio::create_and_play_dialog, #"fast_travel", #"end");
 }
 
 /*
@@ -1343,7 +1343,7 @@ function function_c1f603e(var_12230d08, n_cooldown, var_8d5d092c)
 		return;
 	}
 	self.var_9c7b96ed[var_8d5d092c] = 1;
-	if(self hasperk(#"hash_37aa3a5919757781"))
+	if(self hasperk(#"specialty_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.5;
 	}
@@ -1623,7 +1623,7 @@ function function_183c691b(var_1f8fbe0b)
 	{
 		var_1f8fbe0b = 0;
 	}
-	if(zm_utility::function_166646a6() == 1)
+	if(zm_utility::get_story() == 1)
 	{
 		if(var_1f8fbe0b)
 		{

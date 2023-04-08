@@ -29,7 +29,7 @@ function private autoexec function_62954864()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: prompts
 	Checksum: 0xFFE5422C
 	Offset: 0x3B8
@@ -37,7 +37,7 @@ function private autoexec function_62954864()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"prompts", &preload, undefined, undefined, undefined);
 }
@@ -479,7 +479,7 @@ function function_82cf95d9(image)
 	/#
 		assert(isdefined(self.var_3e95b88f), "");
 	#/
-	self.var_3e95b88f.var_43c33448 = image;
+	self.var_3e95b88f.namespace_image = image;
 	if(isdefined(self.var_3e95b88f.uid))
 	{
 		namespace_61e6d095::function_9ade1d9b(self.var_3e95b88f.uid, "namespace_image", image);
@@ -2768,9 +2768,9 @@ function private function_17533001(uid)
 		ret = self waittill(#"hash_5ede0284920c4c56");
 		if(ret.interactable || isdefined(self.var_3e95b88f.var_fc01e65d))
 		{
-			if(isdefined(self.var_3e95b88f.var_43c33448))
+			if(isdefined(self.var_3e95b88f.namespace_image))
 			{
-				namespace_61e6d095::function_9ade1d9b(uid, "namespace_image", self.var_3e95b88f.var_43c33448);
+				namespace_61e6d095::function_9ade1d9b(uid, "namespace_image", self.var_3e95b88f.namespace_image);
 				namespace_61e6d095::function_b1e6d7a8(uid, (isdefined(self.var_3e95b88f.var_fc01e65d) ? self.var_3e95b88f.var_fc01e65d : 0));
 				self globallogic_ui::function_ec25f500(" ", 0);
 			}
@@ -2781,7 +2781,7 @@ function private function_17533001(uid)
 		}
 		else
 		{
-			if(isdefined(self.var_3e95b88f.var_43c33448))
+			if(isdefined(self.var_3e95b88f.namespace_image))
 			{
 				namespace_61e6d095::function_9ade1d9b(uid, "namespace_image", #"");
 				namespace_61e6d095::function_b1e6d7a8(uid, 0);

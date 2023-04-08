@@ -24,7 +24,7 @@ function private autoexec function_be2452d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_bf26a851
 	Checksum: 0xDFD3F78F
 	Offset: 0x170
@@ -32,7 +32,7 @@ function private autoexec function_be2452d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_23441338314b2721", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -72,7 +72,7 @@ function private on_begin(weapon_name, var_eaa7f0ba, var_957937ee, var_9c56c5a9,
 	}
 	if(weapon_name == #"hash_2299197a67620a6e")
 	{
-		var_789e79cc = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hash_50f35c4cfb775a9c", #"hero_sword_pistol_lv3");
+		var_789e79cc = array(#"hero_chakram_lv3", #"hero_hammer_lv3", #"hero_scepter_lv3", #"hero_sword_pistol_lv3");
 		level.var_ab9d0ec6 = [];
 		foreach(var_ae209633 in var_789e79cc)
 		{

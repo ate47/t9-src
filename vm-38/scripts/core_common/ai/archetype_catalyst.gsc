@@ -6,11 +6,11 @@
 #using script_59f07c660e6710a5;
 #using scripts\core_common\spawner_shared.gsc;
 
-#namespace namespace_a3cd8b9a;
+#namespace archetype_catalyst;
 
 /*
 	Name: function_f76ef8db
-	Namespace: namespace_a3cd8b9a
+	Namespace: archetype_catalyst
 	Checksum: 0xA06ED270
 	Offset: 0xE0
 	Size: 0x14
@@ -22,11 +22,11 @@ function private autoexec function_f76ef8db()
 	level notify(868734006);
 }
 
-#namespace namespace_a216c96;
+#namespace archetypecatalyst;
 
 /*
 	Name: main
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0xA82C0324
 	Offset: 0x100
 	Size: 0x84
@@ -38,12 +38,12 @@ function autoexec main()
 	registerbehaviorscriptfunctions();
 	spawner::add_archetype_spawn_function(#"catalyst", &function_728127b);
 	spawner::add_archetype_spawn_function(#"catalyst", &function_5608540a);
-	namespace_c61045a2::registercatalystinterfaceattributes();
+	catalystinterface::registercatalystinterfaceattributes();
 }
 
 /*
 	Name: registerbehaviorscriptfunctions
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0x57B8B711
 	Offset: 0x190
 	Size: 0x9C
@@ -55,13 +55,13 @@ function private registerbehaviorscriptfunctions()
 	/#
 		assert(isscriptfunctionptr(&iscatalyst));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_153840ec538cefce", &iscatalyst);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"iscatalyst", &iscatalyst);
 	animationstatenetwork::registeranimationmocomp("mocomp_teleport_traversal@catalyst", &function_720a0584, undefined, undefined);
 }
 
 /*
 	Name: iscatalyst
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0x77E4C2D8
 	Offset: 0x238
 	Size: 0x24
@@ -75,7 +75,7 @@ function iscatalyst(entity)
 
 /*
 	Name: function_5608540a
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0xC676403F
 	Offset: 0x268
 	Size: 0xBC
@@ -98,7 +98,7 @@ function function_5608540a()
 
 /*
 	Name: function_728127b
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0xE75E4209
 	Offset: 0x330
 	Size: 0x4A
@@ -114,7 +114,7 @@ function private function_728127b()
 
 /*
 	Name: function_27c82a36
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0x171D584D
 	Offset: 0x388
 	Size: 0x16A
@@ -146,7 +146,7 @@ function function_27c82a36(entity, var_62e81e47)
 
 /*
 	Name: function_84c6177b
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0x5FC3945A
 	Offset: 0x500
 	Size: 0xD8
@@ -180,7 +180,7 @@ function function_84c6177b(spawner, var_62e81e47, location)
 
 /*
 	Name: function_b7e4069
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0x9F8BDC7A
 	Offset: 0x5E0
 	Size: 0x1A
@@ -194,7 +194,7 @@ function private function_b7e4069(var_62e81e47)
 
 /*
 	Name: function_dc16721f
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0xDE316B10
 	Offset: 0x608
 	Size: 0x2C
@@ -209,7 +209,7 @@ function private function_dc16721f(entity)
 
 /*
 	Name: function_8f9b9d24
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0x6C122579
 	Offset: 0x640
 	Size: 0xB6
@@ -235,7 +235,7 @@ function function_8f9b9d24(var_62e81e47, func)
 
 /*
 	Name: function_720a0584
-	Namespace: namespace_a216c96
+	Namespace: archetypecatalyst
 	Checksum: 0xDE350F3E
 	Offset: 0x700
 	Size: 0x174

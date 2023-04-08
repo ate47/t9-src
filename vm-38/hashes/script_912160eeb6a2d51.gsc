@@ -6,11 +6,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_214c1803;
+#namespace threat_sight;
 
 /*
 	Name: function_da0f18ad
-	Namespace: namespace_214c1803
+	Namespace: threat_sight
 	Checksum: 0x5BB04151
 	Offset: 0x268
 	Size: 0x14
@@ -24,7 +24,7 @@ function private autoexec function_da0f18ad()
 
 /*
 	Name: scalevolume
-	Namespace: namespace_214c1803
+	Namespace: threat_sight
 	Checksum: 0xB928678A
 	Offset: 0x288
 	Size: 0x14
@@ -38,7 +38,7 @@ function scalevolume(ent, vol)
 #namespace namespace_6c0cd084;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_6c0cd084
 	Checksum: 0xAC5E67F4
 	Offset: 0x2A8
@@ -46,7 +46,7 @@ function scalevolume(ent, vol)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_299575137124db03", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -158,7 +158,7 @@ function threat_sight_set_dvar(enabled)
 	{
 		return;
 	}
-	setsaveddvar(#"hash_608e38c8a93de439", enabled);
+	setsaveddvar(#"ai_threatsight", enabled);
 	level thread threat_sight_set_dvar_display(enabled);
 }
 
@@ -197,7 +197,7 @@ function threat_sight_set_dvar_display(enabled)
 */
 function threat_sight_enabled()
 {
-	if(!level.var_53ad6e22[#"hash_608e38c8a93de439"])
+	if(!level.var_53ad6e22[#"ai_threatsight"])
 	{
 		return 0;
 	}
@@ -252,7 +252,7 @@ function threat_sight_set_state(statename)
 			break;
 		}
 		case "hash_5689f41e8c0ad00":
-		case "hash_4b55a59a56c4bdb3":
+		case "combat_hunt":
 		{
 			self.threatsight = 1;
 			break;
@@ -377,7 +377,7 @@ function private function_3a739b35()
 			else if(getplayers().size > 0)
 			{
 				player = getplayers()[0];
-				var_214c1803 = self getthreatsight(player);
+				threat_sight = self getthreatsight(player);
 				var_97c4563c = 0;
 				if(self.awarenesslevelcurrent === "combat")
 				{
@@ -392,17 +392,17 @@ function private function_3a739b35()
 					}
 					else if(self.awarenesslevelcurrent !== "unaware")
 					{
-						if(self namespace_979752dc::function_d58e1c1c() && self.awarenesslevelcurrent == "high_alert" && var_214c1803 > 0)
+						if(self namespace_979752dc::function_d58e1c1c() && self.awarenesslevelcurrent == "high_alert" && threat_sight > 0)
 						{
-							var_214c1803 = 1;
+							threat_sight = 1;
 						}
-						if(var_214c1803 >= 1)
+						if(threat_sight >= 1)
 						{
 							var_97c4563c = 1;
 						}
 					}
 				}
-				var_91b6ad45 = int(var_214c1803 * ((1 << 6) - 1));
+				var_91b6ad45 = int(threat_sight * ((1 << 6) - 1));
 				if(var_97c4563c == 1 || var_97c4563c == 2 && var_91b6ad45 == 0)
 				{
 					var_403d799 = var_403d799 + (float(function_60d95f53()) / 1000);
@@ -512,7 +512,7 @@ function threat_sight_player_entity_state_set(ai, statename)
 			self.stealth.threat_sighted[entid] = undefined;
 			break;
 		}
-		case "hash_4b55a59a56c4bdb3":
+		case "combat_hunt":
 		{
 			ai setthreatsight(self, 0);
 			break;
@@ -845,7 +845,7 @@ function threat_sight_player_entity_state_thread()
 			}
 			entid = entity getentitynumber();
 			self.stealth.maxalertlevel = max(self.stealth.maxalertlevel, entity.alertlevelint);
-			if(level.var_53ad6e22[#"hash_608e38c8a93de439"])
+			if(level.var_53ad6e22[#"ai_threatsight"])
 			{
 				if(!isdefined(entity.fnisinstealthcombat) || entity [[entity.fnisinstealthcombat]]())
 				{

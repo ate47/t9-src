@@ -1,5 +1,5 @@
 #using scripts\core_common\bots\bot.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\dev_shared.gsc;
@@ -24,7 +24,7 @@ function private autoexec function_d068caaa()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1f0cb9eb
 	Checksum: 0xDEE51B52
 	Offset: 0x598
@@ -32,7 +32,7 @@ function private autoexec function_d068caaa()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6540387fe939dd65", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -48,7 +48,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}

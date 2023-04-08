@@ -22,7 +22,7 @@ function private autoexec function_be86302e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: objective_manager
 	Checksum: 0xCCF4B45F
 	Offset: 0x198
@@ -30,7 +30,7 @@ function private autoexec function_be86302e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"objective_manager", &function_70a657d8, undefined, undefined, undefined);
 }

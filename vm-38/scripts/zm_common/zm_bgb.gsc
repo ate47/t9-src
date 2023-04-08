@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
 #using script_6e3c826b1814cab6;
 #using scripts\zm_common\zm_contracts.gsc;
@@ -42,7 +42,7 @@ function private autoexec function_9cb7d712()
 #namespace bgb;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bgb
 	Checksum: 0xE235E6A2
 	Offset: 0x2E8
@@ -50,7 +50,7 @@ function private autoexec function_9cb7d712()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bgb", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -166,14 +166,14 @@ function private bgb_player_init()
 		{
 			continue;
 		}
-		if(namespace_59ff1d6c::function_3ac936c6(str_bgb))
+		if(zm_custom::function_3ac936c6(str_bgb))
 		{
 			var_6e18a410[i] = str_bgb;
 			continue;
 		}
 		if(str_bgb != #"weapon_null" && self getbgbremaining(str_bgb) > 0)
 		{
-			self thread namespace_59ff1d6c::function_deae84ba();
+			self thread zm_custom::function_deae84ba();
 		}
 	}
 	self.bgb_pack = var_6e18a410;
@@ -215,9 +215,9 @@ function private bgb_player_init()
 			self bgb_pack::function_7b91e81c(i, level.bgb[self.bgb_pack[i]].item_index);
 		}
 	}
-	if(namespace_59ff1d6c::function_901b751c(#"hash_3ab7cedcfef7eacc"))
+	if(zm_custom::function_901b751c(#"hash_3ab7cedcfef7eacc"))
 	{
-		var_66dd5e25 = array(#"hash_a303f67afd6f4a8", #"zm_bgb_now_you_see_me");
+		var_66dd5e25 = array(#"zm_bgb_nowhere_but_there", #"zm_bgb_now_you_see_me");
 		n_rank = self rank::getrank() + 1;
 		foreach(bgb in level.bgb)
 		{
@@ -225,7 +225,7 @@ function private bgb_player_init()
 			if(bgb.rarity === 0 && str_name != #"zm_bgb_point_drops" && !array::contains(self.bgb_pack, str_name))
 			{
 				var_544e77f8 = level.bgb[str_name].var_a1750d43;
-				if(!isdefined(var_544e77f8) || (isdefined(var_544e77f8) && n_rank >= var_544e77f8 || function_bea73b01() == 1) && namespace_59ff1d6c::function_3ac936c6(str_name))
+				if(!isdefined(var_544e77f8) || (isdefined(var_544e77f8) && n_rank >= var_544e77f8 || function_bea73b01() == 1) && zm_custom::function_3ac936c6(str_name))
 				{
 					if(!isinarray(var_66dd5e25, str_name))
 					{

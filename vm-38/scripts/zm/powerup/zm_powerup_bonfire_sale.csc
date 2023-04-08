@@ -19,7 +19,7 @@ function private autoexec function_89dd16cc()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_bonfire_sale
 	Checksum: 0x1F4B0691
 	Offset: 0xC0
@@ -27,7 +27,7 @@ function private autoexec function_89dd16cc()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_bonfire_sale", &function_70a657d8, undefined, undefined, undefined);
 }

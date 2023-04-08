@@ -33,7 +33,7 @@ function private autoexec function_b32dd6ea()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_small_ammo
 	Checksum: 0x296F4084
 	Offset: 0x138
@@ -41,9 +41,9 @@ function private autoexec function_b32dd6ea()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_2a62a00449e2e702", &__init__, undefined, undefined, undefined);
+	system::register(#"zm_powerup_small_ammo", &__init__, undefined, undefined, undefined);
 }
 
 /*

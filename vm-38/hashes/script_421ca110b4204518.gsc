@@ -1,6 +1,6 @@
 #using script_24c32478acf44108;
-#using script_256b8879317373de;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_shared.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_72401f526ba71638;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -35,7 +35,7 @@ function private autoexec function_9375e012()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_2ab93693
 	Checksum: 0xB6256AE3
 	Offset: 0x2B8
@@ -43,7 +43,7 @@ function private autoexec function_9375e012()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_662c938bd03bd1ad", &function_70a657d8, undefined, undefined, #"hash_13a43d760497b54d");
 }
@@ -419,15 +419,15 @@ function private function_64a3f9c6(var_dfbbc9a0, var_feefd408, var_cf53ab1f)
 				arrayremovevalue(player.var_d93ab65, undefined);
 				if(player.var_d93ab65.size)
 				{
-					if(!player perks::function_be94fe26(#"specialty_ammodrainsfromstockfirst"))
+					if(!player perks::perk_hasperk(#"specialty_ammodrainsfromstockfirst"))
 					{
-						player perks::function_7637bafa(#"specialty_ammodrainsfromstockfirst");
+						player perks::perk_setperk(#"specialty_ammodrainsfromstockfirst");
 					}
 					continue;
 				}
-				if(player perks::function_be94fe26(#"specialty_ammodrainsfromstockfirst"))
+				if(player perks::perk_hasperk(#"specialty_ammodrainsfromstockfirst"))
 				{
-					player perks::function_45d12554(#"specialty_ammodrainsfromstockfirst");
+					player perks::perk_unsetperk(#"specialty_ammodrainsfromstockfirst");
 				}
 			}
 		}
@@ -468,9 +468,9 @@ function private function_64a3f9c6(var_dfbbc9a0, var_feefd408, var_cf53ab1f)
 		arrayremovevalue(player.var_d93ab65, undefined);
 		if(!player.var_d93ab65.size)
 		{
-			if(player perks::function_be94fe26("specialty_ammodrainsfromstockfirst"))
+			if(player perks::perk_hasperk("specialty_ammodrainsfromstockfirst"))
 			{
-				player perks::function_45d12554("specialty_ammodrainsfromstockfirst");
+				player perks::perk_unsetperk("specialty_ammodrainsfromstockfirst");
 			}
 			player clientfield::set_to_player("" + #"hash_717ed5a81b281ebd", 0);
 		}

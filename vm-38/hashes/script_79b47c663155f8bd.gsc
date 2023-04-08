@@ -30,7 +30,7 @@ function private autoexec function_2141b5de()
 */
 function function_70a657d8()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}

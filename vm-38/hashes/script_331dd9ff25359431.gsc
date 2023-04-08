@@ -32,8 +32,8 @@ function private autoexec function_6f7abe1e()
 */
 event main(eventstruct)
 {
-	clientfield::register("allplayers", "cranked_explode_fx", 1, 1, "counter", &function_d2f90d68, 0, 0);
-	clientfield::register("toplayer", "cranked_timer_sfx", 1, 1, "int", &function_d76f5ac9, 0, 0);
+	clientfield::register("allplayers", "cranked_explode_fx", 1, 1, "counter", &cranked_explode_fx, 0, 0);
+	clientfield::register("toplayer", "cranked_timer_sfx", 1, 1, "int", &cranked_timer_sfx, 0, 0);
 	clientfield::function_a8bbc967("ZMHud.zmCrankedMax", #"zm_hud", #"hash_30167484a080284", 6000, 5, "int", undefined, 0, 0);
 	clientfield::function_a8bbc967("ZMHud.zmCrankedPct", #"zm_hud", #"hash_1f89ec485ae9a5c1", 6000, 16, "float", undefined, 0, 0);
 	clientfield::function_a8bbc967("ZMHud.zmCrankedTimerReset", #"zm_hud", #"hash_4b231de3b871f42", 6000, 1, "counter", undefined, 0, 0);
@@ -100,7 +100,7 @@ function function_d46d9315(localclientnum)
 }
 
 /*
-	Name: function_d2f90d68
+	Name: cranked_explode_fx
 	Namespace: namespace_ec502488
 	Checksum: 0x4986BF49
 	Offset: 0x518
@@ -108,7 +108,7 @@ function function_d46d9315(localclientnum)
 	Parameters: 7
 	Flags: None
 */
-function function_d2f90d68(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function cranked_explode_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(self zm_utility::function_f8796df3(bwastimejump))
 	{
@@ -123,7 +123,7 @@ function function_d2f90d68(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_d76f5ac9
+	Name: cranked_timer_sfx
 	Namespace: namespace_ec502488
 	Checksum: 0x86370E72
 	Offset: 0x620
@@ -131,7 +131,7 @@ function function_d2f90d68(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: None
 */
-function function_d76f5ac9(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function cranked_timer_sfx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{

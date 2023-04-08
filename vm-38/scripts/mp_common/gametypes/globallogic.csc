@@ -1,6 +1,6 @@
 #using script_13da4e6b98ca81a1;
 #using script_1bd5a845bf9ba498;
-#using script_4029012c9af5b12a;
+#using scripts\mp_common\player\player.csc;
 #using scripts\killstreaks\killstreak_detect.csc;
 #using script_6f7d15a072a2565;
 #using scripts\core_common\animation_shared.csc;
@@ -31,7 +31,7 @@ function private autoexec function_266aa367()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic
 	Checksum: 0xA5024812
 	Offset: 0x3C0
@@ -39,7 +39,7 @@ function private autoexec function_266aa367()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic", &function_70a657d8, undefined, undefined, #"visionset_mgr");
 }

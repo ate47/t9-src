@@ -21,7 +21,7 @@ function private autoexec function_fabe3ee7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_slider
 	Checksum: 0xF75B2CD9
 	Offset: 0x1B0
@@ -29,7 +29,7 @@ function private autoexec function_fabe3ee7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_slider", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -92,11 +92,11 @@ function function_15d03600()
 */
 function function_4bb29d61()
 {
-	clientfield::register("toplayer", "slide_fx", 17000, 1, "int", &function_82475467, 0, 0);
+	clientfield::register("toplayer", "slide_fx", 17000, 1, "int", &slide_fx, 0, 0);
 	if(zm_utility::is_classic())
 	{
-		clientfield::register("scriptmover", "phd_slider_machine_rob_poweron", 17000, 1, "int", &function_a0d9dbb3, 0, 0);
-		clientfield::register("scriptmover", "phd_slider_machine_rob_purchase", 17000, 1, "counter", &function_ed4b5d33, 0, 0);
+		clientfield::register("scriptmover", "phd_slider_machine_rob_poweron", 17000, 1, "int", &phd_slider_machine_rob_poweron, 0, 0);
+		clientfield::register("scriptmover", "phd_slider_machine_rob_purchase", 17000, 1, "counter", &phd_slider_machine_rob_purchase, 0, 0);
 	}
 }
 
@@ -114,7 +114,7 @@ function function_90b5e96c()
 }
 
 /*
-	Name: function_82475467
+	Name: slide_fx
 	Namespace: zm_perk_slider
 	Checksum: 0xD5A8BAE2
 	Offset: 0x410
@@ -122,7 +122,7 @@ function function_90b5e96c()
 	Parameters: 7
 	Flags: Linked
 */
-function function_82475467(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function slide_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
 	self util::waittill_dobj(fieldname);
@@ -140,7 +140,7 @@ function function_82475467(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_ed4b5d33
+	Name: phd_slider_machine_rob_purchase
 	Namespace: zm_perk_slider
 	Checksum: 0x4D3A6317
 	Offset: 0x520
@@ -148,7 +148,7 @@ function function_82475467(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_ed4b5d33(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function phd_slider_machine_rob_purchase(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	level endon(#"end_game");
 	self endon(#"death");
@@ -167,7 +167,7 @@ function function_ed4b5d33(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_a0d9dbb3
+	Name: phd_slider_machine_rob_poweron
 	Namespace: zm_perk_slider
 	Checksum: 0xA45DF0B1
 	Offset: 0x680
@@ -175,7 +175,7 @@ function function_ed4b5d33(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_a0d9dbb3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function phd_slider_machine_rob_poweron(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{

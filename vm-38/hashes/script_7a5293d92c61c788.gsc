@@ -1,7 +1,7 @@
 #using script_18077945bb84ede7;
 #using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_340a2e805e35f7a2;
 #using script_3751b21462a54a7d;
 #using script_3ddf84b7bb3bf47d;
@@ -45,7 +45,7 @@ function private autoexec function_9641b07b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_dd7e54e3
 	Checksum: 0xD46EBE48
 	Offset: 0x2B0
@@ -53,7 +53,7 @@ function private autoexec function_9641b07b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7da9887a9375293", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -543,7 +543,7 @@ function function_cb2d9b9b(machine, trigger)
 							{
 								self give_armor(var_1a988176);
 							}
-							self playrumbleonentity(#"hash_410bd55524ae7d");
+							self playrumbleonentity(#"zm_interact_rumble");
 							machine scene::stop("p9_fxanim_zm_gp_armor_station_bundle");
 							machine animation::stop();
 							waitframe(1);
@@ -610,7 +610,7 @@ function function_cb2d9b9b(machine, trigger)
 											{
 												self item_inventory::function_d92c6b5b(currentweapon, undefined, item.var_a8bccf69);
 											}
-											self playrumbleonentity(#"hash_410bd55524ae7d");
+											self playrumbleonentity(#"zm_interact_rumble");
 											machine scene::stop("p9_fxanim_zm_gp_armor_station_bundle");
 											machine animation::stop();
 											waitframe(1);
@@ -636,7 +636,7 @@ function function_cb2d9b9b(machine, trigger)
 								}
 								if(has_enough)
 								{
-									self playrumbleonentity(#"hash_410bd55524ae7d");
+									self playrumbleonentity(#"zm_interact_rumble");
 									currentweapon = self getcurrentweapon();
 									clipsize = self getweaponammoclip(currentweapon);
 									var_9839b3b1 = self getweaponammostock(currentweapon);

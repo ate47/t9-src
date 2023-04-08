@@ -20,7 +20,7 @@ function private autoexec function_758c6b1b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_dot
 	Checksum: 0x3E616653
 	Offset: 0x108
@@ -28,7 +28,7 @@ function private autoexec function_758c6b1b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"status_effect_dot", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -44,7 +44,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	status_effect::register_status_effect_callback_apply(7, &function_1d474ba9);
+	status_effect::register_status_effect_callback_apply(7, &dot_apply);
 	status_effect::function_5bae5120(7, &dot_end);
 	status_effect::function_6f4eaf88(function_4d1e7b48("dot"));
 	clientfield::register("toplayer", "dot_splatter", 1, 1, "counter");
@@ -66,7 +66,7 @@ function on_player_spawned()
 }
 
 /*
-	Name: function_1d474ba9
+	Name: dot_apply
 	Namespace: status_effect_dot
 	Checksum: 0x808F3A50
 	Offset: 0x258
@@ -74,7 +74,7 @@ function on_player_spawned()
 	Parameters: 3
 	Flags: Linked
 */
-function function_1d474ba9(var_756fda07, weapon, var_84171a6c)
+function dot_apply(var_756fda07, weapon, var_84171a6c)
 {
 	self.var_7b465aaa = var_756fda07.var_7b465aaa;
 	self.var_234d0133 = var_756fda07.var_234d0133;

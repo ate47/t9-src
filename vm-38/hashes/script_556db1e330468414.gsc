@@ -37,7 +37,7 @@ function private autoexec function_152143a0()
 #namespace namespace_181e92ae;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_181e92ae
 	Checksum: 0xECE1D005
 	Offset: 0x2C0
@@ -45,7 +45,7 @@ function private autoexec function_152143a0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6eb528f341abf64a", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -367,7 +367,7 @@ function private function_4b312787(struct)
 {
 	if(math::cointoss(50))
 	{
-		model = #"hash_63c3c466ed134b31";
+		model = #"p9_sur_crystal_medium_01_orange";
 		str_scene = "p9_zm_gold_sur_crystal_medium_01_bundle";
 	}
 	else

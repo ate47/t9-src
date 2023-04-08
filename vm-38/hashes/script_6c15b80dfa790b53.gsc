@@ -22,7 +22,7 @@ function private autoexec function_511e8ca4()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hazard
 	Checksum: 0x625CCB8E
 	Offset: 0x128
@@ -30,7 +30,7 @@ function private autoexec function_511e8ca4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hazard", &function_70a657d8, undefined, undefined, undefined);
 }

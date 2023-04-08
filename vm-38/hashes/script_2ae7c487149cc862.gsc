@@ -312,7 +312,7 @@ function function_eac49163(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		function_be93487f(fieldname, 0, 0.5, 0, 0, 0);
 		setexposureactivebank(fieldname, 0);
-		forcestreamxmodel(#"hash_2e3ba3f46f9e8522");
+		forcestreamxmodel(#"p9_fxanim_sv_holdout_crystal_mod");
 		var_90a50598 = struct::get_array("jellyfish_large", "targetname");
 		foreach(var_b6e76b65 in var_90a50598)
 		{

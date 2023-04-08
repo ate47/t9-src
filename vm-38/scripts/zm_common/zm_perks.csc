@@ -36,7 +36,7 @@ function init()
 {
 	if(!isdefined(level.var_c3e5c4cd))
 	{
-		level.var_c3e5c4cd = zm_utility::function_166646a6();
+		level.var_c3e5c4cd = zm_utility::get_story();
 	}
 	callback::on_start_gametype(&init_perk_machines_fx);
 	init_custom_perks();
@@ -55,7 +55,7 @@ function init()
 */
 function function_f3c80d73(var_d7e9261c, var_136e2645)
 {
-	if(zm_utility::function_166646a6() == 1 || !isdefined(var_136e2645))
+	if(zm_utility::get_story() == 1 || !isdefined(var_136e2645))
 	{
 		w_perk = getweapon(var_d7e9261c);
 	}
@@ -449,7 +449,7 @@ function function_35ba0b0e(localclientnum, n_slot)
 	self endon(#"death");
 	self zm_loadout::function_622d8349(localclientnum);
 	n_perk = n_slot + 1;
-	var_3e311473 = self zm_loadout::function_2dfb9150(localclientnum, "specialty" + n_perk);
+	var_3e311473 = self zm_loadout::get_loadout_item(localclientnum, "specialty" + n_perk);
 	if(!isdefined(var_3e311473))
 	{
 		return;

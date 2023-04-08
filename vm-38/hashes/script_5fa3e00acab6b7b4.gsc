@@ -1,6 +1,6 @@
-#using script_18f0d22c75b141a7;
-#using script_3f27a7b2232674db;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_6167e26342be354b;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7a8059ca02b7b09e;
@@ -26,7 +26,7 @@ function private autoexec function_da95c595()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_a77a81df
 	Checksum: 0x38D2272B
 	Offset: 0x138
@@ -34,7 +34,7 @@ function private autoexec function_da95c595()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_ac6037cb01da0d4", &function_70a657d8, undefined, undefined, #"hash_53528dbbf6cd15c4");
 }

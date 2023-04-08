@@ -30,7 +30,7 @@ function private autoexec function_a6263d6b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_items
 	Checksum: 0x6CCC7E79
 	Offset: 0x118
@@ -38,7 +38,7 @@ function private autoexec function_a6263d6b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_items", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

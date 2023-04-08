@@ -17,11 +17,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_e0710ee6;
+#namespace zm_ai_utility;
 
 /*
 	Name: function_edbc3ff8
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x46419B9B
 	Offset: 0x1A0
 	Size: 0x14
@@ -34,22 +34,22 @@ function private autoexec function_edbc3ff8()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_e0710ee6
+	Name: __init__system__
+	Namespace: zm_ai_utility
 	Checksum: 0x4678F46F
 	Offset: 0x1C0
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_3997833cc3034f0", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_ai_utility", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x9916D3C5
 	Offset: 0x208
 	Size: 0xDC
@@ -72,7 +72,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_238710c0
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xCDAB78B0
 	Offset: 0x2F0
 	Size: 0x2E
@@ -88,7 +88,7 @@ function private function_238710c0(params)
 
 /*
 	Name: function_a34c1f02
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xF438AAC0
 	Offset: 0x328
 	Size: 0x104
@@ -122,7 +122,7 @@ function private function_a34c1f02()
 
 /*
 	Name: function_2272dcba
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x5CCBBE
 	Offset: 0x438
 	Size: 0x2C
@@ -136,7 +136,7 @@ function private function_2272dcba(params)
 
 /*
 	Name: function_8d30564f
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xEC0C8C5B
 	Offset: 0x470
 	Size: 0x9C
@@ -155,7 +155,7 @@ function private function_8d30564f()
 
 /*
 	Name: function_637778cf
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x68CC418A
 	Offset: 0x518
 	Size: 0x2B4
@@ -206,7 +206,7 @@ function private function_637778cf()
 
 /*
 	Name: function_a19d7104
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xEFA9758F
 	Offset: 0x7D8
 	Size: 0x1C2
@@ -243,7 +243,7 @@ function private function_a19d7104(settingsbundle)
 
 /*
 	Name: function_94d76123
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x6354EFB5
 	Offset: 0x9A8
 	Size: 0x7A
@@ -261,7 +261,7 @@ function function_94d76123(weapon)
 
 /*
 	Name: function_86cb3728
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xACB59490
 	Offset: 0xA30
 	Size: 0x2A
@@ -275,7 +275,7 @@ function function_86cb3728(weapon)
 
 /*
 	Name: function_2ad308c4
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x9B3AF205
 	Offset: 0xA68
 	Size: 0xF2
@@ -305,7 +305,7 @@ function function_2ad308c4(archetype, drop_func)
 
 /*
 	Name: function_594bb7bd
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x3DDCF772
 	Offset: 0xB68
 	Size: 0x190
@@ -333,7 +333,7 @@ function function_594bb7bd(player)
 
 /*
 	Name: function_35eac38d
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x7D8F87A9
 	Offset: 0xD00
 	Size: 0x14C
@@ -371,7 +371,7 @@ function function_35eac38d(pathnode)
 
 /*
 	Name: start_patrol
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xC680BBC4
 	Offset: 0xE58
 	Size: 0x4C
@@ -385,7 +385,7 @@ function start_patrol(entity, patrol_path, var_b90f0f49, var_73fcb9ff, var_572b1
 
 /*
 	Name: stop_patrol
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x9AA1ACD3
 	Offset: 0xEB0
 	Size: 0x60
@@ -403,7 +403,7 @@ function stop_patrol(entity)
 
 /*
 	Name: update_patrol
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x43F711AD
 	Offset: 0xF18
 	Size: 0x204
@@ -454,7 +454,7 @@ function private update_patrol(entity, patrol_path, var_b90f0f49, var_73fcb9ff, 
 
 /*
 	Name: function_f7014c3d
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xBFDCF38E
 	Offset: 0x1128
 	Size: 0x442
@@ -528,7 +528,7 @@ function function_f7014c3d(var_88f4c6ec)
 
 /*
 	Name: function_b5fe98
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x489762AE
 	Offset: 0x1578
 	Size: 0x20A
@@ -571,7 +571,7 @@ function function_b5fe98(n_round)
 
 /*
 	Name: function_bb83aae2
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x90DA7243
 	Offset: 0x1790
 	Size: 0x2C
@@ -585,7 +585,7 @@ function function_bb83aae2(params)
 
 /*
 	Name: function_975d551a
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x4DAD4260
 	Offset: 0x17C8
 	Size: 0x4C
@@ -600,7 +600,7 @@ function function_975d551a(params)
 
 /*
 	Name: function_5540d5f9
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x4FAE9190
 	Offset: 0x1820
 	Size: 0x5A
@@ -617,7 +617,7 @@ function function_5540d5f9(params)
 
 /*
 	Name: function_db610082
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x1702C3D1
 	Offset: 0x1888
 	Size: 0x1A6
@@ -683,7 +683,7 @@ function function_db610082()
 
 /*
 	Name: function_422fdfd4
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x9E2F6EA7
 	Offset: 0x1A38
 	Size: 0x40C
@@ -737,7 +737,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	if(var_8d3f5b7d)
 	{
 		var_38d1de41 = isdefined(namespace_81245006::function_fab3ee3e(self));
-		if(var_30362eca && attacker hasperk(#"hash_6afc24062d2515a2"))
+		if(var_30362eca && attacker hasperk(#"specialty_mod_awareness"))
 		{
 			if(var_b1c1c5cf < 1)
 			{
@@ -754,7 +754,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 
 /*
 	Name: function_de3dda83
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x2AB2FFD4
 	Offset: 0x1E50
 	Size: 0xAA
@@ -784,7 +784,7 @@ function function_de3dda83(var_5457dc44, hitloc, point, var_ebcb86d6)
 
 /*
 	Name: function_a2e8fd7b
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xC13E9A96
 	Offset: 0x1F08
 	Size: 0x1E6
@@ -833,7 +833,7 @@ function function_a2e8fd7b(entity, player, var_3f120c4d)
 
 /*
 	Name: function_8de1b5b9
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xB08F1B00
 	Offset: 0x20F8
 	Size: 0x19C
@@ -876,7 +876,7 @@ function function_8de1b5b9(entity)
 
 /*
 	Name: function_2d29434e
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x3B58FA9C
 	Offset: 0x22A0
 	Size: 0x2A
@@ -890,7 +890,7 @@ function function_2d29434e(entity)
 
 /*
 	Name: function_901eccf2
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x39A1F9AE
 	Offset: 0x22D8
 	Size: 0x88
@@ -912,7 +912,7 @@ function function_901eccf2(entity)
 
 /*
 	Name: function_3edc6292
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x634DDA09
 	Offset: 0x2368
 	Size: 0xA8
@@ -941,7 +941,7 @@ function function_3edc6292()
 
 /*
 	Name: function_991333ce
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x23A35825
 	Offset: 0x2418
 	Size: 0x120
@@ -975,7 +975,7 @@ function function_991333ce(entity, ai_array)
 
 /*
 	Name: function_f1b557c6
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xF1170E11
 	Offset: 0x2540
 	Size: 0x92
@@ -997,7 +997,7 @@ function private function_f1b557c6()
 
 /*
 	Name: function_a8dc3363
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x5D9BA1EB
 	Offset: 0x25E0
 	Size: 0x264
@@ -1039,7 +1039,7 @@ function function_a8dc3363(s_location)
 
 /*
 	Name: function_54054394
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x4F9AC6B4
 	Offset: 0x2850
 	Size: 0xDA
@@ -1064,7 +1064,7 @@ function function_54054394(entity)
 
 /*
 	Name: hashelmet
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x71E24B31
 	Offset: 0x2938
 	Size: 0x96
@@ -1083,7 +1083,7 @@ function hashelmet(hitloc, enemy)
 
 /*
 	Name: function_68ab868a
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xC3E3BD60
 	Offset: 0x29D8
 	Size: 0x7A
@@ -1105,7 +1105,7 @@ function function_68ab868a(entity)
 
 /*
 	Name: function_4d22f6d1
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x655DA8E0
 	Offset: 0x2A60
 	Size: 0x9A
@@ -1130,7 +1130,7 @@ function function_4d22f6d1(entity)
 
 /*
 	Name: function_825317c
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x680D6A67
 	Offset: 0x2B08
 	Size: 0x5A
@@ -1152,7 +1152,7 @@ function function_825317c(entity)
 
 /*
 	Name: function_e9209002
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x76B3A90B
 	Offset: 0x2B70
 	Size: 0xC4
@@ -1187,7 +1187,7 @@ function function_e9209002(var_1e8f7ccf, amount, var_d4ece4fd, eattacker)
 
 /*
 	Name: function_3fb4ce3b
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x585B71EE
 	Offset: 0x2C40
 	Size: 0x34

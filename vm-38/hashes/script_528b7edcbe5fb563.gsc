@@ -19,7 +19,7 @@ function private autoexec function_e76e6429()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_7f22227a
 	Checksum: 0x6577D329
 	Offset: 0xA0
@@ -27,7 +27,7 @@ function private autoexec function_e76e6429()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_57d25af0f70db5a0", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -43,7 +43,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}

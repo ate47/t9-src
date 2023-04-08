@@ -475,7 +475,7 @@ function set_sight_state(state)
 			break;
 		}
 		case "hunt":
-		case "hash_4b55a59a56c4bdb3":
+		case "combat_hunt":
 		{
 			self namespace_6c0cd084::threat_sight_set_state("combat_hunt");
 			self.fovcosine = 0.7;
@@ -934,10 +934,10 @@ function event_override_disguise(event)
 	{
 		switch(event.typeorig)
 		{
-			case "hash_1d42f8a3b0f3b508":
+			case "footstep_sprint":
 			case "footstep":
-			case "hash_3196b9140027f625":
-			case "hash_390cbdf038cb3251":
+			case "footstep_walk":
+			case "footstep_run":
 			case "proximity":
 			{
 				self thread namespace_6c0cd084::threat_sight_force_visible(event.entity, 1);
@@ -1036,7 +1036,7 @@ function event_handler_translate_severity(event)
 			}
 			break;
 		}
-		case "hash_70bb20cec150f744":
+		case "grenade danger":
 		{
 			if(event_anyone_within_radius(event.origin, 128))
 			{
@@ -1174,12 +1174,12 @@ function react_announce_specific(event)
 				self thread namespace_979752dc::function_f5f4416f("stealth", "announce", "explosion", delaytime);
 				return true;
 			}
-			case "hash_70bb20cec150f744":
+			case "grenade danger":
 			{
 				self thread namespace_979752dc::function_f5f4416f("stealth", "announce", "grenade_danger", delaytime);
 				return true;
 			}
-			case "hash_7d47b13a63d533c":
+			case "seek_backup":
 			{
 				self thread namespace_979752dc::function_f5f4416f("stealth", "announce", "seek_backup", randomfloatrange(2, 2.5), event);
 				return true;
@@ -1211,7 +1211,7 @@ function react_announce_specific(event)
 				#/
 				return true;
 			}
-			case "hash_60484d1d72fd4ce9":
+			case "ally_killed":
 			{
 				self thread namespace_979752dc::function_f5f4416f("stealth", "announce", "ally_killed", 0.5);
 				/#
@@ -1224,10 +1224,10 @@ function react_announce_specific(event)
 				self thread namespace_979752dc::function_f5f4416f("stealth", "announce", "proximity", 0.5);
 				return true;
 			}
-			case "hash_1d42f8a3b0f3b508":
+			case "footstep_sprint":
 			case "footstep":
 			case "glass_destroyed":
-			case "hash_390cbdf038cb3251":
+			case "footstep_run":
 			{
 				self thread namespace_979752dc::function_f5f4416f("stealth", "announce", "investigate", delaytime);
 				return true;
@@ -1257,8 +1257,8 @@ function setpatrolstyle_base()
 	var_237ae2e3 = namespace_979752dc::get_patrol_style_default();
 	var_ef544d66 = isdefined(var_237ae2e3) && var_237ae2e3 != "unaware" && var_237ae2e3 != "patrol";
 	groupdata = stealth_group::getgroup(self.script_stealthgroup);
-	var_9e029d73 = self.awarenesslevelcurrent !== "unaware" && (isdefined(self.stealth.bcoverhasbeenblown) || isdefined(groupdata.bcoverhasbeenblown));
-	if(var_ef544d66 || var_9e029d73)
+	coverblown = self.awarenesslevelcurrent !== "unaware" && (isdefined(self.stealth.bcoverhasbeenblown) || isdefined(groupdata.bcoverhasbeenblown));
+	if(var_ef544d66 || coverblown)
 	{
 		var_a0f0f6ed = isdefined(self.stealth.bdocoverblownreaction) && self.stealth.bdocoverblownreaction;
 		var_ff42b0fb = namespace_979752dc::get_patrol_style() === "patrol" && var_a0f0f6ed;

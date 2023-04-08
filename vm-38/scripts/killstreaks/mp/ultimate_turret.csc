@@ -20,7 +20,7 @@ function private autoexec function_9c80ea1a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ultimate_turret
 	Checksum: 0x4AD92999
 	Offset: 0xC0
@@ -28,7 +28,7 @@ function private autoexec function_9c80ea1a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ultimate_turret", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

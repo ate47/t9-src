@@ -54,11 +54,11 @@
 #using scripts\zm_common\zm_weapons.gsc;
 #using scripts\zm_common\zm_zonemgr.gsc;
 
-#namespace namespace_cc96b007;
+#namespace zm_playerzombie;
 
 /*
 	Name: function_e1488cb7
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x9798C90D
 	Offset: 0x2C0
 	Size: 0x14
@@ -72,7 +72,7 @@ function private autoexec function_e1488cb7()
 
 /*
 	Name: zombify_player
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xCBA0C98A
 	Offset: 0x2E0
 	Size: 0x2A4
@@ -123,7 +123,7 @@ function zombify_player()
 
 /*
 	Name: playerzombie_player_damage
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x574C3A42
 	Offset: 0x590
 	Size: 0x136
@@ -158,7 +158,7 @@ function playerzombie_player_damage()
 
 /*
 	Name: playerzombie_downed_state
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xF6FAD052
 	Offset: 0x6D0
 	Size: 0x166
@@ -191,7 +191,7 @@ function playerzombie_downed_state()
 
 /*
 	Name: playerzombie_downed_hud
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xEC82665A
 	Offset: 0x840
 	Size: 0x17E
@@ -228,7 +228,7 @@ function playerzombie_downed_hud()
 
 /*
 	Name: playerzombie_infinite_health
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xA794E280
 	Offset: 0x9C8
 	Size: 0x6C
@@ -251,7 +251,7 @@ function playerzombie_infinite_health()
 
 /*
 	Name: playerzombie_soundboard
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xAE08B255
 	Offset: 0xA40
 	Size: 0x2A4
@@ -318,7 +318,7 @@ function playerzombie_soundboard()
 
 /*
 	Name: can_do_input
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0xFF04D49F
 	Offset: 0xCF0
 	Size: 0x126
@@ -371,7 +371,7 @@ function can_do_input(inputtype)
 
 /*
 	Name: playerzombie_play_sound
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x95BB4714
 	Offset: 0xE20
 	Size: 0x24
@@ -385,7 +385,7 @@ function playerzombie_play_sound(alias)
 
 /*
 	Name: playerzombie_waitfor_buttonrelease
-	Namespace: namespace_cc96b007
+	Namespace: zm_playerzombie
 	Checksum: 0x1723D682
 	Offset: 0xE50
 	Size: 0x182

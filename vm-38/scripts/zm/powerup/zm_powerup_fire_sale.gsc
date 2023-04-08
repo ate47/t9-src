@@ -31,7 +31,7 @@ function private autoexec function_173da1be()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_fire_sale
 	Checksum: 0x3CC9412D
 	Offset: 0x1B8
@@ -39,7 +39,7 @@ function private autoexec function_173da1be()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_fire_sale", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -234,7 +234,7 @@ function toggle_fire_sale_on()
 			level.chests[i].zombie_cost = 10;
 			if(level.chest_index != i)
 			{
-				if(namespace_59ff1d6c::function_901b751c(#"hash_4e0ec3fe56f08b47") != 3)
+				if(zm_custom::function_901b751c(#"hash_4e0ec3fe56f08b47") != 3)
 				{
 					level.chests[i].was_temp = 1;
 				}
@@ -339,7 +339,7 @@ function remove_temp_chest(chest_index)
 */
 function func_should_drop_fire_sale()
 {
-	if(namespace_59ff1d6c::function_901b751c(#"hash_4e0ec3fe56f08b47") == 0 || zombie_utility::function_d2dfacfd(#"zombie_powerup_fire_sale_on") == 1 || level.chest_moves < 1 || is_true(level.disable_firesale_drop))
+	if(zm_custom::function_901b751c(#"hash_4e0ec3fe56f08b47") == 0 || zombie_utility::function_d2dfacfd(#"zombie_powerup_fire_sale_on") == 1 || level.chest_moves < 1 || is_true(level.disable_firesale_drop))
 	{
 		return false;
 	}

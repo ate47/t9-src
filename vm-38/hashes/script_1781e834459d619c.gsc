@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5312dbb58ee628a8;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -21,7 +21,7 @@ function private autoexec function_ac0bf704()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: missile_turret
 	Checksum: 0x61C37470
 	Offset: 0xC8
@@ -29,7 +29,7 @@ function private autoexec function_ac0bf704()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"missile_turret", &function_70a657d8, undefined, undefined, undefined);
 }

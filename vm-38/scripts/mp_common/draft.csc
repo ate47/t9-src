@@ -1,5 +1,5 @@
 #using script_13da4e6b98ca81a1;
-#using script_1e34fbb210f87b6f;
+#using scripts\core_common\player\player_role.csc;
 #using scripts\killstreaks\killstreak_detect.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\battlechatter.csc;
@@ -27,7 +27,7 @@ function private autoexec function_bf3877ad()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: draft
 	Checksum: 0xB8A140B4
 	Offset: 0x2738
@@ -35,7 +35,7 @@ function private autoexec function_bf3877ad()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"draft", &function_70a657d8, undefined, undefined, undefined);
 }

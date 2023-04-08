@@ -1,6 +1,6 @@
 #using script_1292451e284848cc;
 #using script_1361a24271e9db13;
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_26850092de25d970;
 #using script_2b1257dca3b9fd1e;
 #using script_2c1348b5a72ac8cf;
@@ -11,7 +11,7 @@
 #using script_3626f1b2cf51a99c;
 #using script_387057e76430d4cf;
 #using script_3dc93ca9902a9cda;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_45e09f634c49fdba;
 #using script_474bf596f5ecdb01;
 #using script_499673e499d3dc1a;
@@ -77,7 +77,7 @@ event main(eventstruct)
 	init_scenes();
 	init_callbacks();
 	thread function_7ea0ce5f();
-	level thread namespace_47eaac63::function_70dd6f0e();
+	level thread tkdn_af_wreck::function_70dd6f0e();
 	level.player = getplayers()[0];
 	level flag::set("no_corpse_pickup");
 	setdvar(#"hash_76c0d7e6385ee6de", 0.3);
@@ -100,23 +100,23 @@ event main(eventstruct)
 */
 function init_skiptos()
 {
-	skipto::function_eb91535d("tkdn_raid_bar", &namespace_5df9d277::main, &namespace_5df9d277::starting, "Hit 2: Bar", &namespace_5df9d277::cleanup, [0:"amsterdam_intro"]);
+	skipto::function_eb91535d("tkdn_raid_bar", &tkdn_raid_bar::main, &tkdn_raid_bar::starting, "Hit 2: Bar", &tkdn_raid_bar::cleanup, [0:"amsterdam_intro"]);
 	skipto::function_eb91535d("tkdn_raid_gearup", &namespace_c9f7b6af::main, &namespace_c9f7b6af::starting, "Hit 2: Gear Up", &namespace_c9f7b6af::cleanup, [1:"amsterdam_main", 0:"amsterdam_intro"]);
-	skipto::function_eb91535d("tkdn_raid_apt", &namespace_b331012d::main, &namespace_b331012d::starting, "Hit 2: Apartment", &namespace_b331012d::cleanup, [1:"amsterdam_main", 0:"amsterdam_intro"]);
+	skipto::function_eb91535d("tkdn_raid_apt", &tkdn_raid_apt::main, &tkdn_raid_apt::starting, "Hit 2: Apartment", &tkdn_raid_apt::cleanup, [1:"amsterdam_main", 0:"amsterdam_intro"]);
 	skipto::function_eb91535d("tkdn_raid_rooftops", &namespace_e133827d::main, &namespace_e133827d::starting, "Hit 2: Rooftops", &namespace_e133827d::cleanup, [0:"amsterdam_main"]);
-	skipto::function_eb91535d("tkdn_raid_slide", &namespace_53e86c1f::main, &namespace_53e86c1f::starting, "Hit 2: Slide", &namespace_53e86c1f::cleanup, [0:"amsterdam_main"]);
-	skipto::function_eb91535d("tkdn_raid_capture", &namespace_b995dbff::main, &namespace_b995dbff::starting, "Hit 2: Capture", &namespace_b995dbff::cleanup, [0:"amsterdam_main"]);
-	skipto::function_eb91535d("tkdn_af_intro", &namespace_4926d69e::main, &namespace_4926d69e::starting, "Hit 3: Intro", &namespace_4926d69e::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
-	skipto::function_eb91535d("tkdn_af_hill", &namespace_7d4dd7f0::main, &namespace_7d4dd7f0::starting, "Hit 3: Hill", &namespace_7d4dd7f0::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
-	skipto::add("tkdn_af_tarmac", &namespace_2fbde9a9::main, &namespace_2fbde9a9::starting, "Hit 3: Tarmac", &namespace_2fbde9a9::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
-	skipto::function_eb91535d("tkdn_af_chase", &namespace_38c39f5::main, &namespace_38c39f5::starting, "Hit 3: Chase", &namespace_38c39f5::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
-	skipto::function_eb91535d("tkdn_af_rc_chase", &namespace_38c39f5::function_2ccc781e, &namespace_38c39f5::function_614083bb, "Hit 3: RC Chase", &namespace_38c39f5::function_cca97e77, [0:"airfield_base"]);
-	skipto::add("tkdn_af_skid", &namespace_38d05c38::main, &namespace_38d05c38::starting, "Hit 3: Skid", &namespace_38d05c38::cleanup, [0:"airfield_base"]);
-	skipto::function_eb91535d("tkdn_af_wreck", &namespace_47eaac63::main, &namespace_47eaac63::starting, "Hit 3: Wreck", &namespace_47eaac63::cleanup, [0:"airfield_base"]);
+	skipto::function_eb91535d("tkdn_raid_slide", &tkdn_raid_slide::main, &tkdn_raid_slide::starting, "Hit 2: Slide", &tkdn_raid_slide::cleanup, [0:"amsterdam_main"]);
+	skipto::function_eb91535d("tkdn_raid_capture", &tkdn_raid_capture::main, &tkdn_raid_capture::starting, "Hit 2: Capture", &tkdn_raid_capture::cleanup, [0:"amsterdam_main"]);
+	skipto::function_eb91535d("tkdn_af_intro", &tkdn_af_intro::main, &tkdn_af_intro::starting, "Hit 3: Intro", &tkdn_af_intro::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
+	skipto::function_eb91535d("tkdn_af_hill", &tkdn_af_hill::main, &tkdn_af_hill::starting, "Hit 3: Hill", &tkdn_af_hill::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
+	skipto::add("tkdn_af_tarmac", &tkdn_af_tarmac::main, &tkdn_af_tarmac::starting, "Hit 3: Tarmac", &tkdn_af_tarmac::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
+	skipto::function_eb91535d("tkdn_af_chase", &tkdn_af_chase::main, &tkdn_af_chase::starting, "Hit 3: Chase", &tkdn_af_chase::cleanup, [1:"airfield_base", 0:"airfield_intro"]);
+	skipto::function_eb91535d("tkdn_af_rc_chase", &tkdn_af_chase::function_2ccc781e, &tkdn_af_chase::function_614083bb, "Hit 3: RC Chase", &tkdn_af_chase::function_cca97e77, [0:"airfield_base"]);
+	skipto::add("tkdn_af_skid", &tkdn_af_skid::main, &tkdn_af_skid::starting, "Hit 3: Skid", &tkdn_af_skid::cleanup, [0:"airfield_base"]);
+	skipto::function_eb91535d("tkdn_af_wreck", &tkdn_af_wreck::main, &tkdn_af_wreck::starting, "Hit 3: Wreck", &tkdn_af_wreck::cleanup, [0:"airfield_base"]);
 	/#
-		skipto::add_dev("", &namespace_5df9d277::main, &namespace_5df9d277::starting, "", &namespace_5df9d277::cleanup, undefined, undefined, [0:""]);
-		skipto::add_dev("", &namespace_5df9d277::main, &namespace_5df9d277::starting, "", &namespace_5df9d277::cleanup, undefined, undefined, [3:"", 2:"", 1:"", 0:""]);
-		skipto::add_dev("", &namespace_4926d69e::main, &namespace_4926d69e::starting, "", &namespace_4926d69e::cleanup, undefined, undefined, [0:""]);
+		skipto::add_dev("", &tkdn_raid_bar::main, &tkdn_raid_bar::starting, "", &tkdn_raid_bar::cleanup, undefined, undefined, [0:""]);
+		skipto::add_dev("", &tkdn_raid_bar::main, &tkdn_raid_bar::starting, "", &tkdn_raid_bar::cleanup, undefined, undefined, [3:"", 2:"", 1:"", 0:""]);
+		skipto::add_dev("", &tkdn_af_intro::main, &tkdn_af_intro::starting, "", &tkdn_af_intro::cleanup, undefined, undefined, [0:""]);
 		skipto::add_dev("", &function_5bef74d0);
 	#/
 }
@@ -150,15 +150,15 @@ function init_flags()
 	namespace_e66dabaf::init_flags();
 	namespace_cb0d537d::init_flags();
 	namespace_29b42773::init_flags();
-	namespace_5df9d277::init_flags();
+	tkdn_raid_bar::init_flags();
 	namespace_c9f7b6af::init_flags();
-	namespace_b331012d::init_flags();
-	namespace_b995dbff::init_flags();
-	namespace_7d4dd7f0::init_flags();
-	namespace_2fbde9a9::init_flags();
-	namespace_38c39f5::init_flags();
-	namespace_38d05c38::init_flags();
-	namespace_47eaac63::init_flags();
+	tkdn_raid_apt::init_flags();
+	tkdn_raid_capture::init_flags();
+	tkdn_af_hill::init_flags();
+	tkdn_af_tarmac::init_flags();
+	tkdn_af_chase::init_flags();
+	tkdn_af_skid::init_flags();
+	tkdn_af_wreck::init_flags();
 }
 
 /*
@@ -176,15 +176,15 @@ function init_clientfields()
 	namespace_e66dabaf::init_clientfields();
 	namespace_cb0d537d::init_clientfields();
 	namespace_29b42773::init_clientfields();
-	namespace_5df9d277::init_clientfields();
+	tkdn_raid_bar::init_clientfields();
 	namespace_c9f7b6af::init_clientfields();
-	namespace_b331012d::init_clientfields();
-	namespace_b995dbff::init_clientfields();
-	namespace_7d4dd7f0::init_clientfields();
-	namespace_2fbde9a9::init_clientfields();
-	namespace_38c39f5::init_clientfields();
-	namespace_38d05c38::init_clientfields();
-	namespace_47eaac63::init_clientfields();
+	tkdn_raid_apt::init_clientfields();
+	tkdn_raid_capture::init_clientfields();
+	tkdn_af_hill::init_clientfields();
+	tkdn_af_tarmac::init_clientfields();
+	tkdn_af_chase::init_clientfields();
+	tkdn_af_skid::init_clientfields();
+	tkdn_af_wreck::init_clientfields();
 }
 
 /*
@@ -201,15 +201,15 @@ function init_scenes()
 	namespace_e66dabaf::init_scenes();
 	namespace_cb0d537d::init_scenes();
 	namespace_29b42773::init_scenes();
-	namespace_5df9d277::init_scenes();
+	tkdn_raid_bar::init_scenes();
 	namespace_c9f7b6af::init_scenes();
-	namespace_b331012d::init_scenes();
-	namespace_b995dbff::init_scenes();
-	namespace_7d4dd7f0::init_scenes();
-	namespace_2fbde9a9::init_scenes();
-	namespace_38c39f5::init_scenes();
-	namespace_38d05c38::init_scenes();
-	namespace_47eaac63::init_scenes();
+	tkdn_raid_apt::init_scenes();
+	tkdn_raid_capture::init_scenes();
+	tkdn_af_hill::init_scenes();
+	tkdn_af_tarmac::init_scenes();
+	tkdn_af_chase::init_scenes();
+	tkdn_af_skid::init_scenes();
+	tkdn_af_wreck::init_scenes();
 }
 
 /*
@@ -277,7 +277,7 @@ function function_8106e2e1()
 	}
 	switch(level.skipto_current_objective[0])
 	{
-		case "hash_43fda5a71e2cf1d9":
+		case "tkdn_raid_bar":
 		{
 			var_4f2ba130 = self getweaponslist();
 			foreach(var_5f48185 in var_4f2ba130)
@@ -286,7 +286,7 @@ function function_8106e2e1()
 			}
 			break;
 		}
-		case "hash_512e8aab43df84ba":
+		case "tkdn_raid_gearup":
 		{
 			var_4f2ba130 = self getweaponslist();
 			foreach(var_5f48185 in var_4f2ba130)
@@ -295,22 +295,22 @@ function function_8106e2e1()
 			}
 			break;
 		}
-		case "hash_3ccd7ea71a859e23":
+		case "tkdn_raid_apt":
 		{
 			function_95b5afc9();
 			break;
 		}
-		case "hash_284d0daaf024071e":
+		case "tkdn_raid_capture":
 		{
 			function_95b5afc9();
 			break;
 		}
-		case "hash_c8e65be67e56b17":
-		case "hash_12044e7569915825":
-		case "hash_3131dfbc0ce5b7d9":
-		case "hash_35cbe00e084c6cf2":
-		case "hash_4582a1402b7d9111":
-		case "hash_55356ede737cfa8e":
+		case "tkdn_af_tarmac":
+		case "tkdn_af_chase":
+		case "tkdn_af_intro":
+		case "tkdn_af_hill":
+		case "tkdn_af_wreck":
+		case "tkdn_af_skid":
 		{
 			function_43593d7d();
 			break;

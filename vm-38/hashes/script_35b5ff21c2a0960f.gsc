@@ -1,8 +1,8 @@
 #using script_32c8b5b0eb2854f3;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

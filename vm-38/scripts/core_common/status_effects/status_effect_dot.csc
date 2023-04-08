@@ -18,7 +18,7 @@ function private autoexec function_a74c624a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_dot
 	Checksum: 0x8DC7E2B7
 	Offset: 0xD0
@@ -26,7 +26,7 @@ function private autoexec function_a74c624a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"status_effect_dot", &function_70a657d8, undefined, undefined, undefined);
 }

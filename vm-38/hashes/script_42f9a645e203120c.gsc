@@ -23,7 +23,7 @@ function private autoexec function_2718f686()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_e9082b55
 	Checksum: 0x9152B02F
 	Offset: 0xE8
@@ -31,7 +31,7 @@ function private autoexec function_2718f686()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5b407861db3825b2", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -186,7 +186,7 @@ function private function_b465b436(current_origin, var_c5a0bed8, previous_origin
 function private function_35e11623(current_origin, var_c5a0bed8, previous_origin, var_7c597200)
 {
 	players = getplayers();
-	excludelist = [#"willy_pete":1, #"frag_grenade":1, #"hash_c78156ba6aeda14":1, #"eq_swat_grenade":1, #"eq_slow_grenade":1, #"eq_molotov":1, #"eq_cluster_semtex_grenade":1, #"eq_acid_bomb":1];
+	excludelist = [#"willy_pete":1, #"frag_grenade":1, #"eq_wraith_fire":1, #"eq_swat_grenade":1, #"eq_slow_grenade":1, #"eq_molotov":1, #"eq_cluster_semtex_grenade":1, #"eq_acid_bomb":1];
 	foreach(player in players)
 	{
 		if(!isplayer(player))

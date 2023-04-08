@@ -29,7 +29,7 @@ function private autoexec function_d3764936()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_drop
 	Checksum: 0x971839B
 	Offset: 0x328
@@ -37,7 +37,7 @@ function private autoexec function_d3764936()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"item_drop", &function_70a657d8, undefined, undefined, #"item_world");
 }

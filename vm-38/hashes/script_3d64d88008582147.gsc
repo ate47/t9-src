@@ -30,7 +30,7 @@ function private autoexec function_561844bd()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_f0a1fe5c
 	Checksum: 0x3F16378E
 	Offset: 0x230
@@ -38,7 +38,7 @@ function private autoexec function_561844bd()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_520d565ef38560b8", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -57,8 +57,8 @@ function private function_70a657d8()
 	if(is_true(getgametypesetting(#"hash_7e8e34cc69a77e0b")) || getdvarint(#"hash_40bd34b35079cf2e", 0) > 0)
 	{
 		zombie_utility::set_zombie_var(#"hash_176c7387fb0b8e84", 0, 0, 1);
-		zombie_utility::set_zombie_var(#"hash_760112aa184cc7ed", 0, 0, 1);
-		zombie_utility::set_zombie_var(#"hash_636e4b8d204015a5", 30, 0, 1);
+		zombie_utility::set_zombie_var(#"zombie_powerup_naughty_or_nice_on", 0, 0, 1);
+		zombie_utility::set_zombie_var(#"zombie_powerup_naughty_or_nice_time", 30, 0, 1);
 		zm_powerups::register_powerup("naughty_or_nice", &function_a19d471a);
 		if(zm_powerups::function_cc33adc8())
 		{
@@ -66,7 +66,7 @@ function private function_70a657d8()
 			zm_powerups::add_zombie_powerup("naughty_or_nice", #"hash_218ac2126792ad24", #"hash_c63a666160e5343", &zm_powerups::func_should_always_drop, 0, 0, 0, undefined, "powerup_naughty_or_nice", "zombie_powerup_naughty_or_nice_time", "zombie_powerup_naughty_or_nice_on");
 			zm_vo::function_2cf4b07f(#"hash_488f781c3365038d", #"hash_1d3bccd799efe9e7");
 			zm_vo::function_2cf4b07f(#"hash_1f61ea56f88705b0", #"hash_1d3bcbd799efe834");
-			zm_vo::function_2cf4b07f(#"hash_452a24ff038acdf", #"hash_1d3bced799efed4d");
+			zm_vo::function_2cf4b07f(#"naughty_or_nice", #"hash_1d3bced799efed4d");
 			zm_vo::function_2cf4b07f(#"hash_5832fe620991fcd1", #"hash_1d3bcdd799efeb9a");
 			/#
 				adddebugcommand("");

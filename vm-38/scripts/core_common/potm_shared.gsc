@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -28,7 +28,7 @@ function private autoexec function_43e43d9e()
 #namespace potm;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: potm
 	Checksum: 0x67EBFD5A
 	Offset: 0x250
@@ -36,7 +36,7 @@ function private autoexec function_43e43d9e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"potm", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -172,7 +172,7 @@ function private init()
 }
 
 /*
-	Name: function_f22ccf4a
+	Name: forceinit
 	Namespace: potm
 	Checksum: 0x5D952F3B
 	Offset: 0x850
@@ -180,7 +180,7 @@ function private init()
 	Parameters: 0
 	Flags: Linked
 */
-function function_f22ccf4a()
+function forceinit()
 {
 	game.var_ab39640b = undefined;
 	init();

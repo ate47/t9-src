@@ -19,7 +19,7 @@ function private autoexec function_a84b86bb()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_12a6a726
 	Checksum: 0x32FAC17F
 	Offset: 0xD8
@@ -27,7 +27,7 @@ function private autoexec function_a84b86bb()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_72a9f15f4124442", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -51,11 +51,11 @@ function function_70a657d8()
 	{
 		return;
 	}
-	clientfield::register("scriptmover", "sr_supply_drop_chest_fx", 1, 2, "int", &function_804af09b, 0, 0);
+	clientfield::register("scriptmover", "sr_supply_drop_chest_fx", 1, 2, "int", &sr_supply_drop_chest_fx, 0, 0);
 }
 
 /*
-	Name: function_804af09b
+	Name: sr_supply_drop_chest_fx
 	Namespace: namespace_12a6a726
 	Checksum: 0xE078159A
 	Offset: 0x1F0
@@ -63,7 +63,7 @@ function function_70a657d8()
 	Parameters: 7
 	Flags: Linked
 */
-function function_804af09b(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function sr_supply_drop_chest_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump == 1)
 	{

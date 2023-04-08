@@ -26,7 +26,7 @@ function private autoexec function_76a7c4e9()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_93759983
 	Checksum: 0x9CD6A8A7
 	Offset: 0x118
@@ -34,7 +34,7 @@ function private autoexec function_76a7c4e9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_716faff417d0eef3", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -90,7 +90,7 @@ function private on_begin(var_bd9d962)
 			foreach(player in getplayers())
 			{
 				player bgb_pack::function_59004002(#"zm_bgb_anywhere_but_here", 1);
-				player bgb_pack::function_59004002(#"hash_a303f67afd6f4a8", 1);
+				player bgb_pack::function_59004002(#"zm_bgb_nowhere_but_there", 1);
 				player thread function_3d8fa20a();
 			}
 			callback::on_ai_spawned(&function_a5b02a07);
@@ -136,7 +136,7 @@ function private on_end(round_reset)
 			foreach(player in getplayers())
 			{
 				player bgb_pack::function_59004002(#"zm_bgb_anywhere_but_here", 0);
-				player bgb_pack::function_59004002(#"hash_a303f67afd6f4a8", 0);
+				player bgb_pack::function_59004002(#"zm_bgb_nowhere_but_there", 0);
 				player setmovespeedscale(1);
 				player allowjump(1);
 				player allowprone(1);

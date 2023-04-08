@@ -36,9 +36,9 @@ function private autoexec function_aa1f7568()
 function autoexec init()
 {
 	registerbehaviorscriptfunctions();
-	spawner::add_archetype_spawn_function(#"hash_1bc8194446d4722f", &function_d0439ae2);
-	spawner::add_archetype_spawn_function(#"hash_1bc8194446d4722f", &zombie_utility::zombiespawnsetup);
-	spawner::function_89a2cd87(#"hash_1bc8194446d4722f", &function_bac4724a);
+	spawner::add_archetype_spawn_function(#"tormentor", &function_d0439ae2);
+	spawner::add_archetype_spawn_function(#"tormentor", &zombie_utility::zombiespawnsetup);
+	spawner::function_89a2cd87(#"tormentor", &function_bac4724a);
 }
 
 /*

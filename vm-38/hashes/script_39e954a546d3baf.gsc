@@ -625,7 +625,7 @@ function function_9dc9326c(player)
 	}
 	function_511ee23e(1);
 	player playsound(#"hash_5f6f892266eca77");
-	if(!is_true(level.var_77f262b9) && function_166646a6() === 2)
+	if(!is_true(level.var_77f262b9) && get_story() === 2)
 	{
 		level.var_77f262b9 = 1;
 		level util::delay(3, "end_game", &array::thread_all, getplayers(), &zm_equipment::show_hint_text, #"hash_68e088397871d66a");

@@ -1,11 +1,11 @@
 #using scripts\zm\ai\zm_ai_dog.gsc;
 #using script_59f07c660e6710a5;
 
-#namespace namespace_8179cac5;
+#namespace zm_ai_dog_interface;
 
 /*
 	Name: function_7c665a41
-	Namespace: namespace_8179cac5
+	Namespace: zm_ai_dog_interface
 	Checksum: 0x9F909C90
 	Offset: 0x88
 	Size: 0x14
@@ -19,7 +19,7 @@ function private autoexec function_7c665a41()
 
 /*
 	Name: registerzombiedoginterfaceattributes
-	Namespace: namespace_8179cac5
+	Namespace: zm_ai_dog_interface
 	Checksum: 0x19DA6908
 	Offset: 0xA8
 	Size: 0x134

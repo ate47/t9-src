@@ -1244,7 +1244,7 @@ function updatesightstate(sightstate)
 	{
 		switch(self.stealth.threat_sight_state)
 		{
-			case "hash_4b55a59a56c4bdb3":
+			case "combat_hunt":
 			{
 				var_839ed558 = sightstate != "hunt" && sightstate != "combat_hunt";
 				break;
@@ -2078,7 +2078,7 @@ function investigate_move_setaimtarget(instancedata, targetpos, eventtype)
 				t = 1000;
 				break;
 			}
-			case "hash_266bce382f322b51":
+			case "light_killed":
 			case "glass_destroyed":
 			{
 				t = 3000;
@@ -4441,19 +4441,19 @@ function setstealthstate(statename, e)
 						case "projectile_impact":
 						case "ally_damaged":
 						case "bulletwhizby":
-						case "hash_60484d1d72fd4ce9":
+						case "ally_killed":
 						case "gunshot":
 						{
 							magnitude = "medium";
 							break;
 						}
 						case "explode":
-						case "hash_70bb20cec150f744":
+						case "grenade danger":
 						{
 							magnitude = "large";
 							break;
 						}
-						case "hash_266bce382f322b51":
+						case "light_killed":
 						case "attack":
 						case "combat":
 						{

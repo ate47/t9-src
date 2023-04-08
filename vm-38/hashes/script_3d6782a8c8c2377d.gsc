@@ -28,7 +28,7 @@ function private autoexec function_372307a5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: siegebot
 	Checksum: 0x7EEA4CA4
 	Offset: 0x380
@@ -36,13 +36,13 @@ function private autoexec function_372307a5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"siegebot", &function_5de06a3f, undefined, undefined, undefined);
+	system::register(#"siegebot", &systeminit, undefined, undefined, undefined);
 }
 
 /*
-	Name: function_5de06a3f
+	Name: systeminit
 	Namespace: siegebot
 	Checksum: 0xE1438FD1
 	Offset: 0x3C8
@@ -50,7 +50,7 @@ function private autoexec function_89f2df9()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5de06a3f()
+function systeminit()
 {
 	level.var_7fcdba66 = 1;
 	vehicle::add_main_callback("siegebot", &siegebot_initialize);

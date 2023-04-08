@@ -28,7 +28,7 @@ function private autoexec function_869932c8()
 #namespace turret;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: turret
 	Checksum: 0x598E842
 	Offset: 0x3B8
@@ -36,7 +36,7 @@ function private autoexec function_869932c8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"turret", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -2026,7 +2026,7 @@ function _debug_turret_think(n_index)
 			}
 			else
 			{
-				if(s_turret flag::get(#"hash_4d488fd6bd2939d3"))
+				if(s_turret flag::get(#"turret manual"))
 				{
 					str_behavior = str_behavior + "";
 				}

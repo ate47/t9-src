@@ -20,7 +20,7 @@ function private autoexec function_da8d999b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: serversettings
 	Checksum: 0x8E03E5B
 	Offset: 0xB0
@@ -28,7 +28,7 @@ function private autoexec function_da8d999b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"serversettings", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -160,7 +160,7 @@ function updateserversettings()
 	if(level.friendlyfire != scr_friendlyfire)
 	{
 		level.friendlyfire = scr_friendlyfire;
-		namespace_59ff1d6c::function_928be07c();
+		zm_custom::function_928be07c();
 		setdvar(#"ui_friendlyfire", level.friendlyfire);
 	}
 }

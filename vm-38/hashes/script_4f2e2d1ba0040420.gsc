@@ -79,7 +79,7 @@ function function_42818ffd(instance)
 	namespace_d0ab5955::function_d4dec4e8(instance.location.destination, #"hash_77c04aaf41a18e41");
 	namespace_d0ab5955::function_f1ad7968(instance.location.destination, #"hash_1d72c1d85b91814e");
 	showmiscmodels("end_of_level_corpses");
-	level clientfield::set("" + #"hash_4c8a7e79b5a2c61d", 1);
+	level clientfield::set("" + #"end_of_level_corpses", 1);
 	exploder::exploder("fxexp_island_worklight");
 	level.var_97e461d4 = "chopper_gunner_path_sanatorium_exfil_end_of_level";
 	level flag::set(#"hash_3070ff342f14b371");
@@ -206,7 +206,7 @@ function function_1e6004ec(instance)
 	level flag::delay_set(5, #"hash_44733903bbd715c9");
 	level util::delay(5, undefined, &flag::clear, #"hash_178cddf0409be677");
 	s_result = undefined;
-	s_result = level waittill(#"hash_69090774fec4a17b");
+	s_result = level waittill(#"objective_ended");
 	if(is_true(s_result.completed))
 	{
 		str_reason = #"hash_6ebafb1370ab6c93";
@@ -238,7 +238,7 @@ function function_fb4f1c11(instance)
 	level flag::wait_till(#"hash_44733903bbd715c9");
 	level zm_vo::function_7622cb70(#"hash_7df08a932922311a");
 	level flag::set(#"hash_3bf08d8f0adeb2b5");
-	level flag::wait_till(#"hash_2c83e17b76817284");
+	level flag::wait_till(#"exfil_cleared");
 	level zm_vo::function_7622cb70(#"hash_4fd478e75857bfac");
 }
 
@@ -401,8 +401,8 @@ function private function_31125f54()
 	while(true)
 	{
 		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_4fbe4720f6f13107", #"hash_2c83e17b76817284");
-		if(level flag::get(#"hash_2c83e17b76817284") && level flag::get(#"hash_fdc24944f59c262") || is_true(var_be17187b.b_success))
+		var_be17187b = level waittill(#"hash_4fbe4720f6f13107", #"exfil_cleared");
+		if(level flag::get(#"exfil_cleared") && level flag::get(#"hash_fdc24944f59c262") || is_true(var_be17187b.b_success))
 		{
 			level.var_9f6064a4 = #"hash_6893db9b6c7b5a58";
 			level.var_73677dfc = 3;
@@ -524,7 +524,7 @@ function private on_item_pickup(params)
 		{
 			player thread namespace_4abf1500::collect_intel(#"hash_4d8f86e486057da");
 		}
-		callback::remove_callback(#"hash_56d1805bfff3e65b", &on_item_pickup);
+		callback::remove_callback(#"on_item_pickup", &on_item_pickup);
 	}
 }
 
@@ -542,12 +542,12 @@ function function_29430f26(a_ents, b_enable)
 	if(is_true(b_enable))
 	{
 		showmiscmodels("end_of_level_exfil_outro_igc_props");
-		level clientfield::set("" + #"hash_2c5407e7aece0a93", 1);
+		level clientfield::set("" + #"end_of_level_exfil_outro_igc_props", 1);
 	}
 	else
 	{
 		hidemiscmodels("end_of_level_exfil_outro_igc_props");
-		level clientfield::set("" + #"hash_2c5407e7aece0a93", 0);
+		level clientfield::set("" + #"end_of_level_exfil_outro_igc_props", 0);
 	}
 }
 

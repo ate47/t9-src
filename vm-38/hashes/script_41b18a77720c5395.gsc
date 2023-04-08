@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
-#using script_256b8879317373de;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_shared.gsc;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\killcam_shared.gsc;

@@ -24,7 +24,7 @@ function private autoexec function_6538d230()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_tank
 	Checksum: 0x89D35F12
 	Offset: 0x200
@@ -32,7 +32,7 @@ function private autoexec function_6538d230()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_tank", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

@@ -33,7 +33,7 @@ function private autoexec function_10f5069f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hoverjet
 	Checksum: 0xD17D5C49
 	Offset: 0x2B8
@@ -41,7 +41,7 @@ function private autoexec function_10f5069f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hoverjet", &init_shared, undefined, undefined, #"killstreaks");
 }

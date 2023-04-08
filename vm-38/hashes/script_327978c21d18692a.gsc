@@ -35,7 +35,7 @@ event main(eventstruct)
 		return;
 	}
 	callback::add_callback(#"objective_started", &function_386821d6);
-	callback::add_callback(#"hash_69090774fec4a17b", &function_b1eb7f05);
+	callback::add_callback(#"objective_ended", &function_b1eb7f05);
 }
 
 /*

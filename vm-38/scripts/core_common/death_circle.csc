@@ -20,7 +20,7 @@ function private autoexec function_e80f69f7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: death_circle
 	Checksum: 0xCA455452
 	Offset: 0x268
@@ -28,7 +28,7 @@ function private autoexec function_e80f69f7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"death_circle", &function_70a657d8, undefined, &function_4df027f2, undefined);
 }
@@ -90,7 +90,7 @@ function private function_4df027f2()
 	{
 		level.var_74017fd2 = #"hash_2ebe199a82d38283";
 	}
-	if(level.var_374c2805 === 1)
+	if(level.onslaught_game === 1)
 	{
 		level.var_34ac1fa = #"hash_454cceb988244ba3";
 	}

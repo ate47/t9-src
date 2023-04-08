@@ -134,7 +134,7 @@ function init(instance)
 */
 function function_4065a0e0()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	var_35dfb407 = 0;
 	while(!var_35dfb407)
 	{
@@ -202,7 +202,7 @@ function function_2cfaf9d7()
 */
 function function_cf55f07a()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.var_5cc2eee8 = util::spawn_model(#"hash_266d8b7b1d1bec85", self.var_4a416ea9.origin, self.var_4a416ea9.angles);
 	self.var_b68642a4 = util::spawn_model(#"hash_1d9c052533aadd6f", self.var_4a416ea9.origin, self.var_4a416ea9.angles);
 	self.var_f02db10e = util::spawn_model(#"hash_4c85eb6d915fab1f", self.var_4a416ea9.origin, self.var_4a416ea9.angles);
@@ -216,7 +216,7 @@ function function_cf55f07a()
 	{
 		self.a_models[self.a_models.size] = self.var_5cc2eee8;
 		self.var_5cc2eee8 thread function_a8cf448(self, #"activate", "" + #"hash_51c88d2d00905c2d", 1);
-		self.var_5cc2eee8 thread function_62ff42e2(self, #"hash_69090774fec4a17b", "" + #"hash_51c88d2d00905c2d", 0);
+		self.var_5cc2eee8 thread function_62ff42e2(self, #"objective_ended", "" + #"hash_51c88d2d00905c2d", 0);
 	}
 	if(isdefined(self.var_b68642a4))
 	{
@@ -551,7 +551,7 @@ function function_f4b436d5()
 */
 function vo_defend()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self waittill(#"hash_17c21fa8ca15c918");
 	self thread function_a56e1736();
 	wait(1);
@@ -579,7 +579,7 @@ function vo_defend()
 */
 function function_a56e1736()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self waittill(#"hash_295695008869aed5");
 	self flag::wait_till(#"hash_5afa3625eb7ee268");
 	level namespace_7589cf5c::play_vo("objectiveDefendUnderAttack");
@@ -596,7 +596,7 @@ function function_a56e1736()
 */
 function function_15f3c92()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.var_4a416ea9 endon(#"death");
 	self.var_4a416ea9.var_c54337b2 = zm_utility::function_f5a222a8(#"hash_69a419877aee1334", self.var_4a416ea9.origin + vectorscale((0, 0, 1), 70));
 	objective_setinvisibletoall(self.var_4a416ea9.var_c54337b2);
@@ -646,7 +646,7 @@ function function_3a6b15fd()
 */
 function function_bc04a76b()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self waittill(#"inserted");
 	wait(1);
 	var_b54d7065 = getdynentarray("dynent_garage_button");
@@ -672,7 +672,7 @@ function function_bc04a76b()
 function function_f5087df2()
 {
 	s_result = undefined;
-	s_result = self waittill(#"hash_69090774fec4a17b", #"hash_8202877a3aadac8");
+	s_result = self waittill(#"objective_ended", #"hash_8202877a3aadac8");
 	objective_manager::stop_timer();
 	foreach(player in getplayers())
 	{
@@ -713,7 +713,7 @@ function function_f5087df2()
 */
 function defend_start(instance, activator)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	if(isplayer(activator))
 	{
 		instance thread function_f5087df2();
@@ -760,7 +760,7 @@ function function_e132cdc7(instance)
 	self scene::play(#"hash_3726f03b11802205", "Shot 1", self);
 	self playrumblelooponentity("sr_machinery_rumble");
 	self thread scene::play(#"hash_3726f03b11802205", "Shot 2", self);
-	instance waittill(#"hash_69090774fec4a17b");
+	instance waittill(#"objective_ended");
 	if(instance.success)
 	{
 		instance notify(#"success");
@@ -793,7 +793,7 @@ function function_9c54feb0(instance)
 {
 	self.n_objective_id = zm_utility::function_f5a222a8(#"hash_48db6906777e28d6", self.origin + vectorscale((0, 0, 1), 70));
 	self thread function_80ba1bc8(instance, self.n_objective_id);
-	instance waittill(#"hash_69090774fec4a17b");
+	instance waittill(#"objective_ended");
 	zm_utility::function_bc5a54a8(self.n_objective_id);
 	zm_utility::function_bc5a54a8(self.var_c54337b2);
 }
@@ -809,7 +809,7 @@ function function_9c54feb0(instance)
 */
 function function_7cf83691()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.starttrigger triggerenable(0);
 	objective_setinvisibletoall(self.var_e55c8b4e);
 	self thread function_5839db26();
@@ -846,7 +846,7 @@ function function_7cf83691()
 	self thread function_57cc3128();
 	self waittill(#"inserted");
 	zm_utility::function_bc5a54a8(level.e_obj.n_objective_id);
-	callback::remove_callback(#"hash_56d1805bfff3e65b", &function_e1ea43c1);
+	callback::remove_callback(#"on_item_pickup", &function_e1ea43c1);
 }
 
 /*
@@ -880,7 +880,7 @@ function function_beaa3f66()
 */
 function function_57cc3128()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	foreach(player in getplayers())
 	{
 		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_4546417366cc7a50");
@@ -960,7 +960,7 @@ function function_c4712107()
 */
 function function_5839db26()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	n_spawns = randomintrange(2, 5);
 	var_8be21cb = namespace_85745671::function_e4791424(self.var_43123efe.origin, 32, 80, 400);
 	for(i = 0; i < n_spawns; i++)
@@ -986,7 +986,7 @@ function function_5839db26()
 */
 function function_5f91d0c7(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	self thread function_9c54feb0(instance);
 	level thread objective_manager::start_timer(180, "defend");
@@ -1005,7 +1005,7 @@ function function_5f91d0c7(instance)
 */
 function function_c043100e(n_time)
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	while(true)
 	{
 		if(n_time == 30)
@@ -1028,7 +1028,7 @@ function function_c043100e(n_time)
 */
 function function_677356aa(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self playsound(#"hash_67cbf2e985e3d9aa");
 	instance waittill(#"activate");
 	level flag::set("obj_defend_start");
@@ -1096,7 +1096,7 @@ function function_677356aa(instance)
 */
 function function_b3615a60()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	wait(30);
 	self notify(#"wave_done");
 	wait(15);
@@ -1122,7 +1122,7 @@ function function_b3615a60()
 */
 function function_a2254b83(instance, n_time)
 {
-	instance endon(#"hash_69090774fec4a17b", #"wave_done");
+	instance endon(#"objective_ended", #"wave_done");
 	self endon(#"death");
 	n_count = 0;
 	while(true)
@@ -1244,7 +1244,7 @@ function zombie_attack()
 */
 function function_34ac205(instance, n_active, a_s_spawnpts, n_wave)
 {
-	instance endon(#"hash_69090774fec4a17b", #"wave_done");
+	instance endon(#"objective_ended", #"wave_done");
 	self endon(#"death");
 	instance.n_wave = n_wave;
 	instance.n_active = 0;
@@ -1350,7 +1350,7 @@ function on_zombie_killed(instance)
 */
 function spawn_dogs(instance)
 {
-	instance endon(#"hash_69090774fec4a17b", #"hash_49d2713028fdc353");
+	instance endon(#"objective_ended", #"hash_49d2713028fdc353");
 	self endon(#"death");
 	n_players = getplayers().size;
 	n_total = function_b37294d5(n_players);
@@ -1569,7 +1569,7 @@ function function_94e50668(var_8be21cb, n_wave)
 */
 function function_763876af(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	self thread function_b70e2a37(instance);
 	if(isdefined(self.var_b69e83ca))
@@ -1606,7 +1606,7 @@ function function_763876af(instance)
 	{
 		level scoreevents::doscoreeventcallback("scoreEventSR", {#allplayers:1, #scoreevent:"defend_pristine_zm"});
 	}
-	objective_manager::function_2c679cc2(instance);
+	objective_manager::objective_ended(instance);
 }
 
 /*
@@ -1635,7 +1635,7 @@ function function_b11358ce()
 */
 function function_b70e2a37(instance)
 {
-	instance waittill(#"hash_69090774fec4a17b");
+	instance waittill(#"objective_ended");
 	namespace_85745671::function_b70e2a37(self);
 }
 
@@ -1650,7 +1650,7 @@ function function_b70e2a37(instance)
 */
 function function_b9fb6c3a(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	switch(getplayers().size)
 	{
 		case 1:
@@ -1730,7 +1730,7 @@ function function_b9fb6c3a(instance)
 		}
 	}
 	self clientfield::set("" + #"hash_5244004f911badae", 0);
-	objective_manager::function_2c679cc2(instance, 0);
+	objective_manager::objective_ended(instance, 0);
 }
 
 /*
@@ -1788,7 +1788,7 @@ function function_51779021(instance, var_63e8f3af, var_321cde74)
 	{
 		var_321cde74 = 10;
 	}
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	var_3057025e = 0;
 	var_1a944fca = gettime();
@@ -1831,7 +1831,7 @@ function function_51779021(instance, var_63e8f3af, var_321cde74)
 */
 function function_80ba1bc8(instance, n_objective_id)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	n_start_health = self.health;
 	var_359ac97a = 0;
@@ -1925,7 +1925,7 @@ function cleanup_zombie()
 */
 function clear_vehicles(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	var_453e0a89 = getvehiclearray();
 	var_453e0a89 = array::get_all_closest(self.origin, var_453e0a89);
@@ -1952,7 +1952,7 @@ function clear_vehicles(instance)
 */
 function function_ab97e04b(instance, var_453e0a89)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	while(true)
 	{
@@ -2049,10 +2049,10 @@ function function_1fe3eb34()
 	Parameters: 2
 	Flags: None
 */
-function function_58ec23ca(instance, var_e72a7b11)
+function function_58ec23ca(instance, defend_object)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	var_dbe41436 = 50;
 	current_damage = 0;
 	var_9543c27c = self.health;
@@ -2066,11 +2066,11 @@ function function_58ec23ca(instance, var_e72a7b11)
 		if(current_target == 1)
 		{
 			current_time = gettime();
-			if(isdefined(var_e72a7b11))
+			if(isdefined(defend_object))
 			{
-				if(current_time > self.time_to_wait || distance(var_e72a7b11.origin, self.origin) > 2500)
+				if(current_time > self.time_to_wait || distance(defend_object.origin, self.origin) > 2500)
 				{
-					if(distance(var_e72a7b11.origin, self.origin) > 2500)
+					if(distance(defend_object.origin, self.origin) > 2500)
 					{
 						self.var_cdf71d99 = gettime() + 8000;
 					}
@@ -2079,7 +2079,7 @@ function function_58ec23ca(instance, var_e72a7b11)
 						self.var_cdf71d99 = gettime() + 3000;
 					}
 					self.var_ff290a61 = undefined;
-					self.attackable = var_e72a7b11;
+					self.attackable = defend_object;
 					current_target = 0;
 				}
 			}
@@ -2123,7 +2123,7 @@ function function_58ec23ca(instance, var_e72a7b11)
 function private function_df9979de(instance)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		waitresult = undefined;

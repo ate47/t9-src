@@ -32,7 +32,7 @@ function private autoexec function_346f872d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_abom
 	Checksum: 0x6C6FC83B
 	Offset: 0x170
@@ -40,7 +40,7 @@ function private autoexec function_346f872d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_ai_abom", &function_70a657d8, undefined, undefined, "zm_destination_manager");
 }
@@ -138,7 +138,7 @@ function function_1d787beb()
 	}
 	if(isentity(self))
 	{
-		self namespace_e0710ee6::function_a8dc3363(var_d7eff26a);
+		self zm_ai_utility::function_a8dc3363(var_d7eff26a);
 		self thread namespace_361e505d::function_940cd1d8();
 	}
 	return true;
@@ -184,7 +184,7 @@ function function_2995325f()
 						var_cfad5b23 = 0;
 						self clientfield::set("abomDissolveCF", 2);
 						wait(1);
-						self namespace_e0710ee6::function_a8dc3363({#origin:var_9f0bcfaa});
+						self zm_ai_utility::function_a8dc3363({#origin:var_9f0bcfaa});
 						self.completed_emerging_into_playable_area = 1;
 						self thread namespace_361e505d::function_940cd1d8();
 					}
@@ -395,7 +395,7 @@ function spawn_single(b_force_spawn, var_eb3a8721, var_bc66d64b)
 		#/
 		return undefined;
 	}
-	ai = spawnactor(#"hash_39b3550f618c72e8", s_spawn_loc.origin, s_spawn_loc.angles);
+	ai = spawnactor(#"spawner_bo5_abom", s_spawn_loc.origin, s_spawn_loc.angles);
 	if(isdefined(ai))
 	{
 		ai.script_string = s_spawn_loc.script_string;

@@ -25,7 +25,7 @@ function private autoexec function_d3f5d197()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_9fe28d6e
 	Checksum: 0xAD3D5F5
 	Offset: 0x100
@@ -33,7 +33,7 @@ function private autoexec function_d3f5d197()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_38469cb55dd6355a", &function_c7f33cce, &function_fa076c68, undefined, undefined);
 }
@@ -126,11 +126,11 @@ function private function_7c9b0132()
 */
 function private function_90ceecf8()
 {
-	callback::on_spawned(&function_e4a4b07b);
+	callback::on_spawned(&_on_player_spawned);
 }
 
 /*
-	Name: function_e4a4b07b
+	Name: _on_player_spawned
 	Namespace: namespace_9fe28d6e
 	Checksum: 0x32F22BD2
 	Offset: 0x358
@@ -138,7 +138,7 @@ function private function_90ceecf8()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_e4a4b07b(localclientnum)
+function private _on_player_spawned(localclientnum)
 {
 	if(!isdefined(level._fx))
 	{

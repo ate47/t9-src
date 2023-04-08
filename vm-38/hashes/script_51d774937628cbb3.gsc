@@ -2,11 +2,11 @@
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_4f449f4a;
+#namespace zm_weap_molotov;
 
 /*
 	Name: function_c95ada2d
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0x1BC7D127
 	Offset: 0xC0
 	Size: 0x14
@@ -19,22 +19,22 @@ function private autoexec function_c95ada2d()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_4f449f4a
+	Name: __init__system__
+	Namespace: zm_weap_molotov
 	Checksum: 0x7BD1DE8A
 	Offset: 0xE0
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"molotov_zm", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0x149220A2
 	Offset: 0x128
 	Size: 0x4C
@@ -48,7 +48,7 @@ function private function_70a657d8()
 
 /*
 	Name: molotov_zm_fire_fx
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0xA8DAF6FC
 	Offset: 0x180
 	Size: 0x128

@@ -25,7 +25,7 @@ function private autoexec function_7e456f76()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_b56b91cb
 	Checksum: 0x57847AC1
 	Offset: 0xC8
@@ -33,7 +33,7 @@ function private autoexec function_7e456f76()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_637836cd1d98abbd", &function_70a657d8, &function_8ac3bea9, undefined, #"item_world");
 }
@@ -62,7 +62,7 @@ function private function_70a657d8()
 		level thread function_13c803de();
 	#/
 	/#
-		level thread function_44b9dd1d();
+		level thread _setup_devgui();
 	#/
 	/#
 		level thread function_cdd9b388();
@@ -1866,13 +1866,13 @@ function private function_13c803de()
 		while(true)
 		{
 			level waittill(#"host_migration_begin");
-			level thread function_44b9dd1d();
+			level thread _setup_devgui();
 		}
 	#/
 }
 
 /*
-	Name: function_44b9dd1d
+	Name: _setup_devgui
 	Namespace: namespace_b56b91cb
 	Checksum: 0x242B6F96
 	Offset: 0x67F8
@@ -1880,7 +1880,7 @@ function private function_13c803de()
 	Parameters: 0
 	Flags: Private
 */
-function private function_44b9dd1d()
+function private _setup_devgui()
 {
 	/#
 		while(!canadddebugcommand())

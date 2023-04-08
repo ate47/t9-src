@@ -56,9 +56,9 @@ function autoexec registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_2ec2006a59a43ce", &function_fa6d93ea);
 	/#
-		assert(isscriptfunctionptr(&function_66b40330));
+		assert(isscriptfunctionptr(&exposedUpdateService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("exposedUpdateService", &function_66b40330);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("exposedUpdateService", &exposedUpdateService);
 	/#
 		assert(isscriptfunctionptr(&exposedshootstart));
 	#/
@@ -154,7 +154,7 @@ function function_fa6d93ea(entity)
 }
 
 /*
-	Name: function_66b40330
+	Name: exposedUpdateService
 	Namespace: archetype_human_exposed
 	Checksum: 0x66737BC3
 	Offset: 0xB68
@@ -162,7 +162,7 @@ function function_fa6d93ea(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_66b40330(entity)
+function private exposedUpdateService(entity)
 {
 	if(entity isatcovernode())
 	{

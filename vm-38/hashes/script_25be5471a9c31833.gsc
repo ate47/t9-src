@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3751b21462a54a7d;
 #using script_3ddf84b7bb3bf47d;
 #using script_55b68e9c3e3a915b;
@@ -35,7 +35,7 @@ function private autoexec function_e93d1773()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_82b4c2d1
 	Checksum: 0x336CAB68
 	Offset: 0x210
@@ -43,7 +43,7 @@ function private autoexec function_e93d1773()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_79fe34c9f8a0e44c", &function_70a657d8, &function_8ac3bea9, &finalize, #"hash_f81b9dea74f0ee");
 }
@@ -521,7 +521,7 @@ function function_4513f006(machine, trigger)
 					{
 						if(namespace_791d0451::function_cc0055e9(talent))
 						{
-							self playrumbleonentity(#"hash_410bd55524ae7d");
+							self playrumbleonentity(#"zm_interact_rumble");
 							self zm_score::minus_to_player_score(var_87abc3a0);
 							self namespace_791d0451::function_3fecad82(talent);
 							machine thread namespace_791d0451::function_3e9d8a8e(talent);

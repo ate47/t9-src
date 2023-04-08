@@ -20,7 +20,7 @@ function private autoexec function_ed79c381()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: grapple
 	Checksum: 0xCF6CC4EE
 	Offset: 0x168
@@ -28,7 +28,7 @@ function private autoexec function_ed79c381()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"grapple", &function_70a657d8, undefined, undefined, undefined);
 }

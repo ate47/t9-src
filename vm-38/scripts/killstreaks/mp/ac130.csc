@@ -24,7 +24,7 @@ function private autoexec function_dc3918c3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ac130
 	Checksum: 0x2036EFC4
 	Offset: 0xE0
@@ -32,7 +32,7 @@ function private autoexec function_dc3918c3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ac130", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

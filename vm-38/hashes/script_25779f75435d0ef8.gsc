@@ -54,7 +54,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_guardian_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "guardian_count", value);
+		[[ self ]]->set_data(localclientnum, "guardian_count", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_raps_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "raps_count", value);
+		[[ self ]]->set_data(localclientnum, "raps_count", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_selector_state(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "selector_state", value);
+		[[ self ]]->set_data(localclientnum, "selector_state", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_wasp_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "wasp_count", value);
+		[[ self ]]->set_data(localclientnum, "wasp_count", value);
 	}
 
 	/*
@@ -145,7 +145,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_robot_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "robot_count", value);
+		[[ self ]]->set_data(localclientnum, "robot_count", value);
 	}
 
 	/*
@@ -159,7 +159,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_rcxd_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "rcxd_count", value);
+		[[ self ]]->set_data(localclientnum, "rcxd_count", value);
 	}
 
 	/*
@@ -174,13 +174,13 @@ class ccp_captured_supplydrop : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "micromissile_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "wasp_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "rcxd_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "guardian_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "robot_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "raps_count", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "selector_state", 0);
+		[[ self ]]->set_data(localclientnum, "micromissile_count", 0);
+		[[ self ]]->set_data(localclientnum, "wasp_count", 0);
+		[[ self ]]->set_data(localclientnum, "rcxd_count", 0);
+		[[ self ]]->set_data(localclientnum, "guardian_count", 0);
+		[[ self ]]->set_data(localclientnum, "robot_count", 0);
+		[[ self ]]->set_data(localclientnum, "raps_count", 0);
+		[[ self ]]->set_data(localclientnum, "selector_state", 0);
 	}
 
 	/*
@@ -194,7 +194,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function set_micromissile_count(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "micromissile_count", value);
+		[[ self ]]->set_data(localclientnum, "micromissile_count", value);
 	}
 
 }

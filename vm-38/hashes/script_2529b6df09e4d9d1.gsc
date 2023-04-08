@@ -291,7 +291,7 @@ function private autoexec function_124b49ac()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: lockpick
 	Checksum: 0x812A9B0E
 	Offset: 0x1D0
@@ -299,7 +299,7 @@ function private autoexec function_124b49ac()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	level.class_factory["minigame_" + "lockpick"] = &function_8d584152;
 	system::register("lockpick", &function_70a657d8);

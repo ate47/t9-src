@@ -1,11 +1,11 @@
 #using script_13114d8a31c6152a;
 #using script_1478fbd17fe393cf;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_25db7030b1397730;
 #using script_32399001bdb550da;
 #using script_35ae72be7b4fec10;
 #using script_4194df57536e11ed;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4ccd0c3512b52a10;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -244,8 +244,8 @@ function private function_3e57e536(set)
 		function_9ed5232e("ActorOverheadNames.0.overrideName", "", undefined, undefined, undefined, undefined, undefined, 1);
 		function_9ed5232e("ActorOverheadNames.0.overrideTeam", 0, undefined, undefined, undefined, undefined, undefined, 1);
 		function_9ed5232e("ActorOverheadNames.0.hidden", 0, undefined, undefined, undefined, undefined, undefined, 1);
-		setuimodelvalue(getuimodel(function_90d058e8(#"hash_3b49d2db23128dc5"), "active"), 0);
-		setuimodelvalue(getuimodel(function_90d058e8(#"hash_3b49d2db23128dc5"), "stream"), 0);
+		setuimodelvalue(getuimodel(function_90d058e8(#"spy_camera"), "active"), 0);
+		setuimodelvalue(getuimodel(function_90d058e8(#"spy_camera"), "stream"), 0);
 		setuimodelvalue(getuimodel(function_90d058e8(#"hash_3d93adfe2bc1e980"), "active"), 0);
 		setuimodelvalue(getuimodel(function_90d058e8(#"lockpick"), "active"), 0);
 		setuimodelvalue(getuimodel(function_90d058e8(#"lockpick"), "stream"), 0);
@@ -1064,7 +1064,7 @@ function function_cdbb5c49(show, persistent)
 function function_ac6e682a()
 {
 	self endon(#"disconnect");
-	initial_black = lui::function_e810a527("InitialBlack");
+	initial_black = lui::get_luimenu("InitialBlack");
 	initial_black.var_6fba7045 = #"kill_initial_black";
 	self val::set(#"initial_black", "disable_oob", 1);
 	function_cdbb5c49(1, 1);
@@ -1520,7 +1520,7 @@ function private player_do_chyron_text(var_4146002e, var_d76d90ac)
 	/#
 		assert(var_d76d90ac <= 15);
 	#/
-	cp_chyron = lui::function_e810a527("cpChyron");
+	cp_chyron = lui::get_luimenu("cpChyron");
 	cp_chyron cp_chyron::set_index(self, var_d76d90ac);
 	cp_chyron cp_chyron::close(self);
 	cp_chyron cp_chyron::open(self);
@@ -1574,14 +1574,14 @@ function function_75788ef4(var_22323d67)
 		{
 			if(player gamepadusedlast())
 			{
-				namespace_fe8e9929::function_4c2d4fc4(description.description);
+				hint_tutorial::function_4c2d4fc4(description.description);
 			}
 			else
 			{
-				namespace_fe8e9929::function_4c2d4fc4(description.var_35251d9e);
+				hint_tutorial::function_4c2d4fc4(description.var_35251d9e);
 			}
 			wait(3);
-			namespace_fe8e9929::function_9f427d88();
+			hint_tutorial::function_9f427d88();
 		}
 	}
 }

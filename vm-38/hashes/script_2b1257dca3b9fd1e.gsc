@@ -83,12 +83,12 @@ function starting(str_skipto)
 	{
 		spawner spawner::add_spawn_function(&namespace_b100dd86::function_6578b894);
 	}
-	namespace_b331012d::function_aeaba0c9("glass_door_start_left", "glass_door_dest_left", 0);
-	namespace_b331012d::function_aeaba0c9("glass_door_start_right", "glass_door_dest_right", 0);
-	namespace_b331012d::function_aeaba0c9("glass_door_start_left", "glass_door_dest_left", 0);
-	namespace_b331012d::function_aeaba0c9("glass_door_start_right", "glass_door_dest_right", 0);
-	namespace_b331012d::function_aeaba0c9("glass_door_start_left", "glass_door_dest_left", 0);
-	namespace_b331012d::function_aeaba0c9("glass_door_start_right", "glass_door_dest_right", 0);
+	tkdn_raid_apt::function_aeaba0c9("glass_door_start_left", "glass_door_dest_left", 0);
+	tkdn_raid_apt::function_aeaba0c9("glass_door_start_right", "glass_door_dest_right", 0);
+	tkdn_raid_apt::function_aeaba0c9("glass_door_start_left", "glass_door_dest_left", 0);
+	tkdn_raid_apt::function_aeaba0c9("glass_door_start_right", "glass_door_dest_right", 0);
+	tkdn_raid_apt::function_aeaba0c9("glass_door_start_left", "glass_door_dest_left", 0);
+	tkdn_raid_apt::function_aeaba0c9("glass_door_start_right", "glass_door_dest_right", 0);
 	level scene::play("scene_tkd_hit2_apt_blindfire_bathroom", "death");
 	thread objectives::scripted("obj_takedown_capture", undefined, #"hash_49c1d860c97e3792");
 }
@@ -156,9 +156,9 @@ function function_f7dbd7e1()
 	player playgestureviewmodel(#"hash_320d152af1fadd63", undefined, 1, 1, 0, 1, 1);
 	wait(1.25);
 	player stopanimscripted();
-	var_9f4d9e27 = [0:namespace_fe8e9929::function_f0104b5([1:#"hash_46b1d4bb698b8298", 0:#"hash_5f8c7ca0a178e810"])];
-	namespace_fe8e9929::function_4c2d4fc4(#"hash_e67c810a4c45083", #"hash_4f8907e75463e084", undefined, undefined, undefined, undefined, undefined, 1, var_9f4d9e27);
-	namespace_fe8e9929::pause("+melee_zoom;+melee", #"hash_2b84cc72687b168a");
+	var_9f4d9e27 = [0:hint_tutorial::function_f0104b5([1:#"hash_46b1d4bb698b8298", 0:#"hash_5f8c7ca0a178e810"])];
+	hint_tutorial::function_4c2d4fc4(#"hash_e67c810a4c45083", #"hash_4f8907e75463e084", undefined, undefined, undefined, undefined, undefined, 1, var_9f4d9e27);
+	hint_tutorial::pause("+melee_zoom;+melee", #"hash_2b84cc72687b168a");
 	player val::reset_all(#"hash_145f61f7ef6685a5");
 	victim = player.takedown.potential_victims[0];
 	if(isdefined(victim))
@@ -241,7 +241,7 @@ function function_c39dde0e()
 	player notifyonplayercommand("tutorial_pressed_jump", "+gostand");
 	while(true)
 	{
-		player waittill(#"hash_2d33f8504e163257");
+		player waittill(#"tutorial_pressed_jump");
 		if(!player flag::get("body_shield_active"))
 		{
 			level flag::set("flag_takedown_tutorial_player_mantling");
@@ -269,10 +269,10 @@ function function_fb0dffdf()
 	ai_spawned = spawner::simple_spawn_single("dude_before_roof");
 	ai_spawned.var_c681e4c1 = 1;
 	var_23811abd = snd::play("vox_cp_tdwn_04200_irg2_fuckingamerican_9b", [1:"j_head", 0:ai_spawned]);
-	var_5afd5ffe = getspawnerarray("slide_guy1", "script_noteworthy");
-	array::run_all(var_5afd5ffe, &spawner::add_spawn_function, &function_4ae05934);
-	var_6827fa53 = getspawnerarray("slide_guy2", "script_noteworthy");
-	array::run_all(var_6827fa53, &spawner::add_spawn_function, &function_5d9afea9);
+	slide_guy1 = getspawnerarray("slide_guy1", "script_noteworthy");
+	array::run_all(slide_guy1, &spawner::add_spawn_function, &function_4ae05934);
+	slide_guy2 = getspawnerarray("slide_guy2", "script_noteworthy");
+	array::run_all(slide_guy2, &spawner::add_spawn_function, &function_5d9afea9);
 	var_35447b42 = getspawnerarray("rooftop_door_guy1", "targetname");
 	array::run_all(var_35447b42, &spawner::add_spawn_function, &function_f57c8f19);
 	level flag::wait_till("flag_qasim_on_roof");

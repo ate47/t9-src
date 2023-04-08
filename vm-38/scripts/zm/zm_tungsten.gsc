@@ -7,7 +7,7 @@
 #using script_1cd534c7e79b126f;
 #using script_221cb3c0b91a347a;
 #using scripts\zm\ai\zm_ai_mechz.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_270a16f0a470f2a6;
 #using script_2ddf7d76494fb52;
 #using script_2f560596a9a134ab;
@@ -519,32 +519,32 @@ function function_bce9fcbe()
 		{
 			switch(str_player_zone)
 			{
-				case "hash_110a083dd7a4c73d":
-				case "hash_3a8a659340d5b7dc":
-				case "hash_7628e93652bfe982":
+				case "zone_helipads_portal_room":
+				case "zone_helipads_3":
+				case "zone_helipads":
 				{
 					var_733eb37d = 1;
 					break;
 				}
-				case "hash_56acab851acd203f":
-				case "hash_7616fa58d551f408":
+				case "zone_main_street_bridge":
+				case "zone_main_street_backlot":
 				{
 					var_733eb37d = 2;
 					break;
 				}
-				case "hash_27c27904f3b6057c":
-				case "hash_5cc30692a3a4880f":
+				case "zone_video_store_roof":
+				case "zone_anytown_usa_backlot":
 				{
 					var_733eb37d = 3;
 					break;
 				}
-				case "hash_3369039ae8e52c76":
-				case "hash_6425bc684cb99569":
+				case "zone_bunker_entrance_01":
+				case "zone_service_tunnels_03":
 				{
 					var_733eb37d = 4;
 					break;
 				}
-				case "hash_10b836f6790b4662":
+				case "zone_observation":
 				{
 					var_733eb37d = 5;
 					break;
@@ -552,7 +552,7 @@ function function_bce9fcbe()
 			}
 		}
 		self clientfield::set_to_player("" + #"hash_4cb4c776a64a6cca", var_733eb37d);
-		self waittill(#"hash_2d4daa9e80b86b60");
+		self waittill(#"zone_change");
 	}
 }
 
@@ -696,7 +696,7 @@ function function_6f6cc58(e_player)
 				}
 			}
 		}
-		if(isdefined(self.archetype) && isinarray([6:#"zombie_dog", 5:#"abom", 4:#"avogadro", 3:#"mimic", 2:#"raz", 1:#"hash_1bc8194446d4722f", 0:#"zombie"], self.archetype))
+		if(isdefined(self.archetype) && isinarray([6:#"zombie_dog", 5:#"abom", 4:#"avogadro", 3:#"mimic", 2:#"raz", 1:#"tormentor", 0:#"zombie"], self.archetype))
 		{
 			if(isplayer(e_player))
 			{
@@ -710,7 +710,7 @@ function function_6f6cc58(e_player)
 		}
 		else
 		{
-			if(isplayer(e_player) && self.archetype === #"hash_24f9e195cf2de42")
+			if(isplayer(e_player) && self.archetype === #"soa")
 			{
 				var_e2414b1b = zm_zonemgr::function_54fc7938(e_player, (isdefined(self.cached_zone_name) ? self.cached_zone_name : self));
 				if(isdefined(var_e2414b1b))
@@ -819,11 +819,11 @@ function function_ddc13fd6()
 */
 function private function_ae72b4d0(n_round)
 {
-	namespace_c3287616::function_2876740e(#"hash_1bc8194446d4722f", &function_d3687911);
-	zm_cleanup::function_cdf5a512(#"hash_1bc8194446d4722f", &function_d8461453);
-	namespace_c3287616::function_306ce518(#"hash_1bc8194446d4722f", &function_42885f70);
+	namespace_c3287616::function_2876740e(#"tormentor", &function_d3687911);
+	zm_cleanup::function_cdf5a512(#"tormentor", &function_d8461453);
+	namespace_c3287616::function_306ce518(#"tormentor", &function_42885f70);
 	level.var_97100fcf = n_round;
-	namespace_c3287616::function_cc103b38(#"hash_1bc8194446d4722f", n_round);
+	namespace_c3287616::function_cc103b38(#"tormentor", n_round);
 }
 
 /*
@@ -915,11 +915,11 @@ function private function_7ee69673(n_round)
 */
 function private function_32401229(n_round)
 {
-	namespace_c3287616::function_2876740e(#"hash_24f9e195cf2de42", &function_76a7a9ef);
-	zm_cleanup::function_cdf5a512(#"hash_24f9e195cf2de42", &function_817bfebd);
-	namespace_c3287616::function_306ce518(#"hash_24f9e195cf2de42", &function_2927859c);
+	namespace_c3287616::function_2876740e(#"soa", &function_76a7a9ef);
+	zm_cleanup::function_cdf5a512(#"soa", &function_817bfebd);
+	namespace_c3287616::function_306ce518(#"soa", &function_2927859c);
 	level.var_a1c6ba48 = n_round;
-	namespace_c3287616::function_cc103b38(#"hash_24f9e195cf2de42", n_round);
+	namespace_c3287616::function_cc103b38(#"soa", n_round);
 	level.var_194823e7 = &function_41a4961d;
 	level.var_f9bb6f24 = &function_f9bb6f24;
 }
@@ -1333,7 +1333,7 @@ function function_42885f70(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"hash_1bc8194446d4722f"))
+		if(namespace_c3287616::function_d0db51fc(#"tormentor"))
 		{
 			level.var_3bb8de45++;
 			level.var_97100fcf = level.round_number + function_21a3a673(1, 2);
@@ -1394,7 +1394,7 @@ function function_2927859c(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"hash_24f9e195cf2de42"))
+		if(namespace_c3287616::function_d0db51fc(#"soa"))
 		{
 			level.var_d8db349d++;
 			if(level.round_number <= 20)
@@ -1667,7 +1667,7 @@ function function_1d78bd02()
 	}
 	if(isdefined(var_b2aa54a9))
 	{
-		self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+		self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	}
 	return true;
 }
@@ -1697,7 +1697,7 @@ function function_1d787beb()
 	}
 	if(isentity(self) && isdefined(var_d7eff26a))
 	{
-		self namespace_e0710ee6::function_a8dc3363(var_d7eff26a);
+		self zm_ai_utility::function_a8dc3363(var_d7eff26a);
 		self thread namespace_361e505d::function_940cd1d8();
 	}
 	return true;
@@ -1736,7 +1736,7 @@ function function_817bfebd()
 				self forceteleport(self.origin, angles);
 				self thread namespace_19c99142::function_940cd1d8();
 				waitframe(1);
-				namespace_e0710ee6::function_a8dc3363({#origin:point});
+				zm_ai_utility::function_a8dc3363({#origin:point});
 				self.completed_emerging_into_playable_area = 1;
 				self.var_9817f19a = 0;
 				break;
@@ -1773,7 +1773,7 @@ function function_54993e2()
 	}
 	if(isentity(self) && isdefined(var_d7eff26a))
 	{
-		self namespace_e0710ee6::function_a8dc3363(var_d7eff26a);
+		self zm_ai_utility::function_a8dc3363(var_d7eff26a);
 		self thread zm_ai_raz::function_1f9940b8();
 	}
 	return true;
@@ -1796,7 +1796,7 @@ function function_d8461453()
 		self endon(#"death");
 		level thread namespace_abfee9ba::function_55413772(s_spawn_loc);
 		wait(1);
-		self namespace_e0710ee6::function_a8dc3363(s_spawn_loc);
+		self zm_ai_utility::function_a8dc3363(s_spawn_loc);
 		earthquake(0.5, 0.75, self.origin, 1000);
 		self.no_powerups = 1;
 		if(isdefined(s_spawn_loc.script_string))
@@ -1871,7 +1871,7 @@ function function_53555fd2()
 			level.var_4096945a = level.var_4096945a + 1;
 		}
 		level waittill(#"end_of_round");
-		namespace_be0f9d50::function_fd24f982();
+		mimic_prop_spawn::function_fd24f982();
 		if(!is_true(b_skipped))
 		{
 			level.var_4096945a = level.var_4096945a + randomintrange(2, 6);
@@ -1960,7 +1960,7 @@ function function_9f46dbde()
 		level.var_a4642f0a = level.var_a4642f0a + 1;
 		var_93bd7be9 = var_be17187b.ai_mimic;
 		var_322f4e77 = getaiarchetypearray(#"mimic");
-		var_2c062b3e = namespace_be0f9d50::function_e82cee4e();
+		var_2c062b3e = mimic_prop_spawn::function_e82cee4e();
 		var_68c93a8d = var_322f4e77.size + var_2c062b3e.size;
 		if(var_322f4e77.size < var_fdb8ea91)
 		{
@@ -1976,7 +1976,7 @@ function function_9f46dbde()
 			{
 				waitframe(1);
 			}
-			namespace_be0f9d50::function_fd24f982();
+			mimic_prop_spawn::function_fd24f982();
 		}
 	}
 }
@@ -2101,7 +2101,7 @@ function function_6b214340(var_d3329483)
 			{
 				var_ed94ce04[var_ed94ce04.size] = var_71fc1453[var_e933f1de];
 			}
-			namespace_be0f9d50::function_b309db61(var_ed94ce04, undefined, var_ed94ce04[0]);
+			mimic_prop_spawn::function_b309db61(var_ed94ce04, undefined, var_ed94ce04[0]);
 			var_e969bf8e = array::get_all_closest(var_ed94ce04[0].origin, var_71fc1453, undefined, undefined, 1200);
 			if(is_true(1))
 			{
@@ -2190,7 +2190,7 @@ function function_ecf00b5(var_fdb8ea91, var_99963ba3)
 		}
 		var_ce5c1431 = ((var_a214bc86 + var_84efce87) + var_329d5499) + var_55bdf746;
 		var_322f4e77 = getaiarchetypearray(#"mimic");
-		var_2c062b3e = namespace_be0f9d50::function_e82cee4e();
+		var_2c062b3e = mimic_prop_spawn::function_e82cee4e();
 		var_68c93a8d = var_322f4e77.size + var_2c062b3e.size;
 		if(var_322f4e77.size < var_fdb8ea91 && level.var_a4642f0a < var_99963ba3)
 		{
@@ -2222,7 +2222,7 @@ function function_8937f221(var_5ef6045b)
 		zone = zm_zonemgr::get_zone_from_position(prop.origin, 1, 1);
 		if(!isdefined(zone) || isinarray(var_5ef6045b, zone))
 		{
-			level thread namespace_be0f9d50::function_175bb809(prop);
+			level thread mimic_prop_spawn::function_175bb809(prop);
 			var_656150d9 = var_656150d9 + 1;
 		}
 	}
@@ -2288,7 +2288,7 @@ function function_5394f283()
 {
 	if(is_true(self.var_43c4bc66))
 	{
-		b_result = self zm_ai_mimic::function_dca29f5c();
+		b_result = self zm_ai_mimic::mimic_cleanup_teleport();
 	}
 	else
 	{
@@ -2321,12 +2321,12 @@ function function_ce42b67b()
 		return false;
 	}
 	var_b2aa54a9 = spawn_points[randomint(spawn_points.size)];
-	self namespace_e0710ee6::function_a8dc3363(var_b2aa54a9);
+	self zm_ai_utility::function_a8dc3363(var_b2aa54a9);
 	if(isdefined(self.var_a6fe91fd))
 	{
 		foreach(prop in self.var_a6fe91fd)
 		{
-			level thread namespace_be0f9d50::function_175bb809(prop);
+			level thread mimic_prop_spawn::function_175bb809(prop);
 		}
 		arrayremovevalue(self.var_a6fe91fd, undefined);
 	}
@@ -2588,7 +2588,7 @@ function function_46932caa(e_player, var_98696959)
 		n_damage = 10;
 	}
 	e_player dodamage(n_damage, e_player.origin);
-	var_b597becb = function_4d1e7b48(#"hash_63df7af5f4b05040");
+	var_b597becb = function_4d1e7b48(#"dot_dome_gas");
 	e_player thread status_effect::status_effect_apply(var_b597becb, undefined, e_player);
 }
 
@@ -2934,10 +2934,10 @@ function function_96aabf2f()
 			return;
 		}
 		util::waittill_can_add_debug_command();
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
-		util::function_e2e9d901("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
+		util::add_devgui("", "");
 		level flag::wait_till_all([2:"", 1:"", 0:#"intro_scene_done"]);
 		wait(2);
 		level thread function_9b92c023();
@@ -3250,7 +3250,7 @@ function function_abae9b3f(ee_name)
 			{
 				while(ee.current_step <= i)
 				{
-					ee.steps[ee.current_step] notify(#"hash_74e7dcfac985bd3e");
+					ee.steps[ee.current_step] notify(#"end_early");
 					wait(0.5);
 				}
 			}
@@ -3544,7 +3544,7 @@ function function_905781df(ee_name)
 		{
 			while(ee.current_step <= (ee.skip_to_step - 1))
 			{
-				ee.steps[ee.current_step] notify(#"hash_74e7dcfac985bd3e");
+				ee.steps[ee.current_step] notify(#"end_early");
 				wait(0.5);
 			}
 		}
@@ -3628,7 +3628,7 @@ function private function_3f795dc3(ee, step, var_5ea5c94d)
 			self endon(#"disconnect");
 		}
 		self endon(#"game_ended");
-		step endoncallback(&function_df365859, #"hash_74e7dcfac985bd3e");
+		step endoncallback(&function_df365859, #"end_early");
 		self notify(step.var_e788cdd7 + "");
 		if(isdefined(step.var_6cc77d4e))
 		{
@@ -4007,14 +4007,14 @@ function function_d4738f46()
 	array::add(var_18e0dde5, getent("vol_player_in_intermission_space", "targetname"));
 	array::add(var_18e0dde5, getent("vol_player_on_ground", "targetname"));
 	array::add(var_18e0dde5, getent("vol_player_in_bunker", "targetname"));
-	var_1d1bbd52[#"hash_32dfe21b4b983a5d"] = function_4c324227("main_street_to_helipads_end");
-	var_1d1bbd52[#"hash_3d8c7ec25b02d4f1"] = function_4c324227("anytown_usa_to_main_street_end");
-	var_1d1bbd52[#"hash_2e6796ab3a32706f"] = function_4c324227("main_street_to_anytown_usa_end");
-	var_1d1bbd52[#"hash_e90df2ca25fbd31"] = function_4c324227("anytown_usa_to_bunker_end");
-	var_1d1bbd52[#"hash_10867d96a0793a37"] = function_4c324227("helipads_to_main_street_end");
-	var_1d1bbd52[#"hash_5fc30c4b8c9bfde9"] = function_4c324227("bunker_to_observation_end");
-	var_1d1bbd52[#"hash_166fe534402b9b58"] = function_4c324227("helipads_to_observation_end");
-	var_1d1bbd52[#"hash_4f67bbef6c02e1ce"] = function_4c324227("observation_to_helipads_end");
+	var_1d1bbd52[#"main_street_to_helipads"] = function_4c324227("main_street_to_helipads_end");
+	var_1d1bbd52[#"anytown_usa_to_main_street"] = function_4c324227("anytown_usa_to_main_street_end");
+	var_1d1bbd52[#"main_street_to_anytown_usa"] = function_4c324227("main_street_to_anytown_usa_end");
+	var_1d1bbd52[#"anytown_usa_to_bunker"] = function_4c324227("anytown_usa_to_bunker_end");
+	var_1d1bbd52[#"helipads_to_main_street"] = function_4c324227("helipads_to_main_street_end");
+	var_1d1bbd52[#"bunker_to_observation"] = function_4c324227("bunker_to_observation_end");
+	var_1d1bbd52[#"helipads_to_observation"] = function_4c324227("helipads_to_observation_end");
+	var_1d1bbd52[#"observation_to_helipads"] = function_4c324227("observation_to_helipads_end");
 	while(true)
 	{
 		players = getplayers();

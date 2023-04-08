@@ -2,8 +2,8 @@
 #using script_32c8b5b0eb2854f3;
 #using script_41b18a77720c5395;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\player\player_stats.gsc;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -62,7 +62,7 @@ function private autoexec function_a87ed5da()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic
 	Checksum: 0x81C77E14
 	Offset: 0x500
@@ -70,7 +70,7 @@ function private autoexec function_a87ed5da()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic", &function_70a657d8, undefined, undefined, #"visionset_mgr");
 }
@@ -499,7 +499,7 @@ function forceend(hostsucks)
 	{
 		if(level.splitscreen)
 		{
-			endstring = #"hash_4f9682270c82e8f6";
+			endstring = #"mp/ended_game";
 		}
 		else
 		{
@@ -1096,7 +1096,7 @@ function getendreasontext()
 		{
 			return #"hash_cd63faed592da03";
 		}
-		return #"hash_4f9682270c82e8f6";
+		return #"mp/ended_game";
 	}
 	return game.strings[#"time_limit_reached"];
 }
@@ -2090,12 +2090,12 @@ function callback_startgametype()
 		game.strings[#"last_stand"] = #"hash_5732d212e4511a00";
 		game.strings[#"cowards_way"] = #"hash_268e464278a2f8ff";
 		game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
-		game.strings[#"round_draw"] = #"hash_7d3ae25e0187143e";
+		game.strings[#"round_draw"] = #"mp/round_draw";
 		game.strings[#"enemies_eliminated"] = #"mp_enemies_eliminated";
-		game.strings[#"score_limit_reached"] = #"hash_3050eee23c6a3574";
-		game.strings[#"round_limit_reached"] = #"hash_3b23cb510ab5970a";
-		game.strings[#"time_limit_reached"] = #"hash_4e2680278af76571";
-		game.strings[#"players_forfeited"] = #"hash_4b172be7ce459674";
+		game.strings[#"score_limit_reached"] = #"mp/score_limit_reached";
+		game.strings[#"round_limit_reached"] = #"mp/round_limit_reached";
+		game.strings[#"time_limit_reached"] = #"mp/time_limit_reached";
+		game.strings[#"players_forfeited"] = #"mp/players_forfeited";
 		assertteamvariables();
 		if(isdefined(level.onprecachegametype))
 		{

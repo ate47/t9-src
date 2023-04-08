@@ -23,7 +23,7 @@ function private autoexec function_7a672f8c()
 #namespace exploder;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: exploder
 	Checksum: 0x6B9380C9
 	Offset: 0x1A0
@@ -31,7 +31,7 @@ function private autoexec function_7a672f8c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"exploder", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -158,7 +158,7 @@ function private function_8ac3bea9()
 		level.createfxent = [];
 	}
 	acceptabletargetnames = [];
-	acceptabletargetnames[#"hash_7a9dcee99d931917"] = 1;
+	acceptabletargetnames[#"exploderchunk visible"] = 1;
 	acceptabletargetnames[#"exploderchunk"] = 1;
 	acceptabletargetnames[#"exploder"] = 1;
 	for(i = 0; i < script_exploders.size; i++)

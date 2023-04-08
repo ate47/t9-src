@@ -21,7 +21,7 @@ function private autoexec function_9a168a69()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_juggernaut
 	Checksum: 0xF6DE867
 	Offset: 0xF8
@@ -29,7 +29,7 @@ function private autoexec function_9a168a69()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_juggernaut", &function_70a657d8, undefined, undefined, undefined);
 }

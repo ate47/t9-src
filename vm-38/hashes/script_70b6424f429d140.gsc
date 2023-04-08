@@ -386,7 +386,7 @@ function function_3d66ebcc(tname, var_5283a254, skipto_end)
 function function_e826dfbb()
 {
 	self endon(#"death");
-	level endon(#"hash_3d5f84b922ee90fd");
+	level endon(#"heli_convoy_aslt_complete");
 	wait(1);
 	woods = undefined;
 	while(!isdefined(woods))
@@ -431,11 +431,11 @@ function function_e826dfbb()
 function function_72dfda8f()
 {
 	self endon(#"death");
-	level endon(#"hash_2bffd29cf00c7bf2");
+	level endon(#"heli_intro_complete");
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_7454dc94e59f5a04", #"hash_7b4ae294e914fd60", #"hash_7fbec71ff58f17be");
+		waitresult = level waittill(#"shake_low", #"shake_med", #"hash_7fbec71ff58f17be");
 		level.var_8f8dc88e = waitresult._notify;
 	}
 }
@@ -452,7 +452,7 @@ function function_72dfda8f()
 function function_8227f24e()
 {
 	self endon(#"death");
-	level endon(#"hash_2bffd29cf00c7bf2");
+	level endon(#"heli_intro_complete");
 	level.var_8f8dc88e = "shake_low";
 	thread function_72dfda8f();
 	while(true)
@@ -507,13 +507,13 @@ function flyin()
 function function_3cebcd1b()
 {
 	self endon(#"death");
-	level endon(#"hash_3a19b093e6195475");
-	var_979d3fe0 = [5:#"hash_40ac8a16505b8836", 4:#"hash_29314522aa49bd8", 3:#"hash_3e702e48bab5c519", 2:#"hash_745ff54e7aa6a91c", 1:#"hash_149087af12a0702e", 0:#"hash_37668f2af06099dc"];
+	level endon(#"bustout_start_shooting_house");
+	var_979d3fe0 = [5:#"heli_focus_rear_house", 4:#"heli_focus_mid_house", 3:#"hit1_truck_front", 2:#"hit1_truck_mid", 1:#"hit1_truck_house", 0:#"hit1_truck_rear"];
 	var_f01b798 = [5:"heli_focus_rear_house", 4:"heli_focus_mid_house", 3:"hit1_truck_front", 2:"hit1_truck_mid", 1:"hit1_truck_house", 0:"hit1_truck_rear"];
 	while(true)
 	{
 		ret = undefined;
-		ret = level waittill(#"hash_37668f2af06099dc", #"hash_149087af12a0702e", #"hash_745ff54e7aa6a91c", #"hash_3e702e48bab5c519", #"hash_29314522aa49bd8", #"hash_40ac8a16505b8836");
+		ret = level waittill(#"hit1_truck_rear", #"hit1_truck_house", #"hit1_truck_mid", #"hit1_truck_front", #"heli_focus_mid_house", #"heli_focus_rear_house");
 		var_87c48267 = "GetEntDislikesHashStrings";
 		for(i = 0; i < var_979d3fe0.size; i++)
 		{
@@ -933,7 +933,7 @@ function function_c6662dbb(trucks, var_d9890e08)
 */
 function function_a01817ae()
 {
-	level endon(#"hash_3f82d0fb1f127922");
+	level endon(#"intro_waittill_bustout_heli");
 	woods = undefined;
 	while(!isdefined(woods))
 	{
@@ -954,7 +954,7 @@ function function_a01817ae()
 */
 function function_ccfab96()
 {
-	level endon(#"hash_3f82d0fb1f127922");
+	level endon(#"intro_waittill_bustout_heli");
 	self endon(#"death");
 	var_a77bd386 = "c_t8_bo_hero_woods_head1";
 	var_1013bdb1 = "c_t9_usa_hero_woods_head1_igc_flag";
@@ -967,14 +967,14 @@ function function_ccfab96()
 		waitresult = self waittill([2:"head_swap_flappy", 1:"head_swap_normal", 0:"head_swap_none"]);
 		switch(waitresult._notify)
 		{
-			case "hash_55e55ee0546633f2":
+			case "head_swap_none":
 			{
 				self detach(curr);
 				curr = var_7e34c54c;
 				self attach(curr);
 				break;
 			}
-			case "hash_e26bb6dfa93ec03":
+			case "head_swap_normal":
 			{
 				var_35d2e273++;
 				if(var_35d2e273 == 1)
@@ -993,7 +993,7 @@ function function_ccfab96()
 				}
 				break;
 			}
-			case "hash_509a4cfed883f430":
+			case "head_swap_flappy":
 			{
 				if(curr != var_1013bdb1)
 				{

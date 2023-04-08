@@ -1,7 +1,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_20ac552ee498eb9d;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_35598499769dbb3d;
 #using script_35b5ff21c2a0960f;
@@ -10,7 +10,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4194df57536e11ed;
 #using script_45fdb6cec5580007;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
 #using script_57f7003580bb15e0;
@@ -76,7 +76,7 @@ function private autoexec function_c45593a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_player
 	Checksum: 0x55C8693D
 	Offset: 0x700
@@ -84,7 +84,7 @@ function private autoexec function_c45593a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_player", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -615,12 +615,12 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	{
 		if(isdefined(level.var_a2d8b7eb))
 		{
-			namespace_59ff1d6c::function_db030433();
+			zm_custom::function_db030433();
 			self zm_score::player_reduce_points("points_lost_on_hit_percent", level.var_a2d8b7eb);
 		}
 		else if(isdefined(level.var_39e18a71))
 		{
-			namespace_59ff1d6c::function_db030433();
+			zm_custom::function_db030433();
 			self zm_score::player_reduce_points("points_lost_on_hit_value", level.var_39e18a71);
 			if(zm_trial::function_b47f6aba())
 			{
@@ -1611,7 +1611,7 @@ function player_revive_monitor()
 				self zm_audio::create_and_play_dialog(#"revive", #"up");
 			}
 			points = self.score_lost_when_downed;
-			if(!isdefined(points) || self == reviver || namespace_59ff1d6c::function_901b751c(#"hash_1fed0d9afc0b0040"))
+			if(!isdefined(points) || self == reviver || zm_custom::function_901b751c(#"hash_1fed0d9afc0b0040"))
 			{
 				points = 0;
 			}
@@ -2504,12 +2504,12 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 	{
 		return 0;
 	}
-	armor = self armor::function_4f977182();
+	armor = self armor::get_armor();
 	gear_armor = self.armor;
 	self.var_426947c4 = undefined;
 	idamage = self armor::apply_damage(weapon, idamage, smeansofdeath, eattacker, shitloc);
 	idamage = self armor::function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon, shitloc);
-	var_8da1698b = armor != self armor::function_4f977182();
+	var_8da1698b = armor != self armor::get_armor();
 	if(var_8da1698b)
 	{
 		if(isdefined(self.var_fa7c46f))
@@ -2567,7 +2567,7 @@ function player_damage_override(einflictor, eattacker, idamage, idflags, smeanso
 		{
 			eattacker.var_6e9934ba = 1;
 			playfxontag(#"hash_2bc83d9e991e53ad", eattacker, "j_spine4");
-			eattacker thread namespace_e0710ee6::function_e9209002(self.origin, 2, 1, self);
+			eattacker thread zm_ai_utility::function_e9209002(self.origin, 2, 1, self);
 		}
 	}
 	finaldamage = idamage;

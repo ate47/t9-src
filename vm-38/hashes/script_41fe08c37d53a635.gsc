@@ -22,7 +22,7 @@ function private autoexec function_e747ae00()
 #namespace destructserverutils;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: destructserverutils
 	Checksum: 0x4FE7217E
 	Offset: 0x280
@@ -30,7 +30,7 @@ function private autoexec function_e747ae00()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"destructible_character", &function_70a657d8, undefined, undefined, undefined);
 }

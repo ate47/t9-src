@@ -18,7 +18,7 @@ function private autoexec function_2095051e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_543dc48f
 	Checksum: 0x148ABFF9
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_2095051e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2e174447c1bc5bd6", &function_70a657d8, undefined, undefined, #"zm_weapons");
 }

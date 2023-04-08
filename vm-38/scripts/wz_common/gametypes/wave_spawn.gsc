@@ -22,7 +22,7 @@ function private autoexec function_534fe05c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wave_spawn
 	Checksum: 0xA4C871B5
 	Offset: 0x118
@@ -30,7 +30,7 @@ function private autoexec function_534fe05c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"wave_spawn", &__init__, undefined, undefined, undefined);
 }

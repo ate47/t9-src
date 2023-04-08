@@ -1,17 +1,17 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_32399001bdb550da;
 #using script_35ae72be7b4fec10;
 #using script_35b5ff21c2a0960f;
 #using script_3626f1b2cf51a99c;
 #using script_3706d21c449d0d14;
-#using script_3f27a7b2232674db;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_role.gsc;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_48294c0de5c37487;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_57f7003580bb15e0;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using script_725554a59d6a75b9;
 #using scripts\weapons\weapons.gsc;
@@ -66,7 +66,7 @@ function private autoexec function_7407223b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_player
 	Checksum: 0xA121AF9E
 	Offset: 0xA60
@@ -74,7 +74,7 @@ function private autoexec function_7407223b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic_player", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -3463,7 +3463,7 @@ function recordactiveplayersendgamematchrecordstats()
 }
 
 /*
-	Name: function_452827de
+	Name: callback_playershielddamageblocked
 	Namespace: globallogic_player
 	Checksum: 0x4A8F0E4E
 	Offset: 0xB380
@@ -3471,7 +3471,7 @@ function recordactiveplayersendgamematchrecordstats()
 	Parameters: 1
 	Flags: Linked
 */
-function function_452827de(damage)
+function callback_playershielddamageblocked(damage)
 {
 }
 

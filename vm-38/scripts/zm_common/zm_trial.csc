@@ -23,7 +23,7 @@ function private autoexec function_124cfef1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial
 	Checksum: 0x9D098E4B
 	Offset: 0x100
@@ -31,7 +31,7 @@ function private autoexec function_124cfef1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_trial", &function_70a657d8, undefined, undefined, undefined);
 }

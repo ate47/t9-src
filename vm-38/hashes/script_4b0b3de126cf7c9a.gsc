@@ -36,7 +36,7 @@ function private autoexec function_d9a5c080()
 #namespace namespace_47a807c3;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_47a807c3
 	Checksum: 0xF6B37F7C
 	Offset: 0x138
@@ -44,7 +44,7 @@ function private autoexec function_d9a5c080()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7587f8ddd6b0d47a", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -1,4 +1,4 @@
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_545a0bac37bda541;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\abilities\ability_power.gsc;
@@ -28,7 +28,7 @@ function private autoexec function_6eff0a02()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ability_player
 	Checksum: 0x281D079A
 	Offset: 0x1B0
@@ -36,7 +36,7 @@ function private autoexec function_6eff0a02()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ability_player", &function_70a657d8, undefined, undefined, undefined);
 }

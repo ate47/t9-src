@@ -21,7 +21,7 @@ function private autoexec function_3d77c310()
 #namespace zm_trial_randomize_perks;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_randomize_perks
 	Checksum: 0xC3D448CE
 	Offset: 0x98
@@ -29,7 +29,7 @@ function private autoexec function_3d77c310()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_24dadafee669bfbe", &function_70a657d8, undefined, undefined, undefined);
 }

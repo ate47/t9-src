@@ -1,6 +1,6 @@
 #using script_1287f54612f9bfce;
 #using scripts\core_common\item_inventory.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3751b21462a54a7d;
 #using script_3ddf84b7bb3bf47d;
 #using script_7fc996fe8678852;
@@ -33,7 +33,7 @@ function private autoexec function_7c264d43()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_c71c7ca5
 	Checksum: 0x35821C27
 	Offset: 0x1B8
@@ -41,7 +41,7 @@ function private autoexec function_7c264d43()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_59fd15f8f403c8b", &function_70a657d8, &function_8ac3bea9, undefined, #"hash_f81b9dea74f0ee");
 }

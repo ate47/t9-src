@@ -1,7 +1,7 @@
 #using script_2c49ae69cd8ce30c;
 #using script_3fda550bc6e1089a;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -29,7 +29,7 @@ function private autoexec function_9adb801()
 #namespace helicopter;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: helicopter
 	Checksum: 0x1E5C1A04
 	Offset: 0x158
@@ -37,7 +37,7 @@ function private autoexec function_9adb801()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"helicopter_guard", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

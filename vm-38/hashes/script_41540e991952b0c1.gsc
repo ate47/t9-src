@@ -54,7 +54,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_horizontal_alignment(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "horizontal_alignment", value);
+		[[ self ]]->set_data(localclientnum, "horizontal_alignment", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_green(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "green", value);
+		[[ self ]]->set_data(localclientnum, "green", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_fadeOverTime(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", value);
+		[[ self ]]->set_data(localclientnum, "fadeOverTime", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_height(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "height", value);
+		[[ self ]]->set_data(localclientnum, "height", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_blue(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "blue", value);
+		[[ self ]]->set_data(localclientnum, "blue", value);
 	}
 
 	/*
@@ -163,7 +163,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_y(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "y", value);
+		[[ self ]]->set_data(localclientnum, "y", value);
 	}
 
 	/*
@@ -177,7 +177,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_alpha(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", value);
+		[[ self ]]->set_data(localclientnum, "alpha", value);
 	}
 
 	/*
@@ -191,7 +191,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_scale(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "scale", value);
+		[[ self ]]->set_data(localclientnum, "scale", value);
 	}
 
 	/*
@@ -205,7 +205,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_x(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "x", value);
+		[[ self ]]->set_data(localclientnum, "x", value);
 	}
 
 	/*
@@ -219,7 +219,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", value);
+		[[ self ]]->set_data(localclientnum, "text", value);
 	}
 
 	/*
@@ -233,7 +233,7 @@ class class_1bec696c : cLUIelem
 	*/
 	function set_red(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "red", value);
+		[[ self ]]->set_data(localclientnum, "red", value);
 	}
 
 	/*
@@ -248,17 +248,17 @@ class class_1bec696c : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "x", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "y", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "height", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeOverTime", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "alpha", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "red", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "green", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "blue", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "horizontal_alignment", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "scale", 0);
+		[[ self ]]->set_data(localclientnum, "x", 0);
+		[[ self ]]->set_data(localclientnum, "y", 0);
+		[[ self ]]->set_data(localclientnum, "height", 0);
+		[[ self ]]->set_data(localclientnum, "fadeOverTime", 0);
+		[[ self ]]->set_data(localclientnum, "alpha", 0);
+		[[ self ]]->set_data(localclientnum, "red", 0);
+		[[ self ]]->set_data(localclientnum, "green", 0);
+		[[ self ]]->set_data(localclientnum, "blue", 0);
+		[[ self ]]->set_data(localclientnum, "text", #"");
+		[[ self ]]->set_data(localclientnum, "horizontal_alignment", 0);
+		[[ self ]]->set_data(localclientnum, "scale", 0);
 	}
 
 }

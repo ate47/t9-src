@@ -72,7 +72,7 @@ function function_9469a0c4()
 	level flag::wait_till(#"intro_scene_done");
 	wait(1);
 	level zm_vo::function_7622cb70(array::random([3:#"hash_6de3a2c3b8452ea", 2:#"hash_6de352c3b844a6b", 1:#"hash_6de342c3b8448b8", 0:#"hash_6de372c3b844dd1"]));
-	level flag::set(#"hash_4ae6b839df55ee2a");
+	level flag::set(#"match_start_vo_done");
 }
 
 /*
@@ -609,7 +609,7 @@ function function_d137d6a0(var_e0c6386f, var_40feefce, var_c4ad7aa9)
 	level endon(#"end_game");
 	switch(level.var_114b6e35)
 	{
-		case "hash_583a7c6fc0d127b0":
+		case "strauss":
 		{
 			self zm_vo::function_7622cb70(var_e0c6386f);
 			break;

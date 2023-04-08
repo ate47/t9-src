@@ -23,7 +23,7 @@ function private autoexec function_2639dda1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_crafting
 	Checksum: 0xD01C0F89
 	Offset: 0xE8
@@ -31,7 +31,7 @@ function private autoexec function_2639dda1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_crafting", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

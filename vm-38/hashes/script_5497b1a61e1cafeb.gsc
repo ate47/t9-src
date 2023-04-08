@@ -18,7 +18,7 @@ function private autoexec function_aca0e7b1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: high_value_target
 	Checksum: 0xCFF4FF14
 	Offset: 0xC0
@@ -26,7 +26,7 @@ function private autoexec function_aca0e7b1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"high_value_target", &function_70a657d8, undefined, undefined, undefined);
 }

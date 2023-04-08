@@ -9,11 +9,11 @@
 #using scripts\zm_common\zm_equipment.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_8652b0d1;
+#namespace ammomod_shatterblast;
 
 /*
 	Name: function_85e602e4
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xF1026ACC
 	Offset: 0x318
 	Size: 0x14
@@ -27,7 +27,7 @@ function private autoexec function_85e602e4()
 
 /*
 	Name: function_4e14a881
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xAADC7E77
 	Offset: 0x338
 	Size: 0x304
@@ -55,7 +55,7 @@ function function_4e14a881()
 
 /*
 	Name: function_93e5316a
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xD7DFFBCE
 	Offset: 0x648
 	Size: 0xCC
@@ -66,33 +66,33 @@ function private function_93e5316a(aat_name)
 {
 	switch(aat_name)
 	{
-		case "hash_a182150036cabd3":
+		case "ammomod_shatterblast":
 		default:
 		{
 			return 0;
 			break;
 		}
-		case "hash_150508b33f9c83ef":
+		case "ammomod_shatterblast_1":
 		{
 			return 1;
 			break;
 		}
-		case "hash_150509b33f9c85a2":
+		case "ammomod_shatterblast_2":
 		{
 			return 2;
 			break;
 		}
-		case "hash_15050ab33f9c8755":
+		case "ammomod_shatterblast_3":
 		{
 			return 3;
 			break;
 		}
-		case "hash_150503b33f9c7b70":
+		case "ammomod_shatterblast_4":
 		{
 			return 4;
 			break;
 		}
-		case "hash_150504b33f9c7d23":
+		case "ammomod_shatterblast_5":
 		{
 			return 5;
 			break;
@@ -103,7 +103,7 @@ function private function_93e5316a(aat_name)
 
 /*
 	Name: result
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xE8DBB26B
 	Offset: 0x720
 	Size: 0x1DC
@@ -146,7 +146,7 @@ function result(death, attacker, mod, weapon, var_fd90b0bb, vpoint, shitloc, bon
 
 /*
 	Name: function_2f3ba0ef
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xEBAAFF96
 	Offset: 0x908
 	Size: 0xEA
@@ -165,7 +165,7 @@ function function_2f3ba0ef(center)
 
 /*
 	Name: function_eb81be7e
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xD69D575B
 	Offset: 0xA00
 	Size: 0x322
@@ -205,7 +205,7 @@ function function_eb81be7e(attacker, weapon, shitloc, vpoint)
 
 /*
 	Name: function_a97aaed0
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0x9A6B5DAE
 	Offset: 0xD30
 	Size: 0xB4
@@ -223,7 +223,7 @@ function function_a97aaed0(attacker, weapon, shitloc, point)
 
 /*
 	Name: function_945cac2d
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0x78857530
 	Offset: 0xDF0
 	Size: 0x17C
@@ -249,7 +249,7 @@ function function_945cac2d(damage, attacker, weapon, shitloc)
 
 /*
 	Name: function_aa443b97
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0x36C0168E
 	Offset: 0xF78
 	Size: 0x3E0
@@ -332,7 +332,7 @@ function function_aa443b97(attacker, weapon, shitloc, vpoint, tier, extra)
 
 /*
 	Name: function_ddd30474
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xF4F21271
 	Offset: 0x1360
 	Size: 0x144
@@ -371,7 +371,7 @@ function function_ddd30474(attacker, weapon, vpoint, shitloc, tier)
 
 /*
 	Name: function_9465e5f8
-	Namespace: namespace_8652b0d1
+	Namespace: ammomod_shatterblast
 	Checksum: 0xF2986E02
 	Offset: 0x14B0
 	Size: 0xC2

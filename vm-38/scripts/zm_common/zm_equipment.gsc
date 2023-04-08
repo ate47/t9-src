@@ -36,7 +36,7 @@ function private autoexec function_c1cabab7()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_equipment
 	Checksum: 0x735FEF29
 	Offset: 0x210
@@ -44,7 +44,7 @@ function private autoexec function_c1cabab7()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_equipment", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -134,7 +134,7 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		var_61b8f8fb = "";
 		add_cmd_with_root = (("" + var_61b8f8fb) + pname) + "";
 		a_abilities = [];
-		arrayinsert(a_abilities, getweapon(#"hash_34b7eb9fde56bd35"), 0);
+		arrayinsert(a_abilities, getweapon(#"eq_frag_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"incendiary_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"sticky_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"proximity_grenade"), 0);
@@ -162,9 +162,9 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv3"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35e4cfb775e02"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35d4cfb775c4f"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35c4cfb775a9c"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv3"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv3"), 0);
@@ -174,9 +174,9 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_hammer_lv3"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35e4cfb775e02"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35d4cfb775c4f"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_50f35c4cfb775a9c"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_scepter_lv3"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv3"), 0);

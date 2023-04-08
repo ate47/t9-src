@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\death_circle.gsc;
 
 #namespace util;

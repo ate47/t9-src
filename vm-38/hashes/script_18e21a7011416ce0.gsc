@@ -145,7 +145,7 @@ function function_8853dd01()
 {
 	self.var_c65fa63f = util::spawn_model("p9_zm_ndu_cassette_gold", self.origin, self.angles);
 	var_64c09f7f = self zm_unitrigger::function_fac87205(undefined, 75);
-	var_64c09f7f playrumbleonentity(#"hash_410bd55524ae7d");
+	var_64c09f7f playrumbleonentity(#"zm_interact_rumble");
 	self.var_c65fa63f playsound("evt_sq_cassette_pickup");
 	level notify(#"hash_5f146847260b1b46");
 	waitframe(1);

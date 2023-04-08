@@ -84,7 +84,7 @@ class czm_game_over : cLUIelem
 	*/
 	function set_rounds(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "rounds", value);
+		[[ self ]]->set_data(localclientnum, "rounds", value);
 	}
 
 	/*
@@ -100,19 +100,19 @@ class czm_game_over : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"hash_4677c7e6d02d1a65" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"hash_5f1b73095bbb3a7a" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
@@ -139,7 +139,7 @@ class czm_game_over : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "rounds", 0);
+		[[ self ]]->set_data(localclientnum, "rounds", 0);
 	}
 
 }

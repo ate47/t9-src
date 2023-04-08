@@ -24,7 +24,7 @@ function private autoexec function_a63717d4()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_96850e69
 	Checksum: 0x15E9ED35
 	Offset: 0x380
@@ -32,7 +32,7 @@ function private autoexec function_a63717d4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3ee5d3ee068a8cc", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -102,7 +102,7 @@ function function_49ebaad2()
 		timeout = 5;
 		notify_str = "show_objectives";
 		player thread function_d18e2e61(timeout, notify_str);
-		player thread namespace_fe8e9929::function_4c2d4fc4(#"hash_30ae598288c72637", undefined, undefined, undefined, 2, timeout, notify_str, 0);
+		player thread hint_tutorial::function_4c2d4fc4(#"hash_30ae598288c72637", undefined, undefined, undefined, 2, timeout, notify_str, 0);
 	}
 }
 

@@ -32,7 +32,7 @@ function private autoexec function_eeddde75()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_bf2d4e77
 	Checksum: 0x2829A3D7
 	Offset: 0x198
@@ -40,7 +40,7 @@ function private autoexec function_eeddde75()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6be63b3e08b5ceb9", &function_70a657d8, undefined, undefined, #"hash_13a43d760497b54d");
 }

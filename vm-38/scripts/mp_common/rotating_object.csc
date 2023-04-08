@@ -20,7 +20,7 @@ function private autoexec function_24635049()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: rotating_object
 	Checksum: 0xD418C766
 	Offset: 0xC8
@@ -28,7 +28,7 @@ function private autoexec function_24635049()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"rotating_object", &function_70a657d8, undefined, undefined, undefined);
 }

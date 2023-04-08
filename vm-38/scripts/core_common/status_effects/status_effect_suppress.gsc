@@ -20,7 +20,7 @@ function private autoexec function_3c512d0e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_suppress
 	Checksum: 0x7C0783BC
 	Offset: 0xD8
@@ -28,9 +28,9 @@ function private autoexec function_3c512d0e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_53e2d15cdf3290ad", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"status_effect_suppress", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
@@ -44,7 +44,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	status_effect::register_status_effect_callback_apply(4, &function_524564d9);
+	status_effect::register_status_effect_callback_apply(4, &suppress_apply);
 	status_effect::function_5bae5120(4, &registersamanthas_bundle);
 	status_effect::function_6f4eaf88(function_4d1e7b48("suppress"));
 	serverfield::register("status_effect_suppress_field", 1, 5, "int", &function_aa232314);
@@ -52,7 +52,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_524564d9
+	Name: suppress_apply
 	Namespace: status_effect_suppress
 	Checksum: 0x66F0FC7F
 	Offset: 0x1F0
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 3
 	Flags: Linked
 */
-function function_524564d9(var_756fda07, weapon, var_84171a6c)
+function suppress_apply(var_756fda07, weapon, var_84171a6c)
 {
 }
 

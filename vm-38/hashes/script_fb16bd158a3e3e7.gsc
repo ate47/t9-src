@@ -30,7 +30,7 @@ function private autoexec function_c4538a74()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_6b49f66b
 	Checksum: 0x18098DFC
 	Offset: 0x408
@@ -38,7 +38,7 @@ function private autoexec function_c4538a74()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1848c770303c538f", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -258,7 +258,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 	{
 		case "equipment":
 		{
-			var_e7beaa5 = array(#"eq_acid_bomb", #"hash_246c869c9de45f07", #"homunculus", #"tomahawk_t8", #"tomahawk_t8_upgraded", #"claymore", #"hash_4a5efaceb780ecb0", #"eq_molotov", #"hash_308049a67e5afecf", #"hash_34b7eb9fde56bd35", #"hash_244eb1a096b12734", #"hash_c78156ba6aeda14", #"hash_6cb687e3f8c569fd", #"mini_turret", #"proximity_grenade", #"sticky_grenade", #"hash_187a9aad6da705c6");
+			var_e7beaa5 = array(#"eq_acid_bomb", #"eq_acid_bomb_extra", #"homunculus", #"tomahawk_t8", #"tomahawk_t8_upgraded", #"claymore", #"claymore_extra", #"eq_molotov", #"eq_molotov_extra", #"eq_frag_grenade", #"eq_frag_grenade_extra", #"eq_wraith_fire", #"eq_wraith_fire_extra", #"mini_turret", #"proximity_grenade", #"sticky_grenade", #"sticky_grenade_extra");
 			level zm_trial::function_8e2a923(1);
 			level zm_trial::function_44200d07(1);
 			break;
@@ -373,7 +373,7 @@ function private on_begin(var_e097dc07, var_f5300808)
 		}
 		case "special":
 		{
-			var_e7beaa5 = array(#"hero_chakram_lv1", #"hero_chakram_lv2", #"hero_chakram_lv3", #"hash_68705e3b85992a56", #"hash_68705d3b859928a3", #"hash_68705c3b859926f0", #"hero_hammer_lv1", #"hero_hammer_lv2", #"hero_hammer_lv3", #"hash_50f35e4cfb775e02", #"hash_50f35d4cfb775c4f", #"hash_50f35c4cfb775a9c", #"hero_sword_pistol_lv1", #"hero_sword_pistol_lv2", #"hero_sword_pistol_lv3", #"hash_65e48a2e69e81a5e", #"hash_65e4892e69e818ab", #"hash_65e4882e69e816f8", #"hash_18829d56b3fbd75b", #"hash_18829e56b3fbd90e", #"hash_18829f56b3fbdac1", #"hash_1d3a5509fa2c9ee6", #"hash_1d3a5409fa2c9d33", #"hash_1d3a5309fa2c9b80", #"hash_6627879099b8a337", #"hash_6627889099b8a4ea", #"hash_6627899099b8a69d", #"hash_74dd67dd8a46d144", #"hash_74dd6add8a46d65d", #"hash_74dd69dd8a46d4aa");
+			var_e7beaa5 = array(#"hero_chakram_lv1", #"hero_chakram_lv2", #"hero_chakram_lv3", #"hash_68705e3b85992a56", #"hash_68705d3b859928a3", #"hash_68705c3b859926f0", #"hero_hammer_lv1", #"hero_hammer_lv2", #"hero_hammer_lv3", #"hero_scepter_lv1", #"hero_scepter_lv2", #"hero_scepter_lv3", #"hero_sword_pistol_lv1", #"hero_sword_pistol_lv2", #"hero_sword_pistol_lv3", #"hash_65e48a2e69e81a5e", #"hash_65e4892e69e818ab", #"hash_65e4882e69e816f8", #"hash_18829d56b3fbd75b", #"hash_18829e56b3fbd90e", #"hash_18829f56b3fbdac1", #"hash_1d3a5509fa2c9ee6", #"hash_1d3a5409fa2c9d33", #"hash_1d3a5309fa2c9b80", #"hash_6627879099b8a337", #"hash_6627889099b8a4ea", #"hash_6627899099b8a69d", #"hash_74dd67dd8a46d144", #"hash_74dd6add8a46d65d", #"hash_74dd69dd8a46d4aa");
 			level.var_869ea5a = 1;
 			level zm_trial::function_cdcce681(1);
 			break;

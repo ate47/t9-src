@@ -416,12 +416,12 @@ function set_stealth_state(msg)
 			num = 3;
 			break;
 		}
-		case "hash_4ce137dcec0f527":
+		case "warning2":
 		{
 			num = 2;
 			break;
 		}
-		case "hash_4ce147dcec0f6da":
+		case "warning1":
 		{
 			num = 1;
 			break;
@@ -465,16 +465,16 @@ function alertlevel_init_map()
 	level.stealth.alert_levels_exe = [];
 	level.stealth.alert_levels_exe[#"normal"] = "noncombat";
 	level.stealth.alert_levels_exe[#"reset"] = "noncombat";
-	level.stealth.alert_levels_exe[#"hash_4ce147dcec0f6da"] = "low_alert";
-	level.stealth.alert_levels_exe[#"hash_4ce137dcec0f527"] = "high_alert";
-	level.stealth.alert_levels_exe[#"hash_4b55a59a56c4bdb3"] = "high_alert";
+	level.stealth.alert_levels_exe[#"warning1"] = "low_alert";
+	level.stealth.alert_levels_exe[#"warning2"] = "high_alert";
+	level.stealth.alert_levels_exe[#"combat_hunt"] = "high_alert";
 	level.stealth.alert_levels_exe[#"attack"] = "combat";
 	level.stealth.alert_levels_int = [];
 	level.stealth.alert_levels_int[#"normal"] = 0;
 	level.stealth.alert_levels_int[#"reset"] = 0;
-	level.stealth.alert_levels_int[#"hash_4ce147dcec0f6da"] = 2;
-	level.stealth.alert_levels_int[#"hash_4ce137dcec0f527"] = 3;
-	level.stealth.alert_levels_int[#"hash_4b55a59a56c4bdb3"] = 3;
+	level.stealth.alert_levels_int[#"warning1"] = 2;
+	level.stealth.alert_levels_int[#"warning2"] = 3;
+	level.stealth.alert_levels_int[#"combat_hunt"] = 3;
 	level.stealth.alert_levels_int[#"attack"] = 4;
 	level.stealth.alert_levels_exe[#"combat"] = 4;
 }
@@ -705,7 +705,7 @@ function get_patrol_react_magnitude_int(style)
 		{
 			return 0;
 		}
-		case "hash_6f2cd675c44382f2":
+		case "small_medium":
 		{
 			return 1;
 		}

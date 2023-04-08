@@ -32,7 +32,7 @@ event main(eventstruct)
 {
 	clientfield::register("scriptmover", "" + #"portal", 1, 1, "int", &portal_fx, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_2a7da9a87ecef87b", 1, 1, "int", &function_36ab0d37, 0, 0);
-	clientfield::register("scriptmover", "" + #"hash_7bfe2b6c24b46951", 1, 2, "int", &function_5884461e, 0, 0);
+	clientfield::register("scriptmover", "" + #"payload_teleport", 1, 2, "int", &function_5884461e, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_19f93b2cb70ea2c5", 1, 1, "int", &function_fa7a206b, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_75190371f51baf5f", 1, 1, "counter", &function_96636479, 0, 0);
 	clientfield::register("vehicle", "" + #"hash_85dd1e407a282d9", 1, 1, "int", &function_691412b4, 0, 0);

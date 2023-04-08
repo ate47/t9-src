@@ -100,12 +100,12 @@ event main(eventstruct)
 			namespace_4abf1500::function_88645994(#"hash_6790ae0ea3c52d8c");
 			break;
 		}
-		case "hash_3a966c557b53e20f":
+		case "mp_kgb":
 		{
 			namespace_4abf1500::function_88645994(#"hash_5a35a409d65a7e81");
 			break;
 		}
-		case "hash_2eca735470e3388":
+		case "mp_miami":
 		{
 			namespace_4abf1500::function_88645994(#"hash_209ee9b80067b5c");
 			break;
@@ -115,22 +115,22 @@ event main(eventstruct)
 			namespace_4abf1500::function_88645994(#"hash_50d0118921ca50a5");
 			break;
 		}
-		case "hash_c6580c35ed9c32a":
+		case "mp_satellite":
 		{
 			namespace_4abf1500::function_88645994(#"hash_f4157e3a1c0c52a");
 			break;
 		}
-		case "hash_7474af58449590c9":
+		case "mp_tank":
 		{
 			namespace_4abf1500::function_88645994(#"hash_5330fc8ca7227001");
 			break;
 		}
-		case "hash_7665a0b476d1b735":
+		case "mp_tundra":
 		{
 			namespace_4abf1500::function_88645994(#"hash_7c7054127b6e76b9");
 			break;
 		}
-		case "hash_31affcfbb0fe663e":
+		case "mp_nuketown6":
 		{
 			namespace_4abf1500::function_88645994(#"hash_3f094f7b8f46b9ae");
 			break;
@@ -140,17 +140,17 @@ event main(eventstruct)
 			namespace_4abf1500::function_88645994(#"hash_148c26e54db1d539");
 			break;
 		}
-		case "hash_18edc1d1daaffe9f":
+		case "mp_raid_rm":
 		{
 			namespace_4abf1500::function_88645994(#"hash_570a2611b84f56ee");
 			break;
 		}
-		case "hash_1fca690ac41525d1":
+		case "mp_express_rm":
 		{
 			namespace_4abf1500::function_88645994(#"hash_3968fe6c0ca3893d");
 			break;
 		}
-		case "hash_758faaadf8ad2a42":
+		case "mp_apocalypse":
 		{
 			namespace_4abf1500::function_88645994(#"hash_2688635b9d6922e8");
 			break;
@@ -160,9 +160,9 @@ event main(eventstruct)
 			break;
 		}
 	}
-	level.var_374c2805 = 1;
+	level.onslaught_game = 1;
 	level.aat_in_use = 1;
-	level.var_ae22a03 = [11:#"hash_1fca690ac41525d1", 10:#"hash_758faaadf8ad2a42", 9:#"hash_3aabbe0c0bb97a9b", 8:#"hash_18edc1d1daaffe9f", 7:#"hash_31affcfbb0fe663e", 6:#"hash_7665a0b476d1b735", 5:#"hash_7474af58449590c9", 4:#"hash_c6580c35ed9c32a", 3:#"mp_moscow", 2:#"hash_2eca735470e3388", 1:#"hash_3a966c557b53e20f", 0:#"mp_cartel"];
+	level.var_ae22a03 = [11:#"mp_express_rm", 10:#"mp_apocalypse", 9:#"hash_3aabbe0c0bb97a9b", 8:#"mp_raid_rm", 7:#"mp_nuketown6", 6:#"mp_tundra", 5:#"mp_tank", 4:#"mp_satellite", 3:#"mp_moscow", 2:#"mp_miami", 1:#"mp_kgb", 0:#"mp_cartel"];
 	level.resurrect_override_spawn = &overridespawn;
 	callback::on_bleedout(&on_bleedout);
 	level.var_bde3d03 = &function_37d98bb7;
@@ -225,7 +225,7 @@ function function_8f3357bd()
 */
 function autoexec function_31a760fa()
 {
-	if(util::get_map_name() === #"hash_7665a0b476d1b735")
+	if(util::get_map_name() === #"mp_tundra")
 	{
 		setgametypesetting(#"hash_3a15393c2e90e121", 1);
 	}
@@ -505,7 +505,7 @@ function overridespawn(ispredictedspawn)
 	}
 	var_273a84a9[var_273a84a9.size] = "ctf";
 	var_8fb1964e = function_d400d613(#"mp_spawn_point", var_273a84a9);
-	if(util::get_map_name() === #"hash_7665a0b476d1b735")
+	if(util::get_map_name() === #"mp_tundra")
 	{
 		var_7e51d277 = randomint(5);
 		switch(var_7e51d277)
@@ -517,27 +517,27 @@ function overridespawn(ispredictedspawn)
 			}
 			case 1:
 			{
-				spawns = var_8fb1964e[#"hash_7c27c07f3b2d8f87"];
+				spawns = var_8fb1964e[#"war_zone_0"];
 				break;
 			}
 			case 2:
 			{
-				spawns = var_8fb1964e[#"hash_7c27bf7f3b2d8dd4"];
+				spawns = var_8fb1964e[#"war_zone_1"];
 				break;
 			}
 			case 3:
 			{
-				spawns = var_8fb1964e[#"hash_7c27c27f3b2d92ed"];
+				spawns = var_8fb1964e[#"war_zone_2"];
 				break;
 			}
 			case 4:
 			{
-				spawns = var_8fb1964e[#"hash_7c27c17f3b2d913a"];
+				spawns = var_8fb1964e[#"war_zone_3"];
 				break;
 			}
 			case 5:
 			{
-				spawns = var_8fb1964e[#"hash_7c27bc7f3b2d88bb"];
+				spawns = var_8fb1964e[#"war_zone_4"];
 				break;
 			}
 		}
@@ -829,12 +829,12 @@ function function_e88957df(var_a0168ed5)
 					self zm_stats::increment_challenge_stat(#"hash_768a330ec53898c9", undefined, 1);
 					break;
 				}
-				case "hash_3a966c557b53e20f":
+				case "mp_kgb":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_2adda7cd2b43ffaa", undefined, 1);
 					break;
 				}
-				case "hash_2eca735470e3388":
+				case "mp_miami":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_77fdc1340a34667d", undefined, 1);
 					break;
@@ -844,22 +844,22 @@ function function_e88957df(var_a0168ed5)
 					self zm_stats::increment_challenge_stat(#"hash_6dee1f7a2cf24f0a", undefined, 1);
 					break;
 				}
-				case "hash_c6580c35ed9c32a":
+				case "mp_satellite":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_174eca25428cfdd3", undefined, 1);
 					break;
 				}
-				case "hash_7474af58449590c9":
+				case "mp_tank":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_66ee2888bd7ddb12", undefined, 1);
 					break;
 				}
-				case "hash_7665a0b476d1b735":
+				case "mp_tundra":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_3aecbf73ceecadaa", undefined, 1);
 					break;
 				}
-				case "hash_31affcfbb0fe663e":
+				case "mp_nuketown6":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_39310ccdb302c15b", undefined, 1);
 					break;
@@ -869,17 +869,17 @@ function function_e88957df(var_a0168ed5)
 					self zm_stats::increment_challenge_stat(#"hash_49d075d62f45e274", undefined, 1);
 					break;
 				}
-				case "hash_18edc1d1daaffe9f":
+				case "mp_raid_rm":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_7b7db9592bf8ce56", undefined, 1);
 					break;
 				}
-				case "hash_1fca690ac41525d1":
+				case "mp_express_rm":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_7d8ee900ddefa146", undefined, 1);
 					break;
 				}
-				case "hash_758faaadf8ad2a42":
+				case "mp_apocalypse":
 				{
 					self zm_stats::increment_challenge_stat(#"hash_666f9063a85fcd9", undefined, 1);
 					break;
@@ -916,12 +916,12 @@ function function_e88957df(var_a0168ed5)
 						self zm_stats::increment_challenge_stat(#"hash_e7080a2e314b310", undefined, 1);
 						break;
 					}
-					case "hash_3a966c557b53e20f":
+					case "mp_kgb":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_1404f61a3c181b21", undefined, 1);
 						break;
 					}
-					case "hash_2eca735470e3388":
+					case "mp_miami":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_78912627d043be", undefined, 1);
 						break;
@@ -931,22 +931,22 @@ function function_e88957df(var_a0168ed5)
 						self zm_stats::increment_challenge_stat(#"hash_5e2d0a6005f8bb7f", undefined, 1);
 						break;
 					}
-					case "hash_c6580c35ed9c32a":
+					case "mp_satellite":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_37ff3a21d194b40c", undefined, 1);
 						break;
 					}
-					case "hash_7474af58449590c9":
+					case "mp_tank":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_7e1412cacb1d2d6b", undefined, 1);
 						break;
 					}
-					case "hash_7665a0b476d1b735":
+					case "mp_tundra":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_149f5861932281df", undefined, 1);
 						break;
 					}
-					case "hash_31affcfbb0fe663e":
+					case "mp_nuketown6":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_1328a9a4fc66d61a", undefined, 1);
 						break;
@@ -956,17 +956,17 @@ function function_e88957df(var_a0168ed5)
 						self zm_stats::increment_challenge_stat(#"hash_6cde4583797a1e4d", undefined, 1);
 						break;
 					}
-					case "hash_18edc1d1daaffe9f":
+					case "mp_raid_rm":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_677d29dcb0c038a7", undefined, 1);
 						break;
 					}
-					case "hash_1fca690ac41525d1":
+					case "mp_express_rm":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_4f8679e10c170ac9", undefined, 1);
 						break;
 					}
-					case "hash_758faaadf8ad2a42":
+					case "mp_apocalypse":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_61b15880248761c8", undefined, 1);
 						break;
@@ -1007,12 +1007,12 @@ function function_e88957df(var_a0168ed5)
 						self zm_stats::increment_challenge_stat(#"hash_43c2b3a0dfc9bab3", undefined, 1);
 						break;
 					}
-					case "hash_3a966c557b53e20f":
+					case "mp_kgb":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_5014636a724f5c14", undefined, 1);
 						break;
 					}
-					case "hash_2eca735470e3388":
+					case "mp_miami":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_15a7d102d2edb893", undefined, 1);
 						break;
@@ -1022,22 +1022,22 @@ function function_e88957df(var_a0168ed5)
 						self zm_stats::increment_challenge_stat(#"hash_567e99c4a5fb9fc8", undefined, 1);
 						break;
 					}
-					case "hash_c6580c35ed9c32a":
+					case "mp_satellite":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_40199f1bfb79141d", undefined, 1);
 						break;
 					}
-					case "hash_7474af58449590c9":
+					case "mp_tank":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_525fc5df1c43afe4", undefined, 1);
 						break;
 					}
-					case "hash_7665a0b476d1b735":
+					case "mp_tundra":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_4fb345ddd49a654c", undefined, 1);
 						break;
 					}
-					case "hash_31affcfbb0fe663e":
+					case "mp_nuketown6":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_17c6d5faa49457e1", undefined, 1);
 						break;
@@ -1047,17 +1047,17 @@ function function_e88957df(var_a0168ed5)
 						self zm_stats::increment_challenge_stat(#"hash_80f17b0b548e17e", undefined, 1);
 						break;
 					}
-					case "hash_18edc1d1daaffe9f":
+					case "mp_raid_rm":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_65ed7b0fe5ddfe4c", undefined, 1);
 						break;
 					}
-					case "hash_1fca690ac41525d1":
+					case "mp_express_rm":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_54df583b05e784c0", undefined, 1);
 						break;
 					}
-					case "hash_758faaadf8ad2a42":
+					case "mp_apocalypse":
 					{
 						self zm_stats::increment_challenge_stat(#"hash_1ada6297a317cb2f", undefined, 1);
 						break;
@@ -1147,29 +1147,29 @@ function function_82ca1565(spawnpoint, gametype)
 			return is_true(spawnpoint.war);
 			break;
 		}
-		case "hash_7c27c07f3b2d8f87":
+		case "war_zone_0":
 		{
-			return is_true(spawnpoint.var_17478ac6);
+			return is_true(spawnpoint.war_zone_0);
 			break;
 		}
-		case "hash_7c27bf7f3b2d8dd4":
+		case "war_zone_1":
 		{
-			return is_true(spawnpoint.var_607b9d2d);
+			return is_true(spawnpoint.war_zone_1);
 			break;
 		}
-		case "hash_7c27c27f3b2d92ed":
+		case "war_zone_2":
 		{
-			return is_true(spawnpoint.var_32b3419d);
+			return is_true(spawnpoint.war_zone_2);
 			break;
 		}
-		case "hash_7c27c17f3b2d913a":
+		case "war_zone_3":
 		{
-			return is_true(spawnpoint.var_7bf05416);
+			return is_true(spawnpoint.war_zone_3);
 			break;
 		}
-		case "hash_7c27bc7f3b2d88bb":
+		case "war_zone_4":
 		{
-			return is_true(spawnpoint.var_8e33789c);
+			return is_true(spawnpoint.war_zone_4);
 			break;
 		}
 		case "hash_35b3b60f0a291417":

@@ -48,7 +48,7 @@ function private autoexec function_37990c2f()
 #namespace bgb_pack;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bgb_pack
 	Checksum: 0x3CB6201B
 	Offset: 0x1F0
@@ -56,7 +56,7 @@ function private autoexec function_37990c2f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bgb_pack", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -809,7 +809,7 @@ function global_cooldown(n_index)
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
-	switch(namespace_59ff1d6c::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
+	switch(zm_custom::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
 	{
 		case 1:
 		default:
@@ -964,7 +964,7 @@ function function_87ad6161(n_index)
 			}
 		}
 	}
-	switch(namespace_59ff1d6c::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
+	switch(zm_custom::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
 	{
 		case 1:
 		default:

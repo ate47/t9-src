@@ -33,7 +33,7 @@ function private autoexec function_fb327b2b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_e1cd3aae
 	Checksum: 0x4AB3EC91
 	Offset: 0x4E8
@@ -41,7 +41,7 @@ function private autoexec function_fb327b2b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_63ef0cf11243d45a", &function_70a657d8, undefined, undefined, #"hash_7ee44bf733d7a7ac");
 }

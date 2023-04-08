@@ -29,7 +29,7 @@ function private autoexec function_90bae423()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_394b7174
 	Checksum: 0xA3E4FB00
 	Offset: 0x3B0
@@ -37,7 +37,7 @@ function private autoexec function_90bae423()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_76fcf333cf2abd11", &__init__, undefined, &function_4df027f2, undefined);
 }
@@ -275,7 +275,7 @@ function function_43c21e81(entity)
 	entity setblackboardattribute("_locomotion_speed", "locomotion_speed_run");
 	entity.maxsightdistsqrd = sqr(3000);
 	entity.var_972b23bb = 1;
-	namespace_e0710ee6::function_4d22f6d1(entity);
+	zm_ai_utility::function_4d22f6d1(entity);
 	awareness::function_978025e4(entity);
 }
 
@@ -302,7 +302,7 @@ function function_3715dbff(entity)
 	target = (isdefined(entity.favoriteenemy) ? entity.favoriteenemy : entity.attackable);
 	if(isdefined(target))
 	{
-		if(mechzbehavior::function_77bd7d26(entity) && entity cansee(target))
+		if(mechzbehavior::mechzIsInSafeZone(entity) && entity cansee(target))
 		{
 			/#
 				distsqr = distancesquared(entity.origin, entity.favoriteenemy.origin);
@@ -471,7 +471,7 @@ function function_6e7d7d1(entity)
 	{
 		var_1f2328d0 = entity function_4794d6a3();
 		var_127a38a7 = distancesquared(var_1f2328d0.goalpos, entity.origin);
-		if(!mechzbehavior::function_77bd7d26(entity) || var_1f2328d0.isatgoal || var_127a38a7 < sqr(64))
+		if(!mechzbehavior::mechzIsInSafeZone(entity) || var_1f2328d0.isatgoal || var_127a38a7 < sqr(64))
 		{
 			awareness::set_state(entity, #"chase");
 		}

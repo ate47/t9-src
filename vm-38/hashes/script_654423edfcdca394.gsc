@@ -84,7 +84,7 @@ function function_36718adf(instance)
 	instance.var_c30ec716 = instance.var_fe2612fe[#"hash_3873fe8f95c20cd1"];
 	instance.var_f9d4b491 = instance.var_fe2612fe[#"hash_3873fb8f95c207b8"];
 	instance.var_c7f8f5a6 = instance.var_fe2612fe[#"hash_5d0b2a57b7248513"];
-	instance.var_d8633066 = instance.var_fe2612fe[#"hash_22ed48f8eaae8805"];
+	instance.var_d8633066 = instance.var_fe2612fe[#"harvester"];
 	instance.var_ba46398 = instance.var_fe2612fe[#"hash_3b6657037c39a33"];
 	instance.var_37ea0cc = instance.var_fe2612fe[#"hash_32f62e13bc497cb0"];
 	instance.s_truck = instance.var_fe2612fe[#"truck"][0];
@@ -97,7 +97,7 @@ function function_36718adf(instance)
 	instance.var_bc70cd17 = [];
 	instance.var_6dced364 = [];
 	instance.var_53ba65b = [];
-	instance.vh_truck = spawnvehicle(#"hash_2c9036975c9b29e2", instance.s_truck.origin, instance.s_truck.angles, "transport_truck");
+	instance.vh_truck = spawnvehicle(#"vehicle_t9_mil_ru_truck_transport_player_obj_sr", instance.s_truck.origin, instance.s_truck.angles, "transport_truck");
 	instance.vh_truck.var_803b49ee = getvehiclenode(instance.s_truck.script_noteworthy, "targetname");
 	instance.var_7a1183ab = namespace_8b6a9d79::spawn_script_model(instance.var_36f78af6, #"hash_2dc80625b5b6627a", 1);
 	instance.var_5ea363c = namespace_8b6a9d79::spawn_script_model(instance.var_3bb47a83, #"hash_572ef2c74e1d80ef");
@@ -141,7 +141,7 @@ function function_36718adf(instance)
 */
 function function_d63c4af(instance)
 {
-	instance endon(#"hash_69090774fec4a17b", #"hash_6902b14d272e2eed");
+	instance endon(#"objective_ended", #"hash_6902b14d272e2eed");
 	self endon(#"death");
 	wait(3);
 	v_start_pos = self.origin;
@@ -171,7 +171,7 @@ function function_d63c4af(instance)
 */
 function function_2db56dcb()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	wait(2);
 	foreach(var_758436f2 in self.var_d8633066)
 	{
@@ -199,7 +199,7 @@ function function_2db56dcb()
 */
 function function_72e17baf()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	foreach(var_758436f2 in self.var_d8633066)
 	{
 		if(var_758436f2.script_int)
@@ -284,7 +284,7 @@ function function_692bb7f7(instance, activator)
 */
 function machine_trigger()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.var_c1c0db3c = 0;
 	self thread function_80fad2d4();
 }
@@ -300,7 +300,7 @@ function machine_trigger()
 */
 function function_80fad2d4()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	while(true)
 	{
 		if(level.var_50cb7dc9 > 1)
@@ -316,7 +316,7 @@ function function_80fad2d4()
 			}
 			callback::remove_callback(#"hash_1805f9d57ce50c8e", &function_66fe9481);
 			objective_manager::stop_timer();
-			objective_manager::function_2c679cc2(self, 1);
+			objective_manager::objective_ended(self, 1);
 		}
 		wait(0.1);
 	}
@@ -474,7 +474,7 @@ function function_c834e7ad()
 function function_8ac36091(instance)
 {
 	self endon(#"death");
-	instance endon(#"objective_started", #"hash_69090774fec4a17b");
+	instance endon(#"objective_started", #"objective_ended");
 	while(true)
 	{
 		if(distance2dsquared(self.origin, self.var_803b49ee.origin) >= 900)
@@ -496,11 +496,11 @@ function function_8ac36091(instance)
 */
 function function_c3b172e1(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self waittill(#"death");
 	if(instance.var_cfa9ae84 < 2)
 	{
-		objective_manager::function_2c679cc2(instance, 0);
+		objective_manager::objective_ended(instance, 0);
 	}
 }
 
@@ -515,7 +515,7 @@ function function_c3b172e1(instance)
 */
 function function_c13613e9(player)
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	if(isalive(player) && isalive(self.vh_truck))
 	{
 		self.vh_truck useby(player);
@@ -533,7 +533,7 @@ function function_c13613e9(player)
 */
 function function_bfdd779(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	self.n_start_health = self.health;
 	self.max_health = self.n_start_health;
@@ -597,7 +597,7 @@ function function_182bef13(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function function_de1bcd72(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	wait(3);
 	slots = namespace_85745671::function_bdb2b85b(self, self.origin, self.angles, 120, 8, 300);
@@ -620,7 +620,7 @@ function function_de1bcd72(instance)
 */
 function function_fcfd2a3(n_index)
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	if(n_index == 1)
 	{
 		a_s_spawnpts = self.var_c88cb786;
@@ -645,7 +645,7 @@ function function_fcfd2a3(n_index)
 */
 function function_fbaf0bd(var_8be21cb)
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_7ae25b738e2655a3");
+	self endon(#"objective_ended", #"hash_7ae25b738e2655a3");
 	n_delay = get_spawn_delay(level.var_b48509f9);
 	var_8be21cb = array::randomize(var_8be21cb);
 	i = 0;
@@ -764,7 +764,7 @@ function function_5ce9975c(var_661691aa)
 function function_6e3b7f88(instance)
 {
 	self endon(#"death", #"hash_46ec4489ed0e4649");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		if(self getspeedmph() > 0)
@@ -806,7 +806,7 @@ function function_6e3b7f88(instance)
 */
 function function_57812547(s_pt)
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self function_af1955d4();
 	n_max = function_c252cb90();
 	if(isdefined(s_pt) && self.n_active < n_max)
@@ -887,7 +887,7 @@ function function_57812547(s_pt)
 function function_14cb5911(instance)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	instance flag::wait_till(#"hash_45d859f77668dcd5");
 	self thread function_3d030d9f(instance, 4000000);
 }
@@ -904,7 +904,7 @@ function function_14cb5911(instance)
 function function_3d030d9f(instance, n_dist)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		if(distance2dsquared(self.origin, instance.vh_truck.origin) > n_dist)
@@ -944,7 +944,7 @@ function function_3d030d9f(instance, n_dist)
 */
 function function_af1955d4()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	actor_array = getaiarchetypearray(#"zombie");
 	foreach(i, actor in actor_array)
 	{
@@ -1083,7 +1083,7 @@ function get_spawn_delay(var_661691aa)
 function zombie_attack(instance)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self callback::function_d8abfc3d(#"hash_4afe635f36531659", &function_fd68cae4);
 	while(true)
 	{
@@ -1247,7 +1247,7 @@ function function_c252cb90()
 */
 function function_f2659c3a(instance)
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.var_6135d9ba = namespace_8b6a9d79::spawn_script_model(self.var_c8c31c6e, "tag_origin");
 	self.var_a8e6692e = namespace_8b6a9d79::spawn_script_model(self.var_32686fb7, "tag_origin");
 	if(isdefined(self.var_6135d9ba))
@@ -1336,7 +1336,7 @@ function function_f2659c3a(instance)
 */
 function function_7864688c(n_index)
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	wait(0.5);
 	if(n_index == 1)
 	{
@@ -1378,7 +1378,7 @@ function function_7864688c(n_index)
 */
 function function_4b0ba39d()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	foreach(var_b3fb5814 in self.var_da3c0f01)
 	{
 		var_b3fb5814 clientfield::set("" + #"hash_1cf7ea5253c0a857", 1);
@@ -1396,12 +1396,12 @@ function function_4b0ba39d()
 */
 function function_5671b2f0(var_1d9bbfbb)
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_45d859f77668dcd5");
+	self endon(#"objective_ended", #"hash_45d859f77668dcd5");
 	objective_manager::start_timer(90, var_1d9bbfbb);
 	objective_manager::stop_timer();
 	if(!self.var_5ff65676)
 	{
-		objective_manager::function_2c679cc2(self, 0);
+		objective_manager::objective_ended(self, 0);
 	}
 }
 
@@ -1416,7 +1416,7 @@ function function_5671b2f0(var_1d9bbfbb)
 */
 function function_51dd3846()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self flag::wait_till(#"hash_45d859f77668dcd5");
 	objective_manager::stop_timer();
 }
@@ -1451,7 +1451,7 @@ function function_2c8b441b()
 */
 function function_a7ccc673(n_index)
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_67ce5bb73581bdbe");
+	self endon(#"objective_ended", #"hash_67ce5bb73581bdbe");
 	self.vh_truck endon(#"death");
 	if(n_index == 1)
 	{
@@ -1463,9 +1463,9 @@ function function_a7ccc673(n_index)
 	}
 	while(true)
 	{
-		foreach(var_2e636cbd in self.var_da3c0f01)
+		foreach(harvester in self.var_da3c0f01)
 		{
-			if(distance2dsquared(self.mdl_vortex.origin, var_2e636cbd.origin) <= 640000)
+			if(distance2dsquared(self.mdl_vortex.origin, harvester.origin) <= 640000)
 			{
 				self thread function_913f0e5a();
 				self notify(#"hash_67ce5bb73581bdbe");
@@ -1487,7 +1487,7 @@ function function_a7ccc673(n_index)
 */
 function function_2200c72f()
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_45d859f77668dcd5");
+	self endon(#"objective_ended", #"hash_45d859f77668dcd5");
 	wait(2);
 	if(distance2dsquared(self.mdl_vortex.origin, self.vh_truck.origin) <= 640000)
 	{
@@ -1510,10 +1510,10 @@ function function_2200c72f()
 */
 function function_913f0e5a()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self flag::set(#"hash_45d859f77668dcd5");
 	objective_manager::stop_timer();
-	playfx(#"hash_1a8897ec70767ca", self.mdl_vortex.origin, anglestoforward(self.mdl_vortex.angles), anglestoup(self.mdl_vortex.angles));
+	playfx(#"sr/fx9_obj_holdout_crystal_bomb", self.mdl_vortex.origin, anglestoforward(self.mdl_vortex.angles), anglestoup(self.mdl_vortex.angles));
 	wait(0.1);
 	if(isdefined(self.vh_truck))
 	{
@@ -1638,7 +1638,7 @@ function function_6abe3eb2(v_org)
 */
 function function_11e6d414(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	while(true)
 	{
@@ -1715,7 +1715,7 @@ function function_3ef1d58a(instance, n_path)
 */
 function function_8ec2f88a()
 {
-	self waittill(#"hash_69090774fec4a17b");
+	self waittill(#"objective_ended");
 	if(self flag::get(#"hash_12988a5a3e6a65d6"))
 	{
 		level.var_97e461d4 = undefined;
@@ -1734,7 +1734,7 @@ function function_8ec2f88a()
 */
 function function_deefa538(n_index)
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_199da05489df8b42");
+	self endon(#"objective_ended", #"hash_199da05489df8b42");
 	self thread function_acb29231();
 	n_spawns = function_e97e2683();
 	self.n_spawns = 0;
@@ -1828,7 +1828,7 @@ function function_deefa538(n_index)
 */
 function function_acb29231()
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_199da05489df8b42");
+	self endon(#"objective_ended", #"hash_199da05489df8b42");
 	wait(7);
 	self flag::set(#"hash_199da05489df8b42");
 }
@@ -1844,7 +1844,7 @@ function function_acb29231()
 */
 function function_b6e915a3(instance, var_d8f8912, var_e7201bd1)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"hash_46ec4489ed0e4649");
 	n_dist = sqr(var_e7201bd1);
 	while(true)
@@ -1869,7 +1869,7 @@ function function_b6e915a3(instance, var_d8f8912, var_e7201bd1)
 */
 function function_dd90167d()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self thread objective_manager::start_timer(150, "launch");
 	self thread function_e04dd27a();
 	self thread function_6828193b();
@@ -1901,7 +1901,7 @@ function function_dd90167d()
 */
 function function_6828193b()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	wait(self.var_d4ef06c4);
 	if(isdefined(self.vh_truck))
 	{
@@ -1937,7 +1937,7 @@ function function_6828193b()
 */
 function function_8346a72c()
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_8202877a3aadac8");
+	self endon(#"objective_ended", #"hash_8202877a3aadac8");
 	self.vh_truck endon(#"death");
 	self.var_77dec63f = 0;
 	while(true)
@@ -1976,7 +1976,7 @@ function function_8346a72c()
 */
 function function_b588231f()
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_8202877a3aadac8", #"hash_3500bd24e9ec88a");
+	self endon(#"objective_ended", #"hash_8202877a3aadac8", #"hash_3500bd24e9ec88a");
 	self flag::wait_till(#"hash_2001caea1bbe9d01");
 	while(true)
 	{
@@ -2002,7 +2002,7 @@ function function_b588231f()
 */
 function function_6e36834e(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self flag::wait_till(#"hash_1faf75ea07b99540");
 	if(isdefined(self.var_44bcdedf))
 	{
@@ -2022,7 +2022,7 @@ function function_6e36834e(instance)
 */
 function function_dacf0fdd(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		foreach(player in getplayers())
@@ -2220,7 +2220,7 @@ function function_457be561(v_org, v_ang)
 */
 function function_f692b63a(instance, n_index)
 {
-	instance endon(#"hash_69090774fec4a17b", #"hash_7ae25b738e2655a3");
+	instance endon(#"objective_ended", #"hash_7ae25b738e2655a3");
 	if(isdefined(instance.vh_truck))
 	{
 		instance.vh_truck endon(#"death");
@@ -2242,7 +2242,7 @@ function function_f692b63a(instance, n_index)
 */
 function function_494fde88()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	if(isdefined(self.vh_truck))
 	{
 		self.vh_truck endon(#"death");
@@ -2276,7 +2276,7 @@ function function_494fde88()
 */
 function function_c4ca313e(instance, n_damage)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	util::wait_network_frame();
 	if(n_damage > 0)
@@ -2314,7 +2314,7 @@ function function_c4ca313e(instance, n_damage)
 function function_2fa04222(instance)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		instance.var_67ed7be7 = self.health;
@@ -2334,7 +2334,7 @@ function function_2fa04222(instance)
 function function_c561af6e(instance)
 {
 	self endon(#"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self thread function_2fa04222(instance);
 	while(true)
 	{
@@ -2366,7 +2366,7 @@ function function_c561af6e(instance)
 */
 function set_health(instance, n_damage)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	util::wait_network_frame();
 	if(n_damage > 0)
@@ -2394,7 +2394,7 @@ function set_health(instance, n_damage)
 */
 function function_9458dd64()
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_7ae25b738e2655a3");
+	self endon(#"objective_ended", #"hash_7ae25b738e2655a3");
 	if(isdefined(self.vh_truck))
 	{
 		self.vh_truck endon(#"death");
@@ -2796,7 +2796,7 @@ function on_zombie_killed(params)
 */
 function function_31fe5df1(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	while(true)
 	{
@@ -2824,7 +2824,7 @@ function function_31fe5df1(instance)
 */
 function function_13a328f(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	self thread function_31fe5df1(instance);
 	self.var_57e77903 = util::spawn_model(#"hash_18fe97c27ac7bf5b", self gettagorigin("canister_jnt"), self.angles);
@@ -2850,7 +2850,7 @@ function function_13a328f(instance)
 */
 function function_f7616c2b(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	instance.vh_truck endon(#"death");
 	if(self.n_id === 1)
 	{
@@ -2884,7 +2884,7 @@ function function_f7616c2b(instance)
 */
 function function_d1a72932(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	canister = self.var_57e77903;
 	canister.var_b3fb5814 = self;
 	self thread function_a4ea1b9e(instance, canister);
@@ -2917,7 +2917,7 @@ function function_d1a72932(instance)
 */
 function function_ac499c2b(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"picked_up", #"death");
 	while(true)
 	{
@@ -2949,7 +2949,7 @@ function function_ac499c2b(instance)
 */
 function function_a4ea1b9e(instance, canister)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self flag::wait_till(#"hash_1faf75ea07b99540");
 	canister.var_965b64b0 = #"hash_24dc0bc90be2e74a";
 	canister.var_3c7b1c1c = zm_utility::function_f5a222a8(canister.var_965b64b0, canister);
@@ -2974,7 +2974,7 @@ function function_a4ea1b9e(instance, canister)
 function function_57d4f7c0(instance)
 {
 	self endon(#"installed", #"death");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		s_result = undefined;
@@ -3080,7 +3080,7 @@ function function_57d4f7c0(instance)
 function function_50a7d571(var_67aa3392, instance)
 {
 	self endon(#"disconnect", #"player_downed", #"hash_6d2d12b8afe43c8e");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	while(true)
 	{
 		var_53044e8e = self gamepadusedlast();
@@ -3103,7 +3103,7 @@ function function_50a7d571(var_67aa3392, instance)
 */
 function function_2d670ab2(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"installed", #"failsafe", #"death");
 	while(true)
 	{
@@ -3230,7 +3230,7 @@ function function_1a58f438()
 */
 function function_4be8796(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"disconnect", #"player_downed", #"hash_6d2d12b8afe43c8e");
 	if(!is_true(self.var_67aa3392.var_a325551c))
 	{
@@ -3266,7 +3266,7 @@ function function_4be8796(instance)
 */
 function function_d52adbbc(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"disconnect", #"player_downed", #"hash_6d2d12b8afe43c8e", #"sudden_death");
 	var_4beb87c8 = self gamepadusedlast();
 	while(true)
@@ -3428,7 +3428,7 @@ function function_b61cfe16(player)
 				self function_98139c38(player, 0.6);
 				break;
 			}
-			case "hash_785d6a6acd470388":
+			case "spawner_bo5_mimic":
 			{
 				self function_98139c38(player, 0.6);
 				break;
@@ -3518,7 +3518,7 @@ function private function_7fb7c83c(weaponname)
 */
 function function_36821329(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"disconnect", #"player_downed", #"hash_6d2d12b8afe43c8e");
 }
 
@@ -3533,7 +3533,7 @@ function function_36821329(instance)
 */
 function function_61ee3ab0(instance, var_57e77903)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	var_57e77903 endon(#"installed");
 	self waittill(#"hash_6d2d12b8afe43c8e");
 	if(!is_true(self.var_4cd303ca))
@@ -3622,7 +3622,7 @@ function function_6fd7f323()
 */
 function function_e04dd27a()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	level waittill(#"hash_4dde1813f6b5d2d8");
 	foreach(player in getplayers())
 	{
@@ -3672,7 +3672,7 @@ function function_e04dd27a()
 		self.var_7a9e6505 = 1;
 	}
 	self.var_5ff65676 = 0;
-	objective_manager::function_2c679cc2(self, 0);
+	objective_manager::objective_ended(self, 0);
 }
 
 /*
@@ -3686,7 +3686,7 @@ function function_e04dd27a()
 */
 function function_d4190619()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	wait(0.3);
 	foreach(var_57e77903 in self.var_53ba65b)
 	{
@@ -3701,7 +3701,7 @@ function function_d4190619()
 					level.zm_hint_text zm_hint_text::close(player);
 				}
 			}
-			objective_manager::function_2c679cc2(self, 0);
+			objective_manager::objective_ended(self, 0);
 		}
 	}
 }
@@ -3718,7 +3718,7 @@ function function_d4190619()
 function function_69438b00(instance)
 {
 	self endon(#"disconnect", #"laststand");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	if(isdefined(self) && level.zm_hint_text zm_hint_text::is_open(self))
 	{
 		level.zm_hint_text zm_hint_text::close(self);
@@ -3744,7 +3744,7 @@ function function_69438b00(instance)
 */
 function function_9f6ab3c7()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.var_8240d3e4 = 1;
 	wait(15);
 	self.var_8240d3e4 = undefined;
@@ -3815,7 +3815,7 @@ function function_9181f7b3(instance)
 	self notify("4c963a65fdec658f");
 	self endon("4c963a65fdec658f");
 	self endon(#"disconnect", #"hash_6d2d12b8afe43c8e");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	s_result = undefined;
 	s_result = self waittill(#"enter_vehicle");
 	if(isdefined(s_result.vehicle))
@@ -3892,7 +3892,7 @@ function vehicle_damage(damage_amount, player)
 */
 function function_9a17187a(instance)
 {
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	b_open_door = 0;
 	var_2ccf018f = 0;
 	self scene::play(#"hash_3c1f6bee53f6bcc", "Shot 1", self);
@@ -3982,7 +3982,7 @@ function function_1ed83293()
 */
 function function_f5087df2()
 {
-	self waittill(#"hash_69090774fec4a17b", #"hash_8202877a3aadac8");
+	self waittill(#"objective_ended", #"hash_8202877a3aadac8");
 	objective_manager::stop_timer();
 	namespace_7589cf5c::function_ed193293(self);
 	if(is_true(self.success))
@@ -4015,7 +4015,7 @@ function function_f5087df2()
 */
 function function_836915b3()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	var_35dfb407 = 0;
 	while(!var_35dfb407)
 	{
@@ -4049,7 +4049,7 @@ function function_836915b3()
 */
 function function_c4e85aeb()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	wait(0.5);
 	level namespace_7589cf5c::play_vo("objectiveTransportStart");
 	wait(0.5);
@@ -4068,7 +4068,7 @@ function function_c4e85aeb()
 */
 function function_7bde6917()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	if(!is_true(self.var_2ad830b6))
 	{
 		self.var_2ad830b6 = 1;
@@ -4110,7 +4110,7 @@ function function_961c9807()
 {
 	self notify("5ec79853a9bb547f");
 	self endon("5ec79853a9bb547f");
-	self endon(#"hash_69090774fec4a17b", #"truck_stopped");
+	self endon(#"objective_ended", #"truck_stopped");
 	wait(5);
 	self flag::set(#"truck_stopped");
 }
@@ -4126,7 +4126,7 @@ function function_961c9807()
 */
 function function_c37c7efe(mdl_vortex)
 {
-	self endon(#"hash_69090774fec4a17b", #"hash_7ae25b738e2655a3");
+	self endon(#"objective_ended", #"hash_7ae25b738e2655a3");
 	wait(function_21a3a673(2, 4));
 	while(true)
 	{
@@ -4151,7 +4151,7 @@ function function_c37c7efe(mdl_vortex)
 */
 function function_cfe051()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	if(isdefined(self.vh_truck))
 	{
 		self.vh_truck endon(#"death");
@@ -4188,7 +4188,7 @@ function function_cfe051()
 */
 function function_390f1240()
 {
-	self waittill(#"hash_69090774fec4a17b");
+	self waittill(#"objective_ended");
 	level namespace_7589cf5c::play_vo("objectiveTransportEndSequence1");
 	wait(0.5);
 	level namespace_7589cf5c::play_vo("objectiveTransportEndSequence2");
@@ -4216,7 +4216,7 @@ function function_390f1240()
 */
 function function_7b99a9c7()
 {
-	self endon(#"hash_69090774fec4a17b");
+	self endon(#"objective_ended");
 	self.vh_truck endon(#"death");
 	var_ca65e8bc = getent("trigger_transport_death", "targetname");
 	if(!isdefined(var_ca65e8bc))
@@ -4339,7 +4339,7 @@ function function_d45a8577(instance)
 {
 	self notify("546bfd917d857f33");
 	self endon("546bfd917d857f33");
-	instance endon(#"hash_69090774fec4a17b");
+	instance endon(#"objective_ended");
 	self endon(#"death");
 	if(self.vehicletype === "vehicle_t9_mil_ru_truck_transport_player_obj_sr")
 	{
@@ -4349,7 +4349,7 @@ function function_d45a8577(instance)
 	{
 		if(isdefined(instance.mdl_vortex) && distance2dsquared(instance.mdl_vortex.origin, self.origin) <= 640000)
 		{
-			playfx(#"hash_1a8897ec70767ca", instance.mdl_vortex.origin, anglestoforward(instance.mdl_vortex.angles), anglestoup(instance.mdl_vortex.angles));
+			playfx(#"sr/fx9_obj_holdout_crystal_bomb", instance.mdl_vortex.origin, anglestoforward(instance.mdl_vortex.angles), anglestoup(instance.mdl_vortex.angles));
 			wait(0.1);
 			self.is_staircase_up = &function_2c294ff8;
 			self thread player_vehicle::is_staircase_up();

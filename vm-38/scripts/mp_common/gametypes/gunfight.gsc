@@ -1,11 +1,11 @@
 #using script_1435f3c9fc699e04;
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\abilities\ability_util.gsc;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

@@ -226,7 +226,7 @@ function function_15a789ab(var_c8386627, delay)
 	Parameters: 3
 	Flags: Linked
 */
-function function_42b0778(var_4198fa33, player, var_a653de3f)
+function function_42b0778(var_4198fa33, player, roj)
 {
 	player endon(#"disconnect");
 	fate = var_4198fa33.data;
@@ -235,19 +235,19 @@ function function_42b0778(var_4198fa33, player, var_a653de3f)
 	if(var_4198fa33.context === 2)
 	{
 		namespace_491fa2b2::function_df55eb9d(2, 7, var_4198fa33);
-		var_a653de3f = undefined;
+		roj = undefined;
 	}
 	awardfate(player, fate);
-	if(isdefined(var_a653de3f))
+	if(isdefined(roj))
 	{
-		if(var_a653de3f == 0)
+		if(roj == 0)
 		{
 			player.doa.rof = fate.var_c8386627;
 			player.doa.var_e448d81 = undefined;
 		}
 		else
 		{
-			player.doa.var_a653de3f = fate.var_c8386627;
+			player.doa.roj = fate.var_c8386627;
 			player.doa.var_cb8b16a = undefined;
 		}
 	}
@@ -770,11 +770,11 @@ function function_11463552()
 	Parameters: 2
 	Flags: Linked
 */
-function function_e4867f1d(fate, var_a653de3f)
+function function_e4867f1d(fate, roj)
 {
-	if(!isdefined(var_a653de3f))
+	if(!isdefined(roj))
 	{
-		var_a653de3f = 0;
+		roj = 0;
 	}
 	self endon(#"death");
 	level endon(#"hash_60341577c9ac6277");
@@ -794,7 +794,7 @@ function function_e4867f1d(fate, var_a653de3f)
 			result = undefined;
 			result = trigger waittill(#"trigger");
 			player = result.activator;
-			if(var_a653de3f == 0)
+			if(roj == 0)
 			{
 				if(isdefined(player.doa.rof))
 				{
@@ -807,7 +807,7 @@ function function_e4867f1d(fate, var_a653de3f)
 			}
 			else
 			{
-				if(isdefined(player.doa.var_a653de3f))
+				if(isdefined(player.doa.roj))
 				{
 					continue;
 				}
@@ -830,7 +830,7 @@ function function_e4867f1d(fate, var_a653de3f)
 				break;
 			}
 		}
-		if(var_a653de3f == 0)
+		if(roj == 0)
 		{
 			player.doa.var_e448d81 = 1;
 		}
@@ -840,7 +840,7 @@ function function_e4867f1d(fate, var_a653de3f)
 		}
 		self namespace_83eb6304::function_3ecfde67("fate_explo");
 		objective_setstate(self.objectiveid, "invisible");
-		level thread function_42b0778(self, player, var_a653de3f);
+		level thread function_42b0778(self, player, roj);
 		player giveachievement(#"hash_2670a9f559576876");
 	}
 	else
@@ -994,7 +994,7 @@ function function_41d66855(var_419d3eb7)
 		var_f5a8d3a4 = 1;
 		foreach(player in namespace_7f5aeb59::function_23e1f90f())
 		{
-			if(!isdefined(player.doa.var_a653de3f))
+			if(!isdefined(player.doa.roj))
 			{
 				var_f5a8d3a4 = 0;
 				break;

@@ -3,7 +3,7 @@
 #using script_383a3b1bb18ba876;
 #using script_4108035fe400ce67;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\deployable.gsc;
 #using script_7bacb32f8222fa3e;
@@ -38,7 +38,7 @@ function private autoexec function_103f7565()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: spy_med_pack
 	Checksum: 0xB2D3B7EE
 	Offset: 0x200
@@ -46,9 +46,9 @@ function private autoexec function_103f7565()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_2565a71514aa2b10", &function_70a657d8, undefined, undefined, #"killstreaks");
+	system::register(#"spy_med_pack", &function_70a657d8, undefined, undefined, #"killstreaks");
 }
 
 /*
@@ -72,7 +72,7 @@ function private function_70a657d8()
 	level.var_c9404b0a.bundle.var_bdc8276 = 2;
 	level.var_40346f16 = &function_e6d37a78;
 	game.var_f39ffe9 = "med_pack_";
-	weaponobjects::function_e6400478(#"hash_2565a71514aa2b10", &function_2ee8eb59, 1);
+	weaponobjects::function_e6400478(#"spy_med_pack", &function_2ee8eb59, 1);
 	deployable::function_2e088f73(level.var_c9404b0a.weapon, &function_4e22b9e6);
 }
 

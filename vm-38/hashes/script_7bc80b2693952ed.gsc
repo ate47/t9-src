@@ -24,7 +24,7 @@ function private autoexec function_12765b89()
 #namespace blood;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: blood
 	Checksum: 0x4DCAE982
 	Offset: 0x490
@@ -32,7 +32,7 @@ function private autoexec function_12765b89()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"blood", &preload, &postload, undefined, undefined);
 }

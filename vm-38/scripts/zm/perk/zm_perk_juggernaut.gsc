@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
 #using script_5f261a5d57de5f7c;
@@ -30,7 +30,7 @@ function private autoexec function_eb7198dd()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_juggernaut
 	Checksum: 0x99C0604D
 	Offset: 0x1E0
@@ -38,7 +38,7 @@ function private autoexec function_eb7198dd()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_juggernaut", &function_70a657d8, undefined, undefined, #"hash_2d064899850813e2");
 }

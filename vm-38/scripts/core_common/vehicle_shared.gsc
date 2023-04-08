@@ -38,7 +38,7 @@ function private autoexec function_968da831()
 #namespace vehicle;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: vehicle
 	Checksum: 0x20A8DA34
 	Offset: 0xBD8
@@ -46,7 +46,7 @@ function private autoexec function_968da831()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"vehicle_shared", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

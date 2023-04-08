@@ -21,7 +21,7 @@ function private autoexec function_bcdfabc2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_67838d10
 	Checksum: 0x642FB689
 	Offset: 0x388
@@ -29,7 +29,7 @@ function private autoexec function_bcdfabc2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_75440eb9162352b6", &function_70a657d8, undefined, undefined, undefined);
 }

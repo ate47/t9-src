@@ -1,8 +1,8 @@
 #using script_18fed4d66b0b9c1;
 #using script_1d29de500c266470;
 #using script_32c8b5b0eb2854f3;
-#using script_47fb62300ac0bd60;
-#using script_caab14e8a60767c;
+#using scripts\core_common\player\player_stats.gsc;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -31,7 +31,7 @@ function private autoexec function_d7263c6f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_medals
 	Checksum: 0xF67F7A4
 	Offset: 0xF8
@@ -39,7 +39,7 @@ function private autoexec function_d7263c6f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"wz_medals", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -26,7 +26,7 @@ function private autoexec function_ab60d00()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: auto_turret
 	Checksum: 0xE4385A26
 	Offset: 0x218
@@ -34,7 +34,7 @@ function private autoexec function_ab60d00()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"auto_turret", &function_70a657d8, undefined, undefined, undefined);
 }

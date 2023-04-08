@@ -25,7 +25,7 @@ function private autoexec function_274a8f99()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_361e505d
 	Checksum: 0x9633DD15
 	Offset: 0x4D0
@@ -33,7 +33,7 @@ function private autoexec function_274a8f99()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7776caebba9c5d5a", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -169,7 +169,7 @@ function function_a53f1f75(localclientnum, oldval, newval, bnewent, binitialsnap
 			{
 				e_player.var_2788ca7e[e_player.var_2788ca7e.size] = ai;
 			}
-			e_player thread function_aa95c5f0(fieldname);
+			e_player thread abom_beam_rumble(fieldname);
 		}
 	}
 	else
@@ -777,7 +777,7 @@ function function_3a01e8d7(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			e_player.var_10eeb170[e_player.var_10eeb170.size] = self;
 		}
-		e_player thread function_c85b0a83(fieldname);
+		e_player thread abom_roar_rumble(fieldname);
 	}
 	else
 	{
@@ -818,7 +818,7 @@ function function_d96bc835(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_c85b0a83
+	Name: abom_roar_rumble
 	Namespace: namespace_361e505d
 	Checksum: 0xD0FD2143
 	Offset: 0x2C68
@@ -826,7 +826,7 @@ function function_d96bc835(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 1
 	Flags: Private
 */
-function private function_c85b0a83(localclientnum)
+function private abom_roar_rumble(localclientnum)
 {
 	self endon(#"death");
 	var_17b7891d = "20ccb5f40826ef09" + "abom_roar_rumble";
@@ -896,7 +896,7 @@ function private function_c85b0a83(localclientnum)
 }
 
 /*
-	Name: function_aa95c5f0
+	Name: abom_beam_rumble
 	Namespace: namespace_361e505d
 	Checksum: 0x9B21CD12
 	Offset: 0x2FB8
@@ -904,7 +904,7 @@ function private function_c85b0a83(localclientnum)
 	Parameters: 1
 	Flags: Private
 */
-function private function_aa95c5f0(localclientnum)
+function private abom_beam_rumble(localclientnum)
 {
 	self endon(#"death");
 	var_17b7891d = "b1294afa9ff78a5" + "abom_beam_rumble";

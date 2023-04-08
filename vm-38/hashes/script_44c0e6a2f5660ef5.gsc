@@ -68,7 +68,7 @@ class class_f91fc158 : cLUIelem
 	*/
 	function set_armor_vis(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor_vis", value);
+		[[ self ]]->set_data(localclientnum, "armor_vis", value);
 	}
 
 	/*
@@ -99,7 +99,7 @@ class class_f91fc158 : cLUIelem
 	*/
 	function set_armor(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor", value);
+		[[ self ]]->set_data(localclientnum, "armor", value);
 	}
 
 	/*
@@ -113,7 +113,7 @@ class class_f91fc158 : cLUIelem
 	*/
 	function set_health(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "health", value);
+		[[ self ]]->set_data(localclientnum, "health", value);
 	}
 
 	/*
@@ -128,18 +128,18 @@ class class_f91fc158 : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "health", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "armor_vis", 0);
+		[[ self ]]->set_data(localclientnum, "health", 0);
+		[[ self ]]->set_data(localclientnum, "armor", 0);
+		[[ self ]]->set_data(localclientnum, "armor_vis", 0);
 	}
 
 }
 
-#namespace namespace_fb27ba0b;
+#namespace zm_roots_health_bar;
 
 /*
 	Name: function_3c951193
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x2E7C2356
 	Offset: 0xE0
 	Size: 0x14
@@ -153,7 +153,7 @@ function private autoexec function_3c951193()
 
 /*
 	Name: register
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xF0CD6A7F
 	Offset: 0x100
 	Size: 0x18E
@@ -168,24 +168,24 @@ function register(var_663a86fa, var_4ec2b207, var_ed81ff07)
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_3c23185e6b098063"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_roots_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_3c23185e6b098063"] = [];
+		level.var_ae746e8f[#"zm_roots_health_bar"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_3c23185e6b098063"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_roots_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_3c23185e6b098063"] = [];
+		level.var_ae746e8f[#"zm_roots_health_bar"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_3c23185e6b098063"]))
+	else if(!isarray(level.var_ae746e8f[#"zm_roots_health_bar"]))
 	{
-		level.var_ae746e8f[#"hash_3c23185e6b098063"] = array(level.var_ae746e8f[#"hash_3c23185e6b098063"]);
+		level.var_ae746e8f[#"zm_roots_health_bar"] = array(level.var_ae746e8f[#"zm_roots_health_bar"]);
 	}
-	level.var_ae746e8f[#"hash_3c23185e6b098063"][level.var_ae746e8f[#"hash_3c23185e6b098063"].size] = elem;
+	level.var_ae746e8f[#"zm_roots_health_bar"][level.var_ae746e8f[#"zm_roots_health_bar"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xFABB66BF
 	Offset: 0x298
 	Size: 0x34
@@ -201,7 +201,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xC5ABC4DD
 	Offset: 0x2D8
 	Size: 0x1C
@@ -215,7 +215,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x5109DAB0
 	Offset: 0x300
 	Size: 0x1C
@@ -229,7 +229,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x16B5421B
 	Offset: 0x328
 	Size: 0x1A
@@ -243,7 +243,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_health
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xCE60EA1D
 	Offset: 0x350
 	Size: 0x28
@@ -257,7 +257,7 @@ function set_health(localclientnum, value)
 
 /*
 	Name: set_armor
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xEBD4F0D3
 	Offset: 0x380
 	Size: 0x28
@@ -271,7 +271,7 @@ function set_armor(localclientnum, value)
 
 /*
 	Name: set_armor_vis
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xC0B2B6E
 	Offset: 0x3B0
 	Size: 0x28

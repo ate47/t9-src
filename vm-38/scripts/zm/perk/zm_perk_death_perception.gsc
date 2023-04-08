@@ -22,7 +22,7 @@ function private autoexec function_4293a6f6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_death_perception
 	Checksum: 0x7CDC1A71
 	Offset: 0x2B0
@@ -30,7 +30,7 @@ function private autoexec function_4293a6f6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_death_perception", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -176,7 +176,7 @@ function function_9b484511()
 */
 function function_f9d745da()
 {
-	level._effect[#"hash_3533cc462a240071"] = "zombie/fx9_perk_death_perception";
+	level._effect[#"deathperception_light"] = "zombie/fx9_perk_death_perception";
 	level.machine_assets[#"hash_1ea1a9cfee998e89"] = spawnstruct();
 	level.machine_assets[#"hash_1ea1a9cfee998e89"].weapon = getweapon("zombie_perk_bottle_death_perception");
 	level.machine_assets[#"hash_1ea1a9cfee998e89"].off_model = "p9_sur_machine_death_perception";

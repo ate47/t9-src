@@ -1,5 +1,5 @@
 #using scripts\core_common\bots\bot.gsc;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_3d703ef87a841fe4;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_45fdb6cec5580007;
@@ -26,7 +26,7 @@ function private autoexec function_8bf2adaa()
 #namespace teams;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: teams
 	Checksum: 0x82A01445
 	Offset: 0xE0
@@ -34,7 +34,7 @@ function private autoexec function_8bf2adaa()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_29ee595d6bf61bf4", &function_70a657d8, undefined, undefined, undefined);
 }

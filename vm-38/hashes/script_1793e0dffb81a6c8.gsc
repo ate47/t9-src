@@ -26,7 +26,7 @@ function private autoexec function_e3b1e5e6()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_841de7df
 	Checksum: 0xF8DC88BF
 	Offset: 0x120
@@ -34,7 +34,7 @@ function private autoexec function_e3b1e5e6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4ef9c479ac8da304", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -123,7 +123,7 @@ function private function_b245db69(localclientnum, oldval, newval, bnewent, bini
 			deletefx(fieldname, self.var_3b071bba);
 			self.var_3b071bba = undefined;
 		}
-		if(zm_utility::function_166646a6() == 1)
+		if(zm_utility::get_story() == 1)
 		{
 			self.var_18f8b30b = util::spawn_model(fieldname, "tag_origin", self.origin, self.angles);
 			self.var_3b071bba = util::playfxontag(fieldname, level._effect[#"hash_1d15a2dad558ac8c"], self.var_18f8b30b, "tag_origin");

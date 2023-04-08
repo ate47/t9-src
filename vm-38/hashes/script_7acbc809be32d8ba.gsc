@@ -26,7 +26,7 @@ function private autoexec function_1357070e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1e7573ec
 	Checksum: 0x2D608472
 	Offset: 0x328
@@ -34,7 +34,7 @@ function private autoexec function_1357070e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_538411714a272c00", &function_70a657d8, &function_8ac3bea9, undefined, "zm_weapons");
 }
@@ -183,10 +183,10 @@ function function_f77ced93(params)
 	if(function_3efc58e4(weapon))
 	{
 		self.var_960d365a = 0;
-		self thread function_71c63cef(localclientnum, weapon);
-		self thread function_2262d0b6(localclientnum, weapon);
-		self thread function_d89c7385(localclientnum, weapon);
-		self thread function_2f3ad676(localclientnum, weapon);
+		self thread watch_mega_barrel_ammo_change(localclientnum, weapon);
+		self thread watch_mega_barrel_mag_out_notetrack(localclientnum, weapon);
+		self thread watch_mega_barrel_mag_in_notetrack(localclientnum, weapon);
+		self thread watch_mega_barrel_mag_throw_notetrack(localclientnum, weapon);
 	}
 	else if(isdefined(self.var_49d95be6))
 	{
@@ -197,7 +197,7 @@ function function_f77ced93(params)
 }
 
 /*
-	Name: function_2262d0b6
+	Name: watch_mega_barrel_mag_out_notetrack
 	Namespace: namespace_1e7573ec
 	Checksum: 0x3FB90890
 	Offset: 0xC88
@@ -205,7 +205,7 @@ function function_f77ced93(params)
 	Parameters: 2
 	Flags: Linked
 */
-function function_2262d0b6(localclientnum, weapon)
+function watch_mega_barrel_mag_out_notetrack(localclientnum, weapon)
 {
 	self endon(#"death", #"weapon_change");
 	var_17b7891d = "51273cd61d1e6f07" + "watch_mega_barrel_mag_out_notetrack";
@@ -240,7 +240,7 @@ function function_2262d0b6(localclientnum, weapon)
 }
 
 /*
-	Name: function_2f3ad676
+	Name: watch_mega_barrel_mag_throw_notetrack
 	Namespace: namespace_1e7573ec
 	Checksum: 0x2768B1B2
 	Offset: 0xE80
@@ -248,7 +248,7 @@ function function_2262d0b6(localclientnum, weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_2f3ad676(localclientnum, weapon)
+function watch_mega_barrel_mag_throw_notetrack(localclientnum, weapon)
 {
 	self endon(#"death", #"weapon_change");
 	var_17b7891d = "bb81bf554d144e6" + "watch_mega_barrel_mag_throw_notetrack";
@@ -284,7 +284,7 @@ function function_2f3ad676(localclientnum, weapon)
 }
 
 /*
-	Name: function_d89c7385
+	Name: watch_mega_barrel_mag_in_notetrack
 	Namespace: namespace_1e7573ec
 	Checksum: 0x7704BA67
 	Offset: 0x10B8
@@ -292,7 +292,7 @@ function function_2f3ad676(localclientnum, weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d89c7385(localclientnum, weapon)
+function watch_mega_barrel_mag_in_notetrack(localclientnum, weapon)
 {
 	self endon(#"death", #"weapon_change");
 	var_17b7891d = "72c40ea1ad927740" + "watch_mega_barrel_mag_in_notetrack";
@@ -306,7 +306,7 @@ function function_d89c7385(localclientnum, weapon)
 }
 
 /*
-	Name: function_71c63cef
+	Name: watch_mega_barrel_ammo_change
 	Namespace: namespace_1e7573ec
 	Checksum: 0x1FBADA94
 	Offset: 0x1170
@@ -314,7 +314,7 @@ function function_d89c7385(localclientnum, weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_71c63cef(localclientnum, weapon)
+function watch_mega_barrel_ammo_change(localclientnum, weapon)
 {
 	self endon(#"death", #"weapon_change");
 	var_17b7891d = "54ae0da6d02ad59f" + "watch_mega_barrel_ammo_change";

@@ -25,7 +25,7 @@
 #using scripts\zm\perk\zm_perk_juggernaut.csc;
 #using script_7520bf82a814057c;
 #using script_76b36ed1b7a51ed2;
-#using script_7f9d1ec3c0aa68b8;
+#using scripts\zm_common\zm_vo.csc;
 #using script_eff00f787d80cdf;
 #using scripts\core_common\aat_shared.csc;
 #using scripts\core_common\ai_shared.csc;
@@ -107,7 +107,7 @@ function autoexec ignore_systems()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm
 	Checksum: 0xBEFC5816
 	Offset: 0x878
@@ -115,7 +115,7 @@ function autoexec ignore_systems()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm", &function_70a657d8, undefined, undefined, "renderoverridebundle");
 }

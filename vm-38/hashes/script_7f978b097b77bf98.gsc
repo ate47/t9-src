@@ -38,7 +38,7 @@ function private autoexec function_e4cca549()
 #namespace namespace_5cc6d100;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_5cc6d100
 	Checksum: 0xB28ECC83
 	Offset: 0x290
@@ -46,7 +46,7 @@ function private autoexec function_e4cca549()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_24e8e2e7c9881782", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -159,7 +159,7 @@ function private function_b0c8ef74(eventstruct)
 		self.instance.var_85c920d0 = namespace_8b6a9d79::spawn_script_model(s_chest, #"hash_2641cfb5c2cdcc85");
 		self.instance.var_85c920d0 clientfield::set("sr_demented_echo_fx", 1);
 		self.instance.var_85c920d0 playsound(#"hash_36ac898552727197");
-		self.instance.var_85c920d0 playloopsound(#"hash_30767a100d1618f");
+		self.instance.var_85c920d0 playloopsound(#"evt_sur_we_bc_ghost_lp");
 		s_chest thread scene::play(#"hash_736661ee1ae2dc67", self.instance.var_85c920d0);
 		level thread function_7914c7ef(self.instance.var_85c920d0, s_chest);
 		eventstruct.activator function_bc82f900("damage_heavy");

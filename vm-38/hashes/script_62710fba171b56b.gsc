@@ -25,7 +25,7 @@ function private autoexec function_bf77d1ec()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: electroball_grenade
 	Checksum: 0xED575D6C
 	Offset: 0x240
@@ -33,7 +33,7 @@ function private autoexec function_bf77d1ec()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register("electroball_grenade", &function_70a657d8, undefined, undefined, undefined);
 }

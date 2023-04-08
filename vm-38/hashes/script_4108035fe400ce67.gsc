@@ -38,7 +38,7 @@ function private autoexec function_4cbfc756()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: item_world
 	Checksum: 0x373430F3
 	Offset: 0x598
@@ -46,7 +46,7 @@ function private autoexec function_4cbfc756()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"item_world", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -75,8 +75,8 @@ function private function_70a657d8()
 	level.var_9cddbf4e[#"hash_1dcbe8021fb16344"] = {#hash_b9492c6:#"hash_6fcb29cae6678d93", #hash_f6d388aa:#"hash_56b5b65c141f4629"};
 	level.var_9cddbf4e[#"p8_fxanim_wz_supply_stash_ammo_mod"] = {#hash_b9492c6:#"hash_3e62bcbd6460ff44", #hash_f6d388aa:#"hash_f743d336f8b7764"};
 	level.var_9cddbf4e[#"hash_574076754776e003"] = {#hash_b9492c6:#"hash_22f426a8593609e8", #hash_f6d388aa:#"hash_36e23ce3e5f7e4c0"};
-	callback::on_connect(&function_4d97b664);
-	callback::on_disconnect(&function_d446afe1);
+	callback::on_connect(&_on_player_connect);
+	callback::on_disconnect(&_on_player_disconnect);
 	callback::add_callback(#"hash_41781454d98b676a", &function_9aefb438);
 	level thread function_f7fb8a17();
 	level thread function_e1965ae1();
@@ -487,7 +487,7 @@ function private function_199c092d(var_f4cdfe08, player)
 	{
 		return false;
 	}
-	var_bcb39afb = player namespace_a0d533d1::function_169cea63();
+	var_bcb39afb = player namespace_a0d533d1::get_loot_weapons();
 	/#
 		assert(var_bcb39afb.size > 0);
 	#/
@@ -558,7 +558,7 @@ function private function_23b313bd(player, eventtype, eventdata, var_c5a66313)
 }
 
 /*
-	Name: function_4d97b664
+	Name: _on_player_connect
 	Namespace: item_world
 	Checksum: 0x7127AD25
 	Offset: 0x1DE8
@@ -566,7 +566,7 @@ function private function_23b313bd(player, eventtype, eventdata, var_c5a66313)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_4d97b664()
+function private _on_player_connect()
 {
 	function_f3b6e182(self);
 	self.var_d7a70ae4 = undefined;
@@ -577,7 +577,7 @@ function private function_4d97b664()
 }
 
 /*
-	Name: function_d446afe1
+	Name: _on_player_disconnect
 	Namespace: item_world
 	Checksum: 0x3F68449B
 	Offset: 0x1E80
@@ -585,7 +585,7 @@ function private function_4d97b664()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_d446afe1()
+function private _on_player_disconnect()
 {
 	if(isdefined(self.var_19caeeea))
 	{
@@ -2165,7 +2165,7 @@ function function_de2018e3(item, player, slotid, playgesture, var_7b753bce)
 			if(var_c5781c22 != var_d72b1a4b)
 			{
 				var_fceba0ce = {#hash_7b753bce:var_7b753bce, #player:player, #count:var_8cd447d8, #item:item};
-				self callback::callback(#"hash_56d1805bfff3e65b", var_fceba0ce);
+				self callback::callback(#"on_item_pickup", var_fceba0ce);
 			}
 			return var_c5781c22;
 		}

@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_57f7003580bb15e0;
 #using scripts\core_common\system_shared.gsc;
 
@@ -19,7 +19,7 @@ function private autoexec function_58fe3594()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_wound
 	Checksum: 0x3AD8FEEF
 	Offset: 0xC8
@@ -27,9 +27,9 @@ function private autoexec function_58fe3594()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_3a3bac1147cc9f9d", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"status_effect_wound", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
@@ -43,13 +43,13 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	status_effect::register_status_effect_callback_apply(6, &function_d31a78fe);
+	status_effect::register_status_effect_callback_apply(6, &wound_apply);
 	status_effect::function_5bae5120(6, &function_923bcb9c);
 	status_effect::function_6f4eaf88(function_4d1e7b48("wound"));
 }
 
 /*
-	Name: function_d31a78fe
+	Name: wound_apply
 	Namespace: status_effect_wound
 	Checksum: 0x786997D6
 	Offset: 0x188
@@ -57,7 +57,7 @@ function private function_70a657d8()
 	Parameters: 3
 	Flags: Linked
 */
-function function_d31a78fe(var_756fda07, weapon, var_84171a6c)
+function wound_apply(var_756fda07, weapon, var_84171a6c)
 {
 	self.var_f031d238 = var_84171a6c.var_6406d0cd;
 	self.var_4a3f5865 = var_84171a6c.var_18d16a6b;

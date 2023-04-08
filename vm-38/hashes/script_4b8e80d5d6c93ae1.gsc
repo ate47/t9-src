@@ -20,7 +20,7 @@ function private autoexec function_9b8d00d8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zombie_vortex
 	Checksum: 0xA1097813
 	Offset: 0x210
@@ -28,7 +28,7 @@ function private autoexec function_9b8d00d8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"vortex", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -155,7 +155,7 @@ function function_2dd3c5bc(localclientnum, vortex_fx_handle, var_3d2b5c8c, var_8
 	self notify(#"vortex_stop");
 	var_ad8208a9 = playfx(localclientnum, var_800bc32d, var_3d2b5c8c);
 	setfxignorepause(localclientnum, var_ad8208a9, 1);
-	playsound(0, #"hash_4767c28eb4799ca1", var_3d2b5c8c);
+	playsound(0, #"evt_doa_pickup_vortex_explode", var_3d2b5c8c);
 	waitframe(1);
 	self playrumbleonentity(localclientnum, "zod_idgun_vortex_shockwave");
 	vision_blur(localclientnum, undefined, 1);

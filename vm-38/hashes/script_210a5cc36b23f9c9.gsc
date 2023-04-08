@@ -23,7 +23,7 @@ function private autoexec function_c0d8db22()
 #namespace destructclientutils;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: destructclientutils
 	Checksum: 0x760A7A7
 	Offset: 0x1D8
@@ -31,7 +31,7 @@ function private autoexec function_c0d8db22()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"destructible_character", &function_70a657d8, undefined, undefined, undefined);
 }

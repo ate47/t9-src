@@ -34,7 +34,7 @@ function private autoexec function_737bc4ff()
 #namespace aiutility;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: aiutility
 	Checksum: 0xB5AA6C25
 	Offset: 0xAF0
@@ -42,7 +42,7 @@ function private autoexec function_737bc4ff()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"archetype_utility", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -18,7 +18,7 @@ function private autoexec function_b500a37c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: perks
 	Checksum: 0xC865259A
 	Offset: 0xF8
@@ -26,7 +26,7 @@ function private autoexec function_b500a37c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2af3fdb587243686", &function_70a657d8, undefined, undefined, undefined);
 }

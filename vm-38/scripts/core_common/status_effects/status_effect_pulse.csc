@@ -19,7 +19,7 @@ function private autoexec function_64eb8c97()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_pulse
 	Checksum: 0xF0728B50
 	Offset: 0xD0
@@ -27,7 +27,7 @@ function private autoexec function_64eb8c97()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"status_effect_pulse", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -22,7 +22,7 @@ function private autoexec function_aa22e29e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_pbr
 	Checksum: 0x7B41510B
 	Offset: 0x110
@@ -30,7 +30,7 @@ function private autoexec function_aa22e29e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_pbr", &function_70a657d8, undefined, undefined, #"player_vehicle");
 }

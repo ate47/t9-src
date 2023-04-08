@@ -18,11 +18,11 @@ function private autoexec function_65f75a2d()
 	level notify(695552038);
 }
 
-#namespace namespace_1c7657c;
+#namespace stealth_alarm;
 
 /*
 	Name: init
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x99D2BE6E
 	Offset: 0x178
 	Size: 0xBC
@@ -40,7 +40,7 @@ function init()
 
 /*
 	Name: function_ea8a5678
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x543E84CD
 	Offset: 0x240
 	Size: 0xBE
@@ -60,7 +60,7 @@ function function_ea8a5678(targetname, func)
 
 /*
 	Name: function_a8f7fa5b
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0xF46D1F7A
 	Offset: 0x308
 	Size: 0x26C
@@ -117,7 +117,7 @@ function function_a8f7fa5b()
 
 /*
 	Name: function_2dc6261d
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x21E203D1
 	Offset: 0x580
 	Size: 0x11C
@@ -140,7 +140,7 @@ function function_2dc6261d()
 
 /*
 	Name: monitor_damage
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x27AA4995
 	Offset: 0x6A8
 	Size: 0xBE
@@ -159,7 +159,7 @@ function monitor_damage()
 
 /*
 	Name: function_7e4779a4
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x17B8E858
 	Offset: 0x770
 	Size: 0x276
@@ -234,7 +234,7 @@ function function_7e4779a4()
 
 /*
 	Name: function_bb67aeb1
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0xAACDEFD6
 	Offset: 0x9F0
 	Size: 0x98
@@ -254,7 +254,7 @@ function function_bb67aeb1()
 
 /*
 	Name: alarm_on
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x3EF13A78
 	Offset: 0xA90
 	Size: 0x12C
@@ -285,7 +285,7 @@ function alarm_on()
 
 /*
 	Name: alarm_off
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0xEC7FB15D
 	Offset: 0xBC8
 	Size: 0xC8
@@ -309,7 +309,7 @@ function alarm_off()
 
 /*
 	Name: function_f8788a08
-	Namespace: namespace_1c7657c
+	Namespace: stealth_alarm
 	Checksum: 0x69773ACC
 	Offset: 0xC98
 	Size: 0xFC

@@ -22,7 +22,7 @@ function private autoexec function_cef988d5()
 #namespace namespace_7ec6ae9f;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_7ec6ae9f
 	Checksum: 0xDE2A4BE7
 	Offset: 0xF0
@@ -30,7 +30,7 @@ function private autoexec function_cef988d5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2ff0859bce056c66", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -54,12 +54,12 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	clientfield::register("allplayers", "phase_rift_player_fx", 1, 2, "int", &function_5a246a9f, 0, 0);
+	clientfield::register("allplayers", "phase_rift_player_fx", 1, 2, "int", &phase_rift_player_fx, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_1b01e37683714902", 1, 1, "int", &function_1f107cad, 0, 0);
 }
 
 /*
-	Name: function_5a246a9f
+	Name: phase_rift_player_fx
 	Namespace: namespace_7ec6ae9f
 	Checksum: 0x2C8A420C
 	Offset: 0x260
@@ -67,7 +67,7 @@ function private function_70a657d8()
 	Parameters: 7
 	Flags: None
 */
-function function_5a246a9f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function phase_rift_player_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(!isdefined(self) || !self hasdobj(fieldname))
 	{

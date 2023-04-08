@@ -15,11 +15,11 @@
 #using scripts\core_common\values_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_ac4c291d;
+#namespace world_event_orb_follow;
 
 /*
 	Name: function_787fb99d
-	Namespace: namespace_ac4c291d
+	Namespace: world_event_orb_follow
 	Checksum: 0xDD8054AE
 	Offset: 0x158
 	Size: 0x14
@@ -32,22 +32,22 @@ function private autoexec function_787fb99d()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_ac4c291d
+	Name: __init__system__
+	Namespace: world_event_orb_follow
 	Checksum: 0x8457FD92
 	Offset: 0x178
 	Size: 0x44
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1c2f845f6ae4ceb2", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_ac4c291d
+	Namespace: world_event_orb_follow
 	Checksum: 0xBB1481B8
 	Offset: 0x1C8
 	Size: 0xB4
@@ -69,7 +69,7 @@ function function_70a657d8()
 
 /*
 	Name: function_cc775529
-	Namespace: namespace_ac4c291d
+	Namespace: world_event_orb_follow
 	Checksum: 0x67EE6C29
 	Offset: 0x288
 	Size: 0xD94
@@ -94,7 +94,7 @@ function private function_cc775529(s_instance)
 	var_b7eee573.aitype = #"hash_1aff4b71635bda08";
 	var_b7eee573.var_ae8ec545 = #"hash_5eaef6da3bb64b9a";
 	var_3d014474 = function_9ad12bee(var_b7eee573.aitype);
-	var_b7eee573.maxhealth = var_b7eee573 namespace_e0710ee6::function_f7014c3d(var_3d014474);
+	var_b7eee573.maxhealth = var_b7eee573 zm_ai_utility::function_f7014c3d(var_3d014474);
 	var_b7eee573.health = var_b7eee573.maxhealth;
 	var_b7eee573 val::set(#"hash_1592629a5ec5c8a", "takedamage", 1);
 	var_b7eee573 val::set(#"hash_1592629a5ec5c8a", "allowdeath", 0);
@@ -247,7 +247,7 @@ function private function_cc775529(s_instance)
 
 /*
 	Name: function_7d88cc57
-	Namespace: namespace_ac4c291d
+	Namespace: world_event_orb_follow
 	Checksum: 0xAA5ED58D
 	Offset: 0x1028
 	Size: 0x128
@@ -271,7 +271,7 @@ function private function_7d88cc57()
 
 /*
 	Name: function_eda98f63
-	Namespace: namespace_ac4c291d
+	Namespace: world_event_orb_follow
 	Checksum: 0xC2C175AA
 	Offset: 0x1158
 	Size: 0x9C

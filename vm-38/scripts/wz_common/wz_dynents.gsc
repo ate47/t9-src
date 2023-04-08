@@ -23,7 +23,7 @@ function private autoexec function_300b90ec()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: wz_dynents
 	Checksum: 0x92DDFDF1
 	Offset: 0x240
@@ -31,7 +31,7 @@ function private autoexec function_300b90ec()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"wz_dynents", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -8,11 +8,11 @@
 #using scripts\zm_common\zm_utility.gsc;
 #using scripts\zm_common\zm_weapons.gsc;
 
-#namespace namespace_4f449f4a;
+#namespace zm_weap_molotov;
 
 /*
 	Name: function_2a8a9952
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0xE826CFD2
 	Offset: 0xF0
 	Size: 0x14
@@ -25,22 +25,22 @@ function private autoexec function_2a8a9952()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_4f449f4a
+	Name: __init__system__
+	Namespace: zm_weap_molotov
 	Checksum: 0x46B453AA
 	Offset: 0x110
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"molotov_zm", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0xF306998C
 	Offset: 0x158
 	Size: 0xDC
@@ -58,7 +58,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_b107b600
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0x4E28E0C2
 	Offset: 0x240
 	Size: 0x13C
@@ -85,7 +85,7 @@ function function_b107b600(position, var_efa24ea4, damageendtime, var_ac892ba9)
 
 /*
 	Name: function_16a57018
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0x83C7A7CE
 	Offset: 0x388
 	Size: 0x3FE
@@ -147,7 +147,7 @@ function function_16a57018(damageendtime, owner, position, fireeffectarea, var_2
 
 /*
 	Name: trytoapplyfiredamage
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0xEAE43947
 	Offset: 0x790
 	Size: 0x248
@@ -197,7 +197,7 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a7
 
 /*
 	Name: function_8422dabd
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0x38F26791
 	Offset: 0x9E0
 	Size: 0x15A
@@ -224,7 +224,7 @@ function function_8422dabd(origin, killcament, trace, position, weapon, var_4dd4
 
 /*
 	Name: function_f0bbc1f4
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0xE23E9909
 	Offset: 0xB48
 	Size: 0x1FC
@@ -254,7 +254,7 @@ function function_f0bbc1f4(attacker, var_b1b43d4c, var_fec8031e, var_900ddd04)
 
 /*
 	Name: function_177886db
-	Namespace: namespace_4f449f4a
+	Namespace: zm_weap_molotov
 	Checksum: 0x19A7
 	Offset: 0xD50
 	Size: 0x34

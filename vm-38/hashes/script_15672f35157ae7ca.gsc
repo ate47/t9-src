@@ -54,7 +54,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_offset_y(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_y", value);
+		[[ self ]]->set_data(localclientnum, "offset_y", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_offset_x(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_x", value);
+		[[ self ]]->set_data(localclientnum, "offset_x", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_offset_z(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_z", value);
+		[[ self ]]->set_data(localclientnum, "offset_z", value);
 	}
 
 	/*
@@ -132,7 +132,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_entityScale(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entityScale", value);
+		[[ self ]]->set_data(localclientnum, "entityScale", value);
 	}
 
 	/*
@@ -146,7 +146,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_entNum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", value);
+		[[ self ]]->set_data(localclientnum, "entnum", value);
 	}
 
 	/*
@@ -162,31 +162,31 @@ class cluielem_entity_bar : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"friendlyblue" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"green" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
 					if(#"yellow" == state_name)
 					{
-						[[ self ]]->function_d7d2fcce(localclientnum, "_state", 3);
+						[[ self ]]->set_data(localclientnum, "_state", 3);
 					}
 					else
 					{
 						if(#"red" == state_name)
 						{
-							[[ self ]]->function_d7d2fcce(localclientnum, "_state", 4);
+							[[ self ]]->set_data(localclientnum, "_state", 4);
 						}
 						else
 						{
@@ -213,7 +213,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_entityClamp(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entityClamp", value);
+		[[ self ]]->set_data(localclientnum, "entityClamp", value);
 	}
 
 	/*
@@ -227,7 +227,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function set_progress_percent(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress_percent", value);
+		[[ self ]]->set_data(localclientnum, "progress_percent", value);
 	}
 
 	/*
@@ -243,13 +243,13 @@ class cluielem_entity_bar : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress_percent", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_x", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_y", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_z", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entityClamp", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entityScale", 0);
+		[[ self ]]->set_data(localclientnum, "progress_percent", 0);
+		[[ self ]]->set_data(localclientnum, "entnum", 0);
+		[[ self ]]->set_data(localclientnum, "offset_x", 0);
+		[[ self ]]->set_data(localclientnum, "offset_y", 0);
+		[[ self ]]->set_data(localclientnum, "offset_z", 0);
+		[[ self ]]->set_data(localclientnum, "entityClamp", 0);
+		[[ self ]]->set_data(localclientnum, "entityScale", 0);
 	}
 
 }
@@ -281,7 +281,7 @@ function private autoexec function_9c825288()
 */
 function set_boneTag(localclientnum, value)
 {
-	[[ self ]]->function_d7d2fcce(localclientnum, "boneTag", value);
+	[[ self ]]->set_data(localclientnum, "boneTag", value);
 }
 
 /*

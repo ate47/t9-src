@@ -26,7 +26,7 @@ function private autoexec function_57f9a0a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_audio
 	Checksum: 0x5C69CACD
 	Offset: 0x5B0
@@ -34,7 +34,7 @@ function private autoexec function_57f9a0a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic_audio", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -94,7 +94,7 @@ function function_6e084fd3(var_37ecca7, taacombundle)
 			bundlename = taacombundle.aitankdialogbundle;
 			break;
 		}
-		case "hash_1bf811fa5d684607":
+		case "inventory_chopper_gunner":
 		case "chopper_gunner":
 		{
 			bundlename = taacombundle.var_3f45482e;
@@ -130,7 +130,7 @@ function function_6e084fd3(var_37ecca7, taacombundle)
 			bundlename = taacombundle.var_43bcc95e;
 			break;
 		}
-		case "hash_459c0007ec5e2470":
+		case "inventory_ac130":
 		case "ac130":
 		{
 			bundlename = taacombundle.var_71693229;
@@ -164,7 +164,7 @@ function function_6e084fd3(var_37ecca7, taacombundle)
 			break;
 		}
 		case "hoverjet":
-		case "hash_511b5c81a984baf9":
+		case "inventory_hoverjet":
 		{
 			bundlename = taacombundle.var_c96adb95;
 			break;
@@ -190,7 +190,7 @@ function function_6e084fd3(var_37ecca7, taacombundle)
 			bundlename = taacombundle.rcbombdialogbundle;
 			break;
 		}
-		case "hash_62a2088c3368ea":
+		case "inventory_recon_plane":
 		case "recon_plane":
 		{
 			bundlename = taacombundle.var_5b8e4a97;
@@ -1827,13 +1827,13 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 			var_b3fe42a9 = 1;
 			break;
 		}
-		case "hash_459c0007ec5e2470":
+		case "inventory_ac130":
 		case "ac130":
 		{
 			var_60d3002f = "ac130Hacked";
 			break;
 		}
-		case "hash_1bf811fa5d684607":
+		case "inventory_chopper_gunner":
 		case "chopper_gunner":
 		{
 			var_60d3002f = "chopperGunnerHacked";
@@ -1880,7 +1880,7 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 			break;
 		}
 		case "hoverjet":
-		case "hash_511b5c81a984baf9":
+		case "inventory_hoverjet":
 		{
 			var_60d3002f = "hoverJetHacked";
 			break;
@@ -1891,7 +1891,7 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 			var_60d3002f = "reconCarHacked";
 			break;
 		}
-		case "hash_62a2088c3368ea":
+		case "inventory_recon_plane":
 		case "recon_plane":
 		{
 			var_60d3002f = "reconPlaneHacked";

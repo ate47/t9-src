@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -26,7 +26,7 @@ function private autoexec function_673ace34()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_5f71460c
 	Checksum: 0xE70F088
 	Offset: 0xD0
@@ -34,7 +34,7 @@ function private autoexec function_673ace34()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6e3eb3affb730b9a", &function_70a657d8, undefined, undefined, undefined);
 }

@@ -54,7 +54,7 @@ class class_c33e75d1 : cLUIelem
 	*/
 	function set_raceTotalLap(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceTotalLap", value);
+		[[ self ]]->set_data(localclientnum, "raceTotalLap", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class class_c33e75d1 : cLUIelem
 	*/
 	function set_raceRanking(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceRanking", value);
+		[[ self ]]->set_data(localclientnum, "raceRanking", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_c33e75d1 : cLUIelem
 	*/
 	function set_raceRewardTier(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceRewardTier", value);
+		[[ self ]]->set_data(localclientnum, "raceRewardTier", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class class_c33e75d1 : cLUIelem
 	*/
 	function set_raceCurrentLap(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceCurrentLap", value);
+		[[ self ]]->set_data(localclientnum, "raceCurrentLap", value);
 	}
 
 	/*
@@ -143,19 +143,19 @@ class class_c33e75d1 : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceRanking", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceCurrentLap", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceTotalLap", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "raceRewardTier", 0);
+		[[ self ]]->set_data(localclientnum, "raceRanking", 0);
+		[[ self ]]->set_data(localclientnum, "raceCurrentLap", 0);
+		[[ self ]]->set_data(localclientnum, "raceTotalLap", 0);
+		[[ self ]]->set_data(localclientnum, "raceRewardTier", 0);
 	}
 
 }
 
-#namespace namespace_5ac3cdbb;
+#namespace zm_tungsten_grandprix;
 
 /*
 	Name: function_bc2a2f71
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xD82074FE
 	Offset: 0xF8
 	Size: 0x14
@@ -169,7 +169,7 @@ function private autoexec function_bc2a2f71()
 
 /*
 	Name: register
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xE1CBCA42
 	Offset: 0x118
 	Size: 0x196
@@ -184,24 +184,24 @@ function register(var_20264c25, var_bbda5b4d, var_19161bc0, var_b6adcd73)
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_tungsten_grandprix"]))
 	{
-		level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"] = [];
+		level.var_ae746e8f[#"zm_tungsten_grandprix"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"]))
+	if(!isdefined(level.var_ae746e8f[#"zm_tungsten_grandprix"]))
 	{
-		level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"] = [];
+		level.var_ae746e8f[#"zm_tungsten_grandprix"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"]))
+	else if(!isarray(level.var_ae746e8f[#"zm_tungsten_grandprix"]))
 	{
-		level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"] = array(level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"]);
+		level.var_ae746e8f[#"zm_tungsten_grandprix"] = array(level.var_ae746e8f[#"zm_tungsten_grandprix"]);
 	}
-	level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"][level.var_ae746e8f[#"hash_6fd9b5f86786cd9b"].size] = elem;
+	level.var_ae746e8f[#"zm_tungsten_grandprix"][level.var_ae746e8f[#"zm_tungsten_grandprix"].size] = elem;
 }
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x432597CA
 	Offset: 0x2B8
 	Size: 0x34
@@ -217,7 +217,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xB9E73D81
 	Offset: 0x2F8
 	Size: 0x1C
@@ -231,7 +231,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x6F5221DB
 	Offset: 0x320
 	Size: 0x1C
@@ -245,7 +245,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xA104C566
 	Offset: 0x348
 	Size: 0x1A
@@ -259,7 +259,7 @@ function is_open(localclientnum)
 
 /*
 	Name: set_raceRanking
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xEF530716
 	Offset: 0x370
 	Size: 0x28
@@ -273,7 +273,7 @@ function set_raceRanking(localclientnum, value)
 
 /*
 	Name: set_raceCurrentLap
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xE01D3B48
 	Offset: 0x3A0
 	Size: 0x28
@@ -287,7 +287,7 @@ function set_raceCurrentLap(localclientnum, value)
 
 /*
 	Name: set_raceTotalLap
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0xB239F0ED
 	Offset: 0x3D0
 	Size: 0x28
@@ -301,7 +301,7 @@ function set_raceTotalLap(localclientnum, value)
 
 /*
 	Name: set_raceRewardTier
-	Namespace: namespace_5ac3cdbb
+	Namespace: zm_tungsten_grandprix
 	Checksum: 0x9C8361CA
 	Offset: 0x400
 	Size: 0x28

@@ -87,11 +87,11 @@ class class_d0a96b4 : cLUIelem
 
 }
 
-#namespace namespace_20a120d7;
+#namespace TerminalKeyboardFrame;
 
 /*
 	Name: function_3d08d8b4
-	Namespace: namespace_20a120d7
+	Namespace: TerminalKeyboardFrame
 	Checksum: 0x8B0BC77D
 	Offset: 0xB0
 	Size: 0x14
@@ -105,7 +105,7 @@ function private autoexec function_3d08d8b4()
 
 /*
 	Name: register
-	Namespace: namespace_20a120d7
+	Namespace: TerminalKeyboardFrame
 	Checksum: 0xB7073EAE
 	Offset: 0xD0
 	Size: 0x16E
@@ -137,7 +137,7 @@ function register()
 
 /*
 	Name: function_5c1bb138
-	Namespace: namespace_20a120d7
+	Namespace: TerminalKeyboardFrame
 	Checksum: 0x3BC80F5E
 	Offset: 0x248
 	Size: 0x34
@@ -153,7 +153,7 @@ function function_5c1bb138()
 
 /*
 	Name: open
-	Namespace: namespace_20a120d7
+	Namespace: TerminalKeyboardFrame
 	Checksum: 0xB035C16B
 	Offset: 0x288
 	Size: 0x1C
@@ -167,7 +167,7 @@ function open(player)
 
 /*
 	Name: close
-	Namespace: namespace_20a120d7
+	Namespace: TerminalKeyboardFrame
 	Checksum: 0x8A5D773E
 	Offset: 0x2B0
 	Size: 0x1C
@@ -181,7 +181,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_20a120d7
+	Namespace: TerminalKeyboardFrame
 	Checksum: 0xEAA27B4E
 	Offset: 0x2D8
 	Size: 0x1A

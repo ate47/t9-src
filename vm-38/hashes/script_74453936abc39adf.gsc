@@ -30,7 +30,7 @@ function private autoexec function_93c5193d()
 */
 function function_70a657d8()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}
@@ -66,7 +66,7 @@ function private function_72b9b674()
 	switch(level.gametype)
 	{
 		case "conf":
-		case "hash_40e7fa1f82c9a9a9":
+		case "conf_hc":
 		{
 			return &function_13821498;
 		}

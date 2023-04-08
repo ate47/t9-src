@@ -30,7 +30,7 @@ function private autoexec function_6d4c3af9()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: recon_car
 	Checksum: 0xED508D7C
 	Offset: 0x1D8
@@ -38,7 +38,7 @@ function private autoexec function_6d4c3af9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register("recon_car", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

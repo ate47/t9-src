@@ -84,7 +84,7 @@ class cconsequences_notification : cLUIelem
 	*/
 	function set_content_index(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "content_index", value);
+		[[ self ]]->set_data(localclientnum, "content_index", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cconsequences_notification : cLUIelem
 	*/
 	function set_visible(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "visible", value);
+		[[ self ]]->set_data(localclientnum, "visible", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class cconsequences_notification : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "visible", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "content_index", 0);
+		[[ self ]]->set_data(localclientnum, "visible", 0);
+		[[ self ]]->set_data(localclientnum, "content_index", 0);
 	}
 
 }

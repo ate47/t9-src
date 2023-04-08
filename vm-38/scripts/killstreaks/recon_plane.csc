@@ -21,7 +21,7 @@ function private autoexec function_dbd42922()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: recon_plane
 	Checksum: 0xB0E45C56
 	Offset: 0x150
@@ -29,7 +29,7 @@ function private autoexec function_dbd42922()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"recon_plane", &function_70a657d8, undefined, undefined, #"killstreaks");
 }
@@ -47,7 +47,7 @@ function private function_70a657d8()
 {
 	clientfield::register("scriptmover", "recon_plane", 1, 1, "int", &function_1f842f91, 0, 0);
 	clientfield::register("scriptmover", "recon_plane_reveal", 1, 1, "int", &recon_plane_reveal, 0, 0);
-	clientfield::register("scriptmover", "recon_plane_damage_fx", 1, 2, "int", &function_24cfeb4b, 0, 0);
+	clientfield::register("scriptmover", "recon_plane_damage_fx", 1, 2, "int", &recon_plane_damage_fx, 0, 0);
 	callback::on_localclient_connect(&player_init);
 	bundlename = "killstreak_recon_plane";
 	if(function_f99d2668())
@@ -265,7 +265,7 @@ function private function_af19a98(localclientnum, entnum)
 }
 
 /*
-	Name: function_24cfeb4b
+	Name: recon_plane_damage_fx
 	Namespace: recon_plane
 	Checksum: 0x6379F8C1
 	Offset: 0xA50
@@ -273,7 +273,7 @@ function private function_af19a98(localclientnum, entnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_24cfeb4b(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function recon_plane_damage_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump == 1)
 	{

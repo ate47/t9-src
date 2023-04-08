@@ -60,7 +60,7 @@ event main(eventstruct)
 function function_52ee8599()
 {
 	function_3385d776(#"ui/fx8_fracture_deposit_point_end_ire");
-	forcestreamxmodel(#"hash_4e3eff45df49869e");
+	forcestreamxmodel(#"p9_pot_of_gold_pristine");
 }
 
 /*

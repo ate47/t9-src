@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 
@@ -21,7 +21,7 @@ function private autoexec function_31a420d4()
 #namespace contracts;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: contracts
 	Checksum: 0xBA70B73C
 	Offset: 0x98
@@ -29,7 +29,7 @@ function private autoexec function_31a420d4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"contracts_shared", undefined, undefined, undefined, undefined);
 }

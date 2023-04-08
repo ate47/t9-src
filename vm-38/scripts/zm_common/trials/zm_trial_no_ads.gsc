@@ -22,7 +22,7 @@ function private autoexec function_8478c270()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_no_ads
 	Checksum: 0x66E46F78
 	Offset: 0xD8
@@ -30,9 +30,9 @@ function private autoexec function_8478c270()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_51d483b647ad272e", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_no_ads", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

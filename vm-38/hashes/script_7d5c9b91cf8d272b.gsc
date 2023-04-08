@@ -37,7 +37,7 @@ function private autoexec function_616cd452()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_361e505d
 	Checksum: 0xE5E9973F
 	Offset: 0x450
@@ -45,7 +45,7 @@ function private autoexec function_616cd452()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7776caebba9c5d5a", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -99,10 +99,10 @@ function function_70a657d8()
 	}
 	else if(util::get_map_name() == "zm_tungsten")
 	{
-		level.var_1a4cc228[#"hash_65601b35a869fadc"] = [3:#"hash_5c0dcc3f9d9e1ea5", 2:#"hash_63d74789d0b11dbc", 1:#"hash_32561af4cae216fa", 0:#"hash_42c772d33b3b95d7"];
-		level.var_1a4cc228[#"hash_7fd8511bfa072f88"] = [0:#"hash_4729aed4cfa43476"];
-		level.var_1a4cc228[#"hash_3ed6e732ee53053e"] = [0:#"hash_59e40ffcdcfbffa6"];
-		level.var_1a4cc228[#"hash_2d7c50242891e2b9"] = [7:#"hash_1c89bc2d12106779", 6:#"hash_2d07ee0d2dca46d9", 5:#"hash_78a973a6fb604cf", 4:#"hash_7151a0027b3ff314", 3:#"hash_1c8805fec5806efe", 2:#"hash_35d84238103deb46", 1:#"hash_7b3bac29e8e3bf13", 0:#"hash_656d60e84740cf6b"];
+		level.var_1a4cc228[#"spawner_bo5_zombie_zm_tungsten"] = [3:#"hash_5c0dcc3f9d9e1ea5", 2:#"hash_63d74789d0b11dbc", 1:#"hash_32561af4cae216fa", 0:#"hash_42c772d33b3b95d7"];
+		level.var_1a4cc228[#"spawner_bo5_zombie_zm_tungsten_armor_heavy"] = [0:#"hash_4729aed4cfa43476"];
+		level.var_1a4cc228[#"spawner_bo5_zombie_zm_tungsten_armor_medium"] = [0:#"hash_59e40ffcdcfbffa6"];
+		level.var_1a4cc228[#"spawner_bo5_zombie_zm_tungsten_omega_soldier"] = [7:#"hash_1c89bc2d12106779", 6:#"hash_2d07ee0d2dca46d9", 5:#"hash_78a973a6fb604cf", 4:#"hash_7151a0027b3ff314", 3:#"hash_1c8805fec5806efe", 2:#"hash_35d84238103deb46", 1:#"hash_7b3bac29e8e3bf13", 0:#"hash_656d60e84740cf6b"];
 	}
 	/#
 		thread function_ac104a3d();
@@ -405,8 +405,8 @@ function registerbehaviorscriptfunctions()
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_6fc7ddb1aba362eb", &function_4d225f59);
 	animationstatenetwork::registeranimationmocomp("mocomp_abom_slide_outro", &function_d6971904, undefined, undefined);
 	animationstatenetwork::registernotetrackhandlerfunction("abom_death_hide", &function_844fe7cb);
-	animationstatenetwork::registernotetrackhandlerfunction("abom_death_dissolve", &function_18370f62);
-	animationstatenetwork::registernotetrackhandlerfunction("abom_head_impact", &function_a67b1c39);
+	animationstatenetwork::registernotetrackhandlerfunction("abom_death_dissolve", &abom_death_dissolve);
+	animationstatenetwork::registernotetrackhandlerfunction("abom_head_impact", &abom_head_impact);
 }
 
 /*
@@ -464,7 +464,7 @@ function function_844fe7cb(entity)
 }
 
 /*
-	Name: function_18370f62
+	Name: abom_death_dissolve
 	Namespace: namespace_361e505d
 	Checksum: 0x9BE16A7D
 	Offset: 0x2B80
@@ -472,7 +472,7 @@ function function_844fe7cb(entity)
 	Parameters: 1
 	Flags: None
 */
-function function_18370f62(entity)
+function abom_death_dissolve(entity)
 {
 	entity clientfield::set("abomDissolveCF", 2);
 }
@@ -657,17 +657,17 @@ function private function_a5cc03cf(weakpoint, var_31e96b81, eattacker)
 				#/
 				switch(var_31e96b81.var_d8fa3d82[0])
 				{
-					case "hash_246c6b6ad351036b":
+					case "tag_fx_jaw_le":
 					{
 						function_bea34373(self, 0);
 						break;
 					}
-					case "hash_5b855a081021ce71":
+					case "tag_fx_jaw_center":
 					{
 						function_bea34373(self, 1);
 						break;
 					}
-					case "hash_24b66b6ad38f3be5":
+					case "tag_fx_jaw_ri":
 					{
 						function_bea34373(self, 2);
 						break;
@@ -1397,7 +1397,7 @@ function private function_d8fde04f(entity)
 			var_4b5e91d6 = 1;
 		}
 	}
-	if(entity flag::get(#"hash_4000bb455b0dd9e1") || entity flag::get(#"hash_1f9ad625c3185bf4") || var_4b5e91d6)
+	if(entity flag::get(#"abom_head_recently_blown_off") || entity flag::get(#"hash_1f9ad625c3185bf4") || var_4b5e91d6)
 	{
 		entity flag::set(#"hash_1a23f4b19598f1b0");
 	}
@@ -1626,7 +1626,7 @@ function function_25b49d18(entity, asmstatename)
 }
 
 /*
-	Name: function_a67b1c39
+	Name: abom_head_impact
 	Namespace: namespace_361e505d
 	Checksum: 0x3DF1D72
 	Offset: 0x58C0
@@ -1634,7 +1634,7 @@ function function_25b49d18(entity, asmstatename)
 	Parameters: 1
 	Flags: Private
 */
-function private function_a67b1c39(entity)
+function private abom_head_impact(entity)
 {
 	if(isdefined(entity.var_d86b94b3))
 	{

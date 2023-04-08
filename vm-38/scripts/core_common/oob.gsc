@@ -1,4 +1,4 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -27,7 +27,7 @@ function private autoexec function_674331d0()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: oob
 	Checksum: 0xA4F42711
 	Offset: 0x218
@@ -35,7 +35,7 @@ function private autoexec function_674331d0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"out_of_bounds", &function_70a657d8, undefined, undefined, undefined);
 }

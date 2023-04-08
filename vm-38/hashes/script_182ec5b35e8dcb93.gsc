@@ -25,7 +25,7 @@ function private autoexec function_393edb48()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_19c99142
 	Checksum: 0xA8E77D80
 	Offset: 0x4E8
@@ -33,7 +33,7 @@ function private autoexec function_393edb48()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2f2eba883d5db256", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -49,7 +49,7 @@ function private autoexec function_89f2df9()
 */
 function function_70a657d8()
 {
-	if(!isarchetypeloaded(#"hash_24f9e195cf2de42"))
+	if(!isarchetypeloaded(#"soa"))
 	{
 		return;
 	}
@@ -62,7 +62,7 @@ function function_70a657d8()
 	clientfield::register("actor", "soaLifeDrainBeamKillCF", 14000, 1, "counter", &function_e397a6bd, 0, 0);
 	clientfield::register("toplayer", "soaLifeDrainPostFXCF", 13000, 1, "int", &function_4d8337d3, 0, 0);
 	clientfield::register("scriptmover", "soaLifeDrainEntCF", 13000, 2, "int", &function_537e9ae2, 0, 0);
-	ai::add_archetype_spawn_function(#"hash_24f9e195cf2de42", &function_ad30d4e8);
+	ai::add_archetype_spawn_function(#"soa", &function_ad30d4e8);
 }
 
 /*

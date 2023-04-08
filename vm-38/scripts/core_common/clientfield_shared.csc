@@ -59,7 +59,7 @@ function function_a8bbc967(str_name, var_91c404f, path, n_version, n_bits, str_t
 }
 
 /*
-	Name: function_346f95ba
+	Name: register_luielem
 	Namespace: clientfield
 	Checksum: 0x71DABE89
 	Offset: 0x230
@@ -67,7 +67,7 @@ function function_a8bbc967(str_name, var_91c404f, path, n_version, n_bits, str_t
 	Parameters: 10
 	Flags: Linked
 */
-function function_346f95ba(str_name, menu_name, var_483e93f7, path, n_version, n_bits, str_type, func_callback, b_host, b_callback_for_zero_when_new)
+function register_luielem(str_name, menu_name, var_483e93f7, path, n_version, n_bits, str_type, func_callback, b_host, b_callback_for_zero_when_new)
 {
 	function_e231bfd4(str_name, menu_name, var_483e93f7, path, n_version, n_bits, str_type, func_callback, b_host, b_callback_for_zero_when_new);
 }

@@ -1,6 +1,6 @@
 #using script_12282e6b2cc91b42;
 #using script_20055f2f97341caa;
-#using script_235cad39dd72e0ac;
+#using scripts\zm_common\zm_aoe.csc;
 #using script_26e61ae2e1d842a9;
 #using script_30496ec6b1f696ca;
 #using script_309ce7f5a9a023de;
@@ -48,7 +48,7 @@ function private autoexec function_bfb937af()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: load
 	Checksum: 0x105E2130
 	Offset: 0x1B0
@@ -56,7 +56,7 @@ function private autoexec function_bfb937af()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_load", &function_aeb1baea, undefined, undefined, undefined);
 }

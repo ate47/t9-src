@@ -23,7 +23,7 @@ function private autoexec function_fbd7767c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_no_powerups
 	Checksum: 0x2EB75383
 	Offset: 0xB8
@@ -31,9 +31,9 @@ function private autoexec function_fbd7767c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_2b76723956a99b39", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_no_powerups", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

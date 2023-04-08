@@ -29,7 +29,7 @@ function private autoexec function_e3711f44()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_zonemgr
 	Checksum: 0x159E3634
 	Offset: 0x310
@@ -37,7 +37,7 @@ function private autoexec function_e3711f44()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_zonemgr", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -1180,7 +1180,7 @@ function zone_flag_wait(flag_name)
 	{
 		level flag::init(flag_name);
 	}
-	if(flag_name == "power_on" && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 2)
+	if(flag_name == "power_on" && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 	{
 		waitframe(1);
 	}
@@ -1204,7 +1204,7 @@ function zone_flag_wait(flag_name)
 				if(azone.flags_do_or_check)
 				{
 					flags_set = 0;
-					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 2)
+					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 					{
 						flags_set = 1;
 					}
@@ -1223,7 +1223,7 @@ function zone_flag_wait(flag_name)
 				else
 				{
 					flags_set = 1;
-					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && namespace_59ff1d6c::function_901b751c(#"hash_29004a67830922b6") == 2)
+					if(azone.flags.size == 1 && azone.flags[0] == "power_on" && zm_custom::function_901b751c(#"hash_29004a67830922b6") == 2)
 					{
 						flags_set = 1;
 					}

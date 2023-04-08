@@ -23,7 +23,7 @@ function private autoexec function_2774d13()
 #namespace squad_spawn;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: squad_spawn
 	Checksum: 0x5FD12434
 	Offset: 0x1D0
@@ -31,7 +31,7 @@ function private autoexec function_2774d13()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"squad_spawning", &init, undefined, undefined, undefined);
 }
@@ -47,7 +47,7 @@ function private autoexec function_89f2df9()
 */
 function init()
 {
-	level.var_d0252074 = (isdefined(getgametypesetting(#"hash_2b1f40bc711c41f3")) ? getgametypesetting(#"hash_2b1f40bc711c41f3") : 0) && !util::function_3f165ee8();
+	level.var_d0252074 = (isdefined(getgametypesetting(#"hash_2b1f40bc711c41f3")) ? getgametypesetting(#"hash_2b1f40bc711c41f3") : 0) && !util::is_frontend_map();
 	if(!level.var_d0252074)
 	{
 		return;

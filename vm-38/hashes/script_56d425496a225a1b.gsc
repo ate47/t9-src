@@ -2,7 +2,7 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using script_383a3b1bb18ba876;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -397,10 +397,10 @@ function activateturret(killstreaktype)
 	if(isdefined(level.var_ed417bb9))
 	{
 		waitresult = undefined;
-		waitresult = player waittill(#"ultimate_turret_deployed", #"death", #"weapon_change", #"weapon_fired", #"hash_12493c2710d6a5af");
+		waitresult = player waittill(#"ultimate_turret_deployed", #"death", #"weapon_change", #"weapon_fired", #"executionstart");
 	}
 	waitresult = undefined;
-	waitresult = player waittill(#"ultimate_turret_deployed", #"death", #"weapon_change", #"weapon_fired", #"hash_12493c2710d6a5af");
+	waitresult = player waittill(#"ultimate_turret_deployed", #"death", #"weapon_change", #"weapon_fired", #"executionstart");
 	if(waitresult._notify === "weapon_change" && waitresult.last_weapon === var_e454da90 && waitresult.weapon === level.weaponnone)
 	{
 		waitresult = undefined;

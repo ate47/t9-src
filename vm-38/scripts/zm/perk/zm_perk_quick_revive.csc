@@ -21,7 +21,7 @@ function private autoexec function_2f80d5d4()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_perk_quick_revive
 	Checksum: 0x33EE9CEB
 	Offset: 0xF8
@@ -29,7 +29,7 @@ function private autoexec function_2f80d5d4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_perk_quick_revive", &function_70a657d8, undefined, undefined, undefined);
 }

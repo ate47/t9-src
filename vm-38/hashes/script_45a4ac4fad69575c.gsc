@@ -54,7 +54,7 @@ class class_fd95a9c : cLUIelem
 	*/
 	function set_confirmBtn(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "confirmBtn", value);
+		[[ self ]]->set_data(localclientnum, "confirmBtn", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class class_fd95a9c : cLUIelem
 	*/
 	function set_textBoxHint(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "textBoxHint", value);
+		[[ self ]]->set_data(localclientnum, "textBoxHint", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class class_fd95a9c : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "textBoxHint", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "confirmBtn", #"");
+		[[ self ]]->set_data(localclientnum, "textBoxHint", #"");
+		[[ self ]]->set_data(localclientnum, "confirmBtn", #"");
 	}
 
 }

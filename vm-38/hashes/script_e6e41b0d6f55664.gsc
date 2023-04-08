@@ -18,7 +18,7 @@ function private autoexec function_c6e7f535()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_f7a26881
 	Checksum: 0xADA1A63F
 	Offset: 0xB8
@@ -26,7 +26,7 @@ function private autoexec function_c6e7f535()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_17158d9655e9dc58", &function_70a657d8, undefined, undefined, #"killstreaks");
 }

@@ -66,7 +66,7 @@ function init()
 	clientfield::register("world", "" + #"hash_27308a7dd991ce8d", 28000, 1, "int");
 	clientfield::register("actor", "" + #"hash_54e2a4e02a26cc62", 28000, 1, "counter");
 	level zm_sq::register(#"pap_quest", #"hash_2567a4f3df93c2b0", #"hash_b71b93f558098d2", &function_d6912122, &function_901d4808);
-	level zm_sq::register(#"pap_quest", #"hash_6552da7c5bcf7970", #"hash_36f55be5a8fc1820", &function_15cbe9b3, &function_ae76d66e);
+	level zm_sq::register(#"pap_quest", #"hash_6552da7c5bcf7970", #"pap_quest_holdout_until_teleporter_restart_step", &function_15cbe9b3, &function_ae76d66e);
 	level zm_sq::register(#"pap_quest", #"hash_3a495b8c519be728", #"hash_10767b6cc12968e", &function_4a137892, &function_150a6555);
 	level zm_sq::register(#"pap_quest", #"hash_302900663ba3693f", #"hash_69956b5ecab4a827", &function_b6f68914, &function_e172620);
 	level zm_sq::register(#"pap_quest", #"hash_3a5ea58248294ec5", #"hash_6cd201e96fac6f2b", &function_c754a36a, &function_109823ff);
@@ -208,7 +208,7 @@ function private function_94c3002d()
 			{
 				if(level.round_number == 1)
 				{
-					level flag::wait_till(#"hash_4ae6b839df55ee2a");
+					level flag::wait_till(#"match_start_vo_done");
 					wait(1);
 				}
 				else
@@ -452,7 +452,7 @@ function function_4a137892(b_skipped)
 	{
 		return;
 	}
-	var_b75e4db1 = struct::get_array(#"hash_10867d96a0793a37", "script_string");
+	var_b75e4db1 = struct::get_array(#"helipads_to_main_street", "script_string");
 	zm_sq::objective_set(#"hash_6b0d97dea8e9978f", var_b75e4db1, undefined, #"hash_1e26d87a292ce41e", undefined, 96);
 	level flag::wait_till(#"hash_4974c816b1d4372b");
 	function_8ca5e5a(&namespace_9771a88f::function_dc17412a, "pap_quest_main_street_trigger", #"hash_12211793875e0971");
@@ -491,13 +491,13 @@ function function_b6f68914(b_skipped)
 	}
 	var_b75e4db1 = struct::get_array(#"hash_6f4ff1b4d10bc283", "targetname");
 	zm_sq::objective_set(#"hash_20a2de434e54a6ae", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
-	level thread namespace_ff7e490::function_a70fa155(#"hash_20a2de434e54a6ae", #"hash_62731aa273c00263", var_b75e4db1, level.var_6097ff89, [1:#"hash_12211793875e0971", 0:#"hash_79d03c1109324acf"]);
-	level flag::wait_till(#"hash_79d03c1109324acf");
+	level thread namespace_ff7e490::function_a70fa155(#"hash_20a2de434e54a6ae", #"hash_62731aa273c00263", var_b75e4db1, level.var_6097ff89, [1:#"hash_12211793875e0971", 0:#"connect_backlot_to_mainstreet"]);
+	level flag::wait_till(#"connect_backlot_to_mainstreet");
 	zm_sq::objective_complete(#"hash_20a2de434e54a6ae");
-	var_b75e4db1 = struct::get_array(#"hash_2e6796ab3a32706f", "script_string");
+	var_b75e4db1 = struct::get_array(#"main_street_to_anytown_usa", "script_string");
 	zm_sq::objective_set(#"hash_20a2dd434e54a4fb", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
 	level thread namespace_ff7e490::function_a70fa155(#"hash_20a2dd434e54a4fb", #"hash_62731aa273c00263", var_b75e4db1, level.var_6097ff89, #"hash_12211793875e0971");
-	level flag::wait_till_all(array(#"hash_5257e1c2e1090ded", #"hash_6202d7ed71659fe"));
+	level flag::wait_till_all(array(#"connect_pizza_parlor", #"connect_diner"));
 	zm_tungsten_zones::function_4f804075();
 	level flag::wait_till(#"hash_41474029b416f190");
 	function_8ca5e5a(&namespace_9771a88f::function_23e9435d, "pap_quest_anytown_usa_trigger", #"hash_33c0045188845715");
@@ -554,10 +554,10 @@ function function_c754a36a(b_skipped)
 	array::add(var_b75e4db1, struct::get(#"hash_2107b38a44736042", "targetname"));
 	array::add(var_b75e4db1, struct::get(#"hash_5236174303a5bff7", "targetname"));
 	zm_sq::objective_set(#"hash_2b57f74354f9bc29", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
-	level thread namespace_ff7e490::function_a70fa155(#"hash_2b57f74354f9bc29", #"hash_62731aa273c00263", var_b75e4db1, level.var_2f941a56, [3:#"hash_33c0045188845715", 2:#"hash_4631d121f7af0f45", 1:#"hash_80e313f33fdd940", 0:#"hash_46ea67e0190a83ef"]);
-	level flag::wait_till_any([2:#"hash_4631d121f7af0f45", 1:#"hash_80e313f33fdd940", 0:#"hash_46ea67e0190a83ef"]);
+	level thread namespace_ff7e490::function_a70fa155(#"hash_2b57f74354f9bc29", #"hash_62731aa273c00263", var_b75e4db1, level.var_2f941a56, [3:#"hash_33c0045188845715", 2:#"connect_cinema", 1:#"connect_tv_repair", 0:#"connect_anytown_usa_rooftops"]);
+	level flag::wait_till_any([2:#"connect_cinema", 1:#"connect_tv_repair", 0:#"connect_anytown_usa_rooftops"]);
 	zm_sq::objective_complete(#"hash_2b57f74354f9bc29");
-	var_b75e4db1 = struct::get_array(#"hash_e90df2ca25fbd31", "script_string");
+	var_b75e4db1 = struct::get_array(#"anytown_usa_to_bunker", "script_string");
 	if(!level flag::get(#"hash_419cb6aea3c6771e"))
 	{
 		zm_sq::objective_set(#"hash_2b57f44354f9b710", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
@@ -899,7 +899,7 @@ function function_2d857fb2(b_skipped, var_19e802fa)
 	{
 		function_43828640();
 	}
-	callback::remove_callback(#"hash_56d1805bfff3e65b", &on_item_pickup);
+	callback::remove_callback(#"on_item_pickup", &on_item_pickup);
 	zm_sq::objective_complete(#"hash_6b0d92dea8e98f10");
 	level flag::set(#"hash_bc6e6c4a2ea3f60");
 }
@@ -1035,7 +1035,7 @@ function function_71d12bb(b_skipped)
 	{
 		return;
 	}
-	var_b75e4db1 = struct::get_array(#"hash_e90df2ca25fbd31", "script_string");
+	var_b75e4db1 = struct::get_array(#"anytown_usa_to_bunker", "script_string");
 	if(!level flag::get(#"hash_419cb6aea3c6771e"))
 	{
 		zm_sq::objective_set(#"hash_6b0da0dea8e9a6da", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
@@ -1078,11 +1078,11 @@ function function_5dd183b3(b_skipped)
 	if(!level flag::get(#"hash_419cb6aea3c6771e"))
 	{
 		zm_sq::objective_set(#"hash_132e6b438fc25c85", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
-		level thread namespace_ff7e490::function_a70fa155(#"hash_132e6b438fc25c85", #"hash_62731aa273c00263", var_b75e4db1, level.var_65c43c31, [1:#"hash_21771dcc5fcdfdf0", 0:#"hash_72dd80c10b5daf3d"]);
+		level thread namespace_ff7e490::function_a70fa155(#"hash_132e6b438fc25c85", #"hash_62731aa273c00263", var_b75e4db1, level.var_65c43c31, [1:#"hash_21771dcc5fcdfdf0", 0:#"connect_service_tunnels"]);
 	}
-	level flag::wait_till(#"hash_72dd80c10b5daf3d");
+	level flag::wait_till(#"connect_service_tunnels");
 	zm_sq::objective_complete(#"hash_132e6b438fc25c85");
-	var_b75e4db1 = struct::get_array(#"hash_5fc30c4b8c9bfde9", "script_string");
+	var_b75e4db1 = struct::get_array(#"bunker_to_observation", "script_string");
 	if(!level flag::get(#"hash_419cb6aea3c6771e"))
 	{
 		zm_sq::objective_set(#"hash_132e68438fc2576c", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
@@ -1256,7 +1256,7 @@ function private function_168d593a()
 function private function_43ea27c1()
 {
 	self endon(#"death");
-	self.maxhealth = self namespace_e0710ee6::function_b5fe98(level.round_number);
+	self.maxhealth = self zm_ai_utility::function_b5fe98(level.round_number);
 	self.health = self.maxhealth;
 	self.no_powerups = 1;
 	self.completed_emerging_into_playable_area = 1;
@@ -1334,7 +1334,7 @@ function function_f4301c94(b_skipped)
 		return;
 	}
 	wait(3);
-	var_b75e4db1 = struct::get_array(#"hash_5fc30c4b8c9bfde9", "script_string");
+	var_b75e4db1 = struct::get_array(#"bunker_to_observation", "script_string");
 	if(!level flag::get(#"hash_419cb6aea3c6771e"))
 	{
 		zm_sq::objective_set(#"hash_6b109ddea8ebd798", var_b75e4db1, undefined, #"hash_6c1c6189dad114f3", undefined, 96);
@@ -1377,7 +1377,7 @@ function function_e876ecf0(b_skipped)
 	if(!level flag::get(#"hash_419cb6aea3c6771e"))
 	{
 		zm_sq::objective_set(#"hash_b31321995c77e23", var_b75e4db1, undefined, #"hash_6a2ddbfbd9fb504d");
-		level thread namespace_ff7e490::function_a70fa155(#"hash_b31321995c77e23", #"hash_62731aa273c00263", var_b75e4db1, [0:#"hash_10b836f6790b4662"], #"hash_74484cce46add9e");
+		level thread namespace_ff7e490::function_a70fa155(#"hash_b31321995c77e23", #"hash_62731aa273c00263", var_b75e4db1, [0:#"zone_observation"], #"hash_74484cce46add9e");
 	}
 	var_b75e4db1[0] zm_unitrigger::create(&function_b4606168, 64, &function_b279c743);
 	level flag::wait_till(#"hash_3814c5c6793e2b2d");

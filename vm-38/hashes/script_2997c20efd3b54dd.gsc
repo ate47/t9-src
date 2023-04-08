@@ -3,11 +3,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_214c1803;
+#namespace threat_sight;
 
 /*
 	Name: function_ea76cc2d
-	Namespace: namespace_214c1803
+	Namespace: threat_sight
 	Checksum: 0x4C087042
 	Offset: 0xD0
 	Size: 0x14
@@ -21,7 +21,7 @@ function private autoexec function_ea76cc2d()
 
 /*
 	Name: scalevolume
-	Namespace: namespace_214c1803
+	Namespace: threat_sight
 	Checksum: 0xAACC1647
 	Offset: 0xF0
 	Size: 0x14
@@ -35,7 +35,7 @@ function scalevolume(ent, vol)
 #namespace namespace_6c0cd084;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_6c0cd084
 	Checksum: 0x185DB421
 	Offset: 0x110
@@ -43,7 +43,7 @@ function scalevolume(ent, vol)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_299575137124db03", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -93,7 +93,7 @@ function private register_clientfields()
 */
 function private function_ac3d4bc()
 {
-	return float(self.var_214c1803.var_97c4563c) + self.var_214c1803.sight;
+	return float(self.threat_sight.var_97c4563c) + self.threat_sight.sight;
 }
 
 /*
@@ -108,10 +108,10 @@ function private function_ac3d4bc()
 function private function_8991ddb4(localclientnum)
 {
 	/#
-		assert(!isdefined(self.var_214c1803.elem));
+		assert(!isdefined(self.threat_sight.elem));
 	#/
-	self.var_214c1803.var_1911547e = [[ level.var_6c0cd084 ]]->function_65cdd2df(self);
-	if(!isdefined(self.var_214c1803.var_1911547e))
+	self.threat_sight.var_1911547e = [[ level.var_6c0cd084 ]]->function_65cdd2df(self);
+	if(!isdefined(self.threat_sight.var_1911547e))
 	{
 		var_afda3384 = self function_ac3d4bc();
 		lowest = undefined;
@@ -119,7 +119,7 @@ function private function_8991ddb4(localclientnum)
 		foreach(guy in [[ level.var_6c0cd084 ]]->function_85a5add5())
 		{
 			/#
-				assert(isdefined(guy.var_214c1803));
+				assert(isdefined(guy.threat_sight));
 			#/
 			score = guy function_ac3d4bc();
 			if(!isdefined(lowest) || score < lowest)
@@ -134,29 +134,29 @@ function private function_8991ddb4(localclientnum)
 		if(isdefined(lowest) && lowest < var_afda3384)
 		{
 			var_5b9574e0 function_a2d377b5(localclientnum);
-			self.var_214c1803.var_1911547e = [[ level.var_6c0cd084 ]]->function_65cdd2df(self);
+			self.threat_sight.var_1911547e = [[ level.var_6c0cd084 ]]->function_65cdd2df(self);
 		}
 	}
-	if(isdefined(self.var_214c1803.var_1911547e))
+	if(isdefined(self.threat_sight.var_1911547e))
 	{
-		self.var_214c1803.elem = stealth_meter_display::function_5c1bb138();
-		if(!self.var_214c1803.elem stealth_meter_display::is_open(localclientnum))
+		self.threat_sight.elem = stealth_meter_display::function_5c1bb138();
+		if(!self.threat_sight.elem stealth_meter_display::is_open(localclientnum))
 		{
-			self.var_214c1803.elem stealth_meter_display::open(localclientnum);
+			self.threat_sight.elem stealth_meter_display::open(localclientnum);
 		}
-		if(!isdefined(self.var_214c1803.var_b4185011) && self hasdobj(localclientnum) && self haspart(localclientnum, "j_head"))
+		if(!isdefined(self.threat_sight.var_b4185011) && self hasdobj(localclientnum) && self haspart(localclientnum, "j_head"))
 		{
-			self.var_214c1803.var_b4185011 = spawn(localclientnum, self gettagorigin("j_head"), "script_origin");
-			self.var_214c1803.var_b4185011 linkto(self, "j_head");
+			self.threat_sight.var_b4185011 = spawn(localclientnum, self gettagorigin("j_head"), "script_origin");
+			self.threat_sight.var_b4185011 linkto(self, "j_head");
 		}
 		entnum = self getentitynumber();
-		if(isdefined(self.var_214c1803.var_b4185011))
+		if(isdefined(self.threat_sight.var_b4185011))
 		{
-			entnum = self.var_214c1803.var_b4185011 getentitynumber();
+			entnum = self.threat_sight.var_b4185011 getentitynumber();
 		}
-		self.var_214c1803.elem stealth_meter_display::set_entNum(localclientnum, entnum);
+		self.threat_sight.elem stealth_meter_display::set_entNum(localclientnum, entnum);
 	}
-	return self.var_214c1803.elem;
+	return self.threat_sight.elem;
 }
 
 /*
@@ -171,31 +171,31 @@ function private function_8991ddb4(localclientnum)
 function private function_5010aab6(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	sight = float(self clientfield::get("threat_sight")) / (float((1 << 6) - 1));
-	if(!isdefined(self.var_214c1803))
+	if(!isdefined(self.threat_sight))
 	{
-		self.var_214c1803 = spawnstruct();
+		self.threat_sight = spawnstruct();
 	}
 	now = self getclienttime();
-	if((isdefined(self.var_214c1803.time) ? self.var_214c1803.time : -1) == now)
+	if((isdefined(self.threat_sight.time) ? self.threat_sight.time : -1) == now)
 	{
 		return;
 	}
-	self.var_214c1803.time = now;
-	self.var_214c1803.sight = sight;
-	self.var_214c1803.var_97c4563c = self clientfield::get("threat_state");
-	if(!isdefined(self.var_214c1803.elem))
+	self.threat_sight.time = now;
+	self.threat_sight.sight = sight;
+	self.threat_sight.var_97c4563c = self clientfield::get("threat_state");
+	if(!isdefined(self.threat_sight.elem))
 	{
 		if(!getdvarint(#"hash_7bf40e4b6a830d11", 1))
 		{
 			return;
 		}
-		self.var_214c1803.elem = self function_8991ddb4(wasdemojump);
-		if(isdefined(self.var_214c1803.elem))
+		self.threat_sight.elem = self function_8991ddb4(wasdemojump);
+		if(isdefined(self.threat_sight.elem))
 		{
 			self thread function_d4ae86f5(wasdemojump);
 		}
 	}
-	if(isdefined(self.var_214c1803.elem))
+	if(isdefined(self.threat_sight.elem))
 	{
 		/#
 			var_fdd79624 = "";
@@ -203,29 +203,29 @@ function private function_5010aab6(localclientnum, oldvalue, newvalue, bnewent, 
 			{
 				var_fdd79624 = "";
 			}
-			self thread function_ccfdbd44(wasdemojump, (((((("" + self.var_214c1803.var_1911547e) + "") + self.var_214c1803.var_97c4563c) + "") + self.var_214c1803.sight) + "") + var_fdd79624);
+			self thread function_ccfdbd44(wasdemojump, (((((("" + self.threat_sight.var_1911547e) + "") + self.threat_sight.var_97c4563c) + "") + self.threat_sight.sight) + "") + var_fdd79624);
 		#/
-		if(!self.var_214c1803.elem stealth_meter_display::is_open(wasdemojump))
+		if(!self.threat_sight.elem stealth_meter_display::is_open(wasdemojump))
 		{
-			self.var_214c1803.elem stealth_meter_display::open(wasdemojump);
+			self.threat_sight.elem stealth_meter_display::open(wasdemojump);
 			entnum = self getentitynumber();
-			if(isdefined(self.var_214c1803.var_b4185011))
+			if(isdefined(self.threat_sight.var_b4185011))
 			{
-				entnum = self.var_214c1803.var_b4185011 getentitynumber();
+				entnum = self.threat_sight.var_b4185011 getentitynumber();
 			}
-			self.var_214c1803.elem stealth_meter_display::set_entNum(wasdemojump, entnum);
+			self.threat_sight.elem stealth_meter_display::set_entNum(wasdemojump, entnum);
 		}
 		if(getdvarint(#"hash_7bf40e4b6a830d11", 1))
 		{
-			self.var_214c1803.elem stealth_meter_display::set_awarenessState(wasdemojump, self.var_214c1803.var_97c4563c);
-			self.var_214c1803.elem stealth_meter_display::set_awarenessProgress(wasdemojump, self.var_214c1803.sight);
-			self.var_214c1803.elem stealth_meter_display::set_clamped(wasdemojump, 1);
+			self.threat_sight.elem stealth_meter_display::set_awarenessState(wasdemojump, self.threat_sight.var_97c4563c);
+			self.threat_sight.elem stealth_meter_display::set_awarenessProgress(wasdemojump, self.threat_sight.sight);
+			self.threat_sight.elem stealth_meter_display::set_clamped(wasdemojump, 1);
 		}
 		else
 		{
-			self.var_214c1803.elem stealth_meter_display::set_awarenessState(wasdemojump, 0);
-			self.var_214c1803.elem stealth_meter_display::set_awarenessProgress(wasdemojump, 0);
-			self.var_214c1803.elem stealth_meter_display::set_clamped(wasdemojump, 0);
+			self.threat_sight.elem stealth_meter_display::set_awarenessState(wasdemojump, 0);
+			self.threat_sight.elem stealth_meter_display::set_awarenessProgress(wasdemojump, 0);
+			self.threat_sight.elem stealth_meter_display::set_clamped(wasdemojump, 0);
 		}
 	}
 }
@@ -245,7 +245,7 @@ function private function_ccfdbd44(localclientnum, msg)
 		self notify("");
 		self endon("");
 		self endon(#"death");
-		while(getdvarint(#"hash_40034352c4930dca") && isdefined(self.var_214c1803))
+		while(getdvarint(#"hash_40034352c4930dca") && isdefined(self.threat_sight))
 		{
 			print3d(self.origin + vectorscale((0, 0, 1), 40), msg, (1, 1, 1), 1, 0.75, 1, 0);
 			waitframe(1);
@@ -281,18 +281,18 @@ function private function_d4ae86f5(localclientnum)
 */
 function private function_a2d377b5(localclientnum)
 {
-	if(isdefined(self.var_214c1803.var_1911547e))
+	if(isdefined(self.threat_sight.var_1911547e))
 	{
-		[[ level.var_6c0cd084 ]]->function_271aec18(self.var_214c1803.var_1911547e);
-		if(self.var_214c1803.elem stealth_meter_display::is_open(localclientnum))
+		[[ level.var_6c0cd084 ]]->function_271aec18(self.threat_sight.var_1911547e);
+		if(self.threat_sight.elem stealth_meter_display::is_open(localclientnum))
 		{
-			self.var_214c1803.elem stealth_meter_display::close(localclientnum);
+			self.threat_sight.elem stealth_meter_display::close(localclientnum);
 		}
-		if(isdefined(self.var_214c1803.var_b4185011))
+		if(isdefined(self.threat_sight.var_b4185011))
 		{
-			self.var_214c1803.var_b4185011 delete();
+			self.threat_sight.var_b4185011 delete();
 		}
-		self.var_214c1803 = undefined;
+		self.threat_sight = undefined;
 	}
 	self notify(#"hash_433e3a44df358be9");
 }

@@ -18,7 +18,7 @@ function private autoexec function_444a692e()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: claymore
 	Checksum: 0x4A15F55A
 	Offset: 0xC0
@@ -26,7 +26,7 @@ function private autoexec function_444a692e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"claymore", &init_shared, undefined, undefined, undefined);
 }

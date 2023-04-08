@@ -19,7 +19,7 @@ function private autoexec function_172c2acd()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: warmachine
 	Checksum: 0x33BD7D32
 	Offset: 0x98
@@ -27,9 +27,9 @@ function private autoexec function_172c2acd()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_25181c4d7525232e", &__init__, undefined, undefined, #"killstreaks");
+	system::register(#"warmachine", &__init__, undefined, undefined, #"killstreaks");
 }
 
 /*

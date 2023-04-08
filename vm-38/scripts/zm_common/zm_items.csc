@@ -21,7 +21,7 @@ function private autoexec function_2e2d86a1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_items
 	Checksum: 0xDB3BC700
 	Offset: 0xE8
@@ -29,7 +29,7 @@ function private autoexec function_2e2d86a1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_items", &function_70a657d8, undefined, undefined, undefined);
 }

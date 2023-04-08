@@ -1,5 +1,5 @@
 #using script_32c8b5b0eb2854f3;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\mp_common\gamerep.gsc;
 #using scripts\mp_common\gametypes\globallogic.gsc;
@@ -61,7 +61,7 @@ function callback_playerdisconnect()
 				recordplayerstats(self, "playerQuitOpposingTeamScore", getteamscore(theirteam));
 			}
 		}
-		self namespace_42fe87d::function_96d38b95(#"disconnect");
+		self player_record::function_96d38b95(#"disconnect");
 	}
 	arrayremovevalue(level.players, self);
 	if(level.splitscreen)
@@ -82,9 +82,9 @@ function callback_playerdisconnect()
 	}
 	[[level.onplayerdisconnect]]();
 	lpselfnum = self getentitynumber();
-	self namespace_42fe87d::record_global_mp_stats_for_player_at_match_end();
-	self namespace_42fe87d::record_special_move_data_for_life(undefined);
-	self namespace_42fe87d::record_misc_player_stats();
+	self player_record::record_global_mp_stats_for_player_at_match_end();
+	self player_record::record_special_move_data_for_life(undefined);
+	self player_record::record_misc_player_stats();
 	self gamerep::gamerepplayerdisconnected();
 	for(entry = 0; entry < level.players.size; entry++)
 	{

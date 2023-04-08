@@ -9,7 +9,7 @@
 #using script_335d0650ed05d36d;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_5ebc70029e06b264;
 #using script_5ee699b0aaf564c4;
 #using scripts\wz_common\spawn.gsc;
@@ -17,7 +17,7 @@
 #using script_67ce8e728d8f37ba;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7452a079afe69150;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using script_7bacb32f8222fa3e;
 #using script_9279a21b1e8b6c9;
 #using scripts\core_common\battlechatter.gsc;

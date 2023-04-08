@@ -1,5 +1,5 @@
 #using script_396f7d71538c9677;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

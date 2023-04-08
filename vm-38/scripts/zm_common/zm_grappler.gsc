@@ -26,7 +26,7 @@ function private autoexec function_222cdce2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_grappler
 	Checksum: 0x66DD0D8F
 	Offset: 0x140
@@ -34,7 +34,7 @@ function private autoexec function_222cdce2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_grappler", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

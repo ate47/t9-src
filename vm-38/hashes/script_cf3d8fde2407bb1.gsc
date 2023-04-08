@@ -77,11 +77,11 @@ class csr_beacon_menu : cLUIelem
 
 }
 
-#namespace namespace_d84b2e13;
+#namespace sr_beacon_menu;
 
 /*
 	Name: function_cb491f74
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0xAC24CEE7
 	Offset: 0xA8
 	Size: 0x14
@@ -95,7 +95,7 @@ function private autoexec function_cb491f74()
 
 /*
 	Name: register
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0x4F13716
 	Offset: 0xC8
 	Size: 0x34
@@ -111,7 +111,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0x40D59CB0
 	Offset: 0x108
 	Size: 0x38
@@ -129,7 +129,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0x6221B1B7
 	Offset: 0x148
 	Size: 0x1C
@@ -143,7 +143,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_d84b2e13
+	Namespace: sr_beacon_menu
 	Checksum: 0xD7920DB2
 	Offset: 0x170
 	Size: 0x1A

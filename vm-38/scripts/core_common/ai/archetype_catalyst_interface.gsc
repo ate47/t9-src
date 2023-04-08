@@ -17,11 +17,11 @@ function private autoexec function_babd9b9b()
 	level notify(2129195837);
 }
 
-#namespace namespace_c61045a2;
+#namespace catalystinterface;
 
 /*
 	Name: registercatalystinterfaceattributes
-	Namespace: namespace_c61045a2
+	Namespace: catalystinterface
 	Checksum: 0xDA08DD19
 	Offset: 0xA8
 	Size: 0x6C

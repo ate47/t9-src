@@ -26,7 +26,7 @@ function private autoexec function_8eb52f32()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: menus
 	Checksum: 0x4F50937A
 	Offset: 0x2D0
@@ -34,7 +34,7 @@ function private autoexec function_8eb52f32()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"menus", &function_70a657d8, undefined, undefined, undefined);
 }

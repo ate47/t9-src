@@ -24,7 +24,7 @@ function private autoexec function_bda28fa4()
 #namespace audio;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: audio
 	Checksum: 0x72DA57E1
 	Offset: 0x318
@@ -32,7 +32,7 @@ function private autoexec function_bda28fa4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"audio", &function_70a657d8, undefined, undefined, undefined);
 }

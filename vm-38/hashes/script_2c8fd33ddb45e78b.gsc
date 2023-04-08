@@ -23,7 +23,7 @@ function private autoexec function_39a32c1d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_4abf1500
 	Checksum: 0xCA5C8E7D
 	Offset: 0x140
@@ -31,7 +31,7 @@ function private autoexec function_39a32c1d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_63e00d742a373f5f", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -480,10 +480,10 @@ function function_ded2880a(localclientnum)
 			{
 				continue;
 			}
-			util::function_e2e9d901(localclientnum, ("" + var_d5fa8477) + "", ("" + var_d5fa8477) + "");
+			util::add_devgui(localclientnum, ("" + var_d5fa8477) + "", ("" + var_d5fa8477) + "");
 			if(var_19a3087c.var_ad4ad686 === #"dark_aether")
 			{
-				util::function_e2e9d901(localclientnum, ("" + var_d5fa8477) + "", ("" + var_d5fa8477) + "");
+				util::add_devgui(localclientnum, ("" + var_d5fa8477) + "", ("" + var_d5fa8477) + "");
 			}
 		}
 	#/

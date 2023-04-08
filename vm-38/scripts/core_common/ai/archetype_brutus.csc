@@ -22,7 +22,7 @@ function private autoexec function_a9feea33()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_72d82355
 	Checksum: 0xD936EB8F
 	Offset: 0xB0
@@ -30,7 +30,7 @@ function private autoexec function_a9feea33()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"brutus", &function_70a657d8, undefined, undefined, undefined);
 }

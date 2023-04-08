@@ -89,17 +89,17 @@ function init_clientfields()
 	clientfield::register("vehicle", "af_rc_deploy2", 1, 1, "int", &function_3e1ddd25, 0, 0);
 	clientfield::register("vehicle", "af_rc_deploy3", 1, 1, "int", &function_da9d1625, 0, 0);
 	clientfield::register("toplayer", "lerp_fov", 1, 3, "int", &lerp_fov, 0, 0);
-	clientfield::register("vehicle", "hit1_helispotlight", 1, 1, "int", &function_2d4bf193, 0, 0);
-	clientfield::register("vehicle", "hit1_track_vehicle", 1, 1, "int", &function_f7a0b31a, 0, 0);
-	clientfield::register("scriptmover", "hit1_track_ent", 1, 1, "int", &function_e0deb842, 0, 0);
-	clientfield::register("scriptmover", "hit1_tracking", 1, 1, "int", &function_1e71913d, 0, 0);
-	clientfield::register("scriptmover", "hit1_light", 1, 1, "int", &function_b40e980, 0, 0);
+	clientfield::register("vehicle", "hit1_helispotlight", 1, 1, "int", &hit1_helispotlight, 0, 0);
+	clientfield::register("vehicle", "hit1_track_vehicle", 1, 1, "int", &hit1_track_vehicle, 0, 0);
+	clientfield::register("scriptmover", "hit1_track_ent", 1, 1, "int", &hit1_track_ent, 0, 0);
+	clientfield::register("scriptmover", "hit1_tracking", 1, 1, "int", &hit1_tracking, 0, 0);
+	clientfield::register("scriptmover", "hit1_light", 1, 1, "int", &hit1_light, 0, 0);
 	clientfield::register("world", "wreck_volume_decals", 1, 1, "int", &function_f48f6d3, 0, 1);
 	clientfield::register("world", "crash_models", 1, 1, "int", &function_7f111718, 0, 1);
-	clientfield::register("toplayer", "set_player_pbg_bank", 1, 1, "int", &function_b06125f0, 0, 0);
+	clientfield::register("toplayer", "set_player_pbg_bank", 1, 1, "int", &set_player_pbg_bank, 0, 0);
 	clientfield::register("toplayer", "wreck_vision", 1, 1, "int", &function_a315cdc9, 1, 0);
 	clientfield::register("world", "prop_wash", 1, 1, "int", &function_766abe10, 0, 0);
-	clientfield::register("toplayer", "force_stream_weapons", 1, 2, "int", &function_d126379e, 1, 1);
+	clientfield::register("toplayer", "force_stream_weapons", 1, 2, "int", &force_stream_weapons, 1, 1);
 }
 
 /*
@@ -119,7 +119,7 @@ function function_d1d298b9(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		setdvar(#"hash_5f4ab31dca8bb404", 1);
+		setdvar(#"runtime_time_scale", 1);
 	}
 }
 
@@ -177,7 +177,7 @@ function function_766abe10(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_e0deb842
+	Name: hit1_track_ent
 	Namespace: cp_takedown
 	Checksum: 0x49787F49
 	Offset: 0xE70
@@ -185,7 +185,7 @@ function function_766abe10(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_e0deb842(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function hit1_track_ent(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(isdefined(level.var_9a3944f4))
 	{
@@ -204,7 +204,7 @@ function function_e0deb842(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_1e71913d
+	Name: hit1_tracking
 	Namespace: cp_takedown
 	Checksum: 0xF36E0F7C
 	Offset: 0xF30
@@ -212,7 +212,7 @@ function function_e0deb842(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_1e71913d(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function hit1_tracking(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(isdefined(level.var_9a3944f4.track_ent))
 	{
@@ -226,7 +226,7 @@ function function_1e71913d(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_f7a0b31a
+	Name: hit1_track_vehicle
 	Namespace: cp_takedown
 	Checksum: 0x58948EB1
 	Offset: 0xFC8
@@ -234,7 +234,7 @@ function function_1e71913d(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_f7a0b31a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function hit1_track_vehicle(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(isdefined(level.var_9a3944f4.track_ent))
 	{
@@ -248,7 +248,7 @@ function function_f7a0b31a(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_b40e980
+	Name: hit1_light
 	Namespace: cp_takedown
 	Checksum: 0x85A61F66
 	Offset: 0x1060
@@ -256,7 +256,7 @@ function function_f7a0b31a(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_b40e980(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function hit1_light(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(isdefined(level.var_9a3944f4))
 	{
@@ -269,7 +269,7 @@ function function_b40e980(localclientnum, oldval, newval, bnewent, binitialsnap,
 }
 
 /*
-	Name: function_2d4bf193
+	Name: hit1_helispotlight
 	Namespace: cp_takedown
 	Checksum: 0x6B4ABAC9
 	Offset: 0x10D8
@@ -277,7 +277,7 @@ function function_b40e980(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 7
 	Flags: Linked
 */
-function function_2d4bf193(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function hit1_helispotlight(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self endon(#"death");
 	self endon(#"hash_55fc2759ea7b7c72");
@@ -660,7 +660,7 @@ function function_7f111718(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_b06125f0
+	Name: set_player_pbg_bank
 	Namespace: cp_takedown
 	Checksum: 0x8AF1F99F
 	Offset: 0x22A8
@@ -668,7 +668,7 @@ function function_7f111718(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_b06125f0(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function set_player_pbg_bank(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	if(bwasdemojump)
 	{
@@ -707,7 +707,7 @@ function function_a315cdc9(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_d126379e
+	Name: force_stream_weapons
 	Namespace: cp_takedown
 	Checksum: 0xD7F80820
 	Offset: 0x2470
@@ -715,7 +715,7 @@ function function_a315cdc9(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_d126379e(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
+function force_stream_weapons(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwasdemojump)
 {
 	weapons = [];
 	switch(bwasdemojump)
@@ -740,6 +740,6 @@ function function_d126379e(localclientnum, oldval, newval, bnewent, binitialsnap
 			break;
 		}
 	}
-	self thread util::function_d126379e(fieldname, weapons);
+	self thread util::force_stream_weapons(fieldname, weapons);
 }
 

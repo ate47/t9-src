@@ -18,7 +18,7 @@ function private autoexec function_751bb531()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: status_effect_suppress
 	Checksum: 0x938EC4AD
 	Offset: 0xB8
@@ -26,9 +26,9 @@ function private autoexec function_751bb531()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_53e2d15cdf3290ad", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"status_effect_suppress", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

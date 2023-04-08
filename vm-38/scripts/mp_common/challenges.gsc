@@ -1,9 +1,9 @@
-#using script_18f0d22c75b141a7;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
 #using script_300f815a565e66fb;
 #using scripts\killstreaks\mp\uav.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_6167e26342be354b;
@@ -39,7 +39,7 @@ function private autoexec function_4394b23b()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: challenges
 	Checksum: 0x286BC8F5
 	Offset: 0x510
@@ -47,7 +47,7 @@ function private autoexec function_4394b23b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"challenges", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -672,7 +672,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 	}
 	var_89775a8e = self util::function_14e61d05();
 	var_21409def = self util::function_5e7e010();
-	var_b0ca1732 = self hasperk(#"hash_48d89fda4346187f");
+	var_b0ca1732 = self hasperk(#"specialty_paranoia");
 	var_ca5827fd = self hasperk(#"specialty_tracker");
 	var_f22bbd84 = self hasperk(#"specialty_flakjacket");
 	var_4e8a56b1 = self isinvehicle() && !self isremotecontrolling();
@@ -1194,7 +1194,7 @@ function function_a79ea08b(einflictor, victim, idamage, weapon)
 		}
 		if(var_2adaec2f === 1)
 		{
-			self stats::function_dad108fa(#"hash_c639ebeec696bf1", 1);
+			self stats::function_dad108fa(#"ekia_every_enemy_onelife", 1);
 		}
 		if(var_1f0bdb8f === 1)
 		{
@@ -2666,7 +2666,7 @@ function function_f4106216()
 		{
 			self stats::function_8e071909("stats_gravity_slam_shutdown", challengetier);
 		}
-		challengevalue = self stats::function_222de31d("shutdown_gravslam_before_impact");
+		challengevalue = self stats::get_stat_challenge("shutdown_gravslam_before_impact");
 		self stats::function_efbbc38f("stats_gravity_slam_shutdown", challengevalue);
 		self stats::set_stat(#"playerstatslist", #"hash_195a18a5697c5c96", 1);
 	}
@@ -2706,10 +2706,10 @@ function function_34364901()
 function fix_tu6_weapon_for_diamond(stat_name)
 {
 	player = self;
-	wepaon_for_diamond = player stats::function_222de31d(stat_name);
+	wepaon_for_diamond = player stats::get_stat_challenge(stat_name);
 	if(wepaon_for_diamond == 1)
 	{
-		secondary_mastery = player stats::function_222de31d("secondary_mastery");
+		secondary_mastery = player stats::get_stat_challenge("secondary_mastery");
 		if(secondary_mastery == 3)
 		{
 			player force_challenge_stat(stat_name, 2);
@@ -2734,7 +2734,7 @@ function fix_tu6_ar_garand()
 {
 	player = self;
 	group_weapon_assault = player get_challenge_group_stat("weapon_assault", "challenges");
-	weapons_mastery_assault = player stats::function_222de31d("weapons_mastery_assault");
+	weapons_mastery_assault = player stats::get_stat_challenge("weapons_mastery_assault");
 	if(group_weapon_assault >= 49 && weapons_mastery_assault < 1)
 	{
 		player force_challenge_stat("weapons_mastery_assault", 1);
@@ -2755,7 +2755,7 @@ function fix_tu6_pistol_shotgun()
 {
 	player = self;
 	group_weapon_pistol = player get_challenge_group_stat("weapon_pistol", "challenges");
-	secondary_mastery_pistol = player stats::function_222de31d("secondary_mastery_pistol");
+	secondary_mastery_pistol = player stats::get_stat_challenge("secondary_mastery_pistol");
 	if(group_weapon_pistol >= 21 && secondary_mastery_pistol < 1)
 	{
 		player force_challenge_stat("secondary_mastery_pistol", 1);
@@ -2774,7 +2774,7 @@ function fix_tu6_pistol_shotgun()
 */
 function completed_specific_challenge(target_value, challenge_name)
 {
-	challenge_count = self stats::function_222de31d(challenge_name);
+	challenge_count = self stats::get_stat_challenge(challenge_name);
 	return challenge_count >= target_value;
 }
 
@@ -2818,7 +2818,7 @@ function tu7_fix_100_percenter()
 function tu7_fix_mastery_perk_2()
 {
 	player = self;
-	mastery_perk_2 = player stats::function_222de31d("mastery_perk_2");
+	mastery_perk_2 = player stats::get_stat_challenge("mastery_perk_2");
 	if(mastery_perk_2 >= 12)
 	{
 		return;
@@ -3326,7 +3326,7 @@ function function_2f462ffd(victim, weapon, inflictor, objective)
 			case "overwatch_helicopter":
 			case "inventory_dart":
 			case "hash_4307d5aaa7ce21d4":
-			case "hash_459c0007ec5e2470":
+			case "inventory_ac130":
 			case "inventory_remote_missile":
 			case "straferun":
 			case "ac130":

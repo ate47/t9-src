@@ -20,7 +20,7 @@ function private autoexec function_7d91a5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_2b1568cc
 	Checksum: 0xA1FDAB78
 	Offset: 0xE0
@@ -28,7 +28,7 @@ function private autoexec function_7d91a5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_380b7703a79220e8", &function_70a657d8, undefined, undefined, #"radiation");
 }

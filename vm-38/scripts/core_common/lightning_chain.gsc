@@ -24,7 +24,7 @@ function private autoexec function_561f1360()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: lightning_chain
 	Checksum: 0x74661089
 	Offset: 0x1F8
@@ -32,7 +32,7 @@ function private autoexec function_561f1360()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"lightning_chain", &init, undefined, undefined, undefined);
 }

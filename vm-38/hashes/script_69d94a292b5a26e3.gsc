@@ -26,7 +26,7 @@ function private autoexec function_9db87168()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_cd6bd9f
 	Checksum: 0x86B9CE02
 	Offset: 0x138
@@ -34,7 +34,7 @@ function private autoexec function_9db87168()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_54149d856843e31a", &function_70a657d8, undefined, &function_4df027f2, undefined);
 }
@@ -154,7 +154,7 @@ function private function_887b8ada(var_5c5062cd, var_fbac2b3f)
 	self.var_29459a31 = var_5c5062cd.var_29459a31;
 	self.var_89592ba7 = var_5c5062cd.var_89592ba7;
 	self.var_722e942 = var_5c5062cd.var_722e942;
-	self.var_d194d219 = var_5c5062cd.var_d194d219;
+	self.hotzone = var_5c5062cd.hotzone;
 }
 
 /*
@@ -214,12 +214,12 @@ function private function_9d59692c(var_33e339fe, var_551c6a0e)
 	if(isdefined(var_33e339fe))
 	{
 		var_33e339fe function_887b8ada(self, var_551c6a0e);
-		namespace_ce1f29cc::function_418ab095(var_33e339fe, self.var_d194d219);
+		namespace_ce1f29cc::function_418ab095(var_33e339fe, self.hotzone);
 	}
 	if(isdefined(var_551c6a0e))
 	{
 		var_551c6a0e function_887b8ada(self, var_33e339fe);
-		namespace_ce1f29cc::function_418ab095(var_551c6a0e, self.var_d194d219);
+		namespace_ce1f29cc::function_418ab095(var_551c6a0e, self.hotzone);
 	}
 }
 
@@ -232,9 +232,9 @@ function private function_9d59692c(var_33e339fe, var_551c6a0e)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_ccdf9d44(params, var_d194d219)
+function private function_ccdf9d44(params, hotzone)
 {
-	if(!isdefined(self.var_29459a31) || !isdefined(self.var_89592ba7) || isplayer(var_d194d219.eattacker) || isalive(self.var_659efbe))
+	if(!isdefined(self.var_29459a31) || !isdefined(self.var_89592ba7) || isplayer(hotzone.eattacker) || isalive(self.var_659efbe))
 	{
 		return false;
 	}
@@ -250,9 +250,9 @@ function private function_ccdf9d44(params, var_d194d219)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_1915f8d6(params, var_d194d219)
+function private function_1915f8d6(params, hotzone)
 {
-	if(!is_true(self.var_8576e0be) && !isplayer(var_d194d219.eattacker) && (isdefined(self.var_29459a31) && isdefined(self.var_89592ba7)) && !is_true(self.var_7a68cd0c))
+	if(!is_true(self.var_8576e0be) && !isplayer(hotzone.eattacker) && (isdefined(self.var_29459a31) && isdefined(self.var_89592ba7)) && !is_true(self.var_7a68cd0c))
 	{
 		return true;
 	}

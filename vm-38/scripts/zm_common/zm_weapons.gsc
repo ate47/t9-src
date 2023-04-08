@@ -6,7 +6,7 @@
 #using script_3f9e0dc8454d98e1;
 #using script_4108035fe400ce67;
 #using script_471b31bd963b388e;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using script_67c87580908a0a00;
@@ -15,7 +15,7 @@
 #using scripts\zm_common\zm_wallbuy.gsc;
 #using script_7bacb32f8222fa3e;
 #using scripts\weapons\weapons.gsc;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\bb_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -61,7 +61,7 @@ function private autoexec function_a9bc427d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_weapons
 	Checksum: 0x2EA2E787
 	Offset: 0x318
@@ -69,7 +69,7 @@ function private autoexec function_a9bc427d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_weapons", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -2374,7 +2374,7 @@ function get_upgrade_weapon(weapon, add_attachment)
 	{
 		newweapon = level.zombie_weapons[rootweapon].upgrade;
 	}
-	else if(!namespace_59ff1d6c::function_901b751c(#"hash_57a5c7a9dcf94d61"))
+	else if(!zm_custom::function_901b751c(#"hash_57a5c7a9dcf94d61"))
 	{
 		return add_attachment;
 	}
@@ -2429,7 +2429,7 @@ function can_upgrade_weapon(weapon)
 */
 function weapon_supports_aat(weapon)
 {
-	if(!namespace_59ff1d6c::function_901b751c(#"hash_57a5c7a9dcf94d61"))
+	if(!zm_custom::function_901b751c(#"hash_57a5c7a9dcf94d61"))
 	{
 		return false;
 	}
@@ -4123,7 +4123,7 @@ function is_wonder_weapon(w_to_check)
 }
 
 /*
-	Name: function_eb0b9fc3
+	Name: is_tactical_rifle
 	Namespace: zm_weapons
 	Checksum: 0x1D1EF5DA
 	Offset: 0xA170
@@ -4131,7 +4131,7 @@ function is_wonder_weapon(w_to_check)
 	Parameters: 1
 	Flags: Linked
 */
-function function_eb0b9fc3(w_to_check)
+function is_tactical_rifle(w_to_check)
 {
 	var_6351a511 = array(getweapon(#"tr_longburst_t9"), getweapon(#"tr_damagesemi_t9"), getweapon(#"tr_fastburst_t9"), getweapon(#"tr_powerburst_t9"), getweapon(#"tr_precisionsemi_t9"));
 	w_to_check = get_base_weapon(w_to_check);
@@ -4566,7 +4566,7 @@ function function_89e5e7dd(var_d393ba53)
 			}
 			break;
 		}
-		case "hash_a182150036cabd3":
+		case "ammomod_shatterblast":
 		{
 			if(!is_true(getgametypesetting(#"hash_2537d92585f4fce2")))
 			{

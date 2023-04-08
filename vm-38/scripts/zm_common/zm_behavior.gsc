@@ -16,7 +16,7 @@
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
 #using script_6809bf766eba194a;
-#using script_7e294a061be2fd9;
+#using scripts\abilities\gadgets\gadget_cymbal_monkey.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_bd2b8aaa388dcce;
 #using script_caf007e2a98afa2;
@@ -1167,7 +1167,7 @@ function zombiefindflesh(behaviortreeentity)
 	if(!self.var_6f84b820 === #"special")
 	{
 		decoy = nightingale::function_29fbe24f(behaviortreeentity);
-		monkey = namespace_c5ba6e2a::function_4a5dff80(behaviortreeentity, 0);
+		monkey = gadget_cymbal_monkey::function_4a5dff80(behaviortreeentity, 0);
 		if(isdefined(monkey) && isdefined(decoy))
 		{
 			self.enemy_override = arraygetclosest(behaviortreeentity.origin, array(monkey, decoy));
@@ -1475,7 +1475,7 @@ function zombiefindfleshcode(behaviortreeentity)
 		aiprofile_endentry();
 		return;
 	}
-	monkey = namespace_c5ba6e2a::function_4a5dff80(behaviortreeentity, 0);
+	monkey = gadget_cymbal_monkey::function_4a5dff80(behaviortreeentity, 0);
 	if(isdefined(monkey))
 	{
 		behaviortreeentity.enemy_override = monkey;
@@ -1575,7 +1575,7 @@ function zombieupdategoal()
 	aiprofile_beginentry("zombieUpdateGoal");
 	if(isplayer(self.favoriteenemy))
 	{
-		targetent = namespace_e0710ee6::function_a2e8fd7b(self, self.favoriteenemy);
+		targetent = zm_ai_utility::function_a2e8fd7b(self, self.favoriteenemy);
 		if(isdefined(targetent.last_valid_position))
 		{
 			targetpos = getclosestpointonnavmesh(targetent.last_valid_position, 64, 0);
@@ -4608,7 +4608,7 @@ function function_4a99b560(entity, enemy)
 */
 function function_e5f60f55(entity)
 {
-	enemy = namespace_e0710ee6::function_825317c(entity);
+	enemy = zm_ai_utility::function_825317c(entity);
 	if(!isdefined(enemy.var_f904e440))
 	{
 		enemy.var_f904e440 = [];

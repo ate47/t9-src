@@ -54,7 +54,7 @@ class cSpectreRisingIndicator : cLUIelem
 	*/
 	function set_clientnum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", value);
+		[[ self ]]->set_data(localclientnum, "clientnum", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cSpectreRisingIndicator : cLUIelem
 	*/
 	function set_isAlive(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "isAlive", value);
+		[[ self ]]->set_data(localclientnum, "isAlive", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class cSpectreRisingIndicator : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "clientnum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "isAlive", 0);
+		[[ self ]]->set_data(localclientnum, "clientnum", 0);
+		[[ self ]]->set_data(localclientnum, "isAlive", 0);
 	}
 
 }

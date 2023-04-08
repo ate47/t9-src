@@ -1,5 +1,5 @@
 #using scripts\core_common\item_inventory.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_54f593f5beb1464a;
 #using script_69514c4c056c768;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -22,7 +22,7 @@ function private autoexec function_c4fc2c42()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock
 	Checksum: 0x944709FD
 	Offset: 0xB0
@@ -30,9 +30,9 @@ function private autoexec function_c4fc2c42()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"character_unlock", &function_70a657d8, undefined, undefined, #"hash_1fd69f0c10bde41c");
+	system::register(#"character_unlock", &function_70a657d8, undefined, undefined, #"character_unlock_fixup");
 }
 
 /*
@@ -203,7 +203,7 @@ function function_6e8037ca(params)
 			{
 				continue;
 			}
-			self luinotifyevent(#"hash_4abc0876fc41cc7f", 2, 1, itemindex);
+			self luinotifyevent(#"character_unlock_update", 2, 1, itemindex);
 			continue;
 		}
 		item_name = var_9ba1646c.var_a531c26d;
@@ -314,27 +314,27 @@ function function_20b0ca2e(var_79cf244b)
 	{
 		case 1:
 		{
-			self luinotifyevent(#"hash_4abc0876fc41cc7f", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]]);
+			self luinotifyevent(#"character_unlock_update", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]]);
 			break;
 		}
 		case 2:
 		{
-			self luinotifyevent(#"hash_4abc0876fc41cc7f", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]]);
+			self luinotifyevent(#"character_unlock_update", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]]);
 			break;
 		}
 		case 3:
 		{
-			self luinotifyevent(#"hash_4abc0876fc41cc7f", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[2]]);
+			self luinotifyevent(#"character_unlock_update", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[2]]);
 			break;
 		}
 		case 4:
 		{
-			self luinotifyevent(#"hash_4abc0876fc41cc7f", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[2]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[3]]);
+			self luinotifyevent(#"character_unlock_update", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[2]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[3]]);
 			break;
 		}
 		case 5:
 		{
-			self luinotifyevent(#"hash_4abc0876fc41cc7f", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[2]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[3]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[4]]);
+			self luinotifyevent(#"character_unlock_update", var_9ba1646c.var_3845495.size + 2, 0, itemindex, self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[0]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[1]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[2]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[3]], self.var_c53589da[var_79cf244b].var_e7e238a4[var_93e871fc[4]]);
 			break;
 		}
 		default:

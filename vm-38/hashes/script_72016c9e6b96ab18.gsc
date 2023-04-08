@@ -1,5 +1,5 @@
-#using script_18f0d22c75b141a7;
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_loadout.gsc;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_25c09ccacf057919;
 #using script_32399001bdb550da;
 #using scripts\abilities\ability_util.gsc;
@@ -29,7 +29,7 @@ function private autoexec function_fae02fb8()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: profile_traits
 	Checksum: 0x5C1D9D88
 	Offset: 0x128
@@ -37,7 +37,7 @@ function private autoexec function_fae02fb8()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"profile_traits", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -444,7 +444,7 @@ function function_1c1fa213(var_f03e5d1b)
 		{
 			if(is_true(trait.var_e75fcf1a) && player hasperk(trait.perk_name))
 			{
-				player perks::function_45d12554(trait.perk_name);
+				player perks::perk_unsetperk(trait.perk_name);
 			}
 			else if(trait.ref_name == "jugernog")
 			{
@@ -489,7 +489,7 @@ function function_d53bb873()
 		{
 			if(is_true(trait.var_e75fcf1a) && !player hasperk(trait.perk_name))
 			{
-				player perks::function_7637bafa(trait.perk_name);
+				player perks::perk_setperk(trait.perk_name);
 			}
 			else if(trait.ref_name == "jugernog")
 			{

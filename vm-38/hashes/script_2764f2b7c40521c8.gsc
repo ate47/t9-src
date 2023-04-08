@@ -40,7 +40,7 @@ class cpip_menu : cLUIelem
 	*/
 	function set_movieName(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "movieName", value);
+		[[ self ]]->set_data(localclientnum, "movieName", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cpip_menu : cLUIelem
 	*/
 	function set_additive(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "additive", value);
+		[[ self ]]->set_data(localclientnum, "additive", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cpip_menu : cLUIelem
 	*/
 	function set_looping(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "looping", value);
+		[[ self ]]->set_data(localclientnum, "looping", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class cpip_menu : cLUIelem
 	*/
 	function set_showBlackScreen(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showBlackScreen", value);
+		[[ self ]]->set_data(localclientnum, "showBlackScreen", value);
 	}
 
 	/*
@@ -143,10 +143,10 @@ class cpip_menu : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "movieName", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "showBlackScreen", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "looping", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "additive", 0);
+		[[ self ]]->set_data(localclientnum, "movieName", #"");
+		[[ self ]]->set_data(localclientnum, "showBlackScreen", 0);
+		[[ self ]]->set_data(localclientnum, "looping", 0);
+		[[ self ]]->set_data(localclientnum, "additive", 0);
 	}
 
 }

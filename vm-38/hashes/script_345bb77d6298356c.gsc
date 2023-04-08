@@ -1,4 +1,4 @@
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_68e77f81585a09e1;
 #using script_6e3c826b1814cab6;
 #using scripts\core_common\system_shared.gsc;
@@ -24,7 +24,7 @@ function private autoexec function_fd2f03d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_callings
 	Checksum: 0xB02D1F35
 	Offset: 0xC0
@@ -32,7 +32,7 @@ function private autoexec function_fd2f03d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_callings", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

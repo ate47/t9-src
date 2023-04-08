@@ -26,7 +26,7 @@ function private autoexec function_4d940c43()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_47c5b560
 	Checksum: 0xAC30034B
 	Offset: 0x270
@@ -34,7 +34,7 @@ function private autoexec function_4d940c43()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_75d08e0bf3b9e062", &function_70a657d8, &init, undefined, undefined);
 }
@@ -96,21 +96,21 @@ function private function_93a22b64()
 function private function_cb019e1f()
 {
 	/#
-		assert(isscriptfunctionptr(&function_e6bb5366));
+		assert(isscriptfunctionptr(&aiLeapGoalService));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("aiLeapGoalService", &function_e6bb5366, 1);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("aiLeapGoalService", &aiLeapGoalService, 1);
 	/#
-		assert(isscriptfunctionptr(&function_a69c4b69));
+		assert(isscriptfunctionptr(&aiShouldLeap));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("aiShouldLeap", &function_a69c4b69);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("aiShouldLeap", &aiShouldLeap);
 	/#
-		assert(isscriptfunctionptr(&function_602211f7));
+		assert(isscriptfunctionptr(&aiIsLeaping));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("aiIsLeaping", &function_602211f7);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("aiIsLeaping", &aiIsLeaping);
 	/#
-		assert(isscriptfunctionptr(&function_5bfaa15d));
+		assert(isscriptfunctionptr(&aiShouldLeapFollowPath));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("aiShouldLeapFollowPath", &function_5bfaa15d);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("aiShouldLeapFollowPath", &aiShouldLeapFollowPath);
 	/#
 		assert(!isdefined(undefined) || isscriptfunctionptr(undefined));
 	#/
@@ -132,13 +132,13 @@ function private function_cb019e1f()
 	#/
 	behaviortreenetworkutility::registerbehaviortreeaction("aiLeapPathLoop", &function_21a9aefd, &function_3cc9b7f6, &function_9952445c);
 	/#
-		assert(isscriptfunctionptr(&function_34761c6c));
+		assert(isscriptfunctionptr(&aiLeapStart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("aiLeapStart", &function_34761c6c);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("aiLeapStart", &aiLeapStart);
 	/#
-		assert(isscriptfunctionptr(&function_dccd852a));
+		assert(isscriptfunctionptr(&aiLeapTerminate));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("aiLeapTerminate", &function_dccd852a);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("aiLeapTerminate", &aiLeapTerminate);
 	animationstatenetwork::registeranimationmocomp("mocomp_ai_leap", &function_92a98e31, &function_f14ad812, &function_a8ad5ef0);
 	animationstatenetwork::registeranimationmocomp("mocomp_ai_leap_face_goal", &function_f4e094cf, undefined, &function_4e828c3b);
 	animationstatenetwork::registeranimationmocomp("mocomp_ai_leap_path", &function_384fce1f, &function_a53a095f, &function_2534f25d);
@@ -259,7 +259,7 @@ function private function_52c99a4f(entity)
 }
 
 /*
-	Name: function_e6bb5366
+	Name: aiLeapGoalService
 	Namespace: namespace_47c5b560
 	Checksum: 0x925EA039
 	Offset: 0xE70
@@ -267,7 +267,7 @@ function private function_52c99a4f(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e6bb5366(entity)
+function aiLeapGoalService(entity)
 {
 	if(isdefined(entity.var_862cb24b) || gettime() < entity.var_1e185a34 || !is_true(entity.var_7c4488fd) || isdefined(entity.var_ed09bf93))
 	{
@@ -419,7 +419,7 @@ function function_e6bb5366(entity)
 }
 
 /*
-	Name: function_a69c4b69
+	Name: aiShouldLeap
 	Namespace: namespace_47c5b560
 	Checksum: 0x8CDE51CA
 	Offset: 0x1B18
@@ -427,7 +427,7 @@ function function_e6bb5366(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a69c4b69(entity)
+function aiShouldLeap(entity)
 {
 	if(isdefined(entity.var_862cb24b) || isdefined(entity.var_ed09bf93))
 	{
@@ -437,7 +437,7 @@ function function_a69c4b69(entity)
 }
 
 /*
-	Name: function_602211f7
+	Name: aiIsLeaping
 	Namespace: namespace_47c5b560
 	Checksum: 0xC373E1AE
 	Offset: 0x1B58
@@ -445,7 +445,7 @@ function function_a69c4b69(entity)
 	Parameters: 1
 	Flags: Linked
 */
-function function_602211f7(entity)
+function aiIsLeaping(entity)
 {
 	if(isdefined(entity.var_1eb8b1ad))
 	{
@@ -455,7 +455,7 @@ function function_602211f7(entity)
 }
 
 /*
-	Name: function_5bfaa15d
+	Name: aiShouldLeapFollowPath
 	Namespace: namespace_47c5b560
 	Checksum: 0xB1B12D15
 	Offset: 0x1B88
@@ -463,7 +463,7 @@ function function_602211f7(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_5bfaa15d(entity)
+function private aiShouldLeapFollowPath(entity)
 {
 	if(isdefined(entity.var_6da37a9a) && isdefined(entity.var_ed09bf93))
 	{
@@ -603,7 +603,7 @@ function private function_9952445c(entity, asmstatename)
 }
 
 /*
-	Name: function_34761c6c
+	Name: aiLeapStart
 	Namespace: namespace_47c5b560
 	Checksum: 0xB303EAF4
 	Offset: 0x2238
@@ -611,7 +611,7 @@ function private function_9952445c(entity, asmstatename)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_34761c6c(entity)
+function private aiLeapStart(entity)
 {
 	/#
 		if(getdvarint(#"hash_6a18a97ccb2ee1d8", 0))
@@ -624,7 +624,7 @@ function private function_34761c6c(entity)
 }
 
 /*
-	Name: function_dccd852a
+	Name: aiLeapTerminate
 	Namespace: namespace_47c5b560
 	Checksum: 0x5EB67AFC
 	Offset: 0x22F8
@@ -632,7 +632,7 @@ function private function_34761c6c(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_dccd852a(entity)
+function private aiLeapTerminate(entity)
 {
 	entity.var_1eb8b1ad = undefined;
 	if(isdefined(entity.var_e34ba400) && isdefined(entity.var_a87eb847))
@@ -874,7 +874,7 @@ function private function_376516c9()
 		else if(self.var_73915a58 !== var_bf810675)
 		{
 			self.var_73915a58 = var_bf810675;
-			if(!function_602211f7(self))
+			if(!aiIsLeaping(self))
 			{
 				/#
 					if(getdvarint(#"hash_6a18a97ccb2ee1d8", 0))
@@ -1053,7 +1053,7 @@ function private function_b3069b6c(target)
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = target waittill(#"hash_2d4daa9e80b86b60");
+		waitresult = target waittill(#"zone_change");
 		if(!isdefined(waitresult.zone_name) || waitresult.zone_name === var_427872c2)
 		{
 			continue;
@@ -1079,7 +1079,7 @@ function function_fe23c655(var_8787728e, var_5f3b05e8)
 	{
 		return;
 	}
-	if(self function_72371f2a() || function_a69c4b69(self) || function_602211f7(self))
+	if(self function_72371f2a() || aiShouldLeap(self) || aiIsLeaping(self))
 	{
 		/#
 			if(getdvarint(#"hash_6a18a97ccb2ee1d8", 0))

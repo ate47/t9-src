@@ -1,5 +1,5 @@
 #using script_178024232e91b0a1;
-#using script_1b10fdf0addd52e;
+#using scripts\zm_common\zm_transformation.gsc;
 #using scripts\core_common\ai\archetype_catalyst.gsc;
 #using script_35598499769dbb3d;
 #using script_3657077a08b7f19e;
@@ -51,7 +51,7 @@ function private autoexec function_f2e47d07()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_catalyst
 	Checksum: 0x7ADDFEBB
 	Offset: 0x670
@@ -59,7 +59,7 @@ function private autoexec function_f2e47d07()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_ai_catalyst", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -80,11 +80,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	namespace_a216c96::function_8f9b9d24(0, &function_d422ab54);
-	namespace_a216c96::function_8f9b9d24(1, &function_19287ba5);
-	namespace_a216c96::function_8f9b9d24(3, &function_30b33bc4);
-	namespace_a216c96::function_8f9b9d24(2, &function_57285eec);
-	namespace_a216c96::function_8f9b9d24(4, &function_f9f8d9e6);
+	archetypecatalyst::function_8f9b9d24(0, &function_d422ab54);
+	archetypecatalyst::function_8f9b9d24(1, &function_19287ba5);
+	archetypecatalyst::function_8f9b9d24(3, &function_30b33bc4);
+	archetypecatalyst::function_8f9b9d24(2, &function_57285eec);
+	archetypecatalyst::function_8f9b9d24(4, &function_f9f8d9e6);
 	spawner::add_archetype_spawn_function(#"zombie", &function_49d71e38);
 	zm_utility::function_d0f02e71(#"catalyst");
 	zm_player::register_player_damage_callback(&function_22e12b7);
@@ -566,7 +566,7 @@ function function_3eaa8337()
 		{
 			self clientfield::set("corrosive_miasma_clientfield", 0);
 		}
-		self namespace_e0710ee6::function_a8dc3363(var_d7eff26a);
+		self zm_ai_utility::function_a8dc3363(var_d7eff26a);
 		if(isdefined(self))
 		{
 			self clientfield::set("catalyst_aura_clientfield", self.var_62e81e47);
@@ -1667,7 +1667,7 @@ function function_39212989()
 	{
 		return 0;
 	}
-	if(namespace_e0710ee6::function_db610082() == 0)
+	if(zm_ai_utility::function_db610082() == 0)
 	{
 		return 0;
 	}

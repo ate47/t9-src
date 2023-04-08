@@ -31,7 +31,7 @@ function private autoexec function_7b6ea63c()
 */
 function init()
 {
-	namespace_82d7691b::register();
-	namespace_2d060063::register();
+	zm_gold_hud::register();
+	zm_gold_align_satellite_hud::register();
 }
 

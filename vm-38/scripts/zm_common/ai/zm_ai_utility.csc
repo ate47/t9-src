@@ -2,11 +2,11 @@
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_e0710ee6;
+#namespace zm_ai_utility;
 
 /*
 	Name: function_a83d848b
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x828F1D4D
 	Offset: 0xA8
 	Size: 0x14
@@ -19,22 +19,22 @@ function private autoexec function_a83d848b()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_e0710ee6
+	Name: __init__system__
+	Namespace: zm_ai_utility
 	Checksum: 0xE74E7474
 	Offset: 0xC8
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_3997833cc3034f0", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_ai_utility", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x4A7E8393
 	Offset: 0x110
 	Size: 0x6C
@@ -49,7 +49,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_f3a051c6
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0xE49E4E12
 	Offset: 0x188
 	Size: 0xC
@@ -62,7 +62,7 @@ function private function_f3a051c6(localclientnum)
 
 /*
 	Name: on_radar
-	Namespace: namespace_e0710ee6
+	Namespace: zm_ai_utility
 	Checksum: 0x7E689727
 	Offset: 0x1A0
 	Size: 0x74

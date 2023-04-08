@@ -25,7 +25,7 @@ function private autoexec function_81a1f33f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: killstreak_detect
 	Checksum: 0x5575F5A5
 	Offset: 0x1A8
@@ -33,7 +33,7 @@ function private autoexec function_81a1f33f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"killstreak_detect", &init_shared, undefined, undefined, #"killstreaks");
 }

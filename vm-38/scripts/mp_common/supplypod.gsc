@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_545a0bac37bda541;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -41,7 +41,7 @@ function private autoexec function_dbb40761()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: supplypod
 	Checksum: 0x54E6F6AF
 	Offset: 0x300
@@ -49,7 +49,7 @@ function private autoexec function_dbb40761()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"supplypod", &function_70a657d8, undefined, &finalize, #"killstreaks");
 }

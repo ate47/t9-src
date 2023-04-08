@@ -23,7 +23,7 @@ function private autoexec function_4bd5da5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: mechz
 	Checksum: 0x83E0F8D8
 	Offset: 0x5B8
@@ -31,7 +31,7 @@ function private autoexec function_4bd5da5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"mechz", &init, undefined, undefined, undefined);
 }
@@ -53,8 +53,8 @@ function init()
 	clientfield::register("actor", "mechz_claw_detached", 1, 1, "int", &mechzclientutils::mechz_detach_claw, 0, 0);
 	clientfield::register("actor", "mechz_115_gun_firing", 1, 1, "int", &mechzclientutils::mechz_115_gun_muzzle_flash, 0, 0);
 	clientfield::register("actor", "mechz_headlamp_off", 1, 2, "int", &mechzclientutils::mechz_headlamp_off, 0, 0);
-	clientfield::register("actor", "mechz_long_jump", 1, 1, "counter", &mechzclientutils::function_d6762475, 0, 0);
-	clientfield::register("actor", "mechz_jetpack_explosion", 1, 1, "int", &mechzclientutils::function_f0664979, 0, 0);
+	clientfield::register("actor", "mechz_long_jump", 1, 1, "counter", &mechzclientutils::mechz_long_jump, 0, 0);
+	clientfield::register("actor", "mechz_jetpack_explosion", 1, 1, "int", &mechzclientutils::mechz_jetpack_explosion, 0, 0);
 	clientfield::register("actor", "mechz_face", 1, 3, "int", &mechzclientutils::mechzfacecallback, 0, 0);
 	ai::add_archetype_spawn_function(#"mechz", &mechzclientutils::mechzspawn);
 	precache();
@@ -286,7 +286,7 @@ function mechz_115_gun_muzzle_flash(localclientnum, oldvalue, newvalue, bnewent,
 }
 
 /*
-	Name: function_f0664979
+	Name: mechz_jetpack_explosion
 	Namespace: mechzclientutils
 	Checksum: 0xF4752AC8
 	Offset: 0x1420
@@ -294,7 +294,7 @@ function mechz_115_gun_muzzle_flash(localclientnum, oldvalue, newvalue, bnewent,
 	Parameters: 7
 	Flags: Linked
 */
-function function_f0664979(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function mechz_jetpack_explosion(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	util::playfxontag(wasdemojump, level._effect[#"hash_2b72eba2856c6e18"], self, "j_spine4");
 	self playsound(0, "zmb_ai_mechz_destroy_jetpack");
@@ -323,7 +323,7 @@ function mechz_headlamp_off(localclientnum, oldvalue, newvalue, bnewent, binitia
 }
 
 /*
-	Name: function_d6762475
+	Name: mechz_long_jump
 	Namespace: mechzclientutils
 	Checksum: 0x21456F57
 	Offset: 0x15A0
@@ -331,7 +331,7 @@ function mechz_headlamp_off(localclientnum, oldvalue, newvalue, bnewent, binitia
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_d6762475(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
+function private mechz_long_jump(localclientnum, oldvalue, newvalue, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	earthquake(wasdemojump, 0.5, 1, self.origin, 600, 1);
 }

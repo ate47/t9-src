@@ -68,7 +68,7 @@ class czm_trial_timer : cLUIelem
 	*/
 	function set_under_round_rules(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "under_round_rules", value);
+		[[ self ]]->set_data(localclientnum, "under_round_rules", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class czm_trial_timer : cLUIelem
 	*/
 	function set_timer_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "timer_text", value);
+		[[ self ]]->set_data(localclientnum, "timer_text", value);
 	}
 
 	/*
@@ -113,8 +113,8 @@ class czm_trial_timer : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "timer_text", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "under_round_rules", 0);
+		[[ self ]]->set_data(localclientnum, "timer_text", #"");
+		[[ self ]]->set_data(localclientnum, "under_round_rules", 0);
 	}
 
 }

@@ -1787,7 +1787,7 @@ function function_746a64df(var_15f88bee, t_damage, num)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ef55bb22(var_53f12789, num)
+function function_ef55bb22(e_crystal, num)
 {
 	self notify("76ab8873f4bb4938");
 	self endon("76ab8873f4bb4938");
@@ -1800,7 +1800,7 @@ function function_ef55bb22(var_53f12789, num)
 	{
 		waitresult = undefined;
 		waitresult = self waittill(#"damage");
-		if(waitresult.attacker === var_53f12789.player && waitresult.attacker flag::get("hold_crystal_energy"))
+		if(waitresult.attacker === e_crystal.player && waitresult.attacker flag::get("hold_crystal_energy"))
 		{
 			if(isdefined(waitresult.weapon) && namespace_b376a999::function_5fef4201(waitresult.weapon) && !is_true(waitresult.var_98e101b0))
 			{
@@ -2038,7 +2038,7 @@ function function_8d9ddc22(var_e7772c37)
 			level notify(#"hash_685e9797cabb8ed");
 		}
 		level scene::play((#"hash_340eb7e983e34e72" + self.var_37023f0e) + "_bundle", "close");
-		level notify(#"hash_77e3468feebf997e");
+		level notify(#"silver_weapon_crate_closed");
 		self.var_14bfe1d6 notsolid();
 		self.var_14bfe1d6 disconnectpaths();
 	}
@@ -2213,7 +2213,7 @@ function function_217a625a(a_ents)
 	}
 	var_2faa8624 linkto(var_bf71a40b, "tag_tank", (0, 0, 0), vectorscale((-1, 0, 0), 28));
 	waitresult = undefined;
-	waitresult = level waittill(#"hash_77e3468feebf997e", #"hash_685e9797cabb8ed", #"hash_142e9131e668557d");
+	waitresult = level waittill(#"silver_weapon_crate_closed", #"hash_685e9797cabb8ed", #"hash_142e9131e668557d");
 	var_2faa8624 unlink();
 	if(isdefined(var_2faa8624))
 	{
@@ -2221,7 +2221,7 @@ function function_217a625a(a_ents)
 	}
 	if(waitresult._notify !== "silver_weapon_crate_closed")
 	{
-		level waittill(#"hash_77e3468feebf997e");
+		level waittill(#"silver_weapon_crate_closed");
 	}
 	var_bf71a40b clientfield::set("" + #"hash_7aeee79e85f9273c", 0);
 }

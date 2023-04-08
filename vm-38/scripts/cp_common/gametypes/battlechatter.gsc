@@ -24,7 +24,7 @@ function private autoexec function_9a26b072()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: battlechatter
 	Checksum: 0xC75CA4E
 	Offset: 0x350
@@ -32,7 +32,7 @@ function private autoexec function_9a26b072()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_2c8719a97b3c90fa", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -555,7 +555,7 @@ event function_edd0c161(eventstruct)
 	}
 	grenade = eventstruct.projectile;
 	weapon = eventstruct.weapon;
-	if(weapon.name == #"hash_34b7eb9fde56bd35" || weapon.name == #"frag_grenade" || weapon.name == #"hash_15ed0347f1459a04")
+	if(weapon.name == #"eq_frag_grenade" || weapon.name == #"frag_grenade" || weapon.name == #"hash_15ed0347f1459a04")
 	{
 		self thread bc_ainotifyconvert("grenadetoss");
 		level thread bc_incominggrenadewatcher(self, grenade, "grenadeincoming");

@@ -2,7 +2,7 @@
 #using script_383a3b1bb18ba876;
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -127,7 +127,7 @@ function function_b5b6ef3e(func, obj)
 }
 
 /*
-	Name: function_f83b20be
+	Name: register_ui
 	Namespace: killstreaks
 	Checksum: 0xCEABD4E3
 	Offset: 0x960
@@ -135,7 +135,7 @@ function function_b5b6ef3e(func, obj)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_f83b20be(killstreak_type, var_1624ed59)
+function private register_ui(killstreak_type, var_1624ed59)
 {
 	/#
 		assert(isdefined(level.killstreaks[killstreak_type]), "");
@@ -262,7 +262,7 @@ function private function_e48aca4d(type, bundle, weapon, vehicle, var_c0a31091, 
 	{
 		menukey = "inventory_" + menukey;
 	}
-	function_f83b20be(type, menukey);
+	register_ui(type, menukey);
 	level.killstreaks[type].usagekey = type;
 	level.killstreaks[type].delaystreak = bundle.var_daf6b7af;
 	level.killstreaks[type].usefunction = var_c0a31091;
@@ -4985,7 +4985,7 @@ function function_47492133()
 		var_2226e3f0 = self.killstreakendtime;
 		if(!is_true(level.var_e80a117f))
 		{
-			level waittill(#"hash_2f6b9eb577a60965");
+			level waittill(#"esports_game_paused");
 		}
 		pausestart = gettime();
 		while(is_true(level.var_e80a117f))

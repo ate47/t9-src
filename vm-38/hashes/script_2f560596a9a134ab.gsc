@@ -146,14 +146,14 @@ function function_fc7d3519()
 		#/
 		if(e_player.var_9e09931e != 0)
 		{
-			e_player function_bc82f900(#"hash_410bd55524ae7d");
+			e_player function_bc82f900(#"zm_interact_rumble");
 			playsoundatposition(#"hash_25abbe787394e73e", self.origin);
 			e_player function_123bcbcf();
 			e_player function_53a333a8();
 		}
 		else if(is_true(e_player.var_4373c66b))
 		{
-			e_player function_bc82f900(#"hash_410bd55524ae7d");
+			e_player function_bc82f900(#"zm_interact_rumble");
 			playsoundatposition(#"hash_5e201856c21548ae", self.origin);
 			e_player.var_4373c66b = undefined;
 			e_player notify(#"hash_3cd13a6cb08bba96");

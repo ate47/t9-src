@@ -1,4 +1,4 @@
-#using script_7f9d1ec3c0aa68b8;
+#using scripts\zm_common\zm_vo.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -54,13 +54,13 @@ function function_a2e43552(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwastimejump == 1)
 	{
-		forcestreamxmodel(#"hash_94e8f2a5fcab18e");
-		forcestreamxmodel(#"hash_1d66d4b8b20c9572");
+		forcestreamxmodel(#"p9_sur_computer_console_hvt_01_screen_laser_in_act");
+		forcestreamxmodel(#"p9_sur_computer_console_hvt_01_screen_laser_act");
 	}
 	else
 	{
-		stopforcestreamingxmodel(#"hash_94e8f2a5fcab18e");
-		stopforcestreamingxmodel(#"hash_1d66d4b8b20c9572");
+		stopforcestreamingxmodel(#"p9_sur_computer_console_hvt_01_screen_laser_in_act");
+		stopforcestreamingxmodel(#"p9_sur_computer_console_hvt_01_screen_laser_act");
 	}
 }
 

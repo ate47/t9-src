@@ -33,7 +33,7 @@ function private autoexec function_9fedd279()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_e292b080
 	Checksum: 0xB0219877
 	Offset: 0x350
@@ -41,7 +41,7 @@ function private autoexec function_9fedd279()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1f8830cd01b39f8f", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -500,7 +500,7 @@ function zombieshouldmelee(entity)
 	}
 	meleedistsq = zombiebehavior::function_997f1224(entity);
 	var_c6bad08 = undefined;
-	enemy = namespace_e0710ee6::function_825317c(entity);
+	enemy = zm_ai_utility::function_825317c(entity);
 	enemy = (isdefined(enemy) ? enemy : entity.enemy);
 	test_origin = enemy.origin;
 	if(isplayer(enemy))

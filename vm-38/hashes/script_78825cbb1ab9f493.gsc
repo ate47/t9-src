@@ -38,8 +38,8 @@ function init()
 	insertion_passenger_count::register();
 	hud::function_9b9cecdf();
 	callback::on_localplayer_spawned(&on_player_spawned);
-	callback::function_e9e16e2f(&function_e9e16e2f);
-	callback::function_4f6cafea(&function_4f6cafea);
+	callback::on_killcam_begin(&on_killcam_begin);
+	callback::on_killcam_end(&on_killcam_end);
 	callback::function_d46d9315(&start_warzone);
 	function_41f9de03();
 	function_f6b076db();
@@ -177,7 +177,7 @@ function function_f6b076db()
 }
 
 /*
-	Name: function_e9e16e2f
+	Name: on_killcam_begin
 	Namespace: namespace_17baa64d
 	Checksum: 0xF8E2A2F4
 	Offset: 0x840
@@ -185,13 +185,13 @@ function function_f6b076db()
 	Parameters: 1
 	Flags: None
 */
-function function_e9e16e2f(params)
+function on_killcam_begin(params)
 {
 	function_c6878ba5();
 }
 
 /*
-	Name: function_4f6cafea
+	Name: on_killcam_end
 	Namespace: namespace_17baa64d
 	Checksum: 0x1CEDE428
 	Offset: 0x868
@@ -199,7 +199,7 @@ function function_e9e16e2f(params)
 	Parameters: 1
 	Flags: None
 */
-function function_4f6cafea(params)
+function on_killcam_end(params)
 {
 	function_f6b076db();
 }

@@ -9,7 +9,7 @@
 #using scripts\core_common\activecamo_shared.gsc;
 #using script_72401f526ba71638;
 #using script_7a5293d92c61c788;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -223,7 +223,7 @@ function function_42f98bb6(player)
 	function_53721fc4(player, #"downs", player.pers[#"downs"]);
 	function_53721fc4(player, #"damage", (isdefined(player.pers[#"damagedone"]) ? player.pers[#"damagedone"] : 0));
 	function_53721fc4(player, #"headshots", player.headshots);
-	function_53721fc4(player, #"hash_7472529eae501802", player.var_3f62a666);
+	function_53721fc4(player, #"kills_critical", player.kills_critical);
 	function_53721fc4(player, #"hash_709ac244d8923f57", player.var_3b4f6b37);
 	function_53721fc4(player, #"hash_28e11648279d2037", int((isdefined(player.var_e2d764da) ? player.var_e2d764da : 0)));
 	function_f859a82d(player);
@@ -709,8 +709,8 @@ function function_642cc595(player)
 	player.pers[#"downs"] = player.downs;
 	player.headshots = function_48b5c403(player, #"headshots");
 	player.pers[#"headshots"] = player.headshots;
-	player.var_3f62a666 = function_48b5c403(player, #"hash_7472529eae501802");
-	player.pers[#"hash_7472529eae501802"] = player.var_3f62a666;
+	player.kills_critical = function_48b5c403(player, #"kills_critical");
+	player.pers[#"kills_critical"] = player.kills_critical;
 	player.pers[#"damagedone"] = function_48b5c403(player, #"damage");
 	player.var_3b4f6b37 = function_48b5c403(player, #"hash_709ac244d8923f57");
 	player.var_e2d764da = function_48b5c403(player, #"hash_28e11648279d2037");

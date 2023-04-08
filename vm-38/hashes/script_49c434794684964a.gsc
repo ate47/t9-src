@@ -24,7 +24,7 @@ function private autoexec function_ebc560f9()
 #namespace player;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player
 	Checksum: 0xCA2C6911
 	Offset: 0x148
@@ -32,7 +32,7 @@ function private autoexec function_ebc560f9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -53,8 +53,8 @@ function private function_70a657d8()
 	clientfield::register("toplayer", "player_dof_settings", 1, 2, "int", &function_f9e445ee, 0, 0);
 	callback::on_localplayer_spawned(&local_player_spawn);
 	callback::on_spawned(&on_player_spawned);
-	callback::function_e9e16e2f(&function_5bec2ba9);
-	callback::function_4f6cafea(&function_5bec2ba9);
+	callback::on_killcam_begin(&function_5bec2ba9);
+	callback::on_killcam_end(&function_5bec2ba9);
 	callback::function_fb65b7c2(&function_5bec2ba9);
 }
 

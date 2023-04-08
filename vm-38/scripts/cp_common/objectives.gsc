@@ -22,7 +22,7 @@ function private autoexec function_4c28b9ac()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: objectives
 	Checksum: 0x45032D4C
 	Offset: 0x120
@@ -30,7 +30,7 @@ function private autoexec function_4c28b9ac()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"objectives", &function_70a657d8, undefined, undefined, undefined);
 }

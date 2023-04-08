@@ -21,7 +21,7 @@ function private autoexec function_8f7a2f1c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ambient
 	Checksum: 0x3879036
 	Offset: 0x2C0
@@ -29,7 +29,7 @@ function private autoexec function_8f7a2f1c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ambient", &function_70a657d8, undefined, undefined, undefined);
 }

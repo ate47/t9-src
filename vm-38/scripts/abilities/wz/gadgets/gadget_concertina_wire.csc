@@ -20,7 +20,7 @@ function private autoexec function_14db743e()
 #namespace concertina_wire;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: concertina_wire
 	Checksum: 0x25357ED7
 	Offset: 0xB0
@@ -28,7 +28,7 @@ function private autoexec function_14db743e()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"gadget_concertina_wire", &function_70a657d8, undefined, undefined, undefined);
 }

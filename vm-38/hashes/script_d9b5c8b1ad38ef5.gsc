@@ -24,7 +24,7 @@ function private autoexec function_a35ca24d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: territory
 	Checksum: 0xCC9C7E15
 	Offset: 0x128
@@ -32,7 +32,7 @@ function private autoexec function_a35ca24d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"territory", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -156,7 +156,7 @@ function private function_7904ef68(territory)
 		center.maxs = vectorscale((-1, -1, 0), 2.147484E+09);
 		foreach(entity in entities)
 		{
-			if(isdefined(entity.classname) && entity.classname == #"hash_2d9d988f094b0605")
+			if(isdefined(entity.classname) && entity.classname == #"trigger_within_bounds")
 			{
 				territory.bounds[territory.bounds.size] = entity;
 				function_49695e98(center, entity.mins, entity.maxs, entity.origin);

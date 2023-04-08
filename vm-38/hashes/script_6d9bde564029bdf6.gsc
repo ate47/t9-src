@@ -178,7 +178,7 @@ event function_e77b4f15(eventstruct)
 	{
 		if(isdefined(source.turretweapon))
 		{
-			if(source.turretweapon.name == #"hash_36a6454f13b54f18")
+			if(source.turretweapon.name == #"gun_ultimate_turret")
 			{
 				source.var_87b1ba00 = 1;
 				self function_cef454e8(source.killstreaktype);

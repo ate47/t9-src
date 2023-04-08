@@ -54,7 +54,7 @@ class ccp_skip_scene_menu : cLUIelem
 	*/
 	function set_hostIsSkipping(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "hostIsSkipping", value);
+		[[ self ]]->set_data(localclientnum, "hostIsSkipping", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class ccp_skip_scene_menu : cLUIelem
 	*/
 	function set_votedToSkip(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "votedToSkip", value);
+		[[ self ]]->set_data(localclientnum, "votedToSkip", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class ccp_skip_scene_menu : cLUIelem
 	*/
 	function set_showSkipButton(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showSkipButton", value);
+		[[ self ]]->set_data(localclientnum, "showSkipButton", value);
 	}
 
 	/*
@@ -128,7 +128,7 @@ class ccp_skip_scene_menu : cLUIelem
 	*/
 	function set_sceneSkipEndTime(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "sceneSkipEndTime", value);
+		[[ self ]]->set_data(localclientnum, "sceneSkipEndTime", value);
 	}
 
 	/*
@@ -143,10 +143,10 @@ class ccp_skip_scene_menu : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showSkipButton", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "hostIsSkipping", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "votedToSkip", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "sceneSkipEndTime", 0);
+		[[ self ]]->set_data(localclientnum, "showSkipButton", 0);
+		[[ self ]]->set_data(localclientnum, "hostIsSkipping", 0);
+		[[ self ]]->set_data(localclientnum, "votedToSkip", 0);
+		[[ self ]]->set_data(localclientnum, "sceneSkipEndTime", 0);
 	}
 
 }

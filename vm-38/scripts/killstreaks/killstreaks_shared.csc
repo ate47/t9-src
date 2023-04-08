@@ -553,13 +553,13 @@ function private function_bd2d5a8e(killstreakweaponname)
 	}
 	switch(killstreakweaponname)
 	{
-		case "hash_459c0007ec5e2470":
+		case "inventory_ac130":
 		case "ac130":
 		{
 			bundle = getscriptbundle("killstreak_ac130");
 			break;
 		}
-		case "hash_1bf811fa5d684607":
+		case "inventory_chopper_gunner":
 		case "chopper_gunner":
 		{
 			bundle = getscriptbundle("killstreak_chopper_gunner");

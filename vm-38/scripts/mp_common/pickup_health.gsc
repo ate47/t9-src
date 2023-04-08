@@ -1,4 +1,4 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -24,7 +24,7 @@ function private autoexec function_5adfce5a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: pickup_health
 	Checksum: 0x99256FBF
 	Offset: 0x130
@@ -32,7 +32,7 @@ function private autoexec function_5adfce5a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"pickup_health", &function_70a657d8, undefined, undefined, #"weapons");
 }

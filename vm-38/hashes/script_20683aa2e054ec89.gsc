@@ -125,11 +125,11 @@ class class_f91fc158 : cLUIelem
 
 }
 
-#namespace namespace_fb27ba0b;
+#namespace zm_roots_health_bar;
 
 /*
 	Name: function_ed8f50c6
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x9E808339
 	Offset: 0xE8
 	Size: 0x14
@@ -143,7 +143,7 @@ function private autoexec function_ed8f50c6()
 
 /*
 	Name: register
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x1068438F
 	Offset: 0x108
 	Size: 0x34
@@ -159,7 +159,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xF79EBB64
 	Offset: 0x148
 	Size: 0x38
@@ -177,7 +177,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x8223FA61
 	Offset: 0x188
 	Size: 0x1C
@@ -191,7 +191,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xC4970C2C
 	Offset: 0x1B0
 	Size: 0x1A
@@ -205,7 +205,7 @@ function is_open(player)
 
 /*
 	Name: set_health
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0xDC0BD1D1
 	Offset: 0x1D8
 	Size: 0x28
@@ -219,7 +219,7 @@ function set_health(player, value)
 
 /*
 	Name: set_armor
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x9D9EADDF
 	Offset: 0x208
 	Size: 0x28
@@ -233,7 +233,7 @@ function set_armor(player, value)
 
 /*
 	Name: set_armor_vis
-	Namespace: namespace_fb27ba0b
+	Namespace: zm_roots_health_bar
 	Checksum: 0x62C777D3
 	Offset: 0x238
 	Size: 0x28

@@ -20,7 +20,7 @@ function private autoexec function_e8b5647()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: weapons_shared
 	Checksum: 0x406B2B90
 	Offset: 0x110
@@ -28,7 +28,7 @@ function private autoexec function_e8b5647()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"weapon_shared", &function_70a657d8, undefined, undefined, undefined);
 }

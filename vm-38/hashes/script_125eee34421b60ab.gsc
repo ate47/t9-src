@@ -5,7 +5,7 @@
 #using script_3aa0f32b70d4f7cb;
 #using script_3f9e0dc8454d98e1;
 #using script_41fe08c37d53a635;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4bf952f6ba31bb17;
 #using script_4d85e8de54b02198;
 #using script_522aeb6ae906391e;
@@ -113,17 +113,17 @@ function private initrazbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("razShouldTraverseWindow", &razshouldtraversewindow);
 	/#
-		assert(isscriptfunctionptr(&function_a812a54));
+		assert(isscriptfunctionptr(&razGroundTorpedoWasInterrupted));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("razGroundTorpedoWasInterrupted", &function_a812a54);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("razGroundTorpedoWasInterrupted", &razGroundTorpedoWasInterrupted);
 	/#
-		assert(isscriptfunctionptr(&function_7e5f6277));
+		assert(isscriptfunctionptr(&razShouldCutOffArm));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("razShouldCutOffArm", &function_7e5f6277);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("razShouldCutOffArm", &razShouldCutOffArm);
 	/#
-		assert(isscriptfunctionptr(&function_ba199276));
+		assert(isscriptfunctionptr(&razShouldMeleeRun));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("razShouldMeleeRun", &function_ba199276);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("razShouldMeleeRun", &razShouldMeleeRun);
 	/#
 		assert(isscriptfunctionptr(&razstartmelee));
 	#/
@@ -149,9 +149,9 @@ function private initrazbehaviorsandasm()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi("razStartDeath", &razstartdeath);
 	/#
-		assert(isscriptfunctionptr(&function_7e8a6d1f));
+		assert(isscriptfunctionptr(&razGroundTorpedoStaggerStart));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi("razGroundTorpedoStaggerStart", &function_7e8a6d1f);
+	behaviortreenetworkutility::registerbehaviortreescriptapi("razGroundTorpedoStaggerStart", &razGroundTorpedoStaggerStart);
 	/#
 		assert(!isdefined(&function_68ef46bd) || isscriptfunctionptr(&function_68ef46bd));
 	#/
@@ -390,7 +390,7 @@ function private razshouldtraversewindow(entity)
 }
 
 /*
-	Name: function_a812a54
+	Name: razGroundTorpedoWasInterrupted
 	Namespace: razbehavior
 	Checksum: 0x1DF1F042
 	Offset: 0x1AF0
@@ -398,13 +398,13 @@ function private razshouldtraversewindow(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_a812a54(entity)
+function private razGroundTorpedoWasInterrupted(entity)
 {
 	return is_true(entity.var_6d2f7ac8);
 }
 
 /*
-	Name: function_7e5f6277
+	Name: razShouldCutOffArm
 	Namespace: razbehavior
 	Checksum: 0x1DD52B09
 	Offset: 0x1B20
@@ -412,13 +412,13 @@ function private function_a812a54(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_7e5f6277(entity)
+function private razShouldCutOffArm(entity)
 {
 	return entity.razgunhealth <= 0;
 }
 
 /*
-	Name: function_ba199276
+	Name: razShouldMeleeRun
 	Namespace: razbehavior
 	Checksum: 0xFEA384F4
 	Offset: 0x1B48
@@ -426,7 +426,7 @@ function private function_7e5f6277(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ba199276(entity)
+function private razShouldMeleeRun(entity)
 {
 	if(entity.ignoreall)
 	{
@@ -516,22 +516,22 @@ function private razstartdeath(entity)
 					self razserverutils::function_50c2a59e(undefined);
 					break;
 				}
-				case "hash_352acf24b5bb0a05":
+				case "left_arm_armor":
 				{
 					self razserverutils::function_597f31c9(undefined);
 					break;
 				}
-				case "hash_4dc9cf5bd0d33c56":
+				case "right_leg_armor":
 				{
 					self razserverutils::function_578362e9(undefined);
 					break;
 				}
-				case "hash_1f0551f17a593ef7":
+				case "left_leg_armor":
 				{
 					self razserverutils::function_50f53d3b(undefined);
 					break;
 				}
-				case "hash_5e9092fc1c0e973c":
+				case "right_arm_armor":
 				{
 					self razserverutils::function_afcd63e1(undefined, undefined, undefined);
 					break;
@@ -546,7 +546,7 @@ function private razstartdeath(entity)
 }
 
 /*
-	Name: function_7e8a6d1f
+	Name: razGroundTorpedoStaggerStart
 	Namespace: razbehavior
 	Checksum: 0xC46CD6
 	Offset: 0x1F90
@@ -554,7 +554,7 @@ function private razstartdeath(entity)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_7e8a6d1f(entity)
+function private razGroundTorpedoStaggerStart(entity)
 {
 	entity.var_6d2f7ac8 = undefined;
 }
@@ -855,7 +855,7 @@ function get_target_ent(entity)
 	{
 		return entity.attackable;
 	}
-	return namespace_e0710ee6::function_825317c(entity);
+	return zm_ai_utility::function_825317c(entity);
 }
 
 /*
@@ -1461,7 +1461,7 @@ function function_2869a8ae(eventstruct)
 	switch(notify_string)
 	{
 		case "summon":
-		case "hash_739393982a94979e":
+		case "ambient_line":
 		{
 			self thread function_6f9720f9(notify_string);
 			return;
@@ -1502,8 +1502,8 @@ function function_2869a8ae(eventstruct)
 			break;
 		}
 		case "ambient":
-		case "hash_4320680add0fb1ee":
-		case "hash_7609057ae05fd29a":
+		case "ambient_enraged":
+		case "ambient_alert":
 		{
 			n_priority = 1;
 			break;

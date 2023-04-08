@@ -2,7 +2,7 @@
 #using script_305d57cf0618009d;
 #using script_348ce871561476c9;
 #using script_6e9b46ba8331f1f;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using script_d43f0658aa1a5e5;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -30,7 +30,7 @@ function private autoexec function_216ac6a9()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_c2bb938a
 	Checksum: 0xBF6F4D24
 	Offset: 0x240
@@ -38,7 +38,7 @@ function private autoexec function_216ac6a9()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_258dcc370de6f9c5", &function_70a657d8, undefined, undefined, undefined);
 }

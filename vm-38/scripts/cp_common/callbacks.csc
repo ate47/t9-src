@@ -28,7 +28,7 @@ function private autoexec function_ec5e196c()
 #namespace callback;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: callback
 	Checksum: 0xEBAD4C22
 	Offset: 0x110
@@ -36,7 +36,7 @@ function private autoexec function_ec5e196c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"callback", &function_70a657d8, undefined, undefined, undefined);
 }

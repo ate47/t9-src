@@ -75,7 +75,7 @@ event private function_e0a8e4ba(struct)
 #namespace scene;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: scene
 	Checksum: 0x4D97A6BF
 	Offset: 0x930
@@ -83,7 +83,7 @@ event private function_e0a8e4ba(struct)
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"scene", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -154,7 +154,7 @@ function private function_70a657d8()
 			break;
 		}
 	}
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		var_a093876d = 24;
 	}
@@ -3781,7 +3781,7 @@ function function_a4ad0308(o_scene)
 		var_6b859e8c = 0;
 		var_d60120 = 2500;
 	}
-	self.skip_scene_menu_handle = lui::function_e810a527("cp_skip_scene_menu");
+	self.skip_scene_menu_handle = lui::get_luimenu("cp_skip_scene_menu");
 	self.skip_scene_menu_handle cp_skip_scene_menu::open(self);
 	self.skip_scene_menu_handle cp_skip_scene_menu::set_showSkipButton(self, 0);
 	self.skip_scene_menu_handle cp_skip_scene_menu::set_hostIsSkipping(self, 0);

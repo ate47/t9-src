@@ -67,7 +67,7 @@ function init()
 		clientfield::function_5b7d846d(clientfieldname, #"hash_365a974a1df27ef4", [1:#"bombs", 0:#"player" + (isdefined(i) ? "" + i : "")], 1, 4, "int", undefined, 0, 0);
 		toks = strtok("doaGlobal.player$.boosts", "$");
 		clientfieldname = (toks[0] + i) + toks[1];
-		clientfield::function_5b7d846d(clientfieldname, #"hash_365a974a1df27ef4", [1:#"hash_5d1b6f8121c0fc8d", 0:#"player" + (isdefined(i) ? "" + i : "")], 1, 4, "int", undefined, 0, 0);
+		clientfield::function_5b7d846d(clientfieldname, #"hash_365a974a1df27ef4", [1:#"boosts", 0:#"player" + (isdefined(i) ? "" + i : "")], 1, 4, "int", undefined, 0, 0);
 		toks = strtok("doaGlobal.player$.keys", "$");
 		clientfieldname = (toks[0] + i) + toks[1];
 		clientfield::function_5b7d846d(clientfieldname, #"hash_365a974a1df27ef4", [1:#"keys", 0:#"player" + (isdefined(i) ? "" + i : "")], 1, 4, "int", undefined, 0, 0);

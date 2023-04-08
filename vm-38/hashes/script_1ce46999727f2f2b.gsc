@@ -9,7 +9,7 @@
 #using script_3bbf85ab4cb9f3c2;
 #using script_40f967ad5d18ea74;
 #using script_47851dbeea22fe66;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4d748e58ce25b60c;
 #using script_5701633066d199f2;
 #using script_5f20d3b434d24884;
@@ -130,7 +130,7 @@ function function_c05eb7e6()
 	self.doa.score.var_267d0586 = 0;
 	self.doa.score.keys = 0;
 	self.doa.score.bombs = 1;
-	self.doa.score.var_7a3c00a0 = 2;
+	self.doa.score.boosts = 2;
 	self.doa.score.lives = 3;
 	self.doa.score.var_5eac81d0 = 200000;
 }

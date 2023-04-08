@@ -54,7 +54,7 @@ class cremote_missile_targets : cLUIelem
 	*/
 	function set_player_target_active(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "player_target_active", value);
+		[[ self ]]->set_data(localclientnum, "player_target_active", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cremote_missile_targets : cLUIelem
 	*/
 	function set_extra_target_2(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_2", value);
+		[[ self ]]->set_data(localclientnum, "extra_target_2", value);
 	}
 
 	/*
@@ -114,7 +114,7 @@ class cremote_missile_targets : cLUIelem
 	*/
 	function set_extra_target_1(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_1", value);
+		[[ self ]]->set_data(localclientnum, "extra_target_1", value);
 	}
 
 	/*
@@ -128,7 +128,7 @@ class cremote_missile_targets : cLUIelem
 	*/
 	function set_extra_target_3(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_3", value);
+		[[ self ]]->set_data(localclientnum, "extra_target_3", value);
 	}
 
 	/*
@@ -143,10 +143,10 @@ class cremote_missile_targets : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "player_target_active", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_1", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_2", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "extra_target_3", 0);
+		[[ self ]]->set_data(localclientnum, "player_target_active", 0);
+		[[ self ]]->set_data(localclientnum, "extra_target_1", 0);
+		[[ self ]]->set_data(localclientnum, "extra_target_2", 0);
+		[[ self ]]->set_data(localclientnum, "extra_target_3", 0);
 	}
 
 }

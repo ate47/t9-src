@@ -1,27 +1,27 @@
 #using script_184abbae9afad370;
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
 #using script_2c49ae69cd8ce30c;
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_35b5ff21c2a0960f;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using script_545a0bac37bda541;
 #using script_6167e26342be354b;
 #using script_66052559f4fc2bf9;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using script_725554a59d6a75b9;
 #using script_7a8059ca02b7b09e;
 #using scripts\weapons\weapons.gsc;
 #using script_7f6cd71c43c45c57;
-#using script_caab14e8a60767c;
+#using scripts\mp_common\player\player_record.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -924,7 +924,7 @@ function private function_c220950f(var_c391d0a8, idamage, weapon_at_time_of_deat
 	var_989983f4.var_28af8061 = var_28af8061;
 	var_989983f4.var_8926cc9f = var_8926cc9f;
 	matchrecordlogadditionaldeathinfo(self, killer, victimweapon, weapon, var_989983f4);
-	self namespace_42fe87d::record_special_move_data_for_life(killer);
+	self player_record::record_special_move_data_for_life(killer);
 	/#
 		attackerstring = "";
 		if(isdefined(killer))
@@ -3160,7 +3160,7 @@ function function_ed2725ad(einflictor, attacker, weapon)
 					if(level.onlinegame)
 					{
 						var_49174772 = ((attacker.pers[#"hash_6f1b3f108570635b"] * attacker.pers[#"hash_20893916fb58d59f"]) + attacker.pers[#"hash_763287bc117e302f"]) / (attacker.pers[#"hash_20893916fb58d59f"] + 1);
-						attacker stats::function_baa25a23(#"hash_28eb9f07121bf4e8", int(var_49174772 + 0.5));
+						attacker stats::function_baa25a23(#"average_kill_streak", int(var_49174772 + 0.5));
 						attacker.pers[#"hash_222259801297f7c3"] = var_49174772;
 					}
 				}

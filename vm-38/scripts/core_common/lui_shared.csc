@@ -143,7 +143,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_92ba69fa
+		Name: get_data
 		Namespace: cLUIelem
 		Checksum: 0x2BBCAD35
 		Offset: 0x1330
@@ -151,7 +151,7 @@ class cLUIelem
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_92ba69fa(local_client_num, field)
+	function get_data(local_client_num, field)
 	{
 		/#
 			assert(var_47d8642e, "");
@@ -200,7 +200,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_d7d2fcce
+		Name: set_data
 		Namespace: cLUIelem
 		Checksum: 0x70DE36E2
 		Offset: 0x1100
@@ -208,7 +208,7 @@ class cLUIelem
 		Parameters: 3
 		Flags: Linked
 	*/
-	function function_d7d2fcce(local_client_num, field, value)
+	function set_data(local_client_num, field, value)
 	{
 		/#
 			assert(var_47d8642e, "");
@@ -273,7 +273,7 @@ class cLUIelem
 			}
 			var_2637b994[var_2637b994.size] = hash(field);
 		}
-		clientfield::function_346f95ba((("luielement." + var_d5213cbb) + ".") + (isdefined(var_bf9c8c95) ? "" + var_bf9c8c95 : "") + field_name, hash(var_d5213cbb), var_bf9c8c95, var_2637b994, version, bits, type, callback, 0, 0);
+		clientfield::register_luielem((("luielement." + var_d5213cbb) + ".") + (isdefined(var_bf9c8c95) ? "" + var_bf9c8c95 : "") + field_name, hash(var_d5213cbb), var_bf9c8c95, var_2637b994, version, bits, type, callback, 0, 0);
 	}
 
 	/*
@@ -344,7 +344,7 @@ function private autoexec function_f77a9409()
 #namespace lui;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: lui
 	Checksum: 0x46D567F4
 	Offset: 0x100
@@ -352,7 +352,7 @@ function private autoexec function_f77a9409()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"lui_shared", &function_70a657d8, undefined, undefined, undefined);
 }

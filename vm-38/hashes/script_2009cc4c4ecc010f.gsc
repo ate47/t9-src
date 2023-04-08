@@ -21,7 +21,7 @@ function private autoexec function_923534cb()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: player_vehicle
 	Checksum: 0x9B9228A7
 	Offset: 0x208
@@ -29,7 +29,7 @@ function private autoexec function_923534cb()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"player_vehicle", &function_70a657d8, undefined, undefined, undefined);
 }

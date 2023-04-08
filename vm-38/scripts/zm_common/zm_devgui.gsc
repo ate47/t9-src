@@ -5,7 +5,7 @@
 #using script_36f4be19da8eb6d0;
 #using script_3751b21462a54a7d;
 #using script_3f9e0dc8454d98e1;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4ccfb58a9443a60b;
 #using script_522aeb6ae906391e;
 #using script_52c6c2d1a2ef1b46;
@@ -69,7 +69,7 @@ function private autoexec function_ccda5989()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_devgui
 	Checksum: 0xCFE7F671
 	Offset: 0x228
@@ -77,7 +77,7 @@ function private autoexec function_ccda5989()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"zm_devqui", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
@@ -2435,7 +2435,7 @@ function zombie_devgui_think()
 				}
 				case "hash_7f4d70c7ded8e94a":
 				{
-					if(zm_utility::function_166646a6() === 2)
+					if(zm_utility::get_story() === 2)
 					{
 						array::random(getplayers()) giveweapon(getweapon(#"homunculus"));
 					}
@@ -2544,13 +2544,13 @@ function zombie_devgui_think()
 					break;
 				}
 				case "lose_points_team":
-				case "hash_452a24ff038acdf":
+				case "naughty_or_nice":
 				case "hero_weapon_power":
 				case "carpenter":
 				case "free_perk":
 				case "extra_lives":
 				case "tesla":
-				case "hash_20c057e44a67cf98":
+				case "cranked_pause":
 				case "pack_a_punch":
 				case "bonus_points_player":
 				case "lose_perk":
@@ -4107,7 +4107,7 @@ function zombie_devgui_give_lethal(weapon)
 function zombie_devgui_give_frags()
 {
 	/#
-		zombie_devgui_give_lethal(getweapon(#"hash_34b7eb9fde56bd35"));
+		zombie_devgui_give_lethal(getweapon(#"eq_frag_grenade"));
 	#/
 }
 
@@ -6291,7 +6291,7 @@ function function_fb482cad()
 				debug_text = "";
 			}
 			self.var_d35d1d3d settext(debug_text);
-			self waittill(#"hash_2d4daa9e80b86b60");
+			self waittill(#"zone_change");
 		}
 	#/
 }
@@ -6554,7 +6554,7 @@ function function_3a5618f8()
 		var_a6f3b62c = getdvarint(#"hash_1e8ebf0a767981dd", 0);
 		timescale = getdvarint(#"hash_7438b7c847f3c0", 0);
 		var_59ed21fc = function_29dcbd58();
-		setdvar(#"hash_5f4ab31dca8bb404", timescale);
+		setdvar(#"runtime_time_scale", timescale);
 		while(level.round_number < var_a6f3b62c)
 		{
 			foreach(var_48c6ec2e in var_59ed21fc)
@@ -6573,7 +6573,7 @@ function function_3a5618f8()
 			adddebugcommand("");
 			wait(0.2);
 		}
-		setdvar(#"hash_5f4ab31dca8bb404", 1);
+		setdvar(#"runtime_time_scale", 1);
 	#/
 }
 
@@ -6590,7 +6590,7 @@ function function_21f1fbf1()
 {
 	/#
 		self notify(#"hash_63ae1cb168b8e0d7");
-		setdvar(#"hash_5f4ab31dca8bb404", 1);
+		setdvar(#"runtime_time_scale", 1);
 	#/
 }
 
@@ -7301,13 +7301,13 @@ function function_7c9dd642()
 			for(i = 0; i < num; i++)
 			{
 				cmdarg = (function_9e72a96(key) + "") + i;
-				util::function_e2e9d901(((path + function_9e72a96(key)) + "") + i, cmd + cmdarg);
+				util::add_devgui(((path + function_9e72a96(key)) + "") + i, cmd + cmdarg);
 			}
 		}
 		var_30a96cf9 = "";
 		cmd = "";
-		util::function_e2e9d901(var_30a96cf9 + "", cmd + 1);
-		util::function_e2e9d901(var_30a96cf9 + "", cmd + 0);
+		util::add_devgui(var_30a96cf9 + "", cmd + 1);
+		util::add_devgui(var_30a96cf9 + "", cmd + 0);
 	#/
 }
 

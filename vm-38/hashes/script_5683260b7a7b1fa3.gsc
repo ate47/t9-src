@@ -5,7 +5,7 @@
 #using script_34e9dd62fc371077;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -36,7 +36,7 @@ function private autoexec function_e5472082()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_e6fea84d
 	Checksum: 0xB3C0B833
 	Offset: 0x268
@@ -44,7 +44,7 @@ function private autoexec function_e5472082()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1aecd78b7244ff81", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -487,7 +487,7 @@ function function_525c846d(ammomod)
 		{
 			return 3;
 		}
-		case "hash_a182150036cabd3":
+		case "ammomod_shatterblast":
 		{
 			return 7;
 		}

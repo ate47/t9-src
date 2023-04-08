@@ -20,7 +20,7 @@ function private autoexec function_2fcdbf5f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_260f8380
 	Checksum: 0xE1AAF840
 	Offset: 0x118
@@ -28,7 +28,7 @@ function private autoexec function_2fcdbf5f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5cd88d9b0fb0d8ad", undefined, &function_64608eb3, undefined, undefined);
 }
@@ -103,7 +103,7 @@ function stop(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, 
 	Parameters: 4
 	Flags: Linked
 */
-function function_d9475fc(var_dccfb95, blur_amount, var_72bbca87, var_a7207c52)
+function function_d9475fc(var_dccfb95, blur_amount, Aberration, var_a7207c52)
 {
 	if(!postfx::function_556665f2(self.bundle))
 	{
@@ -117,9 +117,9 @@ function function_d9475fc(var_dccfb95, blur_amount, var_72bbca87, var_a7207c52)
 	{
 		self postfx::function_c8b5f318(self.bundle, "Blur Amount", blur_amount);
 	}
-	if(isdefined(var_72bbca87) && function_72a9e321())
+	if(isdefined(Aberration) && function_72a9e321())
 	{
-		self postfx::function_c8b5f318(self.bundle, "Aberration", var_72bbca87);
+		self postfx::function_c8b5f318(self.bundle, "Aberration", Aberration);
 	}
 	if(isdefined(var_a7207c52))
 	{

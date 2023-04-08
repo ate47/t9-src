@@ -241,7 +241,7 @@ function function_3ba2978d()
 		{
 			self clientfield::set("" + #"hash_63af42145e260fb5", 0);
 		}
-		self waittill(#"hash_2d4daa9e80b86b60");
+		self waittill(#"zone_change");
 	}
 }
 
@@ -633,7 +633,7 @@ function function_c1bd7e55()
 function function_d1377146(var_7692d390)
 {
 	waitresult = undefined;
-	waitresult = level waittill(#"dark_side_timeout", #"hash_61e8a39b3a4bee6a", #"hash_322c7f92525e008e", #"hash_3881f540920df071");
+	waitresult = level waittill(#"dark_side_timeout", #"hash_61e8a39b3a4bee6a", #"hash_322c7f92525e008e", #"bomber_nose_rise_done");
 	if(waitresult._notify == "bomber_nose_rise_done")
 	{
 		level thread scene::play(#"hash_2f425040d5e62683", "loop");
@@ -693,7 +693,7 @@ function function_40102053()
 function function_d9e95e32(truckcollision)
 {
 	waitresult = undefined;
-	waitresult = level waittill(#"dark_side_timeout", #"hash_61e8a39b3a4bee6a", #"hash_322c7f92525e008e", #"hash_281356125ca76d49");
+	waitresult = level waittill(#"dark_side_timeout", #"hash_61e8a39b3a4bee6a", #"hash_322c7f92525e008e", #"truck_rise_done");
 	if(waitresult._notify == "truck_rise_done")
 	{
 		level thread scene::play(#"hash_3b239490a05b582e", "loop");
@@ -1793,11 +1793,11 @@ function function_eafe9d9f()
 		level flag::clear("spawn_zombies");
 		if(getfreeactorcount() < 1)
 		{
-			var_2c1b14ae = getactorarray();
-			if(isdefined(var_2c1b14ae))
+			a_zombie = getactorarray();
+			if(isdefined(a_zombie))
 			{
-				var_2c1b14ae[0].allowdeath = 1;
-				var_2c1b14ae[0] kill();
+				a_zombie[0].allowdeath = 1;
+				a_zombie[0] kill();
 			}
 			else
 			{

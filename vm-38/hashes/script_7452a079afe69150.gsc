@@ -1,6 +1,6 @@
 #using script_32c8b5b0eb2854f3;
 #using script_471b31bd963b388e;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
@@ -27,7 +27,7 @@ function private autoexec function_ec8700e3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_d3564fd8
 	Checksum: 0xCC146C03
 	Offset: 0x1F0
@@ -35,7 +35,7 @@ function private autoexec function_ec8700e3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6a371c43cac9a1c4", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

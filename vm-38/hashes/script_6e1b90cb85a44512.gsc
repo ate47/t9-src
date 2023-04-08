@@ -1,13 +1,13 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
 #using script_2c49ae69cd8ce30c;
 #using scripts\killstreaks\recon_plane.gsc;
 #using script_335d0650ed05d36d;
 #using scripts\killstreaks\mp\uav.gsc;
 #using script_3d703ef87a841fe4;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -417,7 +417,7 @@ function function_4e92a5e8()
 	var_e9f2629a[0] = spawn("script_model", var_791ffffd.origin);
 	var_e9f2629a[0] setmodel(#"wpn_t9_eqp_briefcase_world");
 	var_e9f2629a[0].angles = var_791ffffd.angles;
-	football = gameobjects::create_carry_object(#"neutral", trigger, var_e9f2629a, (0, 0, 0), #"hash_4c3deffad97a79da");
+	football = gameobjects::create_carry_object(#"neutral", trigger, var_e9f2629a, (0, 0, 0), #"dropkick_football");
 	football gameobjects::allow_carry(#"hash_5ccfd7bbbf07c770");
 	football gameobjects::set_visible(#"hash_5ccfd7bbbf07c770");
 	football gameobjects::set_use_time(level.var_8abcfbb8);

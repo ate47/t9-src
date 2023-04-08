@@ -1,6 +1,6 @@
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_3b7405881c081f6;
+#using scripts\core_common\bots\bot_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -31,7 +31,7 @@ function private autoexec function_5f406243()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_115c602a
 	Checksum: 0x316D7B6
 	Offset: 0x148
@@ -39,7 +39,7 @@ function private autoexec function_5f406243()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_348dc8e90e89ef9c", &function_70a657d8, undefined, undefined, undefined);
 }

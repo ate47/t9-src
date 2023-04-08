@@ -22,7 +22,7 @@ function private autoexec function_dc297b5d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: globallogic_actor
 	Checksum: 0xF4ACAC49
 	Offset: 0xB0
@@ -30,7 +30,7 @@ function private autoexec function_dc297b5d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"globallogic_actor", &function_70a657d8, undefined, undefined, undefined);
 }

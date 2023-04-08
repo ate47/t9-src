@@ -19,7 +19,7 @@ function private autoexec function_894a5a3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_780aaec4
 	Checksum: 0x67D1C8A1
 	Offset: 0x110
@@ -27,7 +27,7 @@ function private autoexec function_894a5a3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_4d08eeea0f720e8d", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -51,11 +51,11 @@ function function_70a657d8()
 	{
 		return;
 	}
-	clientfield::register("scriptmover", "sr_demented_echo_fx", 1, 2, "int", &function_4b233039, 0, 0);
+	clientfield::register("scriptmover", "sr_demented_echo_fx", 1, 2, "int", &sr_demented_echo_fx, 0, 0);
 }
 
 /*
-	Name: function_4b233039
+	Name: sr_demented_echo_fx
 	Namespace: namespace_780aaec4
 	Checksum: 0x3156E433
 	Offset: 0x228
@@ -63,7 +63,7 @@ function function_70a657d8()
 	Parameters: 7
 	Flags: Linked
 */
-function function_4b233039(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function sr_demented_echo_fx(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(isdefined(self.var_4b6f13c8))
 	{

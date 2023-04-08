@@ -3,7 +3,7 @@
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_7a8059ca02b7b09e;
 #using script_7d712f77ab8d0c16;
 #using scripts\core_common\array_shared.gsc;
@@ -1092,7 +1092,7 @@ function function_4a415293(time)
 		zone.gameobject recordgameeventnonplayer("hardpoint_moved");
 	}
 	level thread telemetry::function_18135b72(#"hash_540cddd637f71a5e", {#eventtype:#"hardpoint_moved"});
-	playsoundatposition(#"hash_492b7638b1c9781a", (0, 0, 0));
+	playsoundatposition(#"mpl_hardpoint_move", (0, 0, 0));
 	foreach(zone in level.active_zones)
 	{
 		zone.gameobject.onuse = undefined;

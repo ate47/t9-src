@@ -1105,7 +1105,7 @@ function remove_on_vehicle_damage(func, obj)
 */
 function function_1475a073(func, obj)
 {
-	add_callback(#"hash_65626f47d6c0717c", func, obj);
+	add_callback(#"on_player_downed", func, obj);
 }
 
 /*
@@ -1119,7 +1119,7 @@ function function_1475a073(func, obj)
 */
 function function_626c1390(func, obj)
 {
-	remove_callback(#"hash_65626f47d6c0717c", func, obj);
+	remove_callback(#"on_player_downed", func, obj);
 }
 
 /*
@@ -1665,7 +1665,7 @@ function function_96bbd5dc(func, obj)
 */
 function on_item_pickup(func, obj)
 {
-	add_callback(#"hash_56d1805bfff3e65b", func, obj);
+	add_callback(#"on_item_pickup", func, obj);
 }
 
 /*

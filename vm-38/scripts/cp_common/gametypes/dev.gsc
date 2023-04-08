@@ -28,7 +28,7 @@ function private autoexec function_d512fd56()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: dev
 	Checksum: 0x40AF7EB2
 	Offset: 0xE0
@@ -36,7 +36,7 @@ function private autoexec function_d512fd56()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"dev", &function_70a657d8, undefined, undefined, #"spawning_shared");

@@ -30,7 +30,7 @@ function private autoexec function_ce7ae09()
 #namespace namespace_fa39a5c3;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_fa39a5c3
 	Checksum: 0xCC3A549E
 	Offset: 0x168
@@ -38,7 +38,7 @@ function private autoexec function_ce7ae09()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_5a3be2f74ac4fe03", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -125,7 +125,7 @@ function function_c52e8ba(player, var_8d5d092c)
 			switch(self.stub.script_string)
 			{
 				case "village":
-				case "hash_3f4ed3f61d98dd24":
+				case "firebase":
 				{
 					self.hint_string[n_player_index] = #"hash_222289639943b061";
 					break;
@@ -149,7 +149,7 @@ function function_c52e8ba(player, var_8d5d092c)
 						b_result = 1;
 						break;
 					}
-					case "hash_3f4ed3f61d98dd24":
+					case "firebase":
 					{
 						self.hint_string[n_player_index] = #"hash_6357eb67494da1b";
 						b_result = 1;
@@ -169,7 +169,7 @@ function function_c52e8ba(player, var_8d5d092c)
 							b_result = 1;
 							break;
 						}
-						case "hash_3f4ed3f61d98dd24":
+						case "firebase":
 						{
 							self.hint_string[n_player_index] = #"hash_6357eb67494da1b";
 							b_result = 1;
@@ -197,7 +197,7 @@ function function_c52e8ba(player, var_8d5d092c)
 							}
 							break;
 						}
-						case "hash_3f4ed3f61d98dd24":
+						case "firebase":
 						{
 							if(level flag::get(#"hash_7752d012501cd222") || level flag::get(#"hash_7735f4e5fdb1382b"))
 							{
@@ -289,7 +289,7 @@ function function_bce9fcbe()
 	{
 		var_e8178f0 = self zm_zonemgr::is_player_in_zone([2:"zone_firebase3", 1:"zone_firebase2", 0:"zone_portal_transfer"]);
 		self clientfield::set_to_player("" + #"hash_69dc133e22a2769f", var_e8178f0);
-		self waittill(#"hash_2d4daa9e80b86b60");
+		self waittill(#"zone_change");
 	}
 }
 

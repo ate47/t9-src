@@ -22,7 +22,7 @@ function private autoexec function_cbd38daa()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_7d96b004
 	Checksum: 0xEEF9FFB
 	Offset: 0x110
@@ -30,7 +30,7 @@ function private autoexec function_cbd38daa()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_1869d2f2ce17de3d", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -48,7 +48,7 @@ function private function_70a657d8()
 {
 	callback::function_930e5d42(&function_930e5d42);
 	callback::on_spawned(&on_player_spawned);
-	callback::function_e9e16e2f(&function_e9e16e2f);
+	callback::on_killcam_begin(&on_killcam_begin);
 }
 
 /*
@@ -92,7 +92,7 @@ function private function_1c7e186f(localclientnum)
 {
 	if(self == function_5c10bd79(localclientnum))
 	{
-		var_369be743 = self hasperk(localclientnum, #"hash_48d89fda4346187f");
+		var_369be743 = self hasperk(localclientnum, #"specialty_paranoia");
 		var_7c49d38b = self.var_369be743 !== var_369be743;
 		if(var_7c49d38b)
 		{
@@ -103,7 +103,7 @@ function private function_1c7e186f(localclientnum)
 }
 
 /*
-	Name: function_e9e16e2f
+	Name: on_killcam_begin
 	Namespace: namespace_7d96b004
 	Checksum: 0x8A6D2A9D
 	Offset: 0x2D8
@@ -111,7 +111,7 @@ function private function_1c7e186f(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_e9e16e2f(params)
+function on_killcam_begin(params)
 {
 	if(level.gameended === 1)
 	{
@@ -215,7 +215,7 @@ function private function_3e9077b(localclientnum)
 	self endon(#"disconnect", #"shutdown", #"death");
 	self notify("12386e2d17fb6b3");
 	self endon("12386e2d17fb6b3");
-	var_5bc097ee = self hasperk(localclientnum, #"hash_48d89fda4346187f");
+	var_5bc097ee = self hasperk(localclientnum, #"specialty_paranoia");
 	var_81f254ba = cos(10);
 	self function_c97460c6();
 	var_2b836fea = undefined;

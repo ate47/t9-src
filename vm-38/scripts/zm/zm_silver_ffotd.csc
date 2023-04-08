@@ -17,7 +17,7 @@ function private autoexec function_6bf36e04()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_silver_ffotd
 	Checksum: 0xE86CCB23
 	Offset: 0x88
@@ -25,9 +25,9 @@ function private autoexec function_6bf36e04()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_c5040460d9f3ee6", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_silver_ffotd", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

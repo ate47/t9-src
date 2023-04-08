@@ -8,7 +8,7 @@
 #using script_350cffecd05ef6cf;
 #using script_40f967ad5d18ea74;
 #using script_47851dbeea22fe66;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using script_4d748e58ce25b60c;
 #using script_5701633066d199f2;
 #using script_5f20d3b434d24884;
@@ -788,7 +788,7 @@ function function_4ac57fbe(var_977f0d07)
 	{
 		return;
 	}
-	if(is_true(level.doa.var_98e0f258))
+	if(is_true(level.doa.advancedStart))
 	{
 		var_376f59e0 = namespace_8c04284b::function_ef369bae();
 		if(var_376f59e0 < 1.03)

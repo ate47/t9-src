@@ -30,7 +30,7 @@ function private autoexec function_dbbfb974()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_attackables
 	Checksum: 0xA6FA94AF
 	Offset: 0x188
@@ -38,7 +38,7 @@ function private autoexec function_dbbfb974()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_attackables", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

@@ -41,8 +41,8 @@ function init()
 	level.var_117b4a3a[2] = (isdefined(fields.var_97278b57) ? fields.var_97278b57 : #"hash_36a94457406aea0e");
 	level.var_117b4a3a[3] = (isdefined(fields.var_29209af9) ? fields.var_29209af9 : #"hash_5a60154937b01557");
 	callback::on_spawned(&function_df78674f);
-	callback::function_e9e16e2f(&function_330a13a6);
-	callback::function_4f6cafea(&function_330a13a6);
+	callback::on_killcam_begin(&function_330a13a6);
+	callback::on_killcam_end(&function_330a13a6);
 	callback::add_callback(#"hash_34e39ee0c9fa0092", &function_3022f6ba);
 	setup_zones(0);
 	level.var_5ff510b = [];
@@ -175,18 +175,18 @@ function function_dd2493cc(local_client_num, objid, zone_index)
 			{
 				continue;
 			}
-			for(var_e8c72d8f = 0; var_e8c72d8f < 4; var_e8c72d8f++)
+			for(si = 0; si < 4; si++)
 			{
-				rob = level.var_117b4a3a[var_e8c72d8f] + suffix;
+				rob = level.var_117b4a3a[si] + suffix;
 				if(entity function_d2503806(rob))
 				{
-					if(state != var_e8c72d8f)
+					if(state != si)
 					{
 						entity function_5d482e78(rob);
 					}
 					continue;
 				}
-				if(state == var_e8c72d8f)
+				if(state == si)
 				{
 					entity function_bf9d3071(rob);
 					if(iscodcaster)

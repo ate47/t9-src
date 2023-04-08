@@ -76,26 +76,26 @@ function function_3531b9ba(scorestreak)
 		}
 		else
 		{
-			level.var_1953a530[#"hash_459c0007ec5e2470"] = #"hash_59372818d5a4b00";
-			level.var_1953a530[#"hash_1bf811fa5d684607"] = #"hash_6fa05dcae5ac1c4b";
-			level.var_1953a530[#"hash_65f8a13931095b50"] = #"hash_6eb09ea5da35e18f";
+			level.var_1953a530[#"inventory_ac130"] = #"hash_59372818d5a4b00";
+			level.var_1953a530[#"inventory_chopper_gunner"] = #"hash_6fa05dcae5ac1c4b";
+			level.var_1953a530[#"inventory_counteruav"] = #"hash_6eb09ea5da35e18f";
 			level.var_1953a530[#"inventory_helicopter_comlink"] = #"hash_11b95062385cd071";
 			level.var_1953a530[#"inventory_helicopter_guard"] = #"hash_52ee32e14c642494";
 			level.var_1953a530[#"hash_1ec557912d16a338"] = #"hash_48c54ff5d128d347";
-			level.var_1953a530[#"hash_4190425c961246b7"] = #"hash_5987d17c5829e656";
+			level.var_1953a530[#"inventory_hero_flamethrower"] = #"hash_5987d17c5829e656";
 			level.var_1953a530[#"hash_4f347a4a61713f29"] = #"hash_78406ffa639f4bf";
-			level.var_1953a530[#"hash_511b5c81a984baf9"] = #"hash_24f5473ce475912e";
+			level.var_1953a530[#"inventory_hoverjet"] = #"hash_24f5473ce475912e";
 			level.var_1953a530[#"hash_49d514608adc6a24"] = #"hash_569b6056354984ee";
 			level.var_1953a530[#"hash_67f88dbc909e85f8"] = #"hash_bedd703cad46c40";
 			level.var_1953a530[#"inventory_planemortar"] = #"hash_6a7de03254c6a4d5";
 			level.var_1953a530[#"inventory_recon_car"] = #"hash_4980f99d633760cf";
-			level.var_1953a530[#"hash_62a2088c3368ea"] = #"hash_348085cf61f674ad";
+			level.var_1953a530[#"inventory_recon_plane"] = #"hash_348085cf61f674ad";
 			level.var_1953a530[#"inventory_remote_missile"] = #"hash_6739b1e55d16500";
 			level.var_1953a530[#"hash_612a3485cc66289a"] = #"hash_257e121804c12624";
 			level.var_1953a530[#"hash_1bb82c01e27085a2"] = #"hash_3cef4b4ca5fd8984";
 			level.var_1953a530[#"hash_4307d5aaa7ce21d4"] = #"hash_2640bc24c6eb39bd";
 			level.var_1953a530[#"inventory_supply_drop"] = #"hash_e22ed3950927a02";
-			level.var_1953a530[#"hash_73f41ae07ef2ba54"] = #"hash_654445f6cc7a7e1c";
+			level.var_1953a530[#"inventory_uav"] = #"hash_654445f6cc7a7e1c";
 			level.var_1953a530[#"inventory_ultimate_turret"] = #"hash_5f50a43f7034eefa";
 		}
 	}
@@ -162,7 +162,7 @@ function function_6a0ee21a(attachmentname)
 			level.var_4d26e905[#"holo"] = #"hash_73abacec2fd5e23b";
 			level.var_4d26e905[#"ir"] = #"hash_314a8049e018d6";
 			level.var_4d26e905[#"elo"] = #"hash_37f2c1e35818d083";
-			level.var_4d26e905[#"hash_7f031b6053110179"] = #"hash_1201c7fcb7f51efb";
+			level.var_4d26e905[#"elo2"] = #"hash_1201c7fcb7f51efb";
 			level.var_4d26e905[#"hash_7f031a605310ffc6"] = #"hash_6e8212c05312bdca";
 			level.var_4d26e905[#"hash_487f75e1a5f169b0"] = #"hash_2358dab17bbd3454";
 			level.var_4d26e905[#"hash_48977fe1a6060c8f"] = #"hash_20b99d912e487ba1";
@@ -229,7 +229,7 @@ function function_6a0ee21a(attachmentname)
 			level.var_4d26e905[#"holo"] = #"hash_6edd00dc752c24e1";
 			level.var_4d26e905[#"ir"] = #"hash_13101dfb0ca2d5fe";
 			level.var_4d26e905[#"elo"] = #"hash_139fe0e3be289c29";
-			level.var_4d26e905[#"hash_7f031b6053110179"] = #"hash_409656a5454ca9a1";
+			level.var_4d26e905[#"elo2"] = #"hash_409656a5454ca9a1";
 			level.var_4d26e905[#"hash_7f031a605310ffc6"] = #"hash_1d1e0f96c57550a2";
 			level.var_4d26e905[#"hash_487f75e1a5f169b0"] = #"hash_6e6118f39468cb2c";
 			level.var_4d26e905[#"hash_48977fe1a6060c8f"] = #"hash_af064392d860f1f";
@@ -267,7 +267,7 @@ function function_6a0ee21a(attachmentname)
 */
 function use_item_spawns()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return 0;
 	}
@@ -674,12 +674,12 @@ function function_c62ad9a7(vehicle)
 		{
 			case "player_atv":
 			{
-				hinttext = #"hash_2007e0c3be383f26";
+				hinttext = #"wz/player_atv";
 				break;
 			}
 			case "helicopter_light":
 			{
-				hinttext = #"hash_8b24b9a8b37cbd4";
+				hinttext = #"wz/helicopter";
 				break;
 			}
 			case "cargo_truck_wz":
@@ -694,7 +694,7 @@ function function_c62ad9a7(vehicle)
 			}
 			case "player_fav":
 			{
-				hinttext = #"hash_d4649719cad3c69";
+				hinttext = #"wz/arav";
 				break;
 			}
 			case "player_suv":
@@ -704,7 +704,7 @@ function function_c62ad9a7(vehicle)
 			}
 			case "player_muscle":
 			{
-				hinttext = #"hash_5057fbcd1ec7a683";
+				hinttext = #"wz/muscle_car";
 				break;
 			}
 			case "pbr_boat_wz":

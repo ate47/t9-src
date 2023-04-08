@@ -1,12 +1,12 @@
 #using scripts\core_common\bots\bot_traversals.gsc;
 #using script_34e162235fb08844;
 #using script_3d703ef87a841fe4;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_4e44ad88a2b0f559;
 #using script_55b445d561c4bd83;
 #using script_57f7003580bb15e0;
 #using script_5e6a760c6f43dd12;
-#using script_6158278c8647d8a9;
+#using scripts\core_common\bots\bot_position.gsc;
 #using scripts\core_common\map.gsc;
 #using script_74453936abc39adf;
 #using script_747b8f8449e8891b;
@@ -36,7 +36,7 @@ function private autoexec function_6788d675()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bot
 	Checksum: 0x19584ED1
 	Offset: 0x1F8
@@ -44,7 +44,7 @@ function private autoexec function_6788d675()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bot", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -60,7 +60,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return;
 	}
@@ -88,7 +88,7 @@ function private function_70a657d8()
 	namespace_38ee089b::function_70a657d8();
 	namespace_1d70329f::function_70a657d8();
 	namespace_ffbf548b::function_70a657d8();
-	namespace_b20b4885::function_70a657d8();
+	bot_position::function_70a657d8();
 	namespace_9c817acd::function_70a657d8();
 	namespace_255a2b21::function_70a657d8();
 	bot_traversals::function_70a657d8();
@@ -504,7 +504,7 @@ function private function_b781f1e5()
 	self endoncallback(&function_de8f0d0e, #"death", #"hash_3525e39d3694d0a9");
 	level endon(#"game_ended");
 	self thread function_ef59c9e();
-	self thread namespace_b20b4885::startup();
+	self thread bot_position::startup();
 	while(game.state != #"playing")
 	{
 		waitframe(1);
@@ -531,7 +531,7 @@ function private function_b781f1e5()
 		self namespace_87549638::think();
 		self bot_action::think();
 		self namespace_9c817acd::think();
-		self namespace_b20b4885::think();
+		self bot_position::think();
 		self namespace_94e44221::update();
 		self.bot.lastenemy = self.enemy;
 		self check_stuck();
@@ -561,7 +561,7 @@ function private function_de8f0d0e(notifyhash)
 	self clear_stuck();
 	self bot_action::shutdown();
 	self namespace_1d70329f::shutdown();
-	self namespace_b20b4885::shutdown();
+	self bot_position::shutdown();
 }
 
 /*

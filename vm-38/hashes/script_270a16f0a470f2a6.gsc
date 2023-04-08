@@ -411,7 +411,7 @@ function function_372852d()
 	self waittill(#"trigger_activated");
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	self.s_unitrigger = undefined;
-	level flag::set(#"hash_2ff6951e302ad791");
+	level flag::set(#"kitchen_door_open");
 	self function_d4f11e34();
 }
 
@@ -459,7 +459,7 @@ function function_d75885b9(var_a276c861, var_19e802fa)
 	{
 		var_73888042 = getent("pizza_kitchen_door", "targetname");
 		var_73888042 function_d4f11e34();
-		level flag::set(#"hash_2ff6951e302ad791");
+		level flag::set(#"kitchen_door_open");
 		level flag::set(#"hash_7c11e78fdf8aff43");
 	}
 }

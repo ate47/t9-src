@@ -2,7 +2,7 @@
 #using script_2c49ae69cd8ce30c;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;

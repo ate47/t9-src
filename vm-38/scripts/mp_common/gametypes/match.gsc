@@ -22,7 +22,7 @@ function private autoexec function_acd2421a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: match
 	Checksum: 0x6854AEFE
 	Offset: 0xE8
@@ -30,7 +30,7 @@ function private autoexec function_acd2421a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"match", &function_70a657d8, undefined, undefined, undefined);
 }

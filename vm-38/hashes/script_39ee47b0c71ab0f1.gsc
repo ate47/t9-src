@@ -40,9 +40,9 @@ class czm_trial_weapon_locked : cLUIelem
 	*/
 	function function_1e74977(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "show_icon");
+		current_val = [[ self ]]->get_data(localclientnum, "show_icon");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "show_icon", new_val);
+		[[ self ]]->set_data(localclientnum, "show_icon", new_val);
 	}
 
 	/*
@@ -100,7 +100,7 @@ class czm_trial_weapon_locked : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "show_icon", 0);
+		[[ self ]]->set_data(localclientnum, "show_icon", 0);
 	}
 
 }

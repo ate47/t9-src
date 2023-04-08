@@ -22,7 +22,7 @@ function private autoexec function_94463dc1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: blood
 	Checksum: 0x432A7DD5
 	Offset: 0x350
@@ -30,7 +30,7 @@ function private autoexec function_94463dc1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"blood", undefined, &postload, undefined, undefined);
 }

@@ -136,7 +136,7 @@ function init()
 		#/
 		var_663588d = "Zombietron/Debug/AutoTesting/BonusRoomSoak/";
 		var_59ea00e = ("scr_bonus_room_activate " + room.name) + "; zombie_devgui bonusroomsoak";
-		util::function_e2e9d901(var_663588d + room.name, var_59ea00e);
+		util::add_devgui(var_663588d + room.name, var_59ea00e);
 	}
 }
 
@@ -156,7 +156,7 @@ function function_f9f3607b(name)
 		case "slideways":
 		case "slideways2":
 		case "slideways3":
-		case "hash_28fa3c1d617a4fea":
+		case "slideways4":
 		{
 			return 60 * 60000;
 		}
@@ -188,11 +188,11 @@ function function_85615bbb()
 	util::function_85c62761(var_663588d);
 	util::wait_network_frame();
 	label = (is_true(level.doa.var_206393b4) ? "Disable Room Timeouts (TRUE):0" : "Disable Room Timeouts (FALSE):0");
-	util::function_e2e9d901(var_663588d + label, "zombie_devgui bonusTimeoutDisableToggle");
+	util::add_devgui(var_663588d + label, "zombie_devgui bonusTimeoutDisableToggle");
 	foreach(room in rooms)
 	{
 		var_59ea00e = ("scr_bonus_room_activate " + room.name) + "; zombie_devgui bonusroom";
-		util::function_e2e9d901(var_663588d + room.name, var_59ea00e);
+		util::add_devgui(var_663588d + room.name, var_59ea00e);
 	}
 }
 
@@ -246,11 +246,11 @@ function function_19e7d0fc(name)
 		case "slideways":
 		case "slideways2":
 		case "slideways3":
-		case "hash_28fa3c1d617a4fea":
+		case "slideways4":
 		{
 			return &function_4d16b7a9;
 		}
-		case "hash_730edee5e3aafd52":
+		case "snaketemple":
 		{
 			return &function_ab6edfa3;
 		}
@@ -258,7 +258,7 @@ function function_19e7d0fc(name)
 		{
 			return &function_7cbb4f99;
 		}
-		case "hash_a0bac19611189ec":
+		case "roj":
 		{
 			return &function_b2706226;
 		}
@@ -341,7 +341,7 @@ function function_b3411080(name)
 		{
 			return 5;
 		}
-		case "hash_730edee5e3aafd52":
+		case "snaketemple":
 		{
 			return 6;
 		}
@@ -365,7 +365,7 @@ function function_b3411080(name)
 		{
 			return 11;
 		}
-		case "hash_28fa3c1d617a4fea":
+		case "slideways4":
 		{
 			return 11;
 		}
@@ -373,7 +373,7 @@ function function_b3411080(name)
 		{
 			return 13;
 		}
-		case "hash_a0bac19611189ec":
+		case "roj":
 		{
 			return 14;
 		}
@@ -419,7 +419,7 @@ function function_d496f180(name)
 		{
 			return 19;
 		}
-		case "hash_730edee5e3aafd52":
+		case "snaketemple":
 		{
 			return 20;
 		}
@@ -434,7 +434,7 @@ function function_d496f180(name)
 		case "slideways":
 		case "slideways2":
 		case "slideways3":
-		case "hash_28fa3c1d617a4fea":
+		case "slideways4":
 		{
 			return 23;
 		}
@@ -442,7 +442,7 @@ function function_d496f180(name)
 		{
 			return 24;
 		}
-		case "hash_a0bac19611189ec":
+		case "roj":
 		{
 			return 50;
 		}
@@ -1365,7 +1365,7 @@ function function_170eefc7(room, aicount)
 	{
 		foreach(player in getplayers())
 		{
-			player notify(#"hash_432f04354a59ffb1");
+			player notify(#"lantern_terminated");
 		}
 	}
 	if(namespace_4dae815d::function_59a9cf1d() == 0 && isdefined(level.doa.var_39e3fa99))
@@ -1808,7 +1808,7 @@ function function_af1f8cd5(color)
 			}
 			else
 			{
-				if(self.doa.score.var_7a3c00a0 < 4)
+				if(self.doa.score.boosts < 4)
 				{
 					reward = "boosts";
 				}
@@ -1844,7 +1844,7 @@ function function_af1f8cd5(color)
 				wait(0.5);
 				break;
 			}
-			case "hash_5d1b6f8121c0fc8d":
+			case "boosts":
 			{
 				level thread doa_pickups::function_d080f0db(doa_pickups::function_6265bde4("zombietron_boost"), self.origin, undefined, undefined, 1, undefined, undefined, undefined, self);
 				wait(0.5);
@@ -1900,15 +1900,15 @@ function function_af1f8cd5(color)
 				}
 			}
 		}
-		if(self.doa.score.var_7a3c00a0 > 0)
+		if(self.doa.score.boosts > 0)
 		{
-			for(take = 4; self.doa.score.var_7a3c00a0 > 0 && take > 0; take--)
+			for(take = 4; self.doa.score.boosts > 0 && take > 0; take--)
 			{
 				model = namespace_ec06fe4a::function_e22ae9b3(self.origin + vectorscale((0, 0, 1), 70), "zombietron_boost", undefined, "doom door boost");
 				if(isdefined(model))
 				{
 					model setscale(1.5);
-					self.doa.score.var_7a3c00a0--;
+					self.doa.score.boosts--;
 					model moveto(model.origin + vectorscale((0, 0, 1), 2000), 3);
 					model thread namespace_ec06fe4a::function_52afe5df(3);
 					wait(0.25);

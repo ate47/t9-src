@@ -21,7 +21,7 @@ function private autoexec function_8cabbc3d()
 #namespace postfx;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: postfx
 	Checksum: 0x48D520EA
 	Offset: 0xB0
@@ -29,7 +29,7 @@ function private autoexec function_8cabbc3d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"postfx_bundle", &function_70a657d8, undefined, undefined, undefined);
 }

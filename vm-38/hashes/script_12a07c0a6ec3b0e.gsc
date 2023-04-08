@@ -44,7 +44,7 @@ function private autoexec function_b45f8db1()
 function init()
 {
 	luielemtext::register();
-	level.var_252ba2b0 = namespace_5ac3cdbb::register();
+	level.var_252ba2b0 = zm_tungsten_grandprix::register();
 	clientfield::register("world", "" + #"hash_112d67305f861fe", 28000, 3, "int", &function_3bab499f, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_3d5c2390c0768ed2", 28000, 1, "int", &function_dc99662d, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_79077a9af52542c8", 28000, 1, "int", &function_f0302ec9, 0, 0);
@@ -280,27 +280,27 @@ function function_e03501a6(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			return;
 		}
-		var_338ebb64 = function_80fdd2aa(var_b510e160, bwasdemojump);
-		if(!isdefined(var_338ebb64.var_8bb0303a.var_5d2af675))
+		s_little_girl = function_80fdd2aa(var_b510e160, bwasdemojump);
+		if(!isdefined(s_little_girl.var_8bb0303a.var_5d2af675))
 		{
-			var_338ebb64.var_8bb0303a = util::spawn_model(fieldname, "tag_origin", var_338ebb64.origin, var_338ebb64.angles);
-			var_338ebb64.var_8bb0303a.var_5d2af675 = util::playfxontag(fieldname, #"hash_76394ace7e94981f", var_338ebb64.var_8bb0303a, "tag_origin");
-			var_338ebb64.var_8bb0303a.var_13c71aed = var_338ebb64.var_8bb0303a playloopsound(#"hash_b3b9bf3b225b9ae");
+			s_little_girl.var_8bb0303a = util::spawn_model(fieldname, "tag_origin", s_little_girl.origin, s_little_girl.angles);
+			s_little_girl.var_8bb0303a.var_5d2af675 = util::playfxontag(fieldname, #"hash_76394ace7e94981f", s_little_girl.var_8bb0303a, "tag_origin");
+			s_little_girl.var_8bb0303a.var_13c71aed = s_little_girl.var_8bb0303a playloopsound(#"hash_b3b9bf3b225b9ae");
 		}
 	}
 	else
 	{
-		foreach(var_338ebb64 in var_b510e160)
+		foreach(s_little_girl in var_b510e160)
 		{
-			if(isdefined(var_338ebb64.var_8bb0303a.var_5d2af675))
+			if(isdefined(s_little_girl.var_8bb0303a.var_5d2af675))
 			{
-				stopfx(fieldname, var_338ebb64.var_8bb0303a.var_5d2af675);
-				var_338ebb64.var_8bb0303a.var_5d2af675 = undefined;
-				var_338ebb64.var_8bb0303a stoploopsound(var_338ebb64.var_8bb0303a.var_13c71aed);
-				var_338ebb64.var_8bb0303a.var_13c71aed = undefined;
-				if(isdefined(var_338ebb64.var_8bb0303a))
+				stopfx(fieldname, s_little_girl.var_8bb0303a.var_5d2af675);
+				s_little_girl.var_8bb0303a.var_5d2af675 = undefined;
+				s_little_girl.var_8bb0303a stoploopsound(s_little_girl.var_8bb0303a.var_13c71aed);
+				s_little_girl.var_8bb0303a.var_13c71aed = undefined;
+				if(isdefined(s_little_girl.var_8bb0303a))
 				{
-					var_338ebb64.var_8bb0303a delete();
+					s_little_girl.var_8bb0303a delete();
 				}
 			}
 		}

@@ -3000,7 +3000,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	if(var_8d3f5b7d)
 	{
 		var_38d1de41 = isdefined(namespace_81245006::function_fab3ee3e(self));
-		if(var_30362eca && var_ebcb86d6 hasperk(#"hash_6afc24062d2515a2"))
+		if(var_30362eca && var_ebcb86d6 hasperk(#"specialty_mod_awareness"))
 		{
 			if(var_b1c1c5cf < 1)
 			{

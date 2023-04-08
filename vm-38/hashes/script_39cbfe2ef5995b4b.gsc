@@ -27,7 +27,7 @@ function private autoexec function_45d34149()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_efff98ec
 	Checksum: 0xC815CD49
 	Offset: 0xE8
@@ -35,7 +35,7 @@ function private autoexec function_45d34149()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_fd2ea50703c7073", &function_70a657d8, undefined, undefined, #"item_world");
 }

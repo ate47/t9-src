@@ -24,7 +24,7 @@ function private autoexec function_3bccabb6()
 #namespace bgb_pack;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: bgb_pack
 	Checksum: 0x45B269A2
 	Offset: 0xB0
@@ -32,7 +32,7 @@ function private autoexec function_3bccabb6()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"bgb_pack", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

@@ -21,7 +21,7 @@ function private autoexec function_ad92cacc()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_shield_charge
 	Checksum: 0x8B350DE1
 	Offset: 0xD0
@@ -29,7 +29,7 @@ function private autoexec function_ad92cacc()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_powerup_shield_charge", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -53,7 +53,7 @@ function private function_70a657d8()
 		zm_powerups::powerup_set_statless_powerup("shield_charge");
 	}
 	/#
-		thread function_f5068a85();
+		thread shield_devgui();
 	#/
 }
 
@@ -118,7 +118,7 @@ function shield_charge_powerup(item, player)
 }
 
 /*
-	Name: function_f5068a85
+	Name: shield_devgui
 	Namespace: zm_powerup_shield_charge
 	Checksum: 0x8F1CF069
 	Offset: 0x3E8
@@ -126,19 +126,19 @@ function shield_charge_powerup(item, player)
 	Parameters: 0
 	Flags: None
 */
-function function_f5068a85()
+function shield_devgui()
 {
 	/#
 		level flag::wait_till("");
 		wait(1);
-		zm_devgui::add_custom_devgui_callback(&function_19ce1aa5);
+		zm_devgui::add_custom_devgui_callback(&shield_devgui_callback);
 		adddebugcommand("");
 		adddebugcommand("");
 	#/
 }
 
 /*
-	Name: function_19ce1aa5
+	Name: shield_devgui_callback
 	Namespace: zm_powerup_shield_charge
 	Checksum: 0x5BA61BD0
 	Offset: 0x470
@@ -146,7 +146,7 @@ function function_f5068a85()
 	Parameters: 1
 	Flags: None
 */
-function function_19ce1aa5(cmd)
+function shield_devgui_callback(cmd)
 {
 	/#
 		players = getplayers();

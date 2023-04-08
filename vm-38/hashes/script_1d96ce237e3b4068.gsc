@@ -68,7 +68,7 @@ class clui_plane_mortar : cLUIelem
 	*/
 	function set_selectorIndex(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "selectorIndex", value);
+		[[ self ]]->set_data(localclientnum, "selectorIndex", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class clui_plane_mortar : cLUIelem
 	*/
 	function set_selectorsAvailable(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "selectorsAvailable", value);
+		[[ self ]]->set_data(localclientnum, "selectorsAvailable", value);
 	}
 
 	/*
@@ -111,8 +111,8 @@ class clui_plane_mortar : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "selectorIndex", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "selectorsAvailable", 0);
+		[[ self ]]->set_data(localclientnum, "selectorIndex", 0);
+		[[ self ]]->set_data(localclientnum, "selectorsAvailable", 0);
 	}
 
 }

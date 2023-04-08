@@ -4,7 +4,7 @@
 #using script_3411bb48d41bd3b;
 #using script_3a704cbcf4081bfb;
 #using script_522aeb6ae906391e;
-#using script_610ee556015777f3;
+#using scripts\core_common\ai\archetype_mimic.gsc;
 #using scripts\zm\ai\zm_ai_mimic.gsc;
 #using script_799de24f8ad427f7;
 #using scripts\core_common\array_shared.gsc;
@@ -29,7 +29,7 @@ function private autoexec function_22b1e805()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_3d98def3
 	Checksum: 0x253C859C
 	Offset: 0x138
@@ -37,7 +37,7 @@ function private autoexec function_22b1e805()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_e87958e045f8b8d", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -268,7 +268,7 @@ function function_3ebfec3e(entity)
 function function_bc29cf28()
 {
 	var_6be77126 = [4:#"safehouse", 3:#"explore_chests_small", 2:#"explore_chests_large", 1:#"explore_chests", 0:#"ammo_cache"];
-	var_68fc2252 = namespace_b57ebf44::function_506afb9e(level.var_7d45d0d4.currentdestination, var_6be77126);
+	var_68fc2252 = zm_destination_manager::function_506afb9e(level.var_7d45d0d4.currentdestination, var_6be77126);
 	for(i = 0; i < var_68fc2252.size; i++)
 	{
 		if(!isdefined(var_68fc2252[i].trigger))

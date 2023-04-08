@@ -404,11 +404,11 @@ class class_f57714e4 : cLUIelem
 
 }
 
-#namespace namespace_bfc09150;
+#namespace HUD_Spy;
 
 /*
 	Name: function_ee7cadce
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xD1D51C83
 	Offset: 0x248
 	Size: 0x14
@@ -422,7 +422,7 @@ function private autoexec function_ee7cadce()
 
 /*
 	Name: register
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x670B8273
 	Offset: 0x268
 	Size: 0x34
@@ -438,7 +438,7 @@ function register()
 
 /*
 	Name: open
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x22B7D0A0
 	Offset: 0x2A8
 	Size: 0x38
@@ -456,7 +456,7 @@ function open(player, flags)
 
 /*
 	Name: close
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xBEEC1AC2
 	Offset: 0x2E8
 	Size: 0x1C
@@ -470,7 +470,7 @@ function close(player)
 
 /*
 	Name: is_open
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xD0CA6291
 	Offset: 0x310
 	Size: 0x1A
@@ -484,7 +484,7 @@ function is_open(player)
 
 /*
 	Name: set_state
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x5A13EE4C
 	Offset: 0x338
 	Size: 0x28
@@ -498,7 +498,7 @@ function set_state(player, state_name)
 
 /*
 	Name: set_player_role
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xF27FFF31
 	Offset: 0x368
 	Size: 0x28
@@ -512,7 +512,7 @@ function set_player_role(player, value)
 
 /*
 	Name: set_player_id_number
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xA324B36B
 	Offset: 0x398
 	Size: 0x28
@@ -526,7 +526,7 @@ function set_player_id_number(player, value)
 
 /*
 	Name: set_alive_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x39D35374
 	Offset: 0x3C8
 	Size: 0x28
@@ -540,7 +540,7 @@ function set_alive_player_count(player, value)
 
 /*
 	Name: set_missing_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xFF9EA6F2
 	Offset: 0x3F8
 	Size: 0x28
@@ -554,7 +554,7 @@ function set_missing_player_count(player, value)
 
 /*
 	Name: set_operative_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xBDECE827
 	Offset: 0x428
 	Size: 0x28
@@ -568,7 +568,7 @@ function set_operative_player_count(player, value)
 
 /*
 	Name: set_investigator_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xBBD3455F
 	Offset: 0x458
 	Size: 0x28
@@ -582,7 +582,7 @@ function set_investigator_player_count(player, value)
 
 /*
 	Name: set_double_agent_player_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x69DD792F
 	Offset: 0x488
 	Size: 0x28
@@ -596,7 +596,7 @@ function set_double_agent_player_count(player, value)
 
 /*
 	Name: set_body_player_clientnum
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xA478E415
 	Offset: 0x4B8
 	Size: 0x28
@@ -610,7 +610,7 @@ function set_body_player_clientnum(player, value)
 
 /*
 	Name: set_body_agent_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xBFDFDFBC
 	Offset: 0x4E8
 	Size: 0x28
@@ -624,7 +624,7 @@ function set_body_agent_id(player, value)
 
 /*
 	Name: set_body_identity
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x63703EA0
 	Offset: 0x518
 	Size: 0x28
@@ -638,7 +638,7 @@ function set_body_identity(player, value)
 
 /*
 	Name: set_display_autopsy
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x33CFF03F
 	Offset: 0x548
 	Size: 0x28
@@ -652,7 +652,7 @@ function set_display_autopsy(player, value)
 
 /*
 	Name: set_timeSinceDeath
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x330ECB00
 	Offset: 0x578
 	Size: 0x28
@@ -666,7 +666,7 @@ function set_timeSinceDeath(player, value)
 
 /*
 	Name: set_body_killed_by_mod
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x59D93ED1
 	Offset: 0x5A8
 	Size: 0x28
@@ -680,7 +680,7 @@ function set_body_killed_by_mod(player, value)
 
 /*
 	Name: set_add_objective_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x4EBF6EF1
 	Offset: 0x5D8
 	Size: 0x28
@@ -694,7 +694,7 @@ function set_add_objective_id(player, value)
 
 /*
 	Name: set_current_objective_count
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xC1A848F2
 	Offset: 0x608
 	Size: 0x28
@@ -708,7 +708,7 @@ function set_current_objective_count(player, value)
 
 /*
 	Name: set_notification_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0xC1765598
 	Offset: 0x638
 	Size: 0x28
@@ -722,7 +722,7 @@ function set_notification_id(player, value)
 
 /*
 	Name: set_aux_notification_param
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x56A05E00
 	Offset: 0x668
 	Size: 0x28
@@ -736,7 +736,7 @@ function set_aux_notification_param(player, value)
 
 /*
 	Name: set_dirty_bomb_id
-	Namespace: namespace_bfc09150
+	Namespace: HUD_Spy
 	Checksum: 0x71FD5C9C
 	Offset: 0x698
 	Size: 0x28

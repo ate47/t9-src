@@ -40,7 +40,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_bInLocation(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bInLocation", value);
+		[[ self ]]->set_data(localclientnum, "bInLocation", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_showChallenge(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showChallenge", value);
+		[[ self ]]->set_data(localclientnum, "showChallenge", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_challengeText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "challengeText", value);
+		[[ self ]]->set_data(localclientnum, "challengeText", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_bottomText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bottomText", value);
+		[[ self ]]->set_data(localclientnum, "bottomText", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_rewardHidden(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "rewardHidden", value);
+		[[ self ]]->set_data(localclientnum, "rewardHidden", value);
 	}
 
 	/*
@@ -163,9 +163,9 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function function_96972b9c(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "progress");
+		current_val = [[ self ]]->get_data(localclientnum, "progress");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", new_val);
+		[[ self ]]->set_data(localclientnum, "progress", new_val);
 	}
 
 	/*
@@ -179,7 +179,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_tributeAvailable(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "tributeAvailable", value);
+		[[ self ]]->set_data(localclientnum, "tributeAvailable", value);
 	}
 
 	/*
@@ -193,7 +193,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_challengeTypeText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "challengeTypeText", value);
+		[[ self ]]->set_data(localclientnum, "challengeTypeText", value);
 	}
 
 	/*
@@ -207,7 +207,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_showIntelRewardText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showIntelRewardText", value);
+		[[ self ]]->set_data(localclientnum, "showIntelRewardText", value);
 	}
 
 	/*
@@ -221,7 +221,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_challengeFailing(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "challengeFailing", value);
+		[[ self ]]->set_data(localclientnum, "challengeFailing", value);
 	}
 
 	/*
@@ -235,7 +235,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function set_rewardText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "rewardText", value);
+		[[ self ]]->set_data(localclientnum, "rewardText", value);
 	}
 
 	/*
@@ -250,17 +250,17 @@ class czm_dac_challenges_hud : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "challengeText", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "bottomText", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "bInLocation", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "progress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "tributeAvailable", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "rewardHidden", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "challengeFailing", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "rewardText", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "challengeTypeText", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showIntelRewardText", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showChallenge", 0);
+		[[ self ]]->set_data(localclientnum, "challengeText", #"");
+		[[ self ]]->set_data(localclientnum, "bottomText", #"");
+		[[ self ]]->set_data(localclientnum, "bInLocation", 0);
+		[[ self ]]->set_data(localclientnum, "progress", 0);
+		[[ self ]]->set_data(localclientnum, "tributeAvailable", 0);
+		[[ self ]]->set_data(localclientnum, "rewardHidden", 0);
+		[[ self ]]->set_data(localclientnum, "challengeFailing", 0);
+		[[ self ]]->set_data(localclientnum, "rewardText", #"");
+		[[ self ]]->set_data(localclientnum, "challengeTypeText", 0);
+		[[ self ]]->set_data(localclientnum, "showIntelRewardText", 0);
+		[[ self ]]->set_data(localclientnum, "showChallenge", 0);
 	}
 
 }

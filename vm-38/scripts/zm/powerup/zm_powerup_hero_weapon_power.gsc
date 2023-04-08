@@ -21,7 +21,7 @@ function private autoexec function_fd3079b1()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_powerup_hero_weapon_power
 	Checksum: 0x415CAB5D
 	Offset: 0x108
@@ -29,9 +29,9 @@ function private autoexec function_fd3079b1()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_493e4f8e3fb8b3d7", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_powerup_hero_weapon_power", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

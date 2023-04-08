@@ -35,7 +35,7 @@ function init()
 	callback::on_connect(&on_player_connect);
 	callback::on_item_pickup(&on_item_pickup);
 	/#
-		level thread function_e2e9d901();
+		level thread add_devgui();
 	#/
 }
 
@@ -351,7 +351,7 @@ function function_b802c7fc(var_af05f9a2, take, var_60460256)
 }
 
 /*
-	Name: function_e2e9d901
+	Name: add_devgui
 	Namespace: sr_scrap
 	Checksum: 0x68A6B4D2
 	Offset: 0x830
@@ -359,7 +359,7 @@ function function_b802c7fc(var_af05f9a2, take, var_60460256)
 	Parameters: 0
 	Flags: None
 */
-function function_e2e9d901()
+function add_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();

@@ -2075,10 +2075,10 @@ function function_e0960594()
 		{
 			if(getfreeactorcount() < 1)
 			{
-				var_2c1b14ae = getaiarchetypearray(#"zombie");
-				if(isdefined(var_2c1b14ae))
+				a_zombie = getaiarchetypearray(#"zombie");
+				if(isdefined(a_zombie))
 				{
-					var_2c1b14ae[0] kill();
+					a_zombie[0] kill();
 				}
 			}
 			zombie_utility::spawn_zombie(var_9677f2f9, undefined, undefined, level.round_number);
@@ -3111,7 +3111,7 @@ function function_39f889a2()
 	level thread function_fb092189("yard_spawned", "mq_exfil_spawn_trigger_yrd", "mq_exfil_direct_spawn_loc_yrd");
 	level thread function_fb092189("crash_site_spawned", "mq_exfil_spawn_trigger_crsh", "mq_exfil_direct_spawn_loc_crsh");
 	level clientfield::set("" + #"hash_5c2cc65ae866b3f4", 1);
-	level.var_fdcaf3a6 waittill(#"hash_69090774fec4a17b");
+	level.var_fdcaf3a6 waittill(#"objective_ended");
 }
 
 /*
@@ -3248,7 +3248,7 @@ function function_ba172400()
 {
 	level flag::wait_till_all(array("exfil_heli_arrived", #"hash_3babb5bf72d208da"));
 	waitframe(1);
-	level flag::set(#"hash_2c83e17b76817284");
+	level flag::set(#"exfil_cleared");
 }
 
 /*
@@ -3262,7 +3262,7 @@ function function_ba172400()
 */
 function function_664ae3fd()
 {
-	level endon(#"hash_69090774fec4a17b");
+	level endon(#"objective_ended");
 	foreach(player in getplayers())
 	{
 		level.var_31028c5d prototype_hud::set_active_objective_string(player, #"hash_2138b0d3ea594968");
@@ -3285,7 +3285,7 @@ function function_664ae3fd()
 */
 function function_8fcb0a(var_3aeede0b)
 {
-	level endon(#"hash_69090774fec4a17b", #"hash_158779eefe4893d1", #"hash_4fbe4720f6f13107", #"end_game");
+	level endon(#"objective_ended", #"hash_158779eefe4893d1", #"hash_4fbe4720f6f13107", #"end_game");
 	if(var_3aeede0b >= 60)
 	{
 		var_cb54863d = var_3aeede0b - 60.4;
@@ -3340,12 +3340,12 @@ function function_f885bcd1()
 {
 	self endon(#"death");
 	self.v_train_inbound_igc = 0;
-	while(!level flag::get(#"hash_2c83e17b76817284") || !level flag::get(#"hash_fdc24944f59c262"))
+	while(!level flag::get(#"exfil_cleared") || !level flag::get(#"hash_fdc24944f59c262"))
 	{
 		if(is_true(self.var_2c27f919) || (!self.v_train_inbound_igc && self namespace_591b4396::function_591cb2f4()))
 		{
 			level flag::set(#"hash_fdc24944f59c262");
-			if(!level flag::get(#"hash_2c83e17b76817284"))
+			if(!level flag::get(#"exfil_cleared"))
 			{
 				level.var_31028c5d prototype_hud::set_active_objective_string(self, #"hash_caeceb18a45aa58");
 			}
@@ -3371,7 +3371,7 @@ function function_f885bcd1()
 */
 function function_c504b2d1()
 {
-	level endon(#"hash_69090774fec4a17b", #"hash_4fbe4720f6f13107");
+	level endon(#"objective_ended", #"hash_4fbe4720f6f13107");
 	level waittill(#"hash_158779eefe4893d1");
 	level notify(#"hash_4fbe4720f6f13107", {#b_success:0});
 }
@@ -3437,10 +3437,10 @@ function function_31125f54(var_8bb7479c)
 		wait(4);
 		array::thread_all(getplayers(), &function_ee6da6f6);
 	}
-	level notify(#"hash_69090774fec4a17b", {#completed:b_success});
-	level callback::callback(#"hash_69090774fec4a17b", {#completed:b_success, #instance:level.var_fdcaf3a6});
+	level notify(#"objective_ended", {#completed:b_success});
+	level callback::callback(#"objective_ended", {#completed:b_success, #instance:level.var_fdcaf3a6});
 	level.var_fdcaf3a6.success = b_success;
-	level.var_fdcaf3a6 notify(#"hash_69090774fec4a17b");
+	level.var_fdcaf3a6 notify(#"objective_ended");
 }
 
 /*
@@ -3711,7 +3711,7 @@ function function_9951a0d8()
 	while(true)
 	{
 		var_2f39336 = self zm_zonemgr::get_player_zone();
-		self waittill(#"hash_2d4daa9e80b86b60");
+		self waittill(#"zone_change");
 		if(isdefined(var_2f39336))
 		{
 			if(is_true(level.var_a760155a.var_2c085075) && (var_2f39336 == "zone_trans_south_tunnel" && self.cached_zone_name == "zone_center_upper_west" || (var_2f39336 == "zone_trans_north" && self.cached_zone_name == "zone_center_upper_north") || (var_2f39336 == "zone_power_tunnel" && self.cached_zone_name == "zone_center_upper") || (var_2f39336 == "zone_power_tunnel" && self.cached_zone_name == "zone_center_lower")) && randomfloat(1) > 0.2)
@@ -4847,7 +4847,7 @@ function function_a7f549b0(str_zone_name, str_endon_flag)
 	}
 	while(true)
 	{
-		self waittill(#"hash_2d4daa9e80b86b60");
+		self waittill(#"zone_change");
 		str_zone = self zm_zonemgr::get_player_zone();
 		if(str_zone === str_zone_name)
 		{

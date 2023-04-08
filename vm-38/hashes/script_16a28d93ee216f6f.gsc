@@ -164,9 +164,9 @@ function corpse_check_shadow(origin)
 	if(!isdefined(self.in_shadow_origin) || distancesquared(self.in_shadow_origin, origin) > 1)
 	{
 		self.in_shadow = undefined;
-		if(isdefined(level.var_5ca45f26) && isdefined(level.var_5ca45f26[#"hash_772784d4b2054007"]))
+		if(isdefined(level.var_5ca45f26) && isdefined(level.var_5ca45f26[#"stealth_in_shadow"]))
 		{
-			foreach(trigger in level.var_5ca45f26[#"hash_772784d4b2054007"])
+			foreach(trigger in level.var_5ca45f26[#"stealth_in_shadow"])
 			{
 				if(isdefined(trigger) && trigger istouching(origin))
 				{

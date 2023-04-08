@@ -23,7 +23,7 @@ function private autoexec function_45d633b2()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: battlechatter
 	Checksum: 0x6F4DE03C
 	Offset: 0x408
@@ -31,7 +31,7 @@ function private autoexec function_45d633b2()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"battlechatter", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -573,13 +573,13 @@ function function_c8663dbc(weapon, player)
 			var_60d3002f = "trophyWeaponHacked";
 			break;
 		}
-		case "hash_459c0007ec5e2470":
+		case "inventory_ac130":
 		case "ac130":
 		{
 			var_60d3002f = "ac130Hacked";
 			break;
 		}
-		case "hash_1bf811fa5d684607":
+		case "inventory_chopper_gunner":
 		case "chopper_gunner":
 		{
 			var_60d3002f = "chopperGunnerHacked";
@@ -623,7 +623,7 @@ function function_c8663dbc(weapon, player)
 			break;
 		}
 		case "hoverjet":
-		case "hash_511b5c81a984baf9":
+		case "inventory_hoverjet":
 		{
 			var_60d3002f = "hoverJetHacked";
 			break;
@@ -634,7 +634,7 @@ function function_c8663dbc(weapon, player)
 			var_60d3002f = "reconCarHacked";
 			break;
 		}
-		case "hash_62a2088c3368ea":
+		case "inventory_recon_plane":
 		case "recon_plane":
 		{
 			var_60d3002f = "reconPlaneHacked";

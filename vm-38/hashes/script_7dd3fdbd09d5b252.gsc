@@ -54,7 +54,7 @@ class cdeath_zone : cLUIelem
 	*/
 	function set_shutdown_sec(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "shutdown_sec", value);
+		[[ self ]]->set_data(localclientnum, "shutdown_sec", value);
 	}
 
 	/*
@@ -98,7 +98,7 @@ class cdeath_zone : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "shutdown_sec", 0);
+		[[ self ]]->set_data(localclientnum, "shutdown_sec", 0);
 	}
 
 }

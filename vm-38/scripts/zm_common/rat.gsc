@@ -27,7 +27,7 @@ function private autoexec function_3f3f1ff()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: rat
 	Checksum: 0xD5463D36
 	Offset: 0xD8
@@ -35,7 +35,7 @@ function private autoexec function_3f3f1ff()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	/#
 		system::register(#"rat", &function_70a657d8, undefined, undefined, undefined);

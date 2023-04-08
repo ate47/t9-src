@@ -54,7 +54,7 @@ class cdoa_textbubble : cLUIelem
 	*/
 	function set_offset_y(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_y", value);
+		[[ self ]]->set_data(localclientnum, "offset_y", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cdoa_textbubble : cLUIelem
 	*/
 	function set_offset_x(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_x", value);
+		[[ self ]]->set_data(localclientnum, "offset_x", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cdoa_textbubble : cLUIelem
 	*/
 	function set_offset_z(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_z", value);
+		[[ self ]]->set_data(localclientnum, "offset_z", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class cdoa_textbubble : cLUIelem
 	*/
 	function set_entNum(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", value);
+		[[ self ]]->set_data(localclientnum, "entnum", value);
 	}
 
 	/*
@@ -138,7 +138,7 @@ class cdoa_textbubble : cLUIelem
 	*/
 	function set_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", value);
+		[[ self ]]->set_data(localclientnum, "text", value);
 	}
 
 	/*
@@ -153,11 +153,11 @@ class cdoa_textbubble : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "entnum", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "text", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_x", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_y", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "offset_z", 0);
+		[[ self ]]->set_data(localclientnum, "entnum", 0);
+		[[ self ]]->set_data(localclientnum, "text", #"");
+		[[ self ]]->set_data(localclientnum, "offset_x", 0);
+		[[ self ]]->set_data(localclientnum, "offset_y", 0);
+		[[ self ]]->set_data(localclientnum, "offset_z", 0);
 	}
 
 }
@@ -205,7 +205,7 @@ function function_b4023f5a(localclientnum, offsetx, offsety, offsetz)
 */
 function set_boneTag(localclientnum, value)
 {
-	[[ self ]]->function_d7d2fcce(localclientnum, "boneTag", value);
+	[[ self ]]->set_data(localclientnum, "boneTag", value);
 }
 
 /*

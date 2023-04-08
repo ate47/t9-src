@@ -40,7 +40,7 @@ class ccp_chyron : cLUIelem
 	*/
 	function set_line3(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "line3", value);
+		[[ self ]]->set_data(localclientnum, "line3", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class ccp_chyron : cLUIelem
 	*/
 	function set_line2(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "line2", value);
+		[[ self ]]->set_data(localclientnum, "line2", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class ccp_chyron : cLUIelem
 	*/
 	function set_line5(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "line5", value);
+		[[ self ]]->set_data(localclientnum, "line5", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class ccp_chyron : cLUIelem
 	*/
 	function set_line1(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "line1", value);
+		[[ self ]]->set_data(localclientnum, "line1", value);
 	}
 
 	/*
@@ -124,7 +124,7 @@ class ccp_chyron : cLUIelem
 	*/
 	function set_index(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "index", value);
+		[[ self ]]->set_data(localclientnum, "index", value);
 	}
 
 	/*
@@ -158,7 +158,7 @@ class ccp_chyron : cLUIelem
 	*/
 	function set_line4(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "line4", value);
+		[[ self ]]->set_data(localclientnum, "line4", value);
 	}
 
 	/*
@@ -173,12 +173,12 @@ class ccp_chyron : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "line1", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "line2", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "line3", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "line4", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "line5", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "index", 0);
+		[[ self ]]->set_data(localclientnum, "line1", #"");
+		[[ self ]]->set_data(localclientnum, "line2", #"");
+		[[ self ]]->set_data(localclientnum, "line3", #"");
+		[[ self ]]->set_data(localclientnum, "line4", #"");
+		[[ self ]]->set_data(localclientnum, "line5", #"");
+		[[ self ]]->set_data(localclientnum, "index", 0);
 	}
 
 }

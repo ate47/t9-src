@@ -18,7 +18,7 @@ function private autoexec function_abe6c067()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hackable
 	Checksum: 0xBDBD323D
 	Offset: 0x90
@@ -26,7 +26,7 @@ function private autoexec function_abe6c067()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hackable", &init, undefined, undefined, undefined);
 }

@@ -20,7 +20,7 @@ function private autoexec function_71142897()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_score
 	Checksum: 0x44E19F49
 	Offset: 0x138
@@ -28,7 +28,7 @@ function private autoexec function_71142897()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_score", &function_70a657d8, undefined, undefined, undefined);
 }

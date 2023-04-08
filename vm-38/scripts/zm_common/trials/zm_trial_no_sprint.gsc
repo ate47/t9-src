@@ -20,7 +20,7 @@ function private autoexec function_ce74025a()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial_no_sprint
 	Checksum: 0xB4DDDA90
 	Offset: 0xB8
@@ -28,9 +28,9 @@ function private autoexec function_ce74025a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"hash_4445e928cf1b07c0", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"zm_trial_no_sprint", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

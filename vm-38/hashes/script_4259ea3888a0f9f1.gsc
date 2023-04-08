@@ -93,7 +93,7 @@ event main(eventstruct)
 	clientfield::function_5b7d846d("hudItems.warzone.collapseIndex", #"hash_593f03dd48d5bc1f", #"hash_7ac8dd213b1f8d42", 1, 3, "int", undefined, 0, 0);
 	clientfield::function_5b7d846d("hudItems.warzone.collapseCount", #"hash_593f03dd48d5bc1f", #"hash_28b490c7698f159d", 1, 3, "int", undefined, 0, 0);
 	clientfield::function_5b7d846d("hudItems.warzone.reinsertionIndex", #"hash_593f03dd48d5bc1f", #"hash_61754d24cc2fb6c3", 1, 3, "int", undefined, 0, 0);
-	clientfield::register("world", "set_objective_fog", 1, 2, "int", &function_bdd60454, 0, 0);
+	clientfield::register("world", "set_objective_fog", 1, 2, "int", &set_objective_fog, 0, 0);
 	clientfield::function_5b7d846d("hudItems.team1.roundsWon", #"hash_410fe12a68d6e801", [1:#"roundswon", 0:#"team1"], 1, 4, "int", undefined, 0, 0);
 	clientfield::function_5b7d846d("hudItems.team2.roundsWon", #"hash_410fe12a68d6e801", [1:#"roundswon", 0:#"team2"], 1, 4, "int", undefined, 0, 0);
 	namespace_4abf1500::function_88645994(#"hash_1440a8afd0539909", #"hash_3e41166877185a54");
@@ -115,7 +115,7 @@ function on_player_connect(localclientnum)
 }
 
 /*
-	Name: function_bdd60454
+	Name: set_objective_fog
 	Namespace: zsurvival
 	Checksum: 0x5DF07E5E
 	Offset: 0xDB0
@@ -123,7 +123,7 @@ function on_player_connect(localclientnum)
 	Parameters: 7
 	Flags: Linked
 */
-function function_bdd60454(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, wasdemojump)
+function set_objective_fog(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, wasdemojump)
 {
 	switch(wasdemojump)
 	{
@@ -204,7 +204,7 @@ function private function_33593a44(localclientnum, var_312d65d1, var_68f7ce2e, n
 }
 
 /*
-	Name: function_1877f414
+	Name: _on_localplayer_spawned
 	Namespace: zsurvival
 	Checksum: 0x377F5CDD
 	Offset: 0x1100
@@ -212,7 +212,7 @@ function private function_33593a44(localclientnum, var_312d65d1, var_68f7ce2e, n
 	Parameters: 1
 	Flags: Private
 */
-function private function_1877f414(localclientnum)
+function private _on_localplayer_spawned(localclientnum)
 {
 	if(self function_da43934d())
 	{

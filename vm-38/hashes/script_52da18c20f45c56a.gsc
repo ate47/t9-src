@@ -31,7 +31,7 @@ function private autoexec function_2482a0e4()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_594b67e
 	Checksum: 0xDC7A2C1
 	Offset: 0x508
@@ -39,7 +39,7 @@ function private autoexec function_2482a0e4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_208cc96e397aed88", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -1790,7 +1790,7 @@ function function_396e2076(var_860605de, var_4170b151, do_wait)
 	else if(is_true(var_4170b151))
 	{
 		result = isdefined(e_player.takedown.body);
-		level notify(#"hash_746c5e6bced27651");
+		level notify(#"drop_corpse");
 		if(do_wait && result)
 		{
 			wait(1.25);

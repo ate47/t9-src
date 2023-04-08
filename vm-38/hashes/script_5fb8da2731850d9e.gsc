@@ -25,7 +25,7 @@ function private autoexec function_a550605b()
 #namespace namespace_c402654;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_c402654
 	Checksum: 0xE669D923
 	Offset: 0x160
@@ -33,7 +33,7 @@ function private autoexec function_a550605b()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_29467933d0da473b", &function_70a657d8, undefined, undefined, undefined);
 }

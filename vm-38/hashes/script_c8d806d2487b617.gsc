@@ -150,7 +150,7 @@ function function_6b384c0f(radiationlevel, sickness)
 */
 function function_ab99e60c()
 {
-	if(util::function_3f165ee8())
+	if(util::is_frontend_map())
 	{
 		return 0;
 	}

@@ -84,7 +84,7 @@ function private autoexec function_e5810c72()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_dog
 	Checksum: 0x8980A7D2
 	Offset: 0x610
@@ -92,7 +92,7 @@ function private autoexec function_e5810c72()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_ai_dog", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -234,7 +234,7 @@ function private function_f70e30a9()
 		var_e0c39feb = arraysortclosest(var_69681a59, closest_player.origin, 1, 512);
 		if(var_e0c39feb.size > 0)
 		{
-			self namespace_e0710ee6::function_a8dc3363(var_e0c39feb[0]);
+			self zm_ai_utility::function_a8dc3363(var_e0c39feb[0]);
 			self function_d4dbfd41(var_e0c39feb[0].origin, self.angles);
 		}
 	}
@@ -430,7 +430,7 @@ function registerbehaviorscriptfunctions()
 	#/
 	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_61b99f3b97bfe943", &function_45cf2e16);
 	animationstatenetwork::registernotetrackhandlerfunction("pounce", &function_8ee8d380);
-	namespace_8179cac5::registerzombiedoginterfaceattributes();
+	zm_ai_dog_interface::registerzombiedoginterfaceattributes();
 }
 
 /*
@@ -2132,7 +2132,7 @@ function private function_40bf36ef(entity)
 {
 	if(isplayer(entity.favoriteenemy))
 	{
-		goalent = namespace_e0710ee6::function_a2e8fd7b(entity, entity.favoriteenemy);
+		goalent = zm_ai_utility::function_a2e8fd7b(entity, entity.favoriteenemy);
 		if(isdefined(goalent.last_valid_position))
 		{
 			goalpos = getclosestpointonnavmesh(goalent.last_valid_position, 64, entity getpathfindingradius());
@@ -3200,9 +3200,9 @@ function function_71b1652b()
 	self.var_bb8bba59 = 1;
 	self forceteleport(self.origin, self.var_47d9e0ed);
 	self animmode("gravity");
-	self animscripted(#"hash_243fa76320e35c90", self.origin, self.angles, #"hash_243fa76320e35c90", "custom", undefined, 1, 0.2);
+	self animscripted(#"ai_t9_zm_zombie_dog_com_pet_intro", self.origin, self.angles, #"ai_t9_zm_zombie_dog_com_pet_intro", "custom", undefined, 1, 0.2);
 	anim_time = getanimlength("ai_t9_zm_zombie_dog_com_pet_intro");
-	self waittilltimeout(anim_time, {#notetrack:"end"}, #"hash_243fa76320e35c90");
+	self waittilltimeout(anim_time, {#notetrack:"end"}, #"ai_t9_zm_zombie_dog_com_pet_intro");
 	self animscripted(#"hash_2fdc6d4cc63c0d4c", self.origin, self.angles, #"hash_2fdc6d4cc63c0d4c", "custom", undefined, 1, 0.2);
 	wait(20);
 }

@@ -15,7 +15,7 @@
 #using script_ab862743b3070a;
 #using script_b9d273dc917ee1f;
 #using script_db06eb511bd9b36;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -65,7 +65,7 @@ function init()
 	clientfield::register("world", "" + #"hash_22d24ba0bcf94c3f", 28000, getminbitcountfornum(2), "int");
 	clientfield::register("world", "" + #"hash_2d4fdf69e826bcc4", 28000, getminbitcountfornum(2), "int");
 	clientfield::register("actor", "" + #"zombie_soul", 28000, 1, "int");
-	clientfield::register("world", "" + #"hash_404bf39ceee49c7e", 28000, 1, "int");
+	clientfield::register("world", "" + #"ww_crystalaxe_glow", 28000, 1, "int");
 	hidemiscmodels("dn_rf_coverage_dmg");
 	level thread function_1b65b01d();
 	/#
@@ -448,7 +448,7 @@ function function_4d67771c(n_wave)
 			{
 				ai clientfield::increment("sr_dog_spawn_fx");
 			}
-			else if(ai.aitype === #"hash_785d6a6acd470388")
+			else if(ai.aitype === #"spawner_bo5_mimic")
 			{
 				ai clientfield::increment("" + #"hash_54e2a4e02a26cc62", 1);
 			}
@@ -522,7 +522,7 @@ function function_c24ab28e(s_params)
 	attacker = s_params.eattacker;
 	weapon = s_params.weapon;
 	means_of_death = s_params.smeansofdeath;
-	if(isplayer(attacker) && self.archetype === #"hash_1bc8194446d4722f" && isdefined(weapon))
+	if(isplayer(attacker) && self.archetype === #"tormentor" && isdefined(weapon))
 	{
 		if(means_of_death === "MOD_BURNED" && weapon.name === #"hero_flamethrower" || (means_of_death === "MOD_EXPLOSIVE" && weapon.name === #"napalm_strike") || function_313be247(attacker, weapon, means_of_death) || function_1c058bc5(weapon, means_of_death))
 		{
@@ -955,7 +955,7 @@ function function_2f221d1c(b_skipped, var_19e802fa)
 	callback::remove_on_ai_killed(&function_cf6cdaa5);
 	level.var_c390e613 = undefined;
 	level clientfield::set("" + #"hash_2d4fdf69e826bcc4", 0);
-	level clientfield::set("" + #"hash_404bf39ceee49c7e", 0);
+	level clientfield::set("" + #"ww_crystalaxe_glow", 0);
 }
 
 /*
@@ -985,7 +985,7 @@ function function_cf6cdaa5(s_params)
 			level.var_c390e613++;
 			if(level.var_c390e613 == 1)
 			{
-				level clientfield::set("" + #"hash_404bf39ceee49c7e", 1);
+				level clientfield::set("" + #"ww_crystalaxe_glow", 1);
 			}
 			if(level.var_c390e613 == 5)
 			{
@@ -1203,7 +1203,7 @@ function function_364324af(item, e_player)
 		var_b3f1d5e4 = array::random([2:#"hash_7adf94ed7670adf4", 1:#"hash_7adf95ed7670afa7", 0:#"hash_7adf96ed7670b15a"]);
 		e_player thread namespace_9771a88f::function_d137d6a0(#"hash_56e0e52471da7613", var_5e0eaa1f, var_b3f1d5e4);
 	}
-	callback::remove_callback(#"hash_56d1805bfff3e65b", &on_item_pickup);
+	callback::remove_callback(#"on_item_pickup", &on_item_pickup);
 }
 
 /*

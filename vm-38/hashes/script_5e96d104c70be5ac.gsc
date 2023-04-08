@@ -1,7 +1,7 @@
-#using script_18f0d22c75b141a7;
+#using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_437ce686d29bb81b;
 #using script_7a8059ca02b7b09e;
 #using scripts\weapons\weapons.gsc;
@@ -31,7 +31,7 @@ function private autoexec function_f7be242f()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_8d0ae0b4
 	Checksum: 0x14186D7
 	Offset: 0x130
@@ -39,7 +39,7 @@ function private autoexec function_f7be242f()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_3c80acaf1d791b8c", &function_70a657d8, undefined, undefined, #"hash_53528dbbf6cd15c4");
 }
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	callback::on_item_pickup(&on_item_pickup);
 	callback::on_spawned(&on_player_spawned);
 	callback::add_callback(#"objective_started", &function_e38db3d4);
-	callback::add_callback(#"hash_69090774fec4a17b", &function_f13d2749);
+	callback::add_callback(#"objective_ended", &function_f13d2749);
 	callback::add_callback(#"hash_276921163232533", &function_8a38be09);
 	callback::add_callback(#"hash_565739346fc951ae", &function_e89b1c3f);
 	telemetry::add_callback(#"hash_361e06db4b210e", &function_72c32279);

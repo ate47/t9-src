@@ -35,7 +35,7 @@ function private autoexec function_95507df0()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_hulk
 	Checksum: 0xD5B3B08D
 	Offset: 0x520
@@ -43,7 +43,7 @@ function private autoexec function_95507df0()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_ai_hulk", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

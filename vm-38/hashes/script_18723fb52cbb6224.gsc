@@ -33,7 +33,7 @@ function private autoexec function_de4bf239()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_e7ab676d
 	Checksum: 0x7F485A7D
 	Offset: 0x2D8
@@ -41,7 +41,7 @@ function private autoexec function_de4bf239()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_7811e7ce71e374d0", &function_70a657d8, undefined, undefined, #"hash_f81b9dea74f0ee");
 }
@@ -283,7 +283,7 @@ function function_ba971eed(instance)
 function function_42d1d544(instance)
 {
 	instance endon(#"cleanup");
-	instance endon(#"hash_5d368f3e3a642450");
+	instance endon(#"radio_tuning_success");
 	self endon(#"death");
 	var_3875a0bb = instance.var_3875a0bb;
 	var_b61e50f0 = function_21a3a673(1, 8);
@@ -373,7 +373,7 @@ function function_35bafcde(instance, str_suffix, str_type)
 	self notify("515bb502b3a7f1c7");
 	self endon("515bb502b3a7f1c7");
 	instance endon(#"cleanup");
-	instance endon(#"hash_5d368f3e3a642450");
+	instance endon(#"radio_tuning_success");
 	self endon(#"death");
 	while(true)
 	{
@@ -394,7 +394,7 @@ function function_35bafcde(instance, str_suffix, str_type)
 function function_2c1d994f(instance)
 {
 	instance endon(#"cleanup");
-	instance endon(#"hash_5d368f3e3a642450");
+	instance endon(#"radio_tuning_success");
 	n_count = 0;
 	while(true)
 	{

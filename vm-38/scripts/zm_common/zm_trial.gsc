@@ -35,7 +35,7 @@ function private autoexec function_19a5652c()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_trial
 	Checksum: 0x2EAF0AAF
 	Offset: 0x318
@@ -43,7 +43,7 @@ function private autoexec function_19a5652c()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_trial", &function_70a657d8, undefined, undefined, undefined);
 }

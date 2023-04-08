@@ -20,7 +20,7 @@ function private autoexec function_ee9cd072()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: character_unlock
 	Checksum: 0x944709FD
 	Offset: 0xA0
@@ -28,9 +28,9 @@ function private autoexec function_ee9cd072()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
-	system::register(#"character_unlock", &function_70a657d8, undefined, undefined, #"hash_1fd69f0c10bde41c");
+	system::register(#"character_unlock", &function_70a657d8, undefined, undefined, #"character_unlock_fixup");
 }
 
 /*

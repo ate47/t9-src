@@ -54,7 +54,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_showBossAlert(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showBossAlert", value);
+		[[ self ]]->set_data(localclientnum, "showBossAlert", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_score3Points(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "score3Points", value);
+		[[ self ]]->set_data(localclientnum, "score3Points", value);
 	}
 
 	/*
@@ -119,7 +119,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_showEndScore(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showEndScore", value);
+		[[ self ]]->set_data(localclientnum, "showEndScore", value);
 	}
 
 	/*
@@ -133,7 +133,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_objective2Text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "objective2Text", value);
+		[[ self ]]->set_data(localclientnum, "objective2Text", value);
 	}
 
 	/*
@@ -147,7 +147,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_bossAlertText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "bossAlertText", value);
+		[[ self ]]->set_data(localclientnum, "bossAlertText", value);
 	}
 
 	/*
@@ -161,7 +161,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_showObjective(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showObjective", value);
+		[[ self ]]->set_data(localclientnum, "showObjective", value);
 	}
 
 	/*
@@ -175,7 +175,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_showObjective2(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showObjective2", value);
+		[[ self ]]->set_data(localclientnum, "showObjective2", value);
 	}
 
 	/*
@@ -189,7 +189,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_showScore(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "showScore", value);
+		[[ self ]]->set_data(localclientnum, "showScore", value);
 	}
 
 	/*
@@ -203,7 +203,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function set_objectiveText(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveText", value);
+		[[ self ]]->set_data(localclientnum, "objectiveText", value);
 	}
 
 	/*
@@ -218,15 +218,15 @@ class conslaught_hud : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "bossAlertText", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "objective2Text", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "score3Points", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "objectiveText", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "showEndScore", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showScore", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showObjective", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showBossAlert", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "showObjective2", 0);
+		[[ self ]]->set_data(localclientnum, "bossAlertText", #"");
+		[[ self ]]->set_data(localclientnum, "objective2Text", #"");
+		[[ self ]]->set_data(localclientnum, "score3Points", 0);
+		[[ self ]]->set_data(localclientnum, "objectiveText", #"");
+		[[ self ]]->set_data(localclientnum, "showEndScore", 0);
+		[[ self ]]->set_data(localclientnum, "showScore", 0);
+		[[ self ]]->set_data(localclientnum, "showObjective", 0);
+		[[ self ]]->set_data(localclientnum, "showBossAlert", 0);
+		[[ self ]]->set_data(localclientnum, "showObjective2", 0);
 	}
 
 }
@@ -264,19 +264,19 @@ function register(var_ef8933e3, var_61963aa5, var_964ac54, var_a584bc49, var_52a
 	{
 		level.var_ae746e8f = associativearray();
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_1a527bffc9fc6f74"]))
+	if(!isdefined(level.var_ae746e8f[#"onslaught_hud"]))
 	{
-		level.var_ae746e8f[#"hash_1a527bffc9fc6f74"] = [];
+		level.var_ae746e8f[#"onslaught_hud"] = [];
 	}
-	if(!isdefined(level.var_ae746e8f[#"hash_1a527bffc9fc6f74"]))
+	if(!isdefined(level.var_ae746e8f[#"onslaught_hud"]))
 	{
-		level.var_ae746e8f[#"hash_1a527bffc9fc6f74"] = [];
+		level.var_ae746e8f[#"onslaught_hud"] = [];
 	}
-	else if(!isarray(level.var_ae746e8f[#"hash_1a527bffc9fc6f74"]))
+	else if(!isarray(level.var_ae746e8f[#"onslaught_hud"]))
 	{
-		level.var_ae746e8f[#"hash_1a527bffc9fc6f74"] = array(level.var_ae746e8f[#"hash_1a527bffc9fc6f74"]);
+		level.var_ae746e8f[#"onslaught_hud"] = array(level.var_ae746e8f[#"onslaught_hud"]);
 	}
-	level.var_ae746e8f[#"hash_1a527bffc9fc6f74"][level.var_ae746e8f[#"hash_1a527bffc9fc6f74"].size] = elem;
+	level.var_ae746e8f[#"onslaught_hud"][level.var_ae746e8f[#"onslaught_hud"].size] = elem;
 }
 
 /*

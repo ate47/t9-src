@@ -54,9 +54,9 @@ class class_ab111f2c : cLUIelem
 	*/
 	function function_1c78fe1e(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "fadeout");
+		current_val = [[ self ]]->get_data(localclientnum, "fadeout");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeout", new_val);
+		[[ self ]]->set_data(localclientnum, "fadeout", new_val);
 	}
 
 	/*
@@ -84,9 +84,9 @@ class class_ab111f2c : cLUIelem
 	*/
 	function function_64d95cad(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "display_blink");
+		current_val = [[ self ]]->get_data(localclientnum, "display_blink");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "display_blink", new_val);
+		[[ self ]]->set_data(localclientnum, "display_blink", new_val);
 	}
 
 	/*
@@ -118,7 +118,7 @@ class class_ab111f2c : cLUIelem
 	*/
 	function set_hint_text(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "hint_text", value);
+		[[ self ]]->set_data(localclientnum, "hint_text", value);
 	}
 
 	/*
@@ -132,9 +132,9 @@ class class_ab111f2c : cLUIelem
 	*/
 	function function_a981d6b6(localclientnum)
 	{
-		current_val = [[ self ]]->function_92ba69fa(localclientnum, "display_noblink");
+		current_val = [[ self ]]->get_data(localclientnum, "display_noblink");
 		new_val = (current_val + 1) % 2;
-		[[ self ]]->function_d7d2fcce(localclientnum, "display_noblink", new_val);
+		[[ self ]]->set_data(localclientnum, "display_noblink", new_val);
 	}
 
 	/*
@@ -149,10 +149,10 @@ class class_ab111f2c : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "hint_text", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "display_blink", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fadeout", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "display_noblink", 0);
+		[[ self ]]->set_data(localclientnum, "hint_text", #"");
+		[[ self ]]->set_data(localclientnum, "display_blink", 0);
+		[[ self ]]->set_data(localclientnum, "fadeout", 0);
+		[[ self ]]->set_data(localclientnum, "display_noblink", 0);
 	}
 
 }

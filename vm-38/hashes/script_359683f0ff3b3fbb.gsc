@@ -54,7 +54,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_active_obj_progress_visibility(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_obj_progress_visibility", value);
+		[[ self ]]->set_data(localclientnum, "active_obj_progress_visibility", value);
 	}
 
 	/*
@@ -68,7 +68,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_active_objective_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_objective_progress", value);
+		[[ self ]]->set_data(localclientnum, "active_objective_progress", value);
 	}
 
 	/*
@@ -82,7 +82,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_fail_fanfare_visibility(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "fail_fanfare_visibility", value);
+		[[ self ]]->set_data(localclientnum, "fail_fanfare_visibility", value);
 	}
 
 	/*
@@ -96,7 +96,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_objective_retrieval(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "objective_retrieval", value);
+		[[ self ]]->set_data(localclientnum, "objective_retrieval", value);
 	}
 
 	/*
@@ -110,7 +110,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_objective_prompt_visibility(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "objective_prompt_visibility", value);
+		[[ self ]]->set_data(localclientnum, "objective_prompt_visibility", value);
 	}
 
 	/*
@@ -138,7 +138,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_main_objective_string(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "main_objective_string", value);
+		[[ self ]]->set_data(localclientnum, "main_objective_string", value);
 	}
 
 	/*
@@ -152,7 +152,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_active_obj_visibility(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_obj_visibility", value);
+		[[ self ]]->set_data(localclientnum, "active_obj_visibility", value);
 	}
 
 	/*
@@ -166,7 +166,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_new_obj_fanfare_visibility(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "new_obj_fanfare_visibility", value);
+		[[ self ]]->set_data(localclientnum, "new_obj_fanfare_visibility", value);
 	}
 
 	/*
@@ -204,7 +204,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_active_objective_string(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_objective_string", value);
+		[[ self ]]->set_data(localclientnum, "active_objective_string", value);
 	}
 
 	/*
@@ -218,7 +218,7 @@ class cprototype_hud : cLUIelem
 	*/
 	function set_fanfare_visibility(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "fanfare_visibility", value);
+		[[ self ]]->set_data(localclientnum, "fanfare_visibility", value);
 	}
 
 	/*
@@ -233,16 +233,16 @@ class cprototype_hud : cLUIelem
 	function function_fa582112(localclientnum)
 	{
 		cLUIelem::function_fa582112(localclientnum);
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_objective_string", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "objective_prompt_visibility", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fanfare_visibility", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "fail_fanfare_visibility", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "new_obj_fanfare_visibility", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "main_objective_string", #"");
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_obj_visibility", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "objective_retrieval", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_objective_progress", 0);
-		[[ self ]]->function_d7d2fcce(localclientnum, "active_obj_progress_visibility", 0);
+		[[ self ]]->set_data(localclientnum, "active_objective_string", #"");
+		[[ self ]]->set_data(localclientnum, "objective_prompt_visibility", 0);
+		[[ self ]]->set_data(localclientnum, "fanfare_visibility", 0);
+		[[ self ]]->set_data(localclientnum, "fail_fanfare_visibility", 0);
+		[[ self ]]->set_data(localclientnum, "new_obj_fanfare_visibility", 0);
+		[[ self ]]->set_data(localclientnum, "main_objective_string", #"");
+		[[ self ]]->set_data(localclientnum, "active_obj_visibility", 0);
+		[[ self ]]->set_data(localclientnum, "objective_retrieval", 0);
+		[[ self ]]->set_data(localclientnum, "active_objective_progress", 0);
+		[[ self ]]->set_data(localclientnum, "active_obj_progress_visibility", 0);
 	}
 
 }

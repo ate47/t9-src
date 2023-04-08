@@ -253,7 +253,7 @@ function function_7f7a069d()
 	}
 	level clientfield::set_world_uimodel(self.doa.score.var_d252ca7f, 1);
 	level clientfield::set_world_uimodel(self.doa.score.var_37920e93, self.doa.score.bombs);
-	level clientfield::set_world_uimodel(self.doa.score.var_e3acbd27, self.doa.score.var_7a3c00a0);
+	level clientfield::set_world_uimodel(self.doa.score.var_e3acbd27, self.doa.score.boosts);
 	level clientfield::set_world_uimodel(self.doa.score.var_27660984, self.doa.score.keys);
 	level clientfield::set_world_uimodel(self.doa.score.var_3c0cc2d1, self.doa.score.lives);
 	level clientfield::set_world_uimodel(self.doa.score.var_234fa0ba, self.doa.score.points);

@@ -27,7 +27,7 @@ function private autoexec function_2d6ef273()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_ai_raz
 	Checksum: 0x23696365
 	Offset: 0xF0
@@ -35,7 +35,7 @@ function private autoexec function_2d6ef273()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_ai_raz", &function_70a657d8, undefined, &function_4df027f2, undefined);
 }

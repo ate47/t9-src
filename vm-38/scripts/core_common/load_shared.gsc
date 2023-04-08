@@ -31,7 +31,7 @@ function private autoexec function_14ad4fd4()
 #namespace load;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: load
 	Checksum: 0xC93E092C
 	Offset: 0x280
@@ -39,7 +39,7 @@ function private autoexec function_14ad4fd4()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"load", &function_70a657d8, undefined, undefined, undefined);
 }

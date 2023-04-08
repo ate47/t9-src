@@ -19,7 +19,7 @@ function private autoexec function_9b7d0058()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: hatchet
 	Checksum: 0xE362C999
 	Offset: 0xD0
@@ -27,7 +27,7 @@ function private autoexec function_9b7d0058()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hatchet", &init_shared, undefined, undefined, undefined);
 }

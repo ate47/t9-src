@@ -44,7 +44,7 @@ function init()
 */
 function init_clientfields()
 {
-	clientfield::register("toplayer", "" + #"hash_227c832bd5864419", 1, 1, "int", &function_9199e921, 0, 0);
+	clientfield::register("toplayer", "" + #"flinger_pad_fling", 1, 1, "int", &function_9199e921, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_31c153af499657fd", 1, 1, "int", &function_4a0e5efb, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_5822132672ad230f", 1, 1, "int", &function_2c087855, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_6219dce209d171ed", 1, 2, "int", &function_fccba5d0, 0, 0);

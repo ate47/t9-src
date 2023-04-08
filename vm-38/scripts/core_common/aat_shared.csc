@@ -22,7 +22,7 @@ function private autoexec function_e1f62707()
 #namespace aat;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: aat
 	Checksum: 0xE82F5C6
 	Offset: 0x188
@@ -30,7 +30,7 @@ function private autoexec function_e1f62707()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"aat", &function_70a657d8, &finalize_clientfields, undefined, undefined);
 }
@@ -46,7 +46,7 @@ function private autoexec function_89f2df9()
 */
 function private function_70a657d8()
 {
-	clientfield::register("toplayer", "rob_ammo_mod_ready", 1, 1, "int", &function_4f950d48, 0, 0);
+	clientfield::register("toplayer", "rob_ammo_mod_ready", 1, 1, "int", &rob_ammo_mod_ready, 0, 0);
 	clientfield::function_a8bbc967("hud_items.gibDismembermentType", #"hud_items", #"hash_49b325aa4c9519d", 16000, 3, "int", undefined, 0, 0);
 	level.aat_default_info_name = "none";
 	level.aat_default_info_icon = "blacktransparent";
@@ -75,7 +75,7 @@ function function_2b3bcce0()
 }
 
 /*
-	Name: function_4f950d48
+	Name: rob_ammo_mod_ready
 	Namespace: aat
 	Checksum: 0x25340EA
 	Offset: 0x368
@@ -83,7 +83,7 @@ function function_2b3bcce0()
 	Parameters: 7
 	Flags: Linked
 */
-function function_4f950d48(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function rob_ammo_mod_ready(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump)
 	{

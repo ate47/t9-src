@@ -84,7 +84,7 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	*/
 	function set_download_progress(localclientnum, value)
 	{
-		[[ self ]]->function_d7d2fcce(localclientnum, "download_progress", value);
+		[[ self ]]->set_data(localclientnum, "download_progress", value);
 	}
 
 	/*
@@ -100,19 +100,19 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	{
 		if(#"defaultstate" == state_name)
 		{
-			[[ self ]]->function_d7d2fcce(localclientnum, "_state", 0);
+			[[ self ]]->set_data(localclientnum, "_state", 0);
 		}
 		else
 		{
 			if(#"paused" == state_name)
 			{
-				[[ self ]]->function_d7d2fcce(localclientnum, "_state", 1);
+				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
 				if(#"finished" == state_name)
 				{
-					[[ self ]]->function_d7d2fcce(localclientnum, "_state", 2);
+					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
 				else
 				{
@@ -139,7 +139,7 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	{
 		cLUIelem::function_fa582112(localclientnum);
 		[[ self ]]->set_state(localclientnum, #"defaultstate");
-		[[ self ]]->function_d7d2fcce(localclientnum, "download_progress", 0);
+		[[ self ]]->set_data(localclientnum, "download_progress", 0);
 	}
 
 }

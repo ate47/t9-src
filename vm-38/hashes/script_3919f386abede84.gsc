@@ -75,7 +75,7 @@ function private autoexec function_98ef117a()
 #namespace windows;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: windows
 	Checksum: 0x96FB215
 	Offset: 0x158
@@ -83,7 +83,7 @@ function private autoexec function_98ef117a()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"windows", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

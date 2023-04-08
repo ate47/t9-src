@@ -21,7 +21,7 @@ function private autoexec function_f2cef335()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: flashlight
 	Checksum: 0x88DF4042
 	Offset: 0x1F8
@@ -29,7 +29,7 @@ function private autoexec function_f2cef335()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"flashlight", &function_f64316de, undefined, undefined, undefined);
 }

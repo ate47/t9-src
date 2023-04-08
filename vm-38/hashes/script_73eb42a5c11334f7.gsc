@@ -27,7 +27,7 @@ function private autoexec function_7b61deaf()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ping
 	Checksum: 0x76C4ABB0
 	Offset: 0x358
@@ -35,7 +35,7 @@ function private autoexec function_7b61deaf()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ping", &function_70a657d8, &init, undefined, undefined);
 }
@@ -57,8 +57,8 @@ function private function_70a657d8()
 	callback::function_56df655f(&function_2dd58893);
 	callback::function_f8062bf(&function_2dd58893);
 	callback::function_ed112c52(&function_2dd58893);
-	callback::function_e9e16e2f(&function_2dd58893);
-	callback::function_4f6cafea(&function_2dd58893);
+	callback::on_killcam_begin(&function_2dd58893);
+	callback::on_killcam_end(&function_2dd58893);
 	level.ping = spawnstruct();
 	level.ping.types = [12:{#objective:#"hash_3a3dbdaf943d02d5", #sound:#"hash_1a0de47f7204a9d6"}, 11:{#objective:#"hash_4aacdcc1899f9c59", #sound:#"hash_3cd7abefb7adef5b"}, 10:{#objective:#"hash_6618dbd21e3a5068", #sound:#"hash_3cd7abefb7adef5b"}, 9:{#objective:#"hash_19b425c37cb9f718", #sound:#"hash_1a0de47f7204a9d6"}, 8:{#objective:#"hash_19b425c37cb9f718", #sound:#"hash_1a0de47f7204a9d6"}, 7:{#objective:#"hash_4aacdcc1899f9c59", #sound:#"hash_3cd7abefb7adef5b"}, 6:{#objective:#"hash_4aacdcc1899f9c59", #sound:#"hash_3cd7abefb7adef5b"}, 5:{#sound:#"hash_1a0de47f7204a9d6"}, 4:{#objective:#"hash_614502911ac7d29", #sound:#"hash_1a0de47f7204a9d6"}, 3:{#objective:#"hash_6ee59c4b375ac2ae", #sound:#"hash_3cd7abefb7adef5b"}, 2:{#objective:#"hash_35880e38e054d2b3", #sound:#"hash_3cd7abefb7adef5b"}, 1:{#objective:#"hash_35880e38e054d2b3", #sound:#"hash_1a0de47f7204a9d6"}, 0:{#objective:#"hash_3a3dbdaf943d02d5", #sound:#"hash_1a0de47f7204a9d6"}];
 	/#

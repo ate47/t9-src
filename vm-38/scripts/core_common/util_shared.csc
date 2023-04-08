@@ -23,7 +23,7 @@ function private autoexec function_f47cd189()
 #namespace util;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: util
 	Checksum: 0x706CB189
 	Offset: 0x178
@@ -31,7 +31,7 @@ function private autoexec function_f47cd189()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"util_shared", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -3021,7 +3021,7 @@ function get_map_name()
 }
 
 /*
-	Name: function_3f165ee8
+	Name: is_frontend_map
 	Namespace: util
 	Checksum: 0xA1C506D5
 	Offset: 0x5480
@@ -3029,7 +3029,7 @@ function get_map_name()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3f165ee8()
+function is_frontend_map()
 {
 	return get_map_name() === "core_frontend";
 }
@@ -3304,7 +3304,7 @@ function function_48e57e36(var_1f1d12d8)
 }
 
 /*
-	Name: function_e2e9d901
+	Name: add_devgui
 	Namespace: util
 	Checksum: 0xFB69D6D6
 	Offset: 0x5B18
@@ -3312,7 +3312,7 @@ function function_48e57e36(var_1f1d12d8)
 	Parameters: 3
 	Flags: None
 */
-function function_e2e9d901(localclientnum, menu_path, commands)
+function add_devgui(localclientnum, menu_path, commands)
 {
 	/#
 		adddebugcommand(localclientnum, ((("" + menu_path) + "") + commands) + "");

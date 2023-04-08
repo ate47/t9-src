@@ -2,10 +2,10 @@
 #using script_3a704cbcf4081bfb;
 #using script_408211ac7ff6ef56;
 #using script_4108035fe400ce67;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_7fc996fe8678852;
-#using script_f11fc6f7a3ad5b9;
+#using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -35,7 +35,7 @@ function private autoexec function_e025a1e5()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_64b2e5a2
 	Checksum: 0xFB790715
 	Offset: 0x1F0
@@ -43,7 +43,7 @@ function private autoexec function_e025a1e5()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_6cff6e60e2fa224d", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }
@@ -734,7 +734,7 @@ function function_eaa298d9()
 		navmeshposition = var_3a1904d3[#"point"];
 		var_9905e63e = spawnstruct();
 		var_9905e63e.origin = navmeshposition;
-		boot = namespace_be0f9d50::spawn_prop(var_9905e63e, undefined, #"hash_6290596be2341e21", 1);
+		boot = mimic_prop_spawn::spawn_prop(var_9905e63e, undefined, #"hash_6290596be2341e21", 1);
 		var_a6fe91fd = [];
 		if(!isdefined(var_a6fe91fd))
 		{
@@ -745,7 +745,7 @@ function function_eaa298d9()
 			var_a6fe91fd = array(var_a6fe91fd);
 		}
 		var_a6fe91fd[var_a6fe91fd.size] = boot;
-		namespace_be0f9d50::function_55657fb4(undefined, boot, var_a6fe91fd);
+		mimic_prop_spawn::function_55657fb4(undefined, boot, var_a6fe91fd);
 	}
 	self deletedelay();
 }

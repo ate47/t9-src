@@ -3558,22 +3558,22 @@ function function_75af31e2(localclientnum, var_addf3c2f)
 			break;
 		}
 		case "energy_mine":
-		case "hash_4ac3fda4add2a116":
+		case "energy_mine_4":
 		case "hash_4ac3fea4add2a2c9":
-		case "hash_4ac3ffa4add2a47c":
-		case "hash_4ac400a4add2a62f":
-		case "hash_4ac402a4add2a995":
+		case "energy_mine_2":
+		case "energy_mine_3":
+		case "energy_mine_1":
 		{
 			self setmodel(#"wpn_t9_zm_wand_cannister_energy_mine_view");
 			self.var_125d962d = util::playfxontag(localclientnum, #"hash_4c6295e27b772b3f", self, "tag_origin");
 			break;
 		}
 		case "hash_85edf3a63bb488c":
-		case "hash_2f148f3f9c3812a8":
-		case "hash_2f14913f9c38160e":
-		case "hash_2f14923f9c3817c1":
+		case "frost_blast_1":
+		case "frost_blast_3":
+		case "frost_blast_2":
 		case "frost_blast_5":
-		case "hash_2f14943f9c381b27":
+		case "frost_blast_4":
 		{
 			self setmodel(#"wpn_t9_zm_wand_cannister_frost_blast_view");
 			self.var_125d962d = util::playfxontag(localclientnum, #"hash_367649ac4b1edb9e", self, "tag_origin");

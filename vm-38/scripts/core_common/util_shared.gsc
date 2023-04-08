@@ -36,7 +36,7 @@ function private autoexec function_b0f1a100()
 #namespace util;
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: util
 	Checksum: 0x41943B57
 	Offset: 0x3D8
@@ -44,7 +44,7 @@ function private autoexec function_b0f1a100()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"util_shared", &function_70a657d8, undefined, &function_3cb7a62d, undefined);
 }
@@ -7367,7 +7367,7 @@ function get_map_name()
 }
 
 /*
-	Name: function_3f165ee8
+	Name: is_frontend_map
 	Namespace: util
 	Checksum: 0x8FF6AD79
 	Offset: 0xD110
@@ -7375,13 +7375,13 @@ function get_map_name()
 	Parameters: 0
 	Flags: Linked
 */
-function function_3f165ee8()
+function is_frontend_map()
 {
 	return get_map_name() === "core_frontend";
 }
 
 /*
-	Name: function_e2e9d901
+	Name: add_devgui
 	Namespace: util
 	Checksum: 0x437E36F5
 	Offset: 0xD138
@@ -7389,7 +7389,7 @@ function function_3f165ee8()
 	Parameters: 2
 	Flags: None
 */
-function function_e2e9d901(menu_path, commands)
+function add_devgui(menu_path, commands)
 {
 	/#
 		add_queued_debug_command(((("" + menu_path) + "") + commands) + "");
@@ -7638,13 +7638,13 @@ function show_hit_marker(var_554cb812, var_1ed250ec)
 		}
 		else if(isdefined(self) && !isdefined(self.hud_damagefeedback))
 		{
-			self thread function_6e97119b(var_554cb812, var_1ed250ec);
+			self thread _show_hit_marker(var_554cb812, var_1ed250ec);
 		}
 	}
 }
 
 /*
-	Name: function_6e97119b
+	Name: _show_hit_marker
 	Namespace: util
 	Checksum: 0x685E6218
 	Offset: 0xD8C8
@@ -7652,7 +7652,7 @@ function show_hit_marker(var_554cb812, var_1ed250ec)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_6e97119b(var_554cb812, var_1ed250ec)
+function private _show_hit_marker(var_554cb812, var_1ed250ec)
 {
 	self endon(#"death");
 	if(!isdefined(self.var_9a94bf1))
@@ -8814,7 +8814,7 @@ function function_1690fd42(player, persistent)
 	}
 	else
 	{
-		initial_black = lui::function_e810a527("InitialBlack");
+		initial_black = lui::get_luimenu("InitialBlack");
 		if(!initial_black initial_black::is_open(player))
 		{
 			initial_black initial_black::open(player);
@@ -8836,7 +8836,7 @@ function function_cd98604b(player)
 	/#
 		assert(isplayer(player));
 	#/
-	initial_black = lui::function_e810a527("InitialBlack");
+	initial_black = lui::get_luimenu("InitialBlack");
 	initial_black initial_black::close(player);
 }
 
@@ -8852,7 +8852,7 @@ function function_cd98604b(player)
 function private function_d532c33b(player)
 {
 	player endon(#"death", #"disconnect");
-	initial_black = lui::function_e810a527("InitialBlack");
+	initial_black = lui::get_luimenu("InitialBlack");
 	if(!initial_black initial_black::is_open(player))
 	{
 		initial_black initial_black::open(player, 1);

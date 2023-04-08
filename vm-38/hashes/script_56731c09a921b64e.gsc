@@ -35,7 +35,7 @@ function private autoexec function_e1265cae()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: namespace_1e7573ec
 	Checksum: 0x4D14E234
 	Offset: 0x2C8
@@ -43,7 +43,7 @@ function private autoexec function_e1265cae()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_538411714a272c00", &function_70a657d8, &function_8ac3bea9, undefined, "zm_weapons");
 }
@@ -2711,7 +2711,7 @@ function function_d0aeb094()
 }
 
 /*
-	Name: function_19c342bc
+	Name: mega_barrel_watch_reload
 	Namespace: namespace_1e7573ec
 	Checksum: 0xD10876DD
 	Offset: 0xFFF8
@@ -2719,7 +2719,7 @@ function function_d0aeb094()
 	Parameters: 0
 	Flags: Linked
 */
-function function_19c342bc()
+function mega_barrel_watch_reload()
 {
 	self endon(#"death");
 	var_17b7891d = "4a3a2e03173499cc" + "mega_barrel_watch_reload";
@@ -3079,10 +3079,10 @@ function function_11110983(params)
 			self.var_8c1397c7 = util::spawn_model(#"tag_origin", self.origin, self.angles);
 			self.var_8c1397c7 linkto(self);
 		}
-		self thread function_c393b3b7();
-		self thread function_19c342bc();
+		self thread mega_barrel_watch_multikill_vo();
+		self thread mega_barrel_watch_reload();
 		self.var_42d07392 = gettime();
-		self thread function_e8f5f830();
+		self thread mega_barrel_watch_pacifist_vo();
 		self clientfield::set_to_player("" + #"hash_4aec08923edd6a40", 1);
 		if(!is_true(var_764ad66c) && isdefined(self.var_845ce7ff))
 		{
@@ -3593,7 +3593,7 @@ function function_1340d9d6(vo_line)
 		function_fc9aff93(vo_line);
 		function_fc9aff93(self.var_23178d00);
 	#/
-	if(!isdefined(self.var_8c1397c7) || !is_true(self.var_ece67d81) || self function_c44997c4() || is_true(self.dontspeak) || self scene::is_igc_active() || level flag::get_any([1:#"hash_2c83e17b76817284", 0:#"hash_4b00aa230ebbe82b"]))
+	if(!isdefined(self.var_8c1397c7) || !is_true(self.var_ece67d81) || self function_c44997c4() || is_true(self.dontspeak) || self scene::is_igc_active() || level flag::get_any([1:#"exfil_cleared", 0:#"hash_4b00aa230ebbe82b"]))
 	{
 		return;
 	}
@@ -3609,7 +3609,7 @@ function function_1340d9d6(vo_line)
 }
 
 /*
-	Name: function_c393b3b7
+	Name: mega_barrel_watch_multikill_vo
 	Namespace: namespace_1e7573ec
 	Checksum: 0xCB5A7DAE
 	Offset: 0x122A0
@@ -3617,7 +3617,7 @@ function function_1340d9d6(vo_line)
 	Parameters: 0
 	Flags: Linked
 */
-function function_c393b3b7()
+function mega_barrel_watch_multikill_vo()
 {
 	self endon(#"death");
 	var_17b7891d = "486527bb6ce86b8d" + "mega_barrel_watch_multikill_vo";
@@ -3646,7 +3646,7 @@ function function_c393b3b7()
 }
 
 /*
-	Name: function_e8f5f830
+	Name: mega_barrel_watch_pacifist_vo
 	Namespace: namespace_1e7573ec
 	Checksum: 0x987B6542
 	Offset: 0x12480
@@ -3654,7 +3654,7 @@ function function_c393b3b7()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e8f5f830()
+function mega_barrel_watch_pacifist_vo()
 {
 	self endon(#"death");
 	var_17b7891d = "1247c8fdca351653" + "mega_barrel_watch_pacifist_vo";
@@ -3860,7 +3860,7 @@ function function_e518b5f8(copycat)
 	copycat endon(#"death");
 	while(true)
 	{
-		level waittill(#"hash_2e9ec9c0d937dcfd", #"hash_57d4f53c12705eac", #"hash_4fbe4720f6f13107");
+		level waittill(#"hash_2e9ec9c0d937dcfd", #"scene_igc_shot_started", #"hash_4fbe4720f6f13107");
 		self clientfield::set_to_player("" + #"hash_713a0ba5968a3bde", 0);
 		copycat thread scene::stop(#"hash_658647939375d560");
 		level waittill(#"hash_328354cda05a3914", #"hash_684b272680aa2ed");
@@ -4074,7 +4074,7 @@ function function_80fdbf85(player)
 	level endon(#"end_game");
 	if(isdefined(player))
 	{
-		player endon(#"hash_4a6b59c7fe5393e4");
+		player endon(#"blazer_beam_extending");
 	}
 	left_distance = 3000 - self.var_843dba81;
 	v_target_pos = self.origin + (left_distance * self.move_dir);
@@ -4111,7 +4111,7 @@ function function_dd8805e4(player)
 	level endon(#"end_game");
 	if(isdefined(player))
 	{
-		player endon(#"hash_4a6b59c7fe5393e4");
+		player endon(#"blazer_beam_extending");
 	}
 	self clientfield::set("" + #"hash_4bd7cbe3f7fd44dd", 3);
 	while(isdefined(self) && self.var_843dba81 > 0)

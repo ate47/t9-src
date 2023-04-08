@@ -7,11 +7,11 @@
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_utility.gsc;
 
-#namespace namespace_ec1ef97a;
+#namespace orange_fastt_zm;
 
 /*
 	Name: function_f720ed1
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x92225908
 	Offset: 0xB8
 	Size: 0x14
@@ -24,22 +24,22 @@ function private autoexec function_f720ed1()
 }
 
 /*
-	Name: function_89f2df9
-	Namespace: namespace_ec1ef97a
+	Name: __init__system__
+	Namespace: orange_fastt_zm
 	Checksum: 0x5247EE97
 	Offset: 0xD8
 	Size: 0x3C
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"hash_16313bdca8b5638c", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x2564BADF
 	Offset: 0x120
 	Size: 0x5C
@@ -57,7 +57,7 @@ function private function_70a657d8()
 
 /*
 	Name: on_begin
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x10545988
 	Offset: 0x188
 	Size: 0x11C
@@ -78,7 +78,7 @@ function private on_begin(var_6325d314, var_52b8b3a2, n_time)
 
 /*
 	Name: on_end
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x55F6D60F
 	Offset: 0x2B0
 	Size: 0x174
@@ -104,7 +104,7 @@ function private on_end(round_reset)
 
 /*
 	Name: function_8b87e57c
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0xACB303B6
 	Offset: 0x430
 	Size: 0x2D8
@@ -145,7 +145,7 @@ function private function_8b87e57c(var_6325d314, n_grace, n_time_limit)
 
 /*
 	Name: function_31f197c2
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x2C587058
 	Offset: 0x710
 	Size: 0x10C
@@ -173,7 +173,7 @@ function private function_31f197c2()
 
 /*
 	Name: function_14a98a41
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0x3B97BFA5
 	Offset: 0x828
 	Size: 0x8C
@@ -196,7 +196,7 @@ function private function_14a98a41(str_label, n_time_limit)
 
 /*
 	Name: function_ff66b979
-	Namespace: namespace_ec1ef97a
+	Namespace: orange_fastt_zm
 	Checksum: 0xE96B0017
 	Offset: 0x8C0
 	Size: 0x104

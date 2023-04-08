@@ -37,7 +37,7 @@ function private autoexec function_c4221711()
 #namespace prop_dev;
 
 /*
-	Name: function_e46dab5e
+	Name: adddevguicommand
 	Namespace: prop_dev
 	Checksum: 0x8CF7E011
 	Offset: 0x118
@@ -45,7 +45,7 @@ function private autoexec function_c4221711()
 	Parameters: 2
 	Flags: None
 */
-function function_e46dab5e(path, var_c669188)
+function adddevguicommand(path, var_c669188)
 {
 	/#
 		var_2f3fa528 = ("" + path) + "";
@@ -111,39 +111,39 @@ function function_93440c52()
 		{
 			adddebugcommand("");
 		}
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", ("" + 4) + "");
-		function_e46dab5e("", ("" + 0.25) + "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
-		function_e46dab5e("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", ("" + 4) + "");
+		adddevguicommand("", ("" + 0.25) + "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
+		adddevguicommand("", "");
 		while(true)
 		{
 			if(is_true(level.prematch_over))

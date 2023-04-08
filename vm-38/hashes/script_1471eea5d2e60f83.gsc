@@ -23,7 +23,7 @@ function private autoexec function_1a57ab2d()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: ping
 	Checksum: 0x1ADA08CD
 	Offset: 0xB8
@@ -31,7 +31,7 @@ function private autoexec function_1a57ab2d()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"ping", &function_70a657d8, undefined, undefined, undefined);
 }

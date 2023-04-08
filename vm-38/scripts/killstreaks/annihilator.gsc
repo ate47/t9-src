@@ -20,7 +20,7 @@ function private autoexec function_4cf026a3()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: annihilator
 	Checksum: 0xBE346E4E
 	Offset: 0xC0
@@ -28,7 +28,7 @@ function private autoexec function_4cf026a3()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"annihilator", &__init__, undefined, undefined, #"killstreaks");
 }

@@ -1,5 +1,5 @@
 #using script_345bb77d6298356c;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -36,7 +36,7 @@ function private autoexec function_213d6fff()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zm_stats
 	Checksum: 0x5C57CEFA
 	Offset: 0xA08
@@ -44,7 +44,7 @@ function private autoexec function_213d6fff()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zm_stats", &function_70a657d8, undefined, undefined, undefined);
 }
@@ -134,7 +134,7 @@ function player_stats_init()
 {
 	self callback::add_callback(#"on_item_use", &function_1a222bee);
 	self globallogic_score::initpersstat(#"kills", 0);
-	self globallogic_score::initpersstat(#"hash_7472529eae501802", 0, 1);
+	self globallogic_score::initpersstat(#"kills_critical", 0, 1);
 	self globallogic_score::initpersstat(#"hash_6013bccb7a4274b6", 0);
 	self globallogic_score::initpersstat(#"wonder_weapon_kills", 0);
 	self globallogic_score::initpersstat(#"damagedone", 0);
@@ -180,7 +180,7 @@ function player_stats_init()
 	self globallogic_score::initpersstat(#"hash_27399de28b76c5c6", 0);
 	self globallogic_score::initpersstat(#"minigun_pickedup", 0);
 	self globallogic_score::initpersstat(#"island_seed_pickedup", 0);
-	self globallogic_score::initpersstat(#"hash_cdafe5cd6299b0c", 0);
+	self globallogic_score::initpersstat(#"hero_weapon_power_pickedup", 0);
 	self globallogic_score::initpersstat(#"pack_a_punch_pickedup", 0);
 	self globallogic_score::initpersstat(#"extra_lives_pickedup", 0);
 	self globallogic_score::initpersstat(#"zmarcade_key_pickedup", 0);
@@ -198,13 +198,13 @@ function player_stats_init()
 	self globallogic_score::initpersstat(#"hash_7f4d9be7afc10d0b", 0);
 	self globallogic_score::initpersstat(#"hash_7f4d9ce7afc10ebe", 0);
 	self globallogic_score::initpersstat(#"hash_7f4d9de7afc11071", 0);
-	self globallogic_score::initpersstat(#"hash_731ce11cd7aabf49", 0);
-	self globallogic_score::initpersstat(#"hash_28a20f25e5d2675b", 0);
-	self globallogic_score::initpersstat(#"hash_3000f7041705064b", 0);
-	self globallogic_score::initpersstat(#"hash_388f4347e28d7ab7", 0);
-	self globallogic_score::initpersstat(#"hash_4241552ec3f4078b", 0);
-	self globallogic_score::initpersstat(#"hash_52fec240a96cc85a", 0);
-	self globallogic_score::initpersstat(#"hash_63236a6a7db7369c", 0);
+	self globallogic_score::initpersstat(#"talent_juggernog_drank", 0);
+	self globallogic_score::initpersstat(#"talent_quickrevive_drank", 0);
+	self globallogic_score::initpersstat(#"talent_speedcola_drank", 0);
+	self globallogic_score::initpersstat(#"talent_doubletap_drank", 0);
+	self globallogic_score::initpersstat(#"talent_deadshot_drank", 0);
+	self globallogic_score::initpersstat(#"talent_staminup_drank", 0);
+	self globallogic_score::initpersstat(#"talent_elemental_pop_drank", 0);
 	self globallogic_score::initpersstat(#"specialty_armorvest_drank", 0);
 	self globallogic_score::initpersstat(#"specialty_quickrevive_drank", 0);
 	self globallogic_score::initpersstat(#"specialty_fastreload_drank", 0);
@@ -367,9 +367,9 @@ function player_stats_init()
 	{
 		self zm_callings::function_f3393d6a();
 	}
-	if(function_eb50d9bf(#"hash_68a582f0fbd97eb2") > function_eb50d9bf(#"hash_7472529eae501802"))
+	if(function_eb50d9bf(#"hash_68a582f0fbd97eb2") > function_eb50d9bf(#"kills_critical"))
 	{
-		set_client_stat(#"hash_7472529eae501802", function_eb50d9bf(#"hash_68a582f0fbd97eb2"));
+		set_client_stat(#"kills_critical", function_eb50d9bf(#"hash_68a582f0fbd97eb2"));
 	}
 }
 
@@ -2363,13 +2363,13 @@ function update_global_counters_on_match_end()
 	crimson_nosferatus_killed = 0;
 	killed_by_crimson_nosferatu = 0;
 	bats_killed = 0;
-	var_2407fa7f = 0;
-	var_a45c0ec = 0;
-	var_a1cab15d = 0;
-	var_8e14f822 = 0;
-	var_4b1715b8 = 0;
-	var_693f9ce6 = 0;
-	var_ac072054 = 0;
+	talent_juggernog_drank = 0;
+	talent_quickrevive_drank = 0;
+	talent_speedcola_drank = 0;
+	talent_doubletap_drank = 0;
+	talent_deadshot_drank = 0;
+	talent_staminup_drank = 0;
+	talent_elemental_pop_drank = 0;
 	specialty_armorvest_drank = 0;
 	specialty_quickrevive_drank = 0;
 	specialty_fastreload_drank = 0;
@@ -2432,13 +2432,13 @@ function update_global_counters_on_match_end()
 		downs = downs + player.pers[#"downs"];
 		revives = revives + player.pers[#"revives"];
 		perks_drank = perks_drank + player.pers[#"perks_drank"];
-		var_2407fa7f = var_2407fa7f + player.pers[#"hash_731ce11cd7aabf49"];
-		var_a45c0ec = var_a45c0ec + player.pers[#"hash_28a20f25e5d2675b"];
-		var_a1cab15d = var_a1cab15d + player.pers[#"hash_3000f7041705064b"];
-		var_8e14f822 = var_8e14f822 + player.pers[#"hash_388f4347e28d7ab7"];
-		var_4b1715b8 = var_4b1715b8 + player.pers[#"hash_4241552ec3f4078b"];
-		var_693f9ce6 = var_693f9ce6 + player.pers[#"hash_52fec240a96cc85a"];
-		var_ac072054 = var_ac072054 + player.pers[#"hash_63236a6a7db7369c"];
+		talent_juggernog_drank = talent_juggernog_drank + player.pers[#"talent_juggernog_drank"];
+		talent_quickrevive_drank = talent_quickrevive_drank + player.pers[#"talent_quickrevive_drank"];
+		talent_speedcola_drank = talent_speedcola_drank + player.pers[#"talent_speedcola_drank"];
+		talent_doubletap_drank = talent_doubletap_drank + player.pers[#"talent_doubletap_drank"];
+		talent_deadshot_drank = talent_deadshot_drank + player.pers[#"talent_deadshot_drank"];
+		talent_staminup_drank = talent_staminup_drank + player.pers[#"talent_staminup_drank"];
+		talent_elemental_pop_drank = talent_elemental_pop_drank + player.pers[#"talent_elemental_pop_drank"];
 		specialty_armorvest_drank = specialty_armorvest_drank + player.pers[#"specialty_armorvest_drank"];
 		specialty_quickrevive_drank = specialty_quickrevive_drank + player.pers[#"specialty_quickrevive_drank"];
 		specialty_fastreload_drank = specialty_fastreload_drank + player.pers[#"specialty_fastreload_drank"];
@@ -2490,7 +2490,7 @@ function update_global_counters_on_match_end()
 		var_d61f06ce = var_d61f06ce + player.pers[#"hash_27399de28b76c5c6"];
 		minigun_pickedup = minigun_pickedup + player.pers[#"minigun_pickedup"];
 		island_seed_pickedup = island_seed_pickedup + player.pers[#"island_seed_pickedup"];
-		hero_weapon_power_pickedup = hero_weapon_power_pickedup + player.pers[#"hash_cdafe5cd6299b0c"];
+		hero_weapon_power_pickedup = hero_weapon_power_pickedup + player.pers[#"hero_weapon_power_pickedup"];
 		pack_a_punch_pickedup = pack_a_punch_pickedup + player.pers[#"pack_a_punch_pickedup"];
 		extra_lives_pickedup = extra_lives_pickedup + player.pers[#"extra_lives_pickedup"];
 		zmarcade_key_pickedup = zmarcade_key_pickedup + player.pers[#"zmarcade_key_pickedup"];
@@ -2615,7 +2615,7 @@ function function_b14863c1()
 	{
 		if(zm_utility::is_survival())
 		{
-			level waittilltimeout(getdvarint(#"hash_40077e81a7bcd7c3", 300), #"hash_69090774fec4a17b", #"hash_3b28fcaa0b9b4489");
+			level waittilltimeout(getdvarint(#"hash_40077e81a7bcd7c3", 300), #"objective_ended", #"hash_3b28fcaa0b9b4489");
 		}
 		else
 		{
@@ -3069,21 +3069,21 @@ function function_1a222bee(params)
 		switch(params.item.var_a6762160.weapon.statname)
 		{
 			case "energy_mine":
-			case "hash_4ac3fda4add2a116":
+			case "energy_mine_4":
 			case "hash_4ac3fea4add2a2c9":
-			case "hash_4ac3ffa4add2a47c":
-			case "hash_4ac400a4add2a62f":
-			case "hash_4ac402a4add2a995":
+			case "energy_mine_2":
+			case "energy_mine_3":
+			case "energy_mine_1":
 			{
 				self stats::function_622feb0d(#"energy_mine", #"uses", 1);
 				break;
 			}
 			case "hash_85edf3a63bb488c":
-			case "hash_2f148f3f9c3812a8":
-			case "hash_2f14913f9c38160e":
-			case "hash_2f14923f9c3817c1":
+			case "frost_blast_1":
+			case "frost_blast_3":
+			case "frost_blast_2":
 			case "frost_blast_5":
-			case "hash_2f14943f9c381b27":
+			case "frost_blast_4":
 			{
 				self stats::function_622feb0d(#"hash_85edf3a63bb488c", #"uses", 1);
 				break;
@@ -3120,7 +3120,7 @@ function function_1a222bee(params)
 			}
 			case "frag_grenade":
 			{
-				self stats::function_622feb0d(#"hash_34b7eb9fde56bd35", #"uses", 1);
+				self stats::function_622feb0d(#"eq_frag_grenade", #"uses", 1);
 				break;
 			}
 			case "hash_12f078ddc9b913c3":

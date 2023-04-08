@@ -19,7 +19,7 @@ function private autoexec function_82457752()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: zombie_eye_glow
 	Checksum: 0xFF1186AC
 	Offset: 0x1B8
@@ -27,7 +27,7 @@ function private autoexec function_82457752()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"zombie_eye_glow", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
 }

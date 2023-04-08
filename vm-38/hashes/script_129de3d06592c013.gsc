@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -27,7 +27,7 @@ function private autoexec function_cd358644()
 }
 
 /*
-	Name: function_89f2df9
+	Name: __init__system__
 	Namespace: listening_device
 	Checksum: 0x8575E1E4
 	Offset: 0x1A0
@@ -35,7 +35,7 @@ function private autoexec function_cd358644()
 	Parameters: 0
 	Flags: AutoExec, Private
 */
-function private autoexec function_89f2df9()
+function private autoexec __init__system__()
 {
 	system::register(#"listening_device", &init_shared, undefined, undefined, undefined);
 }

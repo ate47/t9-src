@@ -1,19 +1,19 @@
-#using script_256b8879317373de;
+#using scripts\core_common\player\player_shared.gsc;
 #using script_2c49ae69cd8ce30c;
 #using scripts\abilities\ability_player.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_396f7d71538c9677;
-#using script_3f27a7b2232674db;
+#using scripts\core_common\player\player_role.gsc;
 #using script_44b0b8420eabacad;
-#using script_47fb62300ac0bd60;
+#using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using script_57f7003580bb15e0;
 #using script_6167e26342be354b;
 #using scripts\killstreaks\killstreaks_util.gsc;
-#using script_70a43d6ba27cff6a;
+#using scripts\core_common\globallogic\globallogic_player.gsc;
 #using script_725554a59d6a75b9;
-#using script_788472602edbe3b9;
+#using scripts\mp_common\player\player_loadout.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\abilities\ability_power.gsc;
 #using scripts\core_common\armor.gsc;
@@ -122,7 +122,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 					{
 						dofeedback = 1;
 					}
-					else if(self.health == 0 && self armor::function_4f977182() > 0)
+					else if(self.health == 0 && self armor::get_armor() > 0)
 					{
 						dofeedback = 1;
 						armorbroke = 1;
@@ -294,7 +294,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 				{
 					dofeedback = 1;
 				}
-				else if(self.health == 0 && self armor::function_4f977182() > 0)
+				else if(self.health == 0 && self armor::get_armor() > 0)
 				{
 					dofeedback = 1;
 					armorbroke = 1;
@@ -1211,13 +1211,13 @@ function private apply_damage_to_armor(einflictor, eattacker, idamage, idflags, 
 	{
 		return {#idamage:victim.health, #idflags:idflags};
 	}
-	armor = self armor::function_4f977182();
+	armor = self armor::get_armor();
 	gear_armor = self.armor;
 	self.var_426947c4 = undefined;
 	var_5612d816 = idamage;
 	idamage = victim armor::apply_damage(weapon, idamage, smeansofdeath, eattacker, shitloc);
 	idamage = victim armor::function_a77114f2(einflictor, eattacker, idamage, smeansofdeath, weapon, shitloc);
-	armor_damaged = armor != self armor::function_4f977182();
+	armor_damaged = armor != self armor::get_armor();
 	time = gettime();
 	if(armor_damaged)
 	{

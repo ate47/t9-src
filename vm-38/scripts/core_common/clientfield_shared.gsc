@@ -62,7 +62,7 @@ function function_a8bbc967(str_name, n_version, n_bits, str_type, var_59f69872)
 }
 
 /*
-	Name: function_346f95ba
+	Name: register_luielem
 	Namespace: clientfield
 	Checksum: 0xF8214521
 	Offset: 0x1E0
@@ -70,7 +70,7 @@ function function_a8bbc967(str_name, n_version, n_bits, str_type, var_59f69872)
 	Parameters: 7
 	Flags: Linked
 */
-function function_346f95ba(menu_name, var_483e93f7, field_name, n_version, n_bits, str_type, var_59f69872)
+function register_luielem(menu_name, var_483e93f7, field_name, n_version, n_bits, str_type, var_59f69872)
 {
 	registerclientfield("clientuimodel", (("luielement." + menu_name) + ".") + (isdefined(var_483e93f7) ? "" + var_483e93f7 : "") + field_name, n_version, n_bits, str_type, var_59f69872);
 }
