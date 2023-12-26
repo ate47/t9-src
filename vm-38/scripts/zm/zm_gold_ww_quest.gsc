@@ -1,8 +1,8 @@
 #using script_3411bb48d41bd3b;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5fd73298643b6fff;
 #using script_60d2812480bc5591;
@@ -320,7 +320,7 @@ function function_8de4f4ec()
 		}
 	}
 	level flag::clear(#"hash_5dce120a8e013b48");
-	level namespace_6747c550::function_7df6bb60(#"hash_4214918e34681e5a", 1);
+	level zm_ui_inventory::function_7df6bb60(#"hash_4214918e34681e5a", 1);
 	array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_196207efbf3628f2");
 	level flag::set(#"hash_5c438c30435a20f3");
 	s_spawn_pos = struct::get(self.target, "targetname");
@@ -483,7 +483,7 @@ function function_e594b500(e_player)
 			self sethintstring(#"hash_6244ec26d09cb15d");
 			return true;
 		}
-		self sethintstring(#"hash_71158766520dc432");
+		self sethintstring(#"zombie/need_power");
 		return true;
 	}
 	return false;
@@ -952,7 +952,7 @@ function private function_85d6a457(str_notify)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d196daba(var_3d7ad116, var_77d81993)
+function function_d196daba(e_computer, var_77d81993)
 {
 	level endoncallback(&function_85d6a457, #"hash_76c7837322a67981");
 	level clientfield::increment("" + #"hash_4bbd14acfb65a055");
@@ -960,7 +960,7 @@ function function_d196daba(var_3d7ad116, var_77d81993)
 	playsoundatposition(#"hash_5cffc6d32c1f7512", var_35fc9135.origin);
 	while(true)
 	{
-		activator = var_3d7ad116 zm_unitrigger::function_fac87205(#"hash_6766f9d6a024ee72", 64);
+		activator = e_computer zm_unitrigger::function_fac87205(#"hash_6766f9d6a024ee72", 64);
 		activator function_bc82f900(#"hash_3937704286348bfa");
 		playsoundatposition(#"hash_3874b1f24664c38a", var_35fc9135.origin);
 		level function_d7d376af(var_77d81993);
@@ -1049,7 +1049,7 @@ function function_8f2904c6(b_skipped)
 	{
 		if(isdefined(player))
 		{
-			zm_items::player_pick_up(player, zm_crafting::function_4c2f8683("zitem_gold_charged_power_cell"));
+			zm_items::player_pick_up(player, zm_crafting::get_component("zitem_gold_charged_power_cell"));
 		}
 	}
 }
@@ -1072,7 +1072,7 @@ function function_230b550c(b_skipped, var_19e802fa)
 		#/
 		foreach(player in function_a1ef346b())
 		{
-			zm_items::player_pick_up(player, zm_crafting::function_4c2f8683("zitem_gold_charged_power_cell"));
+			zm_items::player_pick_up(player, zm_crafting::get_component("zitem_gold_charged_power_cell"));
 		}
 	}
 }
@@ -1332,7 +1332,7 @@ function function_eeecf07f(params)
 			{
 				case "hash_a2df964f9390e75":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_5d24d46e696a9fd1", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_5d24d46e696a9fd1", 1);
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_4579051a9a00ef4b");
 					level flag::set(#"hash_722723ce1e3aa7d2");
 					namespace_1812c3f4::function_65937665();
@@ -1340,7 +1340,7 @@ function function_eeecf07f(params)
 				}
 				case "hash_7dcd682c7e6f92d0":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_36dcff5d560ebdf2", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_36dcff5d560ebdf2", 1);
 					level notify(#"hash_28bed8664988e37a");
 					level thread namespace_1812c3f4::function_84947a87();
 					break;
@@ -1352,7 +1352,7 @@ function function_eeecf07f(params)
 				}
 				case "hash_63707e896cd62344":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_36dcff5d560ebdf2", 2);
+					level zm_ui_inventory::function_7df6bb60(#"hash_36dcff5d560ebdf2", 2);
 					level notify(#"hash_2aa8a173854fca6e");
 					level zm_gold_main_quest::function_b9a3fa11(#"hash_343bcffdd018ad79", #"hash_343bdffdd018c8a9", #"hash_343be3fdd018cf75");
 					break;
@@ -1370,21 +1370,21 @@ function function_eeecf07f(params)
 				}
 				case "hash_11a77d8a90e047f1":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_4214918e34681e5a", 2);
+					level zm_ui_inventory::function_7df6bb60(#"hash_4214918e34681e5a", 2);
 					level flag::set(#"hash_5b2f8d1b5f283517");
 					level zm_gold_main_quest::function_b9a3fa11(#"hash_30dd69dc943a1b0f", #"hash_30dd59dc9439ffdf", #"hash_30dd55dc9439f913");
 					break;
 				}
 				case "hash_1caaa6e2c3bfe02":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_64ec4aaf73911014", 2);
+					level zm_ui_inventory::function_7df6bb60(#"hash_64ec4aaf73911014", 2);
 					level flag::set(#"hash_370e627ee07d49f4");
 					level zm_gold_main_quest::function_b9a3fa11(#"hash_6c5be047d95ba22f", #"hash_6c5bd047d95b86ff", #"hash_6c5bcc47d95b8033");
 					break;
 				}
 				case "hash_322a19bc285c73d9":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_64ec4aaf73911014", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_64ec4aaf73911014", 1);
 					level notify(#"hash_2d5cdf8748bf209d");
 					level zm_gold_main_quest::function_b9a3fa11(#"hash_4900551fa5339d35", #"hash_4900451fa5338205", #"hash_4900411fa5337b39");
 					break;

@@ -44,7 +44,7 @@ class csr_message_box : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: csr_message_box
 		Checksum: 0x5D2D3ED5
 		Offset: 0x3C0
@@ -52,9 +52,9 @@ class csr_message_box : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_message_box");
+		cLUIelem::register_clientside("sr_message_box");
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_50fe5991)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_message_box
 	Checksum: 0x4D077C00
 	Offset: 0x260
@@ -160,10 +160,10 @@ function register(var_50fe5991)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new csr_message_box();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

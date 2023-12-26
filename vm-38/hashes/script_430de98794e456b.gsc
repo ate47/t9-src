@@ -281,11 +281,11 @@ function function_f68e78d1(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwasdemojump == 1)
 	{
-		self function_bf9d3071("rob_orda_dissolve");
+		self playrenderoverridebundle("rob_orda_dissolve");
 	}
 	else
 	{
-		self function_5d482e78("rob_orda_dissolve");
+		self stoprenderoverridebundle("rob_orda_dissolve");
 	}
 	self thread namespace_cc727a3b::function_5565725d(fieldname, bwasdemojump, "rob_orda_dissolve");
 }

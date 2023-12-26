@@ -1,4 +1,4 @@
-#using script_15022fca9ab99080;
+#using scripts\killstreaks\killstreak_vehicle.gsc;
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -50,11 +50,11 @@ function private function_70a657d8()
 {
 	killstreak_detect::init_shared();
 	remote_weapons::init_shared();
-	killstreaks::function_b5b6ef3e(&function_155de655);
+	killstreaks::function_b5b6ef3e(&init_killstreak);
 }
 
 /*
-	Name: function_155de655
+	Name: init_killstreak
 	Namespace: recon_car
 	Checksum: 0x59C35F13
 	Offset: 0x1C0
@@ -62,9 +62,9 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_155de655()
+function init_killstreak()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundle = getscriptbundle("killstreak_recon_car_wz");
 	}
@@ -72,7 +72,7 @@ function function_155de655()
 	{
 		bundle = getscriptbundle("killstreak_recon_car");
 	}
-	namespace_231aa29a::function_155de655(bundle);
+	killstreak_vehicle::init_killstreak(bundle);
 	vehicle::add_main_callback("vehicle_t9_rcxd_racing", &function_d1661ada);
 }
 
@@ -87,8 +87,8 @@ function function_155de655()
 */
 function function_d1661ada()
 {
-	self namespace_231aa29a::init_vehicle(&function_d4789bf5);
-	self util::function_c596f193();
+	self killstreak_vehicle::init_vehicle(&function_d4789bf5);
+	self util::make_sentient();
 	self.var_7d4f75e = 1;
 	self.ignore_death_jolt = 1;
 	self.var_92043a49 = 1;
@@ -146,7 +146,7 @@ function function_819fff9d()
 			{
 				self.owner killstreaks::function_e9873ef7(self.var_22a05c26.var_d3413870, self.killstreak_id, #"hash_20e53d0989f408e6");
 			}
-			self namespace_231aa29a::function_1f46c433();
+			self killstreak_vehicle::function_1f46c433();
 		}
 	}
 }

@@ -1,6 +1,6 @@
 #using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_3ddf84b7bb3bf47d;
 #using script_5a8a1aa32dea1a04;
 #using scripts\zm_common\zm_vo.gsc;
@@ -50,7 +50,7 @@ function private autoexec function_b6d82f08()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_794c3bb2e36b3278", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_794c3bb2e36b3278", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -77,7 +77,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_4b9fccd8
 	Checksum: 0xC4AA69F3
 	Offset: 0x430
@@ -85,10 +85,10 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	var_f5ae494f = struct::get_array(#"hash_313be7fccc870cdd", "variantname");
-	if(is_true(getgametypesetting(#"hash_19d48a0d4490b0a2")) && isdefined(var_f5ae494f) && var_f5ae494f.size > 0)
+	if(is_true(getgametypesetting(#"zmpapenabled")) && isdefined(var_f5ae494f) && var_f5ae494f.size > 0)
 	{
 		level thread function_329ecd95(var_f5ae494f[0]);
 	}
@@ -329,7 +329,7 @@ function function_e3af0084()
 		var_bd027dd9 = item_inventory::function_ec087745();
 		if(var_bd027dd9 != 32767)
 		{
-			var_d2648452 = item_inventory::function_dfcacdc2(var_bd027dd9);
+			var_d2648452 = item_inventory::get_inventory_item(var_bd027dd9);
 			if(isdefined(var_d2648452.var_a8bccf69))
 			{
 				self clientfield::set_player_uimodel("pap_current", var_d2648452.var_a8bccf69);
@@ -631,7 +631,7 @@ function function_4609e67c(machine, trigger)
 				{
 					var_82e23366 = getunlockableiteminfofromindex(intpayload, 3);
 					var_438da649 = function_b143666d(intpayload, 3);
-					var_461c9e9e = var_82e23366.var_3cf2d21;
+					var_461c9e9e = var_82e23366.namehash;
 					aat_name = function_d6739845(var_461c9e9e);
 					var_dfa2c41b = var_438da649.var_b5ec8024;
 					if(!isdefined(var_dfa2c41b))

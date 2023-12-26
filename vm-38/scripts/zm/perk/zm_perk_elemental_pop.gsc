@@ -1,4 +1,4 @@
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
@@ -73,7 +73,7 @@ function function_27473e44()
 	zm_perks::register_perk_basic_info(#"hash_51b6cc6dbafb7f31", #"perk_elemental_pop", 2000, #"hash_3aca6fccecde9e86", getweapon("zombie_perk_bottle_elemental_pop"), undefined, #"hash_363622d67a410b29");
 	zm_perks::register_perk_precache_func(#"hash_51b6cc6dbafb7f31", &precache);
 	zm_perks::register_perk_clientfields(#"hash_51b6cc6dbafb7f31", &register_clientfield, &set_clientfield);
-	zm_perks::register_perk_machine(#"hash_51b6cc6dbafb7f31", &function_1fe63170);
+	zm_perks::register_perk_machine(#"hash_51b6cc6dbafb7f31", &perk_machine_setup);
 	zm_perks::register_perk_host_migration_params(#"hash_51b6cc6dbafb7f31", "vending_elemental_pop", "elemental_pop_light");
 	zm_perks::register_actor_damage_override(#"hash_51b6cc6dbafb7f31", &function_abddd809);
 	zm_perks::register_perk_threads(#"hash_51b6cc6dbafb7f31", &function_fdaa251f, &function_cf066d32);
@@ -137,7 +137,7 @@ function set_clientfield(state)
 }
 
 /*
-	Name: function_1fe63170
+	Name: perk_machine_setup
 	Namespace: zm_perk_elemental_pop
 	Checksum: 0x64ADC906
 	Offset: 0x828
@@ -145,7 +145,7 @@ function set_clientfield(state)
 	Parameters: 4
 	Flags: Linked
 */
-function function_1fe63170(use_trigger, perk_machine, bump_trigger, collision)
+function perk_machine_setup(use_trigger, perk_machine, bump_trigger, collision)
 {
 	perk_machine.script_sound = "mus_perks_elementalpop_jingle";
 	perk_machine.script_string = "elemental_perk";
@@ -336,7 +336,7 @@ function function_a26b7152()
 		}
 		self.var_cb7633ba++;
 		n_clip_current = self getweaponammoclip(current_weapon);
-		n_clip_max = self function_f09c133d(current_weapon);
+		n_clip_max = self getweaponammoclipsize(current_weapon);
 		if(n_clip_max <= 0)
 		{
 			continue;
@@ -577,7 +577,7 @@ function function_c262b70e()
 	wait(4);
 	if(isdefined(self))
 	{
-		self ai::function_62795e55();
+		self ai::clear_stun();
 		self val::reset(#"hash_76ad14d5686b6f9f", "ignoreall");
 		self notify(#"stun_fx_end");
 	}

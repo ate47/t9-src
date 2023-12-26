@@ -712,8 +712,8 @@ function inithuntregiondata()
 function huntcomputeaiindependentregionscores(group, var_462028a0)
 {
 	aiprofile_beginentry("AI Hunt Init Scoring");
-	var_6a0d3fd4 = var_462028a0.hunt_regions.size;
-	for(var_3e6a3ff3 = 0; var_3e6a3ff3 < var_6a0d3fd4; var_3e6a3ff3++)
+	numregions = var_462028a0.hunt_regions.size;
+	for(var_3e6a3ff3 = 0; var_3e6a3ff3 < numregions; var_3e6a3ff3++)
 	{
 		region = var_462028a0.hunt_regions[var_3e6a3ff3];
 		region.bfs_score = 1;
@@ -725,14 +725,14 @@ function huntcomputeaiindependentregionscores(group, var_462028a0)
 		{
 			continue;
 		}
-		for(var_3e6a3ff3 = 0; var_3e6a3ff3 < var_6a0d3fd4; var_3e6a3ff3++)
+		for(var_3e6a3ff3 = 0; var_3e6a3ff3 < numregions; var_3e6a3ff3++)
 		{
 			region = var_462028a0.hunt_regions[var_3e6a3ff3];
 			region.bfs_visited = 0;
 		}
 		var_924463ec = undefined;
 		mindist = 1E+20;
-		for(var_3e6a3ff3 = 0; var_3e6a3ff3 < var_6a0d3fd4; var_3e6a3ff3++)
+		for(var_3e6a3ff3 = 0; var_3e6a3ff3 < numregions; var_3e6a3ff3++)
 		{
 			region = var_462028a0.hunt_regions[var_3e6a3ff3];
 			if(region.volume istouching(player.origin))
@@ -777,12 +777,12 @@ function huntcomputeaiindependentregionscores(group, var_462028a0)
 		}
 	}
 	highestscore = 1;
-	for(var_3e6a3ff3 = 0; var_3e6a3ff3 < var_6a0d3fd4; var_3e6a3ff3++)
+	for(var_3e6a3ff3 = 0; var_3e6a3ff3 < numregions; var_3e6a3ff3++)
 	{
 		region = var_462028a0.hunt_regions[var_3e6a3ff3];
 		highestscore = max(region.bfs_score, highestscore);
 	}
-	for(var_3e6a3ff3 = 0; var_3e6a3ff3 < var_6a0d3fd4; var_3e6a3ff3++)
+	for(var_3e6a3ff3 = 0; var_3e6a3ff3 < numregions; var_3e6a3ff3++)
 	{
 		region = var_462028a0.hunt_regions[var_3e6a3ff3];
 		region.bfs_score = region.bfs_score / highestscore;

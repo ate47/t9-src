@@ -42,9 +42,9 @@ event main(eventstruct)
 	namespace_2938acdc::init();
 	dirtybomb_usebar::register(undefined, &function_866f5f2c);
 	clientfield::register("toplayer", "using_bomb", 1, 2, "int", &function_18272d54, 0, 0);
-	clientfield::function_a8bbc967("hudItems.uraniumCarryCount", #"hud_items", #"hash_556b3df8ae964e7c", 1, 4, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.uraniumMaxCarry", #"hud_items", #"hash_1879fbcae78c5417", 1, 4, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.uraniumFullCarry", #"hud_items", #"hash_451ab3abde68434a", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.uraniumCarryCount", #"hud_items", #"hash_556b3df8ae964e7c", 1, 4, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.uraniumMaxCarry", #"hud_items", #"hash_1879fbcae78c5417", 1, 4, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.uraniumFullCarry", #"hud_items", #"hash_451ab3abde68434a", 1, 1, "int", undefined, 0, 0);
 	clientfield::register("allplayers", "carryingUranium", 1, 1, "int", &function_46afac0, 0, 1);
 	clientfield::register("scriptmover", "bombsound", 1, 1, "int", &function_f20fb48, 0, 0);
 	clientfield::function_5b7d846d("hud_items_dirty_bomb.bomb_respawn_disabled", #"hash_1115137708f64303", #"hash_611630c939ad1b67", 1, 1, "int", undefined, 0, 0);
@@ -107,13 +107,13 @@ function private function_bb2f717e(localclientnum)
 	}
 	while(true)
 	{
-		if(!isdefined(level.var_5862f2ce))
+		if(!isdefined(level.item_spawn_stashes))
 		{
 			wait(1);
 			continue;
 		}
 		draworigin = getcamposbylocalclientnum(localclientnum);
-		containers = arraysortclosest(level.var_5862f2ce, draworigin, 5, 0, 1500);
+		containers = arraysortclosest(level.item_spawn_stashes, draworigin, 5, 0, 1500);
 		var_7dcc7dd4 = [];
 		for(index = 0; index < containers.size; index++)
 		{
@@ -189,7 +189,7 @@ function private function_e99f251a(localclientnum, var_a6762160)
 		}
 		return 0;
 	}
-	if(var_a6762160.itemtype == #"hash_56d6621e6c4caf07")
+	if(var_a6762160.itemtype == #"armor_shard")
 	{
 		return 0;
 	}
@@ -219,7 +219,7 @@ function private function_218c0417(localclientnum, var_a6762160)
 		}
 		return 0;
 	}
-	if(var_a6762160.itemtype == #"hash_56d6621e6c4caf07")
+	if(var_a6762160.itemtype == #"armor_shard")
 	{
 		currentcount = self clientfield::get_player_uimodel("hudItems.armorPlateCount");
 		return currentcount < 5;
@@ -243,7 +243,7 @@ function private function_a2807fc5(localclientnum, var_a6762160)
 		weapons = self getweaponslist();
 		foreach(weapon in weapons)
 		{
-			var_16f12c31 = namespace_ad5a0cd6::function_3531b9ba(weapon.name);
+			var_16f12c31 = item_world_util::function_3531b9ba(weapon.name);
 			if(!isdefined(var_16f12c31))
 			{
 				continue;

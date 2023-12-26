@@ -1,9 +1,9 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_3f9e0dc8454d98e1;
-#using script_460f2e04fb3cff8a;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\trials\zm_trial_headshots_only.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\trials\zm_trial_no_powerups.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
@@ -528,12 +528,12 @@ function function_2ff352cc()
 	{
 		n_players = a_e_players.size;
 	}
-	n_kill_count = function_21a3a673(zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + n_players), zombie_utility::function_d2dfacfd(#"hash_3f4e6b25f57677da" + n_players));
-	if(zm_custom::function_901b751c(#"hash_393fb6bd6c5874aa") == 0)
+	n_kill_count = function_21a3a673(zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + n_players), zombie_utility::function_d2dfacfd(#"zombie_powerup_drop_max_" + n_players));
+	if(zm_custom::function_901b751c(#"zmpowerupfrequency") == 0)
 	{
 		n_kill_count = n_kill_count * 2;
 	}
-	else if(zm_custom::function_901b751c(#"hash_393fb6bd6c5874aa") == 2)
+	else if(zm_custom::function_901b751c(#"zmpowerupfrequency") == 2)
 	{
 		n_kill_count = floor(n_kill_count / 2);
 	}
@@ -562,7 +562,7 @@ function private function_a7a5570e()
 	for(i = 1; i <= 4; i++)
 	{
 		zombie_utility::set_zombie_var(#"hash_434b3261c607850" + i, int(min(990, (zombie_utility::function_d2dfacfd(#"hash_434b3261c607850" + i)) + 1)));
-		zombie_utility::set_zombie_var(#"hash_3f4e6b25f57677da" + i, int(min(999, (zombie_utility::function_d2dfacfd(#"hash_3f4e6b25f57677da" + i)) + 1)));
+		zombie_utility::set_zombie_var(#"zombie_powerup_drop_max_" + i, int(min(999, (zombie_utility::function_d2dfacfd(#"zombie_powerup_drop_max_" + i)) + 1)));
 	}
 }
 
@@ -701,7 +701,7 @@ function get_regular_random_powerup_name()
 */
 function function_cc33adc8()
 {
-	return util::function_5df4294() != "zcleansed";
+	return util::get_game_type() != "zcleansed";
 }
 
 /*
@@ -812,7 +812,7 @@ function add_zombie_powerup(powerup_name, model_name, hint, func_should_drop_wit
 	struct.only_affects_grabber = only_affects_grabber;
 	struct.any_team = any_team;
 	struct.zombie_grabbable = zombie_grabbable;
-	struct.var_33c87f51 = function_129f6487(powerup_name);
+	struct.hash_id = function_129f6487(powerup_name);
 	struct.player_specific = player_specific;
 	struct.can_pick_up_in_last_stand = 1;
 	if(isdefined(fx))
@@ -834,8 +834,8 @@ function add_zombie_powerup(powerup_name, model_name, hint, func_should_drop_wit
 	{
 		var_4e6e65fa = ("hudItems.zmPowerUps." + client_field_name) + ".state";
 		var_d75767cb = ("hudItems.zmPowerUps." + client_field_name) + ".timeRemaining";
-		clientfield::function_a8bbc967(var_4e6e65fa, clientfield_version, 2, "int");
-		clientfield::function_a8bbc967(var_d75767cb, clientfield_version, 8, "int");
+		clientfield::register_clientuimodel(var_4e6e65fa, clientfield_version, 2, "int");
+		clientfield::register_clientuimodel(var_d75767cb, clientfield_version, 8, "int");
 		struct.client_field_name = var_4e6e65fa;
 		struct.var_b79536ad = var_d75767cb;
 		struct.time_name = time_name;
@@ -1026,11 +1026,11 @@ function powerup_round_start()
 	Parameters: 1
 	Flags: Linked
 */
-function function_5326bd06(var_7d81025)
+function function_5326bd06(e_powerup)
 {
-	if(isdefined(var_7d81025))
+	if(isdefined(e_powerup))
 	{
-		var_7d81025 delete();
+		e_powerup delete();
 	}
 }
 
@@ -1729,9 +1729,9 @@ function powerup_grab(powerup_team)
 				demo::bookmark(#"zm_player_powerup_grabbed", gettime(), player);
 				potm::bookmark(#"zm_player_powerup_grabbed", gettime(), player);
 				bb::logpowerupevent(self, player, "_grabbed");
-				if(isdefined(self.var_33c87f51))
+				if(isdefined(self.hash_id))
 				{
-					player recordmapevent(23, gettime(), grabber.origin, level.round_number, self.var_33c87f51);
+					player recordmapevent(23, gettime(), grabber.origin, level.round_number, self.hash_id);
 				}
 				if(should_award_stat(self.powerup_name) && isplayer(player))
 				{
@@ -1742,11 +1742,11 @@ function powerup_grab(powerup_team)
 					player zm_stats::increment_player_stat(self.powerup_name + "_pickedup");
 					player zm_stats::increment_challenge_stat(#"survivalist_powerup");
 					player zm_stats::function_8f10788e(("boas_" + self.powerup_name) + "_pickedup");
-					player contracts::function_5b88297d(#"hash_456b19c561097c1b");
+					player contracts::increment_zm_contract(#"hash_456b19c561097c1b");
 					if(zm_utility::is_standard())
 					{
 						player zm_stats::increment_challenge_stat(#"hash_35ab7dfe675d26e9");
-						player zm_stats::function_c0c6ab19(#"hash_5d17ceae070dc3c1");
+						player zm_stats::function_c0c6ab19(#"rush_powerups");
 					}
 				}
 				if(isdefined(level.var_50b95271))
@@ -2357,7 +2357,7 @@ function function_a4e210c7()
 */
 function function_fe6d6eac(player, mod, hit_location, weapon, damage)
 {
-	if(!("head" == hit_location || "helmet" == hit_location || "neck" == hit_location) && (is_true(level.headshots_only) || namespace_25f0796c::is_active()))
+	if(!("head" == hit_location || "helmet" == hit_location || "neck" == hit_location) && (is_true(level.headshots_only) || zm_trial_headshots_only::is_active()))
 	{
 		return damage;
 	}

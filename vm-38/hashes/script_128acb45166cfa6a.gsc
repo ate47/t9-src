@@ -1,4 +1,4 @@
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

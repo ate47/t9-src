@@ -43,8 +43,8 @@ event main(eventstruct)
 	level._zombie_gamemodemain = &onstartgametype;
 	for(i = 0; i < 5; i++)
 	{
-		clientfield::function_5b7d846d(("PlayerList.client" + i) + ".multiplier_count", #"hash_97df1852304b867", [1:#"hash_7c40e95279165a6a", 0:hash((isdefined(i) ? "" + i : ""))], 1, 12, "int", undefined, 0, 0);
-		clientfield::function_5b7d846d(("PlayerList.client" + i) + ".multiplier_blink", #"hash_97df1852304b867", [1:#"hash_5b76ed50c5e3a0ff", 0:hash((isdefined(i) ? "" + i : ""))], 1, 1, "int", undefined, 0, 0);
+		clientfield::function_5b7d846d(("PlayerList.client" + i) + ".multiplier_count", #"hash_97df1852304b867", [1:#"multiplier_count", 0:hash((isdefined(i) ? "" + i : ""))], 1, 12, "int", undefined, 0, 0);
+		clientfield::function_5b7d846d(("PlayerList.client" + i) + ".multiplier_blink", #"hash_97df1852304b867", [1:#"multiplier_blink", 0:hash((isdefined(i) ? "" + i : ""))], 1, 1, "int", undefined, 0, 0);
 	}
 }
 
@@ -60,7 +60,7 @@ event main(eventstruct)
 function private finalize_clientfields(localclientnum)
 {
 	clientfield::register("toplayer", "zm_trials_timer", 1, getminbitcountfornum(540), "int", &function_bb753058, 0, 1);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.gameStartTime", #"hash_21ac7bf03dae9888", #"gamestarttime", 1, 31, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.gameStartTime", #"zm_trials", #"gamestarttime", 1, 31, "int", undefined, 0, 0);
 }
 
 /*

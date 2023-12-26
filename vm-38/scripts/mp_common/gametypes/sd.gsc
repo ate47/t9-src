@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using scripts\core_common\player\player_stats.gsc;
@@ -655,14 +655,14 @@ function givelastattackerwarning(team)
 	Parameters: 2
 	Flags: Private
 */
-function private function_d9c14343(team, var_3aef38fd)
+function private function_d9c14343(team, deadteam)
 {
-	if(!isdefined(team) || !isdefined(var_3aef38fd))
+	if(!isdefined(team) || !isdefined(deadteam))
 	{
 		return;
 	}
 	waittillframeend();
-	var_fbd29ffa = (isdefined(level.var_ee2324e4[var_3aef38fd]) ? level.var_ee2324e4[var_3aef38fd] : 0);
+	var_fbd29ffa = (isdefined(level.var_ee2324e4[deadteam]) ? level.var_ee2324e4[deadteam] : 0);
 	if(var_fbd29ffa < 1)
 	{
 		return;
@@ -771,7 +771,7 @@ function bombs()
 		smart_cover::function_18f38647(trigger);
 		concertina_wire::function_18f38647(trigger);
 		name = #"sd" + trigger.script_label;
-		waypointname = #"hash_2797ef96a09741f0" + trigger.script_label;
+		waypointname = #"sd_waypoint" + trigger.script_label;
 		trigger.angles = visuals[0].angles;
 		trigger function_682f34cf(-800);
 		trigger usetriggerignoreuseholdtime();
@@ -1124,7 +1124,7 @@ function onuseplantobject(player)
 	player stats::function_bb7eedf0(#"plants", 1);
 	player stats::function_dad108fa(#"plants_defuses", 1);
 	player globallogic_score::incpersstat(#"objectivescore", 1, 0, 1);
-	player contracts::function_a54e2068(#"hash_7fb3342ea8ac7e7c");
+	player contracts::increment_contract(#"hash_7fb3342ea8ac7e7c");
 	globallogic_audio::leader_dialog("bombPlanted");
 	scoreevents::processscoreevent(#"planted_bomb", player, undefined, undefined);
 	player recordgameevent("plant");
@@ -1170,7 +1170,7 @@ function onusedefuseobject(player)
 	player.objectives = player.pers[#"objectives"];
 	player stats::function_bb7eedf0(#"defuses", 1);
 	player stats::function_dad108fa(#"plants_defuses", 1);
-	player contracts::function_a54e2068(#"hash_7fb3342ea8ac7e7c");
+	player contracts::increment_contract(#"hash_7fb3342ea8ac7e7c");
 	demo::bookmark(#"event", gettime(), player);
 	potm::bookmark(#"event", gettime(), player);
 	globallogic_audio::leader_dialog("bombDefused");
@@ -1184,7 +1184,7 @@ function onusedefuseobject(player)
 	{
 		scoreevents::processscoreevent(#"defused_bomb", player, undefined, undefined);
 	}
-	player globallogic_score::incpersstat(#"hash_2dadc7ba42ffd04d", 1, 0, 1);
+	player globallogic_score::incpersstat(#"objectivedefends", 1, 0, 1);
 	player recordgameevent("defuse");
 	level thread telemetry::function_18135b72(#"hash_540cddd637f71a5e", {#eventtype:#"defuse", #player:player});
 }

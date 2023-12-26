@@ -1,7 +1,7 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_vo.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -93,15 +93,15 @@ function grab_fire_sale(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_3ceac0e1(var_7d81025, player)
+function function_3ceac0e1(e_powerup, player)
 {
 	self notify("4e8ac3aa35304135");
 	self endon("4e8ac3aa35304135");
 	player endon(#"disconnect");
 	player thread zm_powerups::function_5091b029("fire_sale");
-	if(isdefined(player) && isplayer(player) && isdefined(var_7d81025.hint))
+	if(isdefined(player) && isplayer(player) && isdefined(e_powerup.hint))
 	{
-		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", var_7d81025.hint);
+		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", e_powerup.hint);
 	}
 	player zombie_utility::function_826f5e98(#"zombie_powerup_fire_sale_on", 1);
 	player zombie_utility::function_826f5e98(#"zombie_powerup_fire_sale_time", 30);

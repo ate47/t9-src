@@ -34,7 +34,7 @@ function function_99652b58(name, index, team)
 	cameras = territory::get_ent_array(name, "targetname");
 	if(cameras.size)
 	{
-		function_1d94550a(name, index, team, cameras[0].origin, cameras[0].angles);
+		addobjectivecamerapoint(name, index, team, cameras[0].origin, cameras[0].angles);
 		return true;
 	}
 	return false;
@@ -51,7 +51,7 @@ function function_99652b58(name, index, team)
 */
 function function_67b65e2a(name, index, team, origin, angles)
 {
-	function_1d94550a(name, index, team, origin, angles);
+	addobjectivecamerapoint(name, index, team, origin, angles);
 	function_e795803(name, 1);
 }
 

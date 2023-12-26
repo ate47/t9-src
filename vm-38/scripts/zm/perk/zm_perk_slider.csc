@@ -49,11 +49,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	function_481123c();
+	enable_slider_perk_for_level();
 }
 
 /*
-	Name: function_481123c
+	Name: enable_slider_perk_for_level
 	Namespace: zm_perk_slider
 	Checksum: 0x1F80976D
 	Offset: 0x250
@@ -61,15 +61,15 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_481123c()
+function enable_slider_perk_for_level()
 {
 	zm_perks::register_perk_clientfields(#"hash_3417450e1347185", &function_4bb29d61, &function_90b5e96c);
 	zm_perks::register_perk_effects(#"hash_3417450e1347185", "slider_light");
-	zm_perks::register_perk_init_thread(#"hash_3417450e1347185", &function_15d03600);
+	zm_perks::register_perk_init_thread(#"hash_3417450e1347185", &init_slider);
 }
 
 /*
-	Name: function_15d03600
+	Name: init_slider
 	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x2F8
@@ -77,7 +77,7 @@ function function_481123c()
 	Parameters: 0
 	Flags: Linked
 */
-function function_15d03600()
+function init_slider()
 {
 }
 
@@ -160,9 +160,9 @@ function phd_slider_machine_rob_purchase(localclientnum, oldval, newval, bnewent
 		self function_f6e99a8d("rob_phd_slide_top_lights1");
 		self function_f6e99a8d("rob_phd_slide_top_lights2");
 		wait(1);
-		self function_bf9d3071("rob_phd_slide_side_lights");
-		self function_bf9d3071("rob_phd_slide_top_lights1");
-		self function_bf9d3071("rob_phd_slide_top_lights2");
+		self playrenderoverridebundle("rob_phd_slide_side_lights");
+		self playrenderoverridebundle("rob_phd_slide_top_lights1");
+		self playrenderoverridebundle("rob_phd_slide_top_lights2");
 	}
 }
 
@@ -179,9 +179,9 @@ function phd_slider_machine_rob_poweron(localclientnum, oldval, newval, bnewent,
 {
 	if(bwastimejump)
 	{
-		self function_bf9d3071("rob_phd_slide_side_lights");
-		self function_bf9d3071("rob_phd_slide_top_lights1");
-		self function_bf9d3071("rob_phd_slide_top_lights2");
+		self playrenderoverridebundle("rob_phd_slide_side_lights");
+		self playrenderoverridebundle("rob_phd_slide_top_lights1");
+		self playrenderoverridebundle("rob_phd_slide_top_lights2");
 	}
 }
 

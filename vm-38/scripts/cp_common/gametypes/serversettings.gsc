@@ -113,7 +113,7 @@ function init()
 		}
 	}
 	level.mapsize = getdvarfloat(#"scr_mapsize", 0);
-	constrain_gametype(util::function_5df4294());
+	constrain_gametype(util::get_game_type());
 	constrain_map_size(level.mapsize);
 	for(;;)
 	{

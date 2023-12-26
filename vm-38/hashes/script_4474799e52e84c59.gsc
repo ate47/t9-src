@@ -49,7 +49,7 @@ function private autoexec function_ab987e77()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_244949c60a0b2941", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_244949c60a0b2941", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -67,7 +67,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_5b3a52eb
 	Checksum: 0x80F724D1
 	Offset: 0x370
@@ -75,7 +75,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 }
 
@@ -749,7 +749,7 @@ function function_8d9ddc22(player, var_e7772c37)
 			player function_6edc650b(var_963f7bc9);
 			weaponoptions = player function_ade49959(var_d5c2e187);
 			camoindex = getcamoindex(weaponoptions);
-			player function_bd3cce02(var_963f7bc9, camoindex);
+			player setcamo(var_963f7bc9, camoindex);
 			player.var_1ad4cede[var_d5c2e187.name] = player getammocount(var_d5c2e187);
 			player thread function_6d4e1f71(var_d5c2e187, var_e7772c37, var_b0e35c50);
 			player thread function_469b0e5();

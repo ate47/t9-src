@@ -66,7 +66,7 @@ event private main(eventstruct)
 	settings = function_7b29177a();
 	if(isdefined(settings) && is_true(settings.var_9f40f0a7))
 	{
-		setdvar(#"hash_53f625ed150e7700", default_value(settings.var_6d94bb5e, 0));
+		setdvar(#"hash_53f625ed150e7700", default_value(settings.culldistance, 0));
 		setdvar(#"hash_10fde33c9a36a9b4", default_value(settings.var_920327d8, 0));
 		setdvar(#"cg_aggressivecullradius", default_value(settings.var_45fe6c24, 0));
 		setdvar(#"hash_394141aabb847427", default_value(settings.var_cfe949f6, 0));

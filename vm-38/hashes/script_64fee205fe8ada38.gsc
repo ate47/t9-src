@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_789f2367a00401d8;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -125,10 +125,10 @@ function function_4b462025(enemy, b_ignore_cleanup)
 			while(i <= time)
 			{
 				height = (launch_pos[2] + (var_813d38fa * i)) - (0.5 * getdvarint(#"bg_gravity", 800)) * sqr(i);
-				var_37f8a843 = (launch_pos[0] + (velocity[0] * i), launch_pos[1] + (velocity[1] * i), height);
-				sphere(var_37f8a843, 8, (0, 1, 0), 1, 1, 8, 300);
-				thread debug::drawdebugline(last_pos, var_37f8a843, (0, 1, 0), 300);
-				last_pos = var_37f8a843;
+				debug_pos = (launch_pos[0] + (velocity[0] * i), launch_pos[1] + (velocity[1] * i), height);
+				sphere(debug_pos, 8, (0, 1, 0), 1, 1, 8, 300);
+				thread debug::drawdebugline(last_pos, debug_pos, (0, 1, 0), 300);
+				last_pos = debug_pos;
 				if(i == time)
 				{
 					break;
@@ -167,25 +167,25 @@ function private function_b38c1846(e_projectile, target, b_ignore_cleanup, orda)
 	self endon(#"entitydeleted");
 	waitframe(1);
 	e_projectile thread function_cf57c2cb(self);
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"death", #"projectile_impact_explode", #"explode", #"hash_38b24dfa52842786");
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"death", #"projectile_impact_explode", #"explode", #"hash_38b24dfa52842786");
 	/#
 		if(getdvarint(#"hash_23c79bd6109328a", 0))
 		{
 			sphere(self.origin, 8, (1, 0, 0), 1, 1, 8, 300);
 		}
 	#/
-	if(var_be17187b._notify == "death")
+	if(s_waitresult._notify == "death")
 	{
 		self deletedelay();
-		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(float(function_60d95f53()) / 1000, #"projectile_impact_explode", #"explode", #"hash_38b24dfa52842786");
-		if(var_be17187b._notify == "timeout")
+		s_waitresult = undefined;
+		s_waitresult = self waittilltimeout(float(function_60d95f53()) / 1000, #"projectile_impact_explode", #"explode", #"hash_38b24dfa52842786");
+		if(s_waitresult._notify == "timeout")
 		{
 			return;
 		}
 	}
-	if(var_be17187b._notify == "projectile_impact_explode")
+	if(s_waitresult._notify == "projectile_impact_explode")
 	{
 		e_projectile deletedelay();
 		a_players = function_a1ef346b();
@@ -548,7 +548,7 @@ function private function_187bcbe()
 		}
 		if(isdefined(self.target_ent) && isplayer(self.target_ent))
 		{
-			params = function_4d1e7b48("dot_molotov_hulk_fireball");
+			params = getstatuseffect("dot_molotov_hulk_fireball");
 			self.target_ent status_effect::status_effect_apply(params, undefined, self, 0, undefined, undefined, self.origin);
 			self.target_ent clientfield::increment("hs_swarm_damage", 1);
 			health_frac = self.health / self.maxhealth;

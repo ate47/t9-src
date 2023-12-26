@@ -46,7 +46,7 @@ function private autoexec __init__system__()
 */
 function __init__()
 {
-	level.wave_spawn = (isdefined(getgametypesetting(#"hash_6f135d596eeee7a")) ? getgametypesetting(#"hash_6f135d596eeee7a") : 0);
+	level.wave_spawn = (isdefined(getgametypesetting(#"wzenablewaverespawn")) ? getgametypesetting(#"wzenablewaverespawn") : 0);
 	if(level.wave_spawn)
 	{
 		level.takelivesondeath = 1;
@@ -71,7 +71,7 @@ function __init__()
 */
 function function_301b775b()
 {
-	if(clientfield::function_6b3b55da("hudItems.warzone.waveRespawnTimer"))
+	if(clientfield::can_set("hudItems.warzone.waveRespawnTimer"))
 	{
 		time = int(gettime() + (int(level.waverespawndelay * 1000)));
 		level clientfield::set_world_uimodel("hudItems.warzone.waveRespawnTimer", time);
@@ -89,7 +89,7 @@ function function_301b775b()
 */
 function private function_a27362d0(params)
 {
-	if(level.var_52b56362 >= (level.var_fb91af8.size - 2))
+	if(level.deathcircleindex >= (level.deathcircles.size - 2))
 	{
 		foreach(player in getplayers())
 		{
@@ -125,7 +125,7 @@ function function_ca1398a7()
 	while(count < lives && isdefined(self))
 	{
 		count++;
-		scoreevents::processscoreevent(#"hash_7e277ffa73b4760b", self, undefined, weapon);
+		scoreevents::processscoreevent(#"redeploy_bonus", self, undefined, weapon);
 	}
 }
 
@@ -140,7 +140,7 @@ function function_ca1398a7()
 */
 function function_1540761c(params)
 {
-	if(!level.deathcircle.enabled || level.var_fb91af8.size <= 0)
+	if(!level.deathcircle.enabled || level.deathcircles.size <= 0)
 	{
 		return;
 	}
@@ -208,7 +208,7 @@ function private function_14a68e0b(var_a2f12b49)
 			level.lastwave[team] = 0;
 		}
 		level thread [[level.wavespawntimer]]();
-		level clientfield::set_world_uimodel("hudItems.warzone.collapseCount", level.var_fb91af8.size - 1);
+		level clientfield::set_world_uimodel("hudItems.warzone.collapseCount", level.deathcircles.size - 1);
 	}
 }
 

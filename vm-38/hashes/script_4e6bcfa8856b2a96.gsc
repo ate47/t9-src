@@ -47,7 +47,7 @@ class cdirtybomb_usebar : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cdirtybomb_usebar : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,9 +90,9 @@ class cdirtybomb_usebar : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("DirtyBomb_UseBar");
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("progressFrac", 1, 10, "float");
-		cLUIelem::function_da693cbe("activatorCount", 1, 3, "int", 0);
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("progressFrac", 1, 10, "float");
+		cLUIelem::add_clientfield("activatorCount", 1, 3, "int", 0);
 	}
 
 	/*

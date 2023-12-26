@@ -44,7 +44,7 @@ class cmp_laststand_client : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cmp_laststand_client
 		Checksum: 0x9B84CCE1
 		Offset: 0x448
@@ -52,9 +52,9 @@ class cmp_laststand_client : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("mp_laststand_client");
+		cLUIelem::register_clientside("mp_laststand_client");
 	}
 
 	/*
@@ -83,8 +83,8 @@ class cmp_laststand_client : cLUIelem
 	function setup_clientfields(var_a9a4e140, var_e97e7153)
 	{
 		cLUIelem::setup_clientfields("mp_laststand_client");
-		cLUIelem::function_da693cbe("bleedout_progress", 1, 6, "float", var_a9a4e140);
-		cLUIelem::function_da693cbe("revive_progress", 1, 5, "float", var_e97e7153);
+		cLUIelem::add_clientfield("bleedout_progress", 1, 6, "float", var_a9a4e140);
+		cLUIelem::add_clientfield("revive_progress", 1, 5, "float", var_e97e7153);
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_a9a4e140, var_e97e7153)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: mp_laststand_client
 	Checksum: 0x28720300
 	Offset: 0x288
@@ -176,10 +176,10 @@ function register(var_a9a4e140, var_e97e7153)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cmp_laststand_client();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

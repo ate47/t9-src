@@ -166,7 +166,7 @@ function local_player_spawn(localclientnum)
 	{
 		return;
 	}
-	if(!sessionmodeismultiplayergame() && !function_f99d2668())
+	if(!sessionmodeismultiplayergame() && !sessionmodeiswarzonegame())
 	{
 		self thread sndmusicdeathwatcher();
 	}
@@ -422,7 +422,7 @@ function function_22a92b8b()
 			break;
 		}
 	}
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	switch(gametype)
 	{
 		case "download":
@@ -446,7 +446,7 @@ function function_22a92b8b()
 function function_c9705ad4()
 {
 	ignore = 1;
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	switch(gametype)
 	{
 		case "coop":
@@ -1846,7 +1846,7 @@ function weapon_butt_sounds(localclientnum, oldval, newval, bnewent, binitialsna
 */
 function sndmatchsnapshot(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -2188,7 +2188,7 @@ function sndchyronloop(localclientnum, oldval, newval, bnewent, binitialsnap, fi
 function function_aa906715()
 {
 	self endon(#"death", #"disconnect", #"game_ended");
-	if(self function_21c0fa55() && sessionmodeismultiplayergame() || function_f99d2668())
+	if(self function_21c0fa55() && sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self.var_e4acdf73 = 0;
 		var_1b0c36cc = self battlechatter::get_player_dialog_alias("exertGasCough");
@@ -2287,7 +2287,7 @@ function function_deedd8d0(var_78ca4238)
 function sndsprintbreath(localclientnum)
 {
 	self endon(#"death");
-	if(self function_21c0fa55() && sessionmodeismultiplayergame() || function_f99d2668())
+	if(self function_21c0fa55() && sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self.var_29054134 = 0;
 		var_63112f76 = self battlechatter::get_player_dialog_alias("exertBreatheSprinting");

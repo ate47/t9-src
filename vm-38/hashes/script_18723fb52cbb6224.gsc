@@ -156,7 +156,7 @@ function private function_1d6f6f32(eventstruct)
 		return;
 	}
 	self.b_activated = 1;
-	self callback::function_b74bf3e(&function_1d6f6f32);
+	self callback::remove_on_trigger(&function_1d6f6f32);
 	level thread function_ba971eed(self.instance);
 	level thread function_556eed55(self);
 	while(true)

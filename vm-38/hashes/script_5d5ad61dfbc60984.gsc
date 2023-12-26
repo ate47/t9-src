@@ -1,4 +1,4 @@
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_b9a55edd207e4ca;
 #using scripts\core_common\array_shared.gsc;
@@ -466,8 +466,8 @@ function function_bc2f89f7(truck, endtime, var_3ff0d499, var_172fbf6f)
 	truck.var_9a2087f6 = 0;
 	while(gettime() < endtime)
 	{
-		var_cbc2cea3 = gettime() - lasttime;
-		missile.var_f990f05b = (var_cbc2cea3 * var_d223b230) + missile.var_f990f05b;
+		framedelta = gettime() - lasttime;
+		missile.var_f990f05b = (framedelta * var_d223b230) + missile.var_f990f05b;
 		angles = (missile.var_f990f05b, 0, 0);
 		missile linktoupdateoffset(level.var_43c634a2, angles);
 		lasttime = gettime();
@@ -720,7 +720,7 @@ function setbomboverheatingafterweaponchange(useobject, overheated, heat)
 }
 
 /*
-	Name: function_ca9b286c
+	Name: codecallback_vehicleenter
 	Namespace: namespace_3f3933bc
 	Checksum: 0xA59AC67F
 	Offset: 0x2220
@@ -728,7 +728,7 @@ function setbomboverheatingafterweaponchange(useobject, overheated, heat)
 	Parameters: 1
 	Flags: Event
 */
-event function_ca9b286c(eventstruct)
+event codecallback_vehicleenter(eventstruct)
 {
 	if(!isplayer(self))
 	{
@@ -746,7 +746,7 @@ event function_ca9b286c(eventstruct)
 }
 
 /*
-	Name: function_e011eea6
+	Name: codecallback_vehicleexit
 	Namespace: namespace_3f3933bc
 	Checksum: 0x250610A8
 	Offset: 0x22C0
@@ -754,7 +754,7 @@ event function_ca9b286c(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_e011eea6(eventstruct)
+event codecallback_vehicleexit(eventstruct)
 {
 	if(!isplayer(self))
 	{

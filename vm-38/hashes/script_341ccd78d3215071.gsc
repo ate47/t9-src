@@ -44,7 +44,7 @@ class class_d1ed471a : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_d1ed471a
 		Checksum: 0x1C8CEAA7
 		Offset: 0x340
@@ -52,9 +52,9 @@ class class_d1ed471a : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_gold_hud");
+		cLUIelem::register_clientside("zm_gold_hud");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_gold_hud
 	Checksum: 0x4E8BD916
 	Offset: 0x240
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_d1ed471a();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -47,7 +47,7 @@ class cinitial_black : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cinitial_black : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,7 +90,7 @@ class cinitial_black : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("initial_black");
-		cLUIelem::function_da693cbe("developer_mode", 1, 1, "int");
+		cLUIelem::add_clientfield("developer_mode", 1, 1, "int");
 	}
 
 }

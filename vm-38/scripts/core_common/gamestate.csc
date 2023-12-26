@@ -70,7 +70,7 @@ event function_69452d92(eventstruct)
 		{
 			case "playing":
 			{
-				callback::callback(#"hash_361e06db4b210e", eventstruct);
+				callback::callback(#"on_game_playing", eventstruct);
 				break;
 			}
 			case "postgame":

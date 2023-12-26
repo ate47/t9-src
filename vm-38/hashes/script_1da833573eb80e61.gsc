@@ -58,7 +58,7 @@ class cinitial_black : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cinitial_black
 		Checksum: 0xB732F866
 		Offset: 0x3C0
@@ -66,9 +66,9 @@ class cinitial_black : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("initial_black");
+		cLUIelem::register_clientside("initial_black");
 	}
 
 	/*
@@ -83,7 +83,7 @@ class cinitial_black : cLUIelem
 	function setup_clientfields(var_e303eae1)
 	{
 		cLUIelem::setup_clientfields("initial_black");
-		cLUIelem::function_da693cbe("developer_mode", 1, 1, "int", var_e303eae1);
+		cLUIelem::add_clientfield("developer_mode", 1, 1, "int", var_e303eae1);
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_e303eae1)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: initial_black
 	Checksum: 0xA6C6E6F4
 	Offset: 0x260
@@ -160,10 +160,10 @@ function register(var_e303eae1)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cinitial_black();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

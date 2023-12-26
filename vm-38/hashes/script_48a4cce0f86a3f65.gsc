@@ -40,7 +40,7 @@ function add(name, team)
 		level.var_479cdca1 = [];
 	}
 	start_think = level.var_479cdca1.size == 0;
-	if(function_7a600918(team))
+	if(ishash(team))
 	{
 		if(team == #"axis" || team == #"enemy")
 		{

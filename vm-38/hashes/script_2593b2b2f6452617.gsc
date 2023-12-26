@@ -402,7 +402,7 @@ function function_c64d2826()
 	self switchtoweapon(level.var_e4731251, 1);
 	self thread function_f4b436d5();
 	self waittill(#"weapon_change_complete");
-	callback::function_f77ced93(&function_2c951177);
+	callback::on_weapon_change(&function_2c951177);
 	callback::function_33f0ddd3(&function_2056cd79);
 	self thread function_50d04ccb();
 	self val::reset(#"hash_5f4be7238bf3892b", "disable_weapon_cycling");
@@ -426,7 +426,7 @@ function function_9c294ad5(e_player)
 	e_player endon(#"disconnect");
 	s_result = undefined;
 	s_result = e_player waittill(#"hash_31f98f1ef1f33ee1", #"fake_death", #"inserted");
-	callback::function_5a753d97(&function_2c951177);
+	callback::remove_on_weapon_change(&function_2c951177);
 	callback::function_824d206(&function_2056cd79);
 	e_player takeweapon(level.var_e4731251);
 	e_player notify(#"hide_equipment_hint_text");
@@ -622,12 +622,12 @@ function function_3a6b15fd()
 {
 	if(isdefined(self.var_fe2612fe[#"blocker"]))
 	{
-		self.var_c664f75c = [];
+		self.a_mdl_blockers = [];
 		foreach(s_blocker in self.var_fe2612fe[#"blocker"])
 		{
-			self.var_c664f75c[self.var_c664f75c.size] = namespace_8b6a9d79::spawn_script_model(s_blocker, s_blocker.model, 1);
+			self.a_mdl_blockers[self.a_mdl_blockers.size] = namespace_8b6a9d79::spawn_script_model(s_blocker, s_blocker.model, 1);
 		}
-		foreach(mdl_blocker in self.var_c664f75c)
+		foreach(mdl_blocker in self.a_mdl_blockers)
 		{
 			mdl_blocker disconnectpaths();
 			mdl_blocker ghost();
@@ -655,7 +655,7 @@ function function_bc04a76b()
 	{
 		if(!function_ffdbe8c2(door))
 		{
-			dynent_use::function_bf7b8a27(door);
+			dynent_use::use_dynent(door);
 		}
 	}
 }
@@ -962,14 +962,14 @@ function function_5839db26()
 {
 	self endon(#"objective_ended");
 	n_spawns = randomintrange(2, 5);
-	var_8be21cb = namespace_85745671::function_e4791424(self.var_43123efe.origin, 32, 80, 400);
+	a_s_pts = namespace_85745671::function_e4791424(self.var_43123efe.origin, 32, 80, 400);
 	for(i = 0; i < n_spawns; i++)
 	{
 		level flag::wait_till("spawn_zombies");
-		if(isdefined(var_8be21cb[i]))
+		if(isdefined(a_s_pts[i]))
 		{
 			var_7ecdee63 = function_2631fff1(self, level.var_b48509f9);
-			ai_spawned = namespace_85745671::function_9d3ad056(var_7ecdee63, var_8be21cb[i].origin, self.var_43123efe.angles, "defend_zombie");
+			ai_spawned = namespace_85745671::function_9d3ad056(var_7ecdee63, a_s_pts[i].origin, self.var_43123efe.angles, "defend_zombie");
 		}
 		wait(0.1);
 	}
@@ -1157,10 +1157,10 @@ function function_809b1986(goalpos)
 {
 	if(isdefined(level.var_7d45d0d4.currentdestination) && level.var_7d45d0d4.currentdestination.targetname === "destination_ski")
 	{
-		if(isdefined(level.var_7d45d0d4.var_3385b421.origin))
+		if(isdefined(level.var_7d45d0d4.activeobjective.origin))
 		{
 			var_82bf669e = 490000;
-			if(distancesquared(self.origin, level.var_7d45d0d4.var_3385b421.origin) > var_82bf669e)
+			if(distancesquared(self.origin, level.var_7d45d0d4.activeobjective.origin) > var_82bf669e)
 			{
 				self.var_a44ca810 = 250;
 				self.var_62561fdc = 500;
@@ -1250,18 +1250,18 @@ function function_34ac205(instance, n_active, a_s_spawnpts, n_wave)
 	instance.n_active = 0;
 	n_delay = 1 / (n_wave * 3);
 	a_s_locs = instance function_94e50668(a_s_spawnpts, n_wave);
-	var_8be21cb = arraycopy(a_s_locs);
+	a_s_pts = arraycopy(a_s_locs);
 	while(true)
 	{
 		level flag::wait_till("spawn_zombies");
 		if(instance.n_active < n_active)
 		{
-			if(!var_8be21cb.size)
+			if(!a_s_pts.size)
 			{
-				var_8be21cb = arraycopy(a_s_locs);
+				a_s_pts = arraycopy(a_s_locs);
 			}
-			s_loc = var_8be21cb[0];
-			arrayremovevalue(var_8be21cb, var_8be21cb[0]);
+			s_loc = a_s_pts[0];
+			arrayremovevalue(a_s_pts, a_s_pts[0]);
 			var_7ecdee63 = function_2631fff1(instance, level.var_b48509f9);
 			if(namespace_7589cf5c::function_82e262cf(var_7ecdee63))
 			{
@@ -1316,9 +1316,9 @@ function function_34ac205(instance, n_active, a_s_spawnpts, n_wave)
 */
 function function_c36cb7b1(params)
 {
-	if(isdefined(level.var_7d45d0d4.var_3385b421) && level.var_7d45d0d4.var_3385b421.var_b803db9c)
+	if(isdefined(level.var_7d45d0d4.activeobjective) && level.var_7d45d0d4.activeobjective.var_b803db9c)
 	{
-		level.var_7d45d0d4.var_3385b421.var_b803db9c--;
+		level.var_7d45d0d4.activeobjective.var_b803db9c--;
 	}
 }
 
@@ -1333,9 +1333,9 @@ function function_c36cb7b1(params)
 */
 function on_zombie_killed(instance)
 {
-	if(isdefined(level.var_7d45d0d4.var_3385b421) && level.var_7d45d0d4.var_3385b421.n_active)
+	if(isdefined(level.var_7d45d0d4.activeobjective) && level.var_7d45d0d4.activeobjective.n_active)
 	{
-		level.var_7d45d0d4.var_3385b421.n_active--;
+		level.var_7d45d0d4.activeobjective.n_active--;
 	}
 }
 
@@ -1354,7 +1354,7 @@ function spawn_dogs(instance)
 	self endon(#"death");
 	n_players = getplayers().size;
 	n_total = function_b37294d5(n_players);
-	var_8be21cb = array::randomize(self.var_a74eba1b);
+	a_s_pts = array::randomize(self.var_a74eba1b);
 	i = 0;
 	if(level.var_b48509f9 < 2)
 	{
@@ -1376,14 +1376,14 @@ function spawn_dogs(instance)
 		level flag::wait_till("spawn_zombies");
 		var_6017f33e = namespace_679a22ba::function_ca209564(var_ac011846);
 		var_7ecdee63 = var_6017f33e.var_990b33df;
-		ai_spawned = namespace_85745671::function_9d3ad056(var_7ecdee63, var_8be21cb[i].origin, var_8be21cb[i].angles, "defend_zombie");
+		ai_spawned = namespace_85745671::function_9d3ad056(var_7ecdee63, a_s_pts[i].origin, a_s_pts[i].angles, "defend_zombie");
 		if(isdefined(ai_spawned))
 		{
 			ai_spawned thread zombie_attack();
-			ai_spawned callback::function_d8abfc3d(#"on_ai_killed", &function_ae78134);
+			ai_spawned callback::function_d8abfc3d(#"on_ai_killed", &on_dog_killed);
 		}
 		i++;
-		if(i >= (var_8be21cb.size - 1))
+		if(i >= (a_s_pts.size - 1))
 		{
 			i = 0;
 		}
@@ -1392,7 +1392,7 @@ function spawn_dogs(instance)
 }
 
 /*
-	Name: function_ae78134
+	Name: on_dog_killed
 	Namespace: namespace_bff7ce85
 	Checksum: 0x4CB0677B
 	Offset: 0x4C58
@@ -1400,7 +1400,7 @@ function spawn_dogs(instance)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ae78134(params)
+function on_dog_killed(params)
 {
 	var_4a416ea9 = getent("defend_object", "targetname");
 	if(self.aitype === #"hash_7a8b592728eec95d" && isdefined(var_4a416ea9))
@@ -1511,10 +1511,10 @@ function function_2631fff1(instance, var_661691aa)
 	Parameters: 2
 	Flags: Linked
 */
-function function_94e50668(var_8be21cb, n_wave)
+function function_94e50668(a_s_pts, n_wave)
 {
 	a_s_spawnpts = [];
-	foreach(s_pt in var_8be21cb)
+	foreach(s_pt in a_s_pts)
 	{
 		if(n_wave == 4)
 		{
@@ -1548,11 +1548,11 @@ function function_94e50668(var_8be21cb, n_wave)
 			}
 			continue;
 		}
-		a_s_spawnpts = var_8be21cb;
+		a_s_spawnpts = a_s_pts;
 	}
 	if(!isdefined(a_s_spawnpts))
 	{
-		return var_8be21cb;
+		return a_s_pts;
 	}
 	a_s_spawnpts = array::randomize(a_s_spawnpts);
 	return a_s_spawnpts;
@@ -1579,7 +1579,7 @@ function function_763876af(instance)
 			space = 20;
 			if(ispointonnavmesh(var_ebc16ebc.origin, space))
 			{
-				var_ebc16ebc.var_bb075e37 = 1;
+				var_ebc16ebc.on_navmesh = 1;
 				continue;
 			}
 			pt = getclosestpointonnavmesh(var_ebc16ebc.origin, 100, space);
@@ -1601,7 +1601,7 @@ function function_763876af(instance)
 	}
 	self.var_b79a8ac7 = {#slots:slots, #hash_f019ea1a:6000};
 	level.attackables[level.attackables.size] = self;
-	level waittill(#"hash_489578e243cefa93");
+	level waittill(#"timer_defend");
 	if(isdefined(self.health) && isdefined(self.max_health) && (self.health / self.max_health) >= 0.8)
 	{
 		level scoreevents::doscoreeventcallback("scoreEventSR", {#allplayers:1, #scoreevent:"defend_pristine_zm"});

@@ -1,7 +1,7 @@
 #using script_1029986e2bc8ca8e;
 #using script_1287f54612f9bfce;
 #using script_215d7818c548cb51;
-#using script_348ce871561476c9;
+#using scripts\core_common\player\player_free_fall.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3ddf84b7bb3bf47d;
 #using script_55b68e9c3e3a915b;
@@ -333,7 +333,7 @@ function warp(var_6afa034c)
 	{
 		if(isalive(player))
 		{
-			player namespace_4b76712::allow_player_basejumping(0);
+			player player_free_fall::allow_player_basejumping(0);
 			if(zm_utility::is_survival() && player laststand::player_is_in_laststand())
 			{
 				player thread zm_laststand::auto_revive(self);
@@ -367,7 +367,7 @@ function warp(var_6afa034c)
 	wait(1);
 	foreach(player in getplayers())
 	{
-		player namespace_4b76712::allow_player_basejumping(1);
+		player player_free_fall::allow_player_basejumping(1);
 		player clientfield::increment_to_player("" + #"hash_5752601fd90562e1", 1);
 	}
 }
@@ -405,7 +405,7 @@ function call_exfil(var_6afa034c)
 		self thread zm_vo::function_d342796e(#"hash_7e50fb36129dc24b", 1.5);
 	}
 	var_6afa034c showpart("screen_exfil_jnt");
-	self function_974881a5(var_6afa034c);
+	self destroy_beacon(var_6afa034c);
 	level flag::set(#"hash_3e765c26047c9f54");
 }
 
@@ -465,7 +465,7 @@ function function_21ba74a1(machine, trigger)
 }
 
 /*
-	Name: function_974881a5
+	Name: destroy_beacon
 	Namespace: namespace_dbb31ff3
 	Checksum: 0x85DC49B3
 	Offset: 0x1750
@@ -473,7 +473,7 @@ function function_21ba74a1(machine, trigger)
 	Parameters: 1
 	Flags: Linked
 */
-function function_974881a5(var_6afa034c)
+function destroy_beacon(var_6afa034c)
 {
 	var_62157006 = "screen_exfil_jnt";
 	var_f6aedcc6 = var_6afa034c gettagorigin(var_62157006);

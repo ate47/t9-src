@@ -47,7 +47,7 @@ class cdeath_zone : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cdeath_zone : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,7 +90,7 @@ class cdeath_zone : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("death_zone");
-		cLUIelem::function_da693cbe("shutdown_sec", 1, 9, "int");
+		cLUIelem::add_clientfield("shutdown_sec", 1, 9, "int");
 	}
 
 }

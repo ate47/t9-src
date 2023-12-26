@@ -47,7 +47,7 @@ class czm_game_timer : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class czm_game_timer : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -104,9 +104,9 @@ class czm_game_timer : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_game_timer");
-		cLUIelem::function_da693cbe("seconds", 1, 6, "int");
-		cLUIelem::function_da693cbe("minutes", 1, 9, "int");
-		cLUIelem::function_da693cbe("showzero", 1, 1, "int");
+		cLUIelem::add_clientfield("seconds", 1, 6, "int");
+		cLUIelem::add_clientfield("minutes", 1, 9, "int");
+		cLUIelem::add_clientfield("showzero", 1, 1, "int");
 	}
 
 	/*

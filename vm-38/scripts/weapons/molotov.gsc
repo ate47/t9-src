@@ -1,7 +1,7 @@
 #using script_396f7d71538c9677;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -55,7 +55,7 @@ function private autoexec __init__system__()
 */
 function init_shared()
 {
-	params = (getgametypesetting(#"hardcoremode") === 1 ? function_4d1e7b48("dot_molotov_hc") : function_4d1e7b48("dot_molotov"));
+	params = (getgametypesetting(#"hardcoremode") === 1 ? getstatuseffect("dot_molotov_hc") : getstatuseffect("dot_molotov"));
 	level.var_e6a4f161 = params.var_18d16a6b;
 	level.var_5d450296 = params.setype;
 	level.var_e8a6b3ee = [];
@@ -108,7 +108,7 @@ function function_bba54dca()
 {
 	self waittill(#"death");
 	waittillframeend();
-	self notify(#"hash_2a125df0aca068b");
+	self notify(#"molotov_deleted");
 }
 
 /*
@@ -122,13 +122,13 @@ function function_bba54dca()
 */
 function function_1cdbb1e5(owner, weapon)
 {
-	self endon(#"hacked", #"hash_2a125df0aca068b");
+	self endon(#"hacked", #"molotov_deleted");
 	/#
-		assert(isdefined(weapon.var_4dd46f8a), "" + weapon.name);
+		assert(isdefined(weapon.customsettings), "" + weapon.name);
 	#/
 	self thread function_bba54dca();
 	team = self.team;
-	var_3e7a440 = getscriptbundle(weapon.var_4dd46f8a);
+	var_3e7a440 = getscriptbundle(weapon.customsettings);
 	killcament = spawn("script_model", self.origin);
 	killcament util::deleteaftertime(var_3e7a440.var_b79d64a9 + 5);
 	killcament.starttime = gettime();
@@ -144,7 +144,7 @@ function function_1cdbb1e5(owner, weapon)
 		{
 			killcament unlink();
 		}
-		var_bd5f5c6c = !function_f4e48434(waitresult.position);
+		var_bd5f5c6c = !is_under_water(waitresult.position);
 		if(var_bd5f5c6c)
 		{
 			normal = waitresult.normal;
@@ -176,18 +176,18 @@ function function_1cdbb1e5(owner, weapon)
 	Parameters: 8
 	Flags: Linked
 */
-function function_462c8632(owner, origin, normal, velocity, killcament, team, var_4dd46f8a, var_cb4f434e)
+function function_462c8632(owner, origin, normal, velocity, killcament, team, customsettings, var_cb4f434e)
 {
 	if(!isdefined(var_cb4f434e))
 	{
 		var_cb4f434e = 0;
 	}
 	playsoundatposition("", origin);
-	self thread function_e8ad1d81(origin, owner, normal, velocity, killcament, team, var_4dd46f8a, var_cb4f434e);
+	self thread function_e8ad1d81(origin, owner, normal, velocity, killcament, team, customsettings, var_cb4f434e);
 }
 
 /*
-	Name: function_f4e48434
+	Name: is_under_water
 	Namespace: molotov
 	Checksum: 0x9C58F8ED
 	Offset: 0x928
@@ -195,10 +195,10 @@ function function_462c8632(owner, origin, normal, velocity, killcament, team, va
 	Parameters: 1
 	Flags: Linked
 */
-function function_f4e48434(position)
+function is_under_water(position)
 {
-	var_c84f4998 = getwaterheight(position) - position[2];
-	return var_c84f4998 >= 24;
+	water_depth = getwaterheight(position) - position[2];
+	return water_depth >= 24;
 }
 
 /*
@@ -210,13 +210,13 @@ function function_f4e48434(position)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a66ba8cc(var_c84f4998)
+function function_a66ba8cc(water_depth)
 {
-	return 0 < var_c84f4998 && var_c84f4998 < 24;
+	return 0 < water_depth && water_depth < 24;
 }
 
 /*
-	Name: function_330c2616
+	Name: get_water_depth
 	Namespace: molotov
 	Checksum: 0xBAE91A27
 	Offset: 0x9A8
@@ -224,7 +224,7 @@ function function_a66ba8cc(var_c84f4998)
 	Parameters: 1
 	Flags: Linked
 */
-function function_330c2616(position)
+function get_water_depth(position)
 {
 	return getwaterheight(position) - position[2];
 }
@@ -279,9 +279,9 @@ function function_7cbeb2f0(normal)
 	Parameters: 8
 	Flags: Linked
 */
-function function_e8ad1d81(position, owner, normal, velocity, killcament, team, var_4dd46f8a, var_cb4f434e)
+function function_e8ad1d81(position, owner, normal, velocity, killcament, team, customsettings, var_cb4f434e)
 {
-	var_4f9d7296 = position;
+	originalposition = position;
 	var_493d36f9 = normal;
 	var_77261b6 = vectornormalize(velocity);
 	var_1f254a06 = vectorscale(var_77261b6, -1);
@@ -341,7 +341,7 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, team, 
 	if(normal[2] < 0.5)
 	{
 		wall_normal = normal;
-		var_36c22d1d = var_4f9d7296 + vectorscale(var_493d36f9, 8);
+		var_36c22d1d = originalposition + vectorscale(var_493d36f9, 8);
 		var_8ae62b02 = var_36c22d1d - vectorscale((0, 0, 1), 300);
 		var_69d15ad0 = physicstrace(var_36c22d1d, var_8ae62b02, vectorscale((-1, -1, -1), 3), vectorscale((1, 1, 1), 3), self, 1);
 		var_693f108f = var_69d15ad0[#"fraction"] * 300;
@@ -349,7 +349,7 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, team, 
 		var_959a2a8b = 0;
 		if(var_693f108f > 10)
 		{
-			var_e76400c0 = var_4f9d7296;
+			var_e76400c0 = originalposition;
 			wallnormal = var_493d36f9;
 			var_d6d43109 = sqrt(1 - var_69d15ad0[#"fraction"]);
 			var_85da99e6 = position + vectorscale((0, 0, 1), 32);
@@ -373,21 +373,21 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, team, 
 		}
 		if(var_959a2a8b)
 		{
-			x = var_4f9d7296[0];
-			y = var_4f9d7296[1];
+			x = originalposition[0];
+			y = originalposition[1];
 			lowestz = var_69d15ad0[#"position"][2];
-			z = var_4f9d7296[2];
+			z = originalposition[2];
 			while(z > lowestz)
 			{
 				newpos = (x, y, z);
-				var_c84f4998 = function_330c2616(newpos);
-				if(function_a66ba8cc(var_c84f4998) || function_f4e48434(newpos))
+				water_depth = get_water_depth(newpos);
+				if(function_a66ba8cc(water_depth) || is_under_water(newpos))
 				{
-					newpos = newpos - (0, 0, var_c84f4998);
-					level thread function_42b9fdbe(var_7bf146f2, newpos, (0, 0, 1), int(var_4dd46f8a.var_b79d64a9), team);
+					newpos = newpos - (0, 0, water_depth);
+					level thread function_42b9fdbe(var_7bf146f2, newpos, (0, 0, 1), int(customsettings.var_b79d64a9), team);
 					break;
 				}
-				level thread function_42b9fdbe(var_5632b17, newpos, wall_normal, int(var_4dd46f8a.var_b79d64a9), team);
+				level thread function_42b9fdbe(var_5632b17, newpos, wall_normal, int(customsettings.var_b79d64a9), team);
 				z = z - randomintrange(20, 30);
 			}
 			var_bc9ec158 = 0.6 * var_69d15ad0[#"fraction"];
@@ -415,11 +415,11 @@ function function_e8ad1d81(position, owner, normal, velocity, killcament, team, 
 		if(trace[#"fraction"] < 0.9)
 		{
 			var_252a0dc7 = trace[#"normal"];
-			spawntimedfx(var_5632b17, traceposition, var_252a0dc7, int(var_4dd46f8a.var_b79d64a9), team);
+			spawntimedfx(var_5632b17, traceposition, var_252a0dc7, int(customsettings.var_b79d64a9), team);
 		}
 	}
 	var_1f254a06 = normal;
-	level function_8a03d3f3(owner, position, startpos, var_1f254a06, var_d6d43109, rotation, killcament, var_4dd46f8a, team, var_e76400c0, wallnormal, var_693f108f, var_cb4f434e);
+	level function_8a03d3f3(owner, position, startpos, var_1f254a06, var_d6d43109, rotation, killcament, customsettings, team, var_e76400c0, wallnormal, var_693f108f, var_cb4f434e);
 }
 
 /*
@@ -502,9 +502,9 @@ function function_31f342a2(origin, var_9c7e3678)
 	Parameters: 13
 	Flags: Linked
 */
-function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotation, killcament, var_4dd46f8a, team, var_e76400c0, wallnormal, var_693f108f, var_cb4f434e)
+function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotation, killcament, customsettings, team, var_e76400c0, wallnormal, var_693f108f, var_cb4f434e)
 {
-	defaultdistance = var_4dd46f8a.var_6193a41b * multiplier;
+	defaultdistance = customsettings.var_6193a41b * multiplier;
 	defaultdropdistance = getdvarint(#"hash_4a8fc6d7cacea9d5", 90);
 	colorarray = [];
 	colorarray[colorarray.size] = (0.9, 0.2, 0.2);
@@ -518,18 +518,18 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 	locations[#"distsqrd"] = [];
 	locations[#"fxtoplay"] = [];
 	locations[#"radius"] = [];
-	locations[#"hash_33059ac06a23beca"] = [];
-	locations[#"hash_7852e39f75c4b5c0"] = [];
+	locations[#"tallfire"] = [];
+	locations[#"smallfire"] = [];
 	locations[#"steam"] = [];
-	fxcount = var_4dd46f8a.var_b650dc43;
-	var_33ad9452 = (isdefined(var_4dd46f8a.var_bc24d9d3) ? var_4dd46f8a.var_bc24d9d3 : 0);
-	fxcount = int(math::clamp((fxcount * multiplier) + 6, 6, var_4dd46f8a.var_b650dc43));
+	fxcount = customsettings.var_b650dc43;
+	var_33ad9452 = (isdefined(customsettings.var_bc24d9d3) ? customsettings.var_bc24d9d3 : 0);
+	fxcount = int(math::clamp((fxcount * multiplier) + 6, 6, customsettings.var_b650dc43));
 	if(multiplier < 0.04)
 	{
 		fxcount = 0;
 	}
 	function_31cc6bd9();
-	if(function_31f342a2(startpos, sqr(var_4dd46f8a.var_6193a41b * 1.5)) && fxcount > 10)
+	if(function_31f342a2(startpos, sqr(customsettings.var_6193a41b * 1.5)) && fxcount > 10)
 	{
 		fxcount = 7;
 	}
@@ -554,7 +554,7 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 			locations[#"normal"][count] = trace[#"normal"];
 			if(var_1cac1ca8)
 			{
-				locations[#"hash_33059ac06a23beca"][count] = 1;
+				locations[#"tallfire"][count] = 1;
 			}
 			hitsomething = 1;
 		}
@@ -565,17 +565,17 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 			{
 				function_1493c734(var_e5d1793d[#"position"], 10, (0, 0, 1), 0.6, 200);
 				locations[#"loc"][count] = var_e5d1793d[#"position"];
-				var_c84f4998 = function_330c2616(var_e5d1793d[#"position"]);
-				if(function_a66ba8cc(var_c84f4998))
+				water_depth = get_water_depth(var_e5d1793d[#"position"]);
+				if(function_a66ba8cc(water_depth))
 				{
 					locations[#"normal"][count] = (0, 0, 1);
 					locations[#"steam"][count] = 1;
-					locations[#"loc"][count] = locations[#"loc"][count] - (0, 0, var_c84f4998);
+					locations[#"loc"][count] = locations[#"loc"][count] - (0, 0, water_depth);
 				}
 				else
 				{
 					locations[#"normal"][count] = var_e5d1793d[#"normal"];
-					locations[#"hash_7852e39f75c4b5c0"][count] = 1;
+					locations[#"smallfire"][count] = 1;
 				}
 			}
 		}
@@ -593,12 +593,12 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 				function_1493c734(var_9417df90[#"position"], 10, (0, 0, 1), 0.6, 200);
 				locindex = count + (fxcount * (var_ecef2fde + 1));
 				locations[#"loc"][locindex] = var_9417df90[#"position"];
-				var_c84f4998 = function_330c2616(var_9417df90[#"position"]);
-				if(function_a66ba8cc(var_c84f4998))
+				water_depth = get_water_depth(var_9417df90[#"position"]);
+				if(function_a66ba8cc(water_depth))
 				{
 					locations[#"normal"][locindex] = (0, 0, 1);
 					locations[#"steam"][locindex] = 1;
-					locations[#"loc"][locindex] = locations[#"loc"][locindex] - (0, 0, var_c84f4998);
+					locations[#"loc"][locindex] = locations[#"loc"][locindex] - (0, 0, water_depth);
 					continue;
 				}
 				locations[#"normal"][locindex] = var_9417df90[#"normal"];
@@ -622,12 +622,12 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 	{
 		forward = (0, 0, 1);
 	}
-	if(!function_f4e48434(var_6b23e1c9))
+	if(!is_under_water(var_6b23e1c9))
 	{
 		playfx(level._effect[#"hash_31b6cc906e6d0ae0"], var_6b23e1c9, forward, normal, 0, team);
 		if(!isdefined(var_e76400c0))
 		{
-			spawntimedfx(var_aecaaa11, var_6b23e1c9, normal, int(var_4dd46f8a.var_b79d64a9), team);
+			spawntimedfx(var_aecaaa11, var_6b23e1c9, normal, int(customsettings.var_b79d64a9), team);
 		}
 	}
 	if(level.gameended)
@@ -645,38 +645,38 @@ function function_8a03d3f3(owner, impactpos, startpos, normal, multiplier, rotat
 	var_bf264593 = level.var_a88ac760.size;
 	level.var_a88ac760[var_bf264593] = {};
 	var_4b424bc1 = level.var_a88ac760[var_bf264593];
-	var_4b424bc1.var_46ee5246 = int(gettime() + (var_4dd46f8a.var_b79d64a9 * 1000));
+	var_4b424bc1.var_46ee5246 = int(gettime() + (customsettings.var_b79d64a9 * 1000));
 	var_4b424bc1.origin = startpos;
 	var_d58f4be = {};
-	thread damageeffectarea(owner, startpos, killcament, normal, var_aecaaa11, var_4dd46f8a, multiplier, var_e76400c0, wallnormal, var_693f108f, var_4b424bc1.var_46ee5246, var_d58f4be);
-	thread function_9464e4ad(owner, startpos, killcament, var_aecaaa11, var_4dd46f8a, multiplier, var_4b424bc1.var_46ee5246, var_d58f4be);
+	thread damageeffectarea(owner, startpos, killcament, normal, var_aecaaa11, customsettings, multiplier, var_e76400c0, wallnormal, var_693f108f, var_4b424bc1.var_46ee5246, var_d58f4be);
+	thread function_9464e4ad(owner, startpos, killcament, var_aecaaa11, customsettings, multiplier, var_4b424bc1.var_46ee5246, var_d58f4be);
 	var_b1dd2ca0 = getarraykeys(locations[#"loc"]);
-	foreach(var_7ee5c69b in var_b1dd2ca0)
+	foreach(lockey in var_b1dd2ca0)
 	{
-		if(!isdefined(var_7ee5c69b))
+		if(!isdefined(lockey))
 		{
 			continue;
 		}
-		if(function_f4e48434(locations[#"loc"][var_7ee5c69b]))
+		if(is_under_water(locations[#"loc"][lockey]))
 		{
 			continue;
 		}
-		if(isdefined(locations[#"hash_7852e39f75c4b5c0"][var_7ee5c69b]))
+		if(isdefined(locations[#"smallfire"][lockey]))
 		{
 			fireweapon = var_4a1b9411;
 		}
 		else
 		{
-			if(isdefined(locations[#"steam"][var_7ee5c69b]))
+			if(isdefined(locations[#"steam"][lockey]))
 			{
 				fireweapon = var_7bf146f2;
 			}
 			else
 			{
-				fireweapon = (isdefined(locations[#"hash_33059ac06a23beca"][var_7ee5c69b]) ? var_3cbce009 : var_aecaaa11);
+				fireweapon = (isdefined(locations[#"tallfire"][lockey]) ? var_3cbce009 : var_aecaaa11);
 			}
 		}
-		level thread function_42b9fdbe(fireweapon, locations[#"loc"][var_7ee5c69b], locations[#"normal"][var_7ee5c69b], int(var_4dd46f8a.var_b79d64a9), team);
+		level thread function_42b9fdbe(fireweapon, locations[#"loc"][lockey], locations[#"normal"][lockey], int(customsettings.var_b79d64a9), team);
 	}
 }
 
@@ -708,7 +708,7 @@ function function_42b9fdbe(weapon, loc, normal, duration, team)
 function incendiary_debug_line(from, to, color, depthtest, time)
 {
 	/#
-		debug_rcbomb = getdvarint(#"hash_4eff71fc5bf5542a", 0);
+		debug_rcbomb = getdvarint(#"scr_molotov_debug", 0);
 		if(debug_rcbomb == 1)
 		{
 			if(!isdefined(time))
@@ -733,10 +733,10 @@ function incendiary_debug_line(from, to, color, depthtest, time)
 	Parameters: 12
 	Flags: Linked, Private
 */
-function private damageeffectarea(owner, position, killcament, normal, weapon, var_4dd46f8a, radius_multiplier, var_e76400c0, wallnormal, var_cbaaea69, damageendtime, var_d58f4be)
+function private damageeffectarea(owner, position, killcament, normal, weapon, customsettings, radius_multiplier, var_e76400c0, wallnormal, var_cbaaea69, damageendtime, var_d58f4be)
 {
-	radius = var_4dd46f8a.var_6193a41b * radius_multiplier;
-	height = var_4dd46f8a.var_cbd86f3e;
+	radius = customsettings.var_6193a41b * radius_multiplier;
+	height = customsettings.var_cbd86f3e;
 	if(sessionmodeiscampaigngame())
 	{
 		duration = (damageendtime - gettime()) / 1000;
@@ -779,14 +779,14 @@ function private damageeffectarea(owner, position, killcament, normal, weapon, v
 	originalteam = (isdefined(position) ? position.team : undefined);
 	while(gettime() < damageendtime && (!isdefined(position) || position.team == originalteam) && level.gameended !== 1)
 	{
-		potential_targets = self getpotentialtargets(position, var_4dd46f8a);
+		potential_targets = self getpotentialtargets(position, customsettings);
 		if(isdefined(position))
 		{
 			position.var_52dceca = [];
 		}
 		foreach(target in potential_targets)
 		{
-			self trytoapplyfiredamage(target, position, killcament, fireeffectarea, var_289a74bc, normal, weapon, var_4dd46f8a);
+			self trytoapplyfiredamage(target, position, killcament, fireeffectarea, var_289a74bc, normal, weapon, customsettings);
 		}
 		if(isdefined(position))
 		{
@@ -794,7 +794,7 @@ function private damageeffectarea(owner, position, killcament, normal, weapon, v
 			if(var_2d3611fa > 0 && burntime < gettime())
 			{
 				scoreevents::processscoreevent(#"hash_1343f5418bd52c6c", position, undefined, weapon, var_2d3611fa);
-				burntime = gettime() + (int(var_4dd46f8a.var_5c06ec56 * 1000));
+				burntime = gettime() + (int(customsettings.var_5c06ec56 * 1000));
 			}
 			if(var_d0603aba)
 			{
@@ -809,7 +809,7 @@ function private damageeffectarea(owner, position, killcament, normal, weapon, v
 				var_d0603aba = 0;
 			}
 		}
-		wait(var_4dd46f8a.var_90bd7d92);
+		wait(customsettings.var_90bd7d92);
 	}
 	arrayremovevalue(self.var_ebf0b1c9, undefined);
 	foreach(target in self.var_ebf0b1c9)
@@ -874,19 +874,19 @@ function stopfiresound()
 	Parameters: 8
 	Flags: Linked, Private
 */
-function private function_9464e4ad(owner, position, killcament, weapon, var_4dd46f8a, radius_multiplier, damageendtime, var_d58f4be)
+function private function_9464e4ad(owner, position, killcament, weapon, customsettings, radius_multiplier, damageendtime, var_d58f4be)
 {
 	level endon(#"game_ended");
-	radius = var_4dd46f8a.var_6193a41b * radius_multiplier;
-	height = var_4dd46f8a.var_cbd86f3e;
+	radius = customsettings.var_6193a41b * radius_multiplier;
+	height = customsettings.var_cbd86f3e;
 	self.var_ebf0b1c9 = [];
 	if(isdefined(level.var_31179876))
 	{
-		self thread [[level.var_31179876]](damageendtime, owner, position, var_d58f4be.fireeffectarea, var_d58f4be.var_289a74bc, killcament, weapon, var_4dd46f8a);
+		self thread [[level.var_31179876]](damageendtime, owner, position, var_d58f4be.fireeffectarea, var_d58f4be.var_289a74bc, killcament, weapon, customsettings);
 	}
 	else
 	{
-		self thread function_f8f4d9fc(damageendtime, owner, position, var_d58f4be.fireeffectarea, var_d58f4be.var_289a74bc, killcament, weapon, var_4dd46f8a);
+		self thread function_f8f4d9fc(damageendtime, owner, position, var_d58f4be.fireeffectarea, var_d58f4be.var_289a74bc, killcament, weapon, customsettings);
 	}
 	while(gettime() < damageendtime)
 	{
@@ -901,9 +901,9 @@ function private function_9464e4ad(owner, position, killcament, weapon, var_4dd4
 			{
 				continue;
 			}
-			self trytoapplyfiredamage(target, owner, position, var_d58f4be.fireeffectarea, var_d58f4be.var_289a74bc, killcament, weapon, var_4dd46f8a);
+			self trytoapplyfiredamage(target, owner, position, var_d58f4be.fireeffectarea, var_d58f4be.var_289a74bc, killcament, weapon, customsettings);
 		}
-		wait(var_4dd46f8a.var_8fbd03cb);
+		wait(customsettings.var_8fbd03cb);
 	}
 	arrayremovevalue(self.var_ebf0b1c9, undefined);
 	foreach(target in self.var_ebf0b1c9)
@@ -926,7 +926,7 @@ function private function_9464e4ad(owner, position, killcament, weapon, var_4dd4
 	Parameters: 8
 	Flags: Linked, Private
 */
-function private function_f8f4d9fc(damageendtime, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, var_4dd46f8a)
+function private function_f8f4d9fc(damageendtime, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, customsettings)
 {
 	while(gettime() < damageendtime)
 	{
@@ -937,9 +937,9 @@ function private function_f8f4d9fc(damageendtime, owner, position, fireeffectare
 			{
 				continue;
 			}
-			self trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, var_4dd46f8a);
+			self trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, customsettings);
 		}
-		wait(var_4dd46f8a.var_4bf1fc1f);
+		wait(customsettings.var_4bf1fc1f);
 	}
 }
 
@@ -952,7 +952,7 @@ function private function_f8f4d9fc(damageendtime, owner, position, fireeffectare
 	Parameters: 2
 	Flags: Linked
 */
-function getpotentialtargets(owner, var_4dd46f8a)
+function getpotentialtargets(owner, customsettings)
 {
 	owner_team = (isdefined(owner) ? owner.team : undefined);
 	if(level.teambased && isdefined(owner_team) && level.friendlyfire == 0)
@@ -960,13 +960,13 @@ function getpotentialtargets(owner, var_4dd46f8a)
 		potential_targets = [];
 		foreach(team, _ in level.teams)
 		{
-			if(var_4dd46f8a.var_14e16318 === 1 || util::function_fbce7263(team, owner_team))
+			if(customsettings.var_14e16318 === 1 || util::function_fbce7263(team, owner_team))
 			{
 				potential_targets = arraycombine(potential_targets, getplayers(team), 0, 0);
 				continue;
 			}
 		}
-		if(is_true(var_4dd46f8a.var_4e1d1f97))
+		if(is_true(customsettings.var_4e1d1f97))
 		{
 			if(!isdefined(potential_targets))
 			{
@@ -1043,7 +1043,7 @@ function getpotentialtargets(owner, var_4dd46f8a)
 	Parameters: 8
 	Flags: Linked
 */
-function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, var_4dd46f8a)
+function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, customsettings)
 {
 	if(!(isdefined(fireeffectarea) || isdefined(var_289a74bc)) || target.var_8ef7113a === 1)
 	{
@@ -1071,7 +1071,7 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a7
 		{
 			if(isplayer(target))
 			{
-				target thread damageinfirearea(sourcepos, killcament, weapon, var_4dd46f8a, owner);
+				target thread damageinfirearea(sourcepos, killcament, weapon, customsettings, owner);
 				if(isdefined(owner) && util::function_fbce7263(target.team, owner.team))
 				{
 					owner.var_52dceca[targetentnum] = target;
@@ -1081,11 +1081,11 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a7
 			{
 				if(isactor(target))
 				{
-					target thread function_8422dabd(killcament, weapon, var_4dd46f8a, owner);
+					target thread function_8422dabd(killcament, weapon, customsettings, owner);
 				}
 				else
 				{
-					target thread function_37ddab3(killcament, weapon, var_4dd46f8a, owner);
+					target thread function_37ddab3(killcament, weapon, customsettings, owner);
 				}
 			}
 			self.var_ebf0b1c9[targetentnum] = target;
@@ -1123,14 +1123,14 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a7
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private damageinfirearea(origin, killcament, weapon, var_4dd46f8a, owner)
+function private damageinfirearea(origin, killcament, weapon, customsettings, owner)
 {
 	self endon(#"death");
-	if(candofiredamage(killcament, self, var_4dd46f8a.var_90bd7d92))
+	if(candofiredamage(killcament, self, customsettings.var_90bd7d92))
 	{
 		/#
-			level.var_de532e7f = getdvarint(#"hash_4eff71fc5bf5542a", 0);
-			if(level.var_de532e7f)
+			level.molotov_debug = getdvarint(#"scr_molotov_debug", 0);
+			if(level.molotov_debug)
 			{
 				if(!isdefined(level.incendiarydamagetime))
 				{
@@ -1149,7 +1149,7 @@ function private damageinfirearea(origin, killcament, weapon, var_4dd46f8a, owne
 		{
 			self.var_84e41b20[killcament.starttime] = 1;
 		}
-		params = (level.hardcoremode === 1 ? function_4d1e7b48("dot_molotov_hc") : function_4d1e7b48("dot_molotov"));
+		params = (level.hardcoremode === 1 ? getstatuseffect("dot_molotov_hc") : getstatuseffect("dot_molotov"));
 		params.killcament = killcament;
 		self status_effect::status_effect_apply(params, weapon, owner, 0, undefined, undefined, origin);
 		self.var_ae639436 = var_4dd4e6ee;
@@ -1166,10 +1166,10 @@ function private damageinfirearea(origin, killcament, weapon, var_4dd46f8a, owne
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_8422dabd(killcament, weapon, var_4dd46f8a, owner)
+function private function_8422dabd(killcament, weapon, customsettings, owner)
 {
 	self endon(#"death");
-	if(candofiredamage(killcament, self, var_4dd46f8a.var_4bf1fc1f))
+	if(candofiredamage(killcament, self, customsettings.var_4bf1fc1f))
 	{
 		var_4dd4e6ee = owner;
 		if(!isdefined(self.var_84e41b20))
@@ -1180,7 +1180,7 @@ function private function_8422dabd(killcament, weapon, var_4dd46f8a, owner)
 		{
 			self.var_84e41b20[killcament.starttime] = 1;
 		}
-		var_341dfe48 = int(var_4dd46f8a.var_ba904176 * var_4dd46f8a.var_4bf1fc1f);
+		var_341dfe48 = int(customsettings.var_ba904176 * customsettings.var_4bf1fc1f);
 		self dodamage(var_341dfe48, self.origin, owner, weapon, "none", "MOD_BURNED", 0, weapon);
 		/#
 			time = gettime();
@@ -1200,10 +1200,10 @@ function private function_8422dabd(killcament, weapon, var_4dd46f8a, owner)
 	Parameters: 4
 	Flags: Linked, Private
 */
-function private function_37ddab3(killcament, weapon, var_4dd46f8a, owner)
+function private function_37ddab3(killcament, weapon, customsettings, owner)
 {
 	self endon(#"death");
-	if(candofiredamage(killcament, self, var_4dd46f8a.var_8fbd03cb))
+	if(candofiredamage(killcament, self, customsettings.var_8fbd03cb))
 	{
 		var_4dd4e6ee = owner;
 		if(!isdefined(self.var_84e41b20))
@@ -1214,7 +1214,7 @@ function private function_37ddab3(killcament, weapon, var_4dd46f8a, owner)
 		{
 			self.var_84e41b20[killcament.starttime] = 1;
 		}
-		var_341dfe48 = int(var_4dd46f8a.var_4931651e * var_4dd46f8a.var_8fbd03cb);
+		var_341dfe48 = int(customsettings.var_4931651e * customsettings.var_8fbd03cb);
 		self dodamage(var_341dfe48, self.origin, owner, weapon, "none", "MOD_BURNED", 0, weapon);
 		self.var_ae639436 = var_4dd4e6ee;
 	}
@@ -1287,8 +1287,8 @@ function hitpos(start, end, color)
 {
 	trace = bullettrace(start, end, 0, undefined);
 	/#
-		level.var_de532e7f = getdvarint(#"hash_4eff71fc5bf5542a", 0);
-		if(level.var_de532e7f)
+		level.molotov_debug = getdvarint(#"scr_molotov_debug", 0);
+		if(level.molotov_debug)
 		{
 			debugstar(trace[#"position"], 2000, color);
 		}
@@ -1356,12 +1356,12 @@ function resetfiredamage(entnum, time)
 function function_1493c734(origin, radius, color, alpha, time)
 {
 	/#
-		var_9f49d7d = getdvarint(#"hash_58042b6209e0c2a6", 0);
-		if(var_9f49d7d > 0)
+		debug_fire = getdvarint(#"hash_58042b6209e0c2a6", 0);
+		if(debug_fire > 0)
 		{
-			if(var_9f49d7d > 1)
+			if(debug_fire > 1)
 			{
-				radius = int(radius / var_9f49d7d);
+				radius = int(radius / debug_fire);
 			}
 			util::debug_sphere(origin, radius, color, alpha, time);
 		}

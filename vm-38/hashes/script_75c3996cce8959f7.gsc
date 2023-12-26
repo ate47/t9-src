@@ -55,10 +55,10 @@ function function_f3143608(localclientnum)
 	self endon(#"disconnect");
 	self.doa = spawnstruct();
 	self.topdowncamera = 1;
-	self.doa.var_10752c35 = 1;
+	self.doa.cameramode = 1;
 	self.doa.var_71122e79 = 0;
 	self.doa.var_903d75b1 = undefined;
-	self namespace_ac2a80f5::function_278f20a3(vectorscale((1, 0, 0), 75), namespace_ac2a80f5::function_ccf8a968(self.doa.var_10752c35));
+	self namespace_ac2a80f5::function_278f20a3(vectorscale((1, 0, 0), 75), namespace_ac2a80f5::function_ccf8a968(self.doa.cameramode));
 	self.doa.var_25f4de97 = 0;
 	self.skits = undefined;
 	self.doa.var_3e81d24c = 0;
@@ -230,7 +230,7 @@ function function_fcc90081(localclientnum)
 		}
 	}
 	self.skits = undefined;
-	self.doa.var_10752c35 = 1;
+	self.doa.cameramode = 1;
 	self.doa.var_71122e79 = 0;
 	self.doa.var_903d75b1 = undefined;
 	self.var_88a2ff29 = level.var_30df1fad;

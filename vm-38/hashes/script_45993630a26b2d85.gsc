@@ -45,7 +45,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -64,7 +64,7 @@ function private function_70a657d8()
 function private on_begin(var_d34d02af)
 {
 	level.var_d34d02af = zm_trial::function_5769f26a(var_d34d02af);
-	callback::function_78ccee50(&function_78ccee50);
+	callback::on_weapon_fired(&on_weapon_fired);
 	foreach(player in getplayers())
 	{
 		player thread function_a5a431f6();
@@ -82,12 +82,12 @@ function private on_begin(var_d34d02af)
 */
 function private on_end(round_reset)
 {
-	callback::function_deba137d(&function_78ccee50);
+	callback::remove_on_weapon_fired(&on_weapon_fired);
 	level.var_d34d02af = undefined;
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: namespace_983e5028
 	Checksum: 0xF975A15C
 	Offset: 0x290
@@ -95,9 +95,9 @@ function private on_end(round_reset)
 	Parameters: 1
 	Flags: Private
 */
-function private function_78ccee50(params)
+function private on_weapon_fired(params)
 {
-	if(zm_weapons::function_e17d0760(params.weapon))
+	if(zm_weapons::is_explosive_weapon(params.weapon))
 	{
 		self zm_score::player_reduce_points("take_specified", level.var_d34d02af * 2);
 	}
@@ -122,8 +122,8 @@ function private function_a5a431f6()
 	level endon(#"hash_7646638df88a3656");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_7d855302d88c6701", #"lightning_ball_created");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"ammo_reduction", #"lightning_ball_created");
 		self zm_score::player_reduce_points("take_specified", level.var_d34d02af);
 	}
 }

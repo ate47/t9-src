@@ -240,9 +240,9 @@ function private function_379a71bd(params)
 			}
 		}
 	}
-	if(isdefined(eventstruct.var_21911287))
+	if(isdefined(eventstruct.old_seat_index))
 	{
-		switch(eventstruct.var_21911287)
+		switch(eventstruct.old_seat_index)
 		{
 			case 0:
 			{

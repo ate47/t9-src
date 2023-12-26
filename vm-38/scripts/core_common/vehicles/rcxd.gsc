@@ -1,4 +1,4 @@
-#using script_2c6ff91addfd14b7;
+#using scripts\core_common\vehicles\smart_bomb.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\vehicle_ai_shared.gsc;
 #using scripts\core_common\vehicle_shared.gsc;
@@ -58,7 +58,7 @@ function private function_70a657d8()
 */
 function function_91ea9492()
 {
-	namespace_c2dce87e::function_c6f75619();
+	smart_bomb::function_c6f75619();
 	self.detonate_sides_disabled = 1;
 	self useanimtree("generic");
 	self initsounds();
@@ -81,10 +81,10 @@ function function_91ea9492()
 function defaultrole()
 {
 	self vehicle_ai::init_state_machine_for_role("default");
-	self vehicle_ai::get_state_callbacks("combat").update_func = &namespace_c2dce87e::state_combat_update;
-	self vehicle_ai::get_state_callbacks("driving").update_func = &namespace_c2dce87e::state_scripted_update;
-	self vehicle_ai::get_state_callbacks("death").update_func = &namespace_c2dce87e::state_death_update;
-	self vehicle_ai::get_state_callbacks("emped").update_func = &namespace_c2dce87e::state_emped_update;
+	self vehicle_ai::get_state_callbacks("combat").update_func = &smart_bomb::state_combat_update;
+	self vehicle_ai::get_state_callbacks("driving").update_func = &smart_bomb::state_scripted_update;
+	self vehicle_ai::get_state_callbacks("death").update_func = &smart_bomb::state_death_update;
+	self vehicle_ai::get_state_callbacks("emped").update_func = &smart_bomb::state_emped_update;
 	self vehicle_ai::call_custom_add_state_callbacks();
 	vehicle_ai::startinitialstate("combat");
 }
@@ -106,10 +106,10 @@ function initsounds()
 	self.sndalias[#"spawn"] = #"hash_1b30b26c406054e2";
 	self.sndalias[#"direction"] = #"hash_69f9a2b48dccef90";
 	self.sndalias[#"jump_up"] = #"hash_43b08a05140c0ea9";
-	self.sndalias[#"hash_6dacc5a8faf1b6f3"] = #"hash_7a70a6fa72ea121";
-	self.sndalias[#"hash_22b0b71c07ac7fea"] = #"hash_548fbad0d3c63e20";
-	self.sndalias[#"hash_26569720e0ae76f3"] = #"hash_29426008ddf3da16";
-	self.sndalias[#"hash_2b3a22d457fba169"] = #"hash_4966894e7ae3a222";
-	self.sndalias[#"hash_56dd8cae01fc143c"] = #"veh_wasp_wall_imp";
+	self.sndalias[#"vehclose250"] = #"hash_7a70a6fa72ea121";
+	self.sndalias[#"vehclose1500"] = #"hash_548fbad0d3c63e20";
+	self.sndalias[#"vehtargeting"] = #"hash_29426008ddf3da16";
+	self.sndalias[#"vehalarm"] = #"hash_4966894e7ae3a222";
+	self.sndalias[#"vehcollision"] = #"veh_wasp_wall_imp";
 }
 

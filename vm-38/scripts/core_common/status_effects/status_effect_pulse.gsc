@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -46,7 +46,7 @@ function private function_70a657d8()
 {
 	status_effect::register_status_effect_callback_apply(9, &pulse_apply);
 	status_effect::function_5bae5120(9, &pulse_end);
-	status_effect::function_6f4eaf88(function_4d1e7b48("pulse"));
+	status_effect::function_6f4eaf88(getstatuseffect("pulse"));
 	clientfield::register("toplayer", "pulsed", 1, 1, "int");
 	callback::on_spawned(&on_player_spawned);
 }
@@ -73,7 +73,7 @@ function on_player_spawned()
 	Parameters: 3
 	Flags: Linked
 */
-function pulse_apply(var_756fda07, weapon, var_84171a6c)
+function pulse_apply(var_756fda07, weapon, applicant)
 {
 	self.owner clientfield::set_to_player("pulsed", 1);
 	shutdownpulserebootindicatormenu();
@@ -97,7 +97,7 @@ function private pulse_rumble_loop(duration)
 {
 	self endon(#"pulse_rumble_loop");
 	self notify(#"pulse_rumble_loop");
-	self endon(#"hash_13d72ca5a7cfd2bd");
+	self endon(#"endstatuseffect");
 	goaltime = gettime() + (int(duration * 1000));
 	while(gettime() < goaltime)
 	{
@@ -120,9 +120,9 @@ function pulse_end()
 	if(isdefined(self))
 	{
 		shutdownpulserebootindicatormenu();
-		if(isdefined(level.var_707cab08.enemyempactivefunc))
+		if(isdefined(level.emp_shared.enemyempactivefunc))
 		{
-			if(self [[level.var_707cab08.enemyempactivefunc]]())
+			if(self [[level.emp_shared.enemyempactivefunc]]())
 			{
 				return;
 			}

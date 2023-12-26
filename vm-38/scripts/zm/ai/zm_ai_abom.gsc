@@ -1,9 +1,9 @@
 #using script_2c5daa95f8fec03c;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_799de24f8ad427f7;
 #using script_7d5c9b91cf8d272b;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -56,8 +56,8 @@ function private autoexec __init__system__()
 */
 function function_70a657d8()
 {
-	namespace_c3287616::register_archetype(#"abom", &function_48924a80, &round_spawn, undefined, 100);
-	namespace_c3287616::function_306ce518(#"abom", &function_9282dcac);
+	zm_round_spawning::register_archetype(#"abom", &function_48924a80, &round_spawn, undefined, 100);
+	zm_round_spawning::function_306ce518(#"abom", &function_9282dcac);
 	spawner::add_archetype_spawn_function(#"abom", &function_b82e0a5d);
 	spawner::function_89a2cd87(#"abom", &function_545f669b);
 	zm_cleanup::function_cdf5a512(#"abom", &function_1d787beb);
@@ -508,7 +508,7 @@ function function_9282dcac(n_round_number)
 	while(true)
 	{
 		level waittill(#"hash_5d3012139f083ccb");
-		if(namespace_c3287616::function_d0db51fc(#"abom"))
+		if(zm_round_spawning::function_d0db51fc(#"abom"))
 		{
 			level.var_59adf71++;
 			n_player_count = zm_utility::function_a2541519(getplayers().size);

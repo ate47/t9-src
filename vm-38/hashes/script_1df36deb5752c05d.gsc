@@ -47,7 +47,7 @@ class class_a0b518ca : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class class_a0b518ca : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -118,12 +118,12 @@ class class_a0b518ca : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_control_point_hud");
-		cLUIelem::function_da693cbe("chargePct", 8000, 7, "float");
-		cLUIelem::function_da693cbe("damagePct", 8000, 7, "float");
-		cLUIelem::function_da693cbe("ordaHealthPct", 16000, 7, "float");
-		cLUIelem::function_da693cbe("hasOrda", 16000, 1, "int");
-		cLUIelem::function_da693cbe("hasCharge", 16000, 1, "int");
-		cLUIelem::function_da693cbe("hasDamage", 16000, 1, "int");
+		cLUIelem::add_clientfield("chargePct", 8000, 7, "float");
+		cLUIelem::add_clientfield("damagePct", 8000, 7, "float");
+		cLUIelem::add_clientfield("ordaHealthPct", 16000, 7, "float");
+		cLUIelem::add_clientfield("hasOrda", 16000, 1, "int");
+		cLUIelem::add_clientfield("hasCharge", 16000, 1, "int");
+		cLUIelem::add_clientfield("hasDamage", 16000, 1, "int");
 	}
 
 	/*

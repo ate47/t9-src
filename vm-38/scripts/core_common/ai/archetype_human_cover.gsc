@@ -1,9 +1,9 @@
-#using script_178024232e91b0a1;
-#using script_3aa0f32b70d4f7cb;
-#using script_4a3f9b8905878272;
-#using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
-#using script_7b7ed6e4bc963a51;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\archetype_cover_utility.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\ai_blackboard.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -126,15 +126,15 @@ function autoexec registerbehaviorscriptfunctions()
 	/#
 		assert(isscriptfunctionptr(&aiutility::function_8f12f910));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_46826da2c33c9632", &aiutility::function_8f12f910);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"switchtogrenadelauncher", &aiutility::function_8f12f910);
 	/#
 		assert(isscriptfunctionptr(&aiutility::function_8f12f910));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_f9bf57d0e8f28a0", &aiutility::function_8f12f910);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"switchtolightninggun", &aiutility::function_8f12f910);
 	/#
 		assert(isscriptfunctionptr(&aiutility::function_8f12f910));
 	#/
-	behaviortreenetworkutility::registerbehaviortreescriptapi(#"hash_7f97f92742243917", &aiutility::function_8f12f910);
+	behaviortreenetworkutility::registerbehaviortreescriptapi(#"switchtoannihilator", &aiutility::function_8f12f910);
 	/#
 		util::init_dvar("", 0, &function_9c20a620);
 	#/
@@ -299,11 +299,11 @@ function function_9d8b22d8(entity, throwifpossible, var_f06df42)
 	}
 	if(!throwifpossible)
 	{
-		var_a2badbc3 = getplayers(entity.team);
+		friendlyplayers = getplayers(entity.team);
 		allplayers = getplayers();
-		if(isdefined(var_a2badbc3) && var_a2badbc3.size)
+		if(isdefined(friendlyplayers) && friendlyplayers.size)
 		{
-			foreach(player in var_a2badbc3)
+			foreach(player in friendlyplayers)
 			{
 				if(distancesquared(var_4748f6aa, player.origin) <= 640000)
 				{
@@ -892,7 +892,7 @@ function temp_get_arm_offset(entity, throwposition)
 	}
 	if(function_4387243d(throwposition))
 	{
-		if(throwposition.node.type == #"hash_63cbb4767da2a801")
+		if(throwposition.node.type == #"cover left")
 		{
 			if(stance == "crouch")
 			{
@@ -905,7 +905,7 @@ function temp_get_arm_offset(entity, throwposition)
 		}
 		else
 		{
-			if(throwposition.node.type == #"hash_2a7b1ca393696762")
+			if(throwposition.node.type == #"cover right")
 			{
 				if(stance == "crouch")
 				{
@@ -918,17 +918,17 @@ function temp_get_arm_offset(entity, throwposition)
 			}
 			else
 			{
-				if(throwposition.node.type == #"hash_581529fff05853f0" || throwposition.node.type == #"hash_1bb444d857814e92")
+				if(throwposition.node.type == #"cover stand" || throwposition.node.type == #"conceal stand")
 				{
 					arm_offset = (10, 7, 77);
 				}
 				else
 				{
-					if(throwposition.node.type == #"hash_6d8019ab9d39bf96" || throwposition.node.type == #"hash_280d1247a6abdbae" || throwposition.node.type == #"hash_171465527444ed14")
+					if(throwposition.node.type == #"cover crouch" || throwposition.node.type == #"cover crouch window" || throwposition.node.type == #"conceal crouch")
 					{
 						arm_offset = (19, 5, 60);
 					}
-					else if(throwposition.node.type == #"hash_7a0e62fbbe3989d4")
+					else if(throwposition.node.type == #"cover pillar")
 					{
 						leftoffset = undefined;
 						rightoffset = undefined;

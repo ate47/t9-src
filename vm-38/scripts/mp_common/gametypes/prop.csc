@@ -34,24 +34,24 @@ event main(eventstruct)
 	clientfield::register("allplayers", "hideTeamPlayer", 16000, 2, "int", &function_abaafe9a, 0, 0);
 	clientfield::register("allplayers", "pingHighlight", 16000, 1, "int", &function_3c95ba87, 0, 0);
 	clientfield::register("toplayer", "PROP.change_prop", 16000, 1, "int", &propchange, 0, 0);
-	clientfield::register("toplayer", "PROP.cameraHeight", 16000, 8, "int", &function_c7691337, 0, 0);
-	clientfield::register("toplayer", "PROP.cameraRange", 16000, 8, "int", &function_d8273603, 0, 0);
-	clientfield::register("toplayer", "PROP.hide_prop", 16000, 1, "int", &function_65208afd, 0, 0);
+	clientfield::register("toplayer", "PROP.cameraHeight", 16000, 8, "int", &cameraheightchange, 0, 0);
+	clientfield::register("toplayer", "PROP.cameraRange", 16000, 8, "int", &camerarangechange, 0, 0);
+	clientfield::register("toplayer", "PROP.hide_prop", 16000, 1, "int", &hideprop, 0, 0);
 	clientfield::function_5b7d846d("hudItems.war.attackingTeam", #"hash_11ea1e04b846f98e", #"attackingteam", 16000, 2, "int", undefined, 0, 1);
-	clientfield::function_a8bbc967("hudItems.numPropsAlive", #"hud_items", #"hash_486f8ad98177fae8", 16000, 4, "int", undefined, 0, 1);
-	clientfield::function_a8bbc967("hudItems.numPropConcusses", #"hud_items", #"hash_445bc773f16d2e44", 16000, 2, "int", undefined, 0, 1);
-	clientfield::function_a8bbc967("hudItems.numPropChanges", #"hud_items", #"hash_7d362093bb553a7b", 16000, 2, "int", undefined, 0, 1);
-	clientfield::function_a8bbc967("hudItems.numPropDecoys", #"hud_items", #"hash_30bdcde2ca8cdccf", 16000, 4, "int", undefined, 0, 1);
+	clientfield::register_clientuimodel("hudItems.numPropsAlive", #"hud_items", #"numpropsalive", 16000, 4, "int", undefined, 0, 1);
+	clientfield::register_clientuimodel("hudItems.numPropConcusses", #"hud_items", #"numpropconcusses", 16000, 2, "int", undefined, 0, 1);
+	clientfield::register_clientuimodel("hudItems.numPropChanges", #"hud_items", #"numpropchanges", 16000, 2, "int", undefined, 0, 1);
+	clientfield::register_clientuimodel("hudItems.numPropDecoys", #"hud_items", #"numpropdecoys", 16000, 4, "int", undefined, 0, 1);
 	clientfield::register("toplayer", "realtime_multiplay", 16000, 1, "int", &function_a1b40aa4, 0, 1);
-	level.var_82e6af5d = mp_prop_timer::register();
+	level.hide_timer = mp_prop_timer::register();
 	level.prop_controls = mp_prop_controls::register();
-	callback::on_localplayer_spawned(&function_357207b9);
-	level.var_20ece392 = &function_aa5f176f;
+	callback::on_localplayer_spawned(&onlocalplayerspawned);
+	level.var_20ece392 = &highlightprop;
 	thread function_2691bc1b();
 }
 
 /*
-	Name: function_357207b9
+	Name: onlocalplayerspawned
 	Namespace: prop
 	Checksum: 0x83B93309
 	Offset: 0x668
@@ -59,7 +59,7 @@ event main(eventstruct)
 	Parameters: 1
 	Flags: None
 */
-function function_357207b9(localclientnum)
+function onlocalplayerspawned(localclientnum)
 {
 	level notify("localPlayerSpectatingEnd" + localclientnum);
 	if(!self function_b9fceaaf(localclientnum))
@@ -226,7 +226,7 @@ function setupPropPlayerNames(localclientnum)
 }
 
 /*
-	Name: function_aa5f176f
+	Name: highlightprop
 	Namespace: prop
 	Checksum: 0x5E93A97C
 	Offset: 0xCB8
@@ -234,7 +234,7 @@ function setupPropPlayerNames(localclientnum)
 	Parameters: 7
 	Flags: None
 */
-function function_aa5f176f(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function highlightprop(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump == 0)
 	{
@@ -321,7 +321,7 @@ function function_29561f83(localclientnum, var_dc9f0c39)
 }
 
 /*
-	Name: function_65208afd
+	Name: hideprop
 	Namespace: prop
 	Checksum: 0xA4D88165
 	Offset: 0x1048
@@ -329,7 +329,7 @@ function function_29561f83(localclientnum, var_dc9f0c39)
 	Parameters: 7
 	Flags: None
 */
-function function_65208afd(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function hideprop(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	localplayer = function_5c10bd79(fieldname);
 	var_6955388c = bwastimejump && isdefined(self) && self == localplayer;
@@ -337,12 +337,12 @@ function function_65208afd(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(isdefined(self.prop))
 		{
-			self.prop function_bf9d3071(#"hash_14be6378dfef6b7");
+			self.prop playrenderoverridebundle(#"hash_14be6378dfef6b7");
 		}
 	}
 	else if(isdefined(self.prop))
 	{
-		self.prop function_5d482e78(#"hash_14be6378dfef6b7");
+		self.prop stoprenderoverridebundle(#"hash_14be6378dfef6b7");
 	}
 }
 
@@ -389,7 +389,7 @@ function propchange(localclientnum, oldval, newval, bnewent, binitialsnap, field
 }
 
 /*
-	Name: function_c7691337
+	Name: cameraheightchange
 	Namespace: prop
 	Checksum: 0xECD5818C
 	Offset: 0x1288
@@ -397,13 +397,13 @@ function propchange(localclientnum, oldval, newval, bnewent, binitialsnap, field
 	Parameters: 7
 	Flags: None
 */
-function function_c7691337(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function cameraheightchange(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	function_ac297091(fieldname, bwastimejump * 10);
 }
 
 /*
-	Name: function_d8273603
+	Name: camerarangechange
 	Namespace: prop
 	Checksum: 0xB513F09
 	Offset: 0x12F0
@@ -411,7 +411,7 @@ function function_c7691337(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: None
 */
-function function_d8273603(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function camerarangechange(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	function_d69242bb(fieldname, bwastimejump * 10);
 }

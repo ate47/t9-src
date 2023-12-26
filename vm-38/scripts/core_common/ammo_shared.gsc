@@ -1,5 +1,5 @@
 #using scripts\core_common\player\player_loadout.gsc;
-#using script_4c5c4a64a59247a2;
+#using scripts\core_common\ai\systems\shared.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -109,7 +109,7 @@ function ammo_pouch_think()
 			continue;
 		}
 		maxammo = 0;
-		loadout = player loadout::function_1ee886f7(weapon);
+		loadout = player loadout::find_loadout_slot(weapon);
 		if(isdefined(loadout))
 		{
 			if(loadout.count > 0)

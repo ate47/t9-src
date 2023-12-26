@@ -87,9 +87,9 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	visionset_mgr::register_info("visionset", "crithealth", 1, 4, 25, 1, &visionset_mgr::ramp_in_out_thread_per_player, 0);
-	clientfield::function_a8bbc967("hudItems.armorIsOnCooldown", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.armorIsOnCooldown", 1, 1, "int");
 	clientfield::function_91cd7763("string", "hudItems.cursorHintZMPurchaseInvalidText", 1, 0);
-	clientfield::function_a8bbc967("hudItems.cursorHintZMPurchaseInvalid", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.cursorHintZMPurchaseInvalid", 1, 1, "int");
 }
 
 /*
@@ -128,7 +128,7 @@ function init()
 		}
 	#/
 	level.script = util::get_map_name();
-	level.gametype = util::function_5df4294();
+	level.gametype = util::get_game_type();
 	level.var_837aa533 = hash(level.gametype);
 	if(isdefined(level.gametype))
 	{
@@ -203,7 +203,7 @@ function init()
 		setdvar(#"bg_falldamagemaxheight", 512);
 		setdvar(#"player_clipsizemultiplier", 2);
 	}
-	namespace_81c567a8::init_shared();
+	display_transition::init_shared();
 	if(!isdefined(game.tiebreaker))
 	{
 		game.tiebreaker = 0;
@@ -493,7 +493,7 @@ function forceend(hostsucks)
 	level.hostforcedend = 1;
 	if(hostsucks)
 	{
-		endstring = #"hash_115339e33ac1efcb";
+		endstring = #"mp/host_sucks";
 	}
 	else
 	{
@@ -883,15 +883,15 @@ function function_8da685e9()
 	{
 		foreach(player in level.players)
 		{
-			var_b318478d = 1;
+			shouldshow = 1;
 			for(var_3c0cc784 = 0; var_3c0cc784 < level.var_75433ec1.size; var_3c0cc784++)
 			{
 				if(player == level.var_75433ec1[var_3c0cc784])
 				{
-					var_b318478d = 0;
+					shouldshow = 0;
 				}
 			}
-			if(var_b318478d)
+			if(shouldshow)
 			{
 				player luinotifyevent(#"create_prematch_timer", 2, level.var_fd167bf6, level.var_5654073f);
 				level.var_75433ec1[level.var_75433ec1.size] = player;
@@ -1868,7 +1868,7 @@ function startgame()
 	level.prematch_over = 1;
 	thread graceperiod();
 	thread watchmatchendingsoon();
-	level callback::callback(#"hash_361e06db4b210e");
+	level callback::callback(#"on_game_playing");
 	if(is_true(level.zm_disable_recording_stats))
 	{
 		return;
@@ -2085,11 +2085,11 @@ function callback_startgametype()
 		game.strings[#"waiting_to_spawn"] = #"hash_44d60a6e6ed2a53c";
 		game.strings[#"waiting_to_spawn_ss"] = #"hash_78bf3a61cf52e257";
 		game.strings[#"you_will_spawn"] = #"hash_53c0ba6abce1c0ea";
-		game.strings[#"match_starting"] = #"hash_73938fd7959ab087";
+		game.strings[#"match_starting"] = #"mp/match_starting";
 		game.strings[#"change_class"] = #"hash_181a96fe9c28ada2";
 		game.strings[#"last_stand"] = #"hash_5732d212e4511a00";
 		game.strings[#"cowards_way"] = #"hash_268e464278a2f8ff";
-		game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
+		game.strings[#"tie"] = #"mp/match_tie";
 		game.strings[#"round_draw"] = #"mp/round_draw";
 		game.strings[#"enemies_eliminated"] = #"mp_enemies_eliminated";
 		game.strings[#"score_limit_reached"] = #"mp/score_limit_reached";

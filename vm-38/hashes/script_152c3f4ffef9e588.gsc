@@ -342,17 +342,17 @@ function function_6ade1bbf(timedelay)
 		{
 		}
 		self.heal.var_c8777194 = 1;
-		self.var_edd3eb35 = 9;
+		self.n_regen_delay = 9;
 		namespace_6615ea91::function_59621e3c(self, #"hash_53d8a06b13ec49d9");
 	}
 	else
 	{
-		self.var_edd3eb35 = 1;
+		self.n_regen_delay = 1;
 	}
 	if(self.radiation.var_32adf91d >= 1)
 	{
 		self function_e6f9e3cd();
-		self perks::function_3cd6f625();
+		self perks::perk_reset_all();
 		self function_b5feff95(#"specialty_sprint");
 		self function_b5feff95(#"specialty_sprintreload");
 		self function_b5feff95(#"specialty_forwardspawninteract");
@@ -363,7 +363,7 @@ function function_6ade1bbf(timedelay)
 		self perks::perk_setperk(#"specialty_forwardspawninteract");
 		self perks::perk_setperk(#"specialty_slide");
 		self perks::perk_setperk(#"specialty_sprintheal");
-		namespace_6615ea91::function_59621e3c(self, #"hash_376aa98c6fac7859");
+		namespace_6615ea91::function_59621e3c(self, #"disable_perks");
 	}
 	else if(isdefined(level.var_eada15e7))
 	{
@@ -424,7 +424,7 @@ function private function_f68871f2(player, sickness)
 		#/
 		return;
 	}
-	if(!function_7a600918(sickness))
+	if(!ishash(sickness))
 	{
 		/#
 			assert(0);

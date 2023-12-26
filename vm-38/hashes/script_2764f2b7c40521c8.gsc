@@ -72,7 +72,7 @@ class cpip_menu : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cpip_menu
 		Checksum: 0x811C8E2A
 		Offset: 0x530
@@ -80,9 +80,9 @@ class cpip_menu : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("pip_menu");
+		cLUIelem::register_clientside("pip_menu");
 	}
 
 	/*
@@ -126,9 +126,9 @@ class cpip_menu : cLUIelem
 	{
 		cLUIelem::setup_clientfields("pip_menu");
 		cLUIelem::function_dcb34c80("moviefile", "movieName", 1);
-		cLUIelem::function_da693cbe("showBlackScreen", 1, 1, "int", var_d5b04ae3);
-		cLUIelem::function_da693cbe("looping", 1, 1, "int", var_e4decd0);
-		cLUIelem::function_da693cbe("additive", 1, 1, "int", var_e545d4b9);
+		cLUIelem::add_clientfield("showBlackScreen", 1, 1, "int", var_d5b04ae3);
+		cLUIelem::add_clientfield("looping", 1, 1, "int", var_e4decd0);
+		cLUIelem::add_clientfield("additive", 1, 1, "int", var_e545d4b9);
 	}
 
 	/*
@@ -200,7 +200,7 @@ function register(var_f7b454f9, var_d5b04ae3, var_e4decd0, var_e545d4b9)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: pip_menu
 	Checksum: 0x362A5F33
 	Offset: 0x2B0
@@ -208,10 +208,10 @@ function register(var_f7b454f9, var_d5b04ae3, var_e4decd0, var_e545d4b9)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cpip_menu();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

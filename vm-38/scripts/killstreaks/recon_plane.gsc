@@ -1,11 +1,11 @@
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\mp_common\teams\teams.gsc;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -76,7 +76,7 @@ function private function_70a657d8()
 	level.var_42ce45d5 = [];
 	level.var_efb43e1 = &function_4dc67281;
 	bundlename = "killstreak_recon_plane";
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundlename = bundlename + "_wz";
 	}
@@ -234,7 +234,7 @@ function function_c131324d(params)
 {
 	attacker = params.attacker;
 	attackerweapon = params.attackerweapon;
-	attacker contracts::function_a54e2068(#"hash_3ff1fe889b516cc3");
+	attacker contracts::increment_contract(#"hash_3ff1fe889b516cc3");
 	attacker challenges::function_38ad2427(#"hash_4808274db2565c0d", 1);
 	attacker stats::function_dad108fa(#"hash_15da16b6b9032af", 1);
 	attacker stats::function_dad108fa(#"hash_d9fe863a1e9e4d8", 1);
@@ -335,7 +335,7 @@ function function_732dcb56(killstreaktype)
 	recon_plane killstreak_hacking::enable_hacking("recon_plane", &hackedprefunction, undefined);
 	recon_plane.targetname = "recon_plane";
 	recon_plane.leaving = 0;
-	recon_plane util::function_c596f193();
+	recon_plane util::make_sentient();
 	recon_plane.var_c31213a5 = 1;
 	recon_plane thread killstreaks::function_2b6aa9e8("recon_plane", &function_e55922df, &onlowhealth);
 	recon_plane thread function_f724cfe4(100000);
@@ -380,7 +380,7 @@ function function_98e60435(var_d44b8c3e, bundle)
 	travelangle = randomfloatrange((isdefined(level.var_84f1b20f) ? level.var_84f1b20f : 90), (isdefined(level.var_26837e34) ? level.var_26837e34 : 180));
 	startangles = (0, travelangle, 0);
 	startforward = anglestoforward(startangles);
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		travelradius = 25000;
 		zoffset = var_d44b8c3e[2] + 9500;
@@ -390,7 +390,7 @@ function function_98e60435(var_d44b8c3e, bundle)
 		travelradius = airsupport::getmaxmapwidth() * 1.5;
 		zoffset = killstreaks::function_43f4782d() + 9500;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		var_51cabd75 = 180 / 30;
 		var_ddd8ddab = (travelradius * 2) / (3 - 1);

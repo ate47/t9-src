@@ -1,8 +1,8 @@
-#using script_15022fca9ab99080;
+#using scripts\killstreaks\killstreak_vehicle.gsc;
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_4721de209091b1a6;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -106,7 +106,7 @@ function function_747544ed(var_6ecb961c, var_46cd15af, var_f3828812, var_2a587e8
 {
 	output = spawnstruct();
 	output.var_9b8c05e = (isdefined(getclosestpointonnavmesh(var_6ecb961c, 10000)) ? getclosestpointonnavmesh(var_6ecb961c, 10000) : var_2a587e81);
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		height = getheliheightlockheight(output.var_9b8c05e);
 	}
@@ -613,7 +613,7 @@ function function_7725894b()
 	self.mover = mover;
 	mover.angles = self.angles;
 	self linkto(mover);
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		var_74e37e01 = getheliheightlockheight(mover.origin);
 	}
@@ -743,8 +743,8 @@ function function_80586c75(jet)
 		jet.is_still_valid_target_for_stinger_override = &function_61c4894;
 		jet.var_eb66cfc6 = &function_fa687280;
 		jet.var_43384efb = &function_63ec1d12;
-		jet thread namespace_231aa29a::function_d4896942(bundle, "hoverjet");
-		jet thread namespace_231aa29a::function_31f9c728(bundle, "hoverjet", "exp_incoming_missile", "uin_hoverjet_alarm_missile_incoming");
+		jet thread killstreak_vehicle::function_d4896942(bundle, "hoverjet");
+		jet thread killstreak_vehicle::function_31f9c728(bundle, "hoverjet", "exp_incoming_missile", "uin_hoverjet_alarm_missile_incoming");
 		player.is_valid_target_for_stinger_override = &function_51a4b25a;
 		player.is_still_valid_target_for_stinger_override = &function_bde5e05f;
 		player.var_96e63c65 = &function_e9a13002;
@@ -856,7 +856,7 @@ function function_c85eb0a9()
 function function_e441d7fa()
 {
 	self endon(#"death");
-	wait((function_f99d2668() ? 25 : 15));
+	wait((sessionmodeiswarzonegame() ? 25 : 15));
 	if(isalive(self))
 	{
 		self helicopter::function_711c140b();

@@ -86,7 +86,7 @@ class cfull_screen_black : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cfull_screen_black
 		Checksum: 0x947C154E
 		Offset: 0x688
@@ -94,9 +94,9 @@ class cfull_screen_black : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("full_screen_black");
+		cLUIelem::register_clientside("full_screen_black");
 	}
 
 	/*
@@ -125,13 +125,13 @@ class cfull_screen_black : cLUIelem
 	function setup_clientfields(redcallback, greencallback, bluecallback, fadeOverTimecallback, var_b046940, var_34291db, var_32445b2)
 	{
 		cLUIelem::setup_clientfields("full_screen_black");
-		cLUIelem::function_da693cbe("red", 1, 3, "float", redcallback);
-		cLUIelem::function_da693cbe("green", 1, 3, "float", greencallback);
-		cLUIelem::function_da693cbe("blue", 1, 3, "float", bluecallback);
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 12, "int", fadeOverTimecallback);
-		cLUIelem::function_da693cbe("startAlpha", 1, 5, "float", var_b046940);
-		cLUIelem::function_da693cbe("endAlpha", 1, 5, "float", var_34291db);
-		cLUIelem::function_da693cbe("drawHUD", 1, 1, "int", var_32445b2);
+		cLUIelem::add_clientfield("red", 1, 3, "float", redcallback);
+		cLUIelem::add_clientfield("green", 1, 3, "float", greencallback);
+		cLUIelem::add_clientfield("blue", 1, 3, "float", bluecallback);
+		cLUIelem::add_clientfield("fadeOverTime", 1, 12, "int", fadeOverTimecallback);
+		cLUIelem::add_clientfield("startAlpha", 1, 5, "float", var_b046940);
+		cLUIelem::add_clientfield("endAlpha", 1, 5, "float", var_34291db);
+		cLUIelem::add_clientfield("drawHUD", 1, 1, "int", var_32445b2);
 	}
 
 	/*
@@ -248,7 +248,7 @@ function register(redcallback, greencallback, bluecallback, fadeOverTimecallback
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: full_screen_black
 	Checksum: 0x9D65E6BC
 	Offset: 0x2E8
@@ -256,10 +256,10 @@ function register(redcallback, greencallback, bluecallback, fadeOverTimecallback
 	Parameters: 0
 	Flags: Linked
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cfull_screen_black();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

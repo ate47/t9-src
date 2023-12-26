@@ -183,13 +183,13 @@ function function_dd2493cc(local_client_num, objid)
 				{
 					if(state != si)
 					{
-						entity function_5d482e78(rob);
+						entity stoprenderoverridebundle(rob);
 					}
 					continue;
 				}
 				if(state == si)
 				{
-					entity function_bf9d3071(rob);
+					entity playrenderoverridebundle(rob);
 					if(iscodcaster)
 					{
 						codcaster::function_773f6e31(local_client_num, entity, rob, state);
@@ -241,7 +241,7 @@ function function_e116df6c(localclientnum, oldval, newval, bnewent, binitialsnap
 			rob = level.var_117b4a3a[0] + suffix;
 			if(!self function_d2503806(rob))
 			{
-				self function_bf9d3071(rob);
+				self playrenderoverridebundle(rob);
 			}
 			if(iscodcaster)
 			{
@@ -660,7 +660,7 @@ function warzone(localclientnum, oldval, newval, bnewent, binitialsnap, fieldnam
 			level.zones[zi].var_6d7365a9 = spawn(0, level.zones[zi].origin, "script_origin");
 			level.zones[zi].var_ce6accbd = 0;
 		}
-		level notify(#"hash_3f294ebbb7ff9154");
+		level notify(#"zone_initialization");
 	}
 	level.current_zone_mask[binitialsnap] = bwastimejump;
 	for(zi = 0; zi < level.zones.size; zi++)
@@ -727,7 +727,7 @@ function function_185b0894(localclientnum, oldval, newval)
 	var_f802a6b1 = 255;
 	var_8261032c = 1 / var_f802a6b1;
 	waitresult = undefined;
-	waitresult = level waittill(#"hash_3f294ebbb7ff9154");
+	waitresult = level waittill(#"zone_initialization");
 	while(true)
 	{
 		foreach(zone in level.zones)

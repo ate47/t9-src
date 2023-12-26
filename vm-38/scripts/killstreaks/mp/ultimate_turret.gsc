@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_56d425496a225a1b;
+#using scripts\killstreaks\ultimate_turret_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\system_shared.gsc;
 

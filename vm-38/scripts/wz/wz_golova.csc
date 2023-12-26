@@ -34,13 +34,13 @@ event main(eventstruct)
 	setsaveddvar(#"wind_global_low_altitude", 0);
 	setsaveddvar(#"wind_global_hi_altitude", 10000);
 	setsaveddvar(#"wind_global_low_strength_percent", 100);
-	callback::function_d46d9315(&function_d46d9315);
+	callback::on_gameplay_started(&on_gameplay_started);
 	load::main();
 	util::waitforclient(0);
 }
 
 /*
-	Name: function_d46d9315
+	Name: on_gameplay_started
 	Namespace: wz_golova
 	Checksum: 0x9E459E6
 	Offset: 0x1C8
@@ -48,7 +48,7 @@ event main(eventstruct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d46d9315(localclientnum)
+function on_gameplay_started(localclientnum)
 {
 	waitframe(1);
 	util::function_8eb5d4b0(700, 1.5);

@@ -55,14 +55,14 @@ function private function_70a657d8()
 	{
 		init_shared("concertina_wire_settings");
 	}
-	function_c5f0b9e7(&function_6230d238);
+	function_c5f0b9e7(&onconcertinawireplaced);
 	function_d700c081(&function_806b0f85);
 	level.var_cbec7a45 = 0;
 	level.var_d1ae43e3 = &function_6190ae9e;
 }
 
 /*
-	Name: function_6230d238
+	Name: onconcertinawireplaced
 	Namespace: concertina_wire
 	Checksum: 0x25E6274E
 	Offset: 0x208
@@ -70,7 +70,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6230d238(concertinawire)
+function onconcertinawireplaced(concertinawire)
 {
 	self battlechatter::function_bd715920(concertinawire.weapon, undefined, concertinawire.origin, concertinawire);
 }

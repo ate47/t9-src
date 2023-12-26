@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -45,7 +45,7 @@ function private function_70a657d8()
 {
 	status_effect::register_status_effect_callback_apply(0, &deaf_apply);
 	status_effect::function_5bae5120(0, &function_c5189bd);
-	status_effect::function_6f4eaf88(function_4d1e7b48("deaf"));
+	status_effect::function_6f4eaf88(getstatuseffect("deaf"));
 	callback::on_spawned(&on_player_spawned);
 }
 
@@ -71,7 +71,7 @@ function on_player_spawned()
 	Parameters: 3
 	Flags: Linked
 */
-function deaf_apply(var_756fda07, weapon, var_84171a6c)
+function deaf_apply(var_756fda07, weapon, applicant)
 {
 }
 

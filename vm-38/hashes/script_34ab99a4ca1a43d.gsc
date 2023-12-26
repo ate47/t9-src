@@ -212,7 +212,7 @@ function function_70a657d8()
 function finalize()
 {
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -350,13 +350,13 @@ function function_339b84ba(attachment)
 	Parameters: 1
 	Flags: Linked
 */
-function function_7ff60ccf(var_173cd713)
+function function_7ff60ccf(star_level)
 {
-	if(!isdefined(var_173cd713))
+	if(!isdefined(star_level))
 	{
-		var_173cd713 = 1;
+		star_level = 1;
 	}
-	switch(var_173cd713)
+	switch(star_level)
 	{
 		case 1:
 		{
@@ -1239,7 +1239,7 @@ function function_8665f666(eventstruct)
 	}
 	self.b_opened = 1;
 	self notify(#"chest_opened");
-	self callback::function_b74bf3e(&function_8665f666);
+	self callback::remove_on_trigger(&function_8665f666);
 	self triggerenable(0);
 	self.struct.scriptmodel thread scene::play(self.struct.var_422ae63e, self.struct.scriptmodel);
 	if(isplayer(eventstruct.activator))
@@ -1704,7 +1704,7 @@ function function_e15f0669()
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: namespace_58949729
 	Checksum: 0xD0B57298
 	Offset: 0x5340
@@ -1712,7 +1712,7 @@ function function_e15f0669()
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();

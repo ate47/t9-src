@@ -29,7 +29,7 @@ function private autoexec function_a2e39cfb()
 */
 function init()
 {
-	level.var_a2915a68 = insertion_passenger_count::register();
+	level.insertionpassenger = insertion_passenger_count::register();
 	level.var_a3c0d635 = &insertion_passenger_count::is_open;
 	level.var_f3320ad2 = &insertion_passenger_count::open;
 	level.var_81b39a59 = &insertion_passenger_count::close;

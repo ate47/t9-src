@@ -29,7 +29,7 @@ function private autoexec function_df614cd3()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_dd05779fff7e75f", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_dd05779fff7e75f", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -54,7 +54,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_d0eacb0d
 	Checksum: 0x80F724D1
 	Offset: 0x1F8
@@ -62,7 +62,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -410,7 +410,7 @@ function function_ef45a8f4(vs)
 	{
 		return false;
 	}
-	if(!isdefined(vehicle.var_4a479473))
+	if(!isdefined(vehicle.last_enter))
 	{
 		return false;
 	}

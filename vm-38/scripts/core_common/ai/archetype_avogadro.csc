@@ -1,5 +1,5 @@
-#using script_3b78d6d26bf3ec83;
-#using script_ac6a30f1991e105;
+#using scripts\abilities\gadgets\gadget_jammer_shared.csc;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -33,7 +33,7 @@ function private autoexec function_27720ae()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"archetype_avogadro", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"archetype_avogadro", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -56,7 +56,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: archetype_avogadro
 	Checksum: 0x80F724D1
 	Offset: 0x4A8
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -101,7 +101,7 @@ function on_entity_shutdown(localclientnum)
 	}
 	if(isdefined(self))
 	{
-		self function_5d482e78(#"hash_4a28179035ece31c");
+		self stoprenderoverridebundle(#"hash_4a28179035ece31c");
 	}
 }
 
@@ -142,7 +142,7 @@ function function_9452b8f1(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(bwastimejump === 1)
 	{
-		self.var_b85f4206 = function_239993de(fieldname, "zm_ai/fx8_avo_elec_projectile", self, "tag_origin_animate");
+		self.boltfx = function_239993de(fieldname, "zm_ai/fx8_avo_elec_projectile", self, "tag_origin_animate");
 		if(!isdefined(self.var_cb169d5f))
 		{
 			self.var_cb169d5f = self playloopsound(#"hash_64fad034010aebaa");
@@ -150,10 +150,10 @@ function function_9452b8f1(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	else
 	{
-		if(isdefined(self.var_b85f4206))
+		if(isdefined(self.boltfx))
 		{
-			stopfx(fieldname, self.var_b85f4206);
-			self.var_b85f4206 = undefined;
+			stopfx(fieldname, self.boltfx);
+			self.boltfx = undefined;
 		}
 		if(isdefined(self.var_cb169d5f))
 		{

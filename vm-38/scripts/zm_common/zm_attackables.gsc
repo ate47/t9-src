@@ -40,7 +40,7 @@ function private autoexec function_dbbfb974()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_attackables", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_attackables", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -74,7 +74,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_attackables
 	Checksum: 0x80F724D1
 	Offset: 0x360
@@ -82,7 +82,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 

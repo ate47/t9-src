@@ -1,8 +1,8 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_29ed825598140ca0;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_killed.gsc;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_32c8b5b0eb2854f3;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\mp_common\teams\teams.gsc;
@@ -169,7 +169,7 @@ function timeuntilspawn(includeteamkilldelay)
 			respawndelay = respawndelay + player::function_821200bb();
 		}
 	}
-	if(is_true(level.spawnsystem.var_f220c297))
+	if(is_true(level.spawnsystem.deathcirclerespawn))
 	{
 		return self function_ac5b273c(respawndelay);
 	}
@@ -593,7 +593,7 @@ function spawnplayer()
 {
 	if(getdvarint(#"hash_538d8545b881ef93") > 0)
 	{
-		setdvar(#"hash_5d661fccc6a32861", 1);
+		setdvar(#"r_jqprof_capture", 1);
 		waitframe(1);
 	}
 	pixbeginevent();
@@ -657,7 +657,7 @@ function spawnplayer()
 	}
 	var_e0f216b9 = 1;
 	self loadout::give_loadout(self.team, self.curclass, var_e0f216b9);
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		specialist = function_b14806c6(role, currentsessionmode());
 		if(isdefined(specialist))
@@ -665,21 +665,21 @@ function spawnplayer()
 			self function_6c3348ac(specialist);
 		}
 		var_be574bd8 = self function_b568258e();
-		outfitindex = self function_50a9aad5();
+		outfitindex = self getcharacteroutfit();
 		gender = self getplayergendertype();
 		var_34ba1b60 = self function_3d1a97c6();
 		var_8fa79650 = self function_564cfaeb();
-		var_9cc50881 = self function_e1c06cd0();
+		decallootid = self function_e1c06cd0();
 		var_b3d9cfaa = self function_11d0e790();
 		var_f8e6b703 = self match_record::get_player_stat(#"hash_ec4aea1a8bbd82");
 		if(isdefined(var_f8e6b703))
 		{
 			self match_record::set_stat(#"lives", var_f8e6b703, #"character_gender", gender);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_7f98574cf2a03360", var_9cc50881);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_38198df3d9b2c8b8", var_be574bd8);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_77e4495eb46e7e2b", var_8fa79650);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_decal_lootid", decallootid);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_outfit_lootid", var_be574bd8);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_warpaint_lootid", var_8fa79650);
 			self match_record::set_stat(#"lives", var_f8e6b703, #"character_outfit", outfitindex);
-			self match_record::set_stat(#"lives", var_f8e6b703, #"hash_3e4aa1baa6e0dd0f", var_34ba1b60);
+			self match_record::set_stat(#"lives", var_f8e6b703, #"character_warpaint_outfit", var_34ba1b60);
 			for(i = 0; i < var_b3d9cfaa.size; i++)
 			{
 				self match_record::set_stat(#"lives", var_f8e6b703, #"hash_20d6751cb2f9ca09", i, var_b3d9cfaa[i]);
@@ -701,7 +701,7 @@ function spawnplayer()
 		{
 			self notsolid();
 		}
-		self callback::function_10006d25(&doinitialspawnmessaging);
+		self callback::on_prematch_end(&doinitialspawnmessaging);
 	}
 	else
 	{
@@ -840,15 +840,15 @@ function function_3ee5119e()
 		#/
 		self.var_ba35b2d2 = player.squad;
 	}
-	if(self.pers[#"team"] != #"spectator" && level.spectatetype == 4 && self.var_92e86779 == #"invalid")
+	if(self.pers[#"team"] != #"spectator" && level.spectatetype == 4 && self.spectatorteam == #"invalid")
 	{
 		spectating::set_permissions();
 		team_players = getplayers(self.team);
-		player = spectating::function_327e6270(team_players, &spectating::function_78d7160b, #"invalid");
+		player = spectating::function_327e6270(team_players, &spectating::spectator_team, #"invalid");
 		/#
 			assert(isdefined(player));
 		#/
-		self.var_92e86779 = player.team;
+		self.spectatorteam = player.team;
 	}
 }
 

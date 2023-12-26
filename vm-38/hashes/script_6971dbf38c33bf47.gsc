@@ -32,7 +32,7 @@ function private autoexec function_fbe286b9()
 */
 function setup(localclientnum, var_582cb7bb)
 {
-	if(!namespace_ad5a0cd6::use_item_spawns())
+	if(!item_world_util::use_item_spawns())
 	{
 		return;
 	}

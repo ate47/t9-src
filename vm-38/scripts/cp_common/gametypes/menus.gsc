@@ -76,7 +76,7 @@ function init()
 	game.menu[#"menu_class"] = "class";
 	game.menu[#"menu_changeclass"] = "mobile_armory_loadout";
 	game.menu[#"menu_changeclass_offline"] = "mobile_armory_loadout";
-	game.menu[#"hash_644a9c94f3d35a8a"] = "PositionDraft";
+	game.menu[#"menu_draft"] = "PositionDraft";
 	foreach(str_team in level.teams)
 	{
 		game.menu["menu_changeclass_" + str_team] = "mobile_armory_loadout";
@@ -281,7 +281,7 @@ function on_menu_response()
 			}
 			continue;
 		}
-		if(menu == game.menu[#"hash_644a9c94f3d35a8a"])
+		if(menu == game.menu[#"menu_draft"])
 		{
 			self [[level.draftmenu]](response, intpayload);
 			continue;
@@ -352,8 +352,8 @@ function private function_c35a1bfc()
 	player clearallnoncheckpointdata();
 	world.var_b86bf11e = undefined;
 	globallogic_ui::function_760546ce();
-	var_1fdcd030 = savegame::get_mission_name();
-	var_65792f8b = function_2717b55f(var_1fdcd030);
+	missionname = savegame::get_mission_name();
+	var_65792f8b = function_2717b55f(missionname);
 	if(isdefined(var_65792f8b) && isdefined(var_65792f8b.var_a04dfce6))
 	{
 		var_a04dfce6 = var_65792f8b.var_a04dfce6;

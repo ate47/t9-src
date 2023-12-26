@@ -1,4 +1,4 @@
-#using script_4e261fd4bc49e992;
+#using scripts\core_common\player\player_insertion.csc;
 #using script_78825cbb1ab9f493;
 
 #namespace namespace_bc2b656d;

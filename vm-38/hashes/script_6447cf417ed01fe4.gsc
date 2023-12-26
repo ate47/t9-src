@@ -72,7 +72,7 @@ class csr_objective_reward_menu : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: csr_objective_reward_menu
 		Checksum: 0xE4BAFBA
 		Offset: 0x610
@@ -80,9 +80,9 @@ class csr_objective_reward_menu : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_objective_reward_menu");
+		cLUIelem::register_clientside("sr_objective_reward_menu");
 	}
 
 	/*
@@ -97,12 +97,12 @@ class csr_objective_reward_menu : cLUIelem
 	function setup_clientfields(var_e4dedc0e, var_c8914fcf, var_2f1b82f5, var_bf555938, var_18d66c99)
 	{
 		cLUIelem::setup_clientfields("sr_objective_reward_menu");
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
-		cLUIelem::function_da693cbe("promptProgress", 1, 7, "float", var_e4dedc0e);
-		cLUIelem::function_da693cbe("gunIndex1", 1, 4, "int", var_c8914fcf);
-		cLUIelem::function_da693cbe("gunindex2", 1, 4, "int", var_2f1b82f5);
-		cLUIelem::function_da693cbe("gunindex3", 1, 4, "int", var_bf555938);
-		cLUIelem::function_da693cbe("color", 1, 2, "int", var_18d66c99);
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("promptProgress", 1, 7, "float", var_e4dedc0e);
+		cLUIelem::add_clientfield("gunIndex1", 1, 4, "int", var_c8914fcf);
+		cLUIelem::add_clientfield("gunindex2", 1, 4, "int", var_2f1b82f5);
+		cLUIelem::add_clientfield("gunindex3", 1, 4, "int", var_bf555938);
+		cLUIelem::add_clientfield("color", 1, 2, "int", var_18d66c99);
 	}
 
 	/*
@@ -264,7 +264,7 @@ function register(var_e4dedc0e, var_c8914fcf, var_2f1b82f5, var_bf555938, var_18
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_objective_reward_menu
 	Checksum: 0x8F6014AE
 	Offset: 0x2D8
@@ -272,10 +272,10 @@ function register(var_e4dedc0e, var_c8914fcf, var_2f1b82f5, var_bf555938, var_18
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new csr_objective_reward_menu();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

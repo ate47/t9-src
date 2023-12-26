@@ -58,7 +58,7 @@ class class_5813c56a : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_5813c56a
 		Checksum: 0x16754AE2
 		Offset: 0x438
@@ -66,9 +66,9 @@ class class_5813c56a : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_silver_hud");
+		cLUIelem::register_clientside("zm_silver_hud");
 	}
 
 	/*
@@ -83,8 +83,8 @@ class class_5813c56a : cLUIelem
 	function setup_clientfields(var_a7dcee14, var_5cdd6232)
 	{
 		cLUIelem::setup_clientfields("zm_silver_hud");
-		cLUIelem::function_da693cbe("aetherscopeStatus", 1, 2, "int", var_a7dcee14);
-		cLUIelem::function_da693cbe("showPhoto", 1, 1, "int", var_5cdd6232);
+		cLUIelem::add_clientfield("aetherscopeStatus", 1, 2, "int", var_a7dcee14);
+		cLUIelem::add_clientfield("showPhoto", 1, 1, "int", var_5cdd6232);
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_a7dcee14, var_5cdd6232)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_silver_hud
 	Checksum: 0x87A53E01
 	Offset: 0x278
@@ -176,10 +176,10 @@ function register(var_a7dcee14, var_5cdd6232)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_5813c56a();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

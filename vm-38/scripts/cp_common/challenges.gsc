@@ -658,7 +658,7 @@ function function_7b4387e1(rewardxp, maxval, row, tablenumber, challengetype, it
 		if(getdvarint(#"hash_4cc2d974d4e9d2d6", 0) != 0)
 		{
 			var_c4e9517b = tablenumber + 1;
-			tablename = (#"hash_929b58638c59880" + var_c4e9517b) + "";
+			tablename = (#"gamedata/stats/cp/statsmilestones" + var_c4e9517b) + "";
 			var_eb67c133 = tablelookupcolumnforrow(tablename, row, 5);
 			if(var_eb67c133 === #"hash_4a80d584aac2e7d0")
 			{
@@ -686,12 +686,12 @@ function function_7b4387e1(rewardxp, maxval, row, tablenumber, challengetype, it
 			{
 				if(challengetype == 3)
 				{
-					challengestring = function_ea13f55(challengestring, "", "" + function_60394171(#"challenge", 3, itemindex));
+					challengestring = strreplace(challengestring, "", "" + function_60394171(#"challenge", 3, itemindex));
 				}
 			}
 			if(issubstr(challengestring, ""))
 			{
-				challengestring = function_ea13f55(challengestring, "", "" + tiertext);
+				challengestring = strreplace(challengestring, "", "" + tiertext);
 			}
 			msg = (((var_33b913f5 + "") + challengestring) + "") + maxval;
 			if(getdvarint(#"hash_4cc2d974d4e9d2d6", 0) == 1)

@@ -9,7 +9,7 @@
 #using script_4ae261b2785dda9f;
 #using script_61cfc2ab8e60625;
 #using script_671f58f0b7aa833d;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_74940ab70a48ee4e;
 #using script_7b4396f5e8e35b28;
 #using script_7d0013bbc05623b9;

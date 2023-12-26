@@ -66,7 +66,7 @@ function private function_70a657d8()
 	{
 		level.var_28f2d2b1 = [];
 	}
-	clientfield::function_a8bbc967("player_lives", 1, 2, "int");
+	clientfield::register_clientuimodel("player_lives", 1, 2, "int");
 	clientfield::register("toplayer", "player_in_afterlife", 1, 1, "int");
 	clientfield::register("toplayer", "player_mana", 1, 8, "float");
 	clientfield::register("allplayers", "player_altbody", 1, 1, "int");

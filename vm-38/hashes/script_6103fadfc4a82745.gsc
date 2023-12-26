@@ -61,7 +61,7 @@ class cscavenger_icon : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -103,7 +103,7 @@ class cscavenger_icon : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -118,10 +118,10 @@ class cscavenger_icon : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("scavenger_icon");
-		cLUIelem::function_da693cbe("ammoPulse", 1, 1, "counter");
-		cLUIelem::function_da693cbe("armorPlatePulse", 1, 1, "counter");
-		cLUIelem::function_da693cbe("scrapPulse", 1, 1, "counter");
-		cLUIelem::function_da693cbe("rareScrapPulse", 4000, 1, "counter");
+		cLUIelem::add_clientfield("ammoPulse", 1, 1, "counter");
+		cLUIelem::add_clientfield("armorPlatePulse", 1, 1, "counter");
+		cLUIelem::add_clientfield("scrapPulse", 1, 1, "counter");
+		cLUIelem::add_clientfield("rareScrapPulse", 4000, 1, "counter");
 	}
 
 	/*

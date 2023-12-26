@@ -37,7 +37,7 @@ function private autoexec function_f6ab5af1()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"oed", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"oed", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -70,7 +70,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: oed
 	Checksum: 0x80F724D1
 	Offset: 0x478
@@ -78,7 +78,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 

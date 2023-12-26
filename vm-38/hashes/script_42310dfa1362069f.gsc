@@ -429,9 +429,9 @@ function event_listener_thread()
 				typeorig = "";
 				if(isdefined(event.typeorig))
 				{
-					typeorig = ("" + (function_7a600918(event.typeorig) ? function_9e72a96(event.typeorig) : event.typeorig)) + "";
+					typeorig = ("" + (ishash(event.typeorig) ? function_9e72a96(event.typeorig) : event.typeorig)) + "";
 				}
-				var_c229055e = ("" + (function_7a600918(event.type) ? function_9e72a96(event.type) : event.type)) + typeorig;
+				var_c229055e = ("" + (ishash(event.type) ? function_9e72a96(event.type) : event.type)) + typeorig;
 				if(isdefined(var_b3f16b56) && !var_b3f16b56)
 				{
 					var_c229055e = var_c229055e + "";

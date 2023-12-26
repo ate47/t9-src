@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -154,8 +154,8 @@ function function_81eaae89(e_player)
 */
 function function_40935801()
 {
-	self notify(#"hash_4c60ab5ca6d3899");
-	self endon(#"hash_4c60ab5ca6d3899", #"death", #"bled_out");
+	self notify(#"picked_up_pap");
+	self endon(#"picked_up_pap", #"death", #"bled_out");
 	wait(30);
 	self function_ad31c153();
 	var_e8145621 = self getweaponslistprimaries();

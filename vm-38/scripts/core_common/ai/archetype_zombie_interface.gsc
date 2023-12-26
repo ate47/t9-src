@@ -1,5 +1,5 @@
-#using script_59f07c660e6710a5;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\zombie.gsc;
 
 #namespace archetype_zombie_interface;
 

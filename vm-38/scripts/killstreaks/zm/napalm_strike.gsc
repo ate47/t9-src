@@ -1,4 +1,4 @@
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\killstreaks\zm\airsupport.gsc;
 #using script_61828ad9e71c6616;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -147,7 +147,7 @@ function function_53a0e7ce(var_b004174a)
 	self endon(#"disconnect");
 	s_params = killstreaks::get_script_bundle("napalm_strike_zm");
 	var_2558cb51 = array("napalm_strike_complete" + var_b004174a, "napalm_strike_failed" + var_b004174a);
-	self namespace_bf7415ae::function_890b3889("napalm_strike", s_params.var_1ab696c6, 2500, &function_ce23d48a, &function_ffa80fa4, var_2558cb51, 1);
+	self namespace_bf7415ae::function_890b3889("napalm_strike", s_params.ksweapon, 2500, &function_ce23d48a, &function_ffa80fa4, var_2558cb51, 1);
 	s_location = self namespace_bf7415ae::function_be6de952("napalm_strike", &function_fc2f1ec6);
 	if(isdefined(s_location))
 	{

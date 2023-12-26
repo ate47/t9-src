@@ -2,7 +2,7 @@
 #using script_1ee011cd0961afd7;
 #using script_2a5bf5b4a00cee0d;
 #using script_47851dbeea22fe66;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_634ae70c663d1cc9;
 #using script_774302f762d76254;
 #using scripts\core_common\animation_shared.gsc;
@@ -123,7 +123,7 @@ function function_ecfc6c75(trap, paged)
 	trap.script_model = hazard;
 	trap.paged = paged;
 	trap.trigger = [];
-	trap.var_e8e7a559 = 1;
+	trap.spinrate = 1;
 	trap.minwait = 3;
 	trap.maxwait = 5;
 	trap.var_c27181d9 = 3;
@@ -132,7 +132,7 @@ function function_ecfc6c75(trap, paged)
 		args = strtok(trap.script_parameters, ";");
 		if(args.size > 0)
 		{
-			trap.var_e8e7a559 = float(args[0]);
+			trap.spinrate = float(args[0]);
 		}
 		if(args.size > 1)
 		{
@@ -147,7 +147,7 @@ function function_ecfc6c75(trap, paged)
 			trap.var_c27181d9 = float(args[3]);
 		}
 	}
-	trap.var_e8e7a559 = 1;
+	trap.spinrate = 1;
 	trap thread function_80eed528();
 	return trap;
 }
@@ -333,11 +333,11 @@ function function_80eed528()
 	self.trigger[1] linkto(self.script_model, "flogger_trap_rod_jnt", vectorscale((1, 0, 0), 100));
 	self.trigger[0] triggerenable(0);
 	self.trigger[1] triggerenable(0);
-	if(!isdefined(self.var_e8e7a559))
+	if(!isdefined(self.spinrate))
 	{
-		self.var_e8e7a559 = 1;
+		self.spinrate = 1;
 	}
-	animationrate = self.var_e8e7a559;
+	animationrate = self.spinrate;
 	length = length / animationrate;
 	self.script_model namespace_e32bb68::function_3a59ec34("evt_doa_hazard_flogger_eng_start");
 	wait(1);

@@ -40,7 +40,7 @@ function private autoexec function_a6263d6b()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_items", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_items", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -62,24 +62,24 @@ function private function_70a657d8()
 	{
 		level.item_list = [];
 	}
-	if(!isdefined(level.var_223728ac))
+	if(!isdefined(level.item_spawns))
 	{
-		level.var_223728ac = [];
+		level.item_spawns = [];
 	}
 	if(!isdefined(level.item_inventory))
 	{
 		level.item_inventory = [];
 	}
-	if(!isdefined(level.var_91d6d592))
+	if(!isdefined(level.item_callbacks))
 	{
-		level.var_91d6d592 = [];
+		level.item_callbacks = [];
 	}
 	clientfield::register("item", "highlight_item", 1, 2, "int");
 	callback::on_spawned(&player_on_spawned);
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_items
 	Checksum: 0xA279E73B
 	Offset: 0x260
@@ -87,28 +87,28 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	a_items = getitemarray();
 	foreach(item in a_items)
 	{
 		w_item = item.item;
-		if(isdefined(w_item) && is_true(w_item.var_52a84c7a))
+		if(isdefined(w_item) && is_true(w_item.craftitem))
 		{
 			tname = w_item;
-			if(!isdefined(level.var_223728ac[tname]))
+			if(!isdefined(level.item_spawns[tname]))
 			{
-				level.var_223728ac[tname] = [];
+				level.item_spawns[tname] = [];
 			}
-			if(!isdefined(level.var_223728ac[tname]))
+			if(!isdefined(level.item_spawns[tname]))
 			{
-				level.var_223728ac[tname] = [];
+				level.item_spawns[tname] = [];
 			}
-			else if(!isarray(level.var_223728ac[tname]))
+			else if(!isarray(level.item_spawns[tname]))
 			{
-				level.var_223728ac[tname] = array(level.var_223728ac[tname]);
+				level.item_spawns[tname] = array(level.item_spawns[tname]);
 			}
-			level.var_223728ac[tname][level.var_223728ac[tname].size] = item;
+			level.item_spawns[tname][level.item_spawns[tname].size] = item;
 			if(!isdefined(level.item_list))
 			{
 				level.item_list = [];
@@ -123,7 +123,7 @@ function private function_8ac3bea9()
 			}
 		}
 	}
-	foreach(a_items in level.var_223728ac)
+	foreach(a_items in level.item_spawns)
 	{
 		var_b38ebe37 = a_items[0].item.var_ec2cbce2;
 		if(isdefined(level.var_fd2e6f70))
@@ -186,23 +186,23 @@ function player_on_spawned()
 */
 function function_4d230236(w_item, fn_callback)
 {
-	if(!isdefined(level.var_91d6d592))
+	if(!isdefined(level.item_callbacks))
 	{
-		level.var_91d6d592 = [];
+		level.item_callbacks = [];
 	}
-	if(!isdefined(level.var_91d6d592[w_item]))
+	if(!isdefined(level.item_callbacks[w_item]))
 	{
-		level.var_91d6d592[w_item] = [];
+		level.item_callbacks[w_item] = [];
 	}
-	if(!isdefined(level.var_91d6d592[w_item]))
+	if(!isdefined(level.item_callbacks[w_item]))
 	{
-		level.var_91d6d592[w_item] = [];
+		level.item_callbacks[w_item] = [];
 	}
-	else if(!isarray(level.var_91d6d592[w_item]))
+	else if(!isarray(level.item_callbacks[w_item]))
 	{
-		level.var_91d6d592[w_item] = array(level.var_91d6d592[w_item]);
+		level.item_callbacks[w_item] = array(level.item_callbacks[w_item]);
 	}
-	level.var_91d6d592[w_item][level.var_91d6d592[w_item].size] = fn_callback;
+	level.item_callbacks[w_item][level.item_callbacks[w_item].size] = fn_callback;
 }
 
 /*
@@ -263,7 +263,7 @@ function private function_b64c32cf(player)
 */
 function player_has(player, w_item)
 {
-	if(!is_true(w_item.var_52a84c7a) && isdefined(player))
+	if(!is_true(w_item.craftitem) && isdefined(player))
 	{
 		if(w_item.var_9fffdcee)
 		{
@@ -323,11 +323,11 @@ function player_pick_up(player, w_item)
 		}
 		holder.item_slot_inventory[w_item.var_df0f9ce9] = w_item;
 	}
-	level notify(#"hash_78451720bf647f70", {#holder:holder, #component:w_item});
-	player notify(#"hash_78451720bf647f70", {#holder:holder, #component:w_item});
-	if(isdefined(level.var_91d6d592[w_item]))
+	level notify(#"component_collected", {#holder:holder, #component:w_item});
+	player notify(#"component_collected", {#holder:holder, #component:w_item});
+	if(isdefined(level.item_callbacks[w_item]))
 	{
-		foreach(callback in level.var_91d6d592[w_item])
+		foreach(callback in level.item_callbacks[w_item])
 		{
 			player [[callback]](holder, w_item);
 		}
@@ -349,7 +349,7 @@ function player_pick_up(player, w_item)
 */
 function player_take(player, w_item)
 {
-	if(!is_true(w_item.var_52a84c7a) && isdefined(player))
+	if(!is_true(w_item.craftitem) && isdefined(player))
 	{
 		if(w_item.var_9fffdcee)
 		{
@@ -394,14 +394,14 @@ function function_ab3bb6bf(holder, w_item)
 	{
 		holder.item_slot_inventory[w_item.var_df0f9ce9] = undefined;
 	}
-	level notify(#"hash_30bc7882ac1af823", {#holder:holder, #component:w_item});
-	self notify(#"hash_30bc7882ac1af823", {#holder:holder, #component:w_item});
+	level notify(#"component_lost", {#holder:holder, #component:w_item});
+	self notify(#"component_lost", {#holder:holder, #component:w_item});
 	if(self hasweapon(w_item))
 	{
 		self takeweapon(w_item);
 	}
-	var_e9c4fe29 = spawn_item(w_item, self.origin + vectorscale((0, 0, 1), 8), self.angles);
-	return var_e9c4fe29;
+	new_item = spawn_item(w_item, self.origin + vectorscale((0, 0, 1), 8), self.angles);
+	return new_item;
 }
 
 /*
@@ -419,8 +419,8 @@ function spawn_item(w_item, v_origin, v_angles, var_f93e465d)
 	{
 		var_f93e465d = 1;
 	}
-	var_e9c4fe29 = spawnweapon(w_item, v_origin, v_angles, var_f93e465d);
-	return var_e9c4fe29;
+	new_item = spawnweapon(w_item, v_origin, v_angles, var_f93e465d);
+	return new_item;
 }
 
 /*
@@ -441,7 +441,7 @@ function debug_items()
 			foreach(item in a_items)
 			{
 				w_item = item.item;
-				if(isdefined(w_item) && is_true(w_item.var_52a84c7a))
+				if(isdefined(w_item) && is_true(w_item.craftitem))
 				{
 					sphere(item.origin, 6, (0, 0, 1), 1, 0, 12, 20);
 				}

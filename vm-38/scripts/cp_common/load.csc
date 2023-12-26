@@ -1,11 +1,11 @@
-#using script_12578f6acd24ec34;
+#using scripts\weapons\spike_charge.csc;
 #using scripts\core_common\status_effects\status_effects.csc;
 #using script_1d4ca739cb476f50;
 #using script_31a4e84bd38b34e2;
 #using script_45af62df1bb6015d;
 #using scripts\core_common\vehicles\driving_fx.csc;
 #using scripts\weapons\cp\weaponobjects.csc;
-#using script_5f01badf05cc8ed1;
+#using scripts\weapons\antipersonnelguidance.csc;
 #using script_6c15b80dfa790b53;
 #using script_c22b8fa254e64a0;
 #using scripts\core_common\audio_shared.csc;

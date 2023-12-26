@@ -242,7 +242,7 @@ function function_3037364a(e_revivee)
 */
 function enable_quick_revive_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_7f98b3dd3cce95aa", #"perk_quick_revive", 2000, #"hash_8f2aa407d227799", getweapon("zombie_perk_bottle_revive"), undefined, #"zmperksquickrevive");
+	zm_perks::register_perk_basic_info(#"hash_7f98b3dd3cce95aa", #"perk_quick_revive", 2000, #"zombie/perk_quickrevive", getweapon("zombie_perk_bottle_revive"), undefined, #"zmperksquickrevive");
 	zm_perks::register_perk_precache_func(#"hash_7f98b3dd3cce95aa", &quick_revive_precache);
 	zm_perks::register_perk_clientfields(#"hash_7f98b3dd3cce95aa", &quick_revive_register_clientfield, &quick_revive_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_7f98b3dd3cce95aa", &quick_revive_perk_machine_setup);

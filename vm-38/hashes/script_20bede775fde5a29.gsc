@@ -5,11 +5,11 @@
 #using scripts\core_common\scene_shared.csc;
 #using scripts\core_common\util_shared.csc;
 
-#namespace namespace_81c567a8;
+#namespace display_transition;
 
 /*
 	Name: function_83c029c4
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0x5353928E
 	Offset: 0x130
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_83c029c4()
 
 /*
 	Name: init_shared
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0x315F3D6A
 	Offset: 0x150
 	Size: 0x2C
@@ -38,7 +38,7 @@ function init_shared()
 
 /*
 	Name: registerclientfields
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0xE82319B2
 	Offset: 0x188
 	Size: 0xB4
@@ -47,7 +47,7 @@ function init_shared()
 */
 function private registerclientfields()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		clientfield::register("toplayer", "eliminated_postfx", 12000, 1, "int", &function_c73ec9a, 0, 0);
 	}
@@ -59,7 +59,7 @@ function private registerclientfields()
 
 /*
 	Name: function_c73ec9a
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0xC8D6C65A
 	Offset: 0x248
 	Size: 0xD4
@@ -87,7 +87,7 @@ function function_c73ec9a(local_client_num, oldval, newval, bnewent, binitialsna
 
 /*
 	Name: function_57e7e78e
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0x9A07A0EB
 	Offset: 0x328
 	Size: 0x1AC
@@ -114,7 +114,7 @@ function function_57e7e78e()
 
 /*
 	Name: function_d4f9edc8
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0x8D419C2F
 	Offset: 0x4E0
 	Size: 0x9A
@@ -137,7 +137,7 @@ function private function_d4f9edc8(character_index, session_mode)
 
 /*
 	Name: function_707c958c
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0x7A308503
 	Offset: 0x588
 	Size: 0xB8
@@ -161,7 +161,7 @@ function private function_707c958c(local_client_num, var_23904c1d, target_name)
 
 /*
 	Name: function_c4ede3a8
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0xD42CE63F
 	Offset: 0x648
 	Size: 0x102
@@ -185,7 +185,7 @@ function private function_c4ede3a8(local_client_num, target_name, session_mode)
 
 /*
 	Name: function_1b0611e0
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0xAF0C17CA
 	Offset: 0x758
 	Size: 0x62
@@ -201,7 +201,7 @@ function private function_1b0611e0(local_client_num, xuid, target_name)
 
 /*
 	Name: function_4259f9f8
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0x6CC01F22
 	Offset: 0x7C8
 	Size: 0x68
@@ -218,7 +218,7 @@ function private function_4259f9f8(local_client_num, target_name)
 
 /*
 	Name: function_7adce590
-	Namespace: namespace_81c567a8
+	Namespace: display_transition
 	Checksum: 0xDF36E7E9
 	Offset: 0x838
 	Size: 0x25C

@@ -58,7 +58,7 @@ class cluielem_entity_bar : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cluielem_entity_bar
 		Checksum: 0x93116BAA
 		Offset: 0x830
@@ -66,9 +66,9 @@ class cluielem_entity_bar : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("LUIelem_entity_bar");
+		cLUIelem::register_clientside("LUIelem_entity_bar");
 	}
 
 	/*
@@ -111,14 +111,14 @@ class cluielem_entity_bar : cLUIelem
 	function setup_clientfields(var_aabf01c7, var_5a7b4b38, var_bda3bf84, var_f228b5fa, var_5957697a, var_90efc226, var_b77f41ee, var_255edd98, var_2c8aa656)
 	{
 		cLUIelem::setup_clientfields("LUIelem_entity_bar");
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("progress_percent", 1, 7, "float", var_bda3bf84);
-		cLUIelem::function_da693cbe("entnum", 1, 7, "int", var_f228b5fa);
-		cLUIelem::function_da693cbe("offset_x", 1, 6, "int", var_5957697a);
-		cLUIelem::function_da693cbe("offset_y", 1, 6, "int", var_90efc226);
-		cLUIelem::function_da693cbe("offset_z", 1, 6, "int", var_b77f41ee);
-		cLUIelem::function_da693cbe("entityClamp", 1, 1, "int", var_255edd98);
-		cLUIelem::function_da693cbe("entityScale", 1, 1, "int", var_2c8aa656);
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("progress_percent", 1, 7, "float", var_bda3bf84);
+		cLUIelem::add_clientfield("entnum", 1, 7, "int", var_f228b5fa);
+		cLUIelem::add_clientfield("offset_x", 1, 6, "int", var_5957697a);
+		cLUIelem::add_clientfield("offset_y", 1, 6, "int", var_90efc226);
+		cLUIelem::add_clientfield("offset_z", 1, 6, "int", var_b77f41ee);
+		cLUIelem::add_clientfield("entityClamp", 1, 1, "int", var_255edd98);
+		cLUIelem::add_clientfield("entityScale", 1, 1, "int", var_2c8aa656);
 	}
 
 	/*
@@ -348,7 +348,7 @@ function register(var_aabf01c7, var_5a7b4b38, var_bda3bf84, var_f228b5fa, var_59
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: luielem_entity_bar
 	Checksum: 0xF2C0AF1
 	Offset: 0x428
@@ -356,10 +356,10 @@ function register(var_aabf01c7, var_5a7b4b38, var_bda3bf84, var_f228b5fa, var_59
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cluielem_entity_bar();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

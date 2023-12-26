@@ -1,9 +1,9 @@
 #using script_2c5daa95f8fec03c;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_744259b349d834c7;
 #using script_799de24f8ad427f7;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -61,7 +61,7 @@ function function_70a657d8()
 {
 	spawner::add_archetype_spawn_function(#"soa", &function_49bf8a32);
 	spawner::function_89a2cd87(#"soa", &function_751146f8);
-	namespace_c3287616::register_archetype(#"soa", &function_76a7a9ef, &function_ecce5272, &function_e803632f, 80);
+	zm_round_spawning::register_archetype(#"soa", &function_76a7a9ef, &function_ecce5272, &function_e803632f, 80);
 	zm_cleanup::function_cdf5a512(#"soa", &function_9310b9ca);
 	callback::add_callback(#"hash_72fd23232c4c7ab1", &function_53bc3572);
 	callback::add_callback(#"hash_2a040f8b8142266d", &function_3138c2d5);
@@ -479,10 +479,10 @@ function private function_b7b2c72c(entity)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7a71cf9f(var_e2414b1b, player)
+function function_7a71cf9f(zone_path, player)
 {
 	self.var_ea989fd2 = undefined;
-	if(isdefined(var_e2414b1b))
+	if(isdefined(zone_path))
 	{
 		return undefined;
 	}
@@ -555,8 +555,8 @@ function function_4a3e695a(entity, player)
 				var_c6bd50df = player.cached_zone;
 				if(isdefined(var_fd1e4845) && isdefined(var_c6bd50df) && var_c6bd50df === var_fd1e4845)
 				{
-					var_c61e7ea7 = level.zones[var_fd1e4845];
-					if(isdefined(var_c61e7ea7.a_loc_types[#"zombie_location"]) && isdefined(var_c61e7ea7.a_loc_types[#"zombie_location"].size <= 0))
+					target_zone = level.zones[var_fd1e4845];
+					if(isdefined(target_zone.a_loc_types[#"zombie_location"]) && isdefined(target_zone.a_loc_types[#"zombie_location"].size <= 0))
 					{
 						return undefined;
 					}
@@ -805,12 +805,12 @@ function function_41a4961d(get_all)
 				{
 					return undefined;
 				}
-				var_c61e7ea7 = level.zones[var_5f3b05e8];
-				var_24f5d9f8 = array(var_c61e7ea7.name);
-				var_e15699c4 = getarraykeys(var_c61e7ea7.adjacent_zones);
-				foreach(str_zone in var_e15699c4)
+				target_zone = level.zones[var_5f3b05e8];
+				var_24f5d9f8 = array(target_zone.name);
+				a_str_adj_zones = getarraykeys(target_zone.adjacent_zones);
+				foreach(str_zone in a_str_adj_zones)
 				{
-					if(var_c61e7ea7.adjacent_zones[str_zone].is_connected)
+					if(target_zone.adjacent_zones[str_zone].is_connected)
 					{
 						if(!isdefined(var_24f5d9f8))
 						{

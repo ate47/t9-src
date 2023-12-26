@@ -78,7 +78,7 @@ function function_32d5e898(localclientnum)
 	{
 		if(isdefined(player) && isdefined(player.doa))
 		{
-			player.doa.var_10752c35 = var_634814ee;
+			player.doa.cameramode = var_634814ee;
 		}
 		player function_278f20a3(vectorscale((1, 0, 0), 75), function_ccf8a968(1));
 	}
@@ -105,16 +105,16 @@ function function_57ce3201(localclientnum)
 	while(true)
 	{
 		level waittill(#"hash_743e9066181c346e");
-		if(isdefined(localclientnum) && isdefined(self.doa) && isdefined(self.doa.var_10752c35))
+		if(isdefined(localclientnum) && isdefined(self.doa) && isdefined(self.doa.cameramode))
 		{
-			if(self.doa.var_10752c35 == 2 && !function_32cb6463(localclientnum))
+			if(self.doa.cameramode == 2 && !function_32cb6463(localclientnum))
 			{
-				var_69c3bd16 = self function_1d5dc8d2(localclientnum, self.doa.var_10752c35);
+				var_69c3bd16 = self function_1d5dc8d2(localclientnum, self.doa.cameramode);
 				self changecamera(var_69c3bd16);
 			}
-			if(self.doa.var_10752c35 == 3 && !function_32cb6463(localclientnum))
+			if(self.doa.cameramode == 3 && !function_32cb6463(localclientnum))
 			{
-				var_69c3bd16 = self function_1d5dc8d2(localclientnum, self.doa.var_10752c35);
+				var_69c3bd16 = self function_1d5dc8d2(localclientnum, self.doa.cameramode);
 				self changecamera(var_69c3bd16);
 			}
 		}
@@ -203,7 +203,7 @@ function function_14f1aa2b(localclientnum, delta_time)
 	}
 	if(level.localplayers.size > 1)
 	{
-		if(level.doa.var_91f2835f == 1 && localclientnum > 0)
+		if(level.doa.r_splitscreenexpandfull == 1 && localclientnum > 0)
 		{
 			var_b2b025b1 = level.localplayers[0];
 			if(isdefined(var_b2b025b1) && isdefined(var_b2b025b1.doa) && isdefined(var_b2b025b1.var_45c6f27d))
@@ -225,13 +225,13 @@ function function_14f1aa2b(localclientnum, delta_time)
 	}
 	if(level.localplayers.size > 1)
 	{
-		if(level.doa.var_91f2835f == 1 && (localplayer.doa.var_10752c35 != 4 && localplayer.doa.var_10752c35 != 7))
+		if(level.doa.r_splitscreenexpandfull == 1 && (localplayer.doa.cameramode != 4 && localplayer.doa.cameramode != 7))
 		{
-			localplayer.doa.var_10752c35 = 4;
+			localplayer.doa.cameramode = 4;
 		}
 	}
-	var_10752c35 = localplayer.doa.var_10752c35;
-	if(var_10752c35 == 7)
+	cameramode = localplayer.doa.cameramode;
+	if(cameramode == 7)
 	{
 		/#
 			assert(isdefined(level.doa.var_b73cc08));
@@ -254,7 +254,7 @@ function function_14f1aa2b(localclientnum, delta_time)
 	{
 		var_8cc62135 = vehicle.origin;
 	}
-	if(var_10752c35 == 4)
+	if(cameramode == 4)
 	{
 		if(level.localplayers.size > 1)
 		{
@@ -302,7 +302,7 @@ function function_14f1aa2b(localclientnum, delta_time)
 	cam_pos = var_8cc62135;
 	cam_pos = cam_pos + (var_be529a4e * localplayer.doa.var_f793b3d3);
 	cam_pos = cam_pos + (var_7dd1941e * -20);
-	if(level.localplayers.size > 1 && var_10752c35 == 4 && isdefined(level.doa.current_arena))
+	if(level.localplayers.size > 1 && cameramode == 4 && isdefined(level.doa.current_arena))
 	{
 		var_8172ec08 = 200;
 		var_cfa24a5 = 1800;
@@ -450,42 +450,42 @@ function changecamera(mode)
 	{
 		return;
 	}
-	self.doa.var_10752c35 = mode;
+	self.doa.cameramode = mode;
 	/#
-		assert(isdefined(self.doa.var_10752c35));
+		assert(isdefined(self.doa.cameramode));
 	#/
 	if(is_true(level.doa.var_318aa67a))
 	{
-		self.doa.var_10752c35 = 6;
+		self.doa.cameramode = 6;
 		self.topdowncamera = 0;
 		self.doa.var_3e81d24c = 1;
 	}
 	self cameraforcedisablescriptcam(0);
 	if(is_true(level.doa.var_dec041f5))
 	{
-		self.doa.var_10752c35 = 7;
+		self.doa.cameramode = 7;
 	}
 	else
 	{
 		if(level.localplayers.size > 1)
 		{
-			if(self.doa.var_10752c35 == 4 && level.doa.var_91f2835f != 1)
+			if(self.doa.cameramode == 4 && level.doa.r_splitscreenexpandfull != 1)
 			{
 				namespace_4dae815d::function_e1887b0f(1);
 			}
-			if(self.doa.var_10752c35 == 5 && level.doa.var_91f2835f != 0)
+			if(self.doa.cameramode == 5 && level.doa.r_splitscreenexpandfull != 0)
 			{
 				namespace_4dae815d::function_e1887b0f(0);
 			}
 			namespace_4dae815d::function_b6e8ef46();
 			return;
 		}
-		if(self.doa.var_10752c35 == 6)
+		if(self.doa.cameramode == 6)
 		{
 			self cameraforcedisablescriptcam(1);
 		}
 	}
-	height = function_ccf8a968(self.doa.var_10752c35);
+	height = function_ccf8a968(self.doa.cameramode);
 	if(isdefined(level.doa.current_arena) && isdefined(level.doa.current_arena.camera_max_height))
 	{
 		if(height > level.doa.current_arena.camera_max_height)
@@ -515,7 +515,7 @@ function changecamera(mode)
 		self function_278f20a3(normalangle, height);
 	}
 	/#
-		namespace_1e25ad94::debugmsg((("" + self getentitynumber()) + "") + self.doa.var_10752c35);
+		namespace_1e25ad94::debugmsg((("" + self getentitynumber()) + "") + self.doa.cameramode);
 	#/
 }
 
@@ -540,11 +540,11 @@ function function_1d5dc8d2(localclientnum, var_545466e8)
 	}
 	if(level.localplayers.size > 1)
 	{
-		if(level.doa.var_91f2835f == 0 && namespace_4dae815d::function_abcdf17f())
+		if(level.doa.r_splitscreenexpandfull == 0 && namespace_4dae815d::function_abcdf17f())
 		{
 			return 5;
 		}
-		if(level.doa.var_91f2835f == 1)
+		if(level.doa.r_splitscreenexpandfull == 1)
 		{
 			return 5;
 		}
@@ -643,16 +643,16 @@ function function_ccf8a968(var_545466e8)
 	Parameters: 2
 	Flags: Linked
 */
-function function_f7736714(localclientnum, var_10752c35)
+function function_f7736714(localclientnum, cameramode)
 {
-	if(var_10752c35 == 2 && !function_32cb6463(localclientnum))
+	if(cameramode == 2 && !function_32cb6463(localclientnum))
 	{
-		var_10752c35 = self function_1d5dc8d2(localclientnum, var_10752c35);
+		cameramode = self function_1d5dc8d2(localclientnum, cameramode);
 	}
-	if(var_10752c35 == 3 && !function_32cb6463(localclientnum))
+	if(cameramode == 3 && !function_32cb6463(localclientnum))
 	{
-		var_10752c35 = self function_1d5dc8d2(localclientnum, var_10752c35);
+		cameramode = self function_1d5dc8d2(localclientnum, cameramode);
 	}
-	return var_10752c35;
+	return cameramode;
 }
 

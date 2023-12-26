@@ -37,7 +37,7 @@ function function_70a657d8()
 	callback::on_start_gametype(&on_start_gametype);
 	level.var_f5c1fb9d = [];
 	level.var_8a530af5 = [];
-	if(!function_59116c33())
+	if(!isshipbuild())
 	{
 		botfill = getdvarint(#"botfill", 0);
 		if(botfill > 0)
@@ -155,7 +155,7 @@ function private function_31a989f7(waitforplayers)
 		level flag::wait_till("all_players_connected");
 	}
 	waitframe(1);
-	if(!function_59116c33())
+	if(!isshipbuild())
 	{
 		if(isdefined(level.var_fa9f5bab) && level.var_fa9f5bab > 0)
 		{
@@ -361,7 +361,7 @@ function private function_f992463c(bots)
 	var_be6d09d1 = undefined;
 	foreach(bot in bots)
 	{
-		if(function_2dd2fa57(bot))
+		if(isautocontrolledplayer(bot))
 		{
 			continue;
 		}

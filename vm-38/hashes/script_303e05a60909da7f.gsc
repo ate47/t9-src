@@ -1,4 +1,4 @@
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
@@ -116,7 +116,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 				scoreevent = #"hash_782e222fd957d953" + var_13f7eb29;
 			}
 			scoreevents::processscoreevent(scoreevent, psoffsettime, self, deathanimduration);
-			psoffsettime contracts::function_a54e2068(#"hash_587a28da043d491d", 1);
+			psoffsettime contracts::increment_contract(#"hash_587a28da043d491d", 1);
 		}
 	}
 }

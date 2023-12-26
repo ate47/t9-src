@@ -54,7 +54,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -199,7 +199,7 @@ function take_player_weapons(n_interval, e_player)
 */
 function private function_873de196(weapon)
 {
-	if(weapon.ischargeshot && (!isdefined(weapon.var_3d85028) || weapon.var_3d85028 == level.weaponnone))
+	if(weapon.ischargeshot && (!isdefined(weapon.nextchargelevelweapon) || weapon.nextchargelevelweapon == level.weaponnone))
 	{
 		return true;
 	}
@@ -261,7 +261,7 @@ function on_player_spawned()
 	Parameters: 1
 	Flags: Private
 */
-function private return_weapon(var_8ac27ae7)
+function private return_weapon(o_trial)
 {
 	level endon(#"end_game");
 	self endon(#"disconnect");
@@ -272,16 +272,16 @@ function private return_weapon(var_8ac27ae7)
 	{
 		self takeweapon(self.var_89d523af);
 	}
-	foreach(weapon in var_8ac27ae7.var_f0966a0b[self.clientid])
+	foreach(weapon in o_trial.var_f0966a0b[self.clientid])
 	{
 		self zm_weapons::weapon_give(weapon);
-		if(isdefined(var_8ac27ae7.var_6b31b86f[string(self.clientid) + weapon.name]))
+		if(isdefined(o_trial.var_6b31b86f[string(self.clientid) + weapon.name]))
 		{
-			self aat::acquire(weapon, var_8ac27ae7.var_6b31b86f[string(self.clientid) + weapon.name].name);
+			self aat::acquire(weapon, o_trial.var_6b31b86f[string(self.clientid) + weapon.name].name);
 		}
-		if(var_8ac27ae7.var_45de08d7[string(self.clientid) + weapon.name] > 0)
+		if(o_trial.var_45de08d7[string(self.clientid) + weapon.name] > 0)
 		{
-			self zm_pap_util::repack_weapon(weapon, var_8ac27ae7.var_45de08d7[string(self.clientid) + weapon.name]);
+			self zm_pap_util::repack_weapon(weapon, o_trial.var_45de08d7[string(self.clientid) + weapon.name]);
 		}
 	}
 	self.var_89d523af = undefined;

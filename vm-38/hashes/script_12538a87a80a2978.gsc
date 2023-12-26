@@ -73,7 +73,7 @@ function function_70a657d8()
 function finalize()
 {
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -808,7 +808,7 @@ function function_80bbb50b(chest, trigger)
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: namespace_cda50904
 	Checksum: 0x866C200B
 	Offset: 0x2758
@@ -816,7 +816,7 @@ function function_80bbb50b(chest, trigger)
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();

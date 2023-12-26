@@ -63,7 +63,7 @@ function private function_70a657d8()
 	}
 	else
 	{
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			level.oob_timekeep_ms = getdvarint(#"oob_timekeep_ms", 3000);
 			level.oob_timelimit_ms = getdvarint(#"oob_timelimit_ms", 10000);
@@ -144,7 +144,7 @@ function run_oob_trigger()
 		level.oob_triggers = array(level.oob_triggers);
 	}
 	level.oob_triggers[level.oob_triggers.size] = self;
-	self callback::function_35a12f19(&function_637edff);
+	self callback::on_trigger(&function_637edff);
 }
 
 /*
@@ -207,7 +207,7 @@ function function_802adb65(var_f90fc07b)
 			}
 			if(!player function_323d32db())
 			{
-				player function_11c959d9(player);
+				player enter_oob(player);
 			}
 		}
 		waitframe(1);
@@ -267,7 +267,7 @@ function private function_c1e8a50a(origin, radius)
 			}
 			if(!player function_b347269d())
 			{
-				player function_11c959d9(player);
+				player enter_oob(player);
 			}
 		}
 		waitframe(1);
@@ -367,7 +367,7 @@ function function_d298702c(var_f90fc07b)
 				#/
 				if(!vehicle function_7aac4469())
 				{
-					player function_11c959d9(vehicle);
+					player enter_oob(vehicle);
 				}
 			}
 		}
@@ -605,7 +605,7 @@ function resetoobtimer(is_host_migrating, b_disable_timekeep)
 	self val::reset(#"oob", "show_hud");
 	if(!getdvarint(#"hash_4f2471155144a80a", 0))
 	{
-		if(sessionmodeismultiplayergame() || function_f99d2668())
+		if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 		{
 			self val::reset(#"oob", "disable_offhand_special");
 		}
@@ -701,11 +701,11 @@ function function_637edff(trigger_struct)
 	{
 		return;
 	}
-	player function_11c959d9(entity);
+	player enter_oob(entity);
 }
 
 /*
-	Name: function_11c959d9
+	Name: enter_oob
 	Namespace: oob
 	Checksum: 0xCF2D0292
 	Offset: 0x1A20
@@ -713,7 +713,7 @@ function function_637edff(trigger_struct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_11c959d9(entity)
+function enter_oob(entity)
 {
 	player = self;
 	player notify(#"oob_enter");
@@ -732,7 +732,7 @@ function function_11c959d9(entity)
 	player val::set(#"oob", "show_hud", 0);
 	player thread watchforleave(entity);
 	player thread watchfordeath(entity);
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		if(!getdvarint(#"hash_4f2471155144a80a", 0))
 		{

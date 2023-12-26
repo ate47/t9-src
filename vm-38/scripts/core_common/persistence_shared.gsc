@@ -320,7 +320,7 @@ function initialize_match_stats()
 	{
 		return;
 	}
-	if(function_f99d2668() || sessionmodeismultiplayergame())
+	if(sessionmodeiswarzonegame() || sessionmodeismultiplayergame())
 	{
 		self stats::function_bb7eedf0(#"total_games_played", 1);
 		if(is_true(level.hardcoremode))
@@ -412,7 +412,7 @@ function challenge_complete(eventstruct)
 	var_c4e9517b = tablenumber + 1;
 	if(currentsessionmode() == 0)
 	{
-		tablename = (#"hash_34a621a5800b5b4a" + var_c4e9517b) + ".csv";
+		tablename = (#"gamedata/stats/zm/statsmilestones" + var_c4e9517b) + ".csv";
 		if(var_c4e9517b == 2)
 		{
 			var_a05af556 = tablelookupcolumnforrow(tablename, row, 9);
@@ -422,7 +422,7 @@ function challenge_complete(eventstruct)
 			}
 			if(getdvarint(#"hash_730fab929626f598", 0) == 0)
 			{
-				if(var_a05af556 === #"camo_gold" || var_a05af556 === #"hash_2dcaf4647cd4e672" || var_a05af556 === #"hash_229b17b6185be37")
+				if(var_a05af556 === #"camo_gold" || var_a05af556 === #"camo_diamond" || var_a05af556 === #"camo_darkmatter")
 				{
 					return;
 				}
@@ -431,7 +431,7 @@ function challenge_complete(eventstruct)
 	}
 	else
 	{
-		tablename = (#"hash_287cf26422669b76" + var_c4e9517b) + ".csv";
+		tablename = (#"gamedata/stats/mp/statsmilestones" + var_c4e9517b) + ".csv";
 	}
 	var_eb67c133 = tablelookupcolumnforrow(tablename, row, 5);
 	if(isdefined(var_eb67c133) && (var_eb67c133 == #"hash_5a619f94abe000b" || var_eb67c133 == #"hash_4a80d584aac2e7d0"))
@@ -452,7 +452,7 @@ function challenge_complete(eventstruct)
 		if(var_5d5d13c3 != "")
 		{
 			var_46e31744 = tablelookupcolumnforrow(tablename, row, 4);
-			var_40fdd9a5 = (function_7a600918(var_46e31744) ? function_9e72a96(var_46e31744) : var_46e31744);
+			var_40fdd9a5 = (ishash(var_46e31744) ? function_9e72a96(var_46e31744) : var_46e31744);
 			if(!issubstr(tolower(var_40fdd9a5), tolower(var_5d5d13c3)))
 			{
 				return;
@@ -490,13 +490,13 @@ function challenge_complete(eventstruct)
 			{
 				if(challengetype == 3)
 				{
-					challengestring = function_ea13f55(challengestring, "", "" + function_60394171(#"challenge", 3, itemindex));
+					challengestring = strreplace(challengestring, "", "" + function_60394171(#"challenge", 3, itemindex));
 					var_33b913f5 = "";
 				}
 			}
 			if(issubstr(challengestring, ""))
 			{
-				challengestring = function_ea13f55(challengestring, "", "" + tiertext);
+				challengestring = strreplace(challengestring, "", "" + tiertext);
 			}
 			if(var_33b913f5 == "")
 			{

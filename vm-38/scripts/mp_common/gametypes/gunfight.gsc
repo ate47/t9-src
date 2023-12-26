@@ -1,7 +1,7 @@
 #using script_1435f3c9fc699e04;
 #using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\abilities\ability_util.gsc;
@@ -84,7 +84,7 @@ event main(eventstruct)
 	clientfield::register("world", "activeTrigger", 1, 1, "int");
 	clientfield::register("scriptmover", "scriptid", 1, 1, "int");
 	clientfield::register("allplayers", "gunfight_pregame_rob", 9000, 1, "int");
-	callback::function_98a0917d(&function_5a3c682d);
+	callback::on_game_playing(&function_5a3c682d);
 	callback::on_connect(&onconnect);
 	callback::on_spawned(&onspawned);
 	callback::function_c11071a8(&function_86513cd0);
@@ -95,9 +95,9 @@ event main(eventstruct)
 	spawning::function_adbbb58a(&spawning::function_c24e290c);
 	if(!isdefined(game.var_96a8ff4a))
 	{
-		var_c9c35e60 = (isdefined(getgametypesetting(#"hash_3b05ecbff72f1065")) ? getgametypesetting(#"hash_3b05ecbff72f1065") : 0);
+		bundle_index = (isdefined(getgametypesetting(#"hash_3b05ecbff72f1065")) ? getgametypesetting(#"hash_3b05ecbff72f1065") : 0);
 		var_92d79c8a = getscriptbundle("gunfightloadoutlist");
-		var_fc96f513 = (isdefined(var_92d79c8a.var_d6f55369[var_c9c35e60].loadout) ? var_92d79c8a.var_d6f55369[var_c9c35e60].loadout : "mp_gunfight_loadout_default");
+		var_fc96f513 = (isdefined(var_92d79c8a.var_d6f55369[bundle_index].loadout) ? var_92d79c8a.var_d6f55369[bundle_index].loadout : "mp_gunfight_loadout_default");
 		var_cbf8cb48 = getscriptbundle(var_fc96f513);
 		/#
 			assert(isdefined(var_cbf8cb48));
@@ -503,13 +503,13 @@ function function_d98e2783(loadout, loadoutslot)
 	{
 		loadoutweapon = loadout.primary;
 		var_b805cfb3 = (isdefined(loadout.var_26b5c8ef) ? loadout.var_26b5c8ef : 0);
-		var_42c0a434 = loadout.var_6834562f;
+		var_42c0a434 = loadout.primaryattachments;
 	}
 	else if(loadoutslot === "secondary")
 	{
 		loadoutweapon = loadout.secondary;
 		var_b805cfb3 = (isdefined(loadout.var_4c0d0c4b) ? loadout.var_4c0d0c4b : 0);
-		var_42c0a434 = loadout.var_90030ba7;
+		var_42c0a434 = loadout.secondaryattachments;
 	}
 	if(isdefined(loadoutweapon))
 	{
@@ -948,7 +948,7 @@ function overtime()
 	}
 	zone.gameobject gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
 	zone.gameobject gameobjects::set_use_time(level.capturetime);
-	zone.gameobject gameobjects::set_use_text(#"hash_467145983994c6c2");
+	zone.gameobject gameobjects::set_use_text(#"mp/capturing_objective");
 	zone.gameobject gameobjects::set_visible(#"hash_5ccfd7bbbf07c770");
 	zone.gameobject gameobjects::set_model_visibility(1, 1);
 	zone.gameobject gameobjects::must_maintain_claim(0);
@@ -1154,7 +1154,7 @@ function endround(winning_team, var_c1e98979)
 	{
 		return;
 	}
-	round::function_d1e740f6(winning_team);
+	round::set_winner(winning_team);
 	setbombtimer("A", 0);
 	setmatchflag("bomb_timer_a", 0);
 	level clientfield::set("activeTrigger", 0);

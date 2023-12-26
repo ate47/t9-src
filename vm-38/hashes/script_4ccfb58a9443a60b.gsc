@@ -50,7 +50,7 @@ function private autoexec function_329d3053()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_49e3cc2797ad6fbc", &function_70a657d8, &function_8ac3bea9, undefined, #"hash_f81b9dea74f0ee");
+	system::register(#"hash_49e3cc2797ad6fbc", &function_70a657d8, &postinit, undefined, #"hash_f81b9dea74f0ee");
 }
 
 /*
@@ -72,7 +72,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_1cc7b406
 	Checksum: 0xE9A02A00
 	Offset: 0x308
@@ -80,7 +80,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	sr_scrap::init();
 	clientfield::register("scriptmover", "crafting_Table_spawn_fx", 1, 1, "int");
@@ -552,7 +552,7 @@ function function_4b23ad31(machine, trigger)
 						if(has_enough)
 						{
 							self playrumbleonentity(#"zm_interact_rumble");
-							self function_52df229a(var_1a988176);
+							self give_item(var_1a988176);
 							switch(var_1a988176)
 							{
 								case "hash_7f37566c7dd7ecb":
@@ -566,8 +566,8 @@ function function_4b23ad31(machine, trigger)
 								case "hash_6ab225c69027e657":
 								case "hash_7ab18956a0660839":
 								{
-									self stats::function_622feb0d(var_82e23366.var_3cf2d21, #"crafted", 1);
-									self contracts::function_5b88297d(#"hash_5db7e053c5f4765f");
+									self stats::function_622feb0d(var_82e23366.namehash, #"crafted", 1);
+									self contracts::increment_zm_contract(#"hash_5db7e053c5f4765f");
 									break;
 								}
 								case "hash_5f6d7361258230a":
@@ -580,7 +580,7 @@ function function_4b23ad31(machine, trigger)
 								case "hash_541f29266c6b7df8":
 								case "hash_54877da1f10e40b5":
 								{
-									self contracts::function_5b88297d(#"hash_2ee6ab7ed0517a10");
+									self contracts::increment_zm_contract(#"hash_2ee6ab7ed0517a10");
 									break;
 								}
 							}
@@ -620,7 +620,7 @@ function function_4b23ad31(machine, trigger)
 }
 
 /*
-	Name: function_52df229a
+	Name: give_item
 	Namespace: namespace_1cc7b406
 	Checksum: 0xE377BDAF
 	Offset: 0x1930
@@ -628,7 +628,7 @@ function function_4b23ad31(machine, trigger)
 	Parameters: 3
 	Flags: Linked
 */
-function function_52df229a(itemname, amount, var_75766173)
+function give_item(itemname, amount, var_75766173)
 {
 	if(!isdefined(amount))
 	{
@@ -655,9 +655,9 @@ function function_52df229a(itemname, amount, var_75766173)
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
 			if(isdefined(currentweapon) && killstreaks::is_killstreak_weapon(currentweapon) && var_fa3df96 == 17)
 			{
@@ -667,12 +667,12 @@ function function_52df229a(itemname, amount, var_75766173)
 				self waittill(#"weapon_change");
 				waitframe(1);
 			}
-			item.var_8e092725 = 0;
+			item.hidetime = 0;
 			if(item.var_a6762160.itemtype === #"scorestreak")
 			{
 				if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767)
 				{
-					self item_inventory::function_418f9eb8(self.inventory.items[var_fa3df96].var_bd027dd9);
+					self item_inventory::drop_inventory_item(self.inventory.items[var_fa3df96].var_bd027dd9);
 					item_world::function_de2018e3(item, self, var_fa3df96);
 				}
 				else
@@ -684,7 +684,7 @@ function function_52df229a(itemname, amount, var_75766173)
 			{
 				if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767 && self.inventory.items[var_fa3df96].var_a6762160.name != item.var_a6762160.name)
 				{
-					self item_inventory::function_418f9eb8(self.inventory.items[var_fa3df96].var_bd027dd9);
+					self item_inventory::drop_inventory_item(self.inventory.items[var_fa3df96].var_bd027dd9);
 					item_world::function_de2018e3(item, self, var_fa3df96);
 				}
 				else
@@ -701,7 +701,7 @@ function function_52df229a(itemname, amount, var_75766173)
 }
 
 /*
-	Name: function_ff9ddbfa
+	Name: give_equipment
 	Namespace: namespace_1cc7b406
 	Checksum: 0xD41597D1
 	Offset: 0x1CD0
@@ -709,7 +709,7 @@ function function_52df229a(itemname, amount, var_75766173)
 	Parameters: 2
 	Flags: None
 */
-function function_ff9ddbfa(itemname, var_738dfc81)
+function give_equipment(itemname, var_738dfc81)
 {
 	for(i = 0; i < var_738dfc81; i++)
 	{
@@ -838,7 +838,7 @@ function function_7a1fc37c(params)
 		{
 			if(params.name === #"hash_3b28c5b5ac46d28d")
 			{
-				player function_52df229a(hash(params.value));
+				player give_item(hash(params.value));
 			}
 		}
 		setdvar(#"hash_3b28c5b5ac46d28d", "");

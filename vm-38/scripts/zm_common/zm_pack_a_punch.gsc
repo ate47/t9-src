@@ -1,11 +1,11 @@
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_301f64a4090c381a;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7f6cd71c43c45c57;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\aat_shared.gsc;
@@ -64,7 +64,7 @@ function private autoexec function_29ea08cf()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_pack_a_punch", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_pack_a_punch", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -99,7 +99,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_pack_a_punch
 	Checksum: 0xE841C4B3
 	Offset: 0x6A8
@@ -107,13 +107,13 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(!isdefined(level.pap_zbarrier_state_func))
 	{
 		level.pap_zbarrier_state_func = &process_pap_zbarrier_state;
 	}
-	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+	if(zm_custom::function_901b751c(#"zmpapenabled") == 0)
 	{
 		var_ed82708a = getentarray("zm_pack_a_punch", "targetname");
 		foreach(var_4db9b7a6 in var_ed82708a)
@@ -323,11 +323,11 @@ function function_a2e4892a()
 		}
 		foreach(var_382df182 in var_cf6166dd)
 		{
-			var_daae257e = struct::get_array(var_382df182.target);
-			var_daae257e = arraysortclosest(var_daae257e, var_382df182.origin, 1);
-			if(var_daae257e.size > 0)
+			a_s_sound = struct::get_array(var_382df182.target);
+			a_s_sound = arraysortclosest(a_s_sound, var_382df182.origin, 1);
+			if(a_s_sound.size > 0)
 			{
-				var_daae257e[0] struct::delete();
+				a_s_sound[0] struct::delete();
 			}
 			var_382df182 delete();
 		}
@@ -383,11 +383,11 @@ function private function_c6d69354()
 */
 function private get_start_state()
 {
-	if(zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 0)
+	if(zm_custom::function_901b751c(#"zmpapenabled") == 0)
 	{
 		return false;
 	}
-	if(is_true(level.var_ef785c4c) || zm_custom::function_901b751c(#"hash_19d48a0d4490b0a2") == 2)
+	if(is_true(level.var_ef785c4c) || zm_custom::function_901b751c(#"zmpapenabled") == 2)
 	{
 		return true;
 	}
@@ -405,7 +405,7 @@ function private get_start_state()
 */
 function function_615ef6fe()
 {
-	self endon(#"hash_404acc7ce223033");
+	self endon(#"pack_removed");
 	self flag::wait_till("Pack_A_Punch_on");
 	self thread pap_power_on_init();
 }
@@ -634,7 +634,7 @@ function private function_e13fa347()
 */
 function private toggle_think(powered_on)
 {
-	while(!clientfield::function_6b3b55da())
+	while(!clientfield::can_set())
 	{
 		waitframe(1);
 	}
@@ -728,7 +728,7 @@ function private function_72cf5db2()
 	b_power_off = !pap_machine is_on();
 	if(b_power_off)
 	{
-		self sethintstring(#"hash_71158766520dc432");
+		self sethintstring(#"zombie/need_power");
 		pap_machine flag::wait_till("Pack_A_Punch_on");
 	}
 	for(;;)
@@ -833,7 +833,7 @@ function private function_8a5fe651(pap_machine, current_weapon)
 			return false;
 		}
 	}
-	if(!self zm_magicbox::can_buy_weapon(0) || self laststand::player_is_in_laststand() || is_true(self.intermission) || self isthrowinggrenade() || namespace_497ab7da::is_active() || namespace_83dc3729::is_active() || (!self zm_weapons::can_upgrade_weapon(current_weapon) && !zm_weapons::weapon_supports_aat(current_weapon)))
+	if(!self zm_magicbox::can_buy_weapon(0) || self laststand::player_is_in_laststand() || is_true(self.intermission) || self isthrowinggrenade() || zm_trial_disable_buys::is_active() || namespace_83dc3729::is_active() || (!self zm_weapons::can_upgrade_weapon(current_weapon) && !zm_weapons::weapon_supports_aat(current_weapon)))
 	{
 		return false;
 	}
@@ -881,7 +881,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 		var_5a20ddd5 = self aat::getaatonweapon(current_weapon);
 		if(isdefined(var_5a20ddd5))
 		{
-			currentaathashid = var_5a20ddd5.var_33c87f51;
+			currentaathashid = var_5a20ddd5.hash_id;
 		}
 		self.var_655c0753 = 1;
 		self.restore_clip = self getweaponammoclip(current_weapon);
@@ -913,9 +913,9 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 	pap_machine flag::set("pap_taking_gun");
 	pap_machine.unitrigger_stub.current_weapon = current_weapon;
 	upgrade_weapon = zm_weapons::get_upgrade_weapon(current_weapon);
-	var_eaad2188 = self function_ade49959(current_weapon);
+	current_weaponoptions = self function_ade49959(current_weapon);
 	self thread function_f0fe4bae(pap_machine.unitrigger_stub);
-	self third_person_weapon_upgrade(current_weapon, var_eaad2188, upgrade_weapon, packa_rollers, pap_machine);
+	self third_person_weapon_upgrade(current_weapon, current_weaponoptions, upgrade_weapon, packa_rollers, pap_machine);
 	pap_machine flag::clear("pap_taking_gun");
 	pap_machine flag::set("pap_offering_gun");
 	pap_machine thread wait_for_timeout(pap_machine.unitrigger_stub.current_weapon, pap_machine.packa_timer, self, pap_machine.var_a86430cb, var_9c076b6);
@@ -928,8 +928,8 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 		{
 			weaponidx = matchrecordgetweaponindex(current_weapon);
 		}
-		self zm_stats::function_c0c6ab19(#"hash_c027c40f4adea57");
-		self contracts::function_5b88297d(#"hash_b6b948aac4bd4c");
+		self zm_stats::function_c0c6ab19(#"weapons_packed");
+		self contracts::increment_zm_contract(#"hash_b6b948aac4bd4c");
 		if(!pap_machine.var_a86430cb)
 		{
 			if(isdefined(weaponidx))
@@ -941,7 +941,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 			#/
 			self zm_stats::increment_challenge_stat(#"hash_203688d7883cf38c");
 			self zm_stats::increment_challenge_stat(#"hash_2126e77556d8e66b");
-			self stats::inc_stat(#"hash_162f9b6a10fa7d66", current_weapon.name, #"packed", #"statvalue", 1);
+			self stats::inc_stat(#"item_stats", current_weapon.name, #"packed", #"statvalue", 1);
 		}
 		if(pap_machine.var_a86430cb || var_9c076b6)
 		{
@@ -956,7 +956,7 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 					self zm_challenges::debug_print("");
 				#/
 				self zm_stats::increment_challenge_stat(#"hash_300fdf15a515feda", undefined, 1);
-				self stats::inc_stat(#"hash_162f9b6a10fa7d66", current_weapon.name, #"hash_5d5a976d59876880", #"statvalue", 1);
+				self stats::inc_stat(#"item_stats", current_weapon.name, #"doublepacked", #"statvalue", 1);
 				self zm_challenges::function_e40c9d13();
 			}
 		}
@@ -986,15 +986,15 @@ function private function_222c0292(current_weapon, packa_rollers, pap_machine, v
 	Parameters: 5
 	Flags: Linked, Private
 */
-function private third_person_weapon_upgrade(current_weapon, var_eaad2188, upgrade_weapon, packa_rollers, pap_machine)
+function private third_person_weapon_upgrade(current_weapon, current_weaponoptions, upgrade_weapon, packa_rollers, pap_machine)
 {
 	pap_machine endon(#"hash_672bc8ddbec0fa33");
-	var_d85decd8 = self getbuildkitweapon(var_eaad2188);
+	var_d85decd8 = self getbuildkitweapon(current_weaponoptions);
 	var_1eca29de = self getbuildkitweapon(packa_rollers);
 	/#
-		if(isdefined(self.var_8d5839f4) && isinarray(self.var_8d5839f4, var_eaad2188) && var_eaad2188.attachments.size)
+		if(isdefined(self.var_8d5839f4) && isinarray(self.var_8d5839f4, current_weaponoptions) && current_weaponoptions.attachments.size)
 		{
-			var_d85decd8 = var_eaad2188;
+			var_d85decd8 = current_weaponoptions;
 			var_1eca29de = packa_rollers;
 			pap_machine.unitrigger_stub.var_16aa21d4 = 1;
 		}
@@ -1031,7 +1031,7 @@ function private third_person_weapon_upgrade(current_weapon, var_eaad2188, upgra
 	}
 	else
 	{
-		if(util::function_5df4294() === #"zstandard")
+		if(util::get_game_type() === #"zstandard")
 		{
 			pap_machine playsound(#"hash_552a43efc3f770d");
 		}
@@ -1170,7 +1170,7 @@ function private wait_for_player_to_take(player, weapon, packa_timer, var_a86430
 					aatobj = player aat::getaatonweapon(upgrade_weapon);
 					if(isdefined(aatobj))
 					{
-						aatid = aatobj.var_33c87f51;
+						aatid = aatobj.hash_id;
 						player zm_audio::create_and_play_dialog(#"pap", aatobj.name);
 					}
 				}
@@ -1276,7 +1276,7 @@ function private wait_for_timeout(weapon, packa_timer, player, var_a86430cb, var
 				aathash = -1;
 				if(isdefined(aatonweapon))
 				{
-					aathash = aatonweapon.var_33c87f51;
+					aathash = aatonweapon.hash_id;
 				}
 				player recordmapevent(26, gettime(), player.origin, level.round_number, weaponidx, aathash);
 			}
@@ -1350,9 +1350,9 @@ function private function_f0fe4bae(s_unitrigger_stub)
 		{
 			s_unitrigger_stub.var_59f1d079 = 1;
 		}
-		self notify(#"hash_12922c9c5f12df1", {#w_current:original_weapon});
+		self notify(#"packing_weapon", {#w_current:original_weapon});
 		weaponitem = item_inventory::function_230ceec4(self.currentweapon);
-		self thread item_inventory::function_5852cb7b(weaponitem.var_bd027dd9);
+		self thread item_inventory::remove_inventory_item(weaponitem.var_bd027dd9);
 	}
 	if(!is_true(self.intermission) && !is_true(self.is_drinking))
 	{
@@ -1371,7 +1371,7 @@ function private function_f0fe4bae(s_unitrigger_stub)
 */
 function private shutoffpapsounds(pap_machine, var_884bde3, var_1e9dad36)
 {
-	pap_machine endon(#"hash_404acc7ce223033");
+	pap_machine endon(#"pack_removed");
 	while(true)
 	{
 		pap_machine flag::wait_till("Pack_A_Punch_off");

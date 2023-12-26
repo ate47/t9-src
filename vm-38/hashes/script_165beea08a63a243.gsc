@@ -178,7 +178,7 @@ function function_7a1e21a9(attacker, v_origin, min_radius, max_radius, var_4dd1c
 	Parameters: 5
 	Flags: Linked
 */
-function function_d92e3c5a(attacker, var_4dc5382f, itemlist, var_e927082a, n_power)
+function function_d92e3c5a(attacker, ai_zone, itemlist, var_e927082a, n_power)
 {
 	if(!isdefined(var_e927082a))
 	{
@@ -245,21 +245,21 @@ function function_d92e3c5a(attacker, var_4dc5382f, itemlist, var_e927082a, n_pow
 		{
 			if(is_true(level.var_c64b3b46))
 			{
-				if(isdefined(item.var_a6762160) && isdefined(var_4dc5382f) && isdefined(var_4dc5382f.item_drops))
+				if(isdefined(item.var_a6762160) && isdefined(ai_zone) && isdefined(ai_zone.item_drops))
 				{
-					if(!isdefined(var_4dc5382f.item_drops[self.archetype]))
+					if(!isdefined(ai_zone.item_drops[self.archetype]))
 					{
-						var_4dc5382f.item_drops[self.archetype] = [];
+						ai_zone.item_drops[self.archetype] = [];
 					}
-					if(!isdefined(var_4dc5382f.item_drops[self.archetype][item.var_a6762160.name]))
+					if(!isdefined(ai_zone.item_drops[self.archetype][item.var_a6762160.name]))
 					{
-						var_4dc5382f.item_drops[self.archetype][item.var_a6762160.name] = {};
+						ai_zone.item_drops[self.archetype][item.var_a6762160.name] = {};
 					}
-					if(!isdefined(var_4dc5382f.item_drops[self.archetype][item.var_a6762160.name].count))
+					if(!isdefined(ai_zone.item_drops[self.archetype][item.var_a6762160.name].count))
 					{
-						var_4dc5382f.item_drops[self.archetype][item.var_a6762160.name].count = 0;
+						ai_zone.item_drops[self.archetype][item.var_a6762160.name].count = 0;
 					}
-					var_4dc5382f.item_drops[self.archetype][item.var_a6762160.name].count++;
+					ai_zone.item_drops[self.archetype][item.var_a6762160.name].count++;
 				}
 			}
 			if(isentity(item) && isdefined(item.var_627c698b.attachments) && !isdefined(item.attachments))
@@ -267,9 +267,9 @@ function function_d92e3c5a(attacker, var_4dc5382f, itemlist, var_e927082a, n_pow
 				attachments = item.var_627c698b.attachments;
 				foreach(attachment in attachments)
 				{
-					var_41ade915 = namespace_ad5a0cd6::function_6a0ee21a(attachment);
-					var_84704ed7 = function_4ba8fde(var_41ade915);
-					namespace_a0d533d1::function_8b7b98f(item, var_84704ed7);
+					var_41ade915 = item_world_util::function_6a0ee21a(attachment);
+					attachmentitem = function_4ba8fde(var_41ade915);
+					namespace_a0d533d1::function_8b7b98f(item, attachmentitem);
 				}
 			}
 			item thread function_7a1e21a9(attacker, v_origin, min_radius, max_radius, var_4dd1cd8b, var_8c20ac00, n_height, var_e927082a, n_power);

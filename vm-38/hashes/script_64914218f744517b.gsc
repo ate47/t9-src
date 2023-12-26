@@ -58,7 +58,7 @@ class ccp_skip_scene_menu : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: ccp_skip_scene_menu
 		Checksum: 0x41BA8186
 		Offset: 0x540
@@ -66,9 +66,9 @@ class ccp_skip_scene_menu : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("cp_skip_scene_menu");
+		cLUIelem::register_clientside("cp_skip_scene_menu");
 	}
 
 	/*
@@ -111,10 +111,10 @@ class ccp_skip_scene_menu : cLUIelem
 	function setup_clientfields(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805)
 	{
 		cLUIelem::setup_clientfields("cp_skip_scene_menu");
-		cLUIelem::function_da693cbe("showSkipButton", 1, 2, "int", var_792f3702);
-		cLUIelem::function_da693cbe("hostIsSkipping", 1, 1, "int", var_69bfc3be);
-		cLUIelem::function_da693cbe("votedToSkip", 1, 1, "int", var_b2a12719);
-		cLUIelem::function_da693cbe("sceneSkipEndTime", 1, 3, "int", var_266fe805);
+		cLUIelem::add_clientfield("showSkipButton", 1, 2, "int", var_792f3702);
+		cLUIelem::add_clientfield("hostIsSkipping", 1, 1, "int", var_69bfc3be);
+		cLUIelem::add_clientfield("votedToSkip", 1, 1, "int", var_b2a12719);
+		cLUIelem::add_clientfield("sceneSkipEndTime", 1, 3, "int", var_266fe805);
 	}
 
 	/*
@@ -200,7 +200,7 @@ function register(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: cp_skip_scene_menu
 	Checksum: 0xFF46A488
 	Offset: 0x2C0
@@ -208,10 +208,10 @@ function register(var_792f3702, var_69bfc3be, var_b2a12719, var_266fe805)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new ccp_skip_scene_menu();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

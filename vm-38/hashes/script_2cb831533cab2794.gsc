@@ -47,7 +47,7 @@ class czm_hint_text : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class czm_hint_text : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,7 +76,7 @@ class czm_hint_text : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_hint_text");
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
 		cLUIelem::function_dcb34c80("string", "text", 1);
 	}
 

@@ -72,7 +72,7 @@ class crevive_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: crevive_hud
 		Checksum: 0x1237B87A
 		Offset: 0x4B0
@@ -80,9 +80,9 @@ class crevive_hud : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("revive_hud");
+		cLUIelem::register_clientside("revive_hud");
 	}
 
 	/*
@@ -98,8 +98,8 @@ class crevive_hud : cLUIelem
 	{
 		cLUIelem::setup_clientfields("revive_hud");
 		cLUIelem::function_dcb34c80("string", "text", 1);
-		cLUIelem::function_da693cbe("clientNum", 1, 7, "int", var_c05c67e2);
-		cLUIelem::function_da693cbe("fadeTime", 1, 5, "int", var_415094af);
+		cLUIelem::add_clientfield("clientNum", 1, 7, "int", var_c05c67e2);
+		cLUIelem::add_clientfield("fadeTime", 1, 5, "int", var_415094af);
 	}
 
 	/*
@@ -184,7 +184,7 @@ function register(var_f5852d69, var_c05c67e2, var_415094af)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: revive_hud
 	Checksum: 0x68FF1A7F
 	Offset: 0x290
@@ -192,10 +192,10 @@ function register(var_f5852d69, var_c05c67e2, var_415094af)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new crevive_hud();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

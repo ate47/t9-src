@@ -1,4 +1,4 @@
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_437ce686d29bb81b;
 #using scripts\zm_common\zm_vo.gsc;
@@ -308,7 +308,7 @@ function function_64719f04(instance)
 		{
 			if(isalive(player))
 			{
-				if(zm_vo::function_d122265c(player) || zm_vo::function_c10c4064(player))
+				if(zm_vo::is_player_speaking(player) || zm_vo::function_c10c4064(player))
 				{
 					var_d951c76b = 1;
 				}
@@ -502,7 +502,7 @@ function function_df51a2e8(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	self clientfield::increment("fasttravel_end_fx", 1);
 	self show();
 	self.var_5817f611 = undefined;
-	self notify(#"hash_66790eb1100e11a2", {#hash_9fa6220c:var_5817f611});
+	self notify(#"fasttravel_finished", {#hash_9fa6220c:var_5817f611});
 	foreach(e_player in getplayers())
 	{
 		e_player clientfield::set_player_uimodel(("WorldSpaceIndicators.bleedOutModel" + self getentitynumber()) + ".hide", 0);

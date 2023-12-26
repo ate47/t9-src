@@ -100,7 +100,7 @@ function private autoexec function_5a21617a()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_aoe", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_aoe", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -119,7 +119,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_aoe
 	Checksum: 0x87E598BE
 	Offset: 0x380
@@ -127,7 +127,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	function_15dea507(1, "zm_aoe_radiation_hazard", 10, 95000, 5000, 1, 1, 75, 175);
 }
@@ -163,7 +163,7 @@ function private function_e969e75(type)
 	Parameters: 9
 	Flags: Linked
 */
-function function_15dea507(var_2fb5df20, type, var_3a11a165, lifetime, var_f2cd3aad, damagemin, damagemax, radius, height)
+function function_15dea507(aoeid, type, var_3a11a165, lifetime, var_f2cd3aad, damagemin, damagemax, radius, height)
 {
 	if(!isdefined(level.var_400ae143))
 	{
@@ -186,7 +186,7 @@ function function_15dea507(var_2fb5df20, type, var_3a11a165, lifetime, var_f2cd3
 	var_508aaded.var_f2cd3aad = var_f2cd3aad;
 	var_508aaded.radius = radius;
 	var_508aaded.height = height;
-	var_508aaded.var_2fb5df20 = var_2fb5df20;
+	var_508aaded.aoeid = aoeid;
 	level thread function_60bb02f3(type);
 	/#
 		level thread function_e39c0be4(var_508aaded);
@@ -202,7 +202,7 @@ function function_15dea507(var_2fb5df20, type, var_3a11a165, lifetime, var_f2cd3
 	Parameters: 6
 	Flags: None
 */
-function function_371b4147(var_2fb5df20, type, position, userdata, var_fb4d789f, var_6efc944c)
+function function_371b4147(aoeid, type, position, userdata, var_fb4d789f, var_6efc944c)
 {
 	var_46f1b5eb = function_e969e75(type);
 	/#
@@ -220,7 +220,7 @@ function function_371b4147(var_2fb5df20, type, position, userdata, var_fb4d789f,
 	aoe.endtime = gettime() + var_46f1b5eb.lifetime;
 	aoe.entity = spawn("script_model", position);
 	aoe.type = type;
-	aoe.entity clientfield::set("aoe_id", var_2fb5df20);
+	aoe.entity clientfield::set("aoe_id", aoeid);
 	function_668a9b2d(aoe, type);
 	if(isdefined(userdata))
 	{
@@ -554,7 +554,7 @@ function private function_bea2e288(type)
 			{
 				damage = mapfloat(0, var_46f1b5eb.radius, var_46f1b5eb.damagemin, var_46f1b5eb.damagemax, dist);
 				player dodamage(damage, aoe.entity.origin);
-				player notify(#"hash_30e5a6bd41a5917c", {#origin:aoe.entity.origin, #hash_159100b7:aoe.type});
+				player notify(#"aoe_damage", {#origin:aoe.entity.origin, #hash_159100b7:aoe.type});
 			}
 		}
 	}
@@ -603,7 +603,7 @@ function private function_e39c0be4(var_46f1b5eb)
 		var_46f1b5eb endon(#"hash_343e166e4aa4288e");
 		while(true)
 		{
-			if(getdvarint(#"hash_423e0fe03fe8ae0c", 0))
+			if(getdvarint(#"zm_debug_aoe", 0))
 			{
 				if(var_46f1b5eb.var_9a08bb02.size)
 				{

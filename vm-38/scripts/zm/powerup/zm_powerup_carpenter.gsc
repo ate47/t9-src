@@ -1,5 +1,5 @@
-#using script_5660bae5b402a1eb;
-#using script_6e3c826b1814cab6;
+#using scripts\core_common\ai\zombie_death.gsc;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -104,7 +104,7 @@ function grab_carpenter(e_player)
 			}
 		}
 	}
-	level notify(#"hash_4d7676bba8e782b5", {#hash_264cf1f9:e_player});
+	level notify(#"carpenter_started", {#hash_264cf1f9:e_player});
 }
 
 /*
@@ -159,7 +159,7 @@ function start_carpenter(var_264cf1f9, var_ea1d8f06)
 	level.carpenter_powerup_active = 1;
 	carp_ent = spawn("script_origin", (0, 0, 0));
 	carp_ent playloopsound(#"evt_carpenter");
-	if(zm_custom::function_901b751c(#"hash_3386caa315211c88"))
+	if(zm_custom::function_901b751c(#"zmbarricadestate"))
 	{
 		window_boards = struct::get_array("exterior_goal", "targetname");
 		if(isdefined(level._additional_carpenter_nodes))

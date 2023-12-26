@@ -92,7 +92,7 @@ function private function_cc775529(s_instance)
 	s_instance.var_b7eee573 = var_b7eee573;
 	s_instance.n_obj_id = zm_utility::function_f5a222a8(#"hash_2d6eaf696a019fa3", var_b7eee573);
 	var_b7eee573.aitype = #"hash_1aff4b71635bda08";
-	var_b7eee573.var_ae8ec545 = #"hash_5eaef6da3bb64b9a";
+	var_b7eee573.aisettingsbundle = #"hash_5eaef6da3bb64b9a";
 	var_3d014474 = function_9ad12bee(var_b7eee573.aitype);
 	var_b7eee573.maxhealth = var_b7eee573 zm_ai_utility::function_f7014c3d(var_3d014474);
 	var_b7eee573.health = var_b7eee573.maxhealth;

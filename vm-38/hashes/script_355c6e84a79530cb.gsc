@@ -85,7 +85,7 @@ function finalize()
 	level.var_7d45d0d4.var_bb7e7804 = 1;
 	level thread function_9d178321();
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -535,7 +535,7 @@ function private function_98715738(instance)
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: namespace_73df937d
 	Checksum: 0xDF641E74
 	Offset: 0x1910
@@ -543,13 +543,13 @@ function private function_98715738(instance)
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();
 		level thread function_dab40c5f();
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 105), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 105), "");
 	#/
 }
 

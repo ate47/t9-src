@@ -1,4 +1,4 @@
-#using script_240ef62ff60b2694;
+#using scripts\core_common\player\player_stats.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
@@ -56,7 +56,7 @@ function init_shared()
 function on_local_player_spawned(local_client_num)
 {
 	thread function_e69d0e4d(local_client_num);
-	thread function_16e642d6(local_client_num);
+	thread track_grenades(local_client_num);
 	players = getplayers(local_client_num);
 	foreach(player in players)
 	{
@@ -85,7 +85,7 @@ function private on_end_game(localclientnum)
 }
 
 /*
-	Name: function_16e642d6
+	Name: track_grenades
 	Namespace: smokegrenade
 	Checksum: 0x16E3E7A2
 	Offset: 0x4D8
@@ -93,10 +93,10 @@ function private on_end_game(localclientnum)
 	Parameters: 1
 	Flags: None
 */
-function function_16e642d6(local_client_num)
+function track_grenades(local_client_num)
 {
-	self notify(#"hash_69c8c6c8ba675506");
-	self endon(#"hash_69c8c6c8ba675506", #"death", #"disconnect");
+	self notify(#"track_grenades");
+	self endon(#"track_grenades", #"death", #"disconnect");
 	waitresult = undefined;
 	waitresult = self waittill(#"grenade_fire");
 	grenade = waitresult.projectile;
@@ -115,11 +115,11 @@ function function_16e642d6(local_client_num)
 function function_709fad19()
 {
 	weapon = getweapon(#"eq_smoke");
-	if(!isdefined(weapon) || weapon == level.weaponnone || !isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon) || weapon == level.weaponnone || !isdefined(weapon.customsettings))
 	{
 		return 128;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.var_40dfefd1) ? var_b0b958b3.var_40dfefd1 : 128);
 }
 
@@ -283,9 +283,9 @@ function function_62ec0142(local_client_num, bundle)
 		}
 	}
 	weapon = getweapon("eq_smoke");
-	if(isdefined(weapon.var_4dd46f8a))
+	if(isdefined(weapon.customsettings))
 	{
-		var_ed9e87ac = getscriptbundle(weapon.var_4dd46f8a);
+		var_ed9e87ac = getscriptbundle(weapon.customsettings);
 		/#
 			assert(isdefined(var_ed9e87ac));
 		#/
@@ -330,9 +330,9 @@ function function_28db726(local_client_num, bundle)
 		return false;
 	}
 	weapon = getweapon("eq_smoke");
-	if(isdefined(weapon.var_4dd46f8a))
+	if(isdefined(weapon.customsettings))
 	{
-		var_ed9e87ac = getscriptbundle(weapon.var_4dd46f8a);
+		var_ed9e87ac = getscriptbundle(weapon.customsettings);
 		/#
 			assert(isdefined(var_ed9e87ac));
 		#/
@@ -380,8 +380,8 @@ function vehicle_transition(local_client_num, oldval, newval, bnewent, binitials
 */
 function function_4fc900e1(local_client_num)
 {
-	self renderoverridebundle::function_c8d97b8e(local_client_num, #"hash_2b9d344f3679c3d4", #"hash_8120ecc0ceec5c6");
-	self renderoverridebundle::function_c8d97b8e(local_client_num, #"hash_148067bf5c254455", #"hash_224b6b4d7364dbb5");
+	self renderoverridebundle::function_c8d97b8e(local_client_num, #"friendly_smoke", #"hash_8120ecc0ceec5c6");
+	self renderoverridebundle::function_c8d97b8e(local_client_num, #"enemy_smoke", #"hash_224b6b4d7364dbb5");
 }
 
 /*

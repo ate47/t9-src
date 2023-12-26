@@ -249,24 +249,24 @@ function finalize_spawnpoint_choice(spawnpoint, predictedspawn)
 */
 function move_spawn_point(var_75347e0b, start_point, new_point, new_angles)
 {
-	var_690d7ade = [];
+	targetnamearray = [];
 	if(isarray(var_75347e0b))
 	{
-		var_690d7ade = var_75347e0b;
+		targetnamearray = var_75347e0b;
 	}
 	else
 	{
-		if(!isdefined(var_690d7ade))
+		if(!isdefined(targetnamearray))
 		{
-			var_690d7ade = [];
+			targetnamearray = [];
 		}
-		else if(!isarray(var_690d7ade))
+		else if(!isarray(targetnamearray))
 		{
-			var_690d7ade = array(var_690d7ade);
+			targetnamearray = array(targetnamearray);
 		}
-		var_690d7ade[var_690d7ade.size] = var_75347e0b;
+		targetnamearray[targetnamearray.size] = var_75347e0b;
 	}
-	foreach(targetname in var_690d7ade)
+	foreach(targetname in targetnamearray)
 	{
 		spawn_points = get_spawnpoint_array(targetname);
 		for(i = 0; i < spawn_points.size; i++)
@@ -482,7 +482,7 @@ function function_82ca1565(spawnpoint, gametype)
 		}
 		case "dem_overtime":
 		{
-			return isdefined(spawnpoint.var_21f814f) && spawnpoint.var_21f814f;
+			return isdefined(spawnpoint.demolition_overtime) && spawnpoint.demolition_overtime;
 			break;
 		}
 		case "hash_7cb9d0a58715cebe":

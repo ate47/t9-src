@@ -1,11 +1,11 @@
 #using scripts\core_common\ai\archetype_brutus.gsc;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 
-#namespace namespace_79bc4a1d;
+#namespace archetype_brutus_interface;
 
 /*
 	Name: function_c5e5b158
-	Namespace: namespace_79bc4a1d
+	Namespace: archetype_brutus_interface
 	Checksum: 0x3A80AD46
 	Offset: 0x70
 	Size: 0x14

@@ -42,7 +42,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.ammoCooldowns.fieldUpgrade", #"hud_items", [1:#"fieldupgrade", 0:#"hash_2f126bd99a74de8b"], 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.ammoCooldowns.fieldUpgrade", #"hud_items", [1:#"fieldupgrade", 0:#"hash_2f126bd99a74de8b"], 1, 5, "float", undefined, 0, 0);
 	clientfield::register("missile", "fieldUpgradeActive", 1, 1, "int", &function_5fbd38e2, 0, 0);
 }
 

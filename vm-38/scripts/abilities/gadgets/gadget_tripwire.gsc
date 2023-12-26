@@ -1,5 +1,5 @@
 #using script_396f7d71538c9677;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -64,9 +64,9 @@ function private function_70a657d8()
 	}
 	else
 	{
-		if(isdefined(level.var_c27600b0.var_4dd46f8a))
+		if(isdefined(level.var_c27600b0.customsettings))
 		{
-			level.var_c72e8c51 = getscriptbundle(level.var_c27600b0.var_4dd46f8a);
+			level.var_c72e8c51 = getscriptbundle(level.var_c27600b0.customsettings);
 		}
 		else
 		{
@@ -135,11 +135,11 @@ function function_bff5c062(tripwire, attackingplayer)
 		tripwire clientfield::set("tripwire_state", 2);
 		tripwire.hacked = 1;
 	}
-	if(isdefined(tripwire.var_c922c2eb))
+	if(isdefined(tripwire.entityenemyinfluencer))
 	{
-		tripwire influencers::remove_influencer(tripwire.var_c922c2eb);
+		tripwire influencers::remove_influencer(tripwire.entityenemyinfluencer);
 	}
-	tripwire.var_c922c2eb = tripwire influencers::create_entity_enemy_influencer("claymore", attackingplayer.team);
+	tripwire.entityenemyinfluencer = tripwire influencers::create_entity_enemy_influencer("claymore", attackingplayer.team);
 	tripwire thread weaponobjects::function_6d8aa6a0(attackingplayer, tripwire.watcher);
 	level function_d77f9442();
 }
@@ -173,7 +173,7 @@ function function_9f97e1a3(watcher)
 	watcher.ownergetsassist = 1;
 	watcher.ignoredirection = 1;
 	watcher.immediatedetonation = 0;
-	watcher.onspawn = &function_32854cb2;
+	watcher.onspawn = &on_tripwire_spawn;
 	watcher.ondamage = &function_7a905654;
 	watcher.ondestroyed = &function_9b3a657f;
 	watcher.var_994b472b = &function_9a98f669;
@@ -211,8 +211,8 @@ function function_ec88b3b9(pos)
 */
 function function_9366bdf9(tripwire, owner)
 {
-	var_193fd4c6 = owner function_bdda420f(tripwire.origin, battlechatter::mpdialog_value("tripwireThreatRadius", 500));
-	foreach(enemy in var_193fd4c6)
+	enemyplayers = owner getenemiesinradius(tripwire.origin, battlechatter::mpdialog_value("tripwireThreatRadius", 500));
+	foreach(enemy in enemyplayers)
 	{
 		if(!isplayer(enemy))
 		{
@@ -228,7 +228,7 @@ function function_9366bdf9(tripwire, owner)
 }
 
 /*
-	Name: function_32854cb2
+	Name: on_tripwire_spawn
 	Namespace: gadget_tripwire
 	Checksum: 0xDAEBC5D7
 	Offset: 0xAC0
@@ -236,7 +236,7 @@ function function_9366bdf9(tripwire, owner)
 	Parameters: 2
 	Flags: None
 */
-function function_32854cb2(watcher, player)
+function on_tripwire_spawn(watcher, player)
 {
 	player endon(#"disconnect");
 	level endon(#"game_ended");
@@ -247,7 +247,7 @@ function function_32854cb2(watcher, player)
 	self setweapon(level.var_c27600b0);
 	waitresult = undefined;
 	waitresult = self waittill(#"stationary");
-	self util::function_c596f193();
+	self util::make_sentient();
 	self.hitnormal = waitresult.normal;
 	self.origin = function_ec88b3b9(waitresult.position);
 	killcament = spawn("script_model", self.origin + (self.hitnormal * 5));
@@ -262,7 +262,7 @@ function function_32854cb2(watcher, player)
 	self.team = player.team;
 	self.watcher = watcher;
 	self clientfield::set("friendlyequip", 1);
-	self.var_c922c2eb = self influencers::create_entity_enemy_influencer("claymore", player.team);
+	self.entityenemyinfluencer = self influencers::create_entity_enemy_influencer("claymore", player.team);
 	self.destroyablebytrophysystem = 0;
 	self.detonating = 0;
 	wait(level.var_c72e8c51.var_e14f5fca);
@@ -490,7 +490,7 @@ function function_55c50f15()
 */
 function function_55e95173(hitent)
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return false;
 	}
@@ -516,7 +516,7 @@ function function_55e95173(hitent)
 */
 function function_430b5b99(entity, var_7ffaab28)
 {
-	if(function_f99d2668() && is_true(self.var_c2f0f6da) && !isdefined(entity))
+	if(sessionmodeiswarzonegame() && is_true(self.var_c2f0f6da) && !isdefined(entity))
 	{
 		return true;
 	}
@@ -551,7 +551,7 @@ function function_430b5b99(entity, var_7ffaab28)
 			return false;
 		}
 	}
-	if(isplayer(entity) && entity hasperk(#"hash_11ba78d175e4720a"))
+	if(isplayer(entity) && entity hasperk(#"specialty_nottargetedbytripwire"))
 	{
 		return false;
 	}
@@ -581,7 +581,7 @@ function function_5b8dea90(player)
 	{
 		return false;
 	}
-	if(player hasperk(#"hash_11ba78d175e4720a"))
+	if(player hasperk(#"specialty_nottargetedbytripwire"))
 	{
 		return false;
 	}
@@ -609,8 +609,8 @@ function function_d334c3fa(endpoint)
 		return 0;
 	}
 	result = 0;
-	var_193fd4c6 = getplayers("all", self.origin, level.var_c72e8c51.var_831055cb);
-	foreach(player in var_193fd4c6)
+	enemyplayers = getplayers("all", self.origin, level.var_c72e8c51.var_831055cb);
+	foreach(player in enemyplayers)
 	{
 		if(!isdefined(player.prev_origin))
 		{
@@ -682,7 +682,7 @@ function function_15de8daf()
 						{
 							if(function_430b5b99(trace[#"entity"], self))
 							{
-								level notify(#"hash_1cfad879e66c30ed", {#entity:trace[#"entity"]});
+								level notify(#"tripwire_detonation", {#entity:trace[#"entity"]});
 								self thread function_9e546fb3(undefined, self.weapon, undefined, tripwire, trace[#"entity"]);
 							}
 							if(function_55e95173(trace[#"entity"]))
@@ -692,7 +692,7 @@ function function_15de8daf()
 								{
 									if(function_430b5b99(trace[#"entity"], self))
 									{
-										level notify(#"hash_1cfad879e66c30ed", {#entity:trace[#"entity"]});
+										level notify(#"tripwire_detonation", {#entity:trace[#"entity"]});
 										self thread function_9e546fb3(undefined, self.weapon, undefined, tripwire, trace[#"entity"]);
 									}
 								}
@@ -769,7 +769,7 @@ function private function_84101bb5(notifyhash)
 	Parameters: 5
 	Flags: None
 */
-function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, var_83b1839e)
+function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, tripper)
 {
 	if(!isdefined(self))
 	{
@@ -801,7 +801,7 @@ function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, var_83b1839e)
 		}
 		if(isdefined(var_2f6adbe3))
 		{
-			var_f4df6811 = (isdefined(level.var_c72e8c51.var_e44a7667) ? level.var_c72e8c51.var_e44a7667 : 0);
+			explosiondist = (isdefined(level.var_c72e8c51.var_e44a7667) ? level.var_c72e8c51.var_e44a7667 : 0);
 			var_15d2965b = (isdefined(level.var_c72e8c51.var_b1f240d7) ? level.var_c72e8c51.var_b1f240d7 : 0);
 			var_36684ed2 = (isdefined(level.var_c72e8c51.var_d484364c) ? level.var_c72e8c51.var_d484364c : 0);
 			maxdamage = (isdefined(level.var_c72e8c51.var_89d80d88) ? level.var_c72e8c51.var_89d80d88 : 0);
@@ -809,25 +809,25 @@ function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, var_83b1839e)
 		}
 		else
 		{
-			var_f4df6811 = (isdefined(level.var_c72e8c51.var_13e9ceba) ? level.var_c72e8c51.var_13e9ceba : 0);
+			explosiondist = (isdefined(level.var_c72e8c51.var_13e9ceba) ? level.var_c72e8c51.var_13e9ceba : 0);
 			var_15d2965b = (isdefined(level.var_c72e8c51.var_d0a598a5) ? level.var_c72e8c51.var_d0a598a5 : 0);
 			var_36684ed2 = (isdefined(level.var_c72e8c51.var_fcb3348e) ? level.var_c72e8c51.var_fcb3348e : 0);
 			maxdamage = (isdefined(level.var_c72e8c51.var_aebac5e5) ? level.var_c72e8c51.var_aebac5e5 : 0);
 			mindamage = (isdefined(level.var_c72e8c51.var_69bf01c2) ? level.var_c72e8c51.var_69bf01c2 : 0);
 		}
 		explosiondir = self.hitnormal;
-		var_8ecc7aa0 = #"hash_4fcdd82d215439a7";
+		explosionsound = #"exp_tripwire";
 		if(isdefined(var_2f6adbe3))
 		{
-			var_8ecc7aa0 = #"hash_4fcdd82d215439a7";
+			explosionsound = #"exp_tripwire";
 			explosiondir = self.origin - var_2f6adbe3.origin;
 			explosiondir = vectornormalize(explosiondir);
 			var_dcd20d50 = perpendicularvector(explosiondir);
 			owner = (isentity(var_2f6adbe3.owner) ? var_2f6adbe3.owner : undefined);
-			var_2f6adbe3 cylinderdamage(explosiondir * var_f4df6811, var_2f6adbe3.origin, var_15d2965b, var_36684ed2, maxdamage, mindamage, owner, "MOD_EXPLOSIVE", self.weapon);
+			var_2f6adbe3 cylinderdamage(explosiondir * explosiondist, var_2f6adbe3.origin, var_15d2965b, var_36684ed2, maxdamage, mindamage, owner, "MOD_EXPLOSIVE", self.weapon);
 			playfx(#"hash_69455dfeef0311c2", var_2f6adbe3.origin, explosiondir, var_dcd20d50);
-			playsoundatposition(var_8ecc7aa0, self.origin);
-			playsoundatposition(var_8ecc7aa0, var_2f6adbe3.origin);
+			playsoundatposition(explosionsound, self.origin);
+			playsoundatposition(explosionsound, var_2f6adbe3.origin);
 			var_2f6adbe3 ghost();
 			explosiondir = var_2f6adbe3.origin - self.origin;
 			explosiondir = vectornormalize(explosiondir);
@@ -848,29 +848,29 @@ function function_9e546fb3(attacker, weapon, target, var_2f6adbe3, var_83b1839e)
 			}
 			var_dcd20d50 = perpendicularvector(explosiondir);
 			playfx(#"hash_69455dfeef0311c2", self.origin, explosiondir, var_dcd20d50);
-			self playsound(var_8ecc7aa0);
+			self playsound(explosionsound);
 			if(!isdefined(self.hitnormal))
 			{
 				self.hitnormal = (0, 0, 1);
 			}
-			if(isdefined(var_83b1839e) && isvehicle(var_83b1839e))
+			if(isdefined(tripper) && isvehicle(tripper))
 			{
 				if(isdefined(var_2f6adbe3))
 				{
 					maxdamage = maxdamage * 1.5;
 					mindamage = mindamage * 1.5;
 				}
-				self radiusdamage(self.origin + (self.hitnormal * 5), var_f4df6811 * 0.75, maxdamage, mindamage, self.owner, "MOD_EXPLOSIVE", self.weapon);
+				self radiusdamage(self.origin + (self.hitnormal * 5), explosiondist * 0.75, maxdamage, mindamage, self.owner, "MOD_EXPLOSIVE", self.weapon);
 			}
 			else
 			{
 				if(!isdefined(var_2f6adbe3))
 				{
-					self radiusdamage(self.origin + (self.hitnormal * 5), var_f4df6811 / 2, maxdamage, mindamage, self.owner, "MOD_EXPLOSIVE", self.weapon);
+					self radiusdamage(self.origin + (self.hitnormal * 5), explosiondist / 2, maxdamage, mindamage, self.owner, "MOD_EXPLOSIVE", self.weapon);
 				}
 				else
 				{
-					self cylinderdamage(explosiondir * var_f4df6811, self.origin, var_15d2965b, var_36684ed2, maxdamage, mindamage, self.owner, "MOD_EXPLOSIVE", self.weapon);
+					self cylinderdamage(explosiondir * explosiondist, self.origin, var_15d2965b, var_36684ed2, maxdamage, mindamage, self.owner, "MOD_EXPLOSIVE", self.weapon);
 				}
 			}
 		}

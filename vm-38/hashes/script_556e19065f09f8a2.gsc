@@ -29,7 +29,7 @@ function private autoexec function_9822984d()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zombie_eye_glow", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zombie_eye_glow", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -49,7 +49,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zombie_eye_glow
 	Checksum: 0x80F724D1
 	Offset: 0x1A8
@@ -57,7 +57,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 

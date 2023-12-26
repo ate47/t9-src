@@ -1,10 +1,10 @@
 #using script_1304295570304027;
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_4a81c26d2ddde9c;
+#using scripts\killstreaks\planemortar_shared.gsc;
 #using script_7a8059ca02b7b09e;
 #using script_b9a55edd207e4ca;
 #using script_bf0c2c69ce5745e;
@@ -56,7 +56,7 @@ event main(eventstruct)
 	spawning::addsupportedspawnpointtype("base");
 	level.onstartgametype = &onstartgametype;
 	callback::on_spawned(&onspawnplayer);
-	callback::function_98a0917d(&function_3a7ee360);
+	callback::on_game_playing(&function_3a7ee360);
 	player::function_cf3aa03d(&onplayerkilled);
 	level.ddbombmodel = [];
 	level.var_3cf1b85 = "bombzone";
@@ -80,7 +80,7 @@ function onstartgametype()
 	setmatchflag("bomb_timer_a", 0);
 	setbombtimer("B", 0);
 	setmatchflag("bomb_timer_b", 0);
-	level._effect[#"bombexplosion"] = #"hash_5146504768c835f";
+	level._effect[#"bombexplosion"] = #"explosions/fx_exp_bomb_demo_mp";
 	bombzones = getentarray(level.var_3cf1b85, "targetname");
 	thread updategametypedvars();
 	thread bombs();
@@ -1210,7 +1210,7 @@ function function_1428c0d()
 */
 function function_7d1ea7e8()
 {
-	level thread namespace_8f74625a::function_1b48df6d(self.origin, 1, 1, "vehicle_t8_mil_tank_wz_base_mg");
+	level thread item_supply_drop::drop_supply_drop(self.origin, 1, 1, "vehicle_t8_mil_tank_wz_base_mg");
 }
 
 /*

@@ -170,7 +170,7 @@ function function_6e084fd3(var_37ecca7, taacombundle)
 			break;
 		}
 		case "overwatch_helicopter":
-		case "hash_74ea4af18853e9af":
+		case "inventory_overwatch_helicopter":
 		{
 			bundlename = taacombundle.var_f8bd3ac5;
 			break;
@@ -202,7 +202,7 @@ function function_6e084fd3(var_37ecca7, taacombundle)
 			bundlename = taacombundle.remotemissiledialogbundle;
 			break;
 		}
-		case "hash_4307d5aaa7ce21d4":
+		case "inventory_straferun":
 		case "straferun":
 		{
 			bundlename = taacombundle.var_66389705;
@@ -1216,7 +1216,7 @@ function get_dialog_bundle_alias(dialogbundle, dialogkey, var_6ad14004)
 	{
 		return undefined;
 	}
-	if(function_7a600918(dialogkey))
+	if(ishash(dialogkey))
 	{
 		if(isdefined(level.var_3727097e))
 		{
@@ -1237,7 +1237,7 @@ function get_dialog_bundle_alias(dialogbundle, dialogkey, var_6ad14004)
 	{
 		return;
 	}
-	if(!function_7a600918(dialogalias))
+	if(!ishash(dialogalias))
 	{
 		if(var_6ad14004 === 1)
 		{
@@ -1292,7 +1292,7 @@ function function_f554c1ad(dialogbundle, dialogkey)
 		return undefined;
 	}
 	dialogkey = dialogkey + "SpeakerBundle";
-	if(function_7a600918(dialogkey))
+	if(ishash(dialogkey))
 	{
 		if(isdefined(level.var_9f234058))
 		{
@@ -1646,52 +1646,52 @@ function function_6daffa93(weapon, var_f3ab6571)
 	{
 		case "ability_smart_cover":
 		{
-			var_60d3002f = "smartCoverWeaponDestroyedFriendly";
+			taacomdialog = "smartCoverWeaponDestroyedFriendly";
 			break;
 		}
 		case "gadget_jammer":
 		{
-			var_60d3002f = "jammerWeaponDestroyedFriendly";
+			taacomdialog = "jammerWeaponDestroyedFriendly";
 			break;
 		}
 		case "gadget_supplypod":
 		{
-			var_60d3002f = "supplyPodWeaponDestroyedFriendly";
+			taacomdialog = "supplyPodWeaponDestroyedFriendly";
 			break;
 		}
 		case "land_mine":
 		{
-			var_60d3002f = "landmineWeaponDestroyedFriendly";
+			taacomdialog = "landmineWeaponDestroyedFriendly";
 			break;
 		}
 		case "listening_device":
 		{
-			var_60d3002f = "listenWeaponDestroyedFriendly";
+			taacomdialog = "listenWeaponDestroyedFriendly";
 			break;
 		}
 		case "missile_turret":
 		{
-			var_60d3002f = "missileTurretWeaponDestroyedFriendly";
+			taacomdialog = "missileTurretWeaponDestroyedFriendly";
 			break;
 		}
 		case "tear_gas":
 		{
-			var_60d3002f = "tearGasWeaponDestroyedFriendly";
+			taacomdialog = "tearGasWeaponDestroyedFriendly";
 			break;
 		}
 		case "trophy_system":
 		{
-			var_60d3002f = "trophyWeaponDestroyedFriendly";
+			taacomdialog = "trophyWeaponDestroyedFriendly";
 			break;
 		}
 	}
-	if(isdefined(var_60d3002f))
+	if(isdefined(taacomdialog))
 	{
 		if(is_true(var_f3ab6571))
 		{
-			var_60d3002f = var_60d3002f + "Multiple";
+			taacomdialog = taacomdialog + "Multiple";
 		}
-		play_taacom_dialog(var_60d3002f);
+		play_taacom_dialog(taacomdialog);
 	}
 }
 
@@ -1714,52 +1714,52 @@ function function_a2cde53d(weapon, var_f3ab6571)
 	{
 		case "ability_smart_cover":
 		{
-			var_60d3002f = "smartCoverHacked";
+			taacomdialog = "smartCoverHacked";
 			break;
 		}
 		case "gadget_jammer":
 		{
-			var_60d3002f = "jammerHacked";
+			taacomdialog = "jammerHacked";
 			break;
 		}
 		case "gadget_supplypod":
 		{
-			var_60d3002f = "supplyPodHacked";
+			taacomdialog = "supplyPodHacked";
 			break;
 		}
 		case "land_mine":
 		{
-			var_60d3002f = "landmineHacked";
+			taacomdialog = "landmineHacked";
 			break;
 		}
 		case "listening_device":
 		{
-			var_60d3002f = "listenHacked";
+			taacomdialog = "listenHacked";
 			break;
 		}
 		case "missile_turret":
 		{
-			var_60d3002f = "missileTurretHacked";
+			taacomdialog = "missileTurretHacked";
 			break;
 		}
 		case "tear_gas":
 		{
-			var_60d3002f = "tearGasHacked";
+			taacomdialog = "tearGasHacked";
 			break;
 		}
 		case "trophy_system":
 		{
-			var_60d3002f = "trophyHacked";
+			taacomdialog = "trophyHacked";
 			break;
 		}
 	}
-	if(isdefined(var_60d3002f))
+	if(isdefined(taacomdialog))
 	{
 		if(is_true(var_f3ab6571))
 		{
-			var_60d3002f = var_60d3002f + "Multiple";
+			taacomdialog = taacomdialog + "Multiple";
 		}
-		play_taacom_dialog(var_60d3002f);
+		play_taacom_dialog(taacomdialog);
 	}
 }
 
@@ -1782,68 +1782,68 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 	{
 		case "eq_emp_grenade":
 		{
-			var_60d3002f = "jammerWeaponHacked";
+			taacomdialog = "jammerWeaponHacked";
 			break;
 		}
 		case "eq_tripwire":
 		{
-			var_60d3002f = "meshMineWeaponHacked";
+			taacomdialog = "meshMineWeaponHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "eq_seeker_mine":
 		{
-			var_60d3002f = "seekerMineWeaponHacked";
+			taacomdialog = "seekerMineWeaponHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "eq_sensor":
 		{
-			var_60d3002f = "sensorDartHacked";
+			taacomdialog = "sensorDartHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "ability_smart_cover":
 		case "gadget_smart_cover":
 		{
-			var_60d3002f = "smartCoverHacked";
+			taacomdialog = "smartCoverHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "gadget_spawnbeacon":
 		{
-			var_60d3002f = "spawnBeaconHacked";
+			taacomdialog = "spawnBeaconHacked";
 			break;
 		}
 		case "gadget_supplypod":
 		{
-			var_60d3002f = "supplyPodHacked";
+			taacomdialog = "supplyPodHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "trophy_system":
 		{
-			var_60d3002f = "trophyWeaponHacked";
+			taacomdialog = "trophyWeaponHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "inventory_ac130":
 		case "ac130":
 		{
-			var_60d3002f = "ac130Hacked";
+			taacomdialog = "ac130Hacked";
 			break;
 		}
 		case "inventory_chopper_gunner":
 		case "chopper_gunner":
 		{
-			var_60d3002f = "chopperGunnerHacked";
+			taacomdialog = "chopperGunnerHacked";
 			break;
 		}
 		case "tank_robot":
 		case "inventory_tank_robot":
 		case "ai_tank_marker":
 		{
-			var_60d3002f = "aiTankHacked";
+			taacomdialog = "aiTankHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
@@ -1851,103 +1851,103 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 		case "helicopter_comlink":
 		case "inventory_helicopter_comlink":
 		{
-			var_60d3002f = "attackChopperHacked";
+			taacomdialog = "attackChopperHacked";
 			break;
 		}
 		case "inventory_helicopter_guard":
 		case "helicopter_guard":
 		{
-			var_60d3002f = "heavyAttackChopperHacked";
+			taacomdialog = "heavyAttackChopperHacked";
 			break;
 		}
 		case "counteruav":
 		{
-			var_60d3002f = "cuavHacked";
+			taacomdialog = "cuavHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "dart":
 		case "inventory_dart":
 		{
-			var_60d3002f = "dartHacked";
+			taacomdialog = "dartHacked";
 			break;
 		}
 		case "drone_squadron":
-		case "hash_3447a6457d26a42e":
+		case "inventory_drone_squadron":
 		{
-			var_60d3002f = "droneSquadHacked";
+			taacomdialog = "droneSquadHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "hoverjet":
 		case "inventory_hoverjet":
 		{
-			var_60d3002f = "hoverJetHacked";
+			taacomdialog = "hoverJetHacked";
 			break;
 		}
 		case "recon_car":
 		case "inventory_recon_car":
 		{
-			var_60d3002f = "reconCarHacked";
+			taacomdialog = "reconCarHacked";
 			break;
 		}
 		case "inventory_recon_plane":
 		case "recon_plane":
 		{
-			var_60d3002f = "reconPlaneHacked";
+			taacomdialog = "reconPlaneHacked";
 			break;
 		}
 		case "remote_missile":
 		case "inventory_remote_missile":
 		{
-			var_60d3002f = "hellstormHacked";
+			taacomdialog = "hellstormHacked";
 			break;
 		}
 		case "inventory_planemortar":
 		case "planemortar":
 		{
-			var_60d3002f = "lightningStrikeHacked";
+			taacomdialog = "lightningStrikeHacked";
 			break;
 		}
 		case "overwatch_helicopter":
-		case "hash_74ea4af18853e9af":
+		case "inventory_overwatch_helicopter":
 		{
-			var_60d3002f = "overwatchHelicopterHacked";
+			taacomdialog = "overwatchHelicopterHacked";
 			break;
 		}
-		case "hash_4307d5aaa7ce21d4":
+		case "inventory_straferun":
 		case "straferun":
 		{
-			var_60d3002f = "strafeRunHacked";
+			taacomdialog = "strafeRunHacked";
 			break;
 		}
 		case "supplydrop":
 		{
-			var_60d3002f = "supplyDropHacked";
+			taacomdialog = "supplyDropHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "uav":
 		{
-			var_60d3002f = "uavHacked";
+			taacomdialog = "uavHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 		case "ultimate_turret":
 		case "inventory_ultimate_turret":
 		{
-			var_60d3002f = "sentryHacked";
+			taacomdialog = "sentryHacked";
 			var_b3fe42a9 = 1;
 			break;
 		}
 	}
-	if(!isdefined(var_60d3002f))
+	if(!isdefined(taacomdialog))
 	{
 		return;
 	}
 	if((isdefined(self.var_d6422943) ? self.var_d6422943 : 0) > gettime())
 	{
-		self thread play_taacom_dialog(var_60d3002f);
+		self thread play_taacom_dialog(taacomdialog);
 	}
 	else
 	{
@@ -1955,16 +1955,16 @@ function function_4fb91bc7(weapon, var_df17fa82, var_53c10ed8)
 		{
 			if(var_53c10ed8 === 1)
 			{
-				self thread play_taacom_dialog(var_60d3002f, undefined, undefined, 5, var_df17fa82, weapon);
+				self thread play_taacom_dialog(taacomdialog, undefined, undefined, 5, var_df17fa82, weapon);
 			}
 			else
 			{
-				self thread play_taacom_dialog(var_60d3002f, undefined, undefined, 3, var_df17fa82, weapon);
+				self thread play_taacom_dialog(taacomdialog, undefined, undefined, 3, var_df17fa82, weapon);
 			}
 		}
 		else
 		{
-			self thread play_taacom_dialog(var_60d3002f, undefined, undefined, 4, var_df17fa82);
+			self thread play_taacom_dialog(taacomdialog, undefined, undefined, 4, var_df17fa82);
 		}
 		self.var_d6422943 = gettime() + (int(battlechatter::mpdialog_value("taacomHackedReplyCooldownSec", 0) * 1000));
 	}

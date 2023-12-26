@@ -1,13 +1,13 @@
 #using scripts\core_common\ai\archetype_brutus_interface.gsc;
-#using script_522aeb6ae906391e;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using scripts\core_common\spawner_shared.gsc;
 
-#namespace namespace_72d82355;
+#namespace archetype_brutus;
 
 /*
 	Name: function_d5576240
-	Namespace: namespace_72d82355
+	Namespace: archetype_brutus
 	Checksum: 0xABEF044C
 	Offset: 0x80
 	Size: 0x14
@@ -123,7 +123,7 @@ function private registerbehaviorscriptfunctions()
 function private function_f9f08bb1(message)
 {
 	/#
-		if(getdvarint(#"hash_4aefa984c0b2ea80", 0))
+		if(getdvarint(#"scr_brutusdebug", 0))
 		{
 			println("" + message);
 		}

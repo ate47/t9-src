@@ -439,14 +439,14 @@ function private function_bfdce45f(color, depthtest, var_5c8bd7d0, offset)
 		{
 			return;
 		}
-		var_ef1b3d6b = var_5c8bd7d0.size - 1;
+		linecount = var_5c8bd7d0.size - 1;
 		alpha = 1;
-		var_4aa962c3 = 1 / var_ef1b3d6b;
+		var_4aa962c3 = 1 / linecount;
 		colorscale = color;
-		while(var_ef1b3d6b > 0)
+		while(linecount > 0)
 		{
-			var_4612448 = var_5c8bd7d0[var_ef1b3d6b];
-			var_c64078a7 = var_5c8bd7d0[var_ef1b3d6b - 1];
+			var_4612448 = var_5c8bd7d0[linecount];
+			var_c64078a7 = var_5c8bd7d0[linecount - 1];
 			if(isvec(var_4612448) == 1 && isvec(var_c64078a7) == 1 && var_4612448 != var_c64078a7)
 			{
 				if(isvec(offset) == 1)
@@ -458,7 +458,7 @@ function private function_bfdce45f(color, depthtest, var_5c8bd7d0, offset)
 			}
 			colorscale = vectorscale(color, alpha * 1.5);
 			alpha = alpha - var_4aa962c3;
-			var_ef1b3d6b--;
+			linecount--;
 		}
 	#/
 }
@@ -648,10 +648,10 @@ function function_81183b3(origin, size, angles, color, alpha, depthtest, duratio
 		var_ec1abeec = (var_d805968e, var_d805968e, var_d805968e);
 		var_b278259c = (color * var_ec1abeec) + (1, 0, 0);
 		var_7a8ab5a2 = (color * var_ec1abeec) + (0, 1, 0);
-		var_b2d5a637 = (color * var_ec1abeec) + (0, 0, 1);
+		colb = (color * var_ec1abeec) + (0, 0, 1);
 		line(origin - forward, origin + forward, var_b278259c, alpha, depthtest, duration);
 		line(origin - right, origin + right, var_7a8ab5a2, alpha, depthtest, duration);
-		line(origin - up, origin + up, var_b2d5a637, alpha, depthtest, duration);
+		line(origin - up, origin + up, colb, alpha, depthtest, duration);
 	#/
 }
 

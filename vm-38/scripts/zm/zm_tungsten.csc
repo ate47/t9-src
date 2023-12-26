@@ -15,7 +15,7 @@
 #using script_5ef14bd74fdef7c6;
 #using script_6243781aa5394e62;
 #using script_68732f44626820ed;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using script_77597bfbc6274baf;
 #using scripts\zm\zm_tungsten_main_quest.csc;
 #using script_7fc5045bca241a8b;
@@ -79,7 +79,7 @@ event main(eventstruct)
 	namespace_5b1144e::function_5ae4a10c("p9_fxanim_zm_platinum_rappel_mod", "platinum_rappel_door_obj", #"hash_50ac7af2c5bc8257", #"hash_5f3108a8ed351288", #"hash_74b8c57369bfb24b");
 	namespace_5b1144e::function_5ae4a10c("p9_fxanim_zm_platinum_zipline_mod", "platinum_zipline_door_obj", #"hash_59bd96ed40a5975e", undefined, #"hash_6e7ff1a0f66deab4");
 	namespace_5b1144e::function_5ae4a10c("p8_zm_off_trap_switch_box", "tungsten_hind_trap_switch_obj", #"hash_3fe2d338feb5f7b4", #"hash_5b20033c44a4321f", #"hash_2eabbc031eb54dc2");
-	clientfield::function_a8bbc967("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_464e0cd19b3b8c12", 1, 1, "int", &function_c2858d41, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_16e5e4d2ea0716b7", 1, 2, "int", &function_2879e60b, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_575d68a64ff032b2", 1, 1, "counter", &function_1fa52d9a, 0, 0);

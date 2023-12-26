@@ -1,13 +1,13 @@
 #using script_2c5daa95f8fec03c;
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_41fe08c37d53a635;
-#using script_4bf952f6ba31bb17;
-#using script_522aeb6ae906391e;
-#using script_59f07c660e6710a5;
-#using script_7b7ed6e4bc963a51;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\systems\ai_blackboard.gsc;
+#using scripts\core_common\ai\zombie.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;
@@ -126,8 +126,8 @@ function private function_a1acece9()
 	self.var_2f68be48 = 1;
 	self zombie_utility::set_zombie_run_cycle();
 	self.base_speed = self.zombie_move_speed;
-	self function_10f99a8b();
-	self callback::function_d8abfc3d(#"hash_dfbeaa068b23e7c", &function_10f99a8b);
+	self setup_variant_type();
+	self callback::function_d8abfc3d(#"hash_dfbeaa068b23e7c", &setup_variant_type);
 	if(self.var_9fde8624 === #"hash_fd7b9665529dd42")
 	{
 		self attach(#"c_t8_zmb_dlc2_skeleton_helmet", "j_head");
@@ -163,7 +163,7 @@ function private function_a1acece9()
 }
 
 /*
-	Name: function_10f99a8b
+	Name: setup_variant_type
 	Namespace: archetype_skeleton
 	Checksum: 0x43E64AED
 	Offset: 0x898
@@ -171,7 +171,7 @@ function private function_a1acece9()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_10f99a8b(params)
+function private setup_variant_type(params)
 {
 	if(isdefined(level.var_cc1828c) && isdefined(level.var_cc1828c[self.zombie_move_speed]))
 	{

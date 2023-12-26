@@ -43,7 +43,7 @@ function private autoexec function_7c264d43()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_59fd15f8f403c8b", &function_70a657d8, &function_8ac3bea9, undefined, #"hash_f81b9dea74f0ee");
+	system::register(#"hash_59fd15f8f403c8b", &function_70a657d8, &postinit, undefined, #"hash_f81b9dea74f0ee");
 }
 
 /*
@@ -62,7 +62,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_c71c7ca5
 	Checksum: 0x3739ADB6
 	Offset: 0x280
@@ -70,7 +70,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	var_f5ae494f = struct::get_array(#"hash_313be7fccc870cdd", "variantname");
 	if(zm_utility::is_classic() && isdefined(var_f5ae494f) && var_f5ae494f.size > 0)

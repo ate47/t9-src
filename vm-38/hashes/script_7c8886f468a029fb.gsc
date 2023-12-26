@@ -44,7 +44,7 @@ class class_90c2e4ec : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_90c2e4ec
 		Checksum: 0xAD2BA357
 		Offset: 0x440
@@ -52,9 +52,9 @@ class class_90c2e4ec : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_orda_health_bar");
+		cLUIelem::register_clientside("sr_orda_health_bar");
 	}
 
 	/*
@@ -66,11 +66,11 @@ class class_90c2e4ec : cLUIelem
 		Parameters: 2
 		Flags: None
 	*/
-	function setup_clientfields(var_663a86fa, var_d79cca54)
+	function setup_clientfields(healthcallback, var_d79cca54)
 	{
 		cLUIelem::setup_clientfields("sr_orda_health_bar");
-		cLUIelem::function_da693cbe("health", 4000, 7, "float", var_663a86fa);
-		cLUIelem::function_da693cbe("is_beast", 4000, 1, "int", var_d79cca54);
+		cLUIelem::add_clientfield("health", 4000, 7, "float", healthcallback);
+		cLUIelem::add_clientfield("is_beast", 4000, 1, "int", var_d79cca54);
 	}
 
 	/*
@@ -144,10 +144,10 @@ function private autoexec function_41a7b58c()
 	Parameters: 2
 	Flags: None
 */
-function register(var_663a86fa, var_d79cca54)
+function register(healthcallback, var_d79cca54)
 {
 	elem = new class_90c2e4ec();
-	[[ elem ]]->setup_clientfields(var_663a86fa, var_d79cca54);
+	[[ elem ]]->setup_clientfields(healthcallback, var_d79cca54);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -168,7 +168,7 @@ function register(var_663a86fa, var_d79cca54)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_orda_health_bar
 	Checksum: 0x74AAB41F
 	Offset: 0x280
@@ -176,10 +176,10 @@ function register(var_663a86fa, var_d79cca54)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_90c2e4ec();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

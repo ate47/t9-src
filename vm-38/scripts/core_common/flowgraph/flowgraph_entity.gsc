@@ -1,4 +1,4 @@
-#using script_5971282fa1e50330;
+#using scripts\core_common\flowgraph\flowgraph_core.gsc;
 
 #namespace flowgraph_entity;
 

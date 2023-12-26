@@ -1,7 +1,7 @@
 #using scripts\core_common\map.csc;
-#using script_4e261fd4bc49e992;
+#using scripts\core_common\player\player_insertion.csc;
 #using script_71f2f8a6fc184b69;
-#using script_7f431c02afd98cf0;
+#using scripts\wz_common\wz_ignore_systems.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\util_shared.csc;
 #using scripts\mp_common\laststand.csc;
@@ -40,7 +40,7 @@ function init()
 	callback::on_localplayer_spawned(&on_player_spawned);
 	callback::on_killcam_begin(&on_killcam_begin);
 	callback::on_killcam_end(&on_killcam_end);
-	callback::function_d46d9315(&start_warzone);
+	callback::on_gameplay_started(&start_warzone);
 	function_41f9de03();
 	function_f6b076db();
 	level.var_f2814a96 = (isdefined(getgametypesetting(#"hash_6be1c95551e78384")) ? getgametypesetting(#"hash_6be1c95551e78384") : 0);
@@ -353,7 +353,7 @@ function function_a1aaf8c0()
 	{
 		waitresult = undefined;
 		waitresult = level waittill(#"hash_5af34d08eac79f88");
-		function_2dba6c5(waitresult.localclientnum, waitresult.var_edf90e4e);
+		function_2dba6c5(waitresult.localclientnum, waitresult.teammateindex);
 	}
 }
 

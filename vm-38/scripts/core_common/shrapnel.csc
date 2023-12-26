@@ -44,7 +44,7 @@ function private autoexec __init__system__()
 */
 function __postload_init__()
 {
-	if(!getdvarint(#"hash_2f9c0b934ef4ea7e", 0))
+	if(!getdvarint(#"shrapnel_enabled", 0))
 	{
 		return;
 	}
@@ -107,7 +107,7 @@ function private function_8f0cb320(localclientnum)
 */
 function private enable_shrapnel(localclientnum)
 {
-	self.var_d6b8c684 = 1;
+	self.shrapnel_enabled = 1;
 	if(!isdefined(self.var_f08b8b9))
 	{
 		self.var_f08b8b9 = "generic_explosion_overlay_01";
@@ -127,7 +127,7 @@ function private function_816d735d(localclientnum)
 {
 	if(isdefined(self))
 	{
-		self.var_d6b8c684 = 0;
+		self.shrapnel_enabled = 0;
 	}
 }
 
@@ -152,9 +152,9 @@ function private function_989d336d(localclientnum)
 	var_8e5bb835 = playerhealth;
 	while(true)
 	{
-		if(!isdefined(self.var_d6b8c684))
+		if(!isdefined(self.shrapnel_enabled))
 		{
-			self.var_d6b8c684 = 0;
+			self.shrapnel_enabled = 0;
 		}
 		var_df99eba3 = 0;
 		if(renderhealthoverlay(localclientnum))
@@ -188,12 +188,12 @@ function private function_989d336d(localclientnum)
 		}
 		if(var_df99eba3)
 		{
-			if(!self.var_d6b8c684)
+			if(!self.shrapnel_enabled)
 			{
 				self enable_shrapnel(localclientnum);
 			}
 		}
-		else if(self.var_d6b8c684)
+		else if(self.shrapnel_enabled)
 		{
 			self function_816d735d(localclientnum);
 		}

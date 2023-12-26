@@ -1,4 +1,4 @@
-#using script_3b78d6d26bf3ec83;
+#using scripts\abilities\gadgets\gadget_jammer_shared.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -33,7 +33,7 @@ function private autoexec function_f91e2ca1()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_512409f8a5de10e4", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_512409f8a5de10e4", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -51,7 +51,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_68a80213
 	Checksum: 0x80F724D1
 	Offset: 0x1B8
@@ -59,7 +59,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 

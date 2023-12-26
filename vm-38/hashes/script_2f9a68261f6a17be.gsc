@@ -50,7 +50,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -74,13 +74,13 @@ function private on_begin()
 		player thread zm_trial_util::function_bf710271();
 		player zm_trial_util::function_7dbb1712(1);
 	}
-	var_ec9e2b1d = getentarray("zombie_trap", "targetname");
+	a_t_traps = getentarray("zombie_trap", "targetname");
 	str_text = #"hash_24a438482954901";
-	foreach(var_9bda8088 in var_ec9e2b1d)
+	foreach(t_trap in a_t_traps)
 	{
-		if(!is_true(var_9bda8088._trap_in_use) && is_true(var_9bda8088.var_b3166dc1))
+		if(!is_true(t_trap._trap_in_use) && is_true(t_trap.var_b3166dc1))
 		{
-			var_9bda8088 zm_traps::trap_set_string(str_text, var_9bda8088.zombie_cost);
+			t_trap zm_traps::trap_set_string(str_text, t_trap.zombie_cost);
 		}
 	}
 	a_ai = getaiteamarray(level.zombie_team);
@@ -119,13 +119,13 @@ function private on_end(round_reset)
 		player thread zm_trial_util::function_dc0859e();
 		player zm_trial_util::function_7dbb1712(1);
 	}
-	var_ec9e2b1d = getentarray("zombie_trap", "targetname");
+	a_t_traps = getentarray("zombie_trap", "targetname");
 	str_text = #"hash_23c1c09e94181fdb";
-	foreach(var_9bda8088 in var_ec9e2b1d)
+	foreach(t_trap in a_t_traps)
 	{
-		if(!is_true(var_9bda8088._trap_in_use) && is_true(var_9bda8088.var_b3166dc1))
+		if(!is_true(t_trap._trap_in_use) && is_true(t_trap.var_b3166dc1))
 		{
-			var_9bda8088 zm_traps::trap_set_string(str_text, var_9bda8088.zombie_cost);
+			t_trap zm_traps::trap_set_string(str_text, t_trap.zombie_cost);
 		}
 	}
 }

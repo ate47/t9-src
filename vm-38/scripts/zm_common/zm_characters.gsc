@@ -1,4 +1,4 @@
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -197,8 +197,8 @@ function function_b04c6f1f()
 				continue;
 			}
 		#/
-		rf = function_fb05c532(i, currentsessionmode());
-		if(isdefined(rf) && is_true(rf.var_7376c393))
+		rf = getplayerrolefields(i, currentsessionmode());
+		if(isdefined(rf) && is_true(rf.isdefaultcharacter))
 		{
 			if(!isdefined(var_36918d27))
 			{
@@ -401,7 +401,7 @@ function function_d35e4c92(characterindex, var_fdf0f13d)
 	{
 		if(var_fdf0f13d || player_role::is_valid(characterindex))
 		{
-			fields = function_fb05c532(characterindex, currentsessionmode());
+			fields = getplayerrolefields(characterindex, currentsessionmode());
 			if(isdefined(fields))
 			{
 				return fields.var_2a42c5e0;
@@ -413,7 +413,7 @@ function function_d35e4c92(characterindex, var_fdf0f13d)
 		characterindex = player_role::get();
 		if(player_role::is_valid(characterindex))
 		{
-			fields = function_fb05c532(player_role::get(), currentsessionmode());
+			fields = getplayerrolefields(player_role::get(), currentsessionmode());
 			if(isdefined(fields))
 			{
 				return fields.var_2a42c5e0;
@@ -446,7 +446,7 @@ function function_dc232a80(character)
 	{
 		if(player_role::is_valid(characterindex))
 		{
-			fields = function_fb05c532(player_role::get(), currentsessionmode());
+			fields = getplayerrolefields(player_role::get(), currentsessionmode());
 			if(isdefined(fields.var_3e570307))
 			{
 				return fields.var_3e570307;

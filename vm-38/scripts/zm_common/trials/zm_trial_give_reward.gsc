@@ -47,11 +47,11 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
-	level.var_5335b66f = associativearray(#"hash_53bd8d8afd745e0", 1, #"hash_7b56bdcba095cb41", 2, #"hash_68ca3d7404460abf", 3, #"hash_1d84c5587b7c3dd4", 4, #"hash_177ee254a5de65d8", 5, #"hash_3cf0f6c1e53f5282", 6, #"hash_5639494d7b07b79c", 7);
+	level.var_5335b66f = associativearray(#"zm_zodt8_default", 1, #"zm_towers_default", 2, #"zm_office_default", 3, #"zm_escape_default", 4, #"zm_mansion_default", 5, #"zm_red_default", 6, #"zm_zodt8_variant_1", 7);
 	zm_trial::register_challenge(#"give_reward", &on_begin, &on_end);
 	level.var_ee7ca64 = [];
 }
@@ -65,12 +65,12 @@ function private function_70a657d8()
 	Parameters: 6
 	Flags: Private
 */
-function private on_begin(var_c2964c77, description, image, var_1ab324d7, var_191009a6, var_8d63de44)
+function private on_begin(var_c2964c77, description, image, challenge_stat, var_191009a6, trial_completed)
 {
 	self.var_c2964c77 = image;
-	self.var_1ab324d7 = var_1ab324d7;
+	self.challenge_stat = challenge_stat;
 	self.var_191009a6 = var_191009a6;
-	self.var_8d63de44 = var_8d63de44 === #"1";
+	self.trial_completed = trial_completed === #"1";
 }
 
 /*
@@ -84,12 +84,12 @@ function private on_begin(var_c2964c77, description, image, var_1ab324d7, var_19
 */
 function private on_end(round_reset)
 {
-	if(!round_reset && !level flag::get(#"hash_6acab8bde7078239"))
+	if(!round_reset && !level flag::get(#"trial_failed"))
 	{
 		self function_e7254828();
-		if(is_true(self.var_8d63de44))
+		if(is_true(self.trial_completed))
 		{
-			luinotifyevent(#"hash_7fe359bfb266e915");
+			luinotifyevent(#"zm_trial_completed");
 			foreach(player in getplayers())
 			{
 				player zm_utility::give_achievement(#"zm_trials_round_30");
@@ -118,7 +118,7 @@ function private function_e7254828()
 	var_93493c8 = level.var_5335b66f[level.var_6d87ac05.name];
 	curr_time = gettime() - level.var_21e22beb;
 	var_ee7ca64 = is_true(level.var_ee7ca64[level.round_number]);
-	if(is_true(self.var_8d63de44))
+	if(is_true(self.trial_completed))
 	{
 		level.var_bccd8271 = curr_time;
 	}
@@ -140,24 +140,24 @@ function private function_e7254828()
 		{
 			player zm_stats::function_49469f35(self.var_c2964c77, curr_time);
 		}
-		best_time = zm_stats::function_c9d32eb9(self.var_c2964c77);
+		best_time = zm_stats::get_match_stat(self.var_c2964c77);
 		if(best_time == 0 || curr_time < best_time)
 		{
-			zm_stats::function_42677837(self.var_c2964c77, curr_time);
+			zm_stats::set_match_stat(self.var_c2964c77, curr_time);
 		}
 		best_time = player zm_stats::function_e4358abd(self.var_c2964c77);
 		if(best_time == 0 || curr_time < best_time)
 		{
 			player zm_stats::function_9daadcaa(self.var_c2964c77, curr_time);
 		}
-		if(is_true(self.var_8d63de44))
+		if(is_true(self.trial_completed))
 		{
 			player notify(#"stop_player_monitor_time_played");
 		}
-		player zm_stats::increment_challenge_stat(self.var_1ab324d7, 1);
+		player zm_stats::increment_challenge_stat(self.challenge_stat, 1);
 		if(level.round_number == 20)
 		{
-			player contracts::function_5b88297d(#"hash_4e5a4f28d918179c");
+			player contracts::increment_zm_contract(#"hash_4e5a4f28d918179c");
 		}
 		if(zm_trial::function_ba9853db() == 0)
 		{
@@ -167,7 +167,7 @@ function private function_e7254828()
 			}
 			if(level.round_number == 10)
 			{
-				player contracts::function_5b88297d(#"hash_e0f3cb0f4c8c82d");
+				player contracts::increment_zm_contract(#"hash_e0f3cb0f4c8c82d");
 			}
 		}
 	}

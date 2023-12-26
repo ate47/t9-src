@@ -52,7 +52,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
 	clientfield::register("toplayer", "player_mana", 1, 8, "float", &set_player_mana, 0, 1);
 	clientfield::register("toplayer", "player_in_afterlife", 1, 1, "int", &toggle_player_altbody, 0, 1);
 	clientfield::register("allplayers", "player_altbody", 1, 1, "int", &toggle_player_altbody_3p, 0, 1);
@@ -137,7 +137,7 @@ function toggle_player_altbody(localclientnum, oldval, newval, bnewent, binitial
 		self.altbody = fieldname;
 		if(bwastimejump)
 		{
-			self thread function_f2e3981e(binitialsnap, fieldname);
+			self thread clear_transition(binitialsnap, fieldname);
 		}
 		else
 		{
@@ -221,7 +221,7 @@ function cover_transition(localclientnum, onoff)
 }
 
 /*
-	Name: function_f2e3981e
+	Name: clear_transition
 	Namespace: zm_altbody
 	Checksum: 0x207B4FD3
 	Offset: 0x7D0
@@ -229,7 +229,7 @@ function cover_transition(localclientnum, onoff)
 	Parameters: 2
 	Flags: None
 */
-function function_f2e3981e(localclientnum, onoff)
+function clear_transition(localclientnum, onoff)
 {
 	level lui::screen_fade_in(onoff, 0);
 }

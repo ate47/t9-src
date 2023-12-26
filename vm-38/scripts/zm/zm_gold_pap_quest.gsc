@@ -174,7 +174,7 @@ function function_4313bea3()
 	var_9febe337 = struct::get("pap_machine_pos", "targetname");
 	var_695c9ed4 = util::spawn_model(#"hash_608fac8bdc2fc87a", var_9febe337.origin, var_9febe337.angles);
 	var_a5927988 = struct::get("pap_prompt_pos", "targetname");
-	var_5bf94905 = var_a5927988 zm_unitrigger::create(#"hash_71158766520dc432", 63);
+	var_5bf94905 = var_a5927988 zm_unitrigger::create(#"zombie/need_power", 63);
 	level flag::wait_till(#"pap_quest_completed");
 	streamermodelhint(#"p9_fxanim_zm_gp_pap_xmodel", 10);
 	var_695c9ed4 thread util::delayed_delete(0.5);
@@ -233,14 +233,14 @@ function function_31abb662()
 	level thread function_63193c65();
 	if(level.round_number == 1)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"end_of_round", #"hash_5cdcf4e238ae5f1f");
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"end_of_round", #"hash_5cdcf4e238ae5f1f");
 	}
 	level.ravenov scene::stop(level.ravenov.current_scene);
 	level.ravenov_chair animation::stop();
 	if(!level flag::get("enable_firebase_zone"))
 	{
-		if(var_be17187b._notify === #"hash_5cdcf4e238ae5f1f")
+		if(s_waitresult._notify === #"hash_5cdcf4e238ae5f1f")
 		{
 			zm_utility::function_d729de6a(1, [0:#"zone_atrium"]);
 		}

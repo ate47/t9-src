@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -44,6 +44,6 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	status_effect::function_6f4eaf88(function_4d1e7b48("explosive_damage"));
+	status_effect::function_6f4eaf88(getstatuseffect("explosive_damage"));
 }
 

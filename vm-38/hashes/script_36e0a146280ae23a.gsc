@@ -44,7 +44,7 @@ class class_e1dc992f : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_e1dc992f
 		Checksum: 0xF9C8F613
 		Offset: 0x348
@@ -52,9 +52,9 @@ class class_e1dc992f : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_crafting_table_menu");
+		cLUIelem::register_clientside("sr_crafting_table_menu");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_crafting_table_menu
 	Checksum: 0x6DEA17E3
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_e1dc992f();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

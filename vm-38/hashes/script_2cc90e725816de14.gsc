@@ -1,6 +1,6 @@
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_5e0bde12853401b5;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_7f35d42a9593323b;
@@ -105,7 +105,7 @@ function private function_4df027f2()
 */
 function function_b8e86206()
 {
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &namespace_85745671::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"on_ai_melee", &namespace_85745671::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &mechz_cleanup);
 	self.var_12af7864 = 1;
 	self.blockingpain = 1;
@@ -179,15 +179,15 @@ function function_8d5f13fa()
 {
 	self.fovcosine = 0.5;
 	self.maxsightdistsqrd = sqr(900);
-	self.var_f9a12c59 = 1;
-	self.var_ed35eeb2 = 1;
+	self.has_awareness = 1;
+	self.ignorelaststandplayers = 1;
 	self.var_1267fdea = 1;
 	self callback::function_d8abfc3d(#"on_ai_damage", &awareness::function_5f511313);
-	awareness::function_dad6ba0e(self, #"wander", &function_65f28890, &awareness::function_4ebe4a6d, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
-	awareness::function_dad6ba0e(self, #"investigate", &awareness::function_b41f0471, &awareness::function_9eefc327, &awareness::function_34162a25, undefined, &awareness::function_a360dd00);
-	awareness::function_dad6ba0e(self, #"chase", &function_43c21e81, &function_3715dbff, &function_dca46c2e, &awareness::function_5c40e824, undefined);
-	awareness::function_dad6ba0e(self, #"relocate", &function_3a6dfa8b, &function_6e7d7d1, &function_7ea826b6, &awareness::function_5c40e824, undefined);
-	awareness::function_dad6ba0e(self, #"scripted", &function_235c2ec8, undefined, &function_39e16337);
+	awareness::register_state(self, #"wander", &function_65f28890, &awareness::function_4ebe4a6d, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
+	awareness::register_state(self, #"investigate", &awareness::function_b41f0471, &awareness::function_9eefc327, &awareness::function_34162a25, undefined, &awareness::function_a360dd00);
+	awareness::register_state(self, #"chase", &function_43c21e81, &function_3715dbff, &function_dca46c2e, &awareness::function_5c40e824, undefined);
+	awareness::register_state(self, #"relocate", &function_3a6dfa8b, &function_6e7d7d1, &function_7ea826b6, &awareness::function_5c40e824, undefined);
+	awareness::register_state(self, #"scripted", &function_235c2ec8, undefined, &function_39e16337);
 	awareness::set_state(self, #"wander");
 	self callback::function_d8abfc3d(#"hash_1c5ac76933317a1d", &awareness::pause, undefined, array(self));
 	self callback::function_d8abfc3d(#"hash_6ce1d15fa3e62552", &function_a84a928b);

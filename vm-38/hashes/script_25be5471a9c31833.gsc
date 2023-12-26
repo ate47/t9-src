@@ -45,7 +45,7 @@ function private autoexec function_e93d1773()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_79fe34c9f8a0e44c", &function_70a657d8, &function_8ac3bea9, &finalize, #"hash_f81b9dea74f0ee");
+	system::register(#"hash_79fe34c9f8a0e44c", &function_70a657d8, &postinit, &finalize, #"hash_f81b9dea74f0ee");
 }
 
 /*
@@ -65,7 +65,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_82b4c2d1
 	Checksum: 0xE62983FB
 	Offset: 0x2F0
@@ -73,7 +73,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	var_f5ae494f = struct::get_array(#"hash_313be7fccc870cdd", "variantname");
 	if(zm_utility::is_classic() || zm_utility::function_c4b020f8() && isdefined(var_f5ae494f) && var_f5ae494f.size > 0)
@@ -418,27 +418,27 @@ function function_2c5b6acc(var_438da649)
 */
 function function_5d21ed88(var_82e23366)
 {
-	if(!isdefined(var_82e23366.var_3cf2d21))
+	if(!isdefined(var_82e23366.namehash))
 	{
 		return;
 	}
 	var_8c590502 = (isdefined(getgametypesetting(#"hash_3c2c78e639bfd3c6")) ? getgametypesetting(#"hash_3c2c78e639bfd3c6") : 0);
 	if(var_8c590502 > 0)
 	{
-		var_8aa9ab80 = var_82e23366.var_3cf2d21;
+		name_hash = var_82e23366.namehash;
 		var_75da77d3 = 0;
 		foreach(var_24303d72 in level.var_c723ac75)
 		{
 			foreach(var_afe18f6f in var_24303d72)
 			{
-				if(var_afe18f6f == var_8aa9ab80)
+				if(var_afe18f6f == name_hash)
 				{
 					return namespace_791d0451::function_1b16bd84(var_24303d72[0], var_8c590502);
 				}
 			}
 		}
 	}
-	return var_82e23366.var_3cf2d21;
+	return var_82e23366.namehash;
 }
 
 /*

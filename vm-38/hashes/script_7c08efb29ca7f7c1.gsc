@@ -47,7 +47,7 @@ class cstealth_meter_display : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -89,7 +89,7 @@ class cstealth_meter_display : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -118,11 +118,11 @@ class cstealth_meter_display : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("stealth_meter_display");
-		cLUIelem::function_da693cbe("entNum", 1, 10, "int");
-		cLUIelem::function_da693cbe("awarenessState", 1, 4, "int");
-		cLUIelem::function_da693cbe("awarenessProgress", 1, 4, "float");
-		cLUIelem::function_da693cbe("direction", 1, 4, "float");
-		cLUIelem::function_da693cbe("clamped", 1, 1, "int");
+		cLUIelem::add_clientfield("entNum", 1, 10, "int");
+		cLUIelem::add_clientfield("awarenessState", 1, 4, "int");
+		cLUIelem::add_clientfield("awarenessProgress", 1, 4, "float");
+		cLUIelem::add_clientfield("direction", 1, 4, "float");
+		cLUIelem::add_clientfield("clamped", 1, 1, "int");
 	}
 
 	/*

@@ -31,11 +31,11 @@ function private autoexec function_4f90823b()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_34176c075d085060", undefined, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_34176c075d085060", undefined, &postinit, undefined, undefined);
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_c498bb05
 	Checksum: 0x8F8A8322
 	Offset: 0x118
@@ -43,10 +43,10 @@ function private autoexec __init__system__()
 	Parameters: 0
 	Flags: AutoExec, Linked
 */
-function autoexec function_8ac3bea9()
+function autoexec postinit()
 {
 	var_4c520d72 = getentarray("window_trigger", "targetname");
-	array::thread_all(var_4c520d72, &callback::function_35a12f19, &function_82c985d1);
+	array::thread_all(var_4c520d72, &callback::on_trigger, &function_82c985d1);
 }
 
 /*

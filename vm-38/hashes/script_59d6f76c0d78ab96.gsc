@@ -73,12 +73,12 @@ function private function_59941838(local_client_num, eventstruct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_a880899e(var_aa127355)
+function function_a880899e(eventparams)
 {
-	localclientnum = var_aa127355.localclientnum;
+	localclientnum = eventparams.localclientnum;
 	if(!codcaster::function_b8fe9b52(localclientnum))
 	{
-		if(var_aa127355.enabled)
+		if(eventparams.enabled)
 		{
 			self codeplaypostfxbundle("pstfx_spawn_cam");
 		}

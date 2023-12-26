@@ -31,7 +31,7 @@ function private autoexec function_e3e8178c()
 function init_shared()
 {
 	level.weaponnone = getweapon(#"none");
-	clientfield::function_a8bbc967("hudItems.pickupHintWeaponIndex", #"hud_items", #"hash_5f5aa9f7242b45a8", 1, 10, "int", &function_160c9d99, 0, 0);
+	clientfield::register_clientuimodel("hudItems.pickupHintWeaponIndex", #"hud_items", #"pickuphintweaponindex", 1, 10, "int", &function_160c9d99, 0, 0);
 	namespace_daf1661f::init();
 	callback::on_localclient_connect(&on_localclient_connect);
 }

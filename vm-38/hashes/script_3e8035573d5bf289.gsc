@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;

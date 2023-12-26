@@ -118,7 +118,7 @@ function function_2ff463e2(name)
 			var_4a14890d = spawnstruct();
 			var_4a14890d.type = room_struct.rg_tag_type;
 			var_4a14890d.id = room_struct.var_d0971441;
-			var_4a14890d.origin = function_e2ee5807(room_struct.origin, var_64f87a02.var_d19720ad, var_64f87a02.var_66b667b0);
+			var_4a14890d.origin = coordtransformtranspose(room_struct.origin, var_64f87a02.var_d19720ad, var_64f87a02.var_66b667b0);
 			var_4a14890d.angles = function_bdd10bae(room_struct.angles, var_64f87a02.var_66b667b0);
 			function_e667ba34(var_4a14890d, room_struct);
 			var_64f87a02.tags[var_64f87a02.tags.size] = var_4a14890d;
@@ -187,7 +187,7 @@ function private function_8396377c(var_57617236, origin, angles)
 		var_df2b5097 = spawnstruct();
 		var_df2b5097.id = var_5cf84433.id;
 		var_df2b5097.owner = door;
-		var_df2b5097.origin = function_323c3bee(var_5cf84433.origin, door.var_d19720ad, door.var_66b667b0);
+		var_df2b5097.origin = coordtransform(var_5cf84433.origin, door.var_d19720ad, door.var_66b667b0);
 		var_df2b5097.angles = combineangles(door.var_66b667b0, var_5cf84433.angles);
 		var_df2b5097.type = var_5cf84433.type;
 		function_e667ba34(var_df2b5097, var_5cf84433);
@@ -226,7 +226,7 @@ function private function_9a75d6e9(var_64f87a02, origin, angles)
 		var_4a14890d = spawnstruct();
 		var_4a14890d.id = var_103a1f3b.id;
 		var_4a14890d.owner = room;
-		var_4a14890d.origin = function_323c3bee(var_103a1f3b.origin, room.var_d19720ad, room.var_66b667b0);
+		var_4a14890d.origin = coordtransform(var_103a1f3b.origin, room.var_d19720ad, room.var_66b667b0);
 		var_4a14890d.angles = combineangles(room.var_66b667b0, var_103a1f3b.angles);
 		var_4a14890d.type = var_103a1f3b.type;
 		function_e667ba34(var_4a14890d, var_103a1f3b);

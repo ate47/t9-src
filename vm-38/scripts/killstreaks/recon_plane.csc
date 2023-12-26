@@ -50,7 +50,7 @@ function private function_70a657d8()
 	clientfield::register("scriptmover", "recon_plane_damage_fx", 1, 2, "int", &recon_plane_damage_fx, 0, 0);
 	callback::on_localclient_connect(&player_init);
 	bundlename = "killstreak_recon_plane";
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundlename = bundlename + "_wz";
 	}
@@ -69,7 +69,7 @@ function private function_70a657d8()
 */
 function player_init(localclientnum)
 {
-	self thread function_31a1aa18(localclientnum);
+	self thread on_game_ended(localclientnum);
 }
 
 /*
@@ -118,7 +118,7 @@ function function_1f842f91(localclientnum, oldval, newval, bnewent, binitialsnap
 		var_2c9baa0c = level.var_d9ef3e7c.var_7249d50f;
 		if(isdefined(var_2c9baa0c) && var_2c9baa0c > 0)
 		{
-			self function_5db470de(fieldname, var_2c9baa0c);
+			self enablevisioncircle(fieldname, var_2c9baa0c);
 			if(!self function_ca024039())
 			{
 				self.var_2695439d = self playloopsound(#"hash_539cae233d8f2036", 1);
@@ -151,11 +151,11 @@ function private function_4ee8c344(localclientnum)
 	{
 		self stoploopsound(self.var_2695439d);
 	}
-	function_fb25716d(localclientnum, entnum);
+	disablevisioncirclebyentnum(localclientnum, entnum);
 }
 
 /*
-	Name: function_31a1aa18
+	Name: on_game_ended
 	Namespace: recon_plane
 	Checksum: 0x22E2578F
 	Offset: 0x628
@@ -163,10 +163,10 @@ function private function_4ee8c344(localclientnum)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_31a1aa18(localclientnum)
+function private on_game_ended(localclientnum)
 {
 	level waittill(#"game_ended");
-	function_c18242d9(localclientnum);
+	disableallvisioncircles(localclientnum);
 }
 
 /*

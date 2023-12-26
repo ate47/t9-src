@@ -57,7 +57,7 @@ function on_player_spawned()
 {
 	self endon(#"disconnect");
 	self clearirtarget();
-	self callback::function_f77ced93(&function_f77ced93);
+	self callback::on_weapon_change(&on_weapon_change);
 }
 
 /*
@@ -264,7 +264,7 @@ function stingerwaitforads()
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: heatseekingmissile
 	Checksum: 0xCB237F21
 	Offset: 0xAB8
@@ -272,7 +272,7 @@ function stingerwaitforads()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	self endon(#"death", #"disconnect");
 	weapon = self getappropriateplayerweapon(params.weapon);
@@ -1124,7 +1124,7 @@ function lockingon(target, lock)
 			if(!isdefined(target.team) || (!isdefined(target.killstreaktype) && util::function_fbce7263(self.team, target.team) && !is_true(target.var_9ee835dc)))
 			{
 				target.var_9ee835dc = 1;
-				self battlechatter::function_cef454e8(target.killstreaktype);
+				self battlechatter::playkillstreakthreat(target.killstreaktype);
 			}
 		}
 	}
@@ -1844,12 +1844,12 @@ function _missiledetonate(attacker, weapon, range, mindamage, maxdamage, allowdi
 			target dodamage(maxdamage, origin, attacker, self, "none", "MOD_PROJECTILE", 0, weapon);
 		}
 	}
-	var_fd0cb0de = attacker;
+	attackerentity = attacker;
 	if(function_3132f113(attacker) || (isdefined(attacker) && !isplayer(attacker) && !isalive(attacker)))
 	{
-		var_fd0cb0de = undefined;
+		attackerentity = undefined;
 	}
-	radiusdamage(origin, range, maxdamage, mindamage, var_fd0cb0de, "MOD_PROJECTILE_SPLASH", weapon);
+	radiusdamage(origin, range, maxdamage, mindamage, attackerentity, "MOD_PROJECTILE_SPLASH", weapon);
 }
 
 /*
@@ -1907,8 +1907,8 @@ function missiletarget_proximitydetonate(missile, attacker, weapon, endon1, endo
 			newtarget = self missiletarget_deployflares(missile.origin, missile.angles);
 			missile missile_settarget(newtarget, (isdefined(target_getoffset(newtarget)) ? target_getoffset(newtarget) : (0, 0, 0)));
 			missiletarget = newtarget;
-			scoreevents::processscoreevent(#"hash_74973027b2bb47ef", attacker, undefined, weapon);
-			self notify(#"hash_63404ad70a51f8ca");
+			scoreevents::processscoreevent(#"flare_assist", attacker, undefined, weapon);
+			self notify(#"flare_deployed");
 			return;
 		}
 		if(curdist < mindist)

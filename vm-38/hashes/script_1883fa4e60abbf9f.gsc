@@ -972,11 +972,11 @@ function set_goal(goal, faceangles, goalradius)
 	Parameters: 1
 	Flags: Linked
 */
-function set_goal_radius(var_85ba7700)
+function set_goal_radius(newradius)
 {
-	if(isdefined(var_85ba7700))
+	if(isdefined(newradius))
 	{
-		self val::set(#"stealth", "goalradius", var_85ba7700);
+		self val::set(#"stealth", "goalradius", newradius);
 	}
 	else
 	{

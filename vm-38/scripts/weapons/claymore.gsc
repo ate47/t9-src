@@ -67,9 +67,9 @@ function createclaymorewatcher(watcher)
 	watcher.immunespecialty = "specialty_immunetriggerbetty";
 	watcher.var_8eda8949 = (0, 0, 0);
 	var_e2fa0bc6 = getweapon(#"claymore");
-	if(isdefined(var_e2fa0bc6.var_4dd46f8a))
+	if(isdefined(var_e2fa0bc6.customsettings))
 	{
-		var_e6fbac16 = getscriptbundle(var_e2fa0bc6.var_4dd46f8a);
+		var_e6fbac16 = getscriptbundle(var_e2fa0bc6.customsettings);
 		/#
 			assert(isdefined(var_e6fbac16));
 		#/

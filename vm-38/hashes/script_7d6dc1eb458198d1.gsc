@@ -58,7 +58,7 @@ class class_a0b518ca : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_a0b518ca
 		Checksum: 0x50681D08
 		Offset: 0x620
@@ -66,9 +66,9 @@ class class_a0b518ca : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_control_point_hud");
+		cLUIelem::register_clientside("zm_control_point_hud");
 	}
 
 	/*
@@ -111,12 +111,12 @@ class class_a0b518ca : cLUIelem
 	function setup_clientfields(var_4bf38eea, var_7cc0b11d, var_14431277, var_db1c4294, var_87048abd, var_dd55685a)
 	{
 		cLUIelem::setup_clientfields("zm_control_point_hud");
-		cLUIelem::function_da693cbe("chargePct", 8000, 7, "float", var_4bf38eea);
-		cLUIelem::function_da693cbe("damagePct", 8000, 7, "float", var_7cc0b11d);
-		cLUIelem::function_da693cbe("ordaHealthPct", 16000, 7, "float", var_14431277);
-		cLUIelem::function_da693cbe("hasOrda", 16000, 1, "int", var_db1c4294);
-		cLUIelem::function_da693cbe("hasCharge", 16000, 1, "int", var_87048abd);
-		cLUIelem::function_da693cbe("hasDamage", 16000, 1, "int", var_dd55685a);
+		cLUIelem::add_clientfield("chargePct", 8000, 7, "float", var_4bf38eea);
+		cLUIelem::add_clientfield("damagePct", 8000, 7, "float", var_7cc0b11d);
+		cLUIelem::add_clientfield("ordaHealthPct", 16000, 7, "float", var_14431277);
+		cLUIelem::add_clientfield("hasOrda", 16000, 1, "int", var_db1c4294);
+		cLUIelem::add_clientfield("hasCharge", 16000, 1, "int", var_87048abd);
+		cLUIelem::add_clientfield("hasDamage", 16000, 1, "int", var_dd55685a);
 	}
 
 	/*
@@ -232,7 +232,7 @@ function register(var_4bf38eea, var_7cc0b11d, var_14431277, var_db1c4294, var_87
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_control_point_hud
 	Checksum: 0x715F0657
 	Offset: 0x2E0
@@ -240,10 +240,10 @@ function register(var_4bf38eea, var_7cc0b11d, var_14431277, var_db1c4294, var_87
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_a0b518ca();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -47,7 +47,7 @@ class cplayer_insertion_choice : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class cplayer_insertion_choice : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,7 +76,7 @@ class cplayer_insertion_choice : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("player_insertion_choice");
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 	}
 
 	/*
@@ -96,13 +96,13 @@ class cplayer_insertion_choice : cLUIelem
 		}
 		else
 		{
-			if(#"hash_bcb68d30ea251e2" == state_name)
+			if(#"groundvehicle" == state_name)
 			{
 				player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "_state", 1);
 			}
 			else
 			{
-				if(#"hash_a9365fdb97f532b" == state_name)
+				if(#"halojump" == state_name)
 				{
 					player clientfield::function_9bf78ef8(var_d5213cbb, var_bf9c8c95, "_state", 2);
 				}

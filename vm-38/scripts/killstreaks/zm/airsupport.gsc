@@ -1,4 +1,4 @@
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_61828ad9e71c6616;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\util_shared.gsc;

@@ -1,4 +1,4 @@
-#using script_16cb0a6a492a6a4f;
+#using scripts\mp_common\teams\team_assignment.gsc;
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\mp_common\player\player.gsc;
 #using scripts\core_common\player\player_shared.gsc;
@@ -660,7 +660,7 @@ function menupositiondraft(response, intpayload)
 		{
 			if(intpayload == "ready")
 			{
-				self draft::function_3e46326b();
+				self draft::client_ready();
 			}
 			else
 			{

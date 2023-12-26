@@ -33,7 +33,7 @@ function private autoexec function_72c8ef00()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"collectibles", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"collectibles", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -51,7 +51,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: collectibles
 	Checksum: 0xA4F226BD
 	Offset: 0x128
@@ -59,7 +59,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	function_5a395617();
 }
@@ -81,9 +81,9 @@ function function_5a395617()
 	var_8f4db568 = var_b6e3d0a.var_48be729c;
 	foreach(var_eeb11904 in var_8f4db568)
 	{
-		if(isdefined(var_eeb11904.var_b2d12125))
+		if(isdefined(var_eeb11904.collectiblelist))
 		{
-			collectibles = var_eeb11904.var_b2d12125;
+			collectibles = var_eeb11904.collectiblelist;
 			foreach(v in collectibles)
 			{
 				collectible = getscriptbundle(v.collectible);
@@ -311,14 +311,14 @@ function function_ab921f3d(var_2a51713)
 	Parameters: 3
 	Flags: Linked
 */
-function function_316c48a3(var_d13a0347, var_28c9f917, var_bfb1faa4)
+function function_316c48a3(unknown shot, var_28c9f917, var_bfb1faa4)
 {
 	if(!isdefined(var_bfb1faa4))
 	{
 		var_bfb1faa4 = 1;
 	}
 	/#
-		assert(isdefined(var_d13a0347));
+		assert(isdefined(unknown shot));
 	#/
 	/#
 		assert(isdefined(var_28c9f917));
@@ -327,12 +327,12 @@ function function_316c48a3(var_d13a0347, var_28c9f917, var_bfb1faa4)
 	/#
 		assert(isplayer(player));
 	#/
-	if(var_bfb1faa4 == function_1fe63475(var_d13a0347, var_28c9f917))
+	if(var_bfb1faa4 == function_1fe63475(unknown shot, var_28c9f917))
 	{
 		return;
 	}
-	player stats::set_stat(#"mapdata", var_d13a0347, #"evidence", var_28c9f917, var_bfb1faa4);
-	player stats::set_stat(#"mapdata", var_d13a0347, #"hash_42b984266100b32", var_28c9f917, var_bfb1faa4);
+	player stats::set_stat(#"mapdata", unknown shot, #"evidence", var_28c9f917, var_bfb1faa4);
+	player stats::set_stat(#"mapdata", unknown shot, #"hash_42b984266100b32", var_28c9f917, var_bfb1faa4);
 	uploadstats(player);
 }
 
@@ -345,10 +345,10 @@ function function_316c48a3(var_d13a0347, var_28c9f917, var_bfb1faa4)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1fe63475(var_d13a0347, var_28c9f917)
+function function_1fe63475(unknown shot, var_28c9f917)
 {
 	/#
-		assert(isdefined(var_d13a0347));
+		assert(isdefined(unknown shot));
 	#/
 	/#
 		assert(isdefined(var_28c9f917));
@@ -357,7 +357,7 @@ function function_1fe63475(var_d13a0347, var_28c9f917)
 	/#
 		assert(isplayer(player));
 	#/
-	var_4f84589e = is_true(player stats::get_stat(#"mapdata", var_d13a0347, #"evidence", var_28c9f917));
+	var_4f84589e = is_true(player stats::get_stat(#"mapdata", unknown shot, #"evidence", var_28c9f917));
 	return var_4f84589e;
 }
 
@@ -370,10 +370,10 @@ function function_1fe63475(var_d13a0347, var_28c9f917)
 	Parameters: 2
 	Flags: Linked
 */
-function function_ee216b9e(var_d13a0347, var_28c9f917)
+function function_ee216b9e(unknown shot, var_28c9f917)
 {
 	/#
-		assert(isdefined(var_d13a0347));
+		assert(isdefined(unknown shot));
 	#/
 	/#
 		assert(isdefined(var_28c9f917));
@@ -382,7 +382,7 @@ function function_ee216b9e(var_d13a0347, var_28c9f917)
 	/#
 		assert(isplayer(player));
 	#/
-	isnew = is_true(player stats::get_stat(#"mapdata", var_d13a0347, #"hash_42b984266100b32", var_28c9f917));
+	isnew = is_true(player stats::get_stat(#"mapdata", unknown shot, #"hash_42b984266100b32", var_28c9f917));
 	return isnew;
 }
 
@@ -395,10 +395,10 @@ function function_ee216b9e(var_d13a0347, var_28c9f917)
 	Parameters: 2
 	Flags: None
 */
-function function_55fb73ea(var_d13a0347, var_28c9f917)
+function function_55fb73ea(unknown shot, var_28c9f917)
 {
 	/#
-		assert(isdefined(var_d13a0347));
+		assert(isdefined(unknown shot));
 	#/
 	/#
 		assert(isdefined(var_28c9f917));
@@ -407,11 +407,11 @@ function function_55fb73ea(var_d13a0347, var_28c9f917)
 	/#
 		assert(isplayer(player));
 	#/
-	if(!function_ee216b9e(var_d13a0347, var_28c9f917))
+	if(!function_ee216b9e(unknown shot, var_28c9f917))
 	{
 		return;
 	}
-	player stats::set_stat(#"mapdata", var_d13a0347, #"hash_42b984266100b32", var_28c9f917, 0);
+	player stats::set_stat(#"mapdata", unknown shot, #"hash_42b984266100b32", var_28c9f917, 0);
 	uploadstats(player);
 }
 
@@ -489,16 +489,16 @@ function function_9f976c54(mission_name)
 	Parameters: 1
 	Flags: Linked
 */
-function function_99c4aa1(var_d13a0347)
+function function_99c4aa1(unknown shot)
 {
-	if(!isdefined(var_d13a0347))
+	if(!isdefined(unknown shot))
 	{
 		return;
 	}
 	var_80fc6600 = 0;
 	foreach(collectible in level.collectible_table)
 	{
-		if(collectible.var_430d1d6a == var_d13a0347)
+		if(collectible.var_430d1d6a == unknown shot)
 		{
 			var_80fc6600++;
 		}
@@ -566,16 +566,16 @@ function function_7be39f53(mission_name)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5d5166dd(var_d13a0347)
+function function_5d5166dd(unknown shot)
 {
-	if(!isdefined(var_d13a0347))
+	if(!isdefined(unknown shot))
 	{
 		return;
 	}
 	var_9a849009 = 0;
 	foreach(collectible in level.collectible_table)
 	{
-		if(collectible.var_430d1d6a == var_d13a0347)
+		if(collectible.var_430d1d6a == unknown shot)
 		{
 			if(is_true(function_ab921f3d(collectible.var_f3575c58)))
 			{

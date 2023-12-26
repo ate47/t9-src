@@ -75,7 +75,7 @@ class class_f57714e4 : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class class_f57714e4 : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -244,25 +244,25 @@ class class_f57714e4 : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("HUD_Spy");
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("player_role", 20000, 2, "int");
-		cLUIelem::function_da693cbe("player_id_number", 20000, 5, "int");
-		cLUIelem::function_da693cbe("alive_player_count", 20000, 4, "int");
-		cLUIelem::function_da693cbe("missing_player_count", 20000, 4, "int");
-		cLUIelem::function_da693cbe("operative_player_count", 20000, 4, "int");
-		cLUIelem::function_da693cbe("investigator_player_count", 20000, 2, "int");
-		cLUIelem::function_da693cbe("double_agent_player_count", 20000, 3, "int");
-		cLUIelem::function_da693cbe("body_player_clientnum", 20000, 7, "int");
-		cLUIelem::function_da693cbe("body_agent_id", 20000, 4, "int");
-		cLUIelem::function_da693cbe("body_identity", 20000, 2, "int");
-		cLUIelem::function_da693cbe("display_autopsy", 20000, 1, "int");
-		cLUIelem::function_da693cbe("timeSinceDeath", 20000, 16, "int");
-		cLUIelem::function_da693cbe("body_killed_by_mod", 20000, 5, "int");
-		cLUIelem::function_da693cbe("add_objective_id", 20000, 4, "int");
-		cLUIelem::function_da693cbe("current_objective_count", 20000, 4, "int");
-		cLUIelem::function_da693cbe("notification_id", 20000, 4, "int");
-		cLUIelem::function_da693cbe("aux_notification_param", 20000, 5, "int");
-		cLUIelem::function_da693cbe("dirty_bomb_id", 20000, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("player_role", 20000, 2, "int");
+		cLUIelem::add_clientfield("player_id_number", 20000, 5, "int");
+		cLUIelem::add_clientfield("alive_player_count", 20000, 4, "int");
+		cLUIelem::add_clientfield("missing_player_count", 20000, 4, "int");
+		cLUIelem::add_clientfield("operative_player_count", 20000, 4, "int");
+		cLUIelem::add_clientfield("investigator_player_count", 20000, 2, "int");
+		cLUIelem::add_clientfield("double_agent_player_count", 20000, 3, "int");
+		cLUIelem::add_clientfield("body_player_clientnum", 20000, 7, "int");
+		cLUIelem::add_clientfield("body_agent_id", 20000, 4, "int");
+		cLUIelem::add_clientfield("body_identity", 20000, 2, "int");
+		cLUIelem::add_clientfield("display_autopsy", 20000, 1, "int");
+		cLUIelem::add_clientfield("timeSinceDeath", 20000, 16, "int");
+		cLUIelem::add_clientfield("body_killed_by_mod", 20000, 5, "int");
+		cLUIelem::add_clientfield("add_objective_id", 20000, 4, "int");
+		cLUIelem::add_clientfield("current_objective_count", 20000, 4, "int");
+		cLUIelem::add_clientfield("notification_id", 20000, 4, "int");
+		cLUIelem::add_clientfield("aux_notification_param", 20000, 5, "int");
+		cLUIelem::add_clientfield("dirty_bomb_id", 20000, 2, "int");
 	}
 
 	/*

@@ -59,7 +59,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_8b8089ba
+		Name: open_luielem
 		Namespace: cLUIelem
 		Checksum: 0x5D256C6A
 		Offset: 0x31C0
@@ -67,13 +67,13 @@ class cLUIelem
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_8b8089ba(player, flags)
+	function open_luielem(player, flags)
 	{
 		if(!isdefined(flags))
 		{
 			flags = 0;
 		}
-		player function_5686f5cd(hash(var_d5213cbb), var_bf9c8c95, flags);
+		player openluielem(hash(var_d5213cbb), var_bf9c8c95, flags);
 		self.var_779239b4 = 1;
 	}
 
@@ -102,7 +102,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_a68f6e20
+		Name: close_luielem
 		Namespace: cLUIelem
 		Checksum: 0x6E626A7
 		Offset: 0x3278
@@ -110,7 +110,7 @@ class cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_a68f6e20(player)
+	function close_luielem(player)
 	{
 		if(isplayer(player))
 		{
@@ -118,7 +118,7 @@ class cLUIelem
 			{
 				player.var_3bc46b87[hash(var_d5213cbb)][var_bf9c8c95] = undefined;
 			}
-			player function_43d5b973(hash(var_d5213cbb), var_bf9c8c95);
+			player closeluielem(hash(var_d5213cbb), var_bf9c8c95);
 			self.var_779239b4 = 0;
 		}
 	}
@@ -152,7 +152,7 @@ class cLUIelem
 	}
 
 	/*
-		Name: function_da693cbe
+		Name: add_clientfield
 		Namespace: cLUIelem
 		Checksum: 0x8AAEC4AA
 		Offset: 0x3048
@@ -160,7 +160,7 @@ class cLUIelem
 		Parameters: 5
 		Flags: Linked
 	*/
-	function function_da693cbe(field_name, version, bits, type, var_59f69872)
+	function add_clientfield(field_name, version, bits, type, var_59f69872)
 	{
 		if(!isdefined(var_59f69872))
 		{
@@ -233,8 +233,8 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	callback::on_spawned(&refresh_menu_values);
-	function_b95a3ba5("FullScreenBlack", &full_screen_black::register);
-	function_b95a3ba5("InitialBlack", &initial_black::register);
+	add_luimenu("FullScreenBlack", &full_screen_black::register);
+	add_luimenu("InitialBlack", &initial_black::register);
 }
 
 /*
@@ -339,7 +339,7 @@ function function_1c4c4975()
 }
 
 /*
-	Name: function_b95a3ba5
+	Name: add_luimenu
 	Namespace: lui
 	Checksum: 0x7836CCF5
 	Offset: 0x6B0
@@ -347,7 +347,7 @@ function function_1c4c4975()
 	Parameters: 2
 	Flags: Linked
 */
-function function_b95a3ba5(alias, registerfunc)
+function add_luimenu(alias, registerfunc)
 {
 	if(!isdefined(level.luimenus))
 	{

@@ -1,5 +1,5 @@
 #using scripts\core_common\player\player_stats.gsc;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -844,7 +844,7 @@ function function_55657fb4(mimic, var_1386d828, &var_a6fe91fd, var_d56229a9)
 */
 function function_708fe162()
 {
-	var_a23be51a = vectorscale((0, 0, 1), 64);
+	prop_height = vectorscale((0, 0, 1), 64);
 	players = arraysortclosest(getplayers(undefined, self.origin, 400), self.origin);
 	if(players.size)
 	{
@@ -878,12 +878,12 @@ function function_708fe162()
 					continue;
 				}
 			}
-			else if(!sighttracepassed(self.origin + var_a23be51a, player gettagorigin("j_spine4"), 0, self))
+			else if(!sighttracepassed(self.origin + prop_height, player gettagorigin("j_spine4"), 0, self))
 			{
 				/#
 					if(is_true(level.var_72a9fe4c))
 					{
-						line(self.origin + var_a23be51a, player gettagorigin(""), (1, 0.5, 0), 1, 0, 1);
+						line(self.origin + prop_height, player gettagorigin(""), (1, 0.5, 0), 1, 0, 1);
 					}
 				#/
 				continue;
@@ -1388,14 +1388,14 @@ function function_6fe38c03(var_e9aa3e9c)
 		var_1386d828.spawn_loc = var_e9aa3e9c;
 		var_1386d828.var_86038c7b = 1;
 		var_1386d828.var_be16d31e = 1;
-		if(isdefined(trigger._callbacks[#"hash_1bd0411eb5169b"]))
+		if(isdefined(trigger._callbacks[#"on_trigger"]))
 		{
-			trigger.var_d5434bfe = arraycopy(trigger._callbacks[#"hash_1bd0411eb5169b"]);
-			trigger._callbacks[#"hash_1bd0411eb5169b"] = undefined;
+			trigger.var_d5434bfe = arraycopy(trigger._callbacks[#"on_trigger"]);
+			trigger._callbacks[#"on_trigger"] = undefined;
 		}
 		var_1386d828.var_d503cbd6 = {#scriptmodel:scriptmodel, #trigger:trigger};
 		var_1386d828.var_3c964886 = &function_3c964886;
-		trigger callback::function_35a12f19(&function_55d49380, undefined, var_1386d828);
+		trigger callback::on_trigger(&function_55d49380, undefined, var_1386d828);
 		return {#activation_func:&function_204a610e, #prop:var_1386d828};
 	}
 }
@@ -1547,7 +1547,7 @@ function function_f78a8a69(trigger, scriptmodel, var_3afa44ff)
 	wait(var_3afa44ff);
 	scriptmodel val::reset(#"hash_b71e2a9baaa9c62", "hide");
 	scriptmodel solid();
-	trigger._callbacks[#"hash_1bd0411eb5169b"] = arraycopy(trigger.var_d5434bfe);
+	trigger._callbacks[#"on_trigger"] = arraycopy(trigger.var_d5434bfe);
 	trigger.var_d5434bfe = undefined;
 }
 

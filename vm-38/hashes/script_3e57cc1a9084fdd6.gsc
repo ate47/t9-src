@@ -1,19 +1,19 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using script_1940fc077a028a81;
 #using script_20dc0f45753888c7;
 #using scripts\zm\ai\zm_ai_dog.gsc;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_4bf952f6ba31bb17;
-#using script_4d85e8de54b02198;
-#using script_522aeb6ae906391e;
-#using script_57f7003580bb15e0;
-#using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -102,10 +102,10 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 	}
 	if(isdefined(partname) && modelindex !== "MOD_DOT")
 	{
-		var_9a429025 = function_f74d2943(partname, 7);
-		if(isdefined(var_9a429025))
+		dot_params = function_f74d2943(partname, 7);
+		if(isdefined(dot_params))
 		{
-			status_effect::status_effect_apply(var_9a429025, partname, shitloc);
+			status_effect::status_effect_apply(dot_params, partname, shitloc);
 		}
 	}
 	if(isdefined(shitloc) && !isdefined(self.attackable) && isdefined(shitloc.var_b79a8ac7) && isarray(shitloc.var_b79a8ac7.slots) && isarray(level.var_7fc48a1a) && isinarray(level.var_7fc48a1a, partname))
@@ -142,12 +142,12 @@ function private function_cef412a7(einflictor, eattacker, idamage, idflags, smea
 function function_51d21736()
 {
 	self.ai.var_870d0893 = 1;
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &namespace_85745671::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"on_ai_melee", &namespace_85745671::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_45b50cc48ee7f9d8", &function_69c3e2ac);
 	self callback::function_d8abfc3d(#"hash_3bb51ce51020d0eb", &namespace_85745671::function_16e2f075);
 	self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &namespace_85745671::function_5cb3181e);
 	self callback::function_d8abfc3d(#"hash_790882ac8688cee5", &function_2272dcba);
-	self callback::function_d8abfc3d(#"hash_46a032931418eecf", &function_ae78134);
+	self callback::function_d8abfc3d(#"on_dog_killed", &on_dog_killed);
 	aiutility::addaioverridedamagecallback(self, &function_cef412a7);
 	if(self.var_9fde8624 === #"hash_2a5479b83161cb35")
 	{
@@ -246,20 +246,20 @@ function private function_9c573bc6(entity)
 function function_c2400b01()
 {
 	self endon(#"death");
-	self.var_f9a12c59 = 1;
-	self.var_ed35eeb2 = 1;
+	self.has_awareness = 1;
+	self.ignorelaststandplayers = 1;
 	self.var_1267fdea = 1;
 	self callback::function_d8abfc3d(#"on_ai_damage", &awareness::function_5f511313);
 	self callback::function_d8abfc3d(#"hash_4afe635f36531659", &awareness::function_c6b1009e);
-	awareness::function_dad6ba0e(self, #"wander", &function_9f9d7a80, &awareness::function_4ebe4a6d, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
-	awareness::function_dad6ba0e(self, #"investigate", &function_461711c2, &awareness::function_9eefc327, &function_2114b12b, undefined, &awareness::function_a360dd00);
+	awareness::register_state(self, #"wander", &function_9f9d7a80, &awareness::function_4ebe4a6d, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
+	awareness::register_state(self, #"investigate", &function_461711c2, &awareness::function_9eefc327, &function_2114b12b, undefined, &awareness::function_a360dd00);
 	if(self.var_9fde8624 === #"hash_28e36e7b7d5421f")
 	{
-		awareness::function_dad6ba0e(self, #"chase", &function_6f207918, &function_d005c417, &function_cf29908a, &awareness::function_5c40e824, undefined);
+		awareness::register_state(self, #"chase", &function_6f207918, &function_d005c417, &function_cf29908a, &awareness::function_5c40e824, undefined);
 	}
 	else
 	{
-		awareness::function_dad6ba0e(self, #"chase", &function_6f207918, &zm_ai_dog::function_90da9686, &function_cf29908a, &awareness::function_5c40e824, undefined);
+		awareness::register_state(self, #"chase", &function_6f207918, &zm_ai_dog::function_90da9686, &function_cf29908a, &awareness::function_5c40e824, undefined);
 	}
 	awareness::set_state(self, #"wander");
 	self thread awareness::function_c6b1009e();
@@ -486,7 +486,7 @@ function private function_6f24d732(params)
 }
 
 /*
-	Name: function_ae78134
+	Name: on_dog_killed
 	Namespace: namespace_ec0691f8
 	Checksum: 0x170678C8
 	Offset: 0x1758
@@ -494,7 +494,7 @@ function private function_6f24d732(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_ae78134(params)
+function private on_dog_killed(params)
 {
 	if(!isdefined(self.var_9fde8624))
 	{
@@ -746,7 +746,7 @@ function private function_1980a07a(behaviortreeentity)
 	behaviortreeentity endon(#"death");
 	behaviortreeentity pathmode("move allowed");
 	behaviortreeentity.var_8ba6ede3 = undefined;
-	behaviortreeentity notify(#"hash_661885e7a60ccf04");
+	behaviortreeentity notify(#"not_underground");
 }
 
 /*
@@ -831,7 +831,7 @@ function function_d005c417(entity)
 		awareness::set_state(entity, #"wander");
 		return;
 	}
-	if(isdefined(entity.var_b238ef38) && isdefined(entity.var_b238ef38.position) && is_true(entity.var_b238ef38.slot.var_bb075e37))
+	if(isdefined(entity.var_b238ef38) && isdefined(entity.var_b238ef38.position) && is_true(entity.var_b238ef38.slot.on_navmesh))
 	{
 		entity namespace_e292b080::zombieupdategoal(entity.var_b238ef38.position);
 		return;

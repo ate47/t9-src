@@ -814,8 +814,8 @@ function function_76052005(var_68f1c314)
 		level.var_947152e4 = undefined;
 		level.var_189abb9e = undefined;
 	}
-	snd::play("pfx_t8_spark_med", level.var_8aab5623);
-	snd::play([1:"pfx_spark_med_far", 0:0.25], level.var_8aab5623);
+	snd::play("pfx_t8_spark_med", level.jukebox);
+	snd::play([1:"pfx_spark_med_far", 0:0.25], level.jukebox);
 	wait(0.5);
 	var_5a6278b7 = var_89a1a06c[var_68f1c314];
 	var_59aeab90 = var_6093c6f9[var_68f1c314];

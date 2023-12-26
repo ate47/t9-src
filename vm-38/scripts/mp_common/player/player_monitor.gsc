@@ -70,15 +70,15 @@ function monitor()
 			self thread breadcrumbs();
 		}
 	}
-	else if(function_f99d2668())
+	else if(sessionmodeiswarzonegame())
 	{
 		if(!isbot(self) && getdvarint(#"hash_6d5a49354d02940d", 0) == 1)
 		{
 			self thread breadcrumbs();
 		}
 	}
-	self thread function_729bf68e();
-	if(function_f99d2668())
+	self thread travel_dist();
+	if(sessionmodeiswarzonegame())
 	{
 		self function_654cd97();
 		return;
@@ -178,11 +178,11 @@ function private function_43e771ee(died)
 		timeused = function_f8d53445() - self.var_3dc66299.starttime;
 		if(self.var_3dc66299.shots > 0 || timeused >= 2000)
 		{
-			var_c2ffb370 = 0;
+			longesthitdist = 0;
 			var_e0ba2ec1 = self match_record::get_player_stat(#"hash_ec4aea1a8bbd82");
 			if(isdefined(var_e0ba2ec1))
 			{
-				var_c2ffb370 = self match_record::get_stat(#"lives", var_e0ba2ec1, "longest_hit_distance");
+				longesthitdist = self match_record::get_stat(#"lives", var_e0ba2ec1, "longest_hit_distance");
 				self match_record::set_stat(#"lives", var_e0ba2ec1, "longest_hit_distance", 0);
 			}
 			if(self.var_3dc66299.deathsduringuse > 0)
@@ -199,7 +199,7 @@ function private function_43e771ee(died)
 			var_178db383.headshots = self.var_3dc66299.headshots;
 			var_178db383.died = died;
 			var_178db383.time_used_s = var_27047881;
-			var_178db383.longest_hit_distance = var_c2ffb370;
+			var_178db383.longest_hit_distance = longesthitdist;
 			var_178db383.attachment1 = attachments.attachment0;
 			var_178db383.attachment2 = attachments.attachment1;
 			var_178db383.attachment3 = attachments.attachment2;
@@ -226,7 +226,7 @@ function private function_43e771ee(died)
 */
 event function_91abdff4(eventstruct)
 {
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
 		return;
 	}
@@ -315,9 +315,9 @@ function private breadcrumbs()
 		}
 		waittime = getdvarfloat(#"hash_78606296733432c4", 2);
 	}
-	else if(function_f99d2668())
+	else if(sessionmodeiswarzonegame())
 	{
-		level waittill(#"hash_313ad43b34e74e96");
+		level waittill(#"game_playing");
 		waittime = getdvarfloat(#"hash_2872d2b12241500c", 4);
 	}
 	while(true)
@@ -332,7 +332,7 @@ function private breadcrumbs()
 }
 
 /*
-	Name: function_729bf68e
+	Name: travel_dist
 	Namespace: player_monitor
 	Checksum: 0x2A8C220C
 	Offset: 0xC18
@@ -340,7 +340,7 @@ function private breadcrumbs()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_729bf68e()
+function private travel_dist()
 {
 	self notify("215bd2e13aec9293");
 	self endon("215bd2e13aec9293");

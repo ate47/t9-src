@@ -35,7 +35,7 @@ function init()
 	namespace_17baa64d::init();
 	if(is_true(getgametypesetting(#"hash_6eef7868c4f5ddbc")))
 	{
-		clientfield::function_a8bbc967("squad_wipe_tokens.count", #"hash_8155b36904833e4", #"count", 1, 4, "int", undefined, 0, 0);
+		clientfield::register_clientuimodel("squad_wipe_tokens.count", #"hash_8155b36904833e4", #"count", 1, 4, "int", undefined, 0, 0);
 	}
 }
 

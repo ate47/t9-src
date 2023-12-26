@@ -180,13 +180,13 @@ function function_a7ff1fc3(localclientnum)
 	}
 	if(isdefined(player.doa.var_903d75b1))
 	{
-		player.doa.var_10752c35 = player namespace_ac2a80f5::function_f7736714(localclientnum, player.doa.var_903d75b1);
+		player.doa.cameramode = player namespace_ac2a80f5::function_f7736714(localclientnum, player.doa.var_903d75b1);
 	}
 	else
 	{
-		player.doa.var_10752c35 = 1;
+		player.doa.cameramode = 1;
 	}
-	player namespace_ac2a80f5::changecamera(player.doa.var_10752c35);
+	player namespace_ac2a80f5::changecamera(player.doa.cameramode);
 	namespace_9fc66ac::function_a77649db(0);
 	namespace_4dae815d::function_b6e8ef46();
 }
@@ -213,7 +213,7 @@ function function_d2e02ee(localclientnum, name)
 	}
 	if(!is_true(room.freecam))
 	{
-		player.doa.var_10752c35 = 7;
+		player.doa.cameramode = 7;
 	}
 	level.doa.var_b73cc08.origin = room.origin;
 	level.doa.var_b73cc08.angles = room.angles;

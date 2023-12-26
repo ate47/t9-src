@@ -7,7 +7,7 @@
 #using script_1ee011cd0961afd7;
 #using script_2a5bf5b4a00cee0d;
 #using script_350cffecd05ef6cf;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_36fc02e86719d0f5;
 #using script_3bbf85ab4cb9f3c2;
 #using script_3faf478d5b0850fe;
@@ -68,7 +68,7 @@ function private autoexec function_9931df4c()
 */
 event main(eventstruct)
 {
-	level thread lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register);
+	level thread lui::add_luimenu("full_screen_movie", &full_screen_movie::register);
 	level.var_fb6c6113 = 0;
 	serverfield::register("crab_behavior", 1, 1, "int", &function_bfd9c561);
 	/#
@@ -83,19 +83,19 @@ event main(eventstruct)
 	level.trackweaponstats = 0;
 	level.var_6e2d52c5 = 1;
 	level.var_20ad5db3 = sessionmodeiszombiesgame();
-	level.var_4f69a0e8 = function_f99d2668();
+	level.var_4f69a0e8 = sessionmodeiswarzonegame();
 	level.doa.var_16411829 = [];
 	setclearanceceiling(142);
 	setsaveddvar(#"hash_61cbea77be1b7b36", 1);
 	setsaveddvar(#"hash_53fc4669dcc6b181", 0);
 	setsaveddvar(#"ik_enable_ai_terrain", 0);
-	setsaveddvar(#"hash_49168f09a3612b6", 1);
-	setsaveddvar(#"hash_5ea9a12f34af941e", 1);
+	setsaveddvar(#"hkai_maxpathlengthchecksenabled", 1);
+	setsaveddvar(#"hkai_navmeshusehierarchialpathfind", 1);
 	setsaveddvar(#"player_strafespeedscale", 1);
 	setsaveddvar(#"player_backspeedscale", 1);
 	setsaveddvar(#"hash_5784cae91fb32baa", 0);
 	setsaveddvar(#"ai_threatsight", 0);
-	setsaveddvar(#"hash_272f8d946ae3e82f", 0);
+	setsaveddvar(#"ai_secondarythreats", 0);
 	setsaveddvar(#"ai_threatupdateinterval", 0);
 	setsaveddvar(#"hash_61eba98da1c9944a", 0);
 	setsaveddvar(#"sv_assistworkers", 0);

@@ -49,7 +49,7 @@ function private function_70a657d8()
 	callback::on_disconnect(&on_disconnect);
 	if(gamemodeisarena())
 	{
-		callback::function_98a0917d(&function_98a0917d);
+		callback::on_game_playing(&on_game_playing);
 		level.var_a962eeb6 = &function_51203700;
 	}
 }
@@ -92,7 +92,7 @@ function on_connect()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: arena
 	Checksum: 0x82864998
 	Offset: 0x298
@@ -100,7 +100,7 @@ function on_connect()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	if(gamemodeisarena())
 	{
@@ -215,7 +215,7 @@ function match_end()
 			if(isdefined(player.pers[#"arenainit"]) && player.pers[#"arenainit"] == 1)
 			{
 				var_affb66b5 = undefined;
-				if(match::function_5f24faac("tie"))
+				if(match::get_flag("tie"))
 				{
 					var_affb66b5 = 1;
 					player arenaendmatch(0);
@@ -272,7 +272,7 @@ function update_arena_challenge_seasons()
 		}
 		case 0:
 		{
-			eventstate = #"hash_60f1e9335197f661";
+			eventstate = #"leagueplaystats";
 			break;
 		}
 		case 4:
@@ -285,7 +285,7 @@ function update_arena_challenge_seasons()
 			return;
 		}
 	}
-	perseasonwins = self stats::get_stat(#"arenaperseasonstats", eventstate, #"hash_2f54ed970fcecc95", #"wins");
+	perseasonwins = self stats::get_stat(#"arenaperseasonstats", eventstate, #"matchesstats", #"wins");
 	if(perseasonwins >= getdvarint(#"arena_seasonvetchallengewins", 0))
 	{
 		arenaslot = arenagetslot();

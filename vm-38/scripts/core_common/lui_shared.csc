@@ -57,7 +57,7 @@ class cLUIelem
 		/#
 			assert(var_47d8642e, "");
 		#/
-		function_5686f5cd(local_client_num, hash(var_d5213cbb), var_bf9c8c95);
+		openluielem(local_client_num, hash(var_d5213cbb), var_bf9c8c95);
 		[[ self ]]->function_fa582112(local_client_num);
 		self.var_779239b4 = 1;
 	}
@@ -76,12 +76,12 @@ class cLUIelem
 		/#
 			assert(var_47d8642e, "");
 		#/
-		function_43d5b973(local_client_num, hash(var_d5213cbb), var_bf9c8c95);
+		closeluielem(local_client_num, hash(var_d5213cbb), var_bf9c8c95);
 		self.var_779239b4 = 0;
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cLUIelem
 		Checksum: 0xD77661B
 		Offset: 0xDB0
@@ -89,7 +89,7 @@ class cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_5c1bb138(menu_name)
+	function register_clientside(menu_name)
 	{
 		if(!isdefined(level.var_c6881a61))
 		{
@@ -242,11 +242,11 @@ class cLUIelem
 		/#
 			assert(var_47d8642e, "");
 		#/
-		return function_e148e3b7(local_client_num, hash(var_d5213cbb), var_bf9c8c95);
+		return isluielemopen(local_client_num, hash(var_d5213cbb), var_bf9c8c95);
 	}
 
 	/*
-		Name: function_da693cbe
+		Name: add_clientfield
 		Namespace: cLUIelem
 		Checksum: 0xB30A2348
 		Offset: 0x9E8
@@ -254,7 +254,7 @@ class cLUIelem
 		Parameters: 5
 		Flags: Linked
 	*/
-	function function_da693cbe(field_name, version, bits, type, callback)
+	function add_clientfield(field_name, version, bits, type, callback)
 	{
 		/#
 			assert(!var_47d8642e, "");
@@ -521,7 +521,7 @@ function private _screen_fade(localclientnum, n_time, n_target_alpha, n_start_al
 	else
 	{
 		level.localclients[localclientnum].full_screen_black = spawnstruct();
-		level.localclients[localclientnum].full_screen_black.lui_menu = full_screen_black::function_5c1bb138();
+		level.localclients[localclientnum].full_screen_black.lui_menu = full_screen_black::register_clientside();
 	}
 	level.localclients[localclientnum].full_screen_black.n_start_alpha = n_start_alpha;
 	level.localclients[localclientnum].full_screen_black.n_target_alpha = n_target_alpha;

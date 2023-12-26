@@ -48,7 +48,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -69,7 +69,7 @@ function private on_begin(n_timer)
 	n_timer = zm_trial::function_5769f26a(n_timer);
 	level.var_f7236c66 = n_timer;
 	callback::on_spawned(&on_player_spawned);
-	callback::add_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::add_callback(#"on_host_migration_end", &function_ff66b979);
 	foreach(player in getplayers())
 	{
 		player thread function_7650d9fb(n_timer);
@@ -89,7 +89,7 @@ function private on_end(round_reset)
 {
 	level.var_f7236c66 = undefined;
 	callback::remove_on_spawned(&on_player_spawned);
-	callback::remove_callback(#"hash_137b937fd26992be", &function_ff66b979);
+	callback::remove_callback(#"on_host_migration_end", &function_ff66b979);
 	foreach(player in getplayers())
 	{
 		player stop_timer();
@@ -121,17 +121,17 @@ function private function_7650d9fb(n_timer, var_f97d1a30)
 			wait(2);
 		}
 		self start_timer(n_timer, var_f97d1a30);
-		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(n_timer + 1, #"hash_e66663be8ba322f");
+		s_waitresult = undefined;
+		s_waitresult = self waittilltimeout(n_timer + 1, #"fasttravel_bought");
 		self stop_timer();
-		if(var_be17187b._notify == "timeout")
+		if(s_waitresult._notify == "timeout")
 		{
 			zm_trial::fail(#"hash_4e619a0715198f72", array(self));
 			level notify(#"hash_6223843ef1e3c6de");
 			return;
 		}
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_66790eb1100e11a2");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"fasttravel_finished");
 	}
 }
 

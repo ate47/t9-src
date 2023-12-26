@@ -45,11 +45,11 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	init_shared("concertina_wire_settings_wz");
-	function_c5f0b9e7(&function_6230d238);
+	function_c5f0b9e7(&onconcertinawireplaced);
 }
 
 /*
-	Name: function_6230d238
+	Name: onconcertinawireplaced
 	Namespace: concertina_wire
 	Checksum: 0x7E384DB9
 	Offset: 0x148
@@ -57,7 +57,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: None
 */
-function function_6230d238(concertinawire)
+function onconcertinawireplaced(concertinawire)
 {
 }
 

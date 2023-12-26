@@ -1,5 +1,5 @@
 #using script_5dc2afb89fe97cd0;
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -92,7 +92,7 @@ function private function_7ec99c76(localclientnum)
 			}
 			else
 			{
-				self.var_d62cdc72 = util::playfxontag(localclientnum, "zm_ai/fx9_steiner_eyes_glow", self, "J_EyeBall_LE");
+				self.eyefx = util::playfxontag(localclientnum, "zm_ai/fx9_steiner_eyes_glow", self, "J_EyeBall_LE");
 				self thread function_8d607c5a(localclientnum);
 			}
 		}
@@ -631,10 +631,10 @@ function function_5bde700f(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwasdemojump && isdefined(self))
 	{
-		if(isdefined(self.var_d62cdc72))
+		if(isdefined(self.eyefx))
 		{
-			killfx(fieldname, self.var_d62cdc72);
-			self.var_d62cdc72 = undefined;
+			killfx(fieldname, self.eyefx);
+			self.eyefx = undefined;
 		}
 	}
 }

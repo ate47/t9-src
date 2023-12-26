@@ -47,7 +47,7 @@ class cmp_prop_timer : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cmp_prop_timer : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,8 +90,8 @@ class cmp_prop_timer : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("mp_prop_timer");
-		cLUIelem::function_da693cbe("timeRemaining", 1, 5, "int", 0);
-		cLUIelem::function_da693cbe("isProp", 1, 1, "int");
+		cLUIelem::add_clientfield("timeRemaining", 1, 5, "int", 0);
+		cLUIelem::add_clientfield("isProp", 1, 1, "int");
 	}
 
 	/*

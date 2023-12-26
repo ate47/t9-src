@@ -1,6 +1,6 @@
 #using scripts\core_common\bots\bot.gsc;
-#using script_269e356734524812;
-#using script_3fda550bc6e1089a;
+#using scripts\mp_common\gametypes\dev_spawn.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\mp_common\player\player_loadout.gsc;
@@ -104,12 +104,12 @@ function init()
 		thread devhelipathdebugdraw();
 		thread devstraferunpathdebugdraw();
 		thread dev_class::dev_cac_init();
-		thread namespace_af53555a::function_d8049496();
+		thread dev_spawn::function_d8049496();
 		thread globallogic_score::setplayermomentumdebug();
 		setdvar(#"scr_giveperk", "");
 		setdvar(#"scr_forceevent", "");
 		setdvar(#"scr_draw_triggers", 0);
-		setdvar(#"hash_69042953f03fb8a4", "");
+		setdvar(#"scr_givegesture", "");
 		thread engagement_distance_debug_toggle();
 		thread equipment_dev_gui();
 		thread grenade_dev_gui();
@@ -872,7 +872,7 @@ function updatedevsettings()
 																											for(i = 0; i < level.radios.size; i++)
 																											{
 																												color = (1, 0, 0);
-																												level namespace_af53555a::showonespawnpoint(level.radios[i], color, "", 32, "");
+																												level dev_spawn::showonespawnpoint(level.radios[i], color, "", 32, "");
 																											}
 																										}
 																										else
@@ -971,7 +971,7 @@ function updatedevsettings()
 			}
 			setdvar(#"scr_giveperk", "");
 		}
-		if(getdvarstring(#"hash_2d9131ec76baa766") == "")
+		if(getdvarstring(#"scr_giveskill") == "")
 		{
 			players = getplayers();
 			iprintln("");
@@ -984,11 +984,11 @@ function updatedevsettings()
 				player function_e6f9e3cd();
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_2d9131ec76baa766", "");
+			setdvar(#"scr_giveskill", "");
 		}
-		if(getdvarstring(#"hash_2d9131ec76baa766") != "")
+		if(getdvarstring(#"scr_giveskill") != "")
 		{
-			talentname = getdvarstring(#"hash_2d9131ec76baa766");
+			talentname = getdvarstring(#"scr_giveskill");
 			var_2fe3f7e3 = hash(talentname);
 			players = getplayers();
 			iprintln(("" + talentname) + "");
@@ -1001,9 +1001,9 @@ function updatedevsettings()
 				player function_b5feff95(var_2fe3f7e3);
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_2d9131ec76baa766", "");
+			setdvar(#"scr_giveskill", "");
 		}
-		if(getdvarstring(#"hash_5b311cf6da67afb") == "")
+		if(getdvarstring(#"scr_givetalent") == "")
 		{
 			players = getplayers();
 			iprintln("");
@@ -1016,11 +1016,11 @@ function updatedevsettings()
 				player function_e6f9e3cd();
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_5b311cf6da67afb", "");
+			setdvar(#"scr_givetalent", "");
 		}
-		if(getdvarstring(#"hash_5b311cf6da67afb") != "")
+		if(getdvarstring(#"scr_givetalent") != "")
 		{
-			talentname = getdvarstring(#"hash_5b311cf6da67afb");
+			talentname = getdvarstring(#"scr_givetalent");
 			var_2fe3f7e3 = hash(talentname);
 			players = getplayers();
 			iprintln(("" + talentname) + "");
@@ -1033,7 +1033,7 @@ function updatedevsettings()
 				player function_b5feff95(var_2fe3f7e3);
 				player loadout::function_3d16577a(player.team, player.curclass);
 			}
-			setdvar(#"hash_5b311cf6da67afb", "");
+			setdvar(#"scr_givetalent", "");
 		}
 		if(getdvarstring(#"scr_forcegrenade") != "")
 		{
@@ -1333,7 +1333,7 @@ function function_e88bdbcf(score)
 		{
 			if(isdefined(player) && isalive(player) && player.sessionstate == "")
 			{
-				player globallogic_score::function_49c10afe();
+				player globallogic_score::resetplayermomentum();
 			}
 		}
 	#/

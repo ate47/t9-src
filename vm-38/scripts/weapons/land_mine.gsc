@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -104,9 +104,9 @@ function function_14428e95(var_cd03ffa)
 	var_cd03ffa.detectiongraceperiod = 0;
 	var_cd03ffa.stuntime = 1;
 	var_cd03ffa.var_10efd558 = "switched_field_upgrade";
-	if(isdefined(var_cd03ffa.weapon.var_4dd46f8a))
+	if(isdefined(var_cd03ffa.weapon.customsettings))
 	{
-		var_6f1c6122 = getscriptbundle(var_cd03ffa.weapon.var_4dd46f8a);
+		var_6f1c6122 = getscriptbundle(var_cd03ffa.weapon.customsettings);
 		/#
 			assert(isdefined(var_6f1c6122));
 		#/
@@ -147,11 +147,11 @@ function function_80b82a4d()
 	Parameters: 4
 	Flags: Linked
 */
-function function_fe8abb3(asurfacefxtable, var_3d2b5c8c, vforward, vup)
+function function_fe8abb3(asurfacefxtable, vposition, vforward, vup)
 {
 	if(isdefined(asurfacefxtable))
 	{
-		var_54d68ee6 = (isdefined(var_3d2b5c8c) ? var_3d2b5c8c : function_80b82a4d());
+		var_54d68ee6 = (isdefined(vposition) ? vposition : function_80b82a4d());
 		var_bec4f825 = groundtrace(var_54d68ee6 + vectorscale((0, 0, 1), 70), var_54d68ee6 + (vectorscale((0, 0, -1), 100)), 0, self);
 		var_4be8e019 = self getfxfromsurfacetable(asurfacefxtable, var_bec4f825[#"surfacetype"]);
 		playfx(var_4be8e019, var_54d68ee6, vforward, vup);
@@ -342,7 +342,7 @@ function function_cb491e62(var_789c84fd)
 function function_6cbaafc6()
 {
 	self endon(#"death");
-	self.var_52a68abf = 1;
+	self.canthack = 1;
 	if(self.var_83cc2c9 !== 1)
 	{
 		self playsound((isdefined(level.var_261f640c.var_a74161cc.var_9a29cecd) ? level.var_261f640c.var_a74161cc.var_9a29cecd : ""));
@@ -980,7 +980,7 @@ function function_bff5c062(var_80b21eea, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			var_80b21eea notify(#"hash_602ae7ca650d6287");
+			var_80b21eea notify(#"cancel_timeout");
 			var_80b21eea thread weaponobjects::weapon_object_timeout(var_80b21eea.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}

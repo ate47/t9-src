@@ -162,7 +162,7 @@ function function_c52e8ba(player, var_8d5d092c)
 				}
 				default:
 				{
-					self.hint_string[n_player_index] = #"hash_222289639943b061";
+					self.hint_string[n_player_index] = #"zombie/fasttravel_locked";
 					b_result = 1;
 					break;
 				}
@@ -402,7 +402,7 @@ function private function_c8901681(var_b09af3eb)
 	{
 		if(isdefined(level.var_474108be))
 		{
-			if(function_7a600918(level.var_474108be) || isstring(level.var_474108be))
+			if(ishash(level.var_474108be) || isstring(level.var_474108be))
 			{
 				level zm_sq::objective_complete(level.var_474108be);
 			}
@@ -428,7 +428,7 @@ function private function_66c3f496(var_74fbad21)
 {
 	if(isdefined(var_74fbad21))
 	{
-		if(function_7a600918(var_74fbad21) || isstring(var_74fbad21))
+		if(ishash(var_74fbad21) || isstring(var_74fbad21))
 		{
 			self zm_sq::function_3029d343(var_74fbad21);
 		}
@@ -452,7 +452,7 @@ function private function_4f928bec(var_74fbad21, var_54829af)
 {
 	if(isdefined(var_74fbad21))
 	{
-		if(function_7a600918(var_74fbad21) || isstring(var_74fbad21))
+		if(ishash(var_74fbad21) || isstring(var_74fbad21))
 		{
 			self zm_sq::function_aee0b4b4(var_74fbad21, var_54829af);
 		}

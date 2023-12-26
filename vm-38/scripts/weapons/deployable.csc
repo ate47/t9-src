@@ -55,7 +55,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_2e088f73
+	Name: register_deployable
 	Namespace: deployable
 	Checksum: 0x57902873
 	Offset: 0x1D0
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: None
 */
-function function_2e088f73(weapon, var_7ec218c6)
+function register_deployable(weapon, var_7ec218c6)
 {
 	if(weapon.name == #"none")
 	{
@@ -160,7 +160,7 @@ function group_mega_round_end_abcd_talking(localclientnum)
 	level endon("previs_deployable_" + localclientnum);
 	wait(10);
 	previs_model = spawn(localclientnum, (0, 0, 0), "script_model");
-	previs_weapon = getweapon(#"hash_49441cf211e409b9");
+	previs_weapon = getweapon(#"eq_alarm");
 	var_5929417d = 0;
 	var_2e40ce22 = 0;
 	var_d4d81eb4 = 0;
@@ -171,11 +171,11 @@ function group_mega_round_end_abcd_talking(localclientnum)
 		{
 			if(var_2e40ce22 == 1)
 			{
-				previs_model function_5d482e78("rob_deployable_can_deploy");
+				previs_model stoprenderoverridebundle("rob_deployable_can_deploy");
 			}
 			if(var_d4d81eb4 == 1)
 			{
-				previs_model function_5d482e78("rob_deployable_cannot_deploy");
+				previs_model stoprenderoverridebundle("rob_deployable_cannot_deploy");
 			}
 			var_2e40ce22 = 0;
 			var_d4d81eb4 = 0;

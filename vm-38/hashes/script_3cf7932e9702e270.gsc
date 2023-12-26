@@ -36,7 +36,7 @@ function private autoexec function_7e3ec462()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_5fae7e8391e7e602", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_5fae7e8391e7e602", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -55,7 +55,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_51d1d6a3
 	Checksum: 0xC6C5D372
 	Offset: 0x378
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(zm_utility::is_classic())
 	{
@@ -271,9 +271,9 @@ function private function_40466d11()
 	}
 	if(!is_true(level.var_8fff3192))
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"spawned_split_ai", #"death");
-		if(var_be17187b._notify == "spawned_split_ai")
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"spawned_split_ai", #"death");
+		if(s_waitresult._notify == "spawned_split_ai")
 		{
 			level.var_8fff3192 = 1;
 			switch(level.var_4d16d15f)

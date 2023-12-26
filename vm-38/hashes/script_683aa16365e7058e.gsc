@@ -86,7 +86,7 @@ class class_1beae0 : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_1beae0
 		Checksum: 0xF8951407
 		Offset: 0x638
@@ -94,9 +94,9 @@ class class_1beae0 : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("LUIelemCounter");
+		cLUIelem::register_clientside("LUIelemCounter");
 	}
 
 	/*
@@ -286,7 +286,7 @@ function register(xcallback, ycallback, heightcallback, fadeOverTimecallback, al
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: luielemcounter
 	Checksum: 0x8F29499D
 	Offset: 0x308
@@ -294,10 +294,10 @@ function register(xcallback, ycallback, heightcallback, fadeOverTimecallback, al
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_1beae0();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -52,7 +52,7 @@ function private function_70a657d8()
 	score_cf_register_info("death_head", 1, 3, undefined);
 	score_cf_register_info("death_melee", 1, 3, undefined);
 	score_cf_register_info("transform_kill", 1, 3, undefined);
-	clientfield::function_a8bbc967("hudItems.doublePointsActive", #"hud_items", #"doublepointsactive", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.doublePointsActive", #"hud_items", #"doublepointsactive", 1, 1, "int", undefined, 0, 0);
 }
 
 /*

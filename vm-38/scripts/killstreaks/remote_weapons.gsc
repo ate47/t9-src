@@ -190,7 +190,7 @@ function watchforhack()
 }
 
 /*
-	Name: function_31a1aa18
+	Name: on_game_ended
 	Namespace: remote_weapons
 	Checksum: 0x3C6DD95F
 	Offset: 0x5F0
@@ -198,7 +198,7 @@ function watchforhack()
 	Parameters: 0
 	Flags: Linked
 */
-function function_31a1aa18()
+function on_game_ended()
 {
 	weapon = self;
 	weapon endremotecontrolweaponuse(0, 1);
@@ -457,12 +457,12 @@ function useremotecontrolweapon(allowmanualdeactivation, always_allow_ride)
 			return;
 		}
 	}
-	weapon callback::function_d8abfc3d(#"on_end_game", &function_31a1aa18);
+	weapon callback::function_d8abfc3d(#"on_end_game", &on_game_ended);
 	weapon.var_57446df7 = 1;
 	weapon.remoteowner thread killstreaks::watch_for_remove_remote_weapon();
 	weapon.remoteowner util::setusingremote(weapon.remotename);
 	weapon.remoteowner val::set(#"useremotecontrolweapon", "freezecontrols");
-	weapon.remoteowner thread function_4db75132(weapon);
+	weapon.remoteowner thread resetcontrols(weapon);
 	result = weapon.remoteowner killstreaks::init_ride_killstreak(weapon.remotename, always_allow_ride);
 	if(result != "success")
 	{
@@ -483,11 +483,11 @@ function useremotecontrolweapon(allowmanualdeactivation, always_allow_ride)
 		}
 		weapon.remoteowner thread [[level.remoteweapons[weapon.remotename].usecallback]](weapon);
 	}
-	weapon notify(#"hash_356f1aec5e4ecabf");
+	weapon notify(#"reset_controls");
 }
 
 /*
-	Name: function_4db75132
+	Name: resetcontrols
 	Namespace: remote_weapons
 	Checksum: 0x14D9374C
 	Offset: 0x1320
@@ -495,9 +495,9 @@ function useremotecontrolweapon(allowmanualdeactivation, always_allow_ride)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4db75132(weapon)
+function resetcontrols(weapon)
 {
-	weapon waittill(#"death", #"hash_356f1aec5e4ecabf");
+	weapon waittill(#"death", #"reset_controls");
 	if(isdefined(self))
 	{
 		self val::reset(#"useremotecontrolweapon", "freezecontrols");
@@ -656,7 +656,7 @@ function endremotecontrolweaponuse(exitrequestedbyowner, gameended)
 	{
 		if(is_true(weapon.var_57446df7))
 		{
-			weapon callback::function_52ac9652(#"on_end_game", &function_31a1aa18);
+			weapon callback::function_52ac9652(#"on_end_game", &on_game_ended);
 		}
 		weapon.control_initiated = 0;
 		weapon.controlled = 0;

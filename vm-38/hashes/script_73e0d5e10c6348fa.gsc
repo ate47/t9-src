@@ -4,7 +4,7 @@
 #using script_3706d21c449d0d14;
 #using script_3819e7a1427df6d2;
 #using script_3dc93ca9902a9cda;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -84,7 +84,7 @@ function function_82c1c712(var_7e50d895, var_3f0c288b, var_908ce45b)
 		var_908ce45b = 0;
 	}
 	/#
-		assert(function_7a600918(var_7e50d895) || isweapon(var_7e50d895), "");
+		assert(ishash(var_7e50d895) || isweapon(var_7e50d895), "");
 	#/
 	w_weapon = get_weapon(var_7e50d895);
 	self giveweapon(w_weapon);
@@ -114,7 +114,7 @@ function give_player_equipment(var_7e50d895, var_3f0c288b)
 		var_3f0c288b = 1;
 	}
 	/#
-		assert(isstring(var_7e50d895) || function_7a600918(var_7e50d895) || isweapon(var_7e50d895), "");
+		assert(isstring(var_7e50d895) || ishash(var_7e50d895) || isweapon(var_7e50d895), "");
 	#/
 	w_weapon = get_weapon(var_7e50d895);
 	self giveweapon(w_weapon);
@@ -136,7 +136,7 @@ function give_player_equipment(var_7e50d895, var_3f0c288b)
 function private get_weapon(var_7e50d895)
 {
 	w_weapon = var_7e50d895;
-	if(function_7a600918(w_weapon))
+	if(ishash(w_weapon))
 	{
 		w_weapon = getweapon(w_weapon);
 	}
@@ -249,8 +249,8 @@ function function_32397759()
 					var_d2a95eab = (1, 0, 0);
 				}
 			}
-			var_c08433b6 = 900;
-			var_8a119ef6 = 10;
+			n_xpos = 900;
+			n_ypos = 10;
 			foreach(n, n_count in var_6a432250)
 			{
 				var_9bed9f5d = "";
@@ -274,11 +274,11 @@ function function_32397759()
 				}
 				var_6a84dd2f = getdvarint(#"hash_799d70a49cc79c0f", 1920);
 				var_b246b91d = getdvarint(#"hash_526c340ae912bbd0", 1080);
-				var_b818a262 = int((var_6a84dd2f * var_c08433b6) / 1920);
-				var_68bff93e = int((var_b246b91d * var_8a119ef6) / 1080);
+				var_b818a262 = int((var_6a84dd2f * n_xpos) / 1920);
+				var_68bff93e = int((var_b246b91d * n_ypos) / 1080);
 				debug2dtext((var_b818a262, var_68bff93e, 0), (("" + n_count) + var_9bed9f5d) + "", var_d2a95eab, 1, (0, 0, 0), 0.2, 1);
 				n_increment = int((var_b246b91d * 22) / 1080);
-				var_8a119ef6 = var_8a119ef6 + n_increment;
+				n_ypos = n_ypos + n_increment;
 			}
 			waitframe(1);
 		}
@@ -2685,9 +2685,9 @@ function function_cef95010(v_pos, var_53edfe53)
 */
 function function_e385b740()
 {
-	level.player val::set(#"hash_655d6a994d2f95bb", "show_weapon_hud", 0);
-	level.player val::set(#"hash_655d6a994d2f95bb", "show_crosshair", 0);
-	level.player val::set(#"hash_655d6a994d2f95bb", "disable_weapons", 1);
+	level.player val::set(#"player_scene", "show_weapon_hud", 0);
+	level.player val::set(#"player_scene", "show_crosshair", 0);
+	level.player val::set(#"player_scene", "disable_weapons", 1);
 	wait(0.5);
 }
 
@@ -2702,7 +2702,7 @@ function function_e385b740()
 */
 function function_6214e16e()
 {
-	level.player val::reset_all(#"hash_655d6a994d2f95bb");
+	level.player val::reset_all(#"player_scene");
 }
 
 /*

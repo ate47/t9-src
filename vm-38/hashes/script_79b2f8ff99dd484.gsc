@@ -58,7 +58,7 @@ class class_ba33e0c1 : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_ba33e0c1
 		Checksum: 0xF04F683E
 		Offset: 0x4A8
@@ -66,9 +66,9 @@ class class_ba33e0c1 : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("EncodedRadio_UseBar");
+		cLUIelem::register_clientside("EncodedRadio_UseBar");
 	}
 
 	/*
@@ -83,9 +83,9 @@ class class_ba33e0c1 : cLUIelem
 	function setup_clientfields(var_ec85b709, var_193163f7)
 	{
 		cLUIelem::setup_clientfields("EncodedRadio_UseBar");
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("progressFrac", 1, 10, "float", var_ec85b709);
-		cLUIelem::function_da693cbe("activatorCount", 1, 3, "int", var_193163f7);
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("progressFrac", 1, 10, "float", var_ec85b709);
+		cLUIelem::add_clientfield("activatorCount", 1, 3, "int", var_193163f7);
 	}
 
 	/*
@@ -202,7 +202,7 @@ function register(var_ec85b709, var_193163f7)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: EncodedRadio_UseBar
 	Checksum: 0xF3BD5896
 	Offset: 0x290
@@ -210,10 +210,10 @@ function register(var_ec85b709, var_193163f7)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_ba33e0c1();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

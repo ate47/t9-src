@@ -44,7 +44,7 @@ class clui_napalm_strike : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: clui_napalm_strike
 		Checksum: 0x3F64661C
 		Offset: 0x348
@@ -52,9 +52,9 @@ class clui_napalm_strike : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("lui_napalm_strike");
+		cLUIelem::register_clientside("lui_napalm_strike");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: lui_napalm_strike
 	Checksum: 0xFAD38267
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new clui_napalm_strike();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

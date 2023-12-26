@@ -47,7 +47,7 @@ class cmulti_stage_target_lockon : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class cmulti_stage_target_lockon : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,8 +76,8 @@ class cmulti_stage_target_lockon : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("multi_stage_target_lockon");
-		cLUIelem::function_da693cbe("entNum", 1, 6, "int");
-		cLUIelem::function_da693cbe("targetState", 1, 3, "int");
+		cLUIelem::add_clientfield("entNum", 1, 6, "int");
+		cLUIelem::add_clientfield("targetState", 1, 3, "int");
 	}
 
 	/*

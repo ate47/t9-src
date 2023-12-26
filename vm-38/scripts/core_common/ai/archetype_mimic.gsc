@@ -1,13 +1,13 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using script_3411bb48d41bd3b;
 #using script_3a704cbcf4081bfb;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_4d85e8de54b02198;
-#using script_522aeb6ae906391e;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -99,9 +99,9 @@ function function_9e93acd1()
 	self callback::function_d8abfc3d(#"hash_484127e0cbd8f8cb", &function_1ef44bfb);
 	self.var_6f5b56f6 = 0;
 	self.var_6467a1c = 0;
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &function_931c3820);
+	self callback::function_d8abfc3d(#"on_ai_melee", &function_931c3820);
 	self clientfield::set("mimic_weakpoint_fx", 1);
-	self.var_847ab632 = &function_caa61267;
+	self.custom_melee_fire = &function_caa61267;
 }
 
 /*
@@ -296,7 +296,7 @@ function registerbehaviorscriptfunctions()
 function function_931c3820(params)
 {
 	self endon(#"death");
-	nearby_ai = getentitiesinradius(self.origin, self.meleeweapon.var_d3cafde6, 15);
+	nearby_ai = getentitiesinradius(self.origin, self.meleeweapon.aimeleerange, 15);
 	foreach(ai in nearby_ai)
 	{
 		if(isalive(ai) && (absangleclamp180(ai.angles[1] - (vectortoangles(self.origin - ai.origin)[1]))) <= 45)
@@ -319,7 +319,7 @@ function function_931c3820(params)
 function function_caa61267()
 {
 	var_9051190 = [];
-	nearby_players = function_a1ef346b(undefined, self.origin, self.meleeweapon.var_d3cafde6);
+	nearby_players = function_a1ef346b(undefined, self.origin, self.meleeweapon.aimeleerange);
 	foreach(player in nearby_players)
 	{
 		if(isdefined(self.var_f6fd2062) && ![[self.var_f6fd2062]](player))
@@ -358,7 +358,7 @@ function function_caa61267()
 		player dodamage(50, self.origin, self, self, 0, "MOD_MELEE", 0, self.weapon);
 	}
 	var_1ff1751 = 1.2;
-	var_15978c43 = getentitiesinradius(self.origin, self.meleeweapon.var_d3cafde6 * var_1ff1751, 12);
+	var_15978c43 = getentitiesinradius(self.origin, self.meleeweapon.aimeleerange * var_1ff1751, 12);
 	foreach(vehicle in var_15978c43)
 	{
 		if(isinarray(var_9051190, vehicle))
@@ -384,7 +384,7 @@ function function_caa61267()
 	attackables = [];
 	if(isdefined(level.attackables) && level.attackables.size > 0)
 	{
-		attackables = arraysortclosest(level.attackables, self.origin, undefined, undefined, self.meleeweapon.var_d3cafde6);
+		attackables = arraysortclosest(level.attackables, self.origin, undefined, undefined, self.meleeweapon.aimeleerange);
 	}
 	foreach(attackable in attackables)
 	{
@@ -875,8 +875,8 @@ function private function_224f342a(player_anim, mimic, origin, angles)
 		callback::callback(#"hash_2745091e63972f13", {#player:player});
 		if(isdefined(mimic))
 		{
-			var_aa80d8e1 = player.origin - origin;
-			player applyknockback(200, (var_aa80d8e1[0], var_aa80d8e1[1], 10));
+			to_player = player.origin - origin;
+			player applyknockback(200, (to_player[0], to_player[1], 10));
 		}
 		player val::reset(#"hash_43ae43be63a51874", "ignoreme");
 		player.var_7342424d = undefined;
@@ -1142,64 +1142,64 @@ function function_b2616fd7()
 		function_cd140ee9(#"hash_63d887d4b23cb6e", &function_c19802);
 		util::add_debug_command("");
 		util::add_debug_command("");
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		level thread function_c5a69992(var_211a8012);
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		level thread function_c5a69992(__index);
 	#/
 }
 
@@ -1326,12 +1326,12 @@ function function_c19802(dvar)
 	Parameters: 1
 	Flags: None
 */
-function function_c5a69992(var_211a8012)
+function function_c5a69992(__index)
 {
 	/#
-		if(!isdefined(var_211a8012))
+		if(!isdefined(__index))
 		{
-			var_211a8012 = 0;
+			__index = 0;
 		}
 		level endon(#"game_ended");
 		spawn_points = struct::get_array("", "");
@@ -1349,7 +1349,7 @@ function function_c5a69992(var_211a8012)
 		}
 		foreach(name_index, name in var_7eb6668)
 		{
-			util::add_debug_command(((((("" + var_211a8012) + "") + function_9e72a96(name) + "") + name_index) + "") + function_9e72a96(name) + "");
+			util::add_debug_command(((((("" + __index) + "") + function_9e72a96(name) + "") + name_index) + "") + function_9e72a96(name) + "");
 		}
 	#/
 }

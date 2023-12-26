@@ -92,7 +92,7 @@ function init()
 	}
 	level.var_f2211522 = getentarray("survival_fow", "script_noteworthy");
 	callback::on_connect(&on_connect);
-	callback::function_98a0917d(&start);
+	callback::on_game_playing(&start);
 }
 
 /*
@@ -334,7 +334,7 @@ function function_3824d2dc(v_loc)
 */
 function function_dc15ad60()
 {
-	level endoncallback(&function_a9d55ec2, #"game_ended");
+	level endoncallback(&cleanup_feedback, #"game_ended");
 	level flag::wait_till_clear(#"hash_4930756571725d11");
 	while(true)
 	{
@@ -369,7 +369,7 @@ function function_dc15ad60()
 			if(isplayer(entity) && (!isalive(entity) || entity scene::is_igc_active()))
 			{
 				entity clientfield::set("outsidetile", 0);
-				entity function_8c7edff5();
+				entity hide_effects();
 				continue;
 			}
 			if(!entity function_3824d2dc() && !is_true(entity.b_ignore_fow_damage) && isdefined(entity.maxhealth))
@@ -435,7 +435,7 @@ function function_dc15ad60()
 			if(isplayer(entity))
 			{
 				entity clientfield::set("outsidetile", 0);
-				entity function_8c7edff5();
+				entity hide_effects();
 			}
 			entity.var_9a1624b5 = undefined;
 		}
@@ -448,7 +448,7 @@ function function_dc15ad60()
 }
 
 /*
-	Name: function_a9d55ec2
+	Name: cleanup_feedback
 	Namespace: namespace_d0ab5955
 	Checksum: 0xD92942F9
 	Offset: 0x14A8
@@ -456,11 +456,11 @@ function function_dc15ad60()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_a9d55ec2(notifyhash)
+function private cleanup_feedback(notifyhash)
 {
 	foreach(player in getplayers())
 	{
-		player function_8c7edff5();
+		player hide_effects();
 	}
 }
 
@@ -483,7 +483,7 @@ function show_effects(intensity)
 }
 
 /*
-	Name: function_8c7edff5
+	Name: hide_effects
 	Namespace: namespace_d0ab5955
 	Checksum: 0x491155B6
 	Offset: 0x15F0
@@ -491,7 +491,7 @@ function show_effects(intensity)
 	Parameters: 0
 	Flags: Linked
 */
-function function_8c7edff5()
+function hide_effects()
 {
 	if(self clientfield::get_to_player("fogofwareffects") != 0)
 	{

@@ -1,6 +1,6 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

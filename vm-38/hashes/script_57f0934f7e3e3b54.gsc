@@ -64,14 +64,14 @@ function private function_f1707039()
 	for(i = 0; i < 4; i++)
 	{
 		level.var_4b42d599[i] = ("killstreaks.killstreak" + i) + ".inUse";
-		clientfield::function_a8bbc967(level.var_4b42d599[i], #"hash_38b7a28901866ae4", [1:#"inuse", 0:#"killstreak" + (isdefined(i) ? "" + i : "")], 1, 1, "int", undefined, 0, 0);
+		clientfield::register_clientuimodel(level.var_4b42d599[i], #"hash_38b7a28901866ae4", [1:#"inuse", 0:#"killstreak" + (isdefined(i) ? "" + i : "")], 1, 1, "int", undefined, 0, 0);
 	}
 	level.var_46b33f90[i] = [];
 	level.var_173b8ed7 = max(8, 4);
 	for(i = 0; i < level.var_173b8ed7; i++)
 	{
 		level.var_46b33f90[i] = ("killstreaks.killstreak" + i) + ".spaceFull";
-		clientfield::function_a8bbc967(level.var_46b33f90[i], #"hash_38b7a28901866ae4", [1:#"hash_3bbe3fe57a438e3c", 0:#"killstreak" + (isdefined(i) ? "" + i : "")], 1, 1, "int", undefined, 0, 0);
+		clientfield::register_clientuimodel(level.var_46b33f90[i], #"hash_38b7a28901866ae4", [1:#"hash_3bbe3fe57a438e3c", 0:#"killstreak" + (isdefined(i) ? "" + i : "")], 1, 1, "int", undefined, 0, 0);
 	}
 }
 

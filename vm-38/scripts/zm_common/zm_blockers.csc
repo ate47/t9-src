@@ -52,7 +52,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_blockers
 	Checksum: 0x80F724D1
 	Offset: 0x120
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 

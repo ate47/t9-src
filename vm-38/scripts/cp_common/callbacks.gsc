@@ -1,4 +1,4 @@
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_4266a5d281c65453;
 #using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -112,14 +112,14 @@ function set_default_callbacks()
 	level.callbackplayerdisconnect = &globallogic_player::callback_playerdisconnect;
 	level.callbackplayerdamage = &globallogic_player::callback_playerdamage;
 	level.callbackplayerkilled = &globallogic_player::callback_playerkilled;
-	level.var_7509c7d8 = &globallogic_player::callback_playershielddamageblocked;
+	level.callbackplayershielddamageblocked = &globallogic_player::callback_playershielddamageblocked;
 	level.var_3a9881cb = &globallogic_player::function_74b6d714;
 	level.callbackplayermelee = &globallogic_player::callback_playermelee;
 	level.callbackactorspawned = &globallogic_actor::callback_actorspawned;
 	level.callbackactordamage = &globallogic_actor::callback_actordamage;
 	level.callbackactorkilled = &globallogic_actor::callback_actorkilled;
 	level.callbackactorcloned = &globallogic_actor::callback_actorcloned;
-	level.var_6788bf11 = &namespace_e42b3e24::function_8c7ec52f;
+	level.var_6788bf11 = &globallogic_scriptmover::function_8c7ec52f;
 	level.callbackvehiclespawned = &globallogic_vehicle::callback_vehiclespawned;
 	level.callbackvehicledamage = &globallogic_vehicle::callback_vehicledamage;
 	level.callbackvehiclekilled = &globallogic_vehicle::callback_vehiclekilled;

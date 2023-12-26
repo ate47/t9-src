@@ -129,11 +129,11 @@ function function_ac9a87aa()
 {
 	if(isplayer(self))
 	{
-		self function_5d482e78("rob_ammo_mod_level_1");
-		self function_5d482e78("rob_ammo_mod_level_2");
-		self function_5d482e78("rob_ammo_mod_level_3");
-		self function_5d482e78("rob_ammo_mod_level_4");
-		self function_5d482e78("rob_ammo_mod_level_5");
+		self stoprenderoverridebundle("rob_ammo_mod_level_1");
+		self stoprenderoverridebundle("rob_ammo_mod_level_2");
+		self stoprenderoverridebundle("rob_ammo_mod_level_3");
+		self stoprenderoverridebundle("rob_ammo_mod_level_4");
+		self stoprenderoverridebundle("rob_ammo_mod_level_5");
 	}
 }
 
@@ -159,7 +159,7 @@ function function_c059fde4(localclientnum, fx, tier)
 		self.var_8502e221 = playviewmodelfx(localclientnum, fx, "tag_fx1", 0);
 		if(tier > 1)
 		{
-			self function_bf9d3071(function_74b823de(tier));
+			self playrenderoverridebundle(function_74b823de(tier));
 		}
 	}
 }

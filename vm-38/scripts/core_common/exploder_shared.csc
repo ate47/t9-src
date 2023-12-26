@@ -300,7 +300,7 @@ function exploder(exploder_id)
 */
 function function_993369d6(exploder_id)
 {
-	if(isstring(exploder_id) || function_7a600918(exploder_id))
+	if(isstring(exploder_id) || ishash(exploder_id))
 	{
 		activate_radiant_exploder(exploder_id, 1);
 		return;
@@ -407,7 +407,7 @@ function activate_radiant_exploder(string, immediate)
 */
 function stop_exploder(exploder_id)
 {
-	if(isstring(exploder_id) || function_7a600918(exploder_id))
+	if(isstring(exploder_id) || ishash(exploder_id))
 	{
 		var_2639b9f6 = getlocalplayers();
 		for(localclientnum = 0; localclientnum < var_2639b9f6.size; localclientnum++)
@@ -450,7 +450,7 @@ function stop_exploder(exploder_id)
 function kill_exploder(exploder_id)
 {
 	var_2639b9f6 = getlocalplayers();
-	if(isstring(exploder_id) || function_7a600918(exploder_id))
+	if(isstring(exploder_id) || ishash(exploder_id))
 	{
 		for(localclientnum = 0; localclientnum < var_2639b9f6.size; localclientnum++)
 		{

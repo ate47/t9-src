@@ -52,7 +52,7 @@ function private function_70a657d8()
 {
 	level._proximityweaponobjectdetonation_override = &proximityweaponobjectdetonation_override;
 	init_shared();
-	zm_placeable_mine::add_mine_type("bouncingbetty", #"hash_613df6d5f8eddffd");
+	zm_placeable_mine::add_mine_type("bouncingbetty", #"zombie/betty_pickup");
 	level.bettyjumpheight = 55;
 	level.bettydamagemax = 1000;
 	level.bettydamagemin = 800;

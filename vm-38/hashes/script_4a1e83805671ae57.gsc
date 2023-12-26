@@ -47,7 +47,7 @@ class cstim_count : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class cstim_count : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,7 +90,7 @@ class cstim_count : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("stim_count");
-		cLUIelem::function_da693cbe("stim_count", 1, 4, "int", 0);
+		cLUIelem::add_clientfield("stim_count", 1, 4, "int", 0);
 	}
 
 }

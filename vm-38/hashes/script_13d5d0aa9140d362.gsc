@@ -1,5 +1,5 @@
 #using script_16b1b77a76492c6a;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -592,6 +592,6 @@ function function_cddedd63(var_1028910, v_angle_offset, n_x_offset)
 	trigger.vehicle = self;
 	trigger.vehicle_position = self.origin;
 	trigger.spawn_struct = struct;
-	trigger callback::function_35a12f19(&namespace_2c949ef8::function_39ee3b21);
+	trigger callback::on_trigger(&namespace_2c949ef8::function_39ee3b21);
 }
 

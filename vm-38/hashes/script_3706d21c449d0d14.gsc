@@ -1,6 +1,6 @@
 #using script_32399001bdb550da;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_5f2ba47ebe695e43;
+#using scripts\core_common\ai\systems\weaponlist.gsc;
 #using script_62d87b28984d3246;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -524,7 +524,7 @@ function update_skill_level(skill_override)
 	{
 		level.gameskill = getlocalprofileint("g_gameskill");
 		/#
-			var_89694459 = getdvarstring(#"hash_3617a5f5fe554488", "");
+			var_89694459 = getdvarstring(#"overridedifficulty", "");
 			switch(tolower(var_89694459))
 			{
 				case "recruit":
@@ -1154,7 +1154,7 @@ function function_4ba867b()
 	setdiffstructarrays();
 	var_938ce325 = level.s_game_difficulty[level.gameskill].player_laststandbleedouttime;
 	var_4cfdf1fc = level.s_game_difficulty[level.gameskill].var_949c9924;
-	var_22e7a516 = level.s_game_difficulty[level.gameskill].var_fe22f9a7;
+	var_22e7a516 = level.s_game_difficulty[level.gameskill].player_laststandsuicidedelay;
 	var_33682ca0 = level.s_game_difficulty[level.gameskill].var_58500288;
 	var_fd9d63a8 = level.s_game_difficulty[level.gameskill].var_e03c2f91;
 	var_dd639ef7 = level.s_game_difficulty[level.gameskill].var_1bc10f3a;
@@ -1164,7 +1164,7 @@ function function_4ba867b()
 	var_880dfe56 = level.s_game_difficulty[level.gameskill].var_7b55ea2b;
 	setdvar(#"player_laststandbleedouttime", var_938ce325);
 	setdvar(#"hash_7036719f41a78d54", var_4cfdf1fc);
-	setdvar(#"hash_1038d42009d25460", var_22e7a516);
+	setdvar(#"player_laststandsuicidedelay", var_22e7a516);
 	setdvar(#"hash_6e3f1e26256fe0b5", var_33682ca0);
 	setdvar(#"hash_3a7c5052ef581676", var_fd9d63a8);
 	level.var_a4107aed = var_fd9d63a8;

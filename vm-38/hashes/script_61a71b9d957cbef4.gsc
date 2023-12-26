@@ -99,7 +99,7 @@ function private function_9243f770(weapon_name)
 }
 
 /*
-	Name: function_52df229a
+	Name: give_item
 	Namespace: namespace_ba4f7a20
 	Checksum: 0x86D31D73
 	Offset: 0x860
@@ -107,7 +107,7 @@ function private function_9243f770(weapon_name)
 	Parameters: 1
 	Flags: Private
 */
-function private function_52df229a(weapon_name)
+function private give_item(weapon_name)
 {
 	item = function_9243f770(weapon_name);
 	if(isdefined(item))
@@ -135,7 +135,7 @@ function give_weapon(weaponname, attachmentnames)
 		#/
 		return;
 	}
-	if(!isstring(weaponname) && !function_7a600918(weaponname))
+	if(!isstring(weaponname) && !ishash(weaponname))
 	{
 		/#
 			assert(0);
@@ -149,7 +149,7 @@ function give_weapon(weaponname, attachmentnames)
 		#/
 		return;
 	}
-	weapon = namespace_ad5a0cd6::function_49ce7663(weaponname);
+	weapon = item_world_util::function_49ce7663(weaponname);
 	if(!isdefined(weapon))
 	{
 		/#
@@ -163,17 +163,17 @@ function give_weapon(weaponname, attachmentnames)
 		weapon.attachments = [];
 		foreach(attachmentname in attachmentnames)
 		{
-			if(!isstring(attachmentname) && !function_7a600918(attachmentname))
+			if(!isstring(attachmentname) && !ishash(attachmentname))
 			{
 				/#
 					assert(0);
 				#/
 				return;
 			}
-			attachment = namespace_ad5a0cd6::function_49ce7663(attachmentname + "_t9_item");
+			attachment = item_world_util::function_49ce7663(attachmentname + "_t9_item");
 			namespace_a0d533d1::function_9e9c82a6(weapon, attachment);
 		}
-		weapon.amount = self function_f09c133d(namespace_a0d533d1::function_2b83d3ff(weapon));
+		weapon.amount = self getweaponammoclipsize(namespace_a0d533d1::function_2b83d3ff(weapon));
 	}
 	self item_world::function_de2018e3(weapon, self, var_fa3df96);
 }
@@ -211,9 +211,9 @@ function function_e97afe1(player, class_num, var_66b7a94e)
 	talents = self function_fd62a2aa(class_num);
 	foreach(talent in talents)
 	{
-		if(!isfunctionptr(var_66b7a94e) || player [[var_66b7a94e]](talent.var_3cf2d21))
+		if(!isfunctionptr(var_66b7a94e) || player [[var_66b7a94e]](talent.namehash))
 		{
-			function_52df229a(talent.var_3cf2d21);
+			give_item(talent.namehash);
 		}
 	}
 	primary = self getloadoutweapon(class_num, "primary");
@@ -229,22 +229,22 @@ function function_e97afe1(player, class_num, var_66b7a94e)
 	primarygrenade = self function_b958b70d(class_num, "primarygrenade");
 	if(!isfunctionptr(var_66b7a94e) || player [[var_66b7a94e]](primarygrenade))
 	{
-		function_52df229a(primarygrenade);
+		give_item(primarygrenade);
 	}
 	secondarygrenade = self function_b958b70d(class_num, "secondarygrenade");
 	if(!isfunctionptr(var_66b7a94e) || player [[var_66b7a94e]](secondarygrenade))
 	{
-		function_52df229a(secondarygrenade);
+		give_item(secondarygrenade);
 	}
 	specialgrenade = self function_b958b70d(class_num, "specialgrenade");
 	if(!isfunctionptr(var_66b7a94e) || player [[var_66b7a94e]](specialgrenade))
 	{
-		function_52df229a(specialgrenade);
+		give_item(specialgrenade);
 	}
 	ultimate = self function_b958b70d(class_num, "ultimate");
 	if(!isfunctionptr(var_66b7a94e) || player [[var_66b7a94e]](ultimate))
 	{
-		function_52df229a(ultimate);
+		give_item(ultimate);
 	}
 }
 

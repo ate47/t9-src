@@ -233,7 +233,7 @@ function private function_b21ea513()
 	{
 		return false;
 	}
-	enemies = self function_bdda420f(self.origin, 1000);
+	enemies = self getenemiesinradius(self.origin, 1000);
 	var_8a75d6bc = undefined;
 	var_6e4e5c17 = undefined;
 	foreach(enemy in enemies)

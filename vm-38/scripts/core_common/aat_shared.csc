@@ -47,7 +47,7 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	clientfield::register("toplayer", "rob_ammo_mod_ready", 1, 1, "int", &rob_ammo_mod_ready, 0, 0);
-	clientfield::function_a8bbc967("hud_items.gibDismembermentType", #"hud_items", #"hash_49b325aa4c9519d", 16000, 3, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hud_items.gibDismembermentType", #"hud_items", #"hash_49b325aa4c9519d", 16000, 3, "int", undefined, 0, 0);
 	level.aat_default_info_name = "none";
 	level.aat_default_info_icon = "blacktransparent";
 	register("none", level.aat_default_info_name, level.aat_default_info_icon);
@@ -87,11 +87,11 @@ function rob_ammo_mod_ready(localclientnum, oldval, newval, bnewent, binitialsna
 {
 	if(bwastimejump)
 	{
-		self function_bf9d3071("rob_ammo_mod_ready_light");
+		self playrenderoverridebundle("rob_ammo_mod_ready_light");
 	}
 	else
 	{
-		self function_5d482e78("rob_ammo_mod_ready_light");
+		self stoprenderoverridebundle("rob_ammo_mod_ready_light");
 	}
 }
 
@@ -337,7 +337,7 @@ function function_467efa7b(var_9f3fb329)
 */
 function update_aat_hud(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_8aa9ab80 = function_d1852e75(bwastimejump);
+	name_hash = function_d1852e75(bwastimejump);
 	str_localized = get_string(bwastimejump);
 	icon = get_icon(bwastimejump);
 	if(str_localized == "none")
@@ -346,7 +346,7 @@ function update_aat_hud(localclientnum, oldval, newval, bnewent, binitialsnap, f
 	}
 	var_ca2e17a3 = function_1df4c3b0(fieldname, #"zm_hud");
 	var_2961e149 = createuimodel(var_ca2e17a3, "aatNameHash");
-	setuimodelvalue(var_2961e149, var_8aa9ab80);
+	setuimodelvalue(var_2961e149, name_hash);
 	aatmodel = createuimodel(var_ca2e17a3, "aat");
 	setuimodelvalue(aatmodel, str_localized);
 	aaticonmodel = createuimodel(var_ca2e17a3, "aatIcon");

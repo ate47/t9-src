@@ -42,7 +42,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("zm_hud.commander_speaking", #"zm_hud", #"commander_speaking", 1, 5, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("zm_hud.commander_speaking", #"zm_hud", #"commander_speaking", 1, 5, "int", undefined, 0, 0);
 	level.var_4edd846 = &function_d1711916;
 }
 

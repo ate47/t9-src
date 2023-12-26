@@ -509,7 +509,7 @@ function function_783b69(s, wrap)
 	wrap = function_ea2f17d1(wrap, "");
 	str = "";
 	/#
-		if(function_7a600918(s))
+		if(ishash(s))
 		{
 			if(wrap != "")
 			{

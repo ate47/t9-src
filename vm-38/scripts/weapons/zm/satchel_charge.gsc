@@ -1,6 +1,6 @@
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\weapons\satchel_charge.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4dc6a9b234b838e1;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;

@@ -61,7 +61,7 @@ class cfull_screen_black : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -103,7 +103,7 @@ class cfull_screen_black : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -132,13 +132,13 @@ class cfull_screen_black : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("full_screen_black");
-		cLUIelem::function_da693cbe("red", 1, 3, "float");
-		cLUIelem::function_da693cbe("green", 1, 3, "float");
-		cLUIelem::function_da693cbe("blue", 1, 3, "float");
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 12, "int");
-		cLUIelem::function_da693cbe("startAlpha", 1, 5, "float");
-		cLUIelem::function_da693cbe("endAlpha", 1, 5, "float");
-		cLUIelem::function_da693cbe("drawHUD", 1, 1, "int");
+		cLUIelem::add_clientfield("red", 1, 3, "float");
+		cLUIelem::add_clientfield("green", 1, 3, "float");
+		cLUIelem::add_clientfield("blue", 1, 3, "float");
+		cLUIelem::add_clientfield("fadeOverTime", 1, 12, "int");
+		cLUIelem::add_clientfield("startAlpha", 1, 5, "float");
+		cLUIelem::add_clientfield("endAlpha", 1, 5, "float");
+		cLUIelem::add_clientfield("drawHUD", 1, 1, "int");
 	}
 
 	/*

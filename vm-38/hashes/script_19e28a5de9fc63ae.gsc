@@ -44,7 +44,7 @@ class cfail_screen : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cfail_screen
 		Checksum: 0x1C8CEAA7
 		Offset: 0x340
@@ -52,9 +52,9 @@ class cfail_screen : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("fail_screen");
+		cLUIelem::register_clientside("fail_screen");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: fail_screen
 	Checksum: 0x1A2B0FFD
 	Offset: 0x240
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cfail_screen();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

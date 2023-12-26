@@ -1,4 +1,4 @@
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\cp_common\bb.gsc;
 
 #namespace namespace_c78c9cc2;

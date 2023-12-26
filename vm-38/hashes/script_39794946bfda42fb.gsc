@@ -47,7 +47,7 @@ class class_c33e75d1 : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class class_c33e75d1 : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -132,10 +132,10 @@ class class_c33e75d1 : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_tungsten_grandprix");
-		cLUIelem::function_da693cbe("raceRanking", 28000, 2, "int");
-		cLUIelem::function_da693cbe("raceCurrentLap", 28000, 2, "int");
-		cLUIelem::function_da693cbe("raceTotalLap", 28000, 2, "int");
-		cLUIelem::function_da693cbe("raceRewardTier", 28000, 2, "int", 0);
+		cLUIelem::add_clientfield("raceRanking", 28000, 2, "int");
+		cLUIelem::add_clientfield("raceCurrentLap", 28000, 2, "int");
+		cLUIelem::add_clientfield("raceTotalLap", 28000, 2, "int");
+		cLUIelem::add_clientfield("raceRewardTier", 28000, 2, "int", 0);
 	}
 
 }

@@ -6,7 +6,7 @@
 #using scripts\core_common\map.csc;
 #using script_446b64250de153ef;
 #using scripts\core_common\vehicles\driving_fx.csc;
-#using script_57d93967806f601;
+#using scripts\wz_common\wz_perk_paranoia.csc;
 #using script_618d6f5ff5d18933;
 #using script_644007a8c3885fc;
 #using script_66e55245f6b76298;

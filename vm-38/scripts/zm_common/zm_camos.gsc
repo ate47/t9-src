@@ -65,7 +65,7 @@ function function_79be4786(weapon)
 	weapon = function_264bcab7(weapon);
 	weaponoptions = self getbuildkitweaponoptions(weapon);
 	var_3ded6a21 = getcamoindex(weaponoptions);
-	var_a99ac61d = function_11c873a(var_3ded6a21);
+	var_a99ac61d = getactivecamo(var_3ded6a21);
 	if(!isdefined(var_a99ac61d) || var_a99ac61d == #"")
 	{
 		return;
@@ -89,9 +89,9 @@ function function_7c982eb6(weapon)
 	if(isdefined(s_active_camo))
 	{
 		weaponstate = s_active_camo.var_dd54a13b[weapon];
-		if(isdefined(weaponstate) && isdefined(weaponstate.var_d1a848d9))
+		if(isdefined(weaponstate) && isdefined(weaponstate.stagenum))
 		{
-			return weaponstate.var_d1a848d9;
+			return weaponstate.stagenum;
 		}
 	}
 }
@@ -105,21 +105,21 @@ function function_7c982eb6(weapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6f75f3d3(weapon, var_eaad2188)
+function function_6f75f3d3(weapon, current_weaponoptions)
 {
 	var_515e20e6 = zm_weapons::is_weapon_upgraded(weapon);
 	weapon = function_264bcab7(weapon);
 	if(self function_6b9dce34(weapon))
 	{
-		return getcamoindex(var_eaad2188);
+		return getcamoindex(current_weaponoptions);
 	}
 	if(var_515e20e6 && isdefined(self.var_3f021416) && isdefined(self.var_3f021416[weapon]))
 	{
 		return self.var_3f021416[weapon];
 	}
-	if(isdefined(var_eaad2188))
+	if(isdefined(current_weaponoptions))
 	{
-		return getcamoindex(var_eaad2188);
+		return getcamoindex(current_weaponoptions);
 	}
 }
 
@@ -235,7 +235,7 @@ function private function_e5ed6edb(weapon)
 		return;
 	}
 	var_3ded6a21 = getcamoindex(weaponoptions);
-	var_a99ac61d = function_11c873a(var_3ded6a21);
+	var_a99ac61d = getactivecamo(var_3ded6a21);
 	if(!isdefined(var_a99ac61d) || !isdefined(self.pers[#"activecamo"][var_a99ac61d]))
 	{
 		return;
@@ -340,7 +340,7 @@ function function_432cf6d(weapon)
 	self.var_88ebd633.var_bcacb3a3++;
 	if(self.var_88ebd633.var_bcacb3a3 >= 5)
 	{
-		self thread activecamo::function_896ac347(weapon, #"hash_25e0a2c8e52ead0d", 1);
+		self thread activecamo::function_896ac347(weapon, #"rapid_headshots", 1);
 		self.var_88ebd633.var_bcacb3a3 = 0;
 		self notify(#"hash_3dbf3a8521ba1621");
 	}
@@ -388,7 +388,7 @@ function function_4092decc(weapon)
 	}
 	else
 	{
-		self function_a24c564f(#"hash_3610149e675eb4d8", weapon);
+		self function_a24c564f(#"reset_pack", weapon);
 	}
 	self callback::callback(#"hash_478f81e3bb0950dd", {#weapon:weapon});
 }

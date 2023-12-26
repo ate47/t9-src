@@ -89,7 +89,7 @@ function function_1cb3c52d(name, radiationlevel, duration, var_4267b283)
 		return;
 	}
 	function_f45ee99d();
-	if(!isint(radiationlevel) || !isint(duration) || !function_7a600918(name))
+	if(!isint(radiationlevel) || !isint(duration) || !ishash(name))
 	{
 		/#
 			assert(0);

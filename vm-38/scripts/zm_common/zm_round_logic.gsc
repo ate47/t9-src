@@ -1,19 +1,19 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_20ac552ee498eb9d;
-#using script_299f56e6d0b16416;
-#using script_35598499769dbb3d;
-#using script_35b5ff21c2a0960f;
-#using script_3657077a08b7f19e;
+#using scripts\zm_common\gametypes\globallogic_scriptmover.gsc;
+#using scripts\zm_common\zm_quick_spawning.gsc;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
+#using scripts\zm_common\trials\zm_trial_special_enemy.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_5660bae5b402a1eb;
-#using script_58c342edd81589fb;
+#using scripts\core_common\ai\zombie_death.gsc;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_puppeteer_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -102,7 +102,7 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	level flag::init("round_reset");
-	level flag::init(#"hash_6acab8bde7078239");
+	level flag::init(#"trial_failed");
 	level flag::init("enable_round_timeout");
 	level flag::init("pause_round_timeout");
 	level flag::init(#"infinite_round_spawning");
@@ -111,7 +111,7 @@ function private function_70a657d8()
 	{
 		level.var_54d9d726 = 6;
 	}
-	namespace_32192f7::function_95c1dd81(#"zombie", &function_f5c01f5);
+	zm_trial_special_enemy::function_95c1dd81(#"zombie", &function_f5c01f5);
 }
 
 /*
@@ -327,7 +327,7 @@ function round_spawning()
 	{
 		return;
 	}
-	if(namespace_c3287616::function_191ae5ec())
+	if(zm_round_spawning::function_191ae5ec())
 	{
 		return;
 	}
@@ -353,7 +353,7 @@ function round_spawning()
 		level thread [[level.zombie_total_set_func]]();
 	}
 	level thread [[level.var_d8d02d0e]]();
-	namespace_c3287616::function_b2dabfc();
+	zm_round_spawning::function_b2dabfc();
 	old_spawn = undefined;
 	while(true)
 	{
@@ -362,7 +362,7 @@ function round_spawning()
 		while(var_404e4288 >= level.zombie_ai_limit || (level.zombie_total <= 0 && !level flag::get(#"infinite_round_spawning")))
 		{
 			wait(0.1);
-			namespace_df043b58::function_367e3573();
+			zm_quick_spawning::function_367e3573();
 			var_404e4288 = zombie_utility::get_current_zombie_count();
 			continue;
 		}
@@ -400,7 +400,7 @@ function round_spawning()
 			}
 			else
 			{
-				if(namespace_c3287616::function_4990741c())
+				if(zm_round_spawning::function_4990741c())
 				{
 					util::wait_network_frame();
 					var_3cafeff5 = 1;
@@ -778,7 +778,7 @@ function round_start()
 	}
 	if(!isdefined(level.var_322d0819))
 	{
-		level.var_322d0819 = &namespace_df043b58::function_765cb1de;
+		level.var_322d0819 = &zm_quick_spawning::function_765cb1de;
 	}
 	/#
 		if(getdvarint(#"zombie_rise_test", 0))
@@ -914,7 +914,7 @@ function round_over()
 		}
 	}
 	recordzombieroundend();
-	level flag::wait_till_any_timeout(time, array("round_reset", #"hash_6acab8bde7078239"));
+	level flag::wait_till_any_timeout(time, array("round_reset", #"trial_failed"));
 	foreach(player in getplayers())
 	{
 		if(is_true(player.var_6696e200))
@@ -1128,7 +1128,7 @@ function round_think(restart)
 		#/
 		if(!is_true(level.var_ab84adee))
 		{
-			level thread function_53d86042();
+			level thread round_timeout();
 		}
 		level thread [[level.round_spawn_func]]();
 		level notify(#"start_of_round", {#n_round_number:level.round_number});
@@ -1149,7 +1149,7 @@ function round_think(restart)
 		zm_trial::on_round_end();
 		callback::callback(#"on_round_end");
 		level notify(#"end_of_round");
-		if(!zm_trial::function_b47f6aba() || !zm_utility::is_standard())
+		if(!zm_trial::is_trial_mode() || !zm_utility::is_standard())
 		{
 			playsoundatposition(#"hash_58df62ae7fa7b42b", (0, 0, 0));
 		}
@@ -1236,9 +1236,9 @@ function round_think(restart)
 			player zm_stats::set_global_stat("rounds", get_round_number());
 			player zm_stats::update_playing_utc_time(matchutctime);
 			player zm_stats::function_4dd876ad();
-			if(!is_true(zm_custom::function_901b751c(#"hash_54dfa988db5db24c")) && !player laststand::player_is_in_laststand() && is_true(player.heal.enabled))
+			if(!is_true(zm_custom::function_901b751c(#"zmhealthdrain")) && !player laststand::player_is_in_laststand() && is_true(player.heal.enabled))
 			{
-				player zm_utility::function_e0448fec(1);
+				player zm_utility::set_max_health(1);
 			}
 			for(i = 0; i < 4; i++)
 			{
@@ -1272,7 +1272,7 @@ function round_think(restart)
 }
 
 /*
-	Name: function_53d86042
+	Name: round_timeout
 	Namespace: zm_round_logic
 	Checksum: 0x4E19F19
 	Offset: 0x3BF8
@@ -1280,7 +1280,7 @@ function round_think(restart)
 	Parameters: 0
 	Flags: Linked
 */
-function function_53d86042()
+function round_timeout()
 {
 	level endon(#"end_of_round", #"end_game");
 	level waittill(#"zombie_total_set");
@@ -1336,7 +1336,7 @@ function function_53d86042()
 function function_fb6aa5a3()
 {
 	level flag::clear("end_round_wait");
-	level callback::function_ec6dfc37(&function_fb6aa5a3);
+	level callback::remove_on_round_end(&function_fb6aa5a3);
 }
 
 /*

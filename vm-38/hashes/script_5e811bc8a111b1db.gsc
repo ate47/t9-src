@@ -3,7 +3,7 @@
 #using script_27347f09888ad15;
 #using script_34ab99a4ca1a43d;
 #using script_3d64d88008582147;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4108035fe400ce67;
 #using script_471b31bd963b388e;
 #using script_6b1f7ff883ed7f20;
@@ -66,7 +66,7 @@ function private autoexec __init__system__()
 */
 function init()
 {
-	if(is_true(getgametypesetting(#"hash_7e8e34cc69a77e0b")) || getdvarint(#"hash_40bd34b35079cf2e", 0) > 0 && (zm_utility::function_c200446c() || util::function_5df4294() === #"hash_321225a5ce1eb35"))
+	if(is_true(getgametypesetting(#"hash_7e8e34cc69a77e0b")) || getdvarint(#"hash_40bd34b35079cf2e", 0) > 0 && (zm_utility::function_c200446c() || util::get_game_type() === #"hash_321225a5ce1eb35"))
 	{
 		level.var_70b6f044 = [#"spawner_zm_steiner_split_radiation_bomb":#"hash_16d309f1ce9e015a", #"spawner_zm_steiner_split_radiation_blast":#"hash_2c0da7720a1c2f90", #"spawner_zm_steiner":#"hash_43b8d4f24851653e", #"hash_12a17ab3df5889eb":#"hash_2792674ef4fce09f", #"hash_5f22ecce894282fa":#"hash_796dff2ea842c1ac"];
 		level.var_9d098364 = #"hash_43b8d4f24851653e";
@@ -76,7 +76,7 @@ function init()
 		level.var_68b26ea = #"hash_2c0da7720a1c2f90";
 		level.var_887c5017 = #"hash_16d309f1ce9e015a";
 		level thread function_3a268da9();
-		callback::on_ai_damage(&function_6374f751);
+		callback::on_ai_damage(&on_ai_damaged);
 		callback::on_ai_killed(&on_ai_killed);
 		level.var_77143112 = [];
 		if(isdefined(level.var_d4c0ef1a))
@@ -374,11 +374,11 @@ function function_8f677e13()
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
-			item.var_8e092725 = 0;
+			item.hidetime = 0;
 			if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767 && self.inventory.items[var_fa3df96].var_a6762160.name != item.var_a6762160.name)
 			{
 				self item_inventory::function_fba40e6c(item);
@@ -472,11 +472,11 @@ function function_79ef6b93(snowball_pile)
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
-			item.var_8e092725 = 0;
+			item.hidetime = 0;
 			if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767 && self.inventory.items[var_fa3df96].var_a6762160.name != item.var_a6762160.name)
 			{
 				self item_inventory::function_fba40e6c(item);
@@ -927,7 +927,7 @@ function function_96244838(weapon, attacker)
 }
 
 /*
-	Name: function_6374f751
+	Name: on_ai_damaged
 	Namespace: namespace_45ec1026
 	Checksum: 0x5B150AA9
 	Offset: 0x2C78
@@ -935,7 +935,7 @@ function function_96244838(weapon, attacker)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6374f751(params)
+function on_ai_damaged(params)
 {
 	if(params.weapon.name === #"snowball" && !self.var_6f84b820 === #"elite")
 	{

@@ -44,7 +44,7 @@ class csr_beacon_menu : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: csr_beacon_menu
 		Checksum: 0xF9C8F613
 		Offset: 0x340
@@ -52,9 +52,9 @@ class csr_beacon_menu : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_beacon_menu");
+		cLUIelem::register_clientside("sr_beacon_menu");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_beacon_menu
 	Checksum: 0xA0447803
 	Offset: 0x240
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new csr_beacon_menu();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\serverfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -46,7 +46,7 @@ function private function_70a657d8()
 {
 	status_effect::register_status_effect_callback_apply(4, &suppress_apply);
 	status_effect::function_5bae5120(4, &registersamanthas_bundle);
-	status_effect::function_6f4eaf88(function_4d1e7b48("suppress"));
+	status_effect::function_6f4eaf88(getstatuseffect("suppress"));
 	serverfield::register("status_effect_suppress_field", 1, 5, "int", &function_aa232314);
 	callback::on_spawned(&onplayerspawned);
 }
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 3
 	Flags: Linked
 */
-function suppress_apply(var_756fda07, weapon, var_84171a6c)
+function suppress_apply(var_756fda07, weapon, applicant)
 {
 }
 

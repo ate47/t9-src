@@ -1,14 +1,14 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using script_2c5daa95f8fec03c;
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_41fe08c37d53a635;
-#using script_4bf952f6ba31bb17;
-#using script_4d85e8de54b02198;
-#using script_522aeb6ae906391e;
-#using script_6809bf766eba194a;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -467,7 +467,7 @@ function function_9db77ef8(params)
 		{
 			if(isdefined(zombie))
 			{
-				zombie ai::function_62795e55();
+				zombie ai::clear_stun();
 				zombie flag::clear(#"hash_335e103725141428");
 				zombie clientfield::set("soaBindProcessCF", 0);
 			}
@@ -906,7 +906,7 @@ function private function_35979cdd(entity)
 		{
 			if(isdefined(zombie))
 			{
-				zombie ai::function_62795e55();
+				zombie ai::clear_stun();
 				zombie flag::clear(#"hash_335e103725141428");
 				zombie clientfield::set("soaBindProcessCF", 0);
 			}
@@ -1322,7 +1322,7 @@ function function_78d5d69e(entity, asmstatename)
 	if(gettime() > asmstatename.var_9f171203)
 	{
 		var_a4536440 = array::pop_front(asmstatename.var_26dc9a8a, 0);
-		var_a4536440 ai::function_62795e55();
+		var_a4536440 ai::clear_stun();
 		var_a4536440 flag::clear(#"hash_335e103725141428");
 		var_a4536440 clientfield::set("soaBindProcessCF", 0);
 		function_e8a2d39a(asmstatename, var_a4536440);
@@ -1356,7 +1356,7 @@ function function_d27b2a9a(entity, asmstatename)
 	{
 		if(isdefined(zombie))
 		{
-			zombie ai::function_62795e55();
+			zombie ai::clear_stun();
 			zombie flag::clear(#"hash_335e103725141428");
 			zombie clientfield::set("soaBindProcessCF", 0);
 		}
@@ -1710,12 +1710,12 @@ function function_85d7a413(entity, target)
 	{
 		return true;
 	}
-	var_aa80d8e1 = target_player.origin - entity.origin;
+	to_player = target_player.origin - entity.origin;
 	var_64ec1ea4 = target.origin - entity.origin;
-	var_51fb6d83 = lengthsquared(var_aa80d8e1);
+	var_51fb6d83 = lengthsquared(to_player);
 	if(target_player.origin !== entity.origin && target.origin !== entity.origin)
 	{
-		if(var_51fb6d83 < lengthsquared(var_64ec1ea4) && vectordot(vectornormalize(var_aa80d8e1), vectornormalize(var_64ec1ea4)) > 0.8660254)
+		if(var_51fb6d83 < lengthsquared(var_64ec1ea4) && vectordot(vectornormalize(to_player), vectornormalize(var_64ec1ea4)) > 0.8660254)
 		{
 			return false;
 		}
@@ -3425,7 +3425,7 @@ function function_47f3f527(entity)
 	{
 		level.var_c9a650e3 = 0;
 	}
-	var_1556c25 = function_8168c82a();
+	var_1556c25 = getlevelframenumber();
 	if(level.var_c9a650e3 === var_1556c25)
 	{
 		return false;
@@ -5013,42 +5013,42 @@ function function_ed9529fa()
 	/#
 		function_5ac4dc99(#"hash_1d6cd903d17ac72", "");
 		function_cd140ee9(#"hash_1d6cd903d17ac72", &function_fb306c05);
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
-		var_211a8012 = (isdefined(var_211a8012) ? var_211a8012 : 0);
-		util::add_debug_command(((((("" + "") + "") + var_211a8012) + "") + "") + "");
-		var_211a8012++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
+		__index = (isdefined(__index) ? __index : 0);
+		util::add_debug_command(((((("" + "") + "") + __index) + "") + "") + "");
+		__index++;
 	#/
 }
 

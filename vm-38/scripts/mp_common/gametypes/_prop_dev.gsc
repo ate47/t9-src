@@ -48,9 +48,9 @@ function private autoexec function_c4221711()
 function adddevguicommand(path, var_c669188)
 {
 	/#
-		var_2f3fa528 = ("" + path) + "";
-		var_f71fadd = ("" + var_c669188) + "";
-		debugcommand = (("" + var_2f3fa528) + "") + var_f71fadd;
+		pathstr = ("" + path) + "";
+		cmdstr = ("" + var_c669188) + "";
+		debugcommand = (("" + pathstr) + "") + cmdstr;
 		adddebugcommand(debugcommand);
 	#/
 }
@@ -76,7 +76,7 @@ function function_93440c52()
 		var_94dbbfd9 = 0;
 		var_b948ae6c = 0;
 		minigame_on = getdvarint(#"scr_prop_minigame", 1);
-		var_95ae3da3 = getdvarint(#"hash_38ca626afad6fe7d", 1);
+		server_hud = getdvarint(#"scr_ph_useprophudserver", 1);
 		var_f6fe53f9 = getdvarfloat(#"player_swimdamage", 10);
 		function_5ac4dc99("", 0);
 		function_5ac4dc99("", 0);
@@ -151,9 +151,9 @@ function function_93440c52()
 				level.allow_teamchange = getdvarint(#"hash_7f436a7b31a003f3", 0);
 				level.var_a7997034 = getdvarint(#"hash_4819c54cbad5ed87", 0) != 0;
 			}
-			if(getdvarint(#"hash_38ca626afad6fe7d", 0) != var_95ae3da3 && isdefined(level.players))
+			if(getdvarint(#"scr_ph_useprophudserver", 0) != server_hud && isdefined(level.players))
 			{
-				var_95ae3da3 = getdvarint(#"hash_38ca626afad6fe7d", 0);
+				server_hud = getdvarint(#"scr_ph_useprophudserver", 0);
 				if(!isdefined(level.players[0].changepropkey))
 				{
 					iprintlnbold("");
@@ -164,10 +164,10 @@ function function_93440c52()
 					{
 						if(isdefined(player.team) && player util::isprop())
 						{
-							player prop_controls::propabilitykeysvisible(var_95ae3da3, 1);
+							player prop_controls::propabilitykeysvisible(server_hud, 1);
 						}
 					}
-					level.elim_hud.alpha = var_95ae3da3;
+					level.elim_hud.alpha = server_hud;
 				}
 			}
 			if(getdvarint(#"hash_2c678eea20875ddd", 0) != var_28c934a0 && isdefined(level.players))
@@ -211,15 +211,15 @@ function function_93440c52()
 				var_f4098dd1 = getdvarint(#"hash_62162f1f94cbba77", 0);
 				if(var_f4098dd1)
 				{
-					setdvar(#"hash_7ebe9ee37349aae2", 1);
-					setdvar(#"hash_263969a4f5f48bd1", 1);
-					setdvar(#"hash_21c715cded2e84e9", 10000);
+					setdvar(#"doublejump_time_before_recharge", 1);
+					setdvar(#"doublejump_time_before_recharge_fast", 1);
+					setdvar(#"playerenergy_restrate", 10000);
 				}
 				else
 				{
-					setdvar(#"hash_7ebe9ee37349aae2", 1600);
-					setdvar(#"hash_263969a4f5f48bd1", 1000);
-					setdvar(#"hash_21c715cded2e84e9", 400);
+					setdvar(#"doublejump_time_before_recharge", 1600);
+					setdvar(#"doublejump_time_before_recharge_fast", 1000);
+					setdvar(#"playerenergy_restrate", 400);
 					iprintlnbold((var_f4098dd1 ? "" : ""));
 				}
 			}
@@ -318,7 +318,7 @@ function function_93440c52()
 			}
 			if(getdvarint(#"hash_2441330d88677536", 0) != 0 && isdefined(level.players))
 			{
-				level notify(#"hash_72a9d8619c126022");
+				level notify(#"cancelcountdown");
 				setdvar(#"hash_2441330d88677536", 0);
 			}
 			if(getdvarint(#"hash_7da18bcec6fafe7f", 0) != 0)
@@ -331,7 +331,7 @@ function function_93440c52()
 			}
 			if(getdvarint(#"hash_3c0e90252ca92099", 0) != 0)
 			{
-				function_b7c018a7();
+				showtargets();
 			}
 			if(getdvarint(#"scr_prop_minigame", 1) != minigame_on && isdefined(level.players) && level.players.size > 0)
 			{
@@ -375,9 +375,9 @@ function function_ad983215(enabled)
 {
 	/#
 		setdvar(#"com_statmon", enabled);
-		setdvar(#"hash_37468b91055d5271", enabled);
+		setdvar(#"con_minicon", enabled);
 		setdvar(#"cg_drawfps", enabled);
-		setdvar(#"hash_61537eefc769c7b3", enabled);
+		setdvar(#"cg_drawtime", enabled);
 		setdvar(#"hash_59587b459995b6eb", enabled);
 		setdvar(#"hash_173fd7265ae0b7b1", enabled);
 		setdvar(#"hash_2d3acd259cd6aca6", enabled);
@@ -687,16 +687,16 @@ function function_cdf89a29(val)
 function function_5ee4d3a8(inval)
 {
 	/#
-		var_59345149 = self.var_5f51d2ee + inval;
-		if(var_59345149 >= level.propindex.size)
+		tempindex = self.var_5f51d2ee + inval;
+		if(tempindex >= level.propindex.size)
 		{
-			var_59345149 = 0;
+			tempindex = 0;
 		}
-		else if(var_59345149 < 0)
+		else if(tempindex < 0)
 		{
-			var_59345149 = level.propindex.size - 1;
+			tempindex = level.propindex.size - 1;
 		}
-		self.var_5f51d2ee = var_59345149;
+		self.var_5f51d2ee = tempindex;
 	#/
 }
 
@@ -743,7 +743,7 @@ function function_75154360(val)
 			self.placementmodel settext((("" + self.var_5f51d2ee) + "") + self.prop.info.modelname);
 			self.var_3634d14e settext("" + self.prop.info.propsizetext);
 			self.var_a2614669 setvalue(self.prop.info.propsize);
-			self.var_5ee5df03 setvalue(self.prop.info.var_9846ca56);
+			self.var_5ee5df03 setvalue(self.prop.info.propscale);
 			self.var_66df6677 setvalue(self.prop.info.xyzoffset[0]);
 			self.var_ec9a93 setvalue(self.prop.info.xyzoffset[1]);
 			self.var_811d1afa setvalue(self.prop.info.xyzoffset[2]);
@@ -790,10 +790,10 @@ function function_75154360(val)
 					var_dfa19677 = 0.1;
 					var_34b4cc47 = 10;
 					var_59913b42 = 0.01;
-					self.prop.info.var_9846ca56 = self.prop.info.var_9846ca56 + (var_59913b42 * val);
-					self.prop.info.var_9846ca56 = math::clamp(self.prop.info.var_9846ca56, var_dfa19677, var_34b4cc47);
-					self.prop setscale(self.prop.info.var_9846ca56);
-					self.var_5ee5df03 setvalue(self.prop.info.var_9846ca56);
+					self.prop.info.propscale = self.prop.info.propscale + (var_59913b42 * val);
+					self.prop.info.propscale = math::clamp(self.prop.info.propscale, var_dfa19677, var_34b4cc47);
+					self.prop setscale(self.prop.info.propscale);
+					self.var_5ee5df03 setvalue(self.prop.info.propscale);
 				}
 				else
 				{
@@ -1020,7 +1020,7 @@ function function_7a3672a6(propinfo)
 function function_2dc5c497(file, propinfo)
 {
 	/#
-		var_74b91a95 = (((("" + propinfo.modelname) + "") + propinfo.propsizetext) + "") + propinfo.var_9846ca56;
+		var_74b91a95 = (((("" + propinfo.modelname) + "") + propinfo.propsizetext) + "") + propinfo.propscale;
 		if(function_cbef3d63(propinfo.xyzoffset))
 		{
 			var_74b91a95 = var_74b91a95 + ((((("" + propinfo.xyzoffset[0]) + "") + propinfo.xyzoffset[1]) + "") + propinfo.xyzoffset[2]);
@@ -1414,39 +1414,39 @@ function function_77511c75()
 		}
 		if(isdefined(level.players[1]))
 		{
-			var_3473cb36 = level.players[1];
+			enemybot = level.players[1];
 		}
 		else
 		{
-			var_3473cb36 = bot::add_bot(util::getotherteam(player.team));
-			var_3473cb36.ignoreall = 1;
-			var_3473cb36 bot::function_bab12815(var_3473cb36.origin);
+			enemybot = bot::add_bot(util::getotherteam(player.team));
+			enemybot.ignoreall = 1;
+			enemybot bot::function_bab12815(enemybot.origin);
 		}
-		if(!isdefined(var_3473cb36.pers[#"participation"]))
+		if(!isdefined(enemybot.pers[#"participation"]))
 		{
-			var_3473cb36.pers[#"participation"] = 0;
+			enemybot.pers[#"participation"] = 0;
 		}
-		if(!isdefined(var_3473cb36.hits))
+		if(!isdefined(enemybot.hits))
 		{
-			var_3473cb36.hits = 0;
+			enemybot.hits = 0;
 		}
 		player.health = player.maxhealth;
 		weapon = getweapon("");
 		end = player.origin;
 		dir = anglestoforward(player.angles);
 		start = (end + (dir * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
-		var_9b67aa0b = -1 * dir;
-		start = (end + (var_9b67aa0b * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
-		var_70d65e57 = anglestoright(player.angles);
-		start = (end + (var_70d65e57 * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
-		var_3d34e352 = -1 * var_70d65e57;
-		start = (end + (var_3d34e352 * 100)) + vectorscale((0, 0, 1), 30);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
+		dirback = -1 * dir;
+		start = (end + (dirback * 100)) + vectorscale((0, 0, 1), 30);
+		magicbullet(weapon, start, end, enemybot);
+		dirright = anglestoright(player.angles);
+		start = (end + (dirright * 100)) + vectorscale((0, 0, 1), 30);
+		magicbullet(weapon, start, end, enemybot);
+		dirleft = -1 * dirright;
+		start = (end + (dirleft * 100)) + vectorscale((0, 0, 1), 30);
+		magicbullet(weapon, start, end, enemybot);
 		start = end + vectorscale((0, 0, 1), 100);
-		magicbullet(weapon, start, end, var_3473cb36);
+		magicbullet(weapon, start, end, enemybot);
 		player waittilltimeout(0.3, #"damage");
 		wait(0.05);
 		player.health = player.maxhealth;
@@ -1550,7 +1550,7 @@ function function_ed0598d(propinfo, origin, angles)
 		prop = spawn("", propent.origin);
 		prop.angles = angles;
 		prop setmodel(propinfo.modelname);
-		prop setscale(propinfo.var_9846ca56);
+		prop setscale(propinfo.propscale);
 		prop setcandamage(1);
 		prop.xyzoffset = propinfo.xyzoffset;
 		prop.anglesoffset = propinfo.anglesoffset;
@@ -1712,7 +1712,7 @@ function function_cded003e(propinfo, origin, angles, team)
 		var_6e55957c = spawn("", origin);
 		var_6e55957c.targetname = "";
 		var_6e55957c setmodel(propinfo.modelname);
-		var_6e55957c setscale(propinfo.var_9846ca56);
+		var_6e55957c setscale(propinfo.propscale);
 		var_6e55957c.angles = angles;
 		var_6e55957c setcandamage(1);
 		var_6e55957c.fakehealth = 50;
@@ -1809,7 +1809,7 @@ function function_f06fb157()
 }
 
 /*
-	Name: function_b7c018a7
+	Name: showtargets
 	Namespace: prop_dev
 	Checksum: 0x30ACEE3E
 	Offset: 0x6BA0
@@ -1817,7 +1817,7 @@ function function_f06fb157()
 	Parameters: 0
 	Flags: None
 */
-function function_b7c018a7()
+function showtargets()
 {
 	/#
 		if(!isdefined(level.var_1103f74e) || !isdefined(level.var_1103f74e.targets))

@@ -102,13 +102,13 @@ event private function_63d4043f(eventstruct)
 	{
 		if(eventstruct.seat_index == 0 || (isdefined(eventstruct.vehicle.var_260e3593) && eventstruct.vehicle.var_260e3593 == eventstruct.seat_index))
 		{
-			if(!(eventstruct.var_21911287 == 0 || (isdefined(eventstruct.vehicle.var_260e3593) && eventstruct.vehicle.var_260e3593 == eventstruct.var_21911287)))
+			if(!(eventstruct.old_seat_index == 0 || (isdefined(eventstruct.vehicle.var_260e3593) && eventstruct.vehicle.var_260e3593 == eventstruct.old_seat_index)))
 			{
 				eventstruct.vehicle function_fe45d0ae();
 				self function_afb0648d(eventstruct.vehicle);
 			}
 		}
-		else if(eventstruct.var_21911287 == 0 || (isdefined(eventstruct.vehicle.var_260e3593) && eventstruct.vehicle.var_260e3593 == eventstruct.var_21911287))
+		else if(eventstruct.old_seat_index == 0 || (isdefined(eventstruct.vehicle.var_260e3593) && eventstruct.vehicle.var_260e3593 == eventstruct.old_seat_index))
 		{
 			if(!(eventstruct.seat_index == 0 || (isdefined(eventstruct.vehicle.var_260e3593) && eventstruct.vehicle.var_260e3593 == eventstruct.seat_index)))
 			{

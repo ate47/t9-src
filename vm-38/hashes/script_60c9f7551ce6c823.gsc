@@ -241,16 +241,16 @@ function function_a0fe5f28()
 				{
 					continue;
 				}
-				if(!isdefined(guy.doa.var_c72c2145))
+				if(!isdefined(guy.doa.hazard_hit))
 				{
-					guy.doa.var_c72c2145 = 0;
+					guy.doa.hazard_hit = 0;
 				}
 				curtime = gettime();
-				if(curtime < guy.doa.var_c72c2145)
+				if(curtime < guy.doa.hazard_hit)
 				{
 					continue;
 				}
-				guy.doa.var_c72c2145 = curtime + 1500;
+				guy.doa.hazard_hit = curtime + 1500;
 				guy namespace_e32bb68::function_3a59ec34("evt_doa_hazard_pole_impact");
 				guy namespace_83eb6304::function_3ecfde67("hazard_electric");
 				if(is_true(guy.var_47267079) || is_true(guy.boss))

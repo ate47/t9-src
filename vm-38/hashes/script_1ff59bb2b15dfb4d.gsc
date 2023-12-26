@@ -72,7 +72,7 @@ class cstealth_meter_display : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cstealth_meter_display
 		Checksum: 0x28F6635A
 		Offset: 0x5B0
@@ -80,9 +80,9 @@ class cstealth_meter_display : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("stealth_meter_display");
+		cLUIelem::register_clientside("stealth_meter_display");
 	}
 
 	/*
@@ -111,11 +111,11 @@ class cstealth_meter_display : cLUIelem
 	function setup_clientfields(var_5a7b4b38, var_579b061b, var_f10a04a3, var_f228b5fa, var_bda3bf84)
 	{
 		cLUIelem::setup_clientfields("stealth_meter_display");
-		cLUIelem::function_da693cbe("entNum", 1, 10, "int", var_5a7b4b38);
-		cLUIelem::function_da693cbe("awarenessState", 1, 4, "int", var_579b061b);
-		cLUIelem::function_da693cbe("awarenessProgress", 1, 4, "float", var_f10a04a3);
-		cLUIelem::function_da693cbe("direction", 1, 4, "float", var_f228b5fa);
-		cLUIelem::function_da693cbe("clamped", 1, 1, "int", var_bda3bf84);
+		cLUIelem::add_clientfield("entNum", 1, 10, "int", var_5a7b4b38);
+		cLUIelem::add_clientfield("awarenessState", 1, 4, "int", var_579b061b);
+		cLUIelem::add_clientfield("awarenessProgress", 1, 4, "float", var_f10a04a3);
+		cLUIelem::add_clientfield("direction", 1, 4, "float", var_f228b5fa);
+		cLUIelem::add_clientfield("clamped", 1, 1, "int", var_bda3bf84);
 	}
 
 	/*
@@ -216,7 +216,7 @@ function register(var_5a7b4b38, var_579b061b, var_f10a04a3, var_f228b5fa, var_bd
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: stealth_meter_display
 	Checksum: 0x6792CB88
 	Offset: 0x2D0
@@ -224,10 +224,10 @@ function register(var_5a7b4b38, var_579b061b, var_f10a04a3, var_f228b5fa, var_bd
 	Parameters: 0
 	Flags: Linked
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cstealth_meter_display();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

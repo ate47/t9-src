@@ -514,7 +514,7 @@ function display_scene_menu(str_type, str_scene)
 function function_c0f30783(s_scenedef)
 {
 	/#
-		if(!is_true(s_scenedef.var_241c5f3c) || (is_true(s_scenedef.var_241c5f3c) && getdvarint(#"hash_11ad6a9695943217", 0)))
+		if(!is_true(s_scenedef.var_241c5f3c) || (is_true(s_scenedef.var_241c5f3c) && getdvarint(#"zm_debug_ee", 0)))
 		{
 			return true;
 		}
@@ -692,7 +692,7 @@ function function_3bafd088(var_a572f325)
 {
 	/#
 		/#
-			if(getdvarint(#"hash_356851cac5b69fb7", 0) > 0 && getdvarint(#"hash_2aa16f268802da43", 0) > 0)
+			if(getdvarint(#"dvr_enable", 0) > 0 && getdvarint(#"scr_scene_dvr", 0) > 0)
 			{
 				if(!isdefined(var_a572f325))
 				{
@@ -725,7 +725,7 @@ function function_d2785094(var_a572f325)
 {
 	/#
 		/#
-			if(getdvarint(#"hash_356851cac5b69fb7", 0) > 0 && getdvarint(#"hash_2aa16f268802da43", 0) > 0)
+			if(getdvarint(#"dvr_enable", 0) > 0 && getdvarint(#"scr_scene_dvr", 0) > 0)
 			{
 				var_3ee40508 = 0;
 				var_2640d68e = 0;

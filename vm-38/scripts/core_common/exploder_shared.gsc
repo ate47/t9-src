@@ -33,7 +33,7 @@ function private autoexec function_7a672f8c()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"exploder", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"exploder", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -52,7 +52,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: exploder
 	Checksum: 0xC98E27FA
 	Offset: 0x220
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level.exploders = [];
 	ents = getentarray("script_brushmodel", "classname");

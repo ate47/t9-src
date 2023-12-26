@@ -100,7 +100,7 @@ class ccp_chyron : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: ccp_chyron
 		Checksum: 0xC51F50B9
 		Offset: 0x600
@@ -108,9 +108,9 @@ class ccp_chyron : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("cp_chyron");
+		cLUIelem::register_clientside("cp_chyron");
 	}
 
 	/*
@@ -144,7 +144,7 @@ class ccp_chyron : cLUIelem
 		cLUIelem::function_dcb34c80("string", "line3", 1);
 		cLUIelem::function_dcb34c80("string", "line4", 1);
 		cLUIelem::function_dcb34c80("string", "line5", 1);
-		cLUIelem::function_da693cbe("index", 1, 4, "int", var_eaf012fc);
+		cLUIelem::add_clientfield("index", 1, 4, "int", var_eaf012fc);
 	}
 
 	/*
@@ -232,7 +232,7 @@ function register(var_27185c26, var_9da4cb62, var_865fc474, var_1909e1e7, var_2f
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: cp_chyron
 	Checksum: 0x500A6A77
 	Offset: 0x2C0
@@ -240,10 +240,10 @@ function register(var_27185c26, var_9da4cb62, var_865fc474, var_1909e1e7, var_2f
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new ccp_chyron();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

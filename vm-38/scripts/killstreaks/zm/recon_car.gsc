@@ -1,4 +1,4 @@
-#using script_15022fca9ab99080;
+#using scripts\killstreaks\killstreak_vehicle.gsc;
 #using scripts\killstreaks\remote_weapons.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -61,12 +61,12 @@ function private function_70a657d8()
 	}
 	killstreak_detect::init_shared();
 	remote_weapons::init_shared();
-	killstreaks::function_b5b6ef3e(&function_155de655);
+	killstreaks::function_b5b6ef3e(&init_killstreak);
 	clientfield::register("vehicle", "" + #"hash_5b4b44738e08c9b9", 28000, 1, "counter");
 }
 
 /*
-	Name: function_155de655
+	Name: init_killstreak
 	Namespace: recon_car
 	Checksum: 0x40571BE
 	Offset: 0x2F8
@@ -74,11 +74,11 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: None
 */
-function function_155de655()
+function init_killstreak()
 {
 	bundle = getscriptbundle("killstreak_recon_car_zm");
-	namespace_231aa29a::function_155de655(bundle);
-	deployable::function_2e088f73(getweapon(#"hash_3c8b385a76cbfe83"), &function_b5006cfa, undefined, undefined, #"hash_37605398dce96965");
+	killstreak_vehicle::init_killstreak(bundle);
+	deployable::register_deployable(getweapon(#"hash_3c8b385a76cbfe83"), &function_b5006cfa, undefined, undefined, #"hash_37605398dce96965");
 	vehicle::add_main_callback("vehicle_t9_rcxd_racing_zm", &function_d1661ada);
 }
 
@@ -118,8 +118,8 @@ function function_b5006cfa(v_origin, v_angles, player)
 */
 function function_d1661ada()
 {
-	self namespace_231aa29a::init_vehicle(&function_d4789bf5);
-	self util::function_c596f193();
+	self killstreak_vehicle::init_vehicle(&function_d4789bf5);
+	self util::make_sentient();
 	self.var_7d4f75e = 1;
 	self.ignore_death_jolt = 1;
 	self.var_92043a49 = 1;
@@ -241,7 +241,7 @@ function function_3f390797()
 	self endon(#"death", #"shutdown");
 	level waittill(#"hash_345e9169ebba28fb");
 	self.selfdestruct = 1;
-	self namespace_231aa29a::function_822e1f64();
+	self killstreak_vehicle::function_822e1f64();
 }
 
 /*
@@ -287,7 +287,7 @@ function function_86e8d9af(n_radius)
 		self notify(#"hash_2eef2b24309bc112");
 	}
 	self clientfield::increment("" + #"hash_5b4b44738e08c9b9");
-	a_zombies = self.owner function_bdda420f(self.origin, n_radius);
+	a_zombies = self.owner getenemiesinradius(self.origin, n_radius);
 	foreach(ai_zombie in a_zombies)
 	{
 		if(isalive(ai_zombie))
@@ -363,7 +363,7 @@ function function_819fff9d()
 			{
 				self.owner killstreaks::function_e9873ef7(self.var_22a05c26.var_d3413870, self.killstreak_id, #"hash_20e53d0989f408e6");
 			}
-			self namespace_231aa29a::function_1f46c433();
+			self killstreak_vehicle::function_1f46c433();
 		}
 	}
 }

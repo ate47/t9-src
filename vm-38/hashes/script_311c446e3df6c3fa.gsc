@@ -120,13 +120,13 @@ function private function_dd2493cc(var_c5dfdae0, ...)
 {
 	if(isdefined(var_c5dfdae0) && !self function_d2503806(var_c5dfdae0))
 	{
-		self function_bf9d3071(var_c5dfdae0);
+		self playrenderoverridebundle(var_c5dfdae0);
 	}
 	foreach(rob in vararg)
 	{
 		if(self function_d2503806(rob))
 		{
-			self function_5d482e78(rob);
+			self stoprenderoverridebundle(rob);
 		}
 	}
 }

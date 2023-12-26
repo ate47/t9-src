@@ -1,8 +1,8 @@
 #using script_1304295570304027;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_7a8059ca02b7b09e;
@@ -217,7 +217,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 	{
 		if([[level.iskillstreakweapon]](weapon) || (isdefined(weapon.statname) && [[level.iskillstreakweapon]](getweapon(weapon.statname))))
 		{
-			var_629fbd5c = 1;
+			weaponiskillstreak = 1;
 		}
 	}
 	var_1cfdf798 = (isdefined(idamage.lastattacker) ? idamage.lastattacker === attacker : 0);
@@ -259,7 +259,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 			team = attacker.pers[#"team"];
 			if(team != domflag gameobjects::get_owner_team())
 			{
-				if(!is_true(var_629fbd5c) && var_1cfdf798)
+				if(!is_true(weaponiskillstreak) && var_1cfdf798)
 				{
 					scoreevents::function_2a2e1723(#"kill_enemy_while_capping_dom", attacker, idamage, weapon);
 					attacker stats::function_cc215323(#"hash_61cf0b4451d9ff9b", 1);
@@ -309,7 +309,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 						}
 						if(!scoreeventprocessed)
 						{
-							if(!is_true(var_629fbd5c) && var_1cfdf798)
+							if(!is_true(weaponiskillstreak) && var_1cfdf798)
 							{
 								scoreevents::function_2a2e1723(#"killed_defender", attacker, idamage, weapon);
 							}
@@ -354,7 +354,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 						}
 						if(!scoreeventprocessed)
 						{
-							if(!is_true(var_629fbd5c) && var_1cfdf798)
+							if(!is_true(weaponiskillstreak) && var_1cfdf798)
 							{
 								scoreevents::function_2a2e1723(#"killed_attacker", attacker, idamage, weapon);
 							}
@@ -374,7 +374,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 				}
 			}
 		}
-		if(var_1cfdf798 && !is_true(var_629fbd5c) && isdefined(idamage.touchtriggers) && idamage.touchtriggers.size && attacker.pers[#"team"] != idamage.pers[#"team"])
+		if(var_1cfdf798 && !is_true(weaponiskillstreak) && isdefined(idamage.touchtriggers) && idamage.touchtriggers.size && attacker.pers[#"team"] != idamage.pers[#"team"])
 		{
 			triggerids = getarraykeys(idamage.touchtriggers);
 			flag = idamage.touchtriggers[triggerids[0]].gameobject;

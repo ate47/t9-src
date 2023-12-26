@@ -1,6 +1,6 @@
-#using script_1b905a8474ed2a62;
+#using scripts\core_common\ai\blackboard_vehicle.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;

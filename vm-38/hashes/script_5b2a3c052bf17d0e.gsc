@@ -374,7 +374,7 @@ function function_e6d9e6cd()
 		return;
 	}
 	v_trigger_offset = vectorscale((0, 0, -1), 32);
-	var_eb3b90d = struct::get_array(self.targetname, "target");
+	a_s_spawns = struct::get_array(self.targetname, "target");
 	foreach(s_spawn in self.var_e2d1273)
 	{
 		var_88f24b00 = namespace_8b6a9d79::spawn_script_model(s_spawn, #"p9_sur_essence_container");
@@ -383,7 +383,7 @@ function function_e6d9e6cd()
 		var_88f24b00 bobbing((0, 0, 1), 3, 1);
 		var_88f24b00 rotate(vectorscale((1, 0, 1), 6));
 		s_spawn.trigger = spawn("trigger_radius", s_spawn.origin + v_trigger_offset, 0, 32, 48);
-		s_spawn.trigger callback::function_35a12f19(&function_90c8355);
+		s_spawn.trigger callback::on_trigger(&function_90c8355);
 		s_spawn.trigger.var_88f24b00 = var_88f24b00;
 		waitframe(randomintrange(1, 5));
 	}

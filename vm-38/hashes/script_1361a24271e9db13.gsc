@@ -98,7 +98,7 @@ function main(str_skipto, b_starting)
 		player = getplayers()[0];
 	}
 	player endon(#"death", #"disconnect");
-	player function_8fd843dd(7);
+	player setcharacteroutfit(7);
 	player clientfield::set_to_player("force_stream_weapons", 2);
 	setdvar(#"hash_76c0d7e6385ee6de", 0.05);
 	setdvar(#"hash_7b06b8037c26b99b", 255);
@@ -125,7 +125,7 @@ function main(str_skipto, b_starting)
 	thread namespace_a052577e::function_dd4c9710();
 	player thread function_b598d07b();
 	level waittill(#"hash_1582572f4be81dc1");
-	player function_8fd843dd(9);
+	player setcharacteroutfit(9);
 	level flag::set("af_fade_in_complete");
 	player namespace_db2381c4::function_c8bc54e4();
 	level waittill(#"hash_47b9f42b49b80814");

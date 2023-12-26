@@ -34,7 +34,7 @@ function private autoexec function_3bccabb6()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"bgb_pack", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"bgb_pack", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -55,7 +55,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: bgb_pack
 	Checksum: 0xF92F5887
 	Offset: 0x130
@@ -63,7 +63,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(!is_true(level.bgb_in_use))
 	{

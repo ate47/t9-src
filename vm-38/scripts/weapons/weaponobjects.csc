@@ -31,7 +31,7 @@ function private autoexec function_4f4bf239()
 	Parameters: 2
 	Flags: Linked
 */
-function init_shared(var_e6fe7a6f, var_4885f19e)
+function init_shared(friendly_rob, var_4885f19e)
 {
 	callback::on_localplayer_spawned(&on_localplayer_spawned);
 	clientfield::register("toplayer", "proximity_alarm", 1, 3, "int", &proximity_alarm_changed, 0, 1);
@@ -40,13 +40,13 @@ function init_shared(var_e6fe7a6f, var_4885f19e)
 	clientfield::register("missile", "enemyequip", 1, 2, "int", &enemyequip_changed, 0, 1);
 	clientfield::register("scriptmover", "enemyequip", 1, 2, "int", &enemyequip_changed, 0, 0);
 	clientfield::register("missile", "teamequip", 1, 1, "int", &teamequip_changed, 0, 1);
-	clientfield::function_a8bbc967("hudItems.proximityAlarm", #"hud_items", #"proximityalarm", 1, 3, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.proximityAlarm", #"hud_items", #"proximityalarm", 1, 3, "int", undefined, 0, 0);
 	clientfield::register("missile", "friendlyequip", 1, 1, "int", &friendly_outline, 0, 1);
 	clientfield::register("scriptmover", "friendlyequip", 1, 1, "int", &friendly_outline, 0, 0);
 	level._effect[#"powerlight"] = #"weapon/fx8_equip_light_os";
 	if(getgametypesetting(#"hash_48670d9509071424") && 0)
 	{
-		level.var_58253868 = var_e6fe7a6f;
+		level.var_58253868 = friendly_rob;
 	}
 	if(isdefined(var_4885f19e))
 	{
@@ -301,7 +301,7 @@ function function_232f3acf(local_client_num, bundle)
 	{
 		return false;
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		if(function_5778f82(local_client_num, #"specialty_showenemyequipment") && is_true(self.var_f19b4afd))
 		{
@@ -333,8 +333,8 @@ function updateenemyequipment(local_client_num, newval)
 	if(codcaster::function_b8fe9b52(newval))
 	{
 		var_7eda7144 = (self codcaster::is_friendly(newval) ? #"friendly" : #"enemy");
-		var_c43ac0da = (self codcaster::is_friendly(newval) ? #"hash_2476e7ae62469f70" : #"hash_2476eaae6246a489");
-		self renderoverridebundle::function_c8d97b8e(newval, var_7eda7144, var_c43ac0da);
+		robkey = (self codcaster::is_friendly(newval) ? #"hash_2476e7ae62469f70" : #"hash_2476eaae6246a489");
+		self renderoverridebundle::function_c8d97b8e(newval, var_7eda7144, robkey);
 		return;
 	}
 	if(isdefined(level.var_58253868))

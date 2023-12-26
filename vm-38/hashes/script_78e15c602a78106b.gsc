@@ -1,10 +1,10 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_tungsten_zones.gsc;
 #using scripts\zm\zm_tungsten_pap_quest.gsc;
 #using script_4ce5d94e8c797350;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm\zm_tungsten_gamemodes.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
@@ -181,7 +181,7 @@ function function_5db5b22e(e_player)
 	{
 		if(!level flag::get("power_on"))
 		{
-			self sethintstring(#"hash_71158766520dc432");
+			self sethintstring(#"zombie/need_power");
 			return true;
 		}
 		if(level flag::get(#"hash_6ca7775f1a984c68"))
@@ -945,7 +945,7 @@ function function_f35a7c49(target)
 		}
 		bullet_target = self.var_b74bb962.origin + (anglestoforward(self.var_b74bb962.angles) * 2000);
 		magicbullet(level.var_9e7b0d9, self.var_b74bb962.origin, bullet_target + v_offset, self);
-		a_zombies = self function_bdda420f(target.origin, 70);
+		a_zombies = self getenemiesinradius(target.origin, 70);
 		foreach(zombie in a_zombies)
 		{
 			if(isalive(zombie) && zombie.var_6f84b820 === #"normal")

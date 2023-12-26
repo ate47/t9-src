@@ -1,4 +1,4 @@
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -81,7 +81,7 @@ function main()
 		level.allow_teamchange = 1;
 	}
 	setdvar(#"ui_allow_teamchange", level.allow_teamchange);
-	level.friendlyfire = getgametypesetting(#"hash_3f8f02e8109b6e93");
+	level.friendlyfire = getgametypesetting(#"zmfriendlyfiretype");
 	if(!isdefined(level.friendlyfire))
 	{
 		level.friendlyfire = 0;
@@ -152,7 +152,7 @@ function updateserversettings()
 		level.allowvote = g_allowvote;
 		setdvar(#"ui_allowvote", level.allowvote);
 	}
-	scr_friendlyfire = getgametypesetting(#"hash_3f8f02e8109b6e93");
+	scr_friendlyfire = getgametypesetting(#"zmfriendlyfiretype");
 	if(!isdefined(scr_friendlyfire))
 	{
 		scr_friendlyfire = 0;

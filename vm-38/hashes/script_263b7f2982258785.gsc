@@ -1,4 +1,4 @@
-#using script_43ca6411ae7bac76;
+#using scripts\core_common\ai\systems\face.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\scene_shared.gsc;
 #using scripts\core_common\sound_shared.gsc;

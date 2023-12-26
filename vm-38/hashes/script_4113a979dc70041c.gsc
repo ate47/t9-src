@@ -51,11 +51,11 @@ function function_70a657d8()
 	{
 		return;
 	}
-	var_39539c05 = zm_utility::function_e51dc2d8();
+	var_39539c05 = zm_utility::is_ee_enabled();
 	var_95613111 = #"hash_50cc93a10c9d2175";
 	var_a0ab1f0d = getgametypesetting(var_95613111);
 	/#
-		var_39539c05 = getdvarint(#"hash_2992299f853b2039", 0);
+		var_39539c05 = getdvarint(#"zm_ee_enabled", 0);
 		var_a0ab1f0d = 1;
 	#/
 	if(!var_39539c05 || !var_a0ab1f0d)
@@ -406,7 +406,7 @@ function private ambient_fx(localclientnum, oldval, newval, bnewent, binitialsna
 			}
 			else
 			{
-				self function_bf9d3071("rob_orda_dissolve_sr");
+				self playrenderoverridebundle("rob_orda_dissolve_sr");
 			}
 		}
 	}

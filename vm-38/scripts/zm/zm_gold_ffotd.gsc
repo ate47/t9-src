@@ -27,7 +27,7 @@ function private autoexec function_f2996c65()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_gold_ffotd", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_gold_ffotd", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -44,7 +44,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_gold_ffotd
 	Checksum: 0xC0C848AD
 	Offset: 0x230
@@ -52,7 +52,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	spawncollision("collision_clip_64x64x256", "collider", (-48885, -20837, 733), vectorscale((0, 1, 0), 112.398));
 	spawncollision("collision_clip_64x64x256", "collider", (-48849, -20837, 733), vectorscale((0, 1, 0), 69.199));

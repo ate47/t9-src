@@ -802,10 +802,10 @@ function function_a43c0d2c()
 	var_1246faee = (-49666.6, -55444, -25160.2);
 	var_2a88513c = (-49790, -55098, -25110.7);
 	walla = snd::play("emt_tkd_walla_plane_workers_lp", var_1246faee);
-	var_e497a49e = snd::play("emt_tkd_cargo_loading_vehicles_lp", var_2a88513c);
+	loaders = snd::play("emt_tkd_cargo_loading_vehicles_lp", var_2a88513c);
 	level waittill(#"hash_1e58e46360c0a83b");
 	snd::stop(walla, 1);
-	snd::stop(var_e497a49e, 1);
+	snd::stop(loaders, 1);
 	wait(1.1);
 	var_913d2991 = snd::play("emt_tkd_walla_runway_panic", var_1246faee);
 }

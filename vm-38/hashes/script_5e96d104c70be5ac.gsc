@@ -59,14 +59,14 @@ function private function_70a657d8()
 	telemetry::function_98df8818(#"hash_44873692d238cf3b", &function_3f08a12b);
 	telemetry::function_98df8818(#"hash_4481df211c9d18aa", &function_3b4b8944);
 	telemetry::function_98df8818(#"hash_27cccc0731de1722", &function_1f5722ec);
-	callback::function_7897dfe6(&function_7897dfe6);
+	callback::on_item_drop(&on_item_drop);
 	callback::on_item_pickup(&on_item_pickup);
 	callback::on_spawned(&on_player_spawned);
 	callback::add_callback(#"objective_started", &function_e38db3d4);
 	callback::add_callback(#"objective_ended", &function_f13d2749);
 	callback::add_callback(#"hash_276921163232533", &function_8a38be09);
 	callback::add_callback(#"hash_565739346fc951ae", &function_e89b1c3f);
-	telemetry::add_callback(#"hash_361e06db4b210e", &function_72c32279);
+	telemetry::add_callback(#"on_game_playing", &function_72c32279);
 	telemetry::add_callback(#"hash_3ca80e35288a78d0", &function_d519e318);
 	telemetry::add_callback(#"on_player_connect", &on_player_connect);
 	telemetry::add_callback(#"on_player_disconnect", &on_player_disconnect);
@@ -578,7 +578,7 @@ function private function_3f08a12b(data)
 	var_abb39438.wallbuy_weapon = data.weapon.statname;
 	var_abb39438.var_5067ed1f = hash(data.rarity);
 	var_abb39438.round_number = zm_utility::get_round_number();
-	var_abb39438.var_173cd713 = zm_utility::function_e3025ca5();
+	var_abb39438.star_level = zm_utility::function_e3025ca5();
 	data.purchaser function_678f57c8(#"hash_6fc06e3919c02137", var_abb39438);
 }
 
@@ -623,14 +623,14 @@ function private on_item_pickup(params)
 			var_a63abfbe.var_ae6a042c = item.var_a8bccf69;
 			var_a63abfbe.var_78a16b58 = item.aat;
 			var_a63abfbe.round_number = zm_utility::get_round_number();
-			var_a63abfbe.var_173cd713 = zm_utility::function_e3025ca5();
+			var_a63abfbe.star_level = zm_utility::function_e3025ca5();
 			params.player function_678f57c8(#"hash_1191dc74fe41b6a", var_a63abfbe);
 		}
 	}
 }
 
 /*
-	Name: function_7897dfe6
+	Name: on_item_drop
 	Namespace: namespace_8d0ae0b4
 	Checksum: 0xABCDC0B3
 	Offset: 0x3270
@@ -638,7 +638,7 @@ function private on_item_pickup(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_7897dfe6(params)
+function private on_item_drop(params)
 {
 	item = params.item;
 	weapon = namespace_a0d533d1::function_2b83d3ff(item);
@@ -667,7 +667,7 @@ function private function_7897dfe6(params)
 		var_a63abfbe.var_ae6a042c = item.var_a8bccf69;
 		var_a63abfbe.var_78a16b58 = item.aat;
 		var_a63abfbe.round_number = zm_utility::get_round_number();
-		var_a63abfbe.var_173cd713 = zm_utility::function_e3025ca5();
+		var_a63abfbe.star_level = zm_utility::function_e3025ca5();
 		if(isdefined(weapon.var_dc9b0289))
 		{
 			var_a63abfbe.duration_ms = gettime() - weapon.var_dc9b0289;

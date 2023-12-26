@@ -51,7 +51,7 @@ function private function_70a657d8()
 		level.abilities_devgui_add_gadgets_custom = &abilities_devgui_add_gadgets_custom;
 	#/
 	callback::on_spawned(&init_abilities);
-	clientfield::function_a8bbc967("playerAbilities.inRange", 1, 1, "int");
+	clientfield::register_clientuimodel("playerAbilities.inRange", 1, 1, "int");
 }
 
 /*

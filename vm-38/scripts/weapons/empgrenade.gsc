@@ -236,9 +236,9 @@ function checktoturnoffemp()
 	{
 		self.empgrenaded = 0;
 		shutdownemprebootindicatormenu();
-		if(isdefined(level.var_707cab08.enemyempactivefunc))
+		if(isdefined(level.emp_shared.enemyempactivefunc))
 		{
-			if(self [[level.var_707cab08.enemyempactivefunc]]())
+			if(self [[level.emp_shared.enemyempactivefunc]]())
 			{
 				return;
 			}

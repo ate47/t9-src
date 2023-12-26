@@ -30,7 +30,7 @@ function function_99652b58(name, index, team)
 	cameras = getentarray(0, index, "targetname");
 	if(cameras.size)
 	{
-		function_1d94550a(index, team, #"none", cameras[0].origin, cameras[0].angles);
+		addobjectivecamerapoint(index, team, #"none", cameras[0].origin, cameras[0].angles);
 	}
 }
 
@@ -48,7 +48,7 @@ function function_bb3bbc2c(name, index, team)
 	cameras = territory::get_struct_array(index, "targetname");
 	if(cameras.size)
 	{
-		function_1d94550a(index, team, #"none", cameras[0].origin, cameras[0].angles);
+		addobjectivecamerapoint(index, team, #"none", cameras[0].origin, cameras[0].angles);
 	}
 }
 

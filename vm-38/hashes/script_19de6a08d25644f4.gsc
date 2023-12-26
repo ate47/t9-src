@@ -1,4 +1,4 @@
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 
 #namespace namespace_297e5893;
 

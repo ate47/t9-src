@@ -82,12 +82,12 @@ function private function_70a657d8()
 		level.var_acd0f67e = 9;
 		setgametypesetting(#"hash_f3d3533f21841ae", 1);
 		level callback::add_callback(#"hash_3ca80e35288a78d0", &function_1f01cc3b);
-		callback::function_98a0917d(&function_98a0917d);
+		callback::on_game_playing(&on_game_playing);
 	}
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: namespace_85b89288
 	Checksum: 0xBC321B09
 	Offset: 0x558
@@ -95,7 +95,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: None
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	level thread function_c8fb4513();
 }

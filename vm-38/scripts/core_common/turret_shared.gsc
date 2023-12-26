@@ -1,7 +1,7 @@
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
-#using script_4a3f9b8905878272;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\archetype_cover_utility.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -2189,9 +2189,9 @@ function _init_turret(n_index)
 	{
 		s_turret.node = getnode(self.target, "targetname");
 	}
-	if(isdefined(w_weapon.var_41999ad2))
+	if(isdefined(w_weapon.aiturretanims))
 	{
-		s_turret.var_bf6d793d = getscriptbundle(w_weapon.var_41999ad2);
+		s_turret.var_bf6d793d = getscriptbundle(w_weapon.aiturretanims);
 	}
 	set_on_target_angle(1, n_index);
 	s_turret flag::init("turret manual");
@@ -2409,7 +2409,7 @@ function _index(n_index)
 function _get_best_target(n_index)
 {
 	e_best_target = undefined;
-	self util::function_c596f193();
+	self util::make_sentient();
 	switch(n_index)
 	{
 		case 0:
@@ -2524,7 +2524,7 @@ function trace_test(e_target, v_offset, n_index)
 	s_turret = _get_turret_data(n_index);
 	v_start_org = self gettagorigin(s_turret.str_tag_pivot);
 	v_target = (isvec(e_target) ? e_target : e_target.origin) + v_offset;
-	if(sessionmodeismultiplayergame() || function_f99d2668() && isplayer(e_target))
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame() && isplayer(e_target))
 	{
 		v_target = e_target getshootatpos();
 	}

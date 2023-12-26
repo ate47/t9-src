@@ -59,7 +59,7 @@ function private on_vehicle_spawned(localclientnum)
 	if(self.vehicletype === #"hash_d069dee6a0076c8")
 	{
 		self function_3f24c5a(1);
-		self.var_ba36f5d = &function_ba36f5d;
+		self.stunnedcallback = &stunnedcallback;
 		self function_1f0c7136(0);
 		self setanim("p9_fxanim_sv_payload_atv_static_anim");
 	}
@@ -224,7 +224,7 @@ function function_612a9925(localclientnum, oldval, newval, bnewent, binitialsnap
 }
 
 /*
-	Name: function_ba36f5d
+	Name: stunnedcallback
 	Namespace: namespace_fa1c4f0a
 	Checksum: 0x4C66E961
 	Offset: 0x1050
@@ -232,7 +232,7 @@ function function_612a9925(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 2
 	Flags: Linked
 */
-function function_ba36f5d(localclientnum, val)
+function stunnedcallback(localclientnum, val)
 {
 	self setstunned(val);
 }

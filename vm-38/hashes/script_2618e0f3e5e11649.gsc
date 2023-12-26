@@ -1324,9 +1324,9 @@ function function_fb4091d0(hotzone, &var_e1e8316f)
 	{
 		if(isalive(ai) && !is_true(ai.var_f3723430))
 		{
-			if(isdefined(level.var_7d45d0d4.var_3385b421) && distance2dsquared(ai.origin, level.var_7d45d0d4.var_3385b421.origin) <= sqr(2000))
+			if(isdefined(level.var_7d45d0d4.activeobjective) && distance2dsquared(ai.origin, level.var_7d45d0d4.activeobjective.origin) <= sqr(2000))
 			{
-				ai thread namespace_85745671::function_b7e28ade(level.var_7d45d0d4.var_3385b421.origin, 2000);
+				ai thread namespace_85745671::function_b7e28ade(level.var_7d45d0d4.activeobjective.origin, 2000);
 				continue;
 			}
 			ai.var_f3723430 = 1;

@@ -1,9 +1,9 @@
-#using script_18e21a7011416ce0;
+#using scripts\zm_common\zm_audio_sq.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_340a2e805e35f7a2;
 #using script_34ab99a4ca1a43d;
-#using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4108035fe400ce67;
 #using script_4ccfb58a9443a60b;
 #using script_5882f53c3e1f693f;
@@ -64,7 +64,7 @@ function private autoexec function_c073310()
 function init()
 {
 	init_clientfields();
-	function_ec9e5cf2();
+	init_quests();
 	/#
 		execdevgui("");
 		level thread function_4b06b46e();
@@ -73,7 +73,7 @@ function init()
 	setdvar(#"hash_186066f95083b691", 0);
 	setdvar(#"hash_195b99ea080e0f20", 0);
 	setdvar(#"hash_5dfa519a8cb95559", 0);
-	namespace_8f39dfb1::init();
+	zm_audio_sq::init();
 }
 
 /*
@@ -100,7 +100,7 @@ function init_clientfields()
 }
 
 /*
-	Name: function_ec9e5cf2
+	Name: init_quests
 	Namespace: namespace_45690bb8
 	Checksum: 0x6A056C8C
 	Offset: 0xC80
@@ -108,7 +108,7 @@ function init_clientfields()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ec9e5cf2()
+function init_quests()
 {
 	level zm_sq::register(#"hash_c4b3458de63120f", #"step_1", #"hash_c4b3458de63120f", &function_6dcf4b9f, &function_cf9f04);
 	level zm_sq::register(#"hash_5901f2453ffa0890", #"step_1", #"hash_5901f2453ffa0890", &function_8e848ba6, &function_e2ec7010);
@@ -1217,7 +1217,7 @@ function function_9ea6f403()
 					namespace_8b6a9d79::function_20d7e9c7(var_30cea8e0);
 					var_44292111 = array::random(var_30cea8e0.var_fe2612fe[#"hash_42043afbdf06011b"]);
 					s_portal = var_44292111.var_fe2612fe[#"hash_6bbb00324d163e11"][0];
-					var_60470a92 = namespace_8f74625a::function_9771c7db(s_portal.origin, #"hash_24c6cc74b974a7af");
+					var_60470a92 = item_supply_drop::function_9771c7db(s_portal.origin, #"hash_24c6cc74b974a7af");
 					level.var_8290e497 = 0;
 					var_60470a92 thread function_ed4fed04();
 					level.var_e5a3bba0 = level.round_number;
@@ -2482,7 +2482,7 @@ function function_2d90874d(var_a276c861)
 			v_angles = player getplayerangles();
 			if(util::within_fov(player getplayercamerapos(), v_angles, magic_box.origin, 0.55))
 			{
-				var_f2535f5c = player function_bdda420f(player.origin, 128);
+				var_f2535f5c = player getenemiesinradius(player.origin, 128);
 				if(isdefined(var_f2535f5c))
 				{
 					var_80320e3c = math::cointoss(50);

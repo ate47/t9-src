@@ -1,7 +1,7 @@
 #using script_3626f1b2cf51a99c;
 #using script_52da18c20f45c56a;
 #using script_5431e074c1428743;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using script_7d0013bbc05623b9;
 #using script_9bfd3d8a6a89e5e;
 #using scripts\core_common\animation_shared.gsc;

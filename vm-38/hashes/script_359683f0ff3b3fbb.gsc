@@ -114,7 +114,7 @@ class cprototype_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cprototype_hud
 		Checksum: 0x2A0EE71F
 		Offset: 0x890
@@ -122,9 +122,9 @@ class cprototype_hud : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("prototype_hud");
+		cLUIelem::register_clientside("prototype_hud");
 	}
 
 	/*
@@ -182,15 +182,15 @@ class cprototype_hud : cLUIelem
 	{
 		cLUIelem::setup_clientfields("prototype_hud");
 		cLUIelem::function_dcb34c80("string", "active_objective_string", 1);
-		cLUIelem::function_da693cbe("objective_prompt_visibility", 1, 1, "int", var_b5ae72b8);
-		cLUIelem::function_da693cbe("fanfare_visibility", 1, 1, "int", var_2b966169);
-		cLUIelem::function_da693cbe("fail_fanfare_visibility", 1, 1, "int", var_f16d8f66);
-		cLUIelem::function_da693cbe("new_obj_fanfare_visibility", 1, 1, "int", var_8b49b908);
+		cLUIelem::add_clientfield("objective_prompt_visibility", 1, 1, "int", var_b5ae72b8);
+		cLUIelem::add_clientfield("fanfare_visibility", 1, 1, "int", var_2b966169);
+		cLUIelem::add_clientfield("fail_fanfare_visibility", 1, 1, "int", var_f16d8f66);
+		cLUIelem::add_clientfield("new_obj_fanfare_visibility", 1, 1, "int", var_8b49b908);
 		cLUIelem::function_dcb34c80("string", "main_objective_string", 1);
-		cLUIelem::function_da693cbe("active_obj_visibility", 1, 1, "int", var_e16cbdb9);
-		cLUIelem::function_da693cbe("objective_retrieval", 1, 1, "int", var_ac373a00);
-		cLUIelem::function_da693cbe("active_objective_progress", 1, 6, "float", var_2bc363b1);
-		cLUIelem::function_da693cbe("active_obj_progress_visibility", 1, 1, "int", var_560b5364);
+		cLUIelem::add_clientfield("active_obj_visibility", 1, 1, "int", var_e16cbdb9);
+		cLUIelem::add_clientfield("objective_retrieval", 1, 1, "int", var_ac373a00);
+		cLUIelem::add_clientfield("active_objective_progress", 1, 6, "float", var_2bc363b1);
+		cLUIelem::add_clientfield("active_obj_progress_visibility", 1, 1, "int", var_560b5364);
 	}
 
 	/*
@@ -296,7 +296,7 @@ function register(var_532cdc1a, var_7a99f2e1, var_b5ae72b8, var_2b966169, var_f1
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: prototype_hud
 	Checksum: 0xCDFF1153
 	Offset: 0x3D0
@@ -304,10 +304,10 @@ function register(var_532cdc1a, var_7a99f2e1, var_b5ae72b8, var_2b966169, var_f1
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cprototype_hud();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

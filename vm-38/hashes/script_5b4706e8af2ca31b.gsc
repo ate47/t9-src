@@ -181,7 +181,7 @@ function function_c487f6c0(var_13bb8c94)
 	var_3d783ef7 function_95c6df5a();
 	hint = #"hash_4079b1df1f035718";
 	var_3d783ef7 sethintstring(hint);
-	var_3d783ef7 callback::function_35a12f19(&function_4945d10b);
+	var_3d783ef7 callback::on_trigger(&function_4945d10b);
 	return var_3d783ef7;
 }
 

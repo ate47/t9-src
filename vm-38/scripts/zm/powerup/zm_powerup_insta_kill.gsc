@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -88,7 +88,7 @@ function grab_insta_kill(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d7a1e6a8(var_7d81025, player)
+function function_d7a1e6a8(e_powerup, player)
 {
 	player notify(#"powerup instakill");
 	player endon(#"powerup instakill", #"disconnect");
@@ -101,9 +101,9 @@ function function_d7a1e6a8(var_7d81025, player)
 		n_wait_time = 30;
 	}
 	player thread zm_powerups::function_5091b029("insta_kill");
-	if(isdefined(player) && isplayer(player) && isdefined(var_7d81025.hint))
+	if(isdefined(player) && isplayer(player) && isdefined(e_powerup.hint))
 	{
-		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", var_7d81025.hint);
+		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", e_powerup.hint);
 	}
 	player zombie_utility::function_826f5e98(#"zombie_insta_kill", 1);
 	level waittilltimeout(n_wait_time, #"end_game");

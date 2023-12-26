@@ -47,7 +47,7 @@ class cvehicleturretoverheat : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class cvehicleturretoverheat : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,8 +76,8 @@ class cvehicleturretoverheat : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("VehicleTurretOverheat");
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
-		cLUIelem::function_da693cbe("bar_percent", 1, 6, "float", 0);
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("bar_percent", 1, 6, "float", 0);
 	}
 
 	/*

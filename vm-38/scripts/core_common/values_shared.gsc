@@ -88,7 +88,7 @@ function private function_70a657d8()
 	default_value("freezecontrols", 0);
 	register("freezecontrols_allowlook", 1, "$self", &freezecontrolsallowlook, "$value");
 	default_value("freezecontrols_allowlook", 0);
-	register("disablegadgets", 1, "$self", &function_cd5fec49, "$value");
+	register("disablegadgets", 1, "$self", &gadgetsdisabled, "$value");
 	default_value("disablegadgets", 0);
 	register("hide", 1, "$self", &set_hide, "$value");
 	default_value("hide", 0);
@@ -151,7 +151,7 @@ function private function_70a657d8()
 		validate("", "", &validate_takedamage);
 		validate("", "", &arecontrolsfrozen);
 		validate("", "", &function_5972c3cf);
-		validate("", "", &function_cd5fec49);
+		validate("", "", &gadgetsdisabled);
 		validate("", "", &ishidden);
 	#/
 }
@@ -1062,7 +1062,7 @@ function private set_disablegestures(b_value)
 	}
 	if(isplayer(self))
 	{
-		self.var_89b32012 = b_value;
+		self.disablegestures = b_value;
 	}
 }
 
@@ -1482,11 +1482,11 @@ function private display_value(index, str_name, str_id, value, b_valid, on_hud)
 		{
 			on_hud = 0;
 		}
-		if(function_7a600918(str_name))
+		if(ishash(str_name))
 		{
 			str_name = function_9e72a96(str_name);
 		}
-		if(function_7a600918(str_id))
+		if(ishash(str_id))
 		{
 			str_id = function_9e72a96(str_id);
 		}

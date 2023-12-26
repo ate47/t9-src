@@ -1503,9 +1503,9 @@ function private function_57edec18()
 		util::add_devgui("", "");
 		while(true)
 		{
-			if(getdvarint(#"hash_428eca4823d65134", 0))
+			if(getdvarint(#"scr_drone_camera", 0))
 			{
-				if(isdefined(level.var_6460e605))
+				if(isdefined(level.drone_camera))
 				{
 					waitframe(1);
 					continue;
@@ -1516,19 +1516,19 @@ function private function_57edec18()
 					waitframe(1);
 					continue;
 				}
-				var_6460e605 = spawnvehicle("", player.origin + vectorscale((0, 0, 1), 150), player.angles, "");
-				var_6460e605.ignoreme = 1;
-				var_6460e605 usevehicle(player, 0);
-				level.var_6460e605 = var_6460e605;
+				drone_camera = spawnvehicle("", player.origin + vectorscale((0, 0, 1), 150), player.angles, "");
+				drone_camera.ignoreme = 1;
+				drone_camera usevehicle(player, 0);
+				level.drone_camera = drone_camera;
 			}
-			else if(isdefined(level.var_6460e605))
+			else if(isdefined(level.drone_camera))
 			{
-				driver = level.var_6460e605 getseatoccupant(0);
+				driver = level.drone_camera getseatoccupant(0);
 				if(isdefined(driver))
 				{
 					driver unlink();
 				}
-				level.var_6460e605 delete();
+				level.drone_camera delete();
 			}
 			waitframe(1);
 		}

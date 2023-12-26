@@ -1,4 +1,4 @@
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_61828ad9e71c6616;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -53,7 +53,7 @@ function private function_70a657d8()
 	killstreak_detect::init_shared();
 	killstreakrules::init();
 	callback::on_start_gametype(&init);
-	callback::add_callback(#"hash_4e1a50a35ec44bcc", &on_menu_response);
+	callback::add_callback(#"menu_response", &on_menu_response);
 }
 
 /*
@@ -104,14 +104,14 @@ function private function_f1707039()
 	for(i = 0; i < 4; i++)
 	{
 		level.var_4b42d599[i] = ("killstreaks.killstreak" + i) + ".inUse";
-		clientfield::function_a8bbc967(level.var_4b42d599[i], 1, 1, "int");
+		clientfield::register_clientuimodel(level.var_4b42d599[i], 1, 1, "int");
 	}
 	level.var_46b33f90[i] = [];
 	level.var_173b8ed7 = max(8, 4);
 	for(i = 0; i < level.var_173b8ed7; i++)
 	{
 		level.var_46b33f90[i] = ("killstreaks.killstreak" + i) + ".spaceFull";
-		clientfield::function_a8bbc967(level.var_46b33f90[i], 1, 1, "int");
+		clientfield::register_clientuimodel(level.var_46b33f90[i], 1, 1, "int");
 	}
 }
 
@@ -186,7 +186,7 @@ function private on_menu_response(eventstruct)
 			if(1)
 			{
 				self give(killstreakbundle.var_d3413870);
-				self switchtoweapon(killstreakbundle.var_1ab696c6);
+				self switchtoweapon(killstreakbundle.ksweapon);
 			}
 		}
 	}

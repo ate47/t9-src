@@ -2,7 +2,7 @@
 #using scripts\zm_common\trials\zm_trial_reset_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\hud_util_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -95,7 +95,7 @@ function function_81558cdf(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_d7d24283(var_7d81025, player)
+function function_d7d24283(e_powerup, player)
 {
 	if(isdefined(level.check_player_is_ready_for_ammo))
 	{

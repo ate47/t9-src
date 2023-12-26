@@ -19,7 +19,7 @@ function private autoexec function_90a4c480()
 }
 
 /*
-	Name: function_ca9b286c
+	Name: codecallback_vehicleenter
 	Namespace: driving_fx
 	Checksum: 0x6E64FC67
 	Offset: 0x178
@@ -27,7 +27,7 @@ function private autoexec function_90a4c480()
 	Parameters: 1
 	Flags: Event
 */
-event function_ca9b286c(eventstruct)
+event codecallback_vehicleenter(eventstruct)
 {
 	if(!isplayer(self))
 	{
@@ -338,7 +338,7 @@ function function_73e08cca(surface)
 }
 
 /*
-	Name: function_5bc32dcd
+	Name: stop_postfx_on_exit
 	Namespace: driving_fx
 	Checksum: 0x387A86AA
 	Offset: 0xE50
@@ -346,7 +346,7 @@ function function_73e08cca(surface)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5bc32dcd(var_89ae88b4)
+function stop_postfx_on_exit(var_89ae88b4)
 {
 	self notify("stop_postfx_on_exit_" + var_89ae88b4);
 	self endon("stop_postfx_on_exit_" + var_89ae88b4);
@@ -380,7 +380,7 @@ function function_ace6c248(var_89ae88b4)
 	if(self.var_8e45c356[var_89ae88b4].exiting && !self postfx::function_556665f2(var_89ae88b4))
 	{
 		self postfx::playpostfxbundle(var_89ae88b4);
-		self thread function_5bc32dcd(var_89ae88b4);
+		self thread stop_postfx_on_exit(var_89ae88b4);
 		self.var_8e45c356[var_89ae88b4].exiting = 0;
 	}
 	self.var_8e45c356[var_89ae88b4].endtime = gettime() + 1000;

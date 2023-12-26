@@ -57,7 +57,7 @@ function private autoexec init()
 function on_player_disconnect()
 {
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
 			self thread function_fa5a5bfd();
 		}
@@ -115,13 +115,13 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 {
 	/#
 		/#
-			assert(function_7a600918(name), "");
+			assert(ishash(name), "");
 		#/
 		/#
-			assert(function_7a600918(step_name), "");
+			assert(ishash(step_name), "");
 		#/
 		/#
-			assert(function_7a600918(var_e788cdd7), "");
+			assert(ishash(var_e788cdd7), "");
 		#/
 		if(!isdefined(name))
 		{
@@ -159,7 +159,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 			}
 			return;
 		}
-		if(isdefined(self.var_ec84950b) && isdefined(self.var_ec84950b[name]) && isdefined(var_d6ca4caf) && isdefined(self.var_ec84950b[name].var_bd7d9ebf))
+		if(isdefined(self._ee) && isdefined(self._ee[name]) && isdefined(var_d6ca4caf) && isdefined(self._ee[name].record_stat))
 		{
 			if(getdvarint(#"hash_7919e37cd5d57659", 0))
 			{
@@ -169,31 +169,31 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 			return;
 		}
 	#/
-	if(!isdefined(self.var_ec84950b))
+	if(!isdefined(self._ee))
 	{
-		self.var_ec84950b = [];
+		self._ee = [];
 	}
-	if(!isdefined(self.var_ec84950b[name]))
+	if(!isdefined(self._ee[name]))
 	{
-		self.var_ec84950b[name] = {#skip_to_step:-1, #owner:self, #started:0, #current_step:0, #steps:[], #completed:0, #name:name};
+		self._ee[name] = {#skip_to_step:-1, #owner:self, #started:0, #current_step:0, #steps:[], #completed:0, #name:name};
 		/#
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				thread function_28aee167(name);
 			}
 		#/
 	}
-	ee = self.var_ec84950b[name];
-	if(!isdefined(ee.var_bd7d9ebf))
+	ee = self._ee[name];
+	if(!isdefined(ee.record_stat))
 	{
-		ee.var_bd7d9ebf = var_d6ca4caf;
+		ee.record_stat = var_d6ca4caf;
 	}
 	if(!isdefined(ee.var_35ccab99))
 	{
 		ee.var_35ccab99 = var_27465eb4;
 	}
 	new_step = {#str_objective_text:str_objective_text, #a_targets:a_targets, #hash_6cc77d4e:var_6cc77d4e, #hash_24e42ded:0, #completed:0, #started:0, #cleanup_func:cleanup_func, #setup_func:setup_func, #hash_e788cdd7:var_e788cdd7, #ee:ee, #name:step_name};
-	previous_step = ee.steps[self.var_ec84950b[name].steps.size - 1];
+	previous_step = ee.steps[self._ee[name].steps.size - 1];
 	if(isdefined(previous_step))
 	{
 		previous_step.next_step = new_step;
@@ -213,7 +213,7 @@ function register(name, step_name, var_e788cdd7, setup_func, cleanup_func, var_d
 		self flag::init(ee.name + "_completed");
 	}
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0))
+		if(getdvarint(#"zm_debug_ee", 0))
 		{
 			thread function_b3da1a16(ee.name, new_step.name);
 			thread devgui_think();
@@ -236,19 +236,19 @@ function start(name, var_9d8cf7f)
 	{
 		var_9d8cf7f = 0;
 	}
-	if(!zm_utility::function_e51dc2d8() && !var_9d8cf7f)
+	if(!zm_utility::is_ee_enabled() && !var_9d8cf7f)
 	{
 		return;
 	}
 	/#
-		assert(function_7a600918(name), "");
+		assert(ishash(name), "");
 	#/
 	/#
 		/#
-			assert(isdefined(self.var_ec84950b[name]), ("" + function_9e72a96(name)) + "");
+			assert(isdefined(self._ee[name]), ("" + function_9e72a96(name)) + "");
 		#/
 	#/
-	if(self.var_ec84950b[name].started)
+	if(self._ee[name].started)
 	{
 		/#
 			if(getdvarint(#"hash_7919e37cd5d57659", 0))
@@ -259,7 +259,7 @@ function start(name, var_9d8cf7f)
 		#/
 		return;
 	}
-	ee = self.var_ec84950b[name];
+	ee = self._ee[name];
 	var_5ea5c94d = 0;
 	/#
 		if(ee.skip_to_step > -1)
@@ -292,14 +292,14 @@ function start(name, var_9d8cf7f)
 function is_complete(name)
 {
 	/#
-		assert(function_7a600918(name), "");
+		assert(ishash(name), "");
 	#/
 	/#
 		/#
-			assert(isdefined(self.var_ec84950b[name]), ("" + function_9e72a96(name)) + "");
+			assert(isdefined(self._ee[name]), ("" + function_9e72a96(name)) + "");
 		#/
 	#/
-	return self.var_ec84950b[name].completed;
+	return self._ee[name].completed;
 }
 
 /*
@@ -314,15 +314,15 @@ function is_complete(name)
 function function_9212ff4d(ee_name, step_name)
 {
 	/#
-		assert(function_7a600918(ee_name), "");
+		assert(ishash(ee_name), "");
 	#/
 	/#
-		assert(function_7a600918(step_name), "");
+		assert(ishash(step_name), "");
 	#/
 	/#
-		assert(isdefined(self.var_ec84950b[ee_name]), ("" + ee_name) + "");
+		assert(isdefined(self._ee[ee_name]), ("" + ee_name) + "");
 	#/
-	foreach(ee_index, ee_step in self.var_ec84950b[ee_name].steps)
+	foreach(ee_index, ee_step in self._ee[ee_name].steps)
 	{
 		if(step_name == ee_step.name)
 		{
@@ -385,13 +385,13 @@ function private run_step(ee, step, var_5ea5c94d)
 			println((function_9e72a96(ee.name) + "") + function_9e72a96(step.name) + "");
 		}
 	#/
-	step.var_24e42ded = 1;
+	step.cleaned_up = 1;
 	if(game.state === #"postgame")
 	{
 		return;
 	}
 	self flag::set(step.var_e788cdd7 + "_completed");
-	if(ee.current_step === 0 && is_true(ee.var_bd7d9ebf))
+	if(ee.current_step === 0 && is_true(ee.record_stat))
 	{
 		if(var_4ef8d79b)
 		{
@@ -434,7 +434,7 @@ function private run_step(ee, step, var_5ea5c94d)
 	{
 		ee.completed = 1;
 		self flag::set(ee.name + "_completed");
-		if(sessionmodeisonlinegame() && is_true(ee.var_bd7d9ebf))
+		if(sessionmodeisonlinegame() && is_true(ee.record_stat))
 		{
 			players = [];
 			if(var_4ef8d79b)
@@ -449,9 +449,9 @@ function private run_step(ee, step, var_5ea5c94d)
 			{
 				if(is_true(player.var_897fa11b))
 				{
-					player zm_stats::set_map_stat(#"hash_4b00aa230ebbe82b", 1);
-					player zm_stats::function_a6efb963(#"hash_4b00aa230ebbe82b", 1);
-					player zm_stats::function_9288c79b(#"hash_4b00aa230ebbe82b", 1);
+					player zm_stats::set_map_stat(#"main_quest_completed", 1);
+					player zm_stats::function_a6efb963(#"main_quest_completed", 1);
+					player zm_stats::function_9288c79b(#"main_quest_completed", 1);
 					n_time_elapsed = gettime() - level.var_21e22beb;
 					player zm_stats::function_366b6fb9("FASTEST_QUEST_COMPLETION_TIME", n_time_elapsed);
 					player zm_stats::function_5addf1fc("FASTEST_QUEST_COMPLETION_TIME", n_time_elapsed);
@@ -462,7 +462,7 @@ function private run_step(ee, step, var_5ea5c94d)
 					}
 				}
 			}
-			zm_stats::function_42677837(#"hash_4b00aa230ebbe82b", 1);
+			zm_stats::set_match_stat(#"main_quest_completed", 1);
 			if(isdefined(level.var_3034d7b8))
 			{
 				[[level.var_3034d7b8]]();
@@ -1224,10 +1224,10 @@ function function_f09763fd(ee_name, step_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		/#
-			assert(isdefined(self.var_ec84950b[ee_name]), ("" + ee_name) + "");
+			assert(isdefined(self._ee[ee_name]), ("" + ee_name) + "");
 		#/
 		var_da601d7f = function_44e256d8(ee_name);
 		index = function_9212ff4d(ee_name, step_name);
@@ -1257,7 +1257,7 @@ function function_44e256d8(ee_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		owner = "";
 		if(isentity(self))
@@ -1282,16 +1282,16 @@ function function_28aee167(ee_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
-		var_1863e990 = function_44e256d8(ee_name);
+		ee_path = function_44e256d8(ee_name);
 		owner = "";
 		if(isentity(self))
 		{
 			owner = self getentitynumber();
 		}
 		util::waittill_can_add_debug_command();
-		adddebugcommand((((("" + var_1863e990) + "") + owner) + "") + function_9e72a96(ee_name) + "");
+		adddebugcommand((((("" + ee_path) + "") + owner) + "") + function_9e72a96(ee_name) + "");
 	#/
 }
 
@@ -1308,12 +1308,12 @@ function function_b3da1a16(ee_name, step_name)
 {
 	/#
 		/#
-			assert(function_7a600918(ee_name), "");
+			assert(ishash(ee_name), "");
 		#/
 		/#
-			assert(function_7a600918(step_name), "");
+			assert(ishash(step_name), "");
 		#/
-		var_e73bf583 = function_f09763fd(ee_name, step_name);
+		step_path = function_f09763fd(ee_name, step_name);
 		index = function_9212ff4d(ee_name, step_name);
 		owner = "";
 		if(isentity(self))
@@ -1321,8 +1321,8 @@ function function_b3da1a16(ee_name, step_name)
 			owner = self getentitynumber();
 		}
 		util::waittill_can_add_debug_command();
-		adddebugcommand((((((("" + var_e73bf583) + "") + owner) + "") + function_9e72a96(ee_name) + "") + index) + "");
-		adddebugcommand((((((("" + var_e73bf583) + "") + owner) + "") + function_9e72a96(ee_name) + "") + index) + "");
+		adddebugcommand((((((("" + step_path) + "") + owner) + "") + function_9e72a96(ee_name) + "") + index) + "");
+		adddebugcommand((((((("" + step_path) + "") + owner) + "") + function_9e72a96(ee_name) + "") + index) + "");
 	#/
 }
 
@@ -1338,7 +1338,7 @@ function function_b3da1a16(ee_name, step_name)
 function function_fa5a5bfd()
 {
 	/#
-		if(isdefined(self.var_ec84950b))
+		if(isdefined(self._ee))
 		{
 			playernum = self getentitynumber();
 			path = "" + playernum;
@@ -1360,13 +1360,13 @@ function function_fa5a5bfd()
 function function_87306f8a(ee_name, step_name)
 {
 	/#
-		ee = self.var_ec84950b[ee_name];
-		var_90adfb76 = function_9212ff4d(ee_name, step_name);
-		if(ee.started && var_90adfb76 <= ee.current_step)
+		ee = self._ee[ee_name];
+		step_index = function_9212ff4d(ee_name, step_name);
+		if(ee.started && step_index <= ee.current_step)
 		{
 			return false;
 		}
-		ee.skip_to_step = var_90adfb76;
+		ee.skip_to_step = step_index;
 		if(ee.started)
 		{
 			function_614612f(ee_name);
@@ -1391,7 +1391,7 @@ function function_87306f8a(ee_name, step_name)
 function function_614612f(ee_name)
 {
 	/#
-		ee = self.var_ec84950b[ee_name];
+		ee = self._ee[ee_name];
 		if(ee.started)
 		{
 			ee.steps[ee.current_step] notify(#"end_early");
@@ -1422,7 +1422,7 @@ function function_f2dd8601(ee_name, var_f2c264bb)
 			self endon(#"disconnect");
 		}
 		self endon(#"game_ended");
-		ee = self.var_ec84950b[ee_name];
+		ee = self._ee[ee_name];
 		step = ee.steps[var_f2c264bb];
 		if(function_87306f8a(ee_name, step.name))
 		{
@@ -1500,7 +1500,7 @@ function devgui_think()
 			{
 				case "skip_to":
 				{
-					ee = target.var_ec84950b[cmd[2]];
+					ee = target._ee[cmd[2]];
 					if(!isdefined(ee))
 					{
 						continue;
@@ -1539,7 +1539,7 @@ function devgui_think()
 				}
 				case "complete":
 				{
-					ee = target.var_ec84950b[cmd[2]];
+					ee = target._ee[cmd[2]];
 					if(!isdefined(ee))
 					{
 						continue;
@@ -1561,7 +1561,7 @@ function devgui_think()
 				}
 				case "start":
 				{
-					if(isdefined(target.var_ec84950b[cmd[2]]))
+					if(isdefined(target._ee[cmd[2]]))
 					{
 						target start(hash(cmd[2]));
 					}
@@ -1582,11 +1582,11 @@ function devgui_think()
 				}
 				case "outro":
 				{
-					if(cmd.size < 2 || !isdefined(target.var_ec84950b[cmd[2]]))
+					if(cmd.size < 2 || !isdefined(target._ee[cmd[2]]))
 					{
 						break;
 					}
-					ee = target.var_ec84950b[cmd[2]];
+					ee = target._ee[cmd[2]];
 					if(isdefined(ee))
 					{
 						target waittill(#"start_zombie_round_logic");
@@ -1640,7 +1640,7 @@ function function_5df75220()
 {
 	/#
 		current_y = 30;
-		foreach(ee in level.var_ec84950b)
+		foreach(ee in level._ee)
 		{
 			current_x = 30;
 			if(!isdefined(ee.debug_hudelem))
@@ -1650,7 +1650,7 @@ function function_5df75220()
 			ee.debug_hudelem settext(function_9e72a96(ee.name));
 			ee.debug_hudelem.fontscale = 1.5;
 			current_x = current_x + 5;
-			var_47db5536 = "";
+			step_string = "";
 			foreach(step in ee.steps)
 			{
 				current_y = current_y + 15;
@@ -1658,7 +1658,7 @@ function function_5df75220()
 				{
 					step.debug_hudelem = create_hudelem(current_y, current_x);
 				}
-				step.debug_hudelem settext(var_47db5536 + function_9e72a96(step.name));
+				step.debug_hudelem settext(step_string + function_9e72a96(step.name));
 				step.debug_hudelem.fontscale = 1.5;
 			}
 			current_y = current_y + 30;
@@ -1680,7 +1680,7 @@ function function_c1d3567c()
 {
 	/#
 		level notify(#"hash_21c0567b0010f696");
-		foreach(ee in level.var_ec84950b)
+		foreach(ee in level._ee)
 		{
 			if(isdefined(ee.debug_hudelem))
 			{
@@ -1716,7 +1716,7 @@ function function_9bee49bf()
 		while(true)
 		{
 			waitframe(1);
-			foreach(ee in level.var_ec84950b)
+			foreach(ee in level._ee)
 			{
 				ee.debug_hudelem.color = function_1091b2a0(ee);
 				foreach(step in ee.steps)

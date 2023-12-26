@@ -65,7 +65,7 @@ function private function_70a657d8()
 function private finalize()
 {
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -233,7 +233,7 @@ function private function_149da5dd()
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: namespace_1ab3fb7b
 	Checksum: 0xC7E09174
 	Offset: 0x870
@@ -241,7 +241,7 @@ function private function_149da5dd()
 	Parameters: 0
 	Flags: Private
 */
-function private function_2085db3b()
+function private init_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();

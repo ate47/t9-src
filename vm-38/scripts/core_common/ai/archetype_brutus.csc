@@ -1,15 +1,15 @@
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\footsteps_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
-#namespace namespace_72d82355;
+#namespace archetype_brutus;
 
 /*
 	Name: function_a9feea33
-	Namespace: namespace_72d82355
+	Namespace: archetype_brutus
 	Checksum: 0xC7FA14CE
 	Offset: 0x90
 	Size: 0x14
@@ -23,7 +23,7 @@ function private autoexec function_a9feea33()
 
 /*
 	Name: __init__system__
-	Namespace: namespace_72d82355
+	Namespace: archetype_brutus
 	Checksum: 0xD936EB8F
 	Offset: 0xB0
 	Size: 0x3C
@@ -37,7 +37,7 @@ function private autoexec __init__system__()
 
 /*
 	Name: precache
-	Namespace: namespace_72d82355
+	Namespace: archetype_brutus
 	Checksum: 0x80F724D1
 	Offset: 0xF8
 	Size: 0x4
@@ -50,7 +50,7 @@ function autoexec precache()
 
 /*
 	Name: function_70a657d8
-	Namespace: namespace_72d82355
+	Namespace: archetype_brutus
 	Checksum: 0x80F724D1
 	Offset: 0x108
 	Size: 0x4
@@ -63,7 +63,7 @@ function private function_70a657d8()
 
 /*
 	Name: function_6e2a738c
-	Namespace: namespace_72d82355
+	Namespace: archetype_brutus
 	Checksum: 0x1B397CBC
 	Offset: 0x118
 	Size: 0x2C

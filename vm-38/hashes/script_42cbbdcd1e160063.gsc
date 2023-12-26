@@ -1,4 +1,4 @@
-#using script_14d2d89964cae0b1;
+#using scripts\core_common\ai\systems\gib.csc;
 #using script_18910f59cc847b42;
 #using script_30c7fb449869910;
 #using script_3314b730521b9666;

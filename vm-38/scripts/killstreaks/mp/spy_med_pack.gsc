@@ -1,6 +1,6 @@
 #using scripts\core_common\item_inventory.gsc;
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_4108035fe400ce67;
 #using scripts\abilities\gadgets\gadget_health_regen.gsc;
 #using scripts\core_common\player\player_stats.gsc;
@@ -73,7 +73,7 @@ function private function_70a657d8()
 	level.var_40346f16 = &function_e6d37a78;
 	game.var_f39ffe9 = "med_pack_";
 	weaponobjects::function_e6400478(#"spy_med_pack", &function_2ee8eb59, 1);
-	deployable::function_2e088f73(level.var_c9404b0a.weapon, &function_4e22b9e6);
+	deployable::register_deployable(level.var_c9404b0a.weapon, &function_4e22b9e6);
 }
 
 /*
@@ -176,8 +176,8 @@ function function_cc39bcf1(watcher, owner)
 	self endon(#"death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, owner);
 	self hide();
-	self.var_52a68abf = 1;
-	self.var_24d0abd1 = 1;
+	self.canthack = 1;
+	self.ignoreemp = 1;
 	self.delete_on_death = 1;
 	if(!is_true(self.previouslyhacked))
 	{

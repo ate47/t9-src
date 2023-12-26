@@ -59,7 +59,7 @@ function private function_70a657d8()
 */
 function function_27473e44()
 {
-	zm_perks::register_perk_clientfields(#"hash_51b6cc6dbafb7f31", &function_37236662, &callback_func);
+	zm_perks::register_perk_clientfields(#"hash_51b6cc6dbafb7f31", &client_field_func, &callback_func);
 	zm_perks::register_perk_effects(#"hash_51b6cc6dbafb7f31", "elemental_pop_light");
 	zm_perks::register_perk_init_thread(#"hash_51b6cc6dbafb7f31", &init_perk);
 	zm_perks::function_f3c80d73("zombie_perk_bottle_elemental_pop");
@@ -88,7 +88,7 @@ function init_perk()
 }
 
 /*
-	Name: function_37236662
+	Name: client_field_func
 	Namespace: zm_perk_elemental_pop
 	Checksum: 0x3EEEAE33
 	Offset: 0x498
@@ -96,7 +96,7 @@ function init_perk()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37236662()
+function client_field_func()
 {
 	clientfield::register("scriptmover", "" + #"hash_2bc83061af453e44", 1, 1, "counter", &function_9717930f, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_12c6e46c315cd43b", 1, 1, "counter", &function_2d190a32, 0, 0);

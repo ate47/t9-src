@@ -59,7 +59,7 @@ function private function_70a657d8()
 	level.map_name = util::get_map_name();
 	level.var_73f51b52.var_49d3ced6 = getdvarint(#"hash_61fde65a22e1f290", 5);
 	telemetry::add_callback(#"on_start_gametype", &on_start_gametype);
-	telemetry::add_callback(#"hash_361e06db4b210e", &function_e2603d58);
+	telemetry::add_callback(#"on_game_playing", &function_e2603d58);
 	telemetry::add_callback(#"hash_3ca80e35288a78d0", &function_84b3ab79);
 	telemetry::add_callback(#"on_end_game", &function_a6efe6c9);
 	telemetry::add_callback(#"on_player_connect", &function_5a676b2c);
@@ -946,8 +946,8 @@ function function_2fda590d()
 */
 function on_round_end()
 {
-	var_48c6ec2e = function_d757edb5();
-	var_fb5fbbb8 = {#hash_c7a20fbb:function_1674a96a(var_48c6ec2e.var_c7a20fbb), #hash_9bfeafed:function_1674a96a(var_48c6ec2e.var_9bfeafed), #map_name:level.map_name, #game_type:level.gametype, #match_time:function_f8d53445(), #hash_77a9bf99:var_48c6ec2e.side, #result:function_3d01c1b3()};
+	round_info = function_d757edb5();
+	var_fb5fbbb8 = {#hash_c7a20fbb:function_1674a96a(round_info.var_c7a20fbb), #hash_9bfeafed:function_1674a96a(round_info.var_9bfeafed), #map_name:level.map_name, #game_type:level.gametype, #match_time:function_f8d53445(), #hash_77a9bf99:round_info.side, #result:function_3d01c1b3()};
 	function_92d1707f(#"hash_1d858c5e8f79303a", var_fb5fbbb8);
 }
 

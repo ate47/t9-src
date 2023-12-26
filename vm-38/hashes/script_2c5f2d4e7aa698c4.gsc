@@ -314,7 +314,7 @@ function function_b5557b14(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		case 7:
 		{
-			var_d5fa8477 = self namespace_4abf1500::function_2bcfd899(fieldname, #"hash_71c51f24f7f3037d", #"hash_38c50405421ca2a5");
+			var_d5fa8477 = self namespace_4abf1500::function_2bcfd899(fieldname, #"hash_71c51f24f7f3037d", #"audiolog");
 			str_model = namespace_4abf1500::function_12e3769(var_d5fa8477);
 			str_model = (isdefined(str_model) ? str_model : #"p9_sur_machine_computer_screen_no_play_prog");
 			/#

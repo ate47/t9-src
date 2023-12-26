@@ -65,7 +65,7 @@ function private function_70a657d8()
 */
 function function_27473e44()
 {
-	zm_perks::register_perk_clientfields(#"hash_17e4ae593eaf4a47", &function_37236662, &callback_func);
+	zm_perks::register_perk_clientfields(#"hash_17e4ae593eaf4a47", &client_field_func, &callback_func);
 	zm_perks::register_perk_effects(#"hash_17e4ae593eaf4a47", "mulekick_light");
 	zm_perks::register_perk_init_thread(#"hash_17e4ae593eaf4a47", &init_staminup);
 	zm_perks::function_f3c80d73("zombie_perk_bottle_mulekick");
@@ -89,7 +89,7 @@ function init_staminup()
 }
 
 /*
-	Name: function_37236662
+	Name: client_field_func
 	Namespace: zm_perk_mule_kick
 	Checksum: 0xA0B7147B
 	Offset: 0x318
@@ -97,7 +97,7 @@ function init_staminup()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37236662()
+function client_field_func()
 {
 	if(zm_utility::is_classic())
 	{
@@ -133,10 +133,10 @@ function mule_kick_machine_rob(localclientnum, oldval, newval, bnewent, binitial
 	self endon(#"death");
 	if(bwastimejump)
 	{
-		self function_bf9d3071(#"hash_7cb1e2c4664b70f9");
+		self playrenderoverridebundle(#"hash_7cb1e2c4664b70f9");
 		wait(1);
 		self function_f6e99a8d(#"hash_7cb1e2c4664b70f9");
-		self function_bf9d3071(#"hash_58b55b59b9a623b0");
+		self playrenderoverridebundle(#"hash_58b55b59b9a623b0");
 	}
 	else
 	{
@@ -174,9 +174,9 @@ function function_194b61fc()
 	self notify("5cfea970a8a3234a");
 	self endon("5cfea970a8a3234a");
 	self function_f6e99a8d(#"hash_58b55b59b9a623b0");
-	self function_bf9d3071(#"hash_3dd4beb993077560");
+	self playrenderoverridebundle(#"hash_3dd4beb993077560");
 	wait(9);
 	self function_f6e99a8d(#"hash_3dd4beb993077560");
-	self function_bf9d3071(#"hash_58b55b59b9a623b0");
+	self playrenderoverridebundle(#"hash_58b55b59b9a623b0");
 }
 

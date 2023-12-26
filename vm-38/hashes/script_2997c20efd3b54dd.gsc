@@ -139,7 +139,7 @@ function private function_8991ddb4(localclientnum)
 	}
 	if(isdefined(self.threat_sight.var_1911547e))
 	{
-		self.threat_sight.elem = stealth_meter_display::function_5c1bb138();
+		self.threat_sight.elem = stealth_meter_display::register_clientside();
 		if(!self.threat_sight.elem stealth_meter_display::is_open(localclientnum))
 		{
 			self.threat_sight.elem stealth_meter_display::open(localclientnum);

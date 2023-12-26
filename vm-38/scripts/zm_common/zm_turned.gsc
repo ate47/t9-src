@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -41,7 +41,7 @@ function private autoexec function_1090032()
 */
 function init()
 {
-	dvar = util::function_5df4294();
+	dvar = util::get_game_type();
 	if(dvar == "zcleansed")
 	{
 		level.weaponzmturnedmelee = getweapon(#"zombiemelee");

@@ -59,7 +59,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}
@@ -141,13 +141,13 @@ function register_challenge(name, var_3b7ba215, var_6993ecb4)
 */
 function function_a36e8c38(name)
 {
-	if(function_b47f6aba() && isdefined(level.var_3dd975d5))
+	if(is_trial_mode() && isdefined(level.var_3dd975d5))
 	{
-		foreach(var_789f05d3 in level.var_3dd975d5)
+		foreach(active_challenge in level.var_3dd975d5)
 		{
-			if(var_789f05d3.name == name)
+			if(active_challenge.name == name)
 			{
-				return var_789f05d3;
+				return active_challenge;
 			}
 		}
 	}
@@ -195,7 +195,7 @@ function function_48736df9(var_38f795c7)
 */
 function function_a1a9bd5d(name)
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return 0;
 	}
@@ -203,7 +203,7 @@ function function_a1a9bd5d(name)
 }
 
 /*
-	Name: function_b47f6aba
+	Name: is_trial_mode
 	Namespace: zm_trial
 	Checksum: 0xF9919FE1
 	Offset: 0x888
@@ -211,7 +211,7 @@ function function_a1a9bd5d(name)
 	Parameters: 0
 	Flags: Linked
 */
-function function_b47f6aba()
+function is_trial_mode()
 {
 	return zm_utility::is_trials();
 }
@@ -408,7 +408,7 @@ function fail(reason, var_eeb30248)
 	{
 		var_eeb30248 = undefined;
 	}
-	if(level flag::get("round_reset") || level flag::get(#"hash_6acab8bde7078239"))
+	if(level flag::get("round_reset") || level flag::get(#"trial_failed"))
 	{
 		return;
 	}
@@ -493,7 +493,7 @@ function function_361e2cb0()
 */
 function function_18b797ec()
 {
-	level flag::set(#"hash_6acab8bde7078239");
+	level flag::set(#"trial_failed");
 	level notify(#"end_round_think");
 	playsoundatposition(#"hash_24ecb9cb90a831b7", (0, 0, 0));
 	setmatchflag("disableIngameMenu", 1);
@@ -858,7 +858,7 @@ function private function_4dbf2663()
 	{
 		table = hash(("gamedata/tables/zm/") + util::get_map_name() + "_trials.csv");
 	}
-	var_a183f42b = tablelookupcolumncount(table);
+	column_count = tablelookupcolumncount(table);
 	var_e1617d73 = tablelookuprowcount(table);
 	row = 0;
 	while(row < var_e1617d73)
@@ -875,24 +875,24 @@ function private function_4dbf2663()
 			round = tablelookupcolumnforrow(table, row, 0);
 			if(row < var_e1617d73 && round != 0)
 			{
-				var_ef0a371f = round - 1;
-				if(!isdefined(var_6d87ac05.rounds[var_ef0a371f]))
+				round_index = round - 1;
+				if(!isdefined(var_6d87ac05.rounds[round_index]))
 				{
-					var_6d87ac05.rounds[var_ef0a371f] = {};
-					var_48c6ec2e = var_6d87ac05.rounds[var_ef0a371f];
-					var_48c6ec2e.name = tablelookupcolumnforrow(table, row, 1);
-					var_48c6ec2e.round = round;
-					var_48c6ec2e.name_str = tablelookupcolumnforrow(table, row, 2);
-					var_48c6ec2e.var_695d8fd1 = tablelookupcolumnforrow(table, row, 3);
-					var_48c6ec2e.challenges = [];
+					var_6d87ac05.rounds[round_index] = {};
+					round_info = var_6d87ac05.rounds[round_index];
+					round_info.name = tablelookupcolumnforrow(table, row, 1);
+					round_info.round = round;
+					round_info.name_str = tablelookupcolumnforrow(table, row, 2);
+					round_info.var_695d8fd1 = tablelookupcolumnforrow(table, row, 3);
+					round_info.challenges = [];
 				}
 				/#
-					assert(isdefined(var_6d87ac05.rounds[var_ef0a371f]));
+					assert(isdefined(var_6d87ac05.rounds[round_index]));
 				#/
-				var_48c6ec2e = var_6d87ac05.rounds[var_ef0a371f];
+				round_info = var_6d87ac05.rounds[round_index];
 				challenge_name = tablelookupcolumnforrow(table, row, 5);
 				var_10a28798 = [];
-				array::add(var_48c6ec2e.challenges, {#params:var_10a28798, #row:row, #name:challenge_name});
+				array::add(round_info.challenges, {#params:var_10a28798, #row:row, #name:challenge_name});
 				for(i = 0; i < 8; i++)
 				{
 					param = tablelookupcolumnforrow(table, row, 6 + i);
@@ -950,7 +950,7 @@ function private function_17b04fd7()
 */
 function function_74872db6()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}
@@ -963,11 +963,11 @@ function function_74872db6()
 	/#
 		assert(!isdefined(level.var_3dd975d5));
 	#/
-	var_ef0a371f = level.round_number - 1;
+	round_index = level.round_number - 1;
 	/#
-		assert(var_ef0a371f >= 0);
+		assert(round_index >= 0);
 	#/
-	if(var_ef0a371f >= level.var_6d87ac05.rounds.size)
+	if(round_index >= level.var_6d87ac05.rounds.size)
 	{
 		return;
 	}
@@ -980,7 +980,7 @@ function function_74872db6()
 	clientfield::set_world_uimodel("ZMHudGlobal.trials.failurePlayer", 0);
 	function_17b04fd7();
 	level.var_3dd975d5 = [];
-	level.var_d77a6967 = level.var_6d87ac05.rounds[var_ef0a371f];
+	level.var_d77a6967 = level.var_6d87ac05.rounds[round_index];
 	for(i = 0; i < level.var_d77a6967.challenges.size; i++)
 	{
 		challenge = level.var_d77a6967.challenges[i];
@@ -1011,7 +1011,7 @@ function function_74872db6()
 */
 function on_round_end()
 {
-	if(!function_b47f6aba())
+	if(!is_trial_mode())
 	{
 		return;
 	}

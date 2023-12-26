@@ -290,7 +290,7 @@ function function_19490940(eventstruct)
 	instance = self.struct.parent;
 	var_31919730 = self.struct.scriptmodel;
 	var_31919730 endon(#"death");
-	self callback::function_b74bf3e(&function_19490940);
+	self callback::remove_on_trigger(&function_19490940);
 	var_571f5454 = self.origin;
 	self.b_started = 1;
 	self setinvisibletoall();

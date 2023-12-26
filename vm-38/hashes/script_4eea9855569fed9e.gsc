@@ -47,7 +47,7 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,8 +76,8 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("cp_test_journalist1_uni_download_hack_luielem");
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
-		cLUIelem::function_da693cbe("download_progress", 1, 7, "float");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("download_progress", 1, 7, "float");
 	}
 
 	/*

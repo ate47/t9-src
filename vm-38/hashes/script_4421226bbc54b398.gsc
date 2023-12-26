@@ -1273,14 +1273,14 @@ function function_73cddc69(var_8e592166)
 		var_8e592166 = 0;
 	}
 	self zm_stats::increment_challenge_stat(#"hash_775bd6b063e325ff");
-	self contracts::function_5b88297d(#"hash_ddd05a3c6891d38");
+	self contracts::increment_zm_contract(#"hash_ddd05a3c6891d38");
 	if(is_true(level.var_92c52eed))
 	{
-		self contracts::function_5b88297d(#"hash_52d7aad059ba306a");
+		self contracts::increment_zm_contract(#"hash_52d7aad059ba306a");
 	}
 	else if(is_true(level.var_ce7af4fa))
 	{
-		self contracts::function_5b88297d(#"hash_5962be83752b7345");
+		self contracts::increment_zm_contract(#"hash_5962be83752b7345");
 	}
 	if(zm_utility::is_survival())
 	{
@@ -1535,7 +1535,7 @@ function function_868c9a6e()
 			{
 				if(strstartswith(str_command, ""))
 				{
-					str = function_ea13f55(str_command, "", "");
+					str = strreplace(str_command, "", "");
 					arr = strtok(str, "");
 					var_a4a3ca3a = arr[0];
 					amount = arr[1];

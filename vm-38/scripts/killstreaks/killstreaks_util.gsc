@@ -2,11 +2,11 @@
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;
 
-#namespace namespace_fbd7dbd0;
+#namespace killstreaks_util;
 
 /*
 	Name: function_d857d98c
-	Namespace: namespace_fbd7dbd0
+	Namespace: killstreaks_util
 	Checksum: 0xA3128C68
 	Offset: 0x110
 	Size: 0x14

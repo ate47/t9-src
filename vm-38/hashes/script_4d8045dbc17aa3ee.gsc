@@ -1796,8 +1796,8 @@ function function_61b604bf()
 				}
 				label = label + toks[i];
 			}
-			var_59ea00e = ("" + name) + "";
-			util::add_devgui(label, var_59ea00e);
+			cmdline = ("" + name) + "";
+			util::add_devgui(label, cmdline);
 		}
 		var_663588d = "";
 		foreach(def in level.doa.pickups.itemdefs)
@@ -1817,8 +1817,8 @@ function function_61b604bf()
 				}
 				label = label + toks[i];
 			}
-			var_59ea00e = ("" + name) + "";
-			util::add_devgui(label, var_59ea00e);
+			cmdline = ("" + name) + "";
+			util::add_devgui(label, cmdline);
 		}
 		var_663588d = "";
 		foreach(def in level.doa.pickups.itemdefs)
@@ -1838,8 +1838,8 @@ function function_61b604bf()
 				}
 				label = label + toks[i];
 			}
-			var_59ea00e = ("" + name) + "";
-			util::add_devgui(label, var_59ea00e);
+			cmdline = ("" + name) + "";
+			util::add_devgui(label, cmdline);
 		}
 	#/
 }

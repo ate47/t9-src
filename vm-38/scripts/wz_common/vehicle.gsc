@@ -102,7 +102,7 @@ function function_6bcb016d(params)
 	vehicle = self;
 	player = params.player;
 	seatindex = params.eventstruct.seat_index;
-	var_6747c7b8 = params.eventstruct.var_21911287;
+	oldseatindex = params.eventstruct.old_seat_index;
 	if(seatindex == 0)
 	{
 		callback::callback("on_driving_wz_vehicle", {#seatindex:seatindex, #player:self, #vehicle:vehicle});

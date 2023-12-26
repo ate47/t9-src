@@ -135,8 +135,8 @@ function init()
 			assert(room.player_starts.size == 4);
 		#/
 		var_663588d = "Zombietron/Debug/AutoTesting/BonusRoomSoak/";
-		var_59ea00e = ("scr_bonus_room_activate " + room.name) + "; zombie_devgui bonusroomsoak";
-		util::add_devgui(var_663588d + room.name, var_59ea00e);
+		cmdline = ("scr_bonus_room_activate " + room.name) + "; zombie_devgui bonusroomsoak";
+		util::add_devgui(var_663588d + room.name, cmdline);
 	}
 }
 
@@ -191,8 +191,8 @@ function function_85615bbb()
 	util::add_devgui(var_663588d + label, "zombie_devgui bonusTimeoutDisableToggle");
 	foreach(room in rooms)
 	{
-		var_59ea00e = ("scr_bonus_room_activate " + room.name) + "; zombie_devgui bonusroom";
-		util::add_devgui(var_663588d + room.name, var_59ea00e);
+		cmdline = ("scr_bonus_room_activate " + room.name) + "; zombie_devgui bonusroom";
+		util::add_devgui(var_663588d + room.name, cmdline);
 	}
 }
 
@@ -1391,7 +1391,7 @@ function function_170eefc7(room, aicount)
 */
 function function_f11b0e51()
 {
-	self.var_42abd8e = self.var_42abd8e || is_true(self.var_d55f22cb);
+	self.shouldspawn = self.shouldspawn || is_true(self.var_d55f22cb);
 	self.var_227e7c79 = 1;
 	self.maxhealth = 1000;
 	self.health = self.maxhealth;

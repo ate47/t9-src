@@ -1,6 +1,6 @@
 #using script_22caeaa9257194b8;
 #using script_7cc5fb39b97494c4;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

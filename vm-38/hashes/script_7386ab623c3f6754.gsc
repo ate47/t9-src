@@ -1,6 +1,6 @@
 #using script_176597095ddfaa17;
 #using script_24c32478acf44108;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_62caa307a394c18c;
 #using script_72401f526ba71638;
 #using scripts\weapons\deployable.gsc;
@@ -78,12 +78,12 @@ function private function_70a657d8()
 	weaponobjects::function_e6400478(#"hash_7a071d09cf16c894", &function_464ccb73, 1);
 	weaponobjects::function_e6400478(#"hash_7a071c09cf16c6e1", &function_464ccb73, 1);
 	weaponobjects::function_e6400478(#"hash_7a071b09cf16c52e", &function_464ccb73, 1);
-	deployable::function_2e088f73(getweapon(#"hash_5d6f444e983b62ca"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
-	deployable::function_2e088f73(getweapon(#"hash_7a071f09cf16cbfa"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
-	deployable::function_2e088f73(getweapon(#"hash_7a071e09cf16ca47"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
-	deployable::function_2e088f73(getweapon(#"hash_7a071d09cf16c894"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
-	deployable::function_2e088f73(getweapon(#"hash_7a071c09cf16c6e1"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
-	deployable::function_2e088f73(getweapon(#"hash_7a071b09cf16c52e"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
+	deployable::register_deployable(getweapon(#"hash_5d6f444e983b62ca"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
+	deployable::register_deployable(getweapon(#"hash_7a071f09cf16cbfa"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
+	deployable::register_deployable(getweapon(#"hash_7a071e09cf16ca47"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
+	deployable::register_deployable(getweapon(#"hash_7a071d09cf16c894"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
+	deployable::register_deployable(getweapon(#"hash_7a071c09cf16c6e1"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
+	deployable::register_deployable(getweapon(#"hash_7a071b09cf16c52e"), &function_c355b189, &function_c66c2af4, undefined, #"hash_37605398dce96965", 1);
 	callback::add_callback(#"hash_6dc96d04d1ba7f5a", &function_2ca4337c);
 	namespace_9ff9f642::register_slowdown(#"hash_5d6f444e983b62ca", 0.6, 3);
 	namespace_9ff9f642::register_slowdown(#"hash_7a071f09cf16cbfa", 0.6, 3);
@@ -111,11 +111,11 @@ function private function_70a657d8()
 	zombie_utility::add_zombie_gib_weapon_callback(#"hash_7a071c09cf16c6e1", &function_b70cf4bf, &function_b70cf4bf);
 	zombie_utility::add_zombie_gib_weapon_callback(#"hash_7a071b09cf16c52e", &function_b70cf4bf, &function_b70cf4bf);
 	callback::on_ai_killed(&on_ai_killed);
-	callback::add_callback(#"hash_137b937fd26992be", &function_6fa41b21);
+	callback::add_callback(#"on_host_migration_end", &on_host_migration_end);
 }
 
 /*
-	Name: function_6fa41b21
+	Name: on_host_migration_end
 	Namespace: namespace_bf2d4e77
 	Checksum: 0xA6EDCEF2
 	Offset: 0xE20
@@ -123,7 +123,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_6fa41b21(params)
+function private on_host_migration_end(params)
 {
 	if(isarray(level.var_c23218c7))
 	{
@@ -146,7 +146,7 @@ function private function_6fa41b21(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_b70cf4bf(var_1ca047d8)
+function private function_b70cf4bf(n_damage_percent)
 {
 	return false;
 }
@@ -278,7 +278,7 @@ function function_c355b189(origin, angles, player)
 	}
 	if(zm_utility::is_survival())
 	{
-		if(level.var_7d45d0d4.var_3385b421.content_script_name === "holdout" && isdefined(level.var_e6689780) || is_true(player.var_41c16555))
+		if(level.var_7d45d0d4.activeobjective.content_script_name === "holdout" && isdefined(level.var_e6689780) || is_true(player.var_41c16555))
 		{
 			if(!ispointonnavmesh(angles, 8))
 			{
@@ -385,7 +385,7 @@ function function_27f93038(watcher, owner)
 	self.trigger.var_f968837d = self;
 	self.trigger.var_deb3e8b1 = self.var_deb3e8b1;
 	self.health = 1000;
-	self.trigger callback::function_35a12f19(&function_ae618f2b);
+	self.trigger callback::on_trigger(&function_ae618f2b);
 	/#
 		self thread function_56133646();
 	#/

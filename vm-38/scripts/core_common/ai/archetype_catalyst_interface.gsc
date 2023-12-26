@@ -1,11 +1,11 @@
-#using script_59f07c660e6710a5;
-#using script_bd2b8aaa388dcce;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\zombie.gsc;
 
-#namespace namespace_b8eebfe5;
+#namespace archetype_catalyst_interface;
 
 /*
 	Name: function_babd9b9b
-	Namespace: namespace_b8eebfe5
+	Namespace: archetype_catalyst_interface
 	Checksum: 0xAF657B15
 	Offset: 0x88
 	Size: 0x14

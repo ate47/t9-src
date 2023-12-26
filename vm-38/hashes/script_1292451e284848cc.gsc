@@ -86,7 +86,7 @@ function function_7db65a93(msg, players)
 function function_a74b8be1(msg, players)
 {
 	waitforplayers();
-	var_9077d19c = isstring(players) && players.size > 0 || function_7a600918(players);
+	var_9077d19c = isstring(players) && players.size > 0 || ishash(players);
 	if(function_81fac19d(!var_9077d19c, "snd_client_msg must be a string or hash"))
 	{
 		return;
@@ -95,7 +95,7 @@ function function_a74b8be1(msg, players)
 		assert(var_9077d19c);
 	#/
 	state = "";
-	if(function_7a600918(players))
+	if(ishash(players))
 	{
 		state = "# " + players;
 	}
@@ -464,7 +464,7 @@ function function_2dde45d9(var_afe43979, soundalias, var_99e65ecf, delaytime)
 	{
 		var_99e65ecf = var_fe3be304;
 	}
-	if(snd::function_4e1ee82e() == 0)
+	if(snd::did_init() == 0)
 	{
 		var_cd7344db = !isdefined(delaytime) || (snd::isnumber(delaytime) && delaytime == 0);
 		if(snd::function_81fac19d(var_cd7344db, "snd: delayed due to first frame!"))

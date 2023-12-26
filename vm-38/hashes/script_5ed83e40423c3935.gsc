@@ -72,7 +72,7 @@ class cwz_revive_prompt : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cwz_revive_prompt
 		Checksum: 0xBE69C0AD
 		Offset: 0x558
@@ -80,9 +80,9 @@ class cwz_revive_prompt : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("wz_revive_prompt");
+		cLUIelem::register_clientside("wz_revive_prompt");
 	}
 
 	/*
@@ -97,10 +97,10 @@ class cwz_revive_prompt : cLUIelem
 	function setup_clientfields(var_c05c67e2, var_afaddf7a, var_d65e5a18, var_f228b5fa, var_7cb8f98a, var_bda3bf84)
 	{
 		cLUIelem::setup_clientfields("wz_revive_prompt");
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int", var_d65e5a18);
-		cLUIelem::function_da693cbe("progress", 1, 5, "float", var_f228b5fa);
-		cLUIelem::function_da693cbe("reviveProgress", 1, 5, "float", var_7cb8f98a);
-		cLUIelem::function_da693cbe("cowardsWay", 1, 1, "int", var_bda3bf84);
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int", var_d65e5a18);
+		cLUIelem::add_clientfield("progress", 1, 5, "float", var_f228b5fa);
+		cLUIelem::add_clientfield("reviveProgress", 1, 5, "float", var_7cb8f98a);
+		cLUIelem::add_clientfield("cowardsWay", 1, 1, "int", var_bda3bf84);
 	}
 
 	/*
@@ -200,7 +200,7 @@ function register(var_c05c67e2, var_afaddf7a, var_d65e5a18, var_f228b5fa, var_7c
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: wz_revive_prompt
 	Checksum: 0xE3989488
 	Offset: 0x2C8
@@ -208,10 +208,10 @@ function register(var_c05c67e2, var_afaddf7a, var_d65e5a18, var_f228b5fa, var_7c
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cwz_revive_prompt();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

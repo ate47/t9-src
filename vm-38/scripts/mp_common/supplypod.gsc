@@ -2,7 +2,7 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
 #using scripts\abilities\ability_player.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\deployable.gsc;
@@ -74,13 +74,13 @@ function private function_70a657d8()
 	level.var_934fb97.var_d741a6a4 = [];
 	level.var_934fb97.bundle = getscriptbundle("killstreak_supplypod");
 	level.var_934fb97.weapon = getweapon("gadget_supplypod");
-	level.var_934fb97.var_ff101fac = getweapon(#"hash_3b38033eca0a3bdd");
+	level.var_934fb97.var_ff101fac = getweapon(#"supplypod_catch");
 	level.var_dc8edcba = &function_827486aa;
 	level.var_49ef5263 = &function_49ef5263;
-	level.var_1e64d41 = &function_1e64d41;
+	level.hintobjectivehint_updat = &hintobjectivehint_updat;
 	setupcallbacks();
 	setupclientfields();
-	deployable::function_2e088f73(level.var_934fb97.weapon, &function_1f8cd247);
+	deployable::register_deployable(level.var_934fb97.weapon, &function_1f8cd247);
 	globallogic_score::function_5a241bd8(level.var_934fb97.weapon, &function_92856c6);
 	globallogic_score::function_c1e9b86b(level.var_934fb97.weapon, &function_8d653231);
 }
@@ -119,7 +119,7 @@ function function_127fb8f3(supplypod, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_86e3d17a]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0) > 0)
 		{
-			attackingplayer notify(#"hash_602ae7ca650d6287");
+			attackingplayer notify(#"cancel_timeout");
 			attackingplayer thread weaponobjects::weapon_object_timeout(attackingplayer.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
@@ -168,7 +168,7 @@ function function_bff5c062(supplypod, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			supplypod.var_2d045452 notify(#"hash_602ae7ca650d6287");
+			supplypod.var_2d045452 notify(#"cancel_timeout");
 			if(isdefined(original_owner))
 			{
 				watcher = original_owner weaponobjects::getweaponobjectwatcherbyweapon(supplypod.var_2d045452.weapon);
@@ -246,7 +246,7 @@ function function_49ef5263()
 }
 
 /*
-	Name: function_1e64d41
+	Name: hintobjectivehint_updat
 	Namespace: supplypod
 	Checksum: 0x694C8E5B
 	Offset: 0xC68
@@ -254,7 +254,7 @@ function function_49ef5263()
 	Parameters: 1
 	Flags: Linked
 */
-function function_1e64d41(weapon)
+function hintobjectivehint_updat(weapon)
 {
 	if(!isdefined(self) || !isplayer(self) || !self function_49ef5263() || !isdefined(weapon) || weapon.name != "launcher_standard_t8")
 	{
@@ -326,7 +326,7 @@ function function_8d653231(params)
 function function_f579e72b(watcher)
 {
 	watcher.watchforfire = 1;
-	watcher.onspawn = &function_37a2d89d;
+	watcher.onspawn = &supplypod_spawned;
 	watcher.timeout = float(level.var_934fb97.bundle.ksduration) / 1000;
 	watcher.ontimeout = &function_7c0d095c;
 	watcher.var_994b472b = &function_f7d9ebce;
@@ -371,7 +371,7 @@ function function_7c0d095c()
 }
 
 /*
-	Name: function_37a2d89d
+	Name: supplypod_spawned
 	Namespace: supplypod
 	Checksum: 0x5591276D
 	Offset: 0x10C0
@@ -379,13 +379,13 @@ function function_7c0d095c()
 	Parameters: 2
 	Flags: Linked
 */
-function function_37a2d89d(watcher, owner)
+function supplypod_spawned(watcher, owner)
 {
 	self endon(#"death");
 	self thread weaponobjects::onspawnuseweaponobject(watcher, owner);
 	self hide();
-	self.var_52a68abf = 1;
-	self.var_24d0abd1 = 1;
+	self.canthack = 1;
+	self.ignoreemp = 1;
 	self.delete_on_death = 1;
 	if(!is_true(self.previouslyhacked))
 	{
@@ -493,7 +493,7 @@ function setupclientfields()
 */
 function private setupcallbacks()
 {
-	ability_player::register_gadget_activation_callbacks(35, &function_8524b3c5, &function_f4255c84);
+	ability_player::register_gadget_activation_callbacks(35, &supplypod_on, &supplypod_off);
 	callback::on_spawned(&on_player_spawned);
 	weaponobjects::function_e6400478(#"gadget_supplypod", &function_f579e72b, 1);
 }
@@ -512,8 +512,8 @@ function on_player_spawned()
 	player = self;
 	player.var_2383a10c = [];
 	self function_46d74bb7(0);
-	var_8d33d79 = isdefined(player.var_29fdd9dd) && player.team != player.var_29fdd9dd;
-	if((isdefined(player.var_228b6835) ? player.var_228b6835 : 0) || var_8d33d79 || (isdefined(level.var_934fb97.bundle.var_18ede0bb) ? level.var_934fb97.bundle.var_18ede0bb : 0))
+	changedteam = isdefined(player.var_29fdd9dd) && player.team != player.var_29fdd9dd;
+	if((isdefined(player.var_228b6835) ? player.var_228b6835 : 0) || changedteam || (isdefined(level.var_934fb97.bundle.var_18ede0bb) ? level.var_934fb97.bundle.var_18ede0bb : 0))
 	{
 		player.var_17d74a5c = undefined;
 		player.var_29fdd9dd = undefined;
@@ -588,7 +588,7 @@ function function_46d74bb7(var_70150641)
 }
 
 /*
-	Name: function_8524b3c5
+	Name: supplypod_on
 	Namespace: supplypod
 	Checksum: 0xC2F8215E
 	Offset: 0x1978
@@ -596,7 +596,7 @@ function function_46d74bb7(var_70150641)
 	Parameters: 2
 	Flags: Linked
 */
-function function_8524b3c5(slot, playerweapon)
+function supplypod_on(slot, playerweapon)
 {
 	/#
 		assert(isplayer(self));
@@ -605,7 +605,7 @@ function function_8524b3c5(slot, playerweapon)
 }
 
 /*
-	Name: function_f4255c84
+	Name: supplypod_off
 	Namespace: supplypod
 	Checksum: 0xB62A4958
 	Offset: 0x19E8
@@ -613,7 +613,7 @@ function function_8524b3c5(slot, playerweapon)
 	Parameters: 2
 	Flags: Linked
 */
-function function_f4255c84(slot, weapon)
+function supplypod_off(slot, weapon)
 {
 }
 
@@ -789,7 +789,7 @@ function function_9d4aabb9(var_d3213f00)
 		self.var_2d045452 delete();
 	}
 	self stoploopsound();
-	self notify(#"hash_6d5130f90f39295e");
+	self notify(#"supplypod_removed");
 	self deletedelay();
 }
 
@@ -807,7 +807,7 @@ function private function_5761966a(supplypod)
 	player = self;
 	player endon(#"disconnect");
 	level endon(#"game_ended");
-	supplypod endon(#"hash_6d5130f90f39295e");
+	supplypod endon(#"supplypod_removed");
 	if(!isdefined(supplypod.var_7b7607df[player.clientid]))
 	{
 		return;
@@ -953,7 +953,7 @@ function function_8d362deb(einflictor, attacker, idamage, idflags, smeansofdeath
 function function_438ca4e0()
 {
 	supplypod = self;
-	supplypod endon(#"hash_6d5130f90f39295e", #"death");
+	supplypod endon(#"supplypod_removed", #"death");
 	level waittill(#"game_ended");
 	if(!isdefined(self))
 	{
@@ -1145,7 +1145,7 @@ function private function_a1434496(team, player, result, var_d862c76d)
 			if(supplypod.owner != player && !var_8a0724f7)
 			{
 				scoreevents::processscoreevent(#"hash_69dbfbd660f8c53e", supplypod.owner, undefined, level.var_934fb97.weapon);
-				supplypod.owner contracts::function_a54e2068(#"hash_67f98344b931e7ff");
+				supplypod.owner contracts::increment_contract(#"hash_67f98344b931e7ff");
 				supplypod.owner stats::function_dad108fa(#"hash_3d7d26fa33ba6f97", 1);
 			}
 			supplypod.owner battlechatter::function_fc82b10(level.var_934fb97.weapon, self.origin, self);
@@ -1415,8 +1415,8 @@ function function_bcf0dd99()
 	foreach(weapon in primary_weapons)
 	{
 		var_831b3584 = player getweaponammostock(weapon);
-		var_6e175b4f = (isdefined(getgametypesetting(#"hash_1441f7ad44e1cfd4")) ? getgametypesetting(#"hash_1441f7ad44e1cfd4") : 0) * weapon.clipsize;
-		player setweaponammostock(weapon, int(var_831b3584 + var_6e175b4f));
+		bonusammo = (isdefined(getgametypesetting(#"hash_1441f7ad44e1cfd4")) ? getgametypesetting(#"hash_1441f7ad44e1cfd4") : 0) * weapon.clipsize;
+		player setweaponammostock(weapon, int(var_831b3584 + bonusammo));
 	}
 	player function_3ea286();
 }
@@ -1433,12 +1433,12 @@ function function_bcf0dd99()
 function function_b8a25634(owner)
 {
 	player = self;
-	var_ab282d2a[0] = level.var_934fb97.bundle.var_b9443d6b;
-	var_ab282d2a[1] = level.var_934fb97.bundle.var_ea340924;
-	var_ab282d2a[2] = level.var_934fb97.bundle.var_ff3d4d40;
+	cooldowns[0] = level.var_934fb97.bundle.var_b9443d6b;
+	cooldowns[1] = level.var_934fb97.bundle.var_ea340924;
+	cooldowns[2] = level.var_934fb97.bundle.var_ff3d4d40;
 	for(slot = 0; slot < 3; slot++)
 	{
-		if(!isdefined(var_ab282d2a[slot]))
+		if(!isdefined(cooldowns[slot]))
 		{
 			continue;
 		}

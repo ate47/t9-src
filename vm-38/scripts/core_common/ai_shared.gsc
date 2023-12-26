@@ -1,5 +1,5 @@
-#using script_4c5c4a64a59247a2;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\shared.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\colors_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -793,7 +793,7 @@ function _force_goal(s_tracker, goto, b_shoot, str_end_on, b_keep_colors, b_shou
 	grenadeawareness = self.grenadeawareness;
 	if(!b_shoot)
 	{
-		self val::set(#"hash_6bc9266ffa66387c", "ignoreall", 1);
+		self val::set(#"ai_forcegoal", "ignoreall", 1);
 	}
 	else if(self has_behavior_attribute("move_mode"))
 	{
@@ -806,11 +806,11 @@ function _force_goal(s_tracker, goto, b_shoot, str_end_on, b_keep_colors, b_shou
 	}
 	self.ignoresuppression = 1;
 	self.grenadeawareness = 0;
-	self val::set(#"hash_6bc9266ffa66387c", "ignoreme", 1);
+	self val::set(#"ai_forcegoal", "ignoreme", 1);
 	self disable_pain();
 	if(!isplayer(self))
 	{
-		self val::set(#"hash_6bc9266ffa66387c", "push_player", 1);
+		self val::set(#"ai_forcegoal", "push_player", 1);
 	}
 	if(isdefined(goto))
 	{
@@ -824,11 +824,11 @@ function _force_goal(s_tracker, goto, b_shoot, str_end_on, b_keep_colors, b_shou
 	}
 	if(!isplayer(self))
 	{
-		self val::reset(#"hash_6bc9266ffa66387c", "push_player");
+		self val::reset(#"ai_forcegoal", "push_player");
 	}
 	self clearforcedgoal();
-	self val::reset(#"hash_6bc9266ffa66387c", "ignoreme");
-	self val::reset(#"hash_6bc9266ffa66387c", "ignoreall");
+	self val::reset(#"ai_forcegoal", "ignoreme");
+	self val::reset(#"ai_forcegoal", "ignoreall");
 	if(is_true(allowpain))
 	{
 		self enable_pain();
@@ -1113,7 +1113,7 @@ function function_1628d95b(cansee, var_9a21f98d, var_2dd9c403)
 		var_2dd9c403 = self.origin;
 	}
 	var_56203bf4 = function_4d8c71ce(util::get_enemy_team(self.team), #"team3");
-	var_c719c76b = undefined;
+	nearesttarget = undefined;
 	var_46e1d165 = undefined;
 	foreach(target in var_56203bf4)
 	{
@@ -1137,13 +1137,13 @@ function function_1628d95b(cansee, var_9a21f98d, var_2dd9c403)
 			}
 		}
 		distsq = distancesquared(var_2dd9c403, target.origin);
-		if(!isdefined(var_c719c76b) || distsq < var_46e1d165)
+		if(!isdefined(nearesttarget) || distsq < var_46e1d165)
 		{
-			var_c719c76b = target;
+			nearesttarget = target;
 			var_46e1d165 = distsq;
 		}
 	}
-	return var_c719c76b;
+	return nearesttarget;
 }
 
 /*
@@ -1274,7 +1274,7 @@ function is_stunned()
 }
 
 /*
-	Name: function_62795e55
+	Name: clear_stun
 	Namespace: ai
 	Checksum: 0xDDE824D9
 	Offset: 0x2B58
@@ -1282,7 +1282,7 @@ function is_stunned()
 	Parameters: 0
 	Flags: Linked
 */
-function function_62795e55()
+function clear_stun()
 {
 	self.var_3d461e6f = undefined;
 }
@@ -1300,9 +1300,9 @@ function function_9139c839()
 {
 	if(!isdefined(self.var_76167463))
 	{
-		if(isdefined(self.var_ae8ec545))
+		if(isdefined(self.aisettingsbundle))
 		{
-			settingsbundle = self.var_ae8ec545;
+			settingsbundle = self.aisettingsbundle;
 		}
 		else
 		{
@@ -1312,7 +1312,7 @@ function function_9139c839()
 			}
 			else if(isvehicle(self) && isdefined(self.scriptbundlesettings))
 			{
-				settingsbundle = getscriptbundle(self.scriptbundlesettings).var_ae8ec545;
+				settingsbundle = getscriptbundle(self.scriptbundlesettings).aisettingsbundle;
 			}
 		}
 		if(!isdefined(settingsbundle))

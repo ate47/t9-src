@@ -1,5 +1,5 @@
 #using script_24c32478acf44108;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -46,7 +46,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	namespace_9ff9f642::function_9d45c058(#"hash_72a155025f3da562", 100, 3);
+	namespace_9ff9f642::register_burn(#"hash_72a155025f3da562", 100, 3);
 	namespace_9ff9f642::register_slowdown(#"hash_1c9af7bb427952d", 0.85, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_1d07249a2211a81d", 0.9, 1);
 	namespace_9ff9f642::register_slowdown(#"hash_721bfbe781c0d680", 0.95, 1);

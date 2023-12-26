@@ -98,7 +98,7 @@ function function_255e9614(command, key)
 			function_9024fce3(&adsbuttonpressed, command);
 			break;
 		}
-		case "hash_7fa1df65551193d3":
+		case "+changeseat":
 		{
 			function_9024fce3(&changeseatbuttonpressed, command);
 			break;
@@ -123,12 +123,12 @@ function function_255e9614(command, key)
 			function_9024fce3(&fragbuttonpressed, command);
 			break;
 		}
-		case "hash_329305cda840577":
+		case "+actionslot 1":
 		{
 			function_9024fce3(&actionslotonebuttonpressed, command);
 			break;
 		}
-		case "hash_329315cda84072a":
+		case "+actionslot 2":
 		{
 			function_9024fce3(&actionslottwobuttonpressed, command);
 			break;
@@ -705,7 +705,7 @@ function propchange()
 		}
 		self.lastpropchangetime = gettime();
 	}
-	self notify(#"hash_17365159190a4895");
+	self notify(#"changed_prop");
 	registerpreviousprop(self);
 	self.prop.info = prop::getnextprop(self);
 	/#
@@ -827,7 +827,7 @@ function propchangeto(info)
 	self.prop setmodel(info.modelname);
 	self.prop.xyzoffset = info.xyzoffset;
 	self.prop.anglesoffset = info.anglesoffset;
-	self.prop setscale(info.var_9846ca56);
+	self.prop setscale(info.propscale);
 	self.prop unlink();
 	self.propent unlink();
 	self.propent.origin = self.propanchor.origin;
@@ -1773,7 +1773,7 @@ function flashenemies(var_c8c9bf0f, position)
 	fwd = vectornormalize((fwd[0], fwd[1], 0));
 	var_ec24ae95 = fwd * 60;
 	spawn_pos = (position + vectorscale((0, 0, 1), 10)) + (fwd * 30);
-	var_f6beab23 = var_c8c9bf0f magicmissile(getweapon(#"eq_slow_grenade"), spawn_pos, var_ec24ae95);
+	concuss = var_c8c9bf0f magicmissile(getweapon(#"eq_slow_grenade"), spawn_pos, var_ec24ae95);
 }
 
 /*
@@ -1827,7 +1827,7 @@ function deletepropsifatmax()
 	/#
 		assert(isdefined(var_ccb1dd7));
 	#/
-	var_ccb1dd7 notify(#"hash_5913274f83579b1e");
+	var_ccb1dd7 notify(#"maxdelete");
 	var_ccb1dd7 delete();
 	self.propclones = clones;
 }
@@ -1854,7 +1854,7 @@ function cloneprop()
 	var_6e55957c = spawn("script_model", self.prop.origin);
 	var_6e55957c.targetname = "propClone";
 	var_6e55957c setmodel(self.prop.model);
-	var_6e55957c setscale(self.prop.info.var_9846ca56);
+	var_6e55957c setscale(self.prop.info.propscale);
 	var_6e55957c.angles = self.prop.angles;
 	var_6e55957c setcandamage(1);
 	var_6e55957c.fakehealth = 50;
@@ -2014,13 +2014,13 @@ function watchspecialgrenadethrow()
 		res = self waittill(#"grenade_fire");
 		grenade = res.projectile;
 		weapon = res.weapon;
-		self thread function_6eadaf78(grenade, weapon);
+		self thread trackgrenade(grenade, weapon);
 		self.thrownspecialcount = self.thrownspecialcount + 1;
 	}
 }
 
 /*
-	Name: function_6eadaf78
+	Name: trackgrenade
 	Namespace: prop_controls
 	Checksum: 0x10F210EE
 	Offset: 0x4C50
@@ -2028,7 +2028,7 @@ function watchspecialgrenadethrow()
 	Parameters: 2
 	Flags: None
 */
-function function_6eadaf78(grenade, weapon)
+function trackgrenade(grenade, weapon)
 {
 	level endon(#"game_ended");
 	self endon(#"disconnect");

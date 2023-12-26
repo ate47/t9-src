@@ -48,7 +48,7 @@ function function_70a657d8()
 	{
 		return;
 	}
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		return;
 	}

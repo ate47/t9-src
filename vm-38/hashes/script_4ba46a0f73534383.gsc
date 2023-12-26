@@ -49,8 +49,8 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	level.var_8ef8b9e8 = getweapon(#"hash_9825a3f1d038c6f");
-	clientfield::function_a8bbc967("hudItems.armorPlateCount", 1, 4, "int");
-	clientfield::function_a8bbc967("hudItems.armorPlateMaxCarry", 1, 4, "int");
+	clientfield::register_clientuimodel("hudItems.armorPlateCount", 1, 4, "int");
+	clientfield::register_clientuimodel("hudItems.armorPlateMaxCarry", 1, 4, "int");
 	callback::on_spawned(&on_player_spawned);
 	callback::on_connect(&on_player_connect);
 	callback::add_callback(#"on_loadout", &on_player_loadout);
@@ -152,9 +152,9 @@ function private on_player_loadout()
 	Parameters: 7
 	Flags: Private
 */
-function private function_e74225a7(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot)
+function private function_e74225a7(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot)
 {
-	if(itemcount.var_a6762160.itemtype == #"hash_56d6621e6c4caf07")
+	if(itemcount.var_a6762160.itemtype == #"armor_shard")
 	{
 		var_82da4e0 = int(min(slot, self.var_c52363ab - var_aec6fa7f.var_7d7d976a));
 		var_aec6fa7f.var_7d7d976a = var_aec6fa7f.var_7d7d976a + var_82da4e0;

@@ -311,7 +311,7 @@ function pause(var_1d470cc4, var_63d0d48f, var_29fa9286, var_f191bdbc, var_37e3f
 	if(namespace_61e6d095::exists(#"hint_tutorial"))
 	{
 		var_7d86dbf8 = player gamepadusedlast();
-		setdvar(#"hash_54488b7c651bd0ec", !var_7d86dbf8);
+		setdvar(#"ui_busyblockingamemenu", !var_7d86dbf8);
 		namespace_82bfe441::fade(1, "FadeImmediate");
 		objectives::function_9dfb43fc();
 		namespace_61e6d095::function_73c9a490(#"hint_tutorial", 1);
@@ -338,7 +338,7 @@ function pause(var_1d470cc4, var_63d0d48f, var_29fa9286, var_f191bdbc, var_37e3f
 		level prompts::function_d675f5a4();
 		player function_9f427d88(0, var_f191bdbc);
 		player thread clientfield::set_to_player("hint_pause_state", 0);
-		setdvar(#"hash_54488b7c651bd0ec", 0);
+		setdvar(#"ui_busyblockingamemenu", 0);
 	}
 }
 

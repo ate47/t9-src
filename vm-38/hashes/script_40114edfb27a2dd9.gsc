@@ -92,7 +92,7 @@ class cscavenger_icon : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cscavenger_icon
 		Checksum: 0x6319BC2C
 		Offset: 0x518
@@ -100,9 +100,9 @@ class cscavenger_icon : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("scavenger_icon");
+		cLUIelem::register_clientside("scavenger_icon");
 	}
 
 	/*
@@ -117,10 +117,10 @@ class cscavenger_icon : cLUIelem
 	function setup_clientfields(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43)
 	{
 		cLUIelem::setup_clientfields("scavenger_icon");
-		cLUIelem::function_da693cbe("ammoPulse", 1, 1, "counter", var_c21a7363);
-		cLUIelem::function_da693cbe("armorPlatePulse", 1, 1, "counter", var_acffa825);
-		cLUIelem::function_da693cbe("scrapPulse", 1, 1, "counter", var_32c73fea);
-		cLUIelem::function_da693cbe("rareScrapPulse", 4000, 1, "counter", var_d239de43);
+		cLUIelem::add_clientfield("ammoPulse", 1, 1, "counter", var_c21a7363);
+		cLUIelem::add_clientfield("armorPlatePulse", 1, 1, "counter", var_acffa825);
+		cLUIelem::add_clientfield("scrapPulse", 1, 1, "counter", var_32c73fea);
+		cLUIelem::add_clientfield("rareScrapPulse", 4000, 1, "counter", var_d239de43);
 	}
 
 	/*
@@ -208,7 +208,7 @@ function register(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: scavenger_icon
 	Checksum: 0xA1DDFD1F
 	Offset: 0x2B8
@@ -216,10 +216,10 @@ function register(var_c21a7363, var_acffa825, var_32c73fea, var_d239de43)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cscavenger_icon();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

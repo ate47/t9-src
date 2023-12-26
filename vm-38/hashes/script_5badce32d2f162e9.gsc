@@ -1,8 +1,8 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using script_1883fa4e60abbf9f;
 #using script_3072532951b5b4ae;
-#using script_3aa0f32b70d4f7cb;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_68d08b784c92da95;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

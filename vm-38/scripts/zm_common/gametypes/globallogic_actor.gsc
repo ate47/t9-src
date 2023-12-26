@@ -1,5 +1,5 @@
-#using script_35598499769dbb3d;
-#using script_41fe08c37d53a635;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
 #using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;

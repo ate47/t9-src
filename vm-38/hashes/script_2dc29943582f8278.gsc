@@ -11,7 +11,7 @@
 #using script_3d5e6c007c0e2bb1;
 #using script_40f967ad5d18ea74;
 #using script_47851dbeea22fe66;
-#using script_4c5c4a64a59247a2;
+#using scripts\core_common\ai\systems\shared.gsc;
 #using script_4d748e58ce25b60c;
 #using script_5701633066d199f2;
 #using script_5f20d3b434d24884;

@@ -4,14 +4,14 @@
 #using scripts\core_common\player\player_role.gsc;
 #using script_4e44ad88a2b0f559;
 #using script_55b445d561c4bd83;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_5e6a760c6f43dd12;
 #using scripts\core_common\bots\bot_position.gsc;
 #using scripts\core_common\map.gsc;
 #using script_74453936abc39adf;
 #using script_747b8f8449e8891b;
 #using script_79b47c663155f8bd;
-#using script_ee56e8b680377b6;
+#using scripts\core_common\bots\bot_stance.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\bots\bot_action.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -89,7 +89,7 @@ function private function_70a657d8()
 	namespace_1d70329f::function_70a657d8();
 	namespace_ffbf548b::function_70a657d8();
 	bot_position::function_70a657d8();
-	namespace_9c817acd::function_70a657d8();
+	bot_stance::function_70a657d8();
 	namespace_255a2b21::function_70a657d8();
 	bot_traversals::function_70a657d8();
 	callback::on_connect(&on_player_connect);
@@ -238,7 +238,7 @@ function remove_random_bot()
 */
 function remove_bot(bot)
 {
-	if(!isbot(bot) || function_2dd2fa57(bot))
+	if(!isbot(bot) || isautocontrolledplayer(bot))
 	{
 		return;
 	}
@@ -524,13 +524,13 @@ function private function_b781f1e5()
 		self function_47281162();
 		self function_ca477c1f();
 		self function_1f098eb();
-		self.bot.tpoint = function_ad6356f5(self.origin);
+		self.bot.tpoint = getclosesttacpoint(self.origin);
 		self function_66749735();
 		self function_1b14ddcf();
 		self namespace_1d70329f::think();
 		self namespace_87549638::think();
 		self bot_action::think();
-		self namespace_9c817acd::think();
+		self bot_stance::think();
 		self bot_position::think();
 		self namespace_94e44221::update();
 		self.bot.lastenemy = self.enemy;
@@ -575,7 +575,7 @@ function private function_de8f0d0e(notifyhash)
 */
 function private function_a9fd7b4b()
 {
-	self.bot.flashed = self function_a8581873(1) <= 0 && isdefined(self.flashendtime) && (self.flashendtime + 1500) > gettime();
+	self.bot.flashed = self getplayerresistance(1) <= 0 && isdefined(self.flashendtime) && (self.flashendtime + 1500) > gettime();
 }
 
 /*
@@ -703,7 +703,7 @@ function private function_ce3dfcfc(enemy)
 	weapons = self getweaponslist();
 	foreach(weapon in weapons)
 	{
-		if(weapon.lockontype == #"hash_a6a8bcce6c1a902" && self getammocount(weapon) > 0)
+		if(weapon.lockontype == #"legacy single" && self getammocount(weapon) > 0)
 		{
 			return false;
 		}
@@ -792,7 +792,7 @@ function private function_1f098eb()
 {
 	if(self.bot.var_e8c84f98)
 	{
-		self.bot.var_494658cd = function_ad6356f5(self.enemy.origin);
+		self.bot.var_494658cd = getclosesttacpoint(self.enemy.origin);
 	}
 	else
 	{
@@ -1149,8 +1149,8 @@ function function_f0c35734(trigger)
 	height = self function_6a9ae71();
 	heightoffset = (0, 0, (height * -1) / 2);
 	var_e790dc87 = (radius, radius, height / 2);
-	var_75ae35a4 = ai::function_470c0597(trigger.origin + heightoffset, trigger.maxs + var_e790dc87, trigger.angles);
-	return var_75ae35a4;
+	obb = ai::function_470c0597(trigger.origin + heightoffset, trigger.maxs + var_e790dc87, trigger.angles);
+	return obb;
 }
 
 /*
@@ -1175,8 +1175,8 @@ function function_52947b70(trigger)
 	heightoffset = (0, 0, (height * -1) / 2);
 	var_e790dc87 = (radius, radius, height / 2);
 	maxs = (trigger.script_width, trigger.script_length, trigger.script_height);
-	var_75ae35a4 = ai::function_470c0597(trigger.origin + heightoffset, maxs + var_e790dc87, trigger.angles);
-	return var_75ae35a4;
+	obb = ai::function_470c0597(trigger.origin + heightoffset, maxs + var_e790dc87, trigger.angles);
+	return obb;
 }
 
 /*
@@ -1199,14 +1199,14 @@ function private function_e4055765()
 			var_458ddbc0[bit] = undefined;
 		}
 	}
-	if(function_59116c33())
+	if(isshipbuild())
 	{
 		return;
 	}
-	if(getdvarint(#"hash_1a9061866669d862", 0))
+	if(getdvarint(#"bot_forcefire", 0))
 	{
 		weapon = self getcurrentweapon();
-		if(weapon.firetype == #"hash_23fc6944af5b9753" || weapon.firetype == #"hash_6d442b2367a0f9d8" || weapon.firetype == #"minigun" || !self attackbuttonpressed())
+		if(weapon.firetype == #"full auto" || weapon.firetype == #"auto burst" || weapon.firetype == #"minigun" || !self attackbuttonpressed())
 		{
 			self bottapbutton(0);
 			if(weapon.dualwieldweapon != level.weaponnone)
@@ -1223,7 +1223,7 @@ function private function_e4055765()
 			}
 		}
 	}
-	if(getdvarint(#"hash_79f45adceb86fee6", 0))
+	if(getdvarint(#"bot_forcemelee", 0))
 	{
 		if(!self ismeleeing())
 		{
@@ -1237,14 +1237,14 @@ function private function_e4055765()
 	}
 	else
 	{
-		if(getdvarint(#"hash_40c21bbf75d12604", 0))
+		if(getdvarint(#"bot_forcecrouch", 0))
 		{
 			self bottapbutton(9);
 			self botreleasebutton(8);
 		}
 		else
 		{
-			if(getdvarint(#"hash_17afd6654d53591c", 0))
+			if(getdvarint(#"bot_forceprone", 0))
 			{
 				self botreleasebutton(9);
 				self bottapbutton(8);
@@ -1271,18 +1271,18 @@ function private function_e4055765()
 	Parameters: 4
 	Flags: Linked
 */
-function add_fixed_spawn_bot(team, origin, yaw, var_f11eb5f2)
+function add_fixed_spawn_bot(team, origin, yaw, roleindex)
 {
-	if(!isdefined(var_f11eb5f2))
+	if(!isdefined(roleindex))
 	{
-		var_f11eb5f2 = undefined;
+		roleindex = undefined;
 	}
 	bot = add_bot(team);
 	if(isdefined(bot))
 	{
-		if(isdefined(var_f11eb5f2) && var_f11eb5f2 >= 0)
+		if(isdefined(roleindex) && roleindex >= 0)
 		{
-			bot.var_29b433bd = int(var_f11eb5f2);
+			bot.var_29b433bd = int(roleindex);
 		}
 		bot.ignoreall = 1;
 		bot function_bab12815(origin, yaw);
@@ -1594,12 +1594,12 @@ function private function_4c0124cd()
 		characterindex = self getspecialistindex();
 		assetname = function_ac0419ac(characterindex, sessionmode);
 		displayname = makelocalizedstring(getcharacterdisplayname(characterindex, sessionmode));
-		var_bacff7f = getcharacterfields(characterindex, sessionmode);
-		var_9e4224f8 = function_fb05c532(characterindex, sessionmode);
-		var_270eb160 = (is_true(var_9e4224f8.var_ae8ab113) ? (0, 1, 0) : (1, 0, 0));
+		characterfields = getcharacterfields(characterindex, sessionmode);
+		rolefields = getplayerrolefields(characterindex, sessionmode);
+		var_270eb160 = (is_true(rolefields.var_ae8ab113) ? (0, 1, 0) : (1, 0, 0));
 		record3dtext(((characterindex + "") + function_9e72a96(assetname) + "") + displayname, self.origin, var_270eb160, "", self);
 		factioncolor = (1, 1, 1);
-		var_99dffb44 = (isdefined(var_bacff7f.superfaction) ? var_bacff7f.superfaction : "");
+		var_99dffb44 = (isdefined(characterfields.superfaction) ? characterfields.superfaction : "");
 		teamfaction = undefined;
 		var_501b8f06 = "";
 		if(is_true(level.var_d1455682.var_67bfde2a))

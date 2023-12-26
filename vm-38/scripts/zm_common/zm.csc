@@ -24,7 +24,7 @@
 #using scripts\zm_common\zm_crafting.csc;
 #using scripts\zm\perk\zm_perk_juggernaut.csc;
 #using script_7520bf82a814057c;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\zm_common\zm_vo.csc;
 #using script_eff00f787d80cdf;
 #using scripts\core_common\aat_shared.csc;
@@ -136,7 +136,7 @@ function private function_70a657d8()
 		level.zombie_vars = [];
 	}
 	level.bgb_in_use = 0;
-	level.scr_zm_ui_gametype = util::function_5df4294();
+	level.scr_zm_ui_gametype = util::get_game_type();
 	level.scr_zm_ui_gametype_group = "";
 	level.scr_zm_map_start_location = "";
 	level.gamedifficulty = getgametypesetting(#"zmdifficulty");
@@ -152,7 +152,7 @@ function private function_70a657d8()
 	callback::on_laststand(&on_player_laststand);
 	renderoverridebundle::function_f72f089c(#"hash_60913f86a5a5a3f1", "rob_sonar_set_friendly_zm", &function_b9c917cc);
 	renderoverridebundle::function_f72f089c(#"hash_6844a09875672719", "rob_sonar_set_friendly_zm_ls", &function_a1ab192);
-	clientfield::function_a8bbc967("hudItems.srOverlayOpen", #"hud_items", #"hash_28c98765f5bcc9e8", 1, 1, "int", &function_dfbfa0f4, 0, 0);
+	clientfield::register_clientuimodel("hudItems.srOverlayOpen", #"hud_items", #"hash_28c98765f5bcc9e8", 1, 1, "int", &function_dfbfa0f4, 0, 0);
 	level.var_37076fe8 = &function_a2a8f79e;
 	level.var_38c7030b = &function_424dc557;
 	function_3385d776(#"hash_46067e7dfe6ba0dd");
@@ -365,15 +365,15 @@ function function_f21f0f11(localclientnum, var_a6762160)
 {
 	if(var_a6762160.itemtype === #"equipment" || var_a6762160.itemtype === #"tactical")
 	{
-		var_8040e225 = item_world::function_a7e98a1a(localclientnum);
+		clientdata = item_world::function_a7e98a1a(localclientnum);
 		var_935a2023 = self.var_9b882d22;
 		if(var_a6762160.itemtype === #"equipment")
 		{
-			var_7d722a81 = var_8040e225.inventory.items[7];
+			var_7d722a81 = clientdata.inventory.items[7];
 		}
 		else if(var_a6762160.itemtype === #"tactical")
 		{
-			var_7d722a81 = var_8040e225.inventory.items[13];
+			var_7d722a81 = clientdata.inventory.items[13];
 		}
 		if(isdefined(var_7d722a81) && var_7d722a81.id != 32767)
 		{
@@ -465,7 +465,7 @@ function init()
 	level._zombie_gib_piece_index_head = 5;
 	level._zombie_gib_piece_index_guts = 6;
 	level._zombie_gib_piece_index_hat = 7;
-	setdvar(#"hash_442d42efc73d739a", 50);
+	setdvar(#"cg_healthperbar", 50);
 	callback::add_callback(#"on_localclient_connect", &basic_player_connect);
 	callback::on_spawned(&function_92f0c63);
 	scene::function_2e58158b(&function_bbea98ae);
@@ -661,7 +661,7 @@ function init_clientfields()
 	clientfield::register("world", "quest_complete_time", 1, 20, "int", &quest_complete_time, 0, 1);
 	clientfield::register("world", "game_start_time", 1, 20, "int", &game_start_time, 0, 1);
 	clientfield::register("scriptmover", "rob_zm_prop_fade", 1, 1, "int", &rob_zm_prop_fade, 0, 0);
-	clientfield::function_a8bbc967("hudItems.hasBackpack", #"hud_items", #"hash_3d621af88b5e463d", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.hasBackpack", #"hud_items", #"hasbackpack", 1, 1, "int", undefined, 0, 0);
 }
 
 /*
@@ -878,7 +878,7 @@ function rob_zm_prop_fade(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(bwastimejump)
 	{
-		self function_bf9d3071(#"rob_zm_prop_fade");
+		self playrenderoverridebundle(#"rob_zm_prop_fade");
 		if(!isdefined(self.sndlooper))
 		{
 			self.sndlooper = self playloopsound(#"hash_66df9cab2c64f968");
@@ -886,7 +886,7 @@ function rob_zm_prop_fade(localclientnum, oldval, newval, bnewent, binitialsnap,
 	}
 	else
 	{
-		self function_5d482e78(#"rob_zm_prop_fade");
+		self stoprenderoverridebundle(#"rob_zm_prop_fade");
 		if(isdefined(self.sndlooper))
 		{
 			self stoploopsound(self.sndlooper);
@@ -1999,8 +1999,8 @@ function function_92f0c63(localclientnum)
 			return;
 		}
 	#/
-	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_5d0631b016d4fe26", #"hash_60913f86a5a5a3f1");
-	self renderoverridebundle::function_c8d97b8e(localclientnum, #"hash_7c0db17218fac872", #"hash_60913f86a5a5a3f1");
+	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly", #"hash_60913f86a5a5a3f1");
+	self renderoverridebundle::function_c8d97b8e(localclientnum, #"zm_friendly_ls", #"hash_60913f86a5a5a3f1");
 }
 
 /*
@@ -2097,7 +2097,7 @@ function private function_a1ab192(var_6142f944, str_bundle)
 */
 function update_aat_hud(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_8aa9ab80 = aat::function_d1852e75(bwastimejump);
+	name_hash = aat::function_d1852e75(bwastimejump);
 	str_localized = aat::get_string(bwastimejump);
 	icon = aat::get_icon(bwastimejump);
 	if(str_localized == "none")
@@ -2105,7 +2105,7 @@ function update_aat_hud(localclientnum, oldval, newval, bnewent, binitialsnap, f
 		str_localized = #"";
 	}
 	var_2961e149 = createuimodel(function_1df4c3b0(fieldname, #"zm_hud"), "aatNameHash");
-	setuimodelvalue(var_2961e149, var_8aa9ab80);
+	setuimodelvalue(var_2961e149, name_hash);
 	aatmodel = createuimodel(function_1df4c3b0(fieldname, #"zm_hud"), "aat");
 	setuimodelvalue(aatmodel, str_localized);
 	aaticonmodel = createuimodel(function_1df4c3b0(fieldname, #"zm_hud"), "aatIcon");
@@ -2128,8 +2128,8 @@ function function_dfbfa0f4(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		var_cb481d18 = 0;
 	}
-	var_dcb56aa8 = function_1df4c3b0(fieldname, #"hash_159966ba825013a2");
-	setuimodelvalue(createuimodel(var_dcb56aa8, "canUseQuickInventory"), var_cb481d18);
+	inventoryuimodel = function_1df4c3b0(fieldname, #"hash_159966ba825013a2");
+	setuimodelvalue(createuimodel(inventoryuimodel, "canUseQuickInventory"), var_cb481d18);
 }
 
 /*

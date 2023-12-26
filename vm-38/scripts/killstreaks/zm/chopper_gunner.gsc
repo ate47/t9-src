@@ -322,10 +322,10 @@ function function_bfba820f()
 	}
 	if(var_1120bf0.var_bd027dd9 == 32767)
 	{
-		var_d90e0e15 = function_4ba8fde(#"hash_541f29266c6b7df8");
-		if(isdefined(var_d90e0e15))
+		itempoint = function_4ba8fde(#"hash_541f29266c6b7df8");
+		if(isdefined(itempoint))
 		{
-			item_world::function_de2018e3(var_d90e0e15, self, 17);
+			item_world::function_de2018e3(itempoint, self, 17);
 		}
 	}
 }

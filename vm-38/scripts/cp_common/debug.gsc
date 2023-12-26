@@ -1,6 +1,6 @@
-#using script_5dfa1afaab9c1935;
-#using script_5f2ba47ebe695e43;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\init.gsc;
+#using scripts\core_common\ai\systems\weaponlist.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_puppeteer_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

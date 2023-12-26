@@ -1,6 +1,6 @@
 #using script_3751b21462a54a7d;
 #using script_3a88f428c6d8ef90;
-#using script_58c342edd81589fb;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

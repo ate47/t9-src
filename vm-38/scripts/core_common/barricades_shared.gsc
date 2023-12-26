@@ -49,7 +49,7 @@ class cbarricade : cdoor
 	*/
 	function function_6c15ac46()
 	{
-		m_e_door endon(#"delete", #"hash_430683d292f4ba43");
+		m_e_door endon(#"delete", #"barricade_removed");
 		while(true)
 		{
 			m_e_door endon(#"delete");
@@ -143,7 +143,7 @@ class cbarricade : cdoor
 							m_e_door scene::play(m_s_bundle.var_8124c17f, m_e_door);
 						}
 						m_e_door notify(#"gameobject_deleted");
-						m_e_door notify(#"hash_430683d292f4ba43");
+						m_e_door notify(#"barricade_removed");
 						waitframe(1);
 						m_e_door.mdl_gameobject delete();
 						m_e_door delete();
@@ -174,7 +174,7 @@ class cbarricade : cdoor
 	*/
 	function function_da5abae9()
 	{
-		m_e_door endon(#"delete", #"hash_430683d292f4ba43");
+		m_e_door endon(#"delete", #"barricade_removed");
 		while(true)
 		{
 			m_e_door waittill(#"hash_7166c13e79b73f9");
@@ -225,7 +225,7 @@ function private autoexec function_f8c32aff()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"barricades", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"barricades", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -239,12 +239,12 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!isdefined(level.var_9c740bff))
+	if(!isdefined(level.a_s_barricades))
 	{
-		level.var_9c740bff = [];
+		level.a_s_barricades = [];
 	}
-	level.var_9c740bff = struct::get_array("scriptbundle_barricades", "classname");
-	foreach(s_instance in level.var_9c740bff)
+	level.a_s_barricades = struct::get_array("scriptbundle_barricades", "classname");
+	foreach(s_instance in level.a_s_barricades)
 	{
 		c_door = s_instance function_14354831();
 		if(isdefined(c_door))
@@ -275,7 +275,7 @@ function function_14354831()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: barricades
 	Checksum: 0x4EAD9B76
 	Offset: 0x318
@@ -283,7 +283,7 @@ function function_14354831()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level flag::wait_till("radiant_gameobjects_initialized");
 }

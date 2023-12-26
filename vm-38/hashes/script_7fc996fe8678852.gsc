@@ -67,7 +67,7 @@ function private finalize()
 	function_e97ef0d4();
 	level.var_7d45d0d4.var_5eba96b3 = [];
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -87,7 +87,7 @@ function function_b3464a7c(scriptname, spawncallback, var_99021fa0)
 		var_99021fa0 = 0;
 	}
 	/#
-		assert(isstring(scriptname) || function_7a600918(scriptname));
+		assert(isstring(scriptname) || ishash(scriptname));
 	#/
 	/#
 		assert(isfunctionptr(spawncallback));
@@ -129,7 +129,7 @@ function function_b3464a7c(scriptname, spawncallback, var_99021fa0)
 function function_85255d0f(scriptname)
 {
 	/#
-		assert(isstring(scriptname) || function_7a600918(scriptname));
+		assert(isstring(scriptname) || ishash(scriptname));
 	#/
 	return level.var_7d45d0d4.var_405f83af[scriptname];
 }
@@ -367,7 +367,7 @@ function function_20d7e9c7(instance)
 		assert(instance.variantname == #"hash_60feba77d317eb4");
 	#/
 	/#
-		assert(isstring(instance.content_script_name) || function_7a600918(instance.content_script_name));
+		assert(isstring(instance.content_script_name) || ishash(instance.content_script_name));
 	#/
 	/#
 		assert(isstruct(instance.location));
@@ -399,7 +399,7 @@ function function_1c78a45d(instance)
 		assert(instance.variantname == #"hash_60feba77d317eb4");
 	#/
 	/#
-		assert(isstring(instance.content_script_name) || function_7a600918(instance.content_script_name));
+		assert(isstring(instance.content_script_name) || ishash(instance.content_script_name));
 	#/
 	/#
 		assert(isstruct(instance.location));
@@ -453,7 +453,7 @@ function function_76c93f39(var_832fa4bc, usecallback, hintstring, radius)
 		assert(isfunctionptr(usecallback));
 	#/
 	/#
-		assert(function_7a600918(hintstring));
+		assert(ishash(hintstring));
 	#/
 	triggers = [];
 	foreach(struct in var_832fa4bc)
@@ -498,7 +498,7 @@ function function_214737c7(struct, usecallback, hintstring, var_e0355bdc, radius
 		assert(isfunctionptr(usecallback));
 	#/
 	/#
-		assert(function_7a600918(hintstring));
+		assert(ishash(hintstring));
 	#/
 	if(isdefined(struct.radius))
 	{
@@ -523,7 +523,7 @@ function function_214737c7(struct, usecallback, hintstring, var_e0355bdc, radius
 			usetrigger sethintstring(hintstring);
 		}
 	}
-	usetrigger callback::function_35a12f19(usecallback);
+	usetrigger callback::on_trigger(usecallback);
 	struct.trigger = usetrigger;
 	return usetrigger;
 }
@@ -812,7 +812,7 @@ function function_f703a5a(parent)
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: namespace_8b6a9d79
 	Checksum: 0xB7DCCD12
 	Offset: 0x21C0
@@ -820,12 +820,12 @@ function function_f703a5a(parent)
 	Parameters: 0
 	Flags: Private
 */
-function private function_2085db3b()
+function private init_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();
 		adddebugcommand("");
-		util::add_devgui(function_7956c7ac("", 0), "");
+		util::add_devgui(devgui_path("", 0), "");
 		foreach(destination in level.var_7d45d0d4.destinations)
 		{
 			foreach(location in destination.locations)
@@ -833,7 +833,7 @@ function private function_2085db3b()
 				foreach(instance in location.instances)
 				{
 					var_4eb7bd13 = (location.targetname + "") + instance.content_script_name;
-					path = function_7956c7ac("", 1, destination.targetname, location.targetname, instance.content_script_name);
+					path = devgui_path("", 1, destination.targetname, location.targetname, instance.content_script_name);
 					util::add_devgui(path, "" + var_4eb7bd13);
 				}
 			}
@@ -843,7 +843,7 @@ function private function_2085db3b()
 			foreach(instance in location.instances)
 			{
 				var_4eb7bd13 = (location.targetname + "") + instance.content_script_name;
-				path = function_7956c7ac("", 2, location.targetname, instance.content_script_name);
+				path = devgui_path("", 2, location.targetname, instance.content_script_name);
 				util::add_devgui(path, "" + var_4eb7bd13);
 			}
 		}
@@ -853,7 +853,7 @@ function private function_2085db3b()
 }
 
 /*
-	Name: function_7956c7ac
+	Name: devgui_path
 	Namespace: namespace_8b6a9d79
 	Checksum: 0x5723993F
 	Offset: 0x25A8
@@ -861,7 +861,7 @@ function private function_2085db3b()
 	Parameters: 1
 	Flags: Variadic
 */
-function function_7956c7ac(...)
+function devgui_path(...)
 {
 	/#
 		path = "";
@@ -1095,7 +1095,7 @@ function function_56a6441e(struct, color, parent, var_f5b09155)
 function function_4636f4cb(str, append)
 {
 	/#
-		if(function_7a600918(append))
+		if(ishash(append))
 		{
 			append = function_9e72a96(append);
 		}

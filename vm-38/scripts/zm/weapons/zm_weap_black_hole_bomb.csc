@@ -1,4 +1,4 @@
-#using script_4b8e80d5d6c93ae1;
+#using scripts\core_common\ai\zombie_vortex.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;

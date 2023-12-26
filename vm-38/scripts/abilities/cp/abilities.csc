@@ -42,6 +42,6 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("playerAbilities.inRange", #"hash_3107ca3e77102da5", #"inrange", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("playerAbilities.inRange", #"hash_3107ca3e77102da5", #"inrange", 1, 1, "int", undefined, 0, 0);
 }
 

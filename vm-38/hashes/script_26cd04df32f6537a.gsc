@@ -1,8 +1,8 @@
 #using script_2c5daa95f8fec03c;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_522aeb6ae906391e;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;
 

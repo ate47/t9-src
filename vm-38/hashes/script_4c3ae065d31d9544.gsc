@@ -2,7 +2,7 @@
 #using scripts\zm_common\zm_fasttravel.csc;
 #using script_2c5f2d4e7aa698c4;
 #using script_64ba9fcabd6381a1;
-#using script_76b36ed1b7a51ed2;
+#using scripts\zm_common\zm_ui_inventory.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\load_shared.csc;
 #using scripts\core_common\struct.csc;

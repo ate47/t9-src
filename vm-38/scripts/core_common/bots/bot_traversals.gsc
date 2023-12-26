@@ -1,5 +1,5 @@
 #using scripts\core_common\bots\bot.gsc;
-#using script_7510e6cc8220a052;
+#using scripts\core_common\bots\bot_animation.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 
 #namespace bot_traversals;
@@ -416,8 +416,8 @@ function private function_c3452ef9(eventstruct)
 	self.traversalstartpos = eventstruct.start_position;
 	self.traverseendnode = eventstruct.end_node;
 	self.traversalendpos = eventstruct.end_position;
-	self.traversemantlenode = eventstruct.var_3de2a65c;
-	namespace_26186a83::play_animation("parametric_traverse@traversal");
+	self.traversemantlenode = eventstruct.mantle_node;
+	bot_animation::play_animation("parametric_traverse@traversal");
 	self.traversestartnode = undefined;
 	self.traversalstartpos = undefined;
 	self.traverseendnode = undefined;
@@ -473,9 +473,9 @@ function private function_c20f7b00(eventstruct, str)
 				{
 					self function_3e781451(eventstruct.end_node, (1, 0, 0));
 				}
-				if(isdefined(eventstruct.var_3de2a65c))
+				if(isdefined(eventstruct.mantle_node))
 				{
-					self function_3e781451(eventstruct.var_3de2a65c, (1, 1, 0));
+					self function_3e781451(eventstruct.mantle_node, (1, 1, 0));
 				}
 				if(isdefined(eventstruct.var_34a82e04))
 				{

@@ -36,7 +36,7 @@ function function_70a657d8()
 	}
 	if(!sessionmodeisprivate())
 	{
-		if(function_59116c33() || !getdvarint(#"hash_199dcc375667485", 0))
+		if(isshipbuild() || !getdvarint(#"hash_199dcc375667485", 0))
 		{
 			return;
 		}
@@ -719,7 +719,7 @@ function private function_5c2d40ff(target)
 	}
 	if(regions.size <= 0)
 	{
-		tpoint = function_ad6356f5(target.origin);
+		tpoint = getclosesttacpoint(target.origin);
 		if(isdefined(tpoint))
 		{
 			region = function_b507a336(tpoint.region);

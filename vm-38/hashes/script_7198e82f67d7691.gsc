@@ -100,7 +100,7 @@ class cevidence_board_mission_preview : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cevidence_board_mission_preview
 		Checksum: 0x6B7EFFC2
 		Offset: 0x6C0
@@ -108,9 +108,9 @@ class cevidence_board_mission_preview : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("evidence_board_mission_preview");
+		cLUIelem::register_clientside("evidence_board_mission_preview");
 	}
 
 	/*
@@ -125,13 +125,13 @@ class cevidence_board_mission_preview : cLUIelem
 	function setup_clientfields(var_5a7b4b38, var_ce679737, var_21c9fb3e, var_370e913b, var_4682a952, var_72328549, var_8c8b5d16)
 	{
 		cLUIelem::setup_clientfields("evidence_board_mission_preview");
-		cLUIelem::function_da693cbe("entNum", 1, 10, "int", var_370e913b);
-		cLUIelem::function_da693cbe("activeState", 1, 2, "int", var_4682a952);
-		cLUIelem::function_da693cbe("lvlYear", 1, 11, "int", var_72328549);
+		cLUIelem::add_clientfield("entNum", 1, 10, "int", var_370e913b);
+		cLUIelem::add_clientfield("activeState", 1, 2, "int", var_4682a952);
+		cLUIelem::add_clientfield("lvlYear", 1, 11, "int", var_72328549);
 		cLUIelem::function_dcb34c80("string", "lvlName", 1);
 		cLUIelem::function_dcb34c80("string", "lvlDescriptionShort", 1);
 		cLUIelem::function_dcb34c80("string", "lvlDescriptionLong", 1);
-		cLUIelem::function_da693cbe("lvlProgress", 1, 4, "float", var_8c8b5d16);
+		cLUIelem::add_clientfield("lvlProgress", 1, 4, "float", var_8c8b5d16);
 	}
 
 	/*
@@ -248,7 +248,7 @@ function register(var_5a7b4b38, var_ce679737, var_21c9fb3e, var_370e913b, var_46
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: evidence_board_mission_preview
 	Checksum: 0x6B1C2D71
 	Offset: 0x320
@@ -256,10 +256,10 @@ function register(var_5a7b4b38, var_ce679737, var_21c9fb3e, var_370e913b, var_46
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cevidence_board_mission_preview();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

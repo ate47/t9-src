@@ -58,7 +58,7 @@ class class_fd95a9c : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_fd95a9c
 		Checksum: 0x58EBB4CB
 		Offset: 0x438
@@ -66,9 +66,9 @@ class class_fd95a9c : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("DOA_KeyTrade");
+		cLUIelem::register_clientside("DOA_KeyTrade");
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_909954a3, var_66f4eb53)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: doa_keytrade
 	Checksum: 0x31910F9C
 	Offset: 0x278
@@ -176,10 +176,10 @@ function register(var_909954a3, var_66f4eb53)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_fd95a9c();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

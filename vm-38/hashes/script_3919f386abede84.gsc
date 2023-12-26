@@ -85,7 +85,7 @@ function private autoexec function_98ef117a()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"windows", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"windows", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -126,7 +126,7 @@ function init_window()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: windows
 	Checksum: 0x8ADF8516
 	Offset: 0x250
@@ -134,7 +134,7 @@ function init_window()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level flag::wait_till("radiant_gameobjects_initialized");
 	level.a_s_windows = struct::get_array("scriptbundle_windows", "classname");

@@ -10,9 +10,9 @@
 #using script_2a5bf5b4a00cee0d;
 #using script_2c5daa95f8fec03c;
 #using script_2c7754f0e88c7dd4;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
 #using script_3bbf85ab4cb9f3c2;
 #using script_3faf478d5b0850fe;
 #using script_40eb62810357ba9b;
@@ -20,21 +20,21 @@
 #using script_44dc341d87a68571;
 #using script_46777b16a6ea6667;
 #using script_47851dbeea22fe66;
-#using script_489b835a247c990e;
+#using scripts\core_common\ai\archetype_locomotion_utility.gsc;
 #using script_49adc60ba76a57c7;
-#using script_4bf952f6ba31bb17;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
 #using script_4d748e58ce25b60c;
-#using script_4d85e8de54b02198;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
 #using script_5133d88c555e460;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using script_52608be2732b3c77;
 #using script_5701633066d199f2;
-#using script_57f7003580bb15e0;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using script_5e8f7ecf981ad9a3;
 #using script_5f20d3b434d24884;
 #using script_6281e493de3ff80b;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_68cdf0ca5df5e;
 #using script_6dce1fe6a7dd35c7;
 #using script_71971f45043d4dfe;
@@ -45,9 +45,9 @@
 #using script_7857e1ad7dfdbc95;
 #using script_79cafc73107dd980;
 #using script_7a9e25472d14a1ff;
-#using script_7b7ed6e4bc963a51;
-#using script_bd2b8aaa388dcce;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\ai_blackboard.gsc;
+#using scripts\core_common\ai\zombie.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -759,7 +759,7 @@ function function_25b2c8a9(spawner, str_targetname, force_spawn)
 {
 	self function_166a9ab7();
 	self clientfield::set("enable_on_radar", 1);
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &function_448dac71);
+	self callback::function_d8abfc3d(#"on_ai_melee", &function_448dac71);
 	self callback::function_d8abfc3d(#"on_ai_killed", &function_21ef174b);
 	self thread function_fce39c7a();
 	/#
@@ -782,7 +782,7 @@ function function_25b2c8a9(spawner, str_targetname, force_spawn)
 	self.engagementdistance = 2400;
 	self.var_a84a3d40 = sqr(self.engagementdistance);
 	self.var_f578c3a2 = sqr(36);
-	self.var_42abd8e = 1;
+	self.shouldspawn = 1;
 	self.var_c0bd8c06 = 0;
 	self.var_f6b9e96d = 0;
 	self.missinglegs = 0;
@@ -1205,16 +1205,16 @@ function function_1bbf4511(origin, var_f1479aab, context)
 			frac = 0.1;
 		}
 	}
-	var_d1445ef9 = int(frac * 800);
-	if(var_d1445ef9 < 50)
+	repathdelay = int(frac * 800);
+	if(repathdelay < 50)
 	{
-		var_d1445ef9 = 50;
+		repathdelay = 50;
 	}
-	if(isdefined(self.doa.var_492aef80) && var_d1445ef9 > self.doa.var_492aef80)
+	if(isdefined(self.doa.var_492aef80) && repathdelay > self.doa.var_492aef80)
 	{
-		var_d1445ef9 = self.doa.var_492aef80;
+		repathdelay = self.doa.var_492aef80;
 	}
-	self.var_72283e28 = gettime() + var_d1445ef9;
+	self.var_72283e28 = gettime() + repathdelay;
 	if(!self haspath() && (!isactor(self) || !self isatgoal()))
 	{
 		self.var_f95bc76f = math::clamp(self.var_f95bc76f + 1, 0, 10);
@@ -2941,10 +2941,10 @@ function function_3d752709(enemy, var_bd97c6ae)
 	{
 		return false;
 	}
-	var_f2fb414f = anglestoforward(var_bd97c6ae.angles);
-	var_9349139f = enemy.origin - var_bd97c6ae.origin;
-	var_3e3c8075 = (var_9349139f[0], var_9349139f[1], 0);
-	var_c2ee8451 = (var_f2fb414f[0], var_f2fb414f[1], 0);
+	facingvec = anglestoforward(var_bd97c6ae.angles);
+	enemyvec = enemy.origin - var_bd97c6ae.origin;
+	var_3e3c8075 = (enemyvec[0], enemyvec[1], 0);
+	var_c2ee8451 = (facingvec[0], facingvec[1], 0);
 	var_3e3c8075 = vectornormalize(var_3e3c8075);
 	var_c2ee8451 = vectornormalize(var_c2ee8451);
 	var_34e02165 = vectordot(var_c2ee8451, var_3e3c8075);
@@ -2973,9 +2973,9 @@ function function_5a481a84(player, dist)
 	dist = distance(self.origin, player.origin);
 	targetorigin = (player.origin[0], player.origin[1], self.origin[2]);
 	var_a6470558 = vectornormalize(targetorigin - self.origin);
-	var_d3cafde6 = self.meleeweapon.var_d3cafde6;
-	var_32708f81 = dist + var_d3cafde6;
-	var_8cf8f805 = mapfloat(0, var_d3cafde6, dist, var_32708f81, dist);
+	aimeleerange = self.meleeweapon.aimeleerange;
+	var_32708f81 = dist + aimeleerange;
+	var_8cf8f805 = mapfloat(0, aimeleerange, dist, var_32708f81, dist);
 	player playerknockback(1);
 	player applyknockback(int(var_8cf8f805), var_a6470558);
 	player playerknockback(0);
@@ -2999,7 +2999,7 @@ function function_422fdfd4(entity, attacker, weapon, var_5457dc44, hitloc, point
 	var_b1c1c5cf = 1;
 	if(var_8d3f5b7d)
 	{
-		var_38d1de41 = isdefined(namespace_81245006::function_fab3ee3e(self));
+		has_weakpoints = isdefined(namespace_81245006::function_fab3ee3e(self));
 		if(var_30362eca && var_ebcb86d6 hasperk(#"specialty_mod_awareness"))
 		{
 			if(var_b1c1c5cf < 1)

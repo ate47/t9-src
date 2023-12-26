@@ -47,7 +47,7 @@ class czm_game_over : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class czm_game_over : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,8 +76,8 @@ class czm_game_over : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_game_over");
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
-		cLUIelem::function_da693cbe("rounds", 1, 8, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("rounds", 1, 8, "int");
 	}
 
 	/*

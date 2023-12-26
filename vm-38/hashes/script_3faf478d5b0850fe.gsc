@@ -143,7 +143,7 @@ function function_5beeba99()
 	var_8576a4b1 = level.doa.roundnumber;
 	if(name === "boss")
 	{
-		function_5e3127a5(#"hash_7de402b647d0af4a");
+		function_5e3127a5(#"bossfight");
 	}
 	else
 	{
@@ -236,9 +236,9 @@ function function_5e3127a5(var_75e87d7f, var_6ea1719d)
 	{
 		level.var_402c5b0e[#"hash_4599146c78031b2d"] = [];
 	}
-	if(!isdefined(level.var_402c5b0e[#"hash_7de402b647d0af4a"]))
+	if(!isdefined(level.var_402c5b0e[#"bossfight"]))
 	{
-		level.var_402c5b0e[#"hash_7de402b647d0af4a"] = [];
+		level.var_402c5b0e[#"bossfight"] = [];
 	}
 	if(!isdefined(level.var_402c5b0e[#"hash_516660c49395257f"]))
 	{
@@ -299,7 +299,7 @@ function function_914016fe(var_75e87d7f)
 			var_69836136 = "dungeon_0";
 			break;
 		}
-		case "hash_7de402b647d0af4a":
+		case "bossfight":
 		{
 			min = 0;
 			max = 0;

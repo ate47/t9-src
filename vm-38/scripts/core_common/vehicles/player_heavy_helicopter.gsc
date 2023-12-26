@@ -126,7 +126,7 @@ function change_seat(params)
 		if(isdefined(params.player))
 		{
 			enter_seat = params.eventstruct.seat_index;
-			exit_seat = params.eventstruct.var_21911287;
+			exit_seat = params.eventstruct.old_seat_index;
 			if(namespace_c8fb02a7::function_9ffa5fd(exit_seat, enter_seat))
 			{
 				self function_6ffe1aa7(params.player, exit_seat, enter_seat);

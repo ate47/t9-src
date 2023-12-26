@@ -125,7 +125,7 @@ function init()
 		}
 	#/
 	level.script = util::get_map_name();
-	level.gametype = util::function_5df4294();
+	level.gametype = util::get_game_type();
 	level.var_837aa533 = hash(level.gametype);
 	if(isdefined(level.gametype))
 	{
@@ -1171,7 +1171,7 @@ function sendafteractionreport(winner)
 			player stats::function_7a850245(#"privatematch", 1);
 		}
 		player stats::function_7a850245(#"demofileid", getdemofileid());
-		player stats::function_7a850245(#"matchid", function_c7c50474());
+		player stats::function_7a850245(#"matchid", getmatchid());
 		if(isdefined(winner) && winner == player.pers[#"team"])
 		{
 			player stats::function_7a850245(#"matchwon", 1);
@@ -2404,7 +2404,7 @@ function startgame()
 	level.prematch_over = 1;
 	startplayers(level.players);
 	level flag::set("game_start");
-	setdvar(#"hash_54488b7c651bd0ec", 0);
+	setdvar(#"ui_busyblockingamemenu", 0);
 	thread timelimitclock();
 	thread graceperiod();
 	thread watchmatchendingsoon();
@@ -2651,12 +2651,12 @@ function callback_startgametype()
 		game.strings[#"waiting_to_spawn"] = #"hash_44d60a6e6ed2a53c";
 		game.strings[#"waiting_to_spawn_ss"] = #"hash_78bf3a61cf52e257";
 		game.strings[#"you_will_spawn"] = #"hash_53c0ba6abce1c0ea";
-		game.strings[#"match_starting"] = #"hash_73938fd7959ab087";
+		game.strings[#"match_starting"] = #"mp/match_starting";
 		game.strings[#"item_on_respawn"] = #"hash_220160808c99fe71";
 		game.strings[#"hash_b71875e85956ea"] = #"hash_61f8bf2959b7bd5a";
 		game.strings[#"last_stand"] = #"hash_5732d212e4511a00";
 		game.strings[#"cowards_way"] = #"hash_268e464278a2f8ff";
-		game.strings[#"tie"] = #"hash_72785a9088fa0d1b";
+		game.strings[#"tie"] = #"mp/match_tie";
 		game.strings[#"round_draw"] = #"mp/round_draw";
 		game.strings[#"enemies_eliminated"] = #"mp_enemies_eliminated";
 		game.strings[#"score_limit_reached"] = #"mp/score_limit_reached";

@@ -38,8 +38,8 @@ function private autoexec function_767487e1()
 */
 function init_shared()
 {
-	clientfield::function_a8bbc967("locSel.commandMode", #"hash_5bbe0cd6740ab2b6", #"hash_59184771800cc1f9", 1, 1, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("locSel.snapTo", #"hash_5bbe0cd6740ab2b6", #"hash_4f706dc5af7c4cec", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("locSel.commandMode", #"hash_5bbe0cd6740ab2b6", #"commandmode", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("locSel.snapTo", #"hash_5bbe0cd6740ab2b6", #"snapto", 1, 1, "int", undefined, 0, 0);
 	clientfield::register("vehicle", "timeout_beep", 1, 2, "int", &timeout_beep, 0, 0);
 	clientfield::register("toplayer", "thermal_glow", 1, 1, "int", &function_6d265b7f, 0, 1);
 	clientfield::register("toplayer", "thermal_glow_enemies_only", 12000, 1, "int", &function_c66f053, 0, 1);
@@ -183,14 +183,14 @@ function function_c66f053(localclientnum, oldval, newval, bnewent, binitialsnap,
 	local_player = self;
 	var_c86e6ba8 = self.team;
 	players = getplayers(fieldname);
-	var_657eb40b = bwastimejump == 1;
+	should_play = bwastimejump == 1;
 	foreach(player in players)
 	{
 		if(!isdefined(player))
 		{
 			continue;
 		}
-		player renderoverridebundle::function_f4eab437(fieldname, var_657eb40b, #"hash_53798044d9a468d7", &function_e56218ab);
+		player renderoverridebundle::function_f4eab437(fieldname, should_play, #"hash_53798044d9a468d7", &function_e56218ab);
 	}
 }
 
@@ -203,9 +203,9 @@ function function_c66f053(localclientnum, oldval, newval, bnewent, binitialsnap,
 	Parameters: 2
 	Flags: Linked
 */
-function function_429c452(localclientnum, var_657eb40b)
+function function_429c452(localclientnum, should_play)
 {
-	if(!var_657eb40b)
+	if(!should_play)
 	{
 		return 0;
 	}
@@ -215,7 +215,7 @@ function function_429c452(localclientnum, var_657eb40b)
 	}
 	if(!isplayer(self))
 	{
-		return var_657eb40b;
+		return should_play;
 	}
 	localplayer = function_5c10bd79(localclientnum);
 	if(isdefined(localplayer) && !localplayer util::isenemyteam(self.team))
@@ -250,9 +250,9 @@ function function_429c452(localclientnum, var_657eb40b)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e56218ab(localclientnum, var_657eb40b)
+function function_e56218ab(localclientnum, should_play)
 {
-	if(!var_657eb40b)
+	if(!should_play)
 	{
 		return 0;
 	}
@@ -262,7 +262,7 @@ function function_e56218ab(localclientnum, var_657eb40b)
 	}
 	if(!isplayer(self))
 	{
-		return var_657eb40b;
+		return should_play;
 	}
 	localplayer = function_5c10bd79(localclientnum);
 	if(isdefined(localplayer) && localplayer.team == self.team)
@@ -335,9 +335,9 @@ function on_player_spawned(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_74f5faf8(var_aa127355)
+function function_74f5faf8(eventparams)
 {
-	localclientnum = var_aa127355.localclientnum;
+	localclientnum = eventparams.localclientnum;
 	var_dc39bd32 = function_5c10bd79(localclientnum);
 	if(codcaster::function_c955fbd1(localclientnum))
 	{

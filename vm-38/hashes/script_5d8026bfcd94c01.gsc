@@ -1,4 +1,4 @@
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\killstreaks\killstreaks_util.gsc;

@@ -112,9 +112,9 @@ class class_d28acd06 : class_9e71c1a2
 		Parameters: 2
 		Flags: Linked
 	*/
-	function function_309c16b5(e_player, var_ee0af263)
+	function function_309c16b5(e_player, n_new_val)
 	{
-		[[ self ]]->complete(e_player, var_ee0af263 == 2, e_player.team);
+		[[ self ]]->complete(e_player, n_new_val == 2, e_player.team);
 	}
 
 	/*

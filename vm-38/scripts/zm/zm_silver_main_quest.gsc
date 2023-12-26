@@ -4,12 +4,12 @@
 #using script_36f4be19da8eb6d0;
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3cf7932e9702e270;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4421226bbc54b398;
 #using scripts\zm_common\zm_items.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
 #using script_4d1e366b77f0b4b;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -80,7 +80,7 @@ function init()
 	{
 		table function_619a5c20();
 	}
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		return;
 	}
@@ -91,7 +91,7 @@ function init()
 	level.var_e25a63e = util::spawn_model("p9_zm_ndu_purifier_tank02", v_pos, v_ang);
 	level.var_39acfd4c = util::spawn_model("p9_zm_ndu_purifier_tank03", v_pos, v_ang);
 	level.var_c77198d7 = util::spawn_model("p9_zm_ndu_purifier_tank04", v_pos, v_ang);
-	function_3335f286();
+	init_steps();
 	level.var_3034d7b8 = &function_d5d67561;
 	callback::on_item_pickup(&on_item_pickup);
 	callback::on_spawned(&on_player_spawned);
@@ -170,7 +170,7 @@ function function_f4ac09f8()
 }
 
 /*
-	Name: function_3335f286
+	Name: init_steps
 	Namespace: zm_silver_main_quest
 	Checksum: 0x17AAB396
 	Offset: 0x2288
@@ -178,7 +178,7 @@ function function_f4ac09f8()
 	Parameters: 0
 	Flags: None
 */
-function function_3335f286()
+function init_steps()
 {
 	level zm_sq::register(#"main_quest", #"hash_31615b8387c7fe75", #"hash_31615b8387c7fe75", &function_5c9f6aa5, &function_d280572e);
 	level zm_sq::register(#"main_quest", #"hash_1e814d4b4714c618", #"hash_1e814d4b4714c618", &function_f8065ad8, &function_bdfb3840);
@@ -206,7 +206,7 @@ function function_3335f286()
 function private function_7a4e3128(var_77f5a825)
 {
 	/#
-		if(!getdvarint(#"hash_11ad6a9695943217", 0))
+		if(!getdvarint(#"zm_debug_ee", 0))
 		{
 			return;
 		}
@@ -369,7 +369,7 @@ function function_16b7f990()
 		if(waitresult._notify === "manage_to_find_aetherscope_part")
 		{
 			waitresult.player thread function_829dde5f();
-			zm_items::player_pick_up(waitresult.player, zm_crafting::function_4c2f8683(var_2d4fbfe0.var_813c4285));
+			zm_items::player_pick_up(waitresult.player, zm_crafting::get_component(var_2d4fbfe0.var_813c4285));
 			hidemiscmodels(var_2d4fbfe0.var_96dbe9c2);
 			showmiscmodels(level.var_44aa636e.var_96dbe9c2);
 			var_7588c69f = 1;
@@ -583,7 +583,7 @@ function function_b2f3498a()
 	while(!level flag::get("aetherscope_assembled"))
 	{
 		waitresult = undefined;
-		waitresult = level waittill(#"hash_356be6a8a0b0668d");
+		waitresult = level waittill(#"crafting_started");
 		level thread scene::play("p9_fxanim_zm_gp_crafting_variant_bundle", level.var_44aa636e);
 		e_crafter = waitresult.activator;
 		e_crafter clientfield::set_to_player("" + #"hash_3f49ce049c9da7d", 1);
@@ -1083,10 +1083,10 @@ function function_19cc9adc()
 	zm_unitrigger::unregister_unitrigger(self.s_unitrigger);
 	self.s_unitrigger = undefined;
 	wait(1);
-	var_64c09f7f = self zm_unitrigger::function_fac87205(&function_59f2369, vectorscale((1, 1, 1), 64));
-	if(isplayer(var_64c09f7f))
+	e_activator = self zm_unitrigger::function_fac87205(&function_59f2369, vectorscale((1, 1, 1), 64));
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
+		e_activator clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 	}
 	switch(level.var_3d0030f2[0].script_noteworthy)
 	{
@@ -1094,7 +1094,7 @@ function function_19cc9adc()
 		{
 			level thread function_28cbcd87("aib_t9_zm_silver_echo_1_vogel_01", "main");
 			var_c74251a4 = scene::function_8582657c("aib_t9_zm_silver_echo_1_vogel_01", "main");
-			level thread function_c5a2352(var_c74251a4, var_64c09f7f.zone_name, "done_echo_scene_vogel_01");
+			level thread function_c5a2352(var_c74251a4, e_activator.zone_name, "done_echo_scene_vogel_01");
 			level flag::set("collect_letter_a");
 			break;
 		}
@@ -1102,7 +1102,7 @@ function function_19cc9adc()
 		{
 			level thread function_28cbcd87("aib_t9_zm_silver_echo_2_vogel_01", "main");
 			var_c74251a4 = scene::function_8582657c("aib_t9_zm_silver_echo_2_vogel_01", "main");
-			level thread function_c5a2352(var_c74251a4, var_64c09f7f.zone_name, "done_echo_scene_vogel_02");
+			level thread function_c5a2352(var_c74251a4, e_activator.zone_name, "done_echo_scene_vogel_02");
 			level flag::set("collect_letter_h");
 			break;
 		}
@@ -1110,7 +1110,7 @@ function function_19cc9adc()
 		{
 			level thread function_28cbcd87("aib_t9_zm_silver_echo_3_vogel_01", "main");
 			var_c74251a4 = scene::function_8582657c("aib_t9_zm_silver_echo_3_vogel_01", "main");
-			level thread function_c5a2352(var_c74251a4, var_64c09f7f.zone_name, "done_echo_scene_vogel_03");
+			level thread function_c5a2352(var_c74251a4, e_activator.zone_name, "done_echo_scene_vogel_03");
 			level flag::set("collect_letter_v");
 			break;
 		}
@@ -1538,33 +1538,33 @@ function function_2555092e()
 	item_drop::drop_item(0, undefined, 1, 0, point.id, struct::get("zm_exp_energy", "script_noteworthy").origin, undefined, 1);
 	level flag::wait_till("wrench_collected");
 	tank = getent("panzer_tank", "targetname");
-	var_64c09f7f = tank zm_unitrigger::function_fac87205(#"hash_137a43a0f69e43b3", vectorscale((1, 1, 1), 256));
-	var_64c09f7f playsound(#"hash_d760771fc3882e8");
-	if(isplayer(var_64c09f7f))
+	e_activator = tank zm_unitrigger::function_fac87205(#"hash_137a43a0f69e43b3", vectorscale((1, 1, 1), 256));
+	e_activator playsound(#"hash_d760771fc3882e8");
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_7a769c728c89b6b5");
+		e_activator clientfield::increment_to_player("" + #"hash_7a769c728c89b6b5");
 	}
 	playsoundatposition(#"hash_6620249ce68801b", (1270, -486, 156));
 	/#
 		iprintlnbold("");
 	#/
 	wait(1);
-	var_64c09f7f = tank zm_unitrigger::function_fac87205(#"hash_137a43a0f69e43b3", vectorscale((1, 1, 1), 256));
-	var_64c09f7f playsound(#"hash_d760771fc3882e8");
-	if(isplayer(var_64c09f7f))
+	e_activator = tank zm_unitrigger::function_fac87205(#"hash_137a43a0f69e43b3", vectorscale((1, 1, 1), 256));
+	e_activator playsound(#"hash_d760771fc3882e8");
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_7a769c728c89b6b5");
+		e_activator clientfield::increment_to_player("" + #"hash_7a769c728c89b6b5");
 	}
 	playsoundatposition(#"hash_6620349ce6881ce", (1270, -486, 156));
 	/#
 		iprintlnbold("");
 	#/
 	wait(1);
-	var_64c09f7f = tank zm_unitrigger::function_fac87205(#"hash_137a43a0f69e43b3", vectorscale((1, 1, 1), 256));
-	var_64c09f7f playsound(#"hash_d760771fc3882e8");
-	if(isplayer(var_64c09f7f))
+	e_activator = tank zm_unitrigger::function_fac87205(#"hash_137a43a0f69e43b3", vectorscale((1, 1, 1), 256));
+	e_activator playsound(#"hash_d760771fc3882e8");
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_7a769c728c89b6b5");
+		e_activator clientfield::increment_to_player("" + #"hash_7a769c728c89b6b5");
 	}
 	/#
 		iprintlnbold("");
@@ -1965,7 +1965,7 @@ function function_e3bd1289(b_skipped, var_19e802fa)
 */
 function function_d5d67561()
 {
-	level flag::set(#"hash_4b00aa230ebbe82b");
+	level flag::set(#"main_quest_completed");
 }
 
 /*
@@ -2258,7 +2258,7 @@ function function_86404122()
 {
 	self function_714e14de();
 	level thread function_85e60c0a();
-	callback::function_5a753d97(&function_e9df7768);
+	callback::remove_on_weapon_change(&function_e9df7768);
 	callback::function_824d206(&function_7904960c);
 }
 
@@ -2280,7 +2280,7 @@ function function_7acfbb3a(e_player)
 	e_player switchtoweapon(level.var_5e824298, 1);
 	e_player thread function_f4b436d5();
 	e_player waittill(#"weapon_change_complete");
-	callback::function_f77ced93(&function_e9df7768);
+	callback::on_weapon_change(&function_e9df7768);
 	callback::function_33f0ddd3(&function_7904960c);
 	e_player thread function_50d04ccb();
 	e_player val::reset(#"hash_754e9e4a6ccbcb80", "disable_weapon_cycling");
@@ -2338,7 +2338,7 @@ function function_114098ba(e_player)
 	e_player endon(#"disconnect");
 	s_result = undefined;
 	s_result = e_player waittill(#"hash_46a03eeac0661b25", #"fake_death");
-	callback::function_5a753d97(&function_e9df7768);
+	callback::remove_on_weapon_change(&function_e9df7768);
 	callback::function_824d206(&function_7904960c);
 	e_player takeweapon(level.var_5e824298);
 	e_player notify(#"hide_equipment_hint_text");
@@ -3417,7 +3417,7 @@ function function_31125f54(var_8bb7479c)
 		level zm_silver::function_4b29f610();
 		level.var_117d5f10 unlink();
 		level notify(#"hash_343f8b4d163b808f");
-		level flag::set(#"hash_4b00aa230ebbe82b");
+		level flag::set(#"main_quest_completed");
 		level scene::play(var_8bb7479c, level.var_117d5f10);
 		array::thread_all(getplayers(), &function_ee6da6f6);
 	}
@@ -3526,7 +3526,7 @@ function function_c5d3e5c()
 	foreach(e_trigger in var_a0b86b5f)
 	{
 		/#
-			e_trigger thread function_7a4e3128(#"hash_4b00aa230ebbe82b");
+			e_trigger thread function_7a4e3128(#"main_quest_completed");
 		#/
 		e_trigger thread watch_for_player_trigger();
 	}
@@ -3580,10 +3580,10 @@ function watch_for_player_trigger()
 	{
 		waitresult = undefined;
 		waitresult = self waittill(#"trigger");
-		var_64c09f7f = waitresult.activator;
-		if(isplayer(var_64c09f7f) && !isdefined(var_64c09f7f.var_ccc1bcbf))
+		e_activator = waitresult.activator;
+		if(isplayer(e_activator) && !isdefined(e_activator.var_ccc1bcbf))
 		{
-			self thread function_bf287595(var_64c09f7f);
+			self thread function_bf287595(e_activator);
 		}
 	}
 }
@@ -5245,21 +5245,21 @@ function on_item_pickup(params)
 			{
 				case "hash_2ebe3fb8c0af6e5b":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_1f87150a0632f418", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_1f87150a0632f418", 1);
 					level notify(#"manage_to_find_aetherscope_part", {#player:self});
 					self clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 					break;
 				}
 				case "hash_2ebe40b8c0af700e":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_1f87180a0632f931", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_1f87180a0632f931", 1);
 					level notify(#"manage_to_find_aetherscope_part", {#player:self});
 					self clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 					break;
 				}
 				case "hash_2ebe41b8c0af71c1":
 				{
-					level namespace_6747c550::function_7df6bb60(#"hash_1f87170a0632f77e", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_1f87170a0632f77e", 1);
 					level notify(#"manage_to_find_aetherscope_part", {#player:self});
 					self clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 					break;
@@ -5267,7 +5267,7 @@ function on_item_pickup(params)
 				case "item_zmintel_silver_darkaether_artifact_4":
 				{
 					level flag::set("wrench_collected");
-					level namespace_6747c550::function_7df6bb60(#"hash_1b836a89598ddaa4", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_1b836a89598ddaa4", 1);
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, "zmintel_silver_darkaether_artifact_4");
 					self clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 					break;
@@ -5283,7 +5283,7 @@ function on_item_pickup(params)
 				case "item_zmintel_silver_requiem_artifact_4":
 				{
 					level flag::set("someone_has_notebook");
-					level namespace_6747c550::function_7df6bb60(#"hash_6df578dd42812c70", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_6df578dd42812c70", 1);
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, "zmintel_silver_requiem_artifact_4");
 					self clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 					/#
@@ -5294,7 +5294,7 @@ function on_item_pickup(params)
 				case "item_zmintel_silver_omega_artifact_1":
 				{
 					level flag::set(#"hash_16f2a408c50fab14");
-					level namespace_6747c550::function_7df6bb60(#"hash_2d5b26565a3e1ea1", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_2d5b26565a3e1ea1", 1);
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, "zmintel_silver_omega_artifact_1");
 					self clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 					break;

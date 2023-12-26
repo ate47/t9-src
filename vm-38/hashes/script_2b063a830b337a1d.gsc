@@ -47,7 +47,7 @@ class cevidence_board_mission_preview : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class cevidence_board_mission_preview : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -132,13 +132,13 @@ class cevidence_board_mission_preview : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("evidence_board_mission_preview");
-		cLUIelem::function_da693cbe("entNum", 1, 10, "int");
-		cLUIelem::function_da693cbe("activeState", 1, 2, "int");
-		cLUIelem::function_da693cbe("lvlYear", 1, 11, "int");
+		cLUIelem::add_clientfield("entNum", 1, 10, "int");
+		cLUIelem::add_clientfield("activeState", 1, 2, "int");
+		cLUIelem::add_clientfield("lvlYear", 1, 11, "int");
 		cLUIelem::function_dcb34c80("string", "lvlName", 1);
 		cLUIelem::function_dcb34c80("string", "lvlDescriptionShort", 1);
 		cLUIelem::function_dcb34c80("string", "lvlDescriptionLong", 1);
-		cLUIelem::function_da693cbe("lvlProgress", 1, 4, "float");
+		cLUIelem::add_clientfield("lvlProgress", 1, 4, "float");
 	}
 
 	/*

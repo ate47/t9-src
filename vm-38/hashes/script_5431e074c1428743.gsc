@@ -1,6 +1,6 @@
 #using script_3626f1b2cf51a99c;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using script_52da18c20f45c56a;
 #using script_7d0013bbc05623b9;
 #using scripts\core_common\ai_shared.gsc;
@@ -728,7 +728,7 @@ function function_146a3d56(enemy)
 	/#
 		assert(isplayer(self));
 	#/
-	return vectornormalize(enemy.var_97e2c0da.var_232d0f3b - self getplayercamerapos());
+	return vectornormalize(enemy.var_97e2c0da.check_origin - self getplayercamerapos());
 }
 
 /*
@@ -1041,7 +1041,7 @@ function function_c943b729(action, takedown, player)
 			zoffset = (0, 0, takedown.traceheight);
 		}
 		start = player.origin + zoffset;
-		end = self.var_97e2c0da.var_232d0f3b + zoffset;
+		end = self.var_97e2c0da.check_origin + zoffset;
 		radius = 0;
 		trace = physicstrace(start, end, (radius * -1, radius * -1, radius * -1), (radius, radius, radius), self.var_a08ba405, 32 | 1, 32768 | 8388608);
 		if(trace[#"fraction"] < 1)
@@ -1343,9 +1343,9 @@ function function_7a061b23(enabled, action_name)
 	}
 	else
 	{
-		foreach(var_82402c2 in self.takedown.var_9871533)
+		foreach(bitindex in self.takedown.var_9871533)
 		{
-			bitmask = bitmask | (1 << var_82402c2);
+			bitmask = bitmask | (1 << bitindex);
 		}
 	}
 	if(enabled)
@@ -1529,12 +1529,12 @@ function function_8c04a084(player)
 		}
 		var_da4521b5 = vectorcross(var_a38620f, (0, 0, 1));
 		self.var_97e2c0da.dir_to_player = var_b6db82af;
-		self.var_97e2c0da.var_f67f7d03 = vectordot(var_a38620f, var_b6db82af);
+		self.var_97e2c0da.dot_forward = vectordot(var_a38620f, var_b6db82af);
 		self.var_97e2c0da.dot_right = vectordot(var_da4521b5, var_b6db82af);
 		self.var_97e2c0da.height = self.origin[2] - player.origin[2];
 		self.var_97e2c0da.var_bd87dbc5 = abs(self.var_97e2c0da.height);
-		self.var_97e2c0da.var_232d0f3b = self gettagorigin(tag);
-		self.var_97e2c0da.distsq = distancesquared(self.var_97e2c0da.var_232d0f3b, player getplayercamerapos());
+		self.var_97e2c0da.check_origin = self gettagorigin(tag);
+		self.var_97e2c0da.distsq = distancesquared(self.var_97e2c0da.check_origin, player getplayercamerapos());
 		self.var_9959f16e = now;
 	}
 	return self.var_97e2c0da;

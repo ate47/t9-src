@@ -1,4 +1,4 @@
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

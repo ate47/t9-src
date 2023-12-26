@@ -1,4 +1,4 @@
-#using script_240ef62ff60b2694;
+#using scripts\core_common\player\player_stats.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\scene_shared.csc;
@@ -74,7 +74,7 @@ function function_7bd1ca93(localclientnum, str_targetname, player)
 	if(isdefined(var_99bf2e73.scriptbundlename) && !isdefined(var_99bf2e73.var_bdb97676) && player function_f0f36d47(localclientnum, var_99bf2e73.scriptbundlename))
 	{
 		s_bundle = getscriptbundle(var_99bf2e73.scriptbundlename);
-		if(isdefined(s_bundle.model) && s_bundle.var_9be0526e === #"hash_38c50405421ca2a5")
+		if(isdefined(s_bundle.model) && s_bundle.var_9be0526e === #"audiolog")
 		{
 			var_99bf2e73.var_bdb97676 = util::spawn_anim_model(localclientnum, s_bundle.model, var_99bf2e73.origin, var_99bf2e73.angles);
 			var_99bf2e73.var_bdb97676.var_2b372cf6 = s_bundle.var_9be0526e;
@@ -86,7 +86,7 @@ function function_7bd1ca93(localclientnum, str_targetname, player)
 		{
 			return;
 		}
-		if(var_99bf2e73.var_bdb97676.var_2b372cf6 === #"hash_38c50405421ca2a5")
+		if(var_99bf2e73.var_bdb97676.var_2b372cf6 === #"audiolog")
 		{
 			switch(var_99bf2e73.var_bdb97676.str_faction)
 			{
@@ -102,7 +102,7 @@ function function_7bd1ca93(localclientnum, str_targetname, player)
 					var_99bf2e73.var_bdb97676.str_client_scene = #"hash_5f0087f80bfada21";
 					break;
 				}
-				case "hash_3460cbae3ad8be88":
+				case "omega":
 				{
 					var_99bf2e73.var_bdb97676 setmodel(#"p9_zm_ndu_reel_to_reel_audio_recorder_01");
 					var_99bf2e73.var_bdb97676.str_client_scene = #"hash_7eb65d335384abcf";
@@ -326,7 +326,7 @@ function function_88645994(var_6f94d397, var_c14aedb3, var_539eabc0, var_765715e
 */
 function function_f0f36d47(localclientnum, var_d5fa8477)
 {
-	if(self === function_27673a7(localclientnum) && isdefined(var_d5fa8477) && stats::function_c9d32eb9(localclientnum, 0, #"hash_118b6e7581ca3893", var_d5fa8477))
+	if(self === function_27673a7(localclientnum) && isdefined(var_d5fa8477) && stats::get_match_stat(localclientnum, 0, #"hash_118b6e7581ca3893", var_d5fa8477))
 	{
 		return true;
 	}

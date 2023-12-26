@@ -1,4 +1,4 @@
-#using script_32070ee59eefcc7f;
+#using scripts\core_common\ai\zombie_death.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\system_shared.csc;

@@ -1,4 +1,4 @@
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_72d96920f15049b8;
 #using scripts\core_common\array_shared.gsc;

@@ -44,7 +44,7 @@ class czm_gold_align_satellite_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_gold_align_satellite_hud
 		Checksum: 0x1C8CEAA7
 		Offset: 0x350
@@ -52,9 +52,9 @@ class czm_gold_align_satellite_hud : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_gold_align_satellite_hud");
+		cLUIelem::register_clientside("zm_gold_align_satellite_hud");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_gold_align_satellite_hud
 	Checksum: 0x97CE3BCE
 	Offset: 0x250
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new czm_gold_align_satellite_hud();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

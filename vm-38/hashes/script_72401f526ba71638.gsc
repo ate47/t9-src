@@ -4,7 +4,7 @@
 #using script_27610ca25737f68d;
 #using script_340a2e805e35f7a2;
 #using script_3751b21462a54a7d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4108035fe400ce67;
 #using script_421ca110b4204518;
 #using script_44c2a1259e14bef1;
@@ -79,7 +79,7 @@ function private function_70a657d8()
 	level.var_5b46d961 = [];
 	level.var_197c8eb1 = 0;
 	level.var_1b527536 = array(#"hash_85edf3a63bb488c", #"frost_blast_1", #"frost_blast_2", #"frost_blast_3", #"frost_blast_4", #"frost_blast_5", #"heal_aoe", #"hash_379869d5b6da974b", #"hash_37986ad5b6da98fe", #"hash_37986bd5b6da9ab1", #"hash_37986cd5b6da9c64", #"hash_37986dd5b6da9e17", #"energy_mine", #"energy_mine_1", #"energy_mine_2", #"energy_mine_3", #"energy_mine_4", #"hash_4ac3fea4add2a2c9", #"aether_shroud", #"hash_164c43cbd0ee958", #"hash_164c73cbd0eee71", #"hash_164c63cbd0eecbe", #"hash_164c93cbd0ef1d7", #"hash_164c83cbd0ef024", #"ring_of_fire", #"hash_631a223758cd92a", #"hash_631a123758cd777", #"hash_631a023758cd5c4", #"hash_6319f23758cd411", #"hash_6319e23758cd25e", #"hash_55569355da0f0f68", #"hash_43e326396554e18c", #"hash_43e329396554e6a5", #"hash_43e328396554e4f2", #"hash_43e323396554dc73", #"hash_43e322396554dac0");
-	clientfield::function_a8bbc967("hud_items.ammoCooldowns.fieldUpgrade", 1, 5, "float");
+	clientfield::register_clientuimodel("hud_items.ammoCooldowns.fieldUpgrade", 1, 5, "float");
 	clientfield::register("toplayer", "field_upgrade_selected", 1, 5, "int");
 	clientfield::register("allplayers", "field_upgrade_fired", 1, 4, "counter");
 	clientfield::function_91cd7763("material", "zm_field_upgrade_loadout.overrideImage", 16000, 0);
@@ -383,8 +383,8 @@ function private function_7fb7c83c(weaponname)
 	{
 		return 1;
 	}
-	var_66ac8e3e = isinarray(level.var_1b527536, weaponname);
-	return var_66ac8e3e;
+	inarray = isinarray(level.var_1b527536, weaponname);
+	return inarray;
 }
 
 /*
@@ -405,7 +405,7 @@ function function_1067f94c(class_index)
 		if(self.var_87f72f8 != level.var_5b46d961[var_d07d57b2])
 		{
 			self function_460882e2();
-			item_inventory::function_5852cb7b(item.var_bd027dd9);
+			item_inventory::remove_inventory_item(item.var_bd027dd9);
 		}
 	}
 	self function_3ef3cec3(class_index);
@@ -796,9 +796,9 @@ function function_6457e4cd(item_name, count)
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
 			self item_world::function_de2018e3(item, self, var_fa3df96, 0);
 		}
@@ -854,10 +854,10 @@ function function_7281de4d(itemname, var_c940cca, weaponname, iconname, maxammo,
 	if(var_874a73c4 > 0)
 	{
 		item = self.inventory.items[12];
-		dropitem = self item_inventory::function_418f9eb8(item.var_bd027dd9);
+		dropitem = self item_inventory::drop_inventory_item(item.var_bd027dd9);
 		dropitem hide();
 		dropitem.var_864ea466 = 1;
-		self item_inventory::function_7730442c(dropitem);
+		self item_inventory::consume_item(dropitem);
 	}
 	if(!isdefined(level.var_1b527536))
 	{
@@ -911,10 +911,10 @@ function function_69303ed3()
 	if(var_874a73c4 > 0)
 	{
 		item = self.inventory.items[12];
-		dropitem = self item_inventory::function_418f9eb8(item.var_bd027dd9);
+		dropitem = self item_inventory::drop_inventory_item(item.var_bd027dd9);
 		dropitem hide();
 		dropitem.var_864ea466 = 1;
-		self item_inventory::function_7730442c(dropitem);
+		self item_inventory::consume_item(dropitem);
 	}
 	self.var_c9448182 = self.var_d7c2e1cf;
 	self.var_fc8023b4 = self.var_703fa168;

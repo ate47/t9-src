@@ -1,6 +1,6 @@
-#using script_27137b97a4a2215f;
+#using scripts\zm\archetype\archetype_zod_companion.gsc;
 #using script_3819e7a1427df6d2;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_ed50e9299d3e143;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -82,7 +82,7 @@ function private function_10c92445()
 	self.var_135f3e2e = &function_2abc1fe5;
 	self.var_b98a92a2 = 1000;
 	self.var_ab38d331 = 0;
-	self val::set(#"hash_744f2f9219624cba", "takedamage", 0);
+	self val::set(#"mannequin_ally", "takedamage", 0);
 	self.var_7c4488fd = 1;
 	self.var_535fbaa3 = 1200;
 	self namespace_47c5b560::function_904442b2();
@@ -262,7 +262,7 @@ function function_8996b315(var_ac5f535, bomb_model)
 	self zodcompanionutility::function_60dcf99d(var_ac5f535);
 	if(is_true(var_ac5f535))
 	{
-		self val::reset(#"hash_744f2f9219624cba", "takedamage");
+		self val::reset(#"mannequin_ally", "takedamage");
 		self val::set(#"zod_companion", "ignoreall", 1);
 		level flag::set(#"hash_66eb1b5632f46da8");
 		if(isdefined(self.weapon))
@@ -277,7 +277,7 @@ function function_8996b315(var_ac5f535, bomb_model)
 	}
 	else
 	{
-		self val::set(#"hash_744f2f9219624cba", "takedamage", 0);
+		self val::set(#"mannequin_ally", "takedamage", 0);
 		self val::reset(#"zod_companion", "ignoreall");
 		level flag::clear(#"hash_66eb1b5632f46da8");
 		if(isdefined(self.last_weapon_name))

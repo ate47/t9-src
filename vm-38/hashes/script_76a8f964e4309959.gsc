@@ -1,9 +1,9 @@
 #using script_26cd04df32f6537a;
 #using script_3819e7a1427df6d2;
-#using script_3f9e0dc8454d98e1;
-#using script_58c342edd81589fb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\zm_round_spawning.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -43,7 +43,7 @@ function private autoexec function_845dffd3()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_55f568f82a7aea28", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_55f568f82a7aea28", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -58,13 +58,13 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	clientfield::register("scriptmover", "" + #"hash_3220b44880f1807c", 24000, 1, "counter");
-	namespace_c3287616::register_archetype(#"tormentor", &function_44d45595, &round_spawn, &function_dfa96d1f, 25);
+	zm_round_spawning::register_archetype(#"tormentor", &function_44d45595, &round_spawn, &function_dfa96d1f, 25);
 	spawner::add_archetype_spawn_function(#"tormentor", &function_a5cd9e54);
 	zm_cleanup::function_cdf5a512(#"tormentor", &function_d8461453);
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_abfee9ba
 	Checksum: 0x80F724D1
 	Offset: 0x2B0
@@ -72,7 +72,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -297,7 +297,7 @@ function function_5e09bd0f()
 */
 function function_44d45595(var_dbce0c44)
 {
-	if(namespace_c3287616::function_fab464c4(level.round_number))
+	if(zm_round_spawning::function_fab464c4(level.round_number))
 	{
 		a_e_players = getplayers();
 		if(level.var_f4b9daca < 3)

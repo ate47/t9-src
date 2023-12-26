@@ -69,7 +69,7 @@ function private function_70a657d8()
 */
 function private on_player_connect()
 {
-	if(!isbot(self) || function_2dd2fa57(self) || is_true(self.pers[#"hash_6dcf8b0dc38e9166"]))
+	if(!isbot(self) || isautocontrolledplayer(self) || is_true(self.pers[#"hash_6dcf8b0dc38e9166"]))
 	{
 		return;
 	}
@@ -88,7 +88,7 @@ function private on_player_connect()
 */
 function private function_8481733a()
 {
-	if(!isbot(self) || function_2dd2fa57(self))
+	if(!isbot(self) || isautocontrolledplayer(self))
 	{
 		return;
 	}
@@ -166,8 +166,8 @@ function private function_798e35b8()
 function private function_6692a2a5(var_87ee1a5d, loadout, killstreaks)
 {
 	self function_b4a1d42a(var_87ee1a5d);
-	self function_3d2e4133(var_87ee1a5d, loadout.primary, loadout.var_6834562f, &function_29b482e0, &function_9d5e1230);
-	self function_3d2e4133(var_87ee1a5d, loadout.secondary, loadout.var_90030ba7, &function_7db40dda, &function_25ac8c68);
+	self function_3d2e4133(var_87ee1a5d, loadout.primary, loadout.primaryattachments, &function_29b482e0, &function_9d5e1230);
+	self function_3d2e4133(var_87ee1a5d, loadout.secondary, loadout.secondaryattachments, &function_7db40dda, &function_25ac8c68);
 	self function_cbd58d72(var_87ee1a5d, loadout.primarygrenade, loadout.var_1c89585f, &function_9a75f033);
 	self function_cbd58d72(var_87ee1a5d, loadout.secondarygrenade, loadout.var_285151c1, &function_ac5568db);
 	self function_cbd58d72(var_87ee1a5d, loadout.specialgrenade, loadout.var_919cf3d3, &function_493daf47);
@@ -197,7 +197,7 @@ function private function_3d2e4133(var_87ee1a5d, weaponname, attachments, var_c2
 		foreach(attachment in attachments)
 		{
 			attachmentname = attachment.attachment;
-			if(isdefined(attachmentname) && !function_d10c5729(weaponname, attachmentname))
+			if(isdefined(attachmentname) && !isattachmentrestricted(weaponname, attachmentname))
 			{
 				self [[var_1b426c77]](var_87ee1a5d, attachmentname, i);
 			}
@@ -337,8 +337,8 @@ function private function_5d3cc643(var_87ee1a5d, var_3b0cd6f4)
 	self function_73e20080(var_87ee1a5d, bonuscards, 1, bonuses);
 	primaryweapons = function_20d254c4(var_3b0cd6f4.primaryweapons, 1, #"hash_5b5f44e15bfa8dee");
 	secondaryweapons = function_20d254c4(var_3b0cd6f4.secondaryweapons, 1, #"hash_41674514bd7e81e2");
-	var_6c866ac3 = function_ef026df8(var_3b0cd6f4.var_6834562f, #"hash_27073088eb9a1e37");
-	var_1084a9e2 = function_ef026df8(var_3b0cd6f4.var_90030ba7, #"hash_1b2fbf16c3b98c7b");
+	var_6c866ac3 = function_ef026df8(var_3b0cd6f4.primaryattachments, #"hash_27073088eb9a1e37");
+	var_1084a9e2 = function_ef026df8(var_3b0cd6f4.secondaryattachments, #"hash_1b2fbf16c3b98c7b");
 	var_bc1ac364 = 5;
 	if(is_true(bonuses.var_e22b188d))
 	{
@@ -448,7 +448,7 @@ function private function_fccfb0af(var_87ee1a5d, &weaponnames, var_38e0e278, cou
 		groupname = var_c1b02801[groupindex];
 		attachments = var_38e0e278[groupname];
 		attachment = self function_ec884214(attachments);
-		if(function_d10c5729(weaponname, attachment))
+		if(isattachmentrestricted(weaponname, attachment))
 		{
 			if(attachments.size <= 0)
 			{

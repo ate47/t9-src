@@ -3,7 +3,7 @@
 #using script_2f560596a9a134ab;
 #using script_36f4be19da8eb6d0;
 #using script_4ce5d94e8c797350;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_7bacb32f8222fa3e;
 #using script_b9d273dc917ee1f;
@@ -134,7 +134,7 @@ function function_7b4dc906()
 	level.var_632fe5ca = 0;
 	function_aee47035();
 	callback::on_item_pickup(&on_item_pickup);
-	callback::function_f77ced93(&function_b8a1fcc2);
+	callback::on_weapon_change(&function_b8a1fcc2);
 }
 
 /*
@@ -209,10 +209,10 @@ function function_5adab0a2()
 	/#
 		iprintlnbold("");
 	#/
-	var_64c09f7f = reader zm_unitrigger::function_fac87205(#"hash_4472d2ff9d015c5e", 48);
-	if(isplayer(var_64c09f7f))
+	e_activator = reader zm_unitrigger::function_fac87205(#"hash_4472d2ff9d015c5e", 48);
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
+		e_activator clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 	}
 	var_493bf9de = util::spawn_model(#"p9_zm_ndu_ieu_keycard", struct::get("zm_chip_ins").origin, struct::get("zm_chip_ins").angles);
 	var_493bf9de moveto(var_493bf9de.origin + (vectorscale((0, -1, 0), 8)), 1, 0.25, 0.25);
@@ -664,10 +664,10 @@ function function_c436fc75()
 	}
 	level notify(#"hash_43f35dbac954ab43");
 	level flag::wait_till(#"player_got_the_flask");
-	var_64c09f7f = var_127d143e zm_unitrigger::function_fac87205(#"hash_305fa71dfcc314d1", 64);
-	if(isplayer(var_64c09f7f))
+	e_activator = var_127d143e zm_unitrigger::function_fac87205(#"hash_305fa71dfcc314d1", 64);
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
+		e_activator clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 	}
 	var_ed7b24c9 = struct::get("drip_nitrogen_loc", "targetname");
 	var_4db6fabc = util::spawn_model(#"p9_zm_ndu_conical_flask", var_ed7b24c9.origin);
@@ -845,9 +845,9 @@ function private function_beb0f79f()
 		{
 			break;
 		}
-		var_194983d0 = randomfloat(360);
+		rotation1 = randomfloat(360);
 		var_bbbdc8b2 = randomfloat(360);
-		start_pos = center + (sin(var_194983d0) * cos(var_bbbdc8b2), cos(var_194983d0) * cos(var_bbbdc8b2), sin(var_bbbdc8b2)) * randomfloat(radius);
+		start_pos = center + (sin(rotation1) * cos(var_bbbdc8b2), cos(rotation1) * cos(var_bbbdc8b2), sin(var_bbbdc8b2)) * randomfloat(radius);
 		level thread namespace_b376a999::function_6dbf1bb3(target, 5, start_pos);
 		waittime = waittime - interval;
 		radius = radius - (10 * interval);
@@ -885,10 +885,10 @@ function function_17329c15()
 	level.var_3789aef6 = getent(container.target, "targetname");
 	callback::on_ai_killed(&function_c801979a);
 	level flag::wait_till("player_got_the_canister");
-	var_64c09f7f = container zm_unitrigger::function_fac87205(#"hash_1b64b8622366a804", vectorscale((1, 1, 1), 64));
-	if(isplayer(var_64c09f7f))
+	e_activator = container zm_unitrigger::function_fac87205(#"hash_1b64b8622366a804", vectorscale((1, 1, 1), 64));
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
+		e_activator clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 	}
 	var_5ac7d534 = util::spawn_model(#"p9_zm_ndu_gas_canister", struct::get("zm_can_arm").origin);
 	var_5ac7d534 playsound(#"");
@@ -910,10 +910,10 @@ function function_17329c15()
 	level flag::wait_till("full_canister_picked_up");
 	level.var_74ec088f zm_unitrigger::unregister_unitrigger(level.var_74ec088f.s_unitrigger);
 	level notify(#"hash_6570f3a0ec272ff0");
-	var_64c09f7f = level.var_74ec088f zm_unitrigger::function_fac87205(#"hash_4e599abcf42324d0", vectorscale((1, 1, 1), 96));
-	if(isplayer(var_64c09f7f))
+	e_activator = level.var_74ec088f zm_unitrigger::function_fac87205(#"hash_4e599abcf42324d0", vectorscale((1, 1, 1), 96));
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
+		e_activator clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 	}
 	var_b04e724c = util::spawn_model(#"p9_zm_ndu_gas_canister", struct::get("zm_can_box").origin);
 	t_damage = spawn("trigger_damage", var_b04e724c.origin, 0, 32, 32);
@@ -1346,11 +1346,11 @@ function function_78d3b53b()
 */
 function function_ead1edac(cutter)
 {
-	var_64c09f7f = self zm_unitrigger::function_fac87205(&function_95913408, vectorscale((1, 1, 1), 96));
+	e_activator = self zm_unitrigger::function_fac87205(&function_95913408, vectorscale((1, 1, 1), 96));
 	level flag::set("ww_plasma_dark_crate_unfolded");
-	if(isplayer(var_64c09f7f))
+	if(isplayer(e_activator))
 	{
-		var_64c09f7f clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
+		e_activator clientfield::increment_to_player("" + #"hash_6696d96a08b9701d");
 	}
 	level.var_ba3a0e1f = level.var_ba3a0e1f + 5;
 	cutter showpart("tag_fuse");
@@ -2449,7 +2449,7 @@ function on_item_pickup(params)
 						{
 							if(var_8a83ec7a != 32767)
 							{
-								var_f9f12a82 = item_inventory::function_418f9eb8(var_8a83ec7a);
+								var_f9f12a82 = item_inventory::drop_inventory_item(var_8a83ec7a);
 							}
 						}
 					}
@@ -2462,46 +2462,46 @@ function on_item_pickup(params)
 				case "hash_37f8e99ab49c109":
 				{
 					level flag::set("player_got_card");
-					level namespace_6747c550::function_7df6bb60(#"hash_6de5cab1fba28d40", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_6de5cab1fba28d40", 1);
 					break;
 				}
 				case "hash_2f24375908d9f69c":
 				{
 					level flag::set("player_got_remote");
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_4a8a43661e63e456");
-					level namespace_6747c550::function_7df6bb60(#"hash_1ec8e7f21f81afb0", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_1ec8e7f21f81afb0", 1);
 					break;
 				}
 				case "hash_16ea992ec682d37":
 				{
 					level flag::set("player_got_the_flask");
-					level namespace_6747c550::function_7df6bb60(#"hash_2e341f321b2ab3da", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_2e341f321b2ab3da", 1);
 					break;
 				}
 				case "hash_22d1a49f2c1d1c80":
 				{
 					level flag::set("player_got_the_filled_flask");
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_45d2906504ac753b");
-					level namespace_6747c550::function_7df6bb60(#"hash_2e341f321b2ab3da", 2);
+					level zm_ui_inventory::function_7df6bb60(#"hash_2e341f321b2ab3da", 2);
 					break;
 				}
 				case "hash_70dc74e571a35a75":
 				{
 					level flag::set("player_got_the_fuse");
-					level namespace_6747c550::function_7df6bb60(#"hash_7b8f7131712d7564", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_7b8f7131712d7564", 1);
 					break;
 				}
 				case "hash_5d1c62463e73e906":
 				{
 					level flag::set("player_got_the_canister");
-					level namespace_6747c550::function_7df6bb60(#"hash_240dcac486ef946a", 1);
+					level zm_ui_inventory::function_7df6bb60(#"hash_240dcac486ef946a", 1);
 					break;
 				}
 				case "hash_5f8eec7ec430864":
 				{
 					level flag::set("full_canister_picked_up");
 					array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_45d2916504ac76ee");
-					level namespace_6747c550::function_7df6bb60(#"hash_240dcac486ef946a", 2);
+					level zm_ui_inventory::function_7df6bb60(#"hash_240dcac486ef946a", 2);
 					break;
 				}
 				default:

@@ -2,7 +2,7 @@
 #using scripts\abilities\ability_player.gsc;
 #using script_4a1e83805671ae57;
 #using scripts\abilities\ability_util.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_725554a59d6a75b9;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -54,11 +54,11 @@ function private function_70a657d8()
 	ability_player::register_gadget_activation_callbacks(23, &gadget_health_regen_on, &gadget_health_regen_off);
 	ability_player::register_gadget_possession_callbacks(23, &gadget_health_regen_on_give, &gadget_health_regen_on_take);
 	clientfield::register("toplayer", "healthregen", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.healingActive", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.numHealthPickups", 1, 2, "int");
+	clientfield::register_clientuimodel("hudItems.healingActive", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.numHealthPickups", 1, 2, "int");
 	callback::on_spawned(&on_player_spawned);
 	callback::on_player_damage(&on_player_damage);
-	callback::add_callback(#"hash_4acc79bbf6402a39", &function_d3805306);
+	callback::add_callback(#"on_status_effect", &on_status_effect);
 	callback::add_callback(#"on_buff", &on_buff);
 	callback::add_callback(#"on_ai_killed", &function_3a6741ee);
 	level.var_3a536ce3 = getweapon(#"hash_5768c7fdf2dc422e");
@@ -80,7 +80,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_d3805306
+	Name: on_status_effect
 	Namespace: gadget_health_regen
 	Checksum: 0x460AAB3
 	Offset: 0x438
@@ -88,7 +88,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_d3805306(var_756fda07)
+function on_status_effect(var_756fda07)
 {
 	if(is_true(var_756fda07.var_29f71617))
 	{
@@ -124,9 +124,9 @@ function gadget_health_regen_on_give(slot, weapon)
 	self.gadget_health_regen_slot = slot;
 	self.gadget_health_regen_weapon = weapon;
 	weapon.ignore_grenade = 1;
-	if(isdefined(weapon) && weapon.var_44377ea6)
+	if(isdefined(weapon) && weapon.maxheal)
 	{
-		self player::function_9080887a(weapon.var_44377ea6);
+		self player::function_9080887a(weapon.maxheal);
 	}
 	else
 	{
@@ -321,7 +321,7 @@ function function_ef6c7869(now)
 */
 function function_34daf34a(slot, weapon)
 {
-	if(self function_cd5fec49())
+	if(self gadgetsdisabled())
 	{
 		return;
 	}
@@ -415,7 +415,7 @@ function function_aa2c622b(weapon)
 */
 function gadget_health_regen_on(slot, weapon)
 {
-	if(function_f99d2668() && !function_aa2c622b(weapon))
+	if(sessionmodeiswarzonegame() && !function_aa2c622b(weapon))
 	{
 		self.var_eedfcc6e = gettime();
 	}
@@ -436,16 +436,16 @@ function gadget_health_regen_on(slot, weapon)
 */
 function gadget_health_regen_off(slot, weapon)
 {
-	if(!function_f99d2668() && !function_aa2c622b(weapon))
+	if(!sessionmodeiswarzonegame() && !function_aa2c622b(weapon))
 	{
 	}
 	else if(isdefined(self.var_eedfcc6e))
 	{
 		var_d9dbb072 = 0;
-		var_406dcd04 = self function_c1b7eefa(weapon);
-		if(var_406dcd04 > 0)
+		usage_rate = self function_c1b7eefa(weapon);
+		if(usage_rate > 0)
 		{
-			var_d9dbb072 = weapon.gadget_powermax / var_406dcd04;
+			var_d9dbb072 = weapon.gadget_powermax / usage_rate;
 		}
 		if(((int(var_d9dbb072 * 1000)) + self.var_eedfcc6e) <= (gettime() + 100))
 		{
@@ -496,14 +496,14 @@ function enable_healing(slot, weapon, player)
 	{
 		return;
 	}
-	if(self function_cd5fec49())
+	if(self gadgetsdisabled())
 	{
 		return;
 	}
 	self function_1e02d458();
-	if(isdefined(weapon) && weapon.var_44377ea6)
+	if(isdefined(weapon) && weapon.maxheal)
 	{
-		self player::function_9080887a(weapon.var_44377ea6);
+		self player::function_9080887a(weapon.maxheal);
 	}
 	else
 	{
@@ -534,9 +534,9 @@ function enable_healing(slot, weapon, player)
 	if(weapon.heal)
 	{
 		max_health = self.maxhealth;
-		if(weapon.var_44377ea6 && !getdvarint(#"hash_573a1edd4b4143e4", 0))
+		if(weapon.maxheal && !getdvarint(#"hash_573a1edd4b4143e4", 0))
 		{
-			max_health = weapon.var_44377ea6;
+			max_health = weapon.maxheal;
 		}
 		self.heal.var_bc840360 = math::clamp(weapon.heal + var_bc840360, 0, max_health);
 		if(self.heal.var_bc840360 == 0)
@@ -613,7 +613,7 @@ function enable_healing(slot, weapon, player)
 		}
 	}
 	self callback::callback(#"hash_4b807b1167b4a811");
-	self callback::function_d8abfc3d(#"hash_25663702210244cc", &function_4e449209);
+	self callback::function_d8abfc3d(#"done_healing", &function_4e449209);
 	if(isdefined(self.health) && isdefined(self.var_66cb03ad) && self.health >= self.var_66cb03ad)
 	{
 		self function_4e449209();
@@ -706,7 +706,7 @@ function function_4e449209()
 		{
 			level [[level.var_d9ae19f0]](self);
 		}
-		self callback::function_52ac9652(#"hash_25663702210244cc", &function_4e449209);
+		self callback::function_52ac9652(#"done_healing", &function_4e449209);
 		if(self is_healing())
 		{
 			if(!isdefined(self.var_c443b227))
@@ -815,12 +815,12 @@ function private function_dafd9cd(attacker, damage)
 */
 function function_831bf182()
 {
-	var_6b3b55da = isdefined(self.gadget_health_regen_slot);
-	if(!var_6b3b55da || "ammo" == self.gadget_health_regen_weapon.var_11389297)
+	can_set = isdefined(self.gadget_health_regen_slot);
+	if(!can_set || "ammo" == self.gadget_health_regen_weapon.gadget_powerusetype)
 	{
 		return 0;
 	}
-	return var_6b3b55da;
+	return can_set;
 }
 
 /*

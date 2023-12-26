@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\contracts_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -45,7 +45,7 @@ function private function_70a657d8()
 {
 	status_effect::register_status_effect_callback_apply(2, &slowed_apply);
 	status_effect::function_5bae5120(2, &function_6fe78d40);
-	status_effect::function_6f4eaf88(function_4d1e7b48("slowed"));
+	status_effect::function_6f4eaf88(getstatuseffect("slowed"));
 }
 
 /*
@@ -57,17 +57,17 @@ function private function_70a657d8()
 	Parameters: 3
 	Flags: Linked
 */
-function slowed_apply(var_756fda07, weapon, var_84171a6c)
+function slowed_apply(var_756fda07, weapon, applicant)
 {
 	self.owner.var_23ed81d6 = gettime() + int(var_756fda07.var_77449e9);
-	self.owner.var_a010bd8f = var_84171a6c;
+	self.owner.var_a010bd8f = applicant;
 	self.owner.var_9060b065 = weapon;
-	if(!isdefined(var_84171a6c) || self.owner == var_84171a6c)
+	if(!isdefined(applicant) || self.owner == applicant)
 	{
 		return;
 	}
-	var_c94d654b = var_84171a6c getentitynumber();
-	var_84171a6c contracts::function_a54e2068(#"hash_1745d692d02f23be");
+	var_c94d654b = applicant getentitynumber();
+	applicant contracts::increment_contract(#"hash_1745d692d02f23be");
 	if(!isdefined(self.owner.var_a4332cab))
 	{
 		self.owner.var_a4332cab = [];

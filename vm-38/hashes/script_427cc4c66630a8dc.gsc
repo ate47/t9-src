@@ -44,7 +44,7 @@ class cprototype_self_revive : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cprototype_self_revive
 		Checksum: 0x343720C7
 		Offset: 0x348
@@ -52,9 +52,9 @@ class cprototype_self_revive : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("prototype_self_revive");
+		cLUIelem::register_clientside("prototype_self_revive");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: prototype_self_revive
 	Checksum: 0xF32A2E57
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cprototype_self_revive();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

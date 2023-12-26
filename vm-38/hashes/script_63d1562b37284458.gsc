@@ -86,7 +86,7 @@ function function_e415c864(var_5da09c55)
 	zipline_trigger setcursorhint("HINT_NOICON");
 	hint = #"hash_5ca3696cb6c3bea9";
 	zipline_trigger sethintstring(hint);
-	zipline_trigger callback::function_35a12f19(&function_234876c9);
+	zipline_trigger callback::on_trigger(&function_234876c9);
 	zipline_trigger function_2e7a1fba();
 	return zipline_trigger;
 }
@@ -107,7 +107,7 @@ function function_77fde59c(var_5da09c55)
 	zipline_trigger triggerignoreteam();
 	zipline_trigger setvisibletoall();
 	zipline_trigger setteamfortrigger(#"none");
-	zipline_trigger callback::function_35a12f19(&function_5abc3f1f);
+	zipline_trigger callback::on_trigger(&function_5abc3f1f);
 	return zipline_trigger;
 }
 
@@ -276,9 +276,9 @@ function debug_zipline()
 				line(var_86660d95, zipline.endstruct.origin, (0, 1, 0));
 				if(isdefined(level.var_94f4ca81))
 				{
-					foreach(var_e3c223f5 in level.var_94f4ca81.var_e3c223f5)
+					foreach(dataset in level.var_94f4ca81.dataset)
 					{
-						foreach(spawn in var_e3c223f5.spawns)
+						foreach(spawn in dataset.spawns)
 						{
 							spawn_origin = spawn.origin;
 							if(distance2dsquared(spawn_origin, var_86660d95) <= 4096)

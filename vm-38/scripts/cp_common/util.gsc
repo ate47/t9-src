@@ -76,7 +76,7 @@ function private function_70a657d8()
 		level.var_54ce800f = [];
 	}
 	function_3969639b(&cp_hint_text::register, "cp_hint_text");
-	lui::function_b95a3ba5("pip_menu", &pip_menu::register);
+	lui::add_luimenu("pip_menu", &pip_menu::register);
 	clientfield::register("toplayer", "cinematicmotion_blend", 1, 1, "int");
 	serverfield::register("cinematicmotion_blend", 1, 1, "int", &function_e6d37e3b);
 	animation::add_notetrack_func("dialog_gender_vo", &function_b7367cc0);
@@ -1785,7 +1785,7 @@ function set_low_ready(b_lowready, gesture)
 	}
 	if(b_lowready)
 	{
-		if(isstring(gesture) || function_7a600918(gesture) && isgesture(gesture))
+		if(isstring(gesture) || ishash(gesture) && isgesture(gesture))
 		{
 			self val::set(#"low_ready", "disable_weapon_fire", 1);
 			self playgestureviewmodel(gesture);
@@ -2043,21 +2043,21 @@ function show_hint_text(str_text_to_show, b_should_blink, str_turn_off_notify, n
 */
 function function_84f75222(str_text_to_show, b_should_blink, str_turn_off_notify, n_display_time)
 {
-	var_9620799e = function_d1397ecd("cp_hint_text");
-	if(var_9620799e cp_hint_text::is_open(self))
+	lui_elem = function_d1397ecd("cp_hint_text");
+	if(lui_elem cp_hint_text::is_open(self))
 	{
 		self hide_hint_text(0);
 	}
-	var_9620799e cp_hint_text::open(self);
-	var_9620799e cp_hint_text::set_hint_text(self, str_text_to_show);
+	lui_elem cp_hint_text::open(self);
+	lui_elem cp_hint_text::set_hint_text(self, str_text_to_show);
 	wait_network_frame();
 	if(b_should_blink)
 	{
-		var_9620799e cp_hint_text::function_64d95cad(self);
+		lui_elem cp_hint_text::function_64d95cad(self);
 	}
 	else
 	{
-		var_9620799e cp_hint_text::function_a981d6b6(self);
+		lui_elem cp_hint_text::function_a981d6b6(self);
 	}
 	self thread function_7b7dfab3(n_display_time, str_turn_off_notify);
 }
@@ -2092,18 +2092,18 @@ function hide_hint_text(b_fade_before_hiding)
 function function_7b7dfab3(n_display_time, str_turn_off_notify)
 {
 	self endon(#"disconnect");
-	var_be17187b = undefined;
+	s_waitresult = undefined;
 	if(n_display_time > 0.75)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittilltimeout(n_display_time - 0.75, str_turn_off_notify, #"kill_hint_text", #"death");
+		s_waitresult = undefined;
+		s_waitresult = self waittilltimeout(n_display_time - 0.75, str_turn_off_notify, #"kill_hint_text", #"death");
 	}
 	else
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(str_turn_off_notify, #"kill_hint_text", #"death");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(str_turn_off_notify, #"kill_hint_text", #"death");
 	}
-	if(var_be17187b._notify == "timeout")
+	if(s_waitresult._notify == "timeout")
 	{
 		hide_hint_text(1);
 	}
@@ -2372,7 +2372,7 @@ function function_2020ca4e()
 	while(isdefined(self))
 	{
 		str_result = undefined;
-		str_result = self waittill(#"hash_5a63f58af5d098b5", #"enter_vehicle", #"exit_vehicle", #"death");
+		str_result = self waittill(#"vehicle_used", #"enter_vehicle", #"exit_vehicle", #"death");
 		if(str_result._notify == "death")
 		{
 			if(isdefined(self))
@@ -2651,7 +2651,7 @@ function function_49cff8b0(slot, do_show)
 }
 
 /*
-	Name: function_830b7ecd
+	Name: give_offhand_weapon
 	Namespace: util
 	Checksum: 0xE556C97F
 	Offset: 0x5A88
@@ -2659,7 +2659,7 @@ function function_49cff8b0(slot, do_show)
 	Parameters: 1
 	Flags: None
 */
-function function_830b7ecd(weapon)
+function give_offhand_weapon(weapon)
 {
 	offhandslot = 0;
 	if(isdefined(self._gadgets_player[offhandslot]))
@@ -2687,7 +2687,7 @@ function are_enemies_nearby(origin, radius)
 	{
 		radius = 2000;
 	}
-	var_d3a6fe2b = self function_bdda420f(origin, radius);
+	var_d3a6fe2b = self getenemiesinradius(origin, radius);
 	foreach(enemy in var_d3a6fe2b)
 	{
 		if(isalive(enemy) && !is_true(enemy.in_melee_death))
@@ -3232,7 +3232,7 @@ function function_a5318821(var_79a934ad, var_6fa12df4, var_64b54706, var_20900fd
 	var_55f32da2 = ((lookup * 2) + var_918f15a4) + 3;
 	self setcharacterbodytype(var_55f32da2);
 	var_cc362ad9 = (self namespace_70eba6e6::function_e86cb765() - 1) + (8 * var_6fa12df4);
-	self function_8fd843dd(var_cc362ad9);
+	self setcharacteroutfit(var_cc362ad9);
 	var_50faf85d = self namespace_70eba6e6::function_33bf99f8(1);
 	setsaveddvar(#"hash_270ca5acff742bb9", var_50faf85d);
 }
@@ -3275,11 +3275,11 @@ function function_de500b59()
 */
 function function_62e48a()
 {
-	var_1fdcd030 = savegame::get_mission_name();
+	missionname = savegame::get_mission_name();
 	var_c4258839 = function_de500b59();
-	var_d3f10235 = collectibles::function_7be39f53(var_1fdcd030);
-	var_68be2f7a = collectibles::function_9f976c54(var_1fdcd030);
-	globallogic_ui::function_9ed5232e("cp_start_menu.missionName", hash(var_1fdcd030), 0, 1);
+	var_d3f10235 = collectibles::function_7be39f53(missionname);
+	var_68be2f7a = collectibles::function_9f976c54(missionname);
+	globallogic_ui::function_9ed5232e("cp_start_menu.missionName", hash(missionname), 0, 1);
 	globallogic_ui::function_9ed5232e("cp_start_menu.characterName", hash(var_c4258839), 0, 1);
 	globallogic_ui::function_9ed5232e("cp_start_menu.evidenceEarnedCount", var_d3f10235, 0, 1);
 	globallogic_ui::function_9ed5232e("cp_start_menu.evidenceMaxCount", var_68be2f7a, 0, 1);

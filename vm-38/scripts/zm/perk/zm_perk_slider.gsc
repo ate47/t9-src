@@ -1,11 +1,11 @@
 #using script_2f9a68261f6a17be;
-#using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4dc6a9b234b838e1;
 #using script_5f261a5d57de5f7c;
 #using script_62caa307a394c18c;
 #using script_6951ea86fdae9ae0;
-#using script_fb16bd158a3e3e7;
+#using scripts\zm_common\trials\zm_trial_restrict_loadout.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -46,7 +46,7 @@ function private autoexec function_39239882()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_perk_slider", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_perk_slider", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -66,11 +66,11 @@ function private function_70a657d8()
 	}
 	level.var_bc9564f4 = new class_c6c0e94();
 	[[ level.var_bc9564f4 ]]->initialize(#"hash_184ea4de3979541", 1, float(function_60d95f53()) / 1000);
-	function_481123c();
+	enable_slider_perk_for_level();
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x3F8
@@ -78,12 +78,12 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
 /*
-	Name: function_481123c
+	Name: enable_slider_perk_for_level
 	Namespace: zm_perk_slider
 	Checksum: 0xDADC560F
 	Offset: 0x408
@@ -91,19 +91,19 @@ function private function_8ac3bea9()
 	Parameters: 0
 	Flags: Linked
 */
-function function_481123c()
+function enable_slider_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_3417450e1347185", #"perk_slider", 2000, #"zombie/perk_slider", getweapon("zombie_perk_bottle_slider"), undefined, #"hash_402b9d6529500b72");
+	zm_perks::register_perk_basic_info(#"hash_3417450e1347185", #"perk_slider", 2000, #"zombie/perk_slider", getweapon("zombie_perk_bottle_slider"), undefined, #"zmperksphdslider");
 	zm_perks::register_perk_precache_func(#"hash_3417450e1347185", &function_1781c013);
 	zm_perks::register_perk_clientfields(#"hash_3417450e1347185", &function_5ba17a72, &function_90f58801);
-	zm_perks::register_perk_machine(#"hash_3417450e1347185", &function_ef14badb, &function_15d03600);
+	zm_perks::register_perk_machine(#"hash_3417450e1347185", &function_ef14badb, &init_slider);
 	zm_perks::register_perk_host_migration_params(#"hash_3417450e1347185", "vending_slider", "slider_light");
 	zm_perks::register_perk_threads(#"hash_3417450e1347185", &function_1d4d3034, &function_ae56fb1a);
 	zm_perks::register_perk_damage_override_func(&function_9e712df);
 }
 
 /*
-	Name: function_15d03600
+	Name: init_slider
 	Namespace: zm_perk_slider
 	Checksum: 0x80F724D1
 	Offset: 0x5C0
@@ -111,7 +111,7 @@ function function_481123c()
 	Parameters: 0
 	Flags: Linked
 */
-function function_15d03600()
+function init_slider()
 {
 }
 
@@ -302,7 +302,7 @@ function function_d2991c92(v_start_position)
 		self.var_f354086e = self.var_f354086e + n_distance;
 		if(self.var_f354086e >= 32)
 		{
-			var_6c77565b = self function_bdda420f(self.origin, 64);
+			var_6c77565b = self getenemiesinradius(self.origin, 64);
 			var_6c77565b = arraysortclosest(var_6c77565b, self.origin);
 			if(isarray(var_6c77565b) && var_6c77565b.size >= 1)
 			{
@@ -474,7 +474,7 @@ function function_4d806c6a(var_a25d1f0, explosion_radius, var_8b77e4de)
 			}
 		}
 	}
-	var_6c77565b = self function_bdda420f(self.origin, explosion_radius);
+	var_6c77565b = self getenemiesinradius(self.origin, explosion_radius);
 	var_6c77565b = arraysortclosest(var_6c77565b, self.origin);
 	var_b61c0138 = 1;
 	foreach(zombie in var_6c77565b)
@@ -518,7 +518,7 @@ function function_4d806c6a(var_a25d1f0, explosion_radius, var_8b77e4de)
 	}
 	if(var_8b77e4de)
 	{
-		var_6c77565b = self function_bdda420f(self.origin, explosion_radius * 2);
+		var_6c77565b = self getenemiesinradius(self.origin, explosion_radius * 2);
 		foreach(zombie in var_6c77565b)
 		{
 			if(isalive(zombie) && !is_true(zombie.var_390850ac))
@@ -583,7 +583,7 @@ function function_9e712df(einflictor, eattacker, idamage, idflags, smeansofdeath
 }
 
 /*
-	Name: function_de916514
+	Name: codecallback_entervehicle
 	Namespace: zm_perk_slider
 	Checksum: 0x70441C0C
 	Offset: 0x1920
@@ -591,7 +591,7 @@ function function_9e712df(einflictor, eattacker, idamage, idflags, smeansofdeath
 	Parameters: 1
 	Flags: Event
 */
-event function_de916514(eventstruct)
+event codecallback_entervehicle(eventstruct)
 {
 	if(zm_utility::is_survival() && isplayer(self))
 	{
@@ -600,7 +600,7 @@ event function_de916514(eventstruct)
 }
 
 /*
-	Name: function_feb0a2aa
+	Name: codecallback_exitvehicle
 	Namespace: zm_perk_slider
 	Checksum: 0x2CF13795
 	Offset: 0x1980
@@ -608,7 +608,7 @@ event function_de916514(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_feb0a2aa(eventstruct)
+event codecallback_exitvehicle(eventstruct)
 {
 	if(zm_utility::is_survival() && isplayer(self))
 	{

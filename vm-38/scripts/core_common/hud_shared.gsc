@@ -328,7 +328,7 @@ function function_6cf4a466()
 }
 
 /*
-	Name: function_1a5d6fff
+	Name: set_team_objective
 	Namespace: hud
 	Checksum: 0xF717512D
 	Offset: 0xCF0
@@ -336,7 +336,7 @@ function function_6cf4a466()
 	Parameters: 6
 	Flags: Linked
 */
-function function_1a5d6fff(var_3c9f56bd, var_cc966c56, n_obj_id, n_widget, var_48d81699, b_pvp)
+function set_team_objective(var_3c9f56bd, var_cc966c56, n_obj_id, n_widget, var_48d81699, b_pvp)
 {
 	if(!isdefined(level.var_6371e281))
 	{
@@ -1452,7 +1452,7 @@ function private function_cbf3f034(s_objective)
 }
 
 /*
-	Name: function_215b60ea
+	Name: set_pvp_objective
 	Namespace: hud
 	Checksum: 0x7DC7A2D9
 	Offset: 0x3D40
@@ -1460,7 +1460,7 @@ function private function_cbf3f034(s_objective)
 	Parameters: 6
 	Flags: None
 */
-function function_215b60ea(str_identifier, n_obj_id, n_widget, var_48d81699, var_94fe5aa5, var_23b4190)
+function set_pvp_objective(str_identifier, n_obj_id, n_widget, var_48d81699, var_94fe5aa5, var_23b4190)
 {
 	foreach(str_flag in array("pvp_objective_set_allies", "pvp_objective_set_axis"))
 	{
@@ -1482,10 +1482,10 @@ function function_215b60ea(str_identifier, n_obj_id, n_widget, var_48d81699, var
 		if(is_true(var_ae4241f))
 		{
 			var_ae4241f = undefined;
-			self thread function_1a5d6fff(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
+			self thread set_team_objective(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
 			continue;
 		}
-		self function_1a5d6fff(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
+		self set_team_objective(str_identifier, var_cc966c56, n_obj_id, var_fc6b273a, var_48d81699, 1);
 	}
 	flag::wait_till_all(array("pvp_objective_set_allies", "pvp_objective_set_axis"));
 	mission flag::clear("pvp_objectives_updating");

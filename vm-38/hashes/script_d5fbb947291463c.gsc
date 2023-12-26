@@ -114,7 +114,7 @@ class czm_dac_challenges_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_dac_challenges_hud
 		Checksum: 0x7F1B2EF
 		Offset: 0x8A8
@@ -122,9 +122,9 @@ class czm_dac_challenges_hud : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_dac_challenges_hud");
+		cLUIelem::register_clientside("zm_dac_challenges_hud");
 	}
 
 	/*
@@ -141,19 +141,19 @@ class czm_dac_challenges_hud : cLUIelem
 		cLUIelem::setup_clientfields("zm_dac_challenges_hud");
 		cLUIelem::function_dcb34c80("string", "challengeText", 1);
 		cLUIelem::function_dcb34c80("string", "bottomText", 1);
-		cLUIelem::function_da693cbe("bInLocation", 1, 1, "int", var_afaddf7a);
-		cLUIelem::function_da693cbe("progress", 1, 1, "counter", var_5d7491df);
-		cLUIelem::function_da693cbe("tributeAvailable", 1, 3, "int", var_26df3d64);
-		cLUIelem::function_da693cbe("rewardHidden", 1, 1, "int", var_90359ec7);
-		cLUIelem::function_da693cbe("challengeFailing", 1, 1, "int", var_2404f6c6);
+		cLUIelem::add_clientfield("bInLocation", 1, 1, "int", var_afaddf7a);
+		cLUIelem::add_clientfield("progress", 1, 1, "counter", var_5d7491df);
+		cLUIelem::add_clientfield("tributeAvailable", 1, 3, "int", var_26df3d64);
+		cLUIelem::add_clientfield("rewardHidden", 1, 1, "int", var_90359ec7);
+		cLUIelem::add_clientfield("challengeFailing", 1, 1, "int", var_2404f6c6);
 		cLUIelem::function_dcb34c80("string", "rewardText", 1);
-		cLUIelem::function_da693cbe("challengeTypeText", 1, 1, "int", var_74cf4193);
-		cLUIelem::function_da693cbe("showIntelRewardText", 1, 1, "int", var_e89bb89d);
-		cLUIelem::function_da693cbe("showChallenge", 8000, 1, "int", var_2c511278);
+		cLUIelem::add_clientfield("challengeTypeText", 1, 1, "int", var_74cf4193);
+		cLUIelem::add_clientfield("showIntelRewardText", 1, 1, "int", var_e89bb89d);
+		cLUIelem::add_clientfield("showChallenge", 8000, 1, "int", var_2c511278);
 	}
 
 	/*
-		Name: function_96972b9c
+		Name: increment_progress
 		Namespace: czm_dac_challenges_hud
 		Checksum: 0x6E342B61
 		Offset: 0xB30
@@ -161,7 +161,7 @@ class czm_dac_challenges_hud : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_96972b9c(localclientnum)
+	function increment_progress(localclientnum)
 	{
 		current_val = [[ self ]]->get_data(localclientnum, "progress");
 		new_val = (current_val + 1) % 2;
@@ -314,7 +314,7 @@ function register(var_be2ad4d, var_a7896263, var_4866daed, var_afaddf7a, var_5d7
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_dac_challenges_hud
 	Checksum: 0x51B30347
 	Offset: 0x390
@@ -322,10 +322,10 @@ function register(var_be2ad4d, var_a7896263, var_4866daed, var_afaddf7a, var_5d7
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new czm_dac_challenges_hud();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 
@@ -414,7 +414,7 @@ function set_bInLocation(localclientnum, value)
 }
 
 /*
-	Name: function_96972b9c
+	Name: increment_progress
 	Namespace: zm_dac_challenges_hud
 	Checksum: 0xBACAFB27
 	Offset: 0x4D8
@@ -422,9 +422,9 @@ function set_bInLocation(localclientnum, value)
 	Parameters: 1
 	Flags: None
 */
-function function_96972b9c(localclientnum)
+function increment_progress(localclientnum)
 {
-	[[ self ]]->function_96972b9c(localclientnum);
+	[[ self ]]->increment_progress(localclientnum);
 }
 
 /*

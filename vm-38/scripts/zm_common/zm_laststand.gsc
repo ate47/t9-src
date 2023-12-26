@@ -2,15 +2,15 @@
 #using scripts\core_common\item_inventory.gsc;
 #using script_243ea03c7a285692;
 #using script_3751b21462a54a7d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_48f7c4ab73137f8;
 #using script_58860a35d0555f74;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
-#using script_6ef496a1b77e83a4;
+#using scripts\zm_common\zm_customgame.gsc;
+#using scripts\zm_common\trials\zm_trial_disable_perks.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -89,14 +89,14 @@ function private function_70a657d8()
 	callback::on_player_killed(&on_player_killed);
 	callback::on_bleedout(&on_bleedout);
 	level.var_402b86e = &function_c3249e8c;
-	clientfield::function_a8bbc967("ZMInventoryPersonal.self_revive_count", 1, 2, "int");
+	clientfield::register_clientuimodel("ZMInventoryPersonal.self_revive_count", 1, 2, "int");
 	clientfield::register("allplayers", "zm_last_stand_postfx", 1, 1, "int");
 	level.laststand_update_clientfields = [];
 	for(i = 0; i < 5; i++)
 	{
 		level.laststand_update_clientfields[i] = "laststand_update" + i;
 		clientfield::register("world", level.laststand_update_clientfields[i], 1, 5, "float");
-		clientfield::function_a8bbc967(("WorldSpaceIndicators.bleedOutModel" + i) + ".hide", 1, 1, "int");
+		clientfield::register_clientuimodel(("WorldSpaceIndicators.bleedOutModel" + i) + ".hide", 1, 1, "int");
 	}
 	level.weaponsuicide = getweapon(#"death_self");
 	if(!isdefined(getdvar(#"revive_trigger_radius")))
@@ -151,7 +151,7 @@ function on_bleedout()
 {
 	if(!zm_player::function_3799b373(self, 1) && !zm_utility::function_91403f47())
 	{
-		if(!zm_trial::function_b47f6aba())
+		if(!zm_trial::is_trial_mode())
 		{
 			self takeallweapons();
 			self allowstand(0);
@@ -178,8 +178,8 @@ function player_last_stand_stats(einflictor, attacker, idamage, smeansofdeath, w
 	{
 		if("zcleansed" == level.gametype)
 		{
-			demo::function_ae3420ca(deathanimduration, self, psoffsettime);
-			potm::function_ae3420ca(deathanimduration, self, psoffsettime);
+			demo::kill_bookmark(deathanimduration, self, psoffsettime);
+			potm::kill_bookmark(deathanimduration, self, psoffsettime);
 		}
 		if("zcleansed" == level.gametype)
 		{
@@ -249,7 +249,7 @@ function increment_downed_stat()
 	Parameters: 1
 	Flags: Linked
 */
-function registerfxanim_warehouse_explo(var_c247e7dc)
+function registerfxanim_warehouse_explo(pause_enabled)
 {
 	for(slot = 0; slot < 3; slot++)
 	{
@@ -257,7 +257,7 @@ function registerfxanim_warehouse_explo(var_c247e7dc)
 		{
 			continue;
 		}
-		self function_19ed70ca(slot, var_c247e7dc);
+		self function_19ed70ca(slot, pause_enabled);
 	}
 }
 
@@ -540,12 +540,12 @@ function wait_and_revive()
 	}
 	var_3269dfa3 = (isdefined(self.var_b92e42da) ? self.var_b92e42da : getdvarfloat(#"player_laststandbleedouttime", 0)) * 0.25;
 	var_3269dfa3 = getdvarfloat(#"hash_1d447d6b4492bf4f", var_3269dfa3);
-	self thread laststand::revive_hud_show_n_fade(#"hash_45804a37272bc580", var_3269dfa3);
+	self thread laststand::revive_hud_show_n_fade(#"zombie/reviving_solo", var_3269dfa3);
 	var_c564fe97 = undefined;
 	var_c564fe97 = level waittilltimeout(var_3269dfa3, #"end_of_round");
 	if(var_c564fe97._notify === "end_of_round")
 	{
-		self thread laststand::revive_hud_show_n_fade(#"hash_45804a37272bc580", 1);
+		self thread laststand::revive_hud_show_n_fade(#"zombie/reviving_solo", 1);
 	}
 	while(self.var_16735873 === 1)
 	{
@@ -697,8 +697,8 @@ function laststand_enable_player_weapons(b_bled_out)
 		}
 		do
 		{
-			var_be17187b = undefined;
-			var_be17187b = self waittilltimeout(2.5, #"weapon_change_complete");
+			s_waitresult = undefined;
+			s_waitresult = self waittilltimeout(2.5, #"weapon_change_complete");
 		}
 		while(self getcurrentweapon() === level.weaponnone);
 	}
@@ -1135,7 +1135,7 @@ function private function_c499895c(notifyhash)
 */
 function laststand_bleedout(delay)
 {
-	self endoncallback(&function_4d7504fd, #"player_revived", #"zombified", #"disconnect", #"hash_257d7f8fe6f97830", #"fake_death");
+	self endoncallback(&function_4d7504fd, #"player_revived", #"zombified", #"disconnect", #"instakill_player", #"fake_death");
 	level endoncallback(&function_c499895c, #"end_game", #"round_reset");
 	if(level flag::get("round_reset"))
 	{
@@ -1183,14 +1183,14 @@ function laststand_bleedout(delay)
 				level.var_ff482f76 zm_laststand_client::set_revive_progress(self, 0);
 			}
 			self.bleedout_time = self.bleedout_time - 0.2;
-			var_76a1ade7 = self.bleedout_time / delay;
+			bleedoutprogress = self.bleedout_time / delay;
 			if(isdefined(self.var_57b374b4) && !self.var_c6a6f334 === 1)
 			{
-				objective_setprogress(self.var_57b374b4, var_76a1ade7);
+				objective_setprogress(self.var_57b374b4, bleedoutprogress);
 				objective_setgamemodeflags(self.var_57b374b4, 1);
 			}
-			level clientfield::set("laststand_update" + self getentitynumber(), var_76a1ade7);
-			level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, var_76a1ade7);
+			level clientfield::set("laststand_update" + self getentitynumber(), bleedoutprogress);
+			level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, bleedoutprogress);
 		}
 		wait(0.2);
 	}
@@ -1223,7 +1223,7 @@ function laststand_bleedout(delay)
 */
 function function_473d2fe1(delay)
 {
-	self endoncallback(&function_4d7504fd, #"player_revived", #"zombified", #"disconnect", #"hash_257d7f8fe6f97830");
+	self endoncallback(&function_4d7504fd, #"player_revived", #"zombified", #"disconnect", #"instakill_player");
 	level endoncallback(&function_c499895c, #"end_game", #"round_reset");
 	while(self.var_16735873 === 1)
 	{
@@ -1234,14 +1234,14 @@ function function_473d2fe1(delay)
 		level.var_ff482f76 zm_laststand_client::open(self, 0);
 		level.var_ff482f76 zm_laststand_client::set_num_downs(self, self.n_downs);
 		level.var_ff482f76 zm_laststand_client::set_revive_progress(self, 0);
-		var_76a1ade7 = self.bleedout_time / delay;
+		bleedoutprogress = self.bleedout_time / delay;
 		if(isdefined(self.var_57b374b4) && !self.var_c6a6f334 === 1)
 		{
-			objective_setprogress(self.var_57b374b4, var_76a1ade7);
+			objective_setprogress(self.var_57b374b4, bleedoutprogress);
 			objective_setgamemodeflags(self.var_57b374b4, 1);
 		}
-		level clientfield::set("laststand_update" + self getentitynumber(), var_76a1ade7);
-		level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, var_76a1ade7);
+		level clientfield::set("laststand_update" + self getentitynumber(), bleedoutprogress);
+		level.var_ff482f76 zm_laststand_client::set_bleedout_progress(self, bleedoutprogress);
 	}
 }
 
@@ -1409,11 +1409,11 @@ function function_4d3cb10()
 	Parameters: 1
 	Flags: Linked
 */
-function function_3d685b5f(var_7f2e1d50)
+function function_3d685b5f(self_revive_count)
 {
-	var_7f2e1d50 = int(max(var_7f2e1d50, 0));
-	self.var_72249004 = var_7f2e1d50;
-	self clientfield::set_player_uimodel("ZMInventoryPersonal.self_revive_count", var_7f2e1d50);
+	self_revive_count = int(max(self_revive_count, 0));
+	self.var_72249004 = self_revive_count;
+	self clientfield::set_player_uimodel("ZMInventoryPersonal.self_revive_count", self_revive_count);
 	self clientfield::set_world_uimodel(("PlayerList.client" + self.entnum) + ".self_revives", self.var_72249004);
 }
 
@@ -1523,14 +1523,14 @@ function function_b7c101fa()
 	}
 	if(getplayers().size == 1)
 	{
-		var_7f2e1d50 = self.var_d66589da;
+		self_revive_count = self.var_d66589da;
 		self.var_240cf7be = 1;
 	}
 	else
 	{
-		var_7f2e1d50 = self.var_5d4c5daf;
+		self_revive_count = self.var_5d4c5daf;
 	}
-	var_48f2f554 = zm_custom::function_901b751c(#"hash_21ae4d5b707b063");
+	var_48f2f554 = zm_custom::function_901b751c(#"zmselfreviveamount");
 	if(var_48f2f554)
 	{
 		self.var_d66589da = int(var_48f2f554);
@@ -1539,7 +1539,7 @@ function function_b7c101fa()
 	}
 	else
 	{
-		self function_3d685b5f(var_7f2e1d50);
+		self function_3d685b5f(self_revive_count);
 	}
 }
 
@@ -1813,7 +1813,7 @@ function revive_trigger_think(t_secondary)
 				e_reviver disableweaponcycling();
 				e_reviver disableoffhandweapons();
 				e_reviver disableoffhandspecial();
-				e_reviver function_432f99ff();
+				e_reviver disableweaponswitchhero();
 				e_reviver val::set("laststand_revive", "allow_movement", 0);
 				e_reviver thread revive_give_back_weapons_when_done(self);
 			}
@@ -1917,7 +1917,7 @@ function function_92bfddb4()
 	self enableoffhandspecial();
 	if(!is_true(self.var_b6840ea0))
 	{
-		self function_6c22c47a();
+		self enableweaponswitchhero();
 	}
 	self enableweaponcycling();
 	self weapons::function_d571ac59();
@@ -2332,7 +2332,7 @@ function auto_revive(reviver, b_track_stats, var_c0ab6a65, var_3f8e593d)
 		self zm_stats::increment_challenge_stat(#"hash_5f6b0b87e8f76ae1");
 		if(is_true(var_c0ab6a65))
 		{
-			self contracts::function_5b88297d(#"hash_15ceac9a2c2c1a18");
+			self contracts::increment_zm_contract(#"hash_15ceac9a2c2c1a18");
 			self stats::function_8fb23f94(#"self_revive", #"uses", 1);
 			self.var_9cd2c51d.var_3ca3137f = gettime();
 		}
@@ -2394,18 +2394,18 @@ function revive_success(reviver, b_track_stats, var_c0ab6a65, var_5f465b1)
 	}
 	if(isplayer(reviver) && (reviver namespace_e86ffa8::function_8923370c(3) || var_5f465b1))
 	{
-		reviver zm_utility::function_e0448fec();
+		reviver zm_utility::set_max_health();
 	}
 	self.var_1bee6f4b = undefined;
 	self val::reset(#"chopper_gunner", "ignoreme");
 	self val::reset(#"chopper_gunner", "takedamage");
 	self val::reset(#"remote_missile", "ignoreme");
 	self val::reset(#"remote_missile", "takedamage");
-	self function_54e3af3c(reviver, b_track_stats, var_c0ab6a65);
+	self revive_internal(reviver, b_track_stats, var_c0ab6a65);
 }
 
 /*
-	Name: function_54e3af3c
+	Name: revive_internal
 	Namespace: zm_laststand
 	Checksum: 0x59D28F43
 	Offset: 0x65D0
@@ -2413,14 +2413,14 @@ function revive_success(reviver, b_track_stats, var_c0ab6a65, var_5f465b1)
 	Parameters: 3
 	Flags: Linked, Private
 */
-function private function_54e3af3c(reviver, b_track_stats, var_c0ab6a65)
+function private revive_internal(reviver, b_track_stats, var_c0ab6a65)
 {
 	if(!isdefined(var_c0ab6a65))
 	{
 		var_c0ab6a65 = 0;
 	}
 	self reviveplayer();
-	self zm_utility::function_e0448fec();
+	self zm_utility::set_max_health();
 	self clientfield::set("zmbLastStand", 0);
 	if(isdefined(self.revivetrigger))
 	{
@@ -2585,7 +2585,7 @@ function revive_hud_think()
 				{
 					continue;
 				}
-				if(util::function_5df4294() == "vs")
+				if(util::get_game_type() == "vs")
 				{
 					if(players[i].team != playertorevive.team)
 					{
@@ -2789,7 +2789,7 @@ function is_reviving_via_override(e_revivee)
 }
 
 /*
-	Name: function_16c5dddd
+	Name: instakill_player
 	Namespace: zm_laststand
 	Checksum: 0x45EE2392
 	Offset: 0x7538
@@ -2797,10 +2797,10 @@ function is_reviving_via_override(e_revivee)
 	Parameters: 0
 	Flags: None
 */
-function function_16c5dddd()
+function instakill_player()
 {
 	self.var_39c78617 = 1;
-	self notify(#"hash_257d7f8fe6f97830");
+	self notify(#"instakill_player");
 	if(self laststand::player_is_in_laststand())
 	{
 		waitframe(4);

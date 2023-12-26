@@ -136,15 +136,15 @@ function function_513e85fe(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwastimejump == 1)
 	{
-		self function_bf9d3071(#"hash_12e9e7962353adb0");
+		self playrenderoverridebundle(#"hash_12e9e7962353adb0");
 	}
 	else
 	{
 		if(bwastimejump == 2)
 		{
-			self function_5d482e78(#"hash_12e9e7962353adb0");
+			self stoprenderoverridebundle(#"hash_12e9e7962353adb0");
 			waitframe(1);
-			self function_bf9d3071(#"hash_51e0b8d384aeac65");
+			self playrenderoverridebundle(#"hash_51e0b8d384aeac65");
 		}
 		else
 		{
@@ -587,13 +587,13 @@ function function_26826144(str_notify)
 */
 function function_f48f6d3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_eb22c4da = findvolumedecalindexarray("wreck_volume_decals");
+	a_n_decals = findvolumedecalindexarray("wreck_volume_decals");
 	var_648616bf = findstaticmodelindexarray("plane_body");
 	switch(bwastimejump)
 	{
 		case 0:
 		{
-			foreach(n_decal in var_eb22c4da)
+			foreach(n_decal in a_n_decals)
 			{
 				hidevolumedecal(n_decal);
 			}
@@ -605,7 +605,7 @@ function function_f48f6d3(localclientnum, oldval, newval, bnewent, binitialsnap,
 		}
 		case 1:
 		{
-			foreach(n_decal in var_eb22c4da)
+			foreach(n_decal in a_n_decals)
 			{
 				unhidevolumedecal(n_decal);
 			}

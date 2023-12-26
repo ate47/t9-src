@@ -85,7 +85,7 @@ function private function_5a46c509(var_2fe0d693)
 			if(old_value != getdvarint(#"hash_5b0267c7f7e8d42", 0))
 			{
 				old_value = getdvarint(#"hash_5b0267c7f7e8d42", 0);
-				setdvar(#"hash_1c45750e4f6818eb", old_value);
+				setdvar(#"g_drawdebuginfovolumes", old_value);
 				if(old_value)
 				{
 					foreach(ent in var_2fe0d693)
@@ -213,19 +213,19 @@ function private function_8f050823()
 			/#
 				if(getdvarint(#"hash_2a6bc2c12ee6a9b4", 0))
 				{
-					var_c167c750 = strtok("" + data.var_78e64a1a, "");
-					var_78e64a1a = var_c167c750[0];
+					str_array = strtok("" + data.var_78e64a1a, "");
+					var_78e64a1a = str_array[0];
 					var_5d8d813a = "";
-					if(var_c167c750.size > 1)
+					if(str_array.size > 1)
 					{
-						var_5d8d813a = getsubstr(var_c167c750[1], 0, 1);
+						var_5d8d813a = getsubstr(str_array[1], 0, 1);
 					}
-					var_c167c750 = strtok("" + data.var_141b25f, "");
-					var_141b25f = var_c167c750[0];
+					str_array = strtok("" + data.var_141b25f, "");
+					var_141b25f = str_array[0];
 					var_68be928f = "";
-					if(var_c167c750.size > 1)
+					if(str_array.size > 1)
 					{
-						var_68be928f = getsubstr(var_c167c750[1], 0, 1);
+						var_68be928f = getsubstr(str_array[1], 0, 1);
 					}
 					print3d(self.origin + (0, 0, bounds[2] + 12), (((((("" + var_78e64a1a) + "") + var_5d8d813a) + "") + var_141b25f) + "") + var_68be928f, undefined, undefined, 0.1);
 				}
@@ -682,7 +682,7 @@ function private function_f80632da(range, var_2b88ddd3, attacker, position, forw
 {
 	if(range > 0)
 	{
-		var_ff38f326 = attacker function_bdda420f(position, range);
+		var_ff38f326 = attacker getenemiesinradius(position, range);
 		foreach(var_f39b1a24 in var_ff38f326)
 		{
 			mins = var_f39b1a24 getabsmins();

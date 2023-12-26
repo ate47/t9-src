@@ -135,7 +135,7 @@ function function_6192b162()
 	{
 		if(!self function_d2503806(#"hash_5b08235c0b55a003"))
 		{
-			self function_bf9d3071(#"hash_5b08235c0b55a003");
+			self playrenderoverridebundle(#"hash_5b08235c0b55a003");
 		}
 		waitframe(1);
 	}

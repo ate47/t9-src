@@ -1,4 +1,4 @@
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_62caa307a394c18c;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;

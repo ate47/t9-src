@@ -3,7 +3,7 @@
 #using script_27347f09888ad15;
 #using script_34ab99a4ca1a43d;
 #using script_3d64d88008582147;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4108035fe400ce67;
 #using script_471b31bd963b388e;
 #using script_6b1f7ff883ed7f20;
@@ -79,7 +79,7 @@ function function_70a657d8()
 */
 function init()
 {
-	if(is_true(getgametypesetting(#"hash_7e8e34cc69a77e0b")) || getdvarint(#"hash_40bd34b35079cf2e", 0) > 0 && (zm_utility::is_classic() || util::function_5df4294() === #"hash_1f847b868c4199a3"))
+	if(is_true(getgametypesetting(#"hash_7e8e34cc69a77e0b")) || getdvarint(#"hash_40bd34b35079cf2e", 0) > 0 && (zm_utility::is_classic() || util::get_game_type() === #"hash_1f847b868c4199a3"))
 	{
 		namespace_679a22ba::function_3ba2f5dd(#"hash_9c00f9e4e4bd95a", #"hash_1f5172eae85cac38");
 		namespace_679a22ba::function_3ba2f5dd(#"hash_539facc2c096b82", #"hash_54a098edabd7a240");
@@ -102,11 +102,11 @@ function init()
 		level.var_1a4cc228[#"hash_7725a0435b44b1e5"] = [0:#"hash_4062a2032d2c9a34"];
 		level.var_f546b995 = "winter";
 		level thread function_3a268da9();
-		callback::on_ai_damage(&function_6374f751);
+		callback::on_ai_damage(&on_ai_damaged);
 		callback::on_ai_killed(&on_ai_killed);
 		level.var_77143112 = [];
 		level.var_76dd228a = [];
-		var_a017eb40 = struct::get_array("snowball_pile", "targetname");
+		a_s_snowball_piles = struct::get_array("snowball_pile", "targetname");
 		var_3e0f6c4b = struct::get_array("snow_mound", "targetname");
 		foreach(var_97ba446e in var_3e0f6c4b)
 		{
@@ -151,7 +151,7 @@ function init()
 				}
 			}
 		}
-		foreach(s_snowball_pile in var_a017eb40)
+		foreach(s_snowball_pile in a_s_snowball_piles)
 		{
 			temp_ent = spawn("script_origin", s_snowball_pile.origin);
 			zone = temp_ent zm_utility::get_current_zone(1);
@@ -489,11 +489,11 @@ function function_8f677e13()
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
-			item.var_8e092725 = 0;
+			item.hidetime = 0;
 			if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767 && self.inventory.items[var_fa3df96].var_a6762160.name != item.var_a6762160.name)
 			{
 				self item_inventory::function_fba40e6c(item);
@@ -542,11 +542,11 @@ function function_79ef6b93(snowball_pile)
 		var_fa3df96 = self item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
-			item.var_8e092725 = 0;
+			item.hidetime = 0;
 			if(self.inventory.items[var_fa3df96].var_bd027dd9 != 32767 && self.inventory.items[var_fa3df96].var_a6762160.name != item.var_a6762160.name)
 			{
 				self item_inventory::function_fba40e6c(item);
@@ -968,7 +968,7 @@ function function_96244838(weapon, attacker)
 }
 
 /*
-	Name: function_6374f751
+	Name: on_ai_damaged
 	Namespace: namespace_3bb7295f
 	Checksum: 0xE89C9BA5
 	Offset: 0x30C0
@@ -976,7 +976,7 @@ function function_96244838(weapon, attacker)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6374f751(params)
+function on_ai_damaged(params)
 {
 	if(params.weapon.name === #"snowball" && !self.var_6f84b820 === #"elite")
 	{

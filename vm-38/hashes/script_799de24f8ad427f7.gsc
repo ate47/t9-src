@@ -516,7 +516,7 @@ function deactivate(destination)
 function function_506afb9e(destination, var_2371bf)
 {
 	names = var_2371bf;
-	if(isstring(var_2371bf) || function_7a600918(var_2371bf))
+	if(isstring(var_2371bf) || ishash(var_2371bf))
 	{
 		names = [0:var_2371bf];
 	}

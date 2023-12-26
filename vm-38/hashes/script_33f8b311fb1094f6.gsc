@@ -44,7 +44,7 @@ class class_302a48fc : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_302a48fc
 		Checksum: 0x7B6100C6
 		Offset: 0x440
@@ -52,9 +52,9 @@ class class_302a48fc : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("vip_notify_text");
+		cLUIelem::register_clientside("vip_notify_text");
 	}
 
 	/*
@@ -70,7 +70,7 @@ class class_302a48fc : cLUIelem
 	{
 		cLUIelem::setup_clientfields("vip_notify_text");
 		cLUIelem::function_dcb34c80("string", "vipmessage", 1);
-		cLUIelem::function_da693cbe("alpha", 1, 8, "float", alphacallback);
+		cLUIelem::add_clientfield("alpha", 1, 8, "float", alphacallback);
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_42fe6185, alphacallback)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: vip_notify_text
 	Checksum: 0xD8E5E46F
 	Offset: 0x280
@@ -176,10 +176,10 @@ function register(var_42fe6185, alphacallback)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_302a48fc();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

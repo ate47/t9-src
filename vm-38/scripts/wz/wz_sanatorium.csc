@@ -37,7 +37,7 @@ event main(eventstruct)
 	setsaveddvar(#"phys_ragdoll_buoyancy", 1);
 	setsaveddvar(#"hash_72106cf1ba066d66", 1);
 	setsaveddvar(#"hash_4ce570a0ea61ca76", "-12246 -15508 580");
-	callback::function_d46d9315(&function_d46d9315);
+	callback::on_gameplay_started(&on_gameplay_started);
 	callback::on_localclient_connect(&on_player_connected);
 	load::main();
 	util::waitforclient(0);
@@ -84,7 +84,7 @@ function private function_103cfebf()
 */
 function on_player_connected(localclientnum)
 {
-	if(util::function_5df4294() === "zsurvival")
+	if(util::get_game_type() === "zsurvival")
 	{
 		function_cdbcba12(localclientnum, 1, 1);
 		playradiantexploder(localclientnum, "lgtexp_lightstate2");
@@ -92,7 +92,7 @@ function on_player_connected(localclientnum)
 }
 
 /*
-	Name: function_d46d9315
+	Name: on_gameplay_started
 	Namespace: wz_sanatorium
 	Checksum: 0x7192229F
 	Offset: 0x5C8
@@ -100,10 +100,10 @@ function on_player_connected(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d46d9315(localclientnum)
+function on_gameplay_started(localclientnum)
 {
 	waitframe(1);
-	if(util::function_5df4294() === "zsurvival")
+	if(util::get_game_type() === "zsurvival")
 	{
 		util::function_8eb5d4b0(4500, 4);
 	}

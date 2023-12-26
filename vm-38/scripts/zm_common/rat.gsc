@@ -1,4 +1,4 @@
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_trial.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\rat_shared.gsc;
@@ -303,7 +303,7 @@ function function_d87f9fe1(params)
 function function_6ea9a113(params)
 {
 	/#
-		foreach(items in level.var_223728ac)
+		foreach(items in level.item_spawns)
 		{
 			foreach(item in items)
 			{
@@ -411,7 +411,7 @@ function function_e2143adf(params)
 function function_1bd3da0f(params)
 {
 	/#
-		chunks = level.s_pap_quest.var_e770eb55;
+		chunks = level.s_pap_quest.a_s_locations;
 		if(isdefined(chunks))
 		{
 			foreach(chunk in chunks)

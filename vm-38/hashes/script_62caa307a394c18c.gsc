@@ -1,5 +1,5 @@
 #using scripts\core_common\item_inventory.gsc;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\util_shared.gsc;

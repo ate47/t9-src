@@ -2,7 +2,7 @@
 #using scripts\wz_common\wz_rat.gsc;
 #using script_1cc417743d7c262d;
 #using script_26187575f84f8d07;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_4108035fe400ce67;
 #using script_46192c58ea066d7f;
@@ -86,13 +86,13 @@ event main(eventstruct)
 	laststand_mp::function_367cfa1b(&function_95002a59);
 	player::function_3c5cc656(&function_610d3790);
 	clientfield::register("toplayer", "using_bomb", 1, 2, "int");
-	clientfield::function_a8bbc967("hudItems.uraniumCarryCount", 1, 4, "int");
-	clientfield::function_a8bbc967("hudItems.uraniumMaxCarry", 1, 4, "int");
-	clientfield::function_a8bbc967("hudItems.uraniumFullCarry", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.uraniumCarryCount", 1, 4, "int");
+	clientfield::register_clientuimodel("hudItems.uraniumMaxCarry", 1, 4, "int");
+	clientfield::register_clientuimodel("hudItems.uraniumFullCarry", 1, 1, "int");
 	clientfield::register("allplayers", "carryingUranium", 1, 1, "int");
 	clientfield::register("scriptmover", "bombsound", 1, 1, "int");
 	clientfield::function_5b7d846d("hud_items_dirty_bomb.bomb_respawn_disabled", 1, 1, "int");
-	laststand_mp::function_eb8c0e47(&function_114f1da7);
+	laststand_mp::function_eb8c0e47(&onplayerrevived);
 	level.var_574cc797 = &namespace_234f0efc::function_588a586d;
 	level.can_revive = &canrevive;
 	level.var_64731636 = dirtybomb_usebar::register();
@@ -232,7 +232,7 @@ function private function_d7cf81e(targetplayer, &points)
 }
 
 /*
-	Name: function_114f1da7
+	Name: onplayerrevived
 	Namespace: fireteam_dirty_bomb
 	Checksum: 0xFF7E1FE9
 	Offset: 0x17E8
@@ -240,7 +240,7 @@ function private function_d7cf81e(targetplayer, &points)
 	Parameters: 2
 	Flags: Private
 */
-function private function_114f1da7(revivee, reviver)
+function private onplayerrevived(revivee, reviver)
 {
 	if(isplayer(reviver))
 	{
@@ -292,7 +292,7 @@ function private function_cc2c46fd(player)
 	Parameters: 1
 	Flags: Private
 */
-function private function_523bd02(var_75c2784)
+function private function_523bd02(canpickup)
 {
 	/#
 		assert(isplayer(self));
@@ -305,7 +305,7 @@ function private function_523bd02(var_75c2784)
 	{
 		return;
 	}
-	if(var_75c2784)
+	if(canpickup)
 	{
 		self clientfield::set_player_uimodel("hudItems.uraniumFullCarry", 0);
 		return;
@@ -347,9 +347,9 @@ function private function_3f63e44f(item)
 			case "uranium_item_t9":
 			{
 				var_e3483afe = self clientfield::get_player_uimodel("hudItems.uraniumCarryCount");
-				var_75c2784 = function_ec3e7325(self) > var_e3483afe;
-				self thread function_523bd02(var_75c2784);
-				return var_75c2784;
+				canpickup = function_ec3e7325(self) > var_e3483afe;
+				self thread function_523bd02(canpickup);
+				return canpickup;
 				break;
 			}
 			case "uranium_pouch_item_t9":
@@ -383,7 +383,7 @@ function private function_3f63e44f(item)
 			weapons = self getweaponslist();
 			foreach(weapon in weapons)
 			{
-				var_16f12c31 = namespace_ad5a0cd6::function_3531b9ba(weapon.name);
+				var_16f12c31 = item_world_util::function_3531b9ba(weapon.name);
 				if(isdefined(var_16f12c31) && self getweaponammostock(weapon) > 0)
 				{
 					return 0;
@@ -391,7 +391,7 @@ function private function_3f63e44f(item)
 			}
 			return 1;
 		}
-		if(item.var_a6762160.itemtype == #"hash_56d6621e6c4caf07")
+		if(item.var_a6762160.itemtype == #"armor_shard")
 		{
 			return self.var_c52363ab > self.var_7d7d976a;
 		}
@@ -408,29 +408,29 @@ function private function_3f63e44f(item)
 	Parameters: 7
 	Flags: Private
 */
-function private function_18f58ab2(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot)
+function private function_18f58ab2(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot)
 {
 	pickup = 0;
 	switch(item.var_a6762160.name)
 	{
 		case "uranium_item_t9":
 		{
-			pickup = function_bf46e093(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot);
+			pickup = function_bf46e093(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot);
 			break;
 		}
 		case "uranium_pouch_item_t9":
 		{
-			pickup = function_fa78e80b(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot);
+			pickup = function_fa78e80b(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot);
 			break;
 		}
 		case "armor_pouch_item_t9":
 		{
-			pickup = namespace_234f0efc::function_dd8cb464(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot);
+			pickup = namespace_234f0efc::function_dd8cb464(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot);
 			break;
 		}
 		case "hash_583f1687cefbd3f3":
 		{
-			pickup = namespace_234f0efc::function_98942433(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot);
+			pickup = namespace_234f0efc::function_98942433(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot);
 			break;
 		}
 	}
@@ -446,7 +446,7 @@ function private function_18f58ab2(item, player, var_bd027dd9, var_d8138db2, ite
 	Parameters: 7
 	Flags: Private
 */
-function private function_bf46e093(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot)
+function private function_bf46e093(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot)
 {
 	var_e3483afe = var_aec6fa7f clientfield::get_player_uimodel("hudItems.uraniumCarryCount");
 	pickup = int(min(function_ec3e7325(var_aec6fa7f) - var_e3483afe, slot));
@@ -462,7 +462,7 @@ function private function_bf46e093(item, player, var_bd027dd9, var_d8138db2, ite
 		if(!isdefined(itemcount.var_d25a1503) || itemcount.var_d25a1503 != var_aec6fa7f.team)
 		{
 			scoreevents::processscoreevent(#"hash_64121166dc49f54a", var_aec6fa7f);
-			var_aec6fa7f contracts::function_a54e2068(#"hash_56ebf21401c9782c");
+			var_aec6fa7f contracts::increment_contract(#"hash_56ebf21401c9782c");
 		}
 	}
 	if((var_e3483afe + pickup) >= function_ec3e7325(var_aec6fa7f) || !is_true(var_aec6fa7f.var_2faaa10))
@@ -487,7 +487,7 @@ function private function_bf46e093(item, player, var_bd027dd9, var_d8138db2, ite
 	Parameters: 7
 	Flags: Private
 */
-function private function_fa78e80b(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot)
+function private function_fa78e80b(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot)
 {
 	if(!function_cc2c46fd(slot))
 	{
@@ -792,10 +792,10 @@ function private function_15d1af86(var_4c42f7cf)
 	self clientfield::set_player_uimodel("hudItems.uraniumCarryCount", 0);
 	self clientfield::set("carryingUranium", 0);
 	self function_53d7badf(0);
-	var_d90e0e15 = function_4ba8fde(#"uranium_item_t9");
+	itempoint = function_4ba8fde(#"uranium_item_t9");
 	for(index = 0; index < var_e3483afe; index++)
 	{
-		self thread function_a997e9c5(var_4c42f7cf + index, var_d90e0e15.id, self.origin, (0, randomintrange(0, 360), 0), index == (var_e3483afe - 1));
+		self thread function_a997e9c5(var_4c42f7cf + index, itempoint.id, self.origin, (0, randomintrange(0, 360), 0), index == (var_e3483afe - 1));
 	}
 	return var_4c42f7cf + index;
 }
@@ -817,8 +817,8 @@ function private function_d67bd905(var_4c42f7cf)
 	index = 0;
 	if(function_cc2c46fd(self))
 	{
-		var_d90e0e15 = function_4ba8fde("uranium_pouch_item_t9");
-		level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, 0, var_d90e0e15.id, self.origin, (0, randomintrange(0, 360), 0), 2);
+		itempoint = function_4ba8fde("uranium_pouch_item_t9");
+		level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, 0, itempoint.id, self.origin, (0, randomintrange(0, 360), 0), 2);
 		index++;
 		self clientfield::set_player_uimodel("hudItems.uraniumMaxCarry", 5);
 	}
@@ -920,10 +920,10 @@ function private function_65f0fe7f()
 			{
 				continue;
 			}
-			var_31480f62 = player function_28655ef2() || player actionslottwobuttonpressed();
-			if(!var_31480f62 || is_false(player.var_c60ad697))
+			isbuttonpressed = player function_28655ef2() || player actionslottwobuttonpressed();
+			if(!isbuttonpressed || is_false(player.var_c60ad697))
 			{
-				player.var_c60ad697 = !var_31480f62;
+				player.var_c60ad697 = !isbuttonpressed;
 				continue;
 			}
 			player.var_c60ad697 = 0;
@@ -998,7 +998,7 @@ function function_f917644c()
 	{
 		return;
 	}
-	var_d90e0e15 = function_4ba8fde(#"uranium_item_t9");
+	itempoint = function_4ba8fde(#"uranium_item_t9");
 	originoffset = vectorscale((0, 0, 1), 6);
 	dropangles = self.angles + (0, randomintrange(-30, 30), 0);
 	forward = anglestoforward(dropangles);
@@ -1017,7 +1017,7 @@ function function_f917644c()
 	{
 		return;
 	}
-	dropitem = self item_drop::drop_item(0, undefined, 1, 1, var_d90e0e15.id, droporigin, dropangles, 2);
+	dropitem = self item_drop::drop_item(0, undefined, 1, 1, itempoint.id, droporigin, dropangles, 2);
 	if(!isdefined(dropitem))
 	{
 		return;
@@ -1077,7 +1077,7 @@ function function_8e2fb040()
 	level endon(#"game_ended");
 	function_38080aeb();
 	function_693f50f5();
-	level flag::wait_till(#"hash_605a9ce4fc2912ae");
+	level flag::wait_till(#"insertion_begin_completed");
 	while(true)
 	{
 		function_c5d8437d();
@@ -1172,7 +1172,7 @@ function function_38080aeb()
 function function_59d5c0b2()
 {
 	level endon(#"game_ended");
-	level flag::wait_till(#"hash_605a9ce4fc2912ae");
+	level flag::wait_till(#"insertion_begin_completed");
 	function_c5d8437d();
 }
 
@@ -1632,7 +1632,7 @@ function private function_fb51b5a4()
 	self.trigger = spawn("trigger_radius", self.origin + vectorscale((0, 0, 1), 12), 0, 120, 90, 1);
 	self.trigger triggerignoreteam();
 	self.trigger triggerenable(1);
-	self.trigger callback::function_35a12f19(&function_fcc87504);
+	self.trigger callback::on_trigger(&function_fcc87504);
 	self.trigger setinvisibletoall();
 	foreach(player in getplayers())
 	{
@@ -1733,22 +1733,22 @@ function private function_99898a2d(bomb)
 	{
 		prevtime = gettime();
 		var_e18791f4 = int(level.var_932f538d * 1000);
-		var_d486b6 = 0;
+		totalprogress = 0;
 		bomb thread function_704fdca0(self);
 		while(self function_ce8f2021(bomb))
 		{
 			progress = gettime() - prevtime;
-			var_d486b6 = var_d486b6 + progress;
+			totalprogress = totalprogress + progress;
 			prevtime = gettime();
-			if(var_d486b6 >= var_e18791f4)
+			if(totalprogress >= var_e18791f4)
 			{
 				success = 1;
 				bomb thread function_3b72c4b2(self);
 				break;
 			}
-			if(var_d486b6 > 0)
+			if(totalprogress > 0)
 			{
-				self function_9db99d2f(var_d486b6 / var_e18791f4);
+				self function_9db99d2f(totalprogress / var_e18791f4);
 			}
 			waitframe(1);
 		}
@@ -1922,7 +1922,7 @@ function function_3b72c4b2(player)
 		function_e2d09d87(player.team);
 	}
 	scoreevents::processscoreevent(#"hash_405ccdd657f10e0e", player);
-	player contracts::function_a54e2068(#"hash_6339095ae9a767d6");
+	player contracts::increment_contract(#"hash_6339095ae9a767d6");
 	player clientfield::set_player_uimodel("hudItems.uraniumCarryCount", var_cc03b04e - 1);
 	[[level.var_37d62931]](player, 1);
 	player.pers[#"dirty_bomb_deposits"] = (isdefined(player.pers[#"dirty_bomb_deposits"]) ? player.pers[#"dirty_bomb_deposits"] : 0) + 1;
@@ -2036,7 +2036,7 @@ function function_ea25bba7(player)
 		{
 			player enableweaponcycling();
 			player enableoffhandweapons();
-			player function_6c22c47a();
+			player enableweaponswitchhero();
 			player thread take_use_weapon(level.var_696298a2);
 			if(player getcurrentweapon() === level.var_696298a2)
 			{
@@ -2074,7 +2074,7 @@ function take_use_weapon(useweapon)
 	}
 	if(is_true(useweapon.var_d2751f9d))
 	{
-		self val::reset(#"hash_18142cb460526d28", "disable_gestures");
+		self val::reset(#"gameobject_use", "disable_gestures");
 	}
 	self takeweapon(useweapon);
 }
@@ -2212,12 +2212,12 @@ function private function_6a9ca122()
 	self.trigger triggerenable(1);
 	self.trigger usetriggerignoreuseholdtime();
 	self.trigger sethintstring("MENU/PROMPT_DIRTY_BOMB_DETONATE");
-	self.trigger callback::function_35a12f19(&function_2f5dd98c);
+	self.trigger callback::on_trigger(&function_2f5dd98c);
 	self.trigger.bomb = self;
 	self.var_dac45cd5 = spawn("trigger_radius", self.origin + vectorscale((0, 0, 1), 12), 0, 120, 90, 1);
 	self.var_dac45cd5 triggerignoreteam();
 	self.var_dac45cd5 triggerenable(0);
-	self.var_dac45cd5 callback::function_35a12f19(&function_43bfe93d);
+	self.var_dac45cd5 callback::on_trigger(&function_43bfe93d);
 	self.var_dac45cd5 setinvisibletoall();
 	self.var_dac45cd5.bomb = self;
 }
@@ -2277,7 +2277,7 @@ function private function_84cb44bc(bomb)
 			useweapon = level.var_696298a2;
 			if(is_true(useweapon.var_d2751f9d))
 			{
-				self val::set(#"hash_18142cb460526d28", "disable_gestures");
+				self val::set(#"gameobject_use", "disable_gestures");
 			}
 			if(!self hasweapon(useweapon))
 			{
@@ -2288,7 +2288,7 @@ function private function_84cb44bc(bomb)
 			self switchtoweapon(useweapon);
 			self disableweaponcycling();
 			self disableoffhandweapons();
-			self function_432f99ff();
+			self disableweaponswitchhero();
 		}
 		else
 		{
@@ -2375,7 +2375,7 @@ function private function_f9f4b255()
 	self.assists = [];
 	prevtime = gettime();
 	var_e18791f4 = int(level.var_b06a1891 * 1000);
-	var_d486b6 = 0;
+	totalprogress = 0;
 	var_b1c451bf = int((level.var_f4a1440c / 0.05) * 1000);
 	bomb = self.bomb;
 	while(isdefined(bomb) && bomb.state == 4)
@@ -2430,23 +2430,23 @@ function private function_f9f4b255()
 			deltatime = currtime - prevtime;
 			progress = deltatime * (1 + self.assists.size);
 			progress = min(progress, var_b1c451bf);
-			var_d486b6 = var_d486b6 + progress;
-			if(var_d486b6 >= var_e18791f4)
+			totalprogress = totalprogress + progress;
+			if(totalprogress >= var_e18791f4)
 			{
 				bomb thread function_5c0f763b(self.activator);
 				break;
 			}
-			if(var_d486b6 > 0)
+			if(totalprogress > 0)
 			{
 				if(isdefined(bomb.objectiveid))
 				{
-					objective_setprogress(bomb.objectiveid, var_d486b6 / var_e18791f4);
+					objective_setprogress(bomb.objectiveid, totalprogress / var_e18791f4);
 				}
-				self.activator function_9db99d2f(var_d486b6 / var_e18791f4);
+				self.activator function_9db99d2f(totalprogress / var_e18791f4);
 				self.activator function_45c10c43(self.assists.size + 1);
 				foreach(player in self.assists)
 				{
-					player function_9db99d2f(var_d486b6 / var_e18791f4);
+					player function_9db99d2f(totalprogress / var_e18791f4);
 					player function_45c10c43(self.assists.size + 1);
 				}
 			}
@@ -2457,7 +2457,7 @@ function private function_f9f4b255()
 		}
 		else if(!level.var_3a9e7236)
 		{
-			var_d486b6 = 0;
+			totalprogress = 0;
 			if(isdefined(bomb.objectiveid))
 			{
 				objective_setprogress(bomb.objectiveid, 0);
@@ -2710,7 +2710,7 @@ function function_5c0f763b(player)
 	self notify(#"hash_51134d620e14f47b");
 	level function_28039abb();
 	scoreevents::processscoreevent(#"hash_179603173879ec50", player);
-	player contracts::function_a54e2068(#"hash_3864353f04a134d8");
+	player contracts::increment_contract(#"hash_3864353f04a134d8");
 	player stats::function_cc215323(#"hash_75c5c00847117bfb", 1);
 	if(isdefined(player.var_e2e8198f) && player.var_e2e8198f >= (gettime() - (int(3 * 1000))))
 	{
@@ -2727,7 +2727,7 @@ function function_5c0f763b(player)
 	{
 		player enableweaponcycling();
 		player enableoffhandweapons();
-		player function_6c22c47a();
+		player enableweaponswitchhero();
 		player thread take_use_weapon(level.var_696298a2);
 		if(player getcurrentweapon() === level.var_696298a2)
 		{
@@ -3248,7 +3248,7 @@ function function_b7821ed9(var_b77770ba)
 		if(!oob::chr_party(droppoint))
 		{
 			result = function_9cc082d2(droppoint, 15000);
-			if(isdefined(result) && isdefined(result[#"hash_556255be476284b3"]) && ~(result[#"hash_556255be476284b3"] & 2))
+			if(isdefined(result) && isdefined(result[#"materialflags"]) && ~(result[#"materialflags"] & 2))
 			{
 				return droppoint;
 			}

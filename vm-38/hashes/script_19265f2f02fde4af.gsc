@@ -159,19 +159,19 @@ function private function_8f050823()
 			/#
 				if(getdvarint(#"hash_2a6bc2c12ee6a9b4", 0))
 				{
-					var_c167c750 = strtok("" + data.var_78e64a1a, "");
-					var_78e64a1a = var_c167c750[0];
+					str_array = strtok("" + data.var_78e64a1a, "");
+					var_78e64a1a = str_array[0];
 					var_5d8d813a = "";
-					if(var_c167c750.size > 1)
+					if(str_array.size > 1)
 					{
-						var_5d8d813a = getsubstr(var_c167c750[1], 0, 1);
+						var_5d8d813a = getsubstr(str_array[1], 0, 1);
 					}
-					var_c167c750 = strtok("" + data.var_141b25f, "");
-					var_141b25f = var_c167c750[0];
+					str_array = strtok("" + data.var_141b25f, "");
+					var_141b25f = str_array[0];
 					var_68be928f = "";
-					if(var_c167c750.size > 1)
+					if(str_array.size > 1)
 					{
-						var_68be928f = getsubstr(var_c167c750[1], 0, 1);
+						var_68be928f = getsubstr(str_array[1], 0, 1);
 					}
 					print3d(self.origin + (0, 0, bounds[2] + 12), (((((("" + var_78e64a1a) + "") + var_5d8d813a) + "") + var_141b25f) + "") + var_68be928f, undefined, undefined, 0.1);
 				}

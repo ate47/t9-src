@@ -730,7 +730,7 @@ function function_9af7280f(objects)
 {
 	foreach(object in objects)
 	{
-		if(function_7a600918(uid))
+		if(ishash(uid))
 		{
 			object add_object(uid);
 			continue;

@@ -1,4 +1,4 @@
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -363,7 +363,7 @@ function private lc_flag_hit(enemy, hit, var_ab5b905e)
 						enemy[i] ai::stun(var_ab5b905e);
 						continue;
 					}
-					enemy[i] ai::function_62795e55();
+					enemy[i] ai::clear_stun();
 				}
 			}
 		}
@@ -375,7 +375,7 @@ function private lc_flag_hit(enemy, hit, var_ab5b905e)
 			}
 			else
 			{
-				enemy ai::function_62795e55();
+				enemy ai::clear_stun();
 			}
 		}
 	}
@@ -503,8 +503,8 @@ function private function_915d4fec(params, v_origin, player)
 {
 	if(isdefined(params.var_a9255d36))
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(params.var_a9255d36, #"death");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(params.var_a9255d36, #"death");
 	}
 	weapon = (isdefined(params.weapon) ? params.weapon : level.weaponnone);
 	str_mod = (isdefined(params.str_mod) ? params.str_mod : "MOD_UNKNOWN");

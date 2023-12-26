@@ -109,11 +109,11 @@ function init()
 	{
 		level.roundstartexplosivedelay = 0;
 	}
-	clientfield::function_a8bbc967("hudItems.pickupHintWeaponIndex", 1, 10, "int");
+	clientfield::register_clientuimodel("hudItems.pickupHintWeaponIndex", 1, 10, "int");
 	callback::on_connect(&on_player_connect);
 	callback::on_spawned(&on_player_spawned);
-	callback::function_f77ced93(&function_f77ced93);
-	callback::function_20263b9e(&function_20263b9e);
+	callback::on_weapon_change(&on_weapon_change);
+	callback::on_grenade_fired(&on_grenade_fired);
 	callback::function_4b7977fe(&function_4b7977fe);
 	self callback::on_end_game(&on_end_game);
 	if(level.var_e520065 === 1)
@@ -1085,7 +1085,7 @@ function watch_pickup()
 event function_cafc776a(eventstruct)
 {
 	self callback::callback(#"weapon_fired", eventstruct);
-	self callback::function_f19add2(eventstruct.weapon);
+	self callback::callback_weapon_fired(eventstruct.weapon);
 	self function_f2c53bb2(eventstruct.weapon);
 }
 
@@ -1136,7 +1136,7 @@ function function_f2c53bb2(curweapon)
 	{
 		return;
 	}
-	if(function_f99d2668() && game.state !== #"playing")
+	if(sessionmodeiswarzonegame() && game.state !== #"playing")
 	{
 		return;
 	}
@@ -1671,7 +1671,7 @@ function begin_grenade_tracking()
 */
 event function_e2b6d5a5(eventstruct)
 {
-	self callback::callback(#"hash_5989c4f123e1fb1a", eventstruct);
+	self callback::callback(#"grenade_fired", eventstruct);
 	if(!isplayer(self))
 	{
 		return;
@@ -1745,7 +1745,7 @@ event function_e32d30(eventstruct)
 */
 event function_97023fdf(eventstruct)
 {
-	self callback::callback(#"hash_7b6a55a9b65e3194", eventstruct);
+	self callback::callback(#"offhand_fire", eventstruct);
 }
 
 /*
@@ -1862,8 +1862,8 @@ function check_stuck_to_player(deleteonteamchange, awardscoreevent, weapon)
 			if(self.originalowner util::isenemyplayer(player))
 			{
 				scoreevents::processscoreevent(#"hash_19163019019a1709", self.originalowner, player, weapon);
-				self.originalowner contracts::function_a54e2068(#"hash_2a588f6e2e49309");
-				if(sessionmodeismultiplayergame() || function_f99d2668())
+				self.originalowner contracts::increment_contract(#"hash_2a588f6e2e49309");
+				if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 				{
 					self.originalowner stats::function_622feb0d(weapon.name, #"hash_565fa79e6e0f4513", 1);
 					self.originalowner stats::function_622feb0d(weapon.name, #"hash_14d32aad854916ec", 1);
@@ -2007,7 +2007,7 @@ function function_c135199b(params)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: weapons
 	Checksum: 0x7292C4F9
 	Offset: 0x4B30
@@ -2015,9 +2015,9 @@ function function_c135199b(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self stats::function_622feb0d(params.weapon.name, #"uses", 1);
 	}
@@ -2374,7 +2374,7 @@ function function_8f148257(weapon)
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: weapons
 	Checksum: 0x123DBE24
 	Offset: 0x59B8
@@ -2382,7 +2382,7 @@ function function_8f148257(weapon)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(level.trackweaponstats)
 	{
@@ -2522,7 +2522,7 @@ function scavenger_think()
 				continue;
 			}
 			maxammo = 0;
-			loadout = player loadout::function_1ee886f7(weapon);
+			loadout = player loadout::find_loadout_slot(weapon);
 			if(isdefined(loadout))
 			{
 				if(loadout.count > 0)
@@ -2602,7 +2602,7 @@ function scavenger_think()
 		player playsound(#"wpn_ammo_pickup");
 		player playlocalsound(#"wpn_ammo_pickup");
 		player hud::function_4a4de0de();
-		player contracts::function_a54e2068(#"hash_58af19ef8022b83c");
+		player contracts::increment_contract(#"hash_58af19ef8022b83c");
 		player stats::function_dad108fa(#"hash_2f86e77179c4ba91", 1);
 		player stats::function_dad108fa(#"hash_4cf0323c7ecb3711", 1);
 	}

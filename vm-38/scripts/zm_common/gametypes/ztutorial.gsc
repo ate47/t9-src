@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\zm_common\gametypes\zm_gametype.gsc;
@@ -72,8 +72,8 @@ function onstartgametype()
 	zm_behavior::function_70a657d8();
 	zm_cleanup::function_70a657d8();
 	zm_spawner::init();
-	zm_behavior::function_8ac3bea9();
-	zm_cleanup::function_8ac3bea9();
+	zm_behavior::postinit();
+	zm_cleanup::postinit();
 	level.spawnmins = (0, 0, 0);
 	level.spawnmaxs = (0, 0, 0);
 	structs = struct::get_array("player_respawn_point", "targetname");

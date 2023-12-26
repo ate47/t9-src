@@ -1,7 +1,7 @@
 #using scripts\zm_common\zm_trial_util.gsc;
-#using script_34dd50761fe08819;
+#using scripts\zm_common\trials\zm_trial_disable_bgbs.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -58,7 +58,7 @@ function private autoexec function_37990c2f()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"bgb_pack", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"bgb_pack", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -90,7 +90,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: bgb_pack
 	Checksum: 0x94218484
 	Offset: 0x2F0
@@ -98,7 +98,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(!is_true(level.bgb_in_use))
 	{
@@ -250,7 +250,7 @@ function private function_ed1b1a8e(n_index)
 			return;
 		}
 	}
-	if(namespace_a90d606b::is_active())
+	if(zm_trial_disable_bgbs::is_active())
 	{
 		self zm_trial_util::function_97444b02();
 	}
@@ -365,7 +365,7 @@ function function_a1cb16a2()
 			waitframe(1);
 			continue;
 		}
-		if(namespace_a90d606b::is_active() && (self actionslotonebuttonpressed() || self actionslotfourbuttonpressed() || self actionslottwobuttonpressed() || self actionslotthreebuttonpressed()))
+		if(zm_trial_disable_bgbs::is_active() && (self actionslotonebuttonpressed() || self actionslotfourbuttonpressed() || self actionslottwobuttonpressed() || self actionslotthreebuttonpressed()))
 		{
 			self zm_trial_util::function_97444b02();
 			do
@@ -454,14 +454,14 @@ function activate_elixir(n_index)
 {
 	self endon(#"disconnect");
 	level endon(#"end_game");
-	var_fabc88ee = 0;
+	has_succeeded = 0;
 	if(isdefined(level.var_3c8ad64b) && level.var_3c8ad64b != n_index)
 	{
-		return var_fabc88ee;
+		return has_succeeded;
 	}
 	if(self function_834d35e(n_index) == 0 || (is_true(level.var_4af38aa3) && self function_834d35e(n_index) == 3) && !self zm_utility::is_drinking() && !self laststand::player_is_in_laststand())
 	{
-		var_fabc88ee = 0;
+		has_succeeded = 0;
 		str_bgb = self.bgb_pack[n_index];
 		if(!isdefined(str_bgb) || str_bgb == "")
 		{
@@ -478,8 +478,8 @@ function activate_elixir(n_index)
 		{
 			if(is_true(level.bgb[str_bgb].var_4a9b0cdc) || self bgb::function_e98aa964(1, str_bgb))
 			{
-				var_fabc88ee = self function_5d618bb4(str_bgb, n_index);
-				if(var_fabc88ee)
+				has_succeeded = self function_5d618bb4(str_bgb, n_index);
+				if(has_succeeded)
 				{
 					self notify(#"hash_27b238d082f65849", str_bgb);
 					self bgb::activation_start();
@@ -489,7 +489,7 @@ function activate_elixir(n_index)
 			else
 			{
 				self thread function_23b7cdd8(n_index);
-				var_fabc88ee = 0;
+				has_succeeded = 0;
 			}
 		}
 		else
@@ -497,7 +497,7 @@ function activate_elixir(n_index)
 			self function_5d618bb4(str_bgb, n_index);
 		}
 		self.var_8ef176f3 = 0;
-		if(var_fabc88ee)
+		if(has_succeeded)
 		{
 			self notify(#"bgb_activation", str_bgb);
 		}
@@ -506,7 +506,7 @@ function activate_elixir(n_index)
 	{
 		self thread function_23b7cdd8(n_index);
 	}
-	return var_fabc88ee;
+	return has_succeeded;
 }
 
 /*
@@ -766,7 +766,7 @@ function function_efe33e13()
 	{
 		level waittill(#"end_of_round");
 		self.var_22fbe1cc = 0;
-		if(!namespace_a90d606b::is_active())
+		if(!zm_trial_disable_bgbs::is_active())
 		{
 			self function_f2173c97(0);
 		}
@@ -785,7 +785,7 @@ function function_efe33e13()
 function function_fba5f0e1(n_index)
 {
 	self thread global_cooldown(n_index);
-	self thread function_87ad6161(n_index);
+	self thread slot_cooldown(n_index);
 }
 
 /*
@@ -805,11 +805,11 @@ function global_cooldown(n_index)
 	self.var_bd0d5874 = 1;
 	self function_a1f97e79(1, n_index);
 	n_cooldown = 30;
-	if(self hasperk(#"hash_301aaa36fae44a5c"))
+	if(self hasperk(#"specialty_mod_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
-	switch(zm_custom::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
+	switch(zm_custom::function_901b751c(#"zmelixirscooldown"))
 	{
 		case 1:
 		default:
@@ -873,7 +873,7 @@ function function_6f7d5230(n_index)
 }
 
 /*
-	Name: function_87ad6161
+	Name: slot_cooldown
 	Namespace: bgb_pack
 	Checksum: 0xF98A8875
 	Offset: 0x1A48
@@ -881,7 +881,7 @@ function function_6f7d5230(n_index)
 	Parameters: 1
 	Flags: Linked
 */
-function function_87ad6161(n_index)
+function slot_cooldown(n_index)
 {
 	self endon(#"disconnect");
 	var_ce5ed2e9 = self.bgb_pack[n_index];
@@ -907,8 +907,8 @@ function function_87ad6161(n_index)
 	}
 	else
 	{
-		var_c16a4a5b = level.bgb[var_ce5ed2e9].rarity;
-		switch(var_c16a4a5b)
+		n_rarity = level.bgb[var_ce5ed2e9].rarity;
+		switch(n_rarity)
 		{
 			case 2:
 			{
@@ -964,7 +964,7 @@ function function_87ad6161(n_index)
 			}
 		}
 	}
-	switch(zm_custom::function_901b751c(#"hash_3ea7e39b03dd4dd1"))
+	switch(zm_custom::function_901b751c(#"zmelixirscooldown"))
 	{
 		case 1:
 		default:
@@ -982,7 +982,7 @@ function function_87ad6161(n_index)
 			break;
 		}
 	}
-	if(self hasperk(#"hash_301aaa36fae44a5c"))
+	if(self hasperk(#"specialty_mod_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
@@ -1070,7 +1070,7 @@ function private function_d84ec5ee(var_707fd977)
 {
 	self endon(#"disconnect", #"hash_738988561a113fac");
 	n_cooldown = 30;
-	if(self hasperk(#"hash_301aaa36fae44a5c"))
+	if(self hasperk(#"specialty_mod_cooldown"))
 	{
 		n_cooldown = n_cooldown * 0.9;
 	}
@@ -1184,7 +1184,7 @@ function function_7b91e81c(slot_index, item_index)
 	Parameters: 2
 	Flags: Linked
 */
-function function_1d5d39b0(slot_index, var_365a98bd)
+function function_1d5d39b0(slot_index, cooldown_perc)
 {
 }
 
@@ -1197,7 +1197,7 @@ function function_1d5d39b0(slot_index, var_365a98bd)
 	Parameters: 1
 	Flags: Linked
 */
-function function_4650bb90(var_365a98bd)
+function function_4650bb90(cooldown_perc)
 {
 }
 
@@ -1524,7 +1524,7 @@ function private function_c1091a8f(str_cmd, key)
 				level.var_7c3d4959 = 1;
 				break;
 			}
-			case "hash_db8a858c62b82f":
+			case "default_cooldowns":
 			{
 				level.var_7c3d4959 = 0;
 				break;

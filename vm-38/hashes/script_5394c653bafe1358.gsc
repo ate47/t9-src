@@ -47,7 +47,7 @@ class cmp_revive_prompt : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -89,7 +89,7 @@ class cmp_revive_prompt : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -104,9 +104,9 @@ class cmp_revive_prompt : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("mp_revive_prompt");
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int", 0);
-		cLUIelem::function_da693cbe("progress", 1, 5, "float", 0);
-		cLUIelem::function_da693cbe("reviveProgress", 1, 5, "float", 0);
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int", 0);
+		cLUIelem::add_clientfield("progress", 1, 5, "float", 0);
+		cLUIelem::add_clientfield("reviveProgress", 1, 5, "float", 0);
 	}
 
 	/*

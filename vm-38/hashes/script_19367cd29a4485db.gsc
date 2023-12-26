@@ -3,11 +3,11 @@
 #using script_2618e0f3e5e11649;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
-#using script_3f9e0dc8454d98e1;
-#using script_522aeb6ae906391e;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using script_7a5293d92c61c788;
-#using script_7e63597649100b1c;
+#using scripts\core_common\ai\zombie_shared.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -57,7 +57,7 @@ function private autoexec function_2fd800a5()
 function private autoexec __init__system__()
 {
 	/#
-		system::register(#"hash_3a0015e9f67cadaf", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+		system::register(#"hash_3a0015e9f67cadaf", &function_70a657d8, &postinit, undefined, undefined);
 	#/
 }
 
@@ -79,7 +79,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_420b39d3
 	Checksum: 0x7DDD030D
 	Offset: 0x248
@@ -87,7 +87,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	/#
 		level thread function_76de3950();
@@ -159,8 +159,8 @@ function private function_6f31d177()
 		{
 			if(isdefined(var_aafdab5f.target))
 			{
-				var_eb3b90d = struct::get_array(var_aafdab5f.targetname, "");
-				foreach(n_index, s_spawn in var_eb3b90d)
+				a_s_spawns = struct::get_array(var_aafdab5f.targetname, "");
+				foreach(n_index, s_spawn in a_s_spawns)
 				{
 					util::add_debug_command(((((((("" + var_aafdab5f.target) + "") + n_index) + "") + var_aafdab5f.target) + "") + n_index) + "");
 				}
@@ -501,7 +501,7 @@ function function_e77b67f(params, show)
 		{
 			if(show)
 			{
-				setdvar(#"hash_1c45750e4f6818eb", 1);
+				setdvar(#"g_drawdebuginfovolumes", 1);
 				showinfovolume(ent getentitynumber(), (1, 1, 0), 0.5);
 				continue;
 			}
@@ -971,7 +971,7 @@ function private function_51403488()
 			{
 				return;
 			}
-			a_ai = player function_bdda420f(player.origin, 2000);
+			a_ai = player getenemiesinradius(player.origin, 2000);
 			foreach(ai in a_ai)
 			{
 				if(isalive(ai))
@@ -1148,19 +1148,19 @@ function private function_42d3c9f5(params)
 		var_3480e14d = var_bfae6869[0];
 		var_a75f9486 = var_bfae6869[1];
 		s_instance = namespace_8b6a9d79::function_f703a5a(struct::get(var_3480e14d))[0];
-		var_eb3b90d = namespace_8b6a9d79::function_f703a5a(s_instance);
+		a_s_spawns = namespace_8b6a9d79::function_f703a5a(s_instance);
 		if(isdefined(var_a75f9486))
 		{
 			var_a75f9486 = int(var_a75f9486);
 			player = getplayers()[0];
-			player setorigin(var_eb3b90d[var_a75f9486].origin);
-			player setplayerangles(var_eb3b90d[var_a75f9486].angles);
+			player setorigin(a_s_spawns[var_a75f9486].origin);
+			player setplayerangles(a_s_spawns[var_a75f9486].angles);
 		}
 		else
 		{
 			foreach(player in getplayers())
 			{
-				s_spawn = var_eb3b90d[n_index];
+				s_spawn = a_s_spawns[n_index];
 				if(isdefined(s_spawn))
 				{
 					player setorigin(s_spawn.origin);
@@ -1187,7 +1187,7 @@ function function_2fab7a62(str_type)
 		{
 			str_dvar = "" + str_type;
 			util::init_dvar(str_dvar, 0, &function_2a3a4bf6);
-			util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", function_9e72a96(str_type), 103), ("" + str_dvar) + "");
+			util::add_devgui(namespace_8b6a9d79::devgui_path("", function_9e72a96(str_type), 103), ("" + str_dvar) + "");
 		}
 	#/
 }
@@ -1650,7 +1650,7 @@ function function_fabd315d(spawn_point, var_957493b8)
 			var_6e56b150 = 0;
 			for(i = 0; i < 2; i++)
 			{
-				goal = awareness::function_b184324d(spawn_point.origin, (isdefined(spawn_point.var_1564b717) ? spawn_point.var_1564b717 : 128), self getpathfindingradius() * 1.2, self getpathfindingradius() * 1.2);
+				goal = awareness::function_b184324d(spawn_point.origin, (isdefined(spawn_point.wander_radius) ? spawn_point.wander_radius : 128), self getpathfindingradius() * 1.2, self getpathfindingradius() * 1.2);
 				if(isdefined(goal))
 				{
 					self setgoal(goal);

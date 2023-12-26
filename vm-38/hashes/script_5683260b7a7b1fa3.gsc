@@ -278,7 +278,7 @@ function function_e3871553(var_4d2ad93e)
 		case 2:
 		{
 			str_item_name = (isdefined(level.var_29d88fe5[str_weapon_name][#"green"]) ? level.var_29d88fe5[str_weapon_name][#"green"] : level.var_ec04a8a4[str_weapon_name][#"green"]);
-			var_c16a4a5b = 0;
+			n_rarity = 0;
 			var_27751b99 = 0;
 			break;
 		}
@@ -286,7 +286,7 @@ function function_e3871553(var_4d2ad93e)
 		case 4:
 		{
 			str_item_name = (isdefined(level.var_29d88fe5[str_weapon_name][#"blue"]) ? level.var_29d88fe5[str_weapon_name][#"blue"] : level.var_ec04a8a4[str_weapon_name][#"blue"]);
-			var_c16a4a5b = 1;
+			n_rarity = 1;
 			var_27751b99 = 1;
 			break;
 		}
@@ -295,7 +295,7 @@ function function_e3871553(var_4d2ad93e)
 		case 7:
 		{
 			str_item_name = (isdefined(level.var_29d88fe5[str_weapon_name][#"purple"]) ? level.var_29d88fe5[str_weapon_name][#"purple"] : level.var_ec04a8a4[str_weapon_name][#"purple"]);
-			var_c16a4a5b = 2;
+			n_rarity = 2;
 			var_27751b99 = 2;
 			var_80c3ca2 = array::random([4:"ammomod_shatterblast", 3:"ammomod_napalmburst", 2:"ammomod_deadwire", 1:"ammomod_cryofreeze", 0:"ammomod_brainrot"]);
 			break;
@@ -304,7 +304,7 @@ function function_e3871553(var_4d2ad93e)
 		default:
 		{
 			str_item_name = (isdefined(level.var_29d88fe5[str_weapon_name][#"orange"]) ? level.var_29d88fe5[str_weapon_name][#"orange"] : level.var_ec04a8a4[str_weapon_name][#"orange"]);
-			var_c16a4a5b = 3;
+			n_rarity = 3;
 			var_27751b99 = 3;
 			var_80c3ca2 = array::random([4:"ammomod_shatterblast", 3:"ammomod_napalmburst", 2:"ammomod_deadwire", 1:"ammomod_cryofreeze", 0:"ammomod_brainrot"]);
 			break;
@@ -319,10 +319,10 @@ function function_e3871553(var_4d2ad93e)
 			var_d0e99a2a = point.var_a6762160.var_d0e99a2a;
 			var_8e212f46 = point.var_a6762160.var_8e212f46;
 			var_3e805062 = point.var_a6762160.var_3e805062;
-			var_e9c4fe29 = [[level.var_fee1eaaf]](point);
-			if(isdefined(var_e9c4fe29))
+			new_item = [[level.var_fee1eaaf]](point);
+			if(isdefined(new_item))
 			{
-				point = var_e9c4fe29;
+				point = new_item;
 				point.var_a8bccf69 = var_27751b99;
 				point.var_a6762160.var_a53e9db0 = var_a53e9db0;
 				point.var_a6762160.var_d0e99a2a = var_d0e99a2a;
@@ -338,7 +338,7 @@ function function_e3871553(var_4d2ad93e)
 		{
 			weapon = namespace_65181344::function_67456242(point.var_a6762160);
 			dropitem = item_drop::drop_item(0, weapon, 1, weapon.maxammo, point.id, self.origin, self.angles);
-			dropitem.var_8e092725 = 1;
+			dropitem.hidetime = 1;
 			dropitem hide();
 			self zm_weapons::function_98776900(dropitem, 0, 0, 1);
 		}
@@ -378,7 +378,7 @@ function function_e3871553(var_4d2ad93e)
 	var_bd027dd9 = item_inventory::function_ec087745();
 	if(var_bd027dd9 != 32767)
 	{
-		var_a781b3e1 = item_inventory::function_dfcacdc2(var_bd027dd9);
+		var_a781b3e1 = item_inventory::get_inventory_item(var_bd027dd9);
 		weapon = item_inventory::get_current_weapon();
 		if(var_27751b99 > 0)
 		{
@@ -432,30 +432,30 @@ function function_4bac897(var_4d2ad93e)
 		case 1:
 		case 2:
 		{
-			var_c16a4a5b = 0;
+			n_rarity = 0;
 			break;
 		}
 		case 3:
 		case 4:
 		{
-			var_c16a4a5b = 1;
+			n_rarity = 1;
 			break;
 		}
 		case 5:
 		case 6:
 		case 7:
 		{
-			var_c16a4a5b = 2;
+			n_rarity = 2;
 			break;
 		}
 		case 8:
 		default:
 		{
-			var_c16a4a5b = 3;
+			n_rarity = 3;
 			break;
 		}
 	}
-	return var_c16a4a5b;
+	return n_rarity;
 }
 
 /*

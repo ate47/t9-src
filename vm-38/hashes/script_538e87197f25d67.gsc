@@ -33,7 +33,7 @@ function private autoexec function_18cdbcee()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_79fe34c9f8a0e44c", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_79fe34c9f8a0e44c", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -53,7 +53,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_82b4c2d1
 	Checksum: 0x80F724D1
 	Offset: 0x1C0
@@ -61,7 +61,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 }
 
@@ -78,7 +78,7 @@ function perk_machine_rob(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(bwastimejump && isdefined(self))
 	{
-		self function_bf9d3071(#"hash_e8f3d55b3b05c7e");
+		self playrenderoverridebundle(#"hash_e8f3d55b3b05c7e");
 	}
 }
 

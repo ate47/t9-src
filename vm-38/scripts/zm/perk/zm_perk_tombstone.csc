@@ -48,7 +48,7 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	function_27473e44();
-	clientfield::function_a8bbc967("hud_items.tombstonePerkAvailable", #"hud_items", #"hash_3031b17444967abf", 1, 2, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hud_items.tombstonePerkAvailable", #"hud_items", #"hash_3031b17444967abf", 1, 2, "int", undefined, 0, 0);
 }
 
 /*
@@ -62,7 +62,7 @@ function private function_70a657d8()
 */
 function function_27473e44()
 {
-	zm_perks::register_perk_clientfields(#"hash_38c08136902fd553", &function_37236662, &callback_func);
+	zm_perks::register_perk_clientfields(#"hash_38c08136902fd553", &client_field_func, &callback_func);
 	zm_perks::register_perk_effects(#"hash_38c08136902fd553", "tombstone_light");
 	zm_perks::register_perk_init_thread(#"hash_38c08136902fd553", &init_staminup);
 	zm_perks::function_f3c80d73("zombie_perk_bottle_tombstone");
@@ -87,7 +87,7 @@ function init_staminup()
 }
 
 /*
-	Name: function_37236662
+	Name: client_field_func
 	Namespace: zm_perk_tombstone
 	Checksum: 0x8692FEC5
 	Offset: 0x388
@@ -95,7 +95,7 @@ function init_staminup()
 	Parameters: 0
 	Flags: Linked
 */
-function function_37236662()
+function client_field_func()
 {
 	clientfield::register("allplayers", "" + #"hash_46072c670fdaf2fa", 8000, 1, "int", &function_e32c696e, 0, 0);
 	clientfield::register("scriptmover", "" + #"hash_2897f04212a28873", 8000, 1, "int", &function_2f3a5c2, 0, 0);
@@ -141,7 +141,7 @@ function function_e32c696e(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(zm_utility::function_f8796df3(fieldname))
 		{
-			self function_bf9d3071(#"hash_280405958d740589");
+			self playrenderoverridebundle(#"hash_280405958d740589");
 			if(self postfx::function_556665f2(#"hash_3541c7bff1f76832"))
 			{
 				self postfx::stoppostfxbundle(#"hash_3541c7bff1f76832");
@@ -155,7 +155,7 @@ function function_e32c696e(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		else
 		{
-			self function_bf9d3071(#"hash_6b8215cb4fa935e4");
+			self playrenderoverridebundle(#"hash_6b8215cb4fa935e4");
 			if(!isdefined(level.var_929ed5c3[n_entity].var_ecb39b1e))
 			{
 				level.var_929ed5c3[n_entity].var_ecb39b1e = util::playfxontag(fieldname, #"hash_803ea6a2550a53a", self, "j_head");
@@ -206,11 +206,11 @@ function function_acf463c0(localclientnum)
 	self notify(#"hash_3f0adb1cfeb5ef46");
 	if(self function_d2503806(#"hash_280405958d740589") && self function_21c0fa55())
 	{
-		self function_5d482e78(#"hash_280405958d740589");
+		self stoprenderoverridebundle(#"hash_280405958d740589");
 	}
 	if(self function_d2503806(#"hash_6b8215cb4fa935e4"))
 	{
-		self function_5d482e78(#"hash_6b8215cb4fa935e4");
+		self stoprenderoverridebundle(#"hash_6b8215cb4fa935e4");
 	}
 	if(self postfx::function_556665f2(#"hash_3541c7bff1f76832") && self function_21c0fa55())
 	{
@@ -258,11 +258,11 @@ function private function_222efb26(localclientnum)
 		var_b1b72524 = self isplayerads();
 		if(self function_d2503806(#"hash_280405958d740589") && var_b1b72524)
 		{
-			self function_5d482e78(#"hash_280405958d740589");
+			self stoprenderoverridebundle(#"hash_280405958d740589");
 		}
 		else if(!self function_d2503806(#"hash_280405958d740589") && !var_b1b72524)
 		{
-			self function_bf9d3071(#"hash_280405958d740589");
+			self playrenderoverridebundle(#"hash_280405958d740589");
 		}
 		waitframe(1);
 	}

@@ -1,11 +1,11 @@
-#using script_20ac552ee498eb9d;
-#using script_299f56e6d0b16416;
-#using script_35598499769dbb3d;
-#using script_35b5ff21c2a0960f;
+#using scripts\zm_common\gametypes\globallogic_scriptmover.gsc;
+#using scripts\zm_common\zm_quick_spawning.gsc;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_hud.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
 #using scripts\zm_common\zm_wallbuy.gsc;
@@ -92,7 +92,7 @@ function zombify_player()
 		self [[level.func_clone_plant_respawn]]();
 		return;
 	}
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	if(gametype == #"zsurvival")
 	{
 		self val::reset(#"laststand", "ignoreme");

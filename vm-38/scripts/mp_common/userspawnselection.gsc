@@ -568,9 +568,9 @@ function shouldshowspawnselectionmenu()
 	isbot = isbot(self);
 	var_1367cd2a = (isdefined(level.spawnselect.lastchosenplayerspawns[self.clientid]) ? level.spawnselect.lastchosenplayerspawns[self.clientid] : -1) == -2;
 	gameended = gamestate::is_game_over();
-	var_e39674d4 = level.numteamlives > 0 && game.lives[self.team] < 0;
+	nolives = level.numteamlives > 0 && game.lives[self.team] < 0;
 	var_d302b268 = (isdefined(level.spawnselect.var_d302b268) ? level.spawnselect.var_d302b268 : 0) && function_127864f2(self);
-	return !isbot && !var_1367cd2a && !level.infinalkillcam && !gameended && !var_e39674d4 || var_d302b268;
+	return !isbot && !var_1367cd2a && !level.infinalkillcam && !gameended && !nolives || var_d302b268;
 }
 
 /*
@@ -922,8 +922,8 @@ function private registerclientfields()
 		clientfield::function_5b7d846d(basename + "useStatus", 1, 1, "int");
 		clientfield::function_5b7d846d(basename + "team", 1, 2, "int");
 	}
-	clientfield::function_a8bbc967("hudItems.showSpawnSelect", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.killcamActive", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.showSpawnSelect", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.killcamActive", 1, 1, "int");
 	clientfield::function_5b7d846d("hideautospawnoption", 1, 1, "int");
 }
 

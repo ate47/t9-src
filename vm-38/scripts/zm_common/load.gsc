@@ -2,7 +2,7 @@
 #using scripts\weapons\zm\weaponobjects.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_2a30ac7aa0ee8988;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4108035fe400ce67;
 #using script_42f9a645e203120c;
 #using scripts\zm_common\zm_aoe.gsc;

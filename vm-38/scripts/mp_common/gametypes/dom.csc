@@ -225,7 +225,7 @@ function function_e116df6c(localclientnum, oldval, newval, bnewent, binitialsnap
 		}
 		if(!self function_d2503806(level.var_117b4a3a[0]))
 		{
-			self function_bf9d3071(level.var_117b4a3a[0]);
+			self playrenderoverridebundle(level.var_117b4a3a[0]);
 		}
 	}
 }
@@ -613,13 +613,13 @@ function function_dd2493cc(local_client_num, objid)
 				{
 					if(state != si)
 					{
-						entity function_5d482e78(rob);
+						entity stoprenderoverridebundle(rob);
 					}
 					continue;
 				}
 				if(state == si)
 				{
-					entity function_bf9d3071(rob);
+					entity playrenderoverridebundle(rob);
 					if(iscodcaster)
 					{
 						codcaster::function_773f6e31(local_client_num, entity, rob, state);

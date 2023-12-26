@@ -44,7 +44,7 @@ class cDOA_Overworld : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cDOA_Overworld
 		Checksum: 0x343720C7
 		Offset: 0x340
@@ -52,9 +52,9 @@ class cDOA_Overworld : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("DOA_Overworld");
+		cLUIelem::register_clientside("DOA_Overworld");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: doa_overworld
 	Checksum: 0xBB3DA43E
 	Offset: 0x240
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cDOA_Overworld();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

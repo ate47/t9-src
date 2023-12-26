@@ -626,12 +626,12 @@ function private function_d6cfc8e9()
 		var_7d86dbf8 = self gamepadusedlast();
 		if(var_4cfde9be != var_7d86dbf8 || (!var_7d86dbf8 && self flag::get("was_paused")))
 		{
-			setdvar(#"hash_54488b7c651bd0ec", !var_7d86dbf8);
+			setdvar(#"ui_busyblockingamemenu", !var_7d86dbf8);
 		}
 		var_4cfde9be = var_7d86dbf8;
 		waitframe(1);
 	}
-	setdvar(#"hash_54488b7c651bd0ec", 0);
+	setdvar(#"ui_busyblockingamemenu", 0);
 }
 
 /*
@@ -663,7 +663,7 @@ function private function_5302a8d6(waittills, var_b68dbe65)
 	self flag::decrement("block_kbm_pause_menu");
 	if(result._notify == "death")
 	{
-		setdvar(#"hash_54488b7c651bd0ec", 0);
+		setdvar(#"ui_busyblockingamemenu", 0);
 	}
 }
 

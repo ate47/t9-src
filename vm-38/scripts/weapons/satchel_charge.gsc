@@ -1,5 +1,5 @@
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -60,9 +60,9 @@ function createsatchelwatcher(watcher)
 		watcher.onspawnretrievetriggers = &function_4ba658e5;
 		watcher.deleteonplayerspawn = 0;
 	}
-	if(isdefined(watcher.weapon.var_4dd46f8a))
+	if(isdefined(watcher.weapon.customsettings))
 	{
-		var_6f1c6122 = getscriptbundle(watcher.weapon.var_4dd46f8a);
+		var_6f1c6122 = getscriptbundle(watcher.weapon.customsettings);
 		/#
 			assert(isdefined(var_6f1c6122));
 		#/
@@ -252,7 +252,7 @@ function function_a0a96965()
 function function_acc500c4(watcher)
 {
 	self endon(#"death", #"hacked", #"detonating");
-	if(isdefined(watcher.weapon.var_4dd46f8a))
+	if(isdefined(watcher.weapon.customsettings))
 	{
 		function_a0778d59();
 		if(isdefined(level.var_ac78d00e.var_a74161cc.var_28f86309))

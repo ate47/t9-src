@@ -1,4 +1,4 @@
-#using script_3b78d6d26bf3ec83;
+#using scripts\abilities\gadgets\gadget_jammer_shared.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\audio_shared.csc;
@@ -35,7 +35,7 @@ function private autoexec function_f203995b()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_33449a50d9656246", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_33449a50d9656246", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -56,7 +56,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zombie_dog_toxic_cloud
 	Checksum: 0x80F724D1
 	Offset: 0x308
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -248,7 +248,7 @@ function function_a17af3df(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(bwastimejump)
 	{
-		self function_bf9d3071(#"hash_254bc28c3959a2ec");
+		self playrenderoverridebundle(#"hash_254bc28c3959a2ec");
 		self callback::on_shutdown(&function_c88acbea);
 	}
 	else
@@ -268,6 +268,6 @@ function function_a17af3df(localclientnum, oldval, newval, bnewent, binitialsnap
 */
 function function_c88acbea(params)
 {
-	self function_5d482e78(#"hash_254bc28c3959a2ec");
+	self stoprenderoverridebundle(#"hash_254bc28c3959a2ec");
 }
 

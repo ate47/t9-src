@@ -1,5 +1,5 @@
 #using script_24c32478acf44108;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_72401f526ba71638;
 #using scripts\core_common\callbacks_shared.gsc;

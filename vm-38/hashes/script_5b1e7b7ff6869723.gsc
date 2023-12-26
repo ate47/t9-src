@@ -117,7 +117,7 @@ function private function_4ba28b7e(s_instance)
 		trigger = spawn("trigger_radius", s_spawn.origin + v_offset, 0, int(s_spawn.radius), int(s_spawn.height));
 	}
 	trigger.var_85c920d0 = var_85c920d0;
-	trigger callback::function_35a12f19(&function_6b6377f8);
+	trigger callback::on_trigger(&function_6b6377f8);
 	level callback::add_callback(#"hash_594217387367ebb4", &function_7ee520f8, s_instance);
 }
 

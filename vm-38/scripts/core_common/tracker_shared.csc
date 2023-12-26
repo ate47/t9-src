@@ -47,7 +47,7 @@ function init_shared()
 */
 function private registerclientfields()
 {
-	clientfield::function_a8bbc967("huditems.isExposedOnMinimap", #"hud_items", #"hash_1fe5d2b9e7136055", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("huditems.isExposedOnMinimap", #"hud_items", #"isexposedonminimap", 1, 1, "int", undefined, 0, 0);
 }
 
 /*
@@ -220,11 +220,11 @@ function private function_c8ffa38a(spotter, target, var_5a527fb7)
 	{
 		return false;
 	}
-	var_fb9b3e7b = cos(level.var_5951c51b);
+	cosanglethreshold = cos(level.var_5951c51b);
 	var_4c94543b = spotter getplayerangles();
 	var_fde76ebb = anglestoforward(var_4c94543b);
 	var_56c587f1 = vectornormalize(var_eb5ac886);
-	if(vectordot(var_fde76ebb, var_56c587f1) < var_fb9b3e7b)
+	if(vectordot(var_fde76ebb, var_56c587f1) < cosanglethreshold)
 	{
 		return false;
 	}

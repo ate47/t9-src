@@ -1,4 +1,4 @@
-#using script_12282e6b2cc91b42;
+#using scripts\zm_common\zm_customgame.csc;
 #using script_20055f2f97341caa;
 #using scripts\zm_common\zm_aoe.csc;
 #using script_26e61ae2e1d842a9;

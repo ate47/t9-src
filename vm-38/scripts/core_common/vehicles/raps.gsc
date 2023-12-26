@@ -1,4 +1,4 @@
-#using script_2c6ff91addfd14b7;
+#using scripts\core_common\vehicles\smart_bomb.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -63,7 +63,7 @@ function private function_70a657d8()
 */
 function raps_initialize()
 {
-	namespace_c2dce87e::function_c6f75619();
+	smart_bomb::function_c6f75619();
 	self useanimtree("generic");
 	self initsounds();
 	if(isdefined(level.vehicle_initializer_cb))
@@ -85,10 +85,10 @@ function raps_initialize()
 function defaultrole()
 {
 	self vehicle_ai::init_state_machine_for_role("default");
-	self vehicle_ai::get_state_callbacks("combat").update_func = &namespace_c2dce87e::state_combat_update;
-	self vehicle_ai::get_state_callbacks("driving").update_func = &namespace_c2dce87e::state_scripted_update;
-	self vehicle_ai::get_state_callbacks("death").update_func = &namespace_c2dce87e::state_death_update;
-	self vehicle_ai::get_state_callbacks("emped").update_func = &namespace_c2dce87e::state_emped_update;
+	self vehicle_ai::get_state_callbacks("combat").update_func = &smart_bomb::state_combat_update;
+	self vehicle_ai::get_state_callbacks("driving").update_func = &smart_bomb::state_scripted_update;
+	self vehicle_ai::get_state_callbacks("death").update_func = &smart_bomb::state_death_update;
+	self vehicle_ai::get_state_callbacks("emped").update_func = &smart_bomb::state_emped_update;
 	self vehicle_ai::call_custom_add_state_callbacks();
 	vehicle_ai::startinitialstate("combat");
 }
@@ -176,11 +176,11 @@ function initsounds()
 	self.sndalias[#"spawn"] = #"veh_raps_spawn";
 	self.sndalias[#"direction"] = #"veh_raps_direction";
 	self.sndalias[#"jump_up"] = #"veh_raps_jump_up";
-	self.sndalias[#"hash_6dacc5a8faf1b6f3"] = #"veh_raps_close_250";
-	self.sndalias[#"hash_22b0b71c07ac7fea"] = #"veh_raps_close_1500";
-	self.sndalias[#"hash_26569720e0ae76f3"] = #"veh_raps_targeting";
-	self.sndalias[#"hash_2b3a22d457fba169"] = #"evt_raps_alarm";
-	self.sndalias[#"hash_56dd8cae01fc143c"] = #"veh_wasp_wall_imp";
+	self.sndalias[#"vehclose250"] = #"veh_raps_close_250";
+	self.sndalias[#"vehclose1500"] = #"veh_raps_close_1500";
+	self.sndalias[#"vehtargeting"] = #"veh_raps_targeting";
+	self.sndalias[#"vehalarm"] = #"evt_raps_alarm";
+	self.sndalias[#"vehcollision"] = #"veh_wasp_wall_imp";
 	if(isdefined(self.vehicletype) && (self.vehicletype == #"spawner_enemy_zombie_vehicle_raps_suicide" || self.vehicletype == #"spawner_zombietron_veh_meatball" || self.vehicletype == #"spawner_zombietron_veh_meatball_med" || self.vehicletype == #"spawner_zombietron_veh_meatball_small"))
 	{
 		self.sndalias[#"inair"] = undefined;
@@ -188,11 +188,11 @@ function initsounds()
 		self.sndalias[#"spawn"] = undefined;
 		self.sndalias[#"direction"] = undefined;
 		self.sndalias[#"jump_up"] = undefined;
-		self.sndalias[#"hash_6dacc5a8faf1b6f3"] = undefined;
-		self.sndalias[#"hash_22b0b71c07ac7fea"] = undefined;
-		self.sndalias[#"hash_26569720e0ae76f3"] = undefined;
-		self.sndalias[#"hash_2b3a22d457fba169"] = undefined;
-		self.sndalias[#"hash_56dd8cae01fc143c"] = #"hash_33eb98c2a2669c78";
+		self.sndalias[#"vehclose250"] = undefined;
+		self.sndalias[#"vehclose1500"] = undefined;
+		self.sndalias[#"vehtargeting"] = undefined;
+		self.sndalias[#"vehalarm"] = undefined;
+		self.sndalias[#"vehcollision"] = #"hash_33eb98c2a2669c78";
 	}
 	if(isdefined(self.vehicletype) && self.vehicletype == #"hash_22f2770b0b570f88")
 	{
@@ -201,11 +201,11 @@ function initsounds()
 		self.sndalias[#"spawn"] = #"hash_220536a567c22f9d";
 		self.sndalias[#"direction"] = undefined;
 		self.sndalias[#"jump_up"] = #"hash_1182d9ecfe86442e";
-		self.sndalias[#"hash_6dacc5a8faf1b6f3"] = #"hash_4d4a13f08b063112";
-		self.sndalias[#"hash_22b0b71c07ac7fea"] = undefined;
-		self.sndalias[#"hash_26569720e0ae76f3"] = #"hash_57d3d8cf8a3cb109";
-		self.sndalias[#"hash_2b3a22d457fba169"] = #"hash_28033d94de922793";
-		self.sndalias[#"hash_56dd8cae01fc143c"] = #"hash_481f37c2ab12bdfe";
+		self.sndalias[#"vehclose250"] = #"hash_4d4a13f08b063112";
+		self.sndalias[#"vehclose1500"] = undefined;
+		self.sndalias[#"vehtargeting"] = #"hash_57d3d8cf8a3cb109";
+		self.sndalias[#"vehalarm"] = #"hash_28033d94de922793";
+		self.sndalias[#"vehcollision"] = #"hash_481f37c2ab12bdfe";
 	}
 }
 
@@ -221,7 +221,7 @@ function initsounds()
 function detonate_damage_monitored(attacker, weapon)
 {
 	self.selfdestruct = 1;
-	namespace_c2dce87e::detonate(weapon);
+	smart_bomb::detonate(weapon);
 }
 
 /*
@@ -235,6 +235,6 @@ function detonate_damage_monitored(attacker, weapon)
 */
 function detonate(attacker)
 {
-	namespace_c2dce87e::detonate(attacker);
+	smart_bomb::detonate(attacker);
 }
 

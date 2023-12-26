@@ -46,7 +46,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -155,7 +155,7 @@ function private function_dc856fd8()
 	self allowads(0);
 	while(true)
 	{
-		self waittill(#"hash_7fd32c9551894e64", #"hash_424834e6dee13bc3", #"bgb_update");
+		self waittill(#"crafting_fail", #"crafting_success", #"bgb_update");
 		if(isalive(self))
 		{
 			self allowads(0);
@@ -177,8 +177,8 @@ function private function_16824dc3()
 	self endon(#"disconnect", #"allow_ads");
 	while(true)
 	{
-		var_f2a06582 = self getcurrentweapon();
-		if(isalive(self) && self adsbuttonpressed() && (var_f2a06582.dualwieldweapon === level.weaponnone || var_f2a06582.isriotshield))
+		w_curr = self getcurrentweapon();
+		if(isalive(self) && self adsbuttonpressed() && (w_curr.dualwieldweapon === level.weaponnone || w_curr.isriotshield))
 		{
 			self zm_trial_util::function_97444b02();
 			while(self adsbuttonpressed())
@@ -225,11 +225,11 @@ function function_2d961b95()
 	self endon(#"disconnect", #"allow_ads");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"weapon_change");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"weapon_change");
 		if(isalive(self))
 		{
-			if(var_be17187b.weapon.isriotshield)
+			if(s_waitresult.weapon.isriotshield)
 			{
 				self function_4488a530(1);
 			}

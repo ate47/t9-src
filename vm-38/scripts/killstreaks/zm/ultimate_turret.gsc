@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_56d425496a225a1b;
+#using scripts\killstreaks\ultimate_turret_shared.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\deployable.gsc;
@@ -60,7 +60,7 @@ function private function_70a657d8()
 	level.var_11d9ab7c = new class_c6c0e94();
 	[[ level.var_11d9ab7c ]]->initialize(#"ultimate_turret_zm", 1, float(function_60d95f53()) / 1000);
 	init_shared();
-	deployable::function_2e088f73(getweapon("ultimate_turret"), &function_53028023, undefined, #"mp/sentry_deploy", #"hash_37605398dce96965");
+	deployable::register_deployable(getweapon("ultimate_turret"), &function_53028023, undefined, #"mp/sentry_deploy", #"hash_37605398dce96965");
 	callback::on_vehicle_spawned(&function_bf97d10);
 	callback::on_deleted(&function_634677dd);
 }
@@ -165,7 +165,7 @@ function function_53028023(v_origin, v_angles, player)
 function turretscanning()
 {
 	veh = self;
-	veh endon(#"death", #"hash_6f331ac7d2a40217", #"end_turret_scanning");
+	veh endon(#"death", #"death_started", #"end_turret_scanning");
 	wait(0.8);
 	veh playsound(#"mpl_turret_startup");
 	veh playloopsound(#"hash_69240c6db92da5bf");

@@ -103,10 +103,10 @@ function private function_2e48b28e(localclientnum, oldval, newval, bnewent, bini
 	while(self.var_86c3a9a2 != target)
 	{
 		waitframe(1);
-		var_fc296337 = self getclienttime();
-		time_delta = var_fc296337 - time_start;
-		var_3d454e88 = math::clamp(time_delta / var_d89ba925, 0, 1);
-		self.var_86c3a9a2 = start + ((target - start) * var_3d454e88);
+		time_now = self getclienttime();
+		time_delta = time_now - time_start;
+		coef = math::clamp(time_delta / var_d89ba925, 0, 1);
+		self.var_86c3a9a2 = start + ((target - start) * coef);
 		self function_97c2dab8(self.var_86c3a9a2);
 	}
 	self function_1402addd();

@@ -28,8 +28,8 @@ function private autoexec function_168ed6ed()
 function function_d92cb558(result, vararg)
 {
 	/#
-		var_2f3fa528 = "";
-		return var_2f3fa528;
+		pathstr = "";
+		return pathstr;
 	#/
 }
 
@@ -51,7 +51,7 @@ function get_stat(...)
 	{
 		return undefined;
 	}
-	result = function_644a3b03(vararg);
+	result = readmatchstat(vararg);
 	/#
 		function_d92cb558(result, vararg);
 	#/
@@ -78,7 +78,7 @@ function set_stat(...)
 	}
 	value = vararg[vararg.size - 1];
 	arrayremoveindex(vararg, vararg.size - 1);
-	result = function_484b4b09(vararg, value);
+	result = writematchstat(vararg, value);
 	/#
 		function_d92cb558(result, vararg);
 	#/
@@ -124,7 +124,7 @@ function inc_stat(...)
 	}
 	value = vararg[vararg.size - 1];
 	arrayremoveindex(vararg, vararg.size - 1);
-	result = function_976e9113(vararg, value);
+	result = incrementmatchstat(vararg, value);
 	/#
 		function_d92cb558(result, vararg);
 	#/

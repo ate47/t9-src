@@ -47,7 +47,7 @@ class cremote_missile_targets : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cremote_missile_targets : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -104,10 +104,10 @@ class cremote_missile_targets : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("remote_missile_targets");
-		cLUIelem::function_da693cbe("player_target_active", 1, 16, "int");
-		cLUIelem::function_da693cbe("extra_target_1", 1, 10, "int");
-		cLUIelem::function_da693cbe("extra_target_2", 1, 10, "int");
-		cLUIelem::function_da693cbe("extra_target_3", 1, 10, "int");
+		cLUIelem::add_clientfield("player_target_active", 1, 16, "int");
+		cLUIelem::add_clientfield("extra_target_1", 1, 10, "int");
+		cLUIelem::add_clientfield("extra_target_2", 1, 10, "int");
+		cLUIelem::add_clientfield("extra_target_3", 1, 10, "int");
 	}
 
 	/*

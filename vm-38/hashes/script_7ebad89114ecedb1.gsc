@@ -51,9 +51,9 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	clientfield::function_a8bbc967("hudItems.incursion.radiationDamage", #"hash_4f154d6820b7e836", [0:#"hash_17c333de26f9a5c9"], 1, 5, "float", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.incursion.radiationProtection", #"hash_4f154d6820b7e836", [0:#"hash_6a2df23dda50fd53"], 1, 5, "float", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.incursion.radiationHealth", #"hash_4f154d6820b7e836", [0:#"hash_1ea71fd40691443e"], 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.incursion.radiationDamage", #"hash_4f154d6820b7e836", [0:#"radiationdamage"], 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.incursion.radiationProtection", #"hash_4f154d6820b7e836", [0:#"hash_6a2df23dda50fd53"], 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.incursion.radiationHealth", #"hash_4f154d6820b7e836", [0:#"hash_1ea71fd40691443e"], 1, 5, "float", undefined, 0, 0);
 	clientfield::register("toplayer", "radiation", 1, 10, "int", &radiation, 0, 1);
 	callback::on_localclient_connect(&function_5cb7f849);
 	level.var_6d29a25e = [];
@@ -71,7 +71,7 @@ function private function_70a657d8()
 function private function_9cc6a162(localclientnum, sickness, var_46bdb64c)
 {
 	/#
-		assert(function_7a600918(sickness) || isstring(sickness));
+		assert(ishash(sickness) || isstring(sickness));
 	#/
 	/#
 		assert(isdefined(var_46bdb64c));
@@ -125,7 +125,7 @@ function private function_e352066c(localclientnum)
 function private function_b200b0ea(localclientnum, sickness, var_46bdb64c)
 {
 	/#
-		assert(function_7a600918(sickness) || isstring(sickness));
+		assert(ishash(sickness) || isstring(sickness));
 	#/
 	/#
 		assert(isdefined(var_46bdb64c));

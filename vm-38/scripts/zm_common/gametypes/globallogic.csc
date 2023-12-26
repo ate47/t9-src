@@ -48,9 +48,9 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	visionset_mgr::register_visionset_info("crithealth", 1, 25, undefined, "critical_health");
-	clientfield::function_a8bbc967("hudItems.armorIsOnCooldown", #"hud_items", #"hash_2f36ddfd4c373968", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.armorIsOnCooldown", #"hud_items", #"armorisoncooldown", 1, 1, "int", undefined, 0, 0);
 	clientfield::function_91cd7763("string", "hudItems.cursorHintZMPurchaseInvalidText", #"hud_items", #"hash_118ad44e348b0da0", 1, undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.cursorHintZMPurchaseInvalid", #"hud_items", #"hash_679adafa6635cf07", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.cursorHintZMPurchaseInvalid", #"hud_items", #"hash_679adafa6635cf07", 1, 1, "int", undefined, 0, 0);
 	level.new_health_model = 1;
 }
 

@@ -1,10 +1,10 @@
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -61,7 +61,7 @@ function private autoexec __init__system__()
 */
 function private function_6fe2ffad()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return "killstreak_uav_wz";
 	}
@@ -157,7 +157,7 @@ function function_bff5c062(uav, attackingplayer)
 	if(isdefined(level.var_f1edf93f))
 	{
 		uav notify(#"hacked");
-		uav notify(#"hash_602ae7ca650d6287");
+		uav notify(#"cancel_timeout");
 		var_eb79e7c3 = int([[level.var_f1edf93f]]() * 1000);
 		uav thread killstreaks::waitfortimeout("uav", var_eb79e7c3, &ontimeout, "delete", "death", "crashing");
 	}
@@ -337,7 +337,7 @@ function activateuav(killstreaktype)
 	uav function_619a5c20();
 	uav setforcenocull();
 	uav.targetname = "uav";
-	uav util::function_c596f193();
+	uav util::make_sentient();
 	uav killstreaks::configure_team(killstreaktype, killstreak_id, self, undefined, undefined, &configureteampost);
 	uav killstreak_hacking::enable_hacking("uav", &hackedprefunction, undefined);
 	uav clientfield::set("enemyvehicle", 1);
@@ -362,7 +362,7 @@ function activateuav(killstreaktype)
 	}
 	else
 	{
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			var_b0490eb9 = getheliheightlockheight(self.origin);
 			trace = groundtrace((self.origin[0], self.origin[1], var_b0490eb9), self.origin - vectorscale((0, 0, 1), 5000), 0, uav);
@@ -599,8 +599,8 @@ function function_2472a08e(params)
 {
 	attacker = params.attacker;
 	attackerweapon = params.attackerweapon;
-	attacker contracts::function_a54e2068(#"hash_721e237b8a432eb");
-	attacker contracts::function_a54e2068(#"hash_3ff1fe889b516cc3");
+	attacker contracts::increment_contract(#"hash_721e237b8a432eb");
+	attacker contracts::increment_contract(#"hash_3ff1fe889b516cc3");
 	attacker challenges::function_38ad2427(#"hash_4808274db2565c0d", 1);
 	attacker stats::function_dad108fa(#"hash_15da16b6b9032af", 1);
 	attacker stats::function_dad108fa(#"hash_d9fe863a1e9e4d8", 1);
@@ -659,7 +659,7 @@ function ontimeout()
 		[[level.var_14151f16]](self, 0);
 	}
 	self removeactiveuav();
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		var_384be02f = 4000;
 	}

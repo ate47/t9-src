@@ -54,18 +54,18 @@ function private autoexec function_7a1f39d2()
 */
 function function_a53db30e(owner, origin)
 {
-	var_d225b2a2 = namespace_ec06fe4a::function_e22ae9b3(origin, "zombietron_monkey_bomb");
-	if(!isdefined(var_d225b2a2))
+	monkey_bomb = namespace_ec06fe4a::function_e22ae9b3(origin, "zombietron_monkey_bomb");
+	if(!isdefined(monkey_bomb))
 	{
 		return;
 	}
-	var_d225b2a2.owner = owner;
-	var_d225b2a2.var_7f3187c5 = sqr(300);
+	monkey_bomb.owner = owner;
+	monkey_bomb.var_7f3187c5 = sqr(300);
 	arrayremovevalue(level.doa.var_af6d47dd, undefined);
-	level.doa.var_af6d47dd[level.doa.var_af6d47dd.size] = var_d225b2a2;
-	var_d225b2a2 namespace_e32bb68::function_3a59ec34("evt_doa_pickup_monkeybomb_music");
-	var_d225b2a2 namespace_83eb6304::function_3ecfde67("monkey_light");
-	var_d225b2a2 thread function_b9934c1d();
+	level.doa.var_af6d47dd[level.doa.var_af6d47dd.size] = monkey_bomb;
+	monkey_bomb namespace_e32bb68::function_3a59ec34("evt_doa_pickup_monkeybomb_music");
+	monkey_bomb namespace_83eb6304::function_3ecfde67("monkey_light");
+	monkey_bomb thread function_b9934c1d();
 }
 
 /*

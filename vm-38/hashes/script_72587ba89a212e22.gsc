@@ -58,7 +58,7 @@ class cdirtybomb_usebar : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cdirtybomb_usebar
 		Checksum: 0x3FE4322E
 		Offset: 0x4A8
@@ -66,9 +66,9 @@ class cdirtybomb_usebar : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("DirtyBomb_UseBar");
+		cLUIelem::register_clientside("DirtyBomb_UseBar");
 	}
 
 	/*
@@ -83,9 +83,9 @@ class cdirtybomb_usebar : cLUIelem
 	function setup_clientfields(var_ec85b709, var_193163f7)
 	{
 		cLUIelem::setup_clientfields("DirtyBomb_UseBar");
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("progressFrac", 1, 10, "float", var_ec85b709);
-		cLUIelem::function_da693cbe("activatorCount", 1, 3, "int", var_193163f7);
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("progressFrac", 1, 10, "float", var_ec85b709);
+		cLUIelem::add_clientfield("activatorCount", 1, 3, "int", var_193163f7);
 	}
 
 	/*
@@ -230,7 +230,7 @@ function register(var_ec85b709, var_193163f7)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: dirtybomb_usebar
 	Checksum: 0x87435D75
 	Offset: 0x290
@@ -238,10 +238,10 @@ function register(var_ec85b709, var_193163f7)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cdirtybomb_usebar();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -341,7 +341,7 @@ function function_32398bfb(player)
 function function_c8a35cef()
 {
 	setdvar(#"hash_252e699c41531f1a", 2);
-	setdvar(#"hash_38c17ad45d6603c0", 1);
+	setdvar(#"r_motionblurstrength", 1);
 	setdvar(#"hash_1e892dbf6ecb7caa", 0);
 }
 
@@ -357,7 +357,7 @@ function function_c8a35cef()
 function function_b0d8b75()
 {
 	setdvar(#"hash_252e699c41531f1a", -1);
-	setdvar(#"hash_38c17ad45d6603c0", 0.2);
+	setdvar(#"r_motionblurstrength", 0.2);
 	setdvar(#"hash_1e892dbf6ecb7caa", 0.75);
 }
 

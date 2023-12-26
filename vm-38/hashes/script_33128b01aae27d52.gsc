@@ -112,7 +112,7 @@ function function_8d4cb2b(localclientnum)
 		{
 			level thread function_650e4410(var_3dbe949b);
 		}
-		self.doa.var_10752c35 = 7;
+		self.doa.cameramode = 7;
 		foreach(shot in level.doa.var_258d537d.var_a6b0949b)
 		{
 			var_3dbe949b.origin = shot.origin;

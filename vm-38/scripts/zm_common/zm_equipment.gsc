@@ -46,7 +46,7 @@ function private autoexec function_c1cabab7()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_equipment", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_equipment", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -70,7 +70,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_equipment
 	Checksum: 0x408C54D9
 	Offset: 0x2E0
@@ -78,7 +78,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	init_upgrade();
 }
@@ -143,7 +143,7 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		arrayinsert(a_abilities, getweapon(#"flash_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"emp_grenade"), 0);
 		arrayinsert(a_abilities, getweapon(#"cymbal_monkey"), 0);
-		arrayinsert(a_abilities, getweapon(#"hash_13fbf1dd07d9cf3e"), 0);
+		arrayinsert(a_abilities, getweapon(#"tesla_coil"), 0);
 		arrayinsert(a_abilities, getweapon(#"tomahawk_t8"), 0);
 		ability_player::function_174037fe(add_cmd_with_root, pid, a_abilities, "", menu_index);
 		var_ab290760 = [];
@@ -180,18 +180,18 @@ function abilities_devgui_add_gadgets_custom(root, pname, pid, menu_index)
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv1"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv2"), 0);
 		arrayinsert(var_ab290760, getweapon(#"hero_sword_pistol_lv3"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_18829d56b3fbd75b"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_18829e56b3fbd90e"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_18829f56b3fbdac1"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_1d3a5509fa2c9ee6"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_1d3a5409fa2c9d33"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_1d3a5309fa2c9b80"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_6627879099b8a337"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_6627889099b8a4ea"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_6627899099b8a69d"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_74dd67dd8a46d144"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_74dd6add8a46d65d"), 0);
-		arrayinsert(var_ab290760, getweapon(#"hash_74dd69dd8a46d4aa"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_flamethrower_t8_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_flamethrower_t8_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_flamethrower_t8_lv3"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_gravityspikes_t8_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_gravityspikes_t8_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_gravityspikes_t8_lv3"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_katana_t8_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_katana_t8_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_katana_t8_lv3"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_minigun_t8_lv1"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_minigun_t8_lv2"), 0);
+		arrayinsert(var_ab290760, getweapon(#"hero_minigun_t8_lv3"), 0);
 		ability_player::function_a40d04ca(add_cmd_with_root, pid, var_ab290760, "", menu_index);
 		menu_index++;
 		menu_index = ability_player::abilities_devgui_add_power(add_cmd_with_root, pid, menu_index);
@@ -1465,7 +1465,7 @@ function function_4f51b6ea(weapon, str_means_of_death)
 function function_e418901e()
 {
 	/#
-		setdvar(#"hash_2554cdbcc1e45023", "");
+		setdvar(#"give_equipment", "");
 		waitframe(1);
 		level flag::wait_till("");
 		waitframe(1);
@@ -1473,7 +1473,7 @@ function function_e418901e()
 		adddebugcommand(str_cmd);
 		while(true)
 		{
-			equipment_id = getdvarstring(#"hash_2554cdbcc1e45023");
+			equipment_id = getdvarstring(#"give_equipment");
 			if(equipment_id != "")
 			{
 				foreach(player in getplayers())
@@ -1488,7 +1488,7 @@ function function_e418901e()
 						player buy(equipment_id);
 					}
 				}
-				setdvar(#"hash_2554cdbcc1e45023", "");
+				setdvar(#"give_equipment", "");
 			}
 			waitframe(1);
 		}

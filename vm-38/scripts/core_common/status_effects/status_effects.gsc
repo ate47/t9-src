@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -311,7 +311,7 @@ function status_effects_devgui_think()
 					status_effects_give_grenade(pid);
 					break;
 				}
-				case "hash_5ef5fa93b3352722":
+				case "clear_all":
 				{
 					function_64ba1c7e(pid);
 				}

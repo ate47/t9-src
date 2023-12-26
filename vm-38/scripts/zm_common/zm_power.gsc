@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_6e3c826b1814cab6;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -45,7 +45,7 @@ function private autoexec function_acefb7b9()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_power", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_power", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -64,7 +64,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_power
 	Checksum: 0xF855D476
 	Offset: 0x2D0
@@ -72,7 +72,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	thread standard_powered_items();
 	level thread electric_switch_init();
@@ -190,12 +190,12 @@ function electric_switch()
 			{
 				case "elec_switch":
 				{
-					self sethintstring(#"hash_5d8ba3059b5e82e4");
+					self sethintstring(#"zombie/electric_switch");
 					break;
 				}
 				case "hash_47bde376753a03c9":
 				{
-					self sethintstring(#"hash_5d8ba3059b5e82e4");
+					self sethintstring(#"zombie/electric_switch");
 					break;
 				}
 				case "artifact_mind":
@@ -208,7 +208,7 @@ function electric_switch()
 		}
 		else if(!is_true(self.var_1d2fecd6))
 		{
-			self sethintstring(#"hash_5d8ba3059b5e82e4");
+			self sethintstring(#"zombie/electric_switch");
 		}
 		self setvisibletoall();
 		waitresult = undefined;
@@ -248,8 +248,8 @@ function electric_switch()
 				}
 			}
 		}
-		user zm_stats::increment_challenge_stat(#"hash_7d4064a8d03e0606");
-		user contracts::function_5b88297d(#"hash_464acc5cd524989");
+		user zm_stats::increment_challenge_stat(#"power_activated");
+		user contracts::increment_zm_contract(#"hash_464acc5cd524989");
 		level turn_power_on_and_open_doors(power_zone);
 		user playrumbleonentity("damage_light");
 		switchentnum = self getentitynumber();
@@ -416,7 +416,7 @@ function standard_powered_items()
 			powered_perk thread zone_controlled_perk(trigger.script_int);
 		}
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 0)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 0)
 	{
 		zombie_doors = getentarray("zombie_door", "targetname");
 		foreach(door in zombie_doors)
@@ -1296,7 +1296,7 @@ function turn_power_on_and_open_doors(power_zone)
 	{
 		player zm_stats::function_8f10788e("boas_power_turnedon");
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 0)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 0)
 	{
 		zombie_doors = getentarray("zombie_door", "targetname");
 		foreach(door in zombie_doors)
@@ -1350,7 +1350,7 @@ function turn_power_off_and_close_doors(power_zone)
 		level flag::clear("power_on" + power_zone);
 		level clientfield::set("zombie_power_off", power_zone);
 	}
-	if(zm_custom::function_901b751c(#"hash_29004a67830922b6") != 0)
+	if(zm_custom::function_901b751c(#"zmpowerdoorstate") != 0)
 	{
 		zombie_doors = getentarray("zombie_door", "targetname");
 		foreach(door in zombie_doors)
@@ -1370,7 +1370,7 @@ function turn_power_off_and_close_doors(power_zone)
 				if(isdefined(level.temporary_power_switch_logic))
 				{
 					door.power_on = 0;
-					door sethintstring(#"hash_71158766520dc432");
+					door sethintstring(#"zombie/need_power");
 					door notify(#"kill_door_think");
 					door thread zm_blockers::door_think();
 				}
@@ -1438,7 +1438,7 @@ function function_1ae64b8c(hintstring, n_zone)
 	}
 	level flag::wait_till_clear(str_flag);
 	self.script_noteworthy = "power";
-	self.trigger sethintstring(#"hash_71158766520dc432");
+	self.trigger sethintstring(#"zombie/need_power");
 	if(isdefined(self.var_7cf0a191))
 	{
 		self [[self.var_7cf0a191]]();

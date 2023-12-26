@@ -2,7 +2,7 @@
 #using script_1de6f3c239229d19;
 #using script_2595527427ea71eb;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6ef496a1b77e83a4;
+#using scripts\zm_common\trials\zm_trial_disable_perks.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -53,7 +53,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -87,7 +87,7 @@ function function_97444b02()
 function function_9bf8e274()
 {
 	self.var_b6840ea0 = 1;
-	self function_432f99ff();
+	self disableweaponswitchhero();
 	self function_21ea8f2b(1);
 	foreach(var_5a1e3e5b in level.hero_weapon)
 	{
@@ -110,7 +110,7 @@ function function_9bf8e274()
 function function_73ff0096()
 {
 	self.var_b6840ea0 = undefined;
-	self function_6c22c47a();
+	self enableweaponswitchhero();
 	self function_21ea8f2b(0);
 	foreach(var_5a1e3e5b in level.hero_weapon)
 	{
@@ -132,7 +132,7 @@ function function_73ff0096()
 */
 function function_2ee2d021()
 {
-	if(!level flag::get(#"hash_6acab8bde7078239") && clientfield::get_world_uimodel("ZMHudGlobal.trials.gameState") != 2)
+	if(!level flag::get(#"trial_failed") && clientfield::get_world_uimodel("ZMHudGlobal.trials.gameState") != 2)
 	{
 		clientfield::set_world_uimodel("ZMHudGlobal.trials.failurePlayer", 0);
 		clientfield::set_world_uimodel("ZMHudGlobal.trials.failureReason", #"hash_cd63faed592da03");
@@ -166,7 +166,7 @@ function function_f79b96ac()
 */
 function private finalize_clientfields()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -673,7 +673,7 @@ function function_d37a769(var_806e2de0)
 			self.var_c27f1e90[slot] = var_806e2de0.var_8f0c164f[slot];
 		}
 		vapor = self.var_c27f1e90[slot];
-		if(var_806e2de0.var_149ec45c[slot] || (self zm_perks::function_e56d8ef4(vapor) && !namespace_5f71460c::is_active(1)))
+		if(var_806e2de0.var_149ec45c[slot] || (self zm_perks::function_e56d8ef4(vapor) && !zm_trial_disable_perks::is_active(1)))
 		{
 			if(isdefined(var_806e2de0.var_c4193958) && isdefined(var_806e2de0.var_c4193958[slot]))
 			{
@@ -843,12 +843,12 @@ function function_96e10d88(successful)
 */
 function function_1e223bce(players)
 {
-	var_10991f64 = 0;
+	bitarray = 0;
 	foreach(player in players)
 	{
-		var_10991f64 = var_10991f64 | (1 << player getentitynumber());
+		bitarray = bitarray | (1 << player getentitynumber());
 	}
-	return var_10991f64;
+	return bitarray;
 }
 
 /*
@@ -862,9 +862,9 @@ function function_1e223bce(players)
 */
 function function_85d088ed(player)
 {
-	var_10991f64 = 0;
-	var_10991f64 = var_10991f64 | (1 << player getentitynumber());
-	return var_10991f64;
+	bitarray = 0;
+	bitarray = bitarray | (1 << player getentitynumber());
+	return bitarray;
 }
 
 /*
@@ -1029,7 +1029,7 @@ function function_d0348c2c(var_69cbd99d)
 	}
 	if(self isusingoffhand())
 	{
-		if(!isdefined(level.w_homunculus) || !self zm_loadout::function_393977df("lethal_grenade", level.w_homunculus) && (!isdefined(level.var_fefd572b) || !self zm_loadout::function_393977df("lethal_grenade", level.var_fefd572b)))
+		if(!isdefined(level.w_homunculus) || !self zm_loadout::function_393977df("lethal_grenade", level.w_homunculus) && (!isdefined(level.w_homunculus_upgraded) || !self zm_loadout::function_393977df("lethal_grenade", level.w_homunculus_upgraded)))
 		{
 			self forceoffhandend();
 		}
@@ -1182,7 +1182,7 @@ function function_dc0859e(var_b5434dd5)
 }
 
 /*
-	Name: function_3e209fb6
+	Name: open_all_doors
 	Namespace: zm_trial_util
 	Checksum: 0xAD74590A
 	Offset: 0x3318
@@ -1190,15 +1190,15 @@ function function_dc0859e(var_b5434dd5)
 	Parameters: 0
 	Flags: None
 */
-function function_3e209fb6()
+function open_all_doors()
 {
 	/#
-		var_4506f72b = getentarray("", "");
-		for(i = 0; i < var_4506f72b.size; i++)
+		a_zombie_doors = getentarray("", "");
+		for(i = 0; i < a_zombie_doors.size; i++)
 		{
-			if(!is_true(var_4506f72b[i].has_been_opened))
+			if(!is_true(a_zombie_doors[i].has_been_opened))
 			{
-				var_4506f72b[i] notify(#"trigger", {#is_forced:1});
+				a_zombie_doors[i] notify(#"trigger", {#is_forced:1});
 			}
 			waitframe(1);
 		}
@@ -1264,13 +1264,13 @@ function function_9c1092f6()
 {
 	/#
 		iprintlnbold("");
-		if(getgametypesetting(#"hash_2876dc918cc6666", 0) == 1)
+		if(getgametypesetting(#"zmshowtimer", 0) == 1)
 		{
-			setgametypesetting(#"hash_2876dc918cc6666", 0);
+			setgametypesetting(#"zmshowtimer", 0);
 		}
 		else
 		{
-			setgametypesetting(#"hash_2876dc918cc6666", 1);
+			setgametypesetting(#"zmshowtimer", 1);
 		}
 	#/
 }

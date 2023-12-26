@@ -63,7 +63,7 @@ event main(eventstruct)
 	function_a387f4f5();
 	compass::setupminimap("");
 	level.var_29cfe9dd = 1;
-	if(util::function_5df4294() === #"zsurvival")
+	if(util::get_game_type() === #"zsurvival")
 	{
 		level util::set_lighting_state(1);
 	}
@@ -112,7 +112,7 @@ function function_e8fa58f2()
 */
 function function_564698fd()
 {
-	gametype = function_be90acca(util::function_5df4294());
+	gametype = function_be90acca(util::get_game_type());
 	if(gametype === "zsurvival")
 	{
 		level.var_29cfe9dd = 0;
@@ -422,8 +422,8 @@ function function_f9492b33()
 function function_d72aa67e(str_list, str_name)
 {
 	/#
-		var_be4c7921 = strtok(str_list, "");
-		foreach(tok in var_be4c7921)
+		a_str_tok = strtok(str_list, "");
+		foreach(tok in a_str_tok)
 		{
 			if(tok == str_name)
 			{

@@ -127,7 +127,7 @@ function function_c52e8ba(player, var_8d5d092c)
 				case "village":
 				case "firebase":
 				{
-					self.hint_string[n_player_index] = #"hash_222289639943b061";
+					self.hint_string[n_player_index] = #"zombie/fasttravel_locked";
 					break;
 				}
 				default:
@@ -252,7 +252,7 @@ function function_af65fe93(var_79bf62e6)
 	Parameters: 1
 	Flags: Linked
 */
-function function_54a36ee5(var_3ff283ce)
+function function_54a36ee5(e_unitrigger)
 {
 	if(level flag::get(#"hash_7752d012501cd222") || level flag::get(#"hash_7735f4e5fdb1382b"))
 	{
@@ -260,13 +260,13 @@ function function_54a36ee5(var_3ff283ce)
 	}
 	else
 	{
-		if(isdefined(var_3ff283ce.stub))
+		if(isdefined(e_unitrigger.stub))
 		{
-			n_cost = var_3ff283ce.stub.zombie_cost;
+			n_cost = e_unitrigger.stub.zombie_cost;
 		}
 		else
 		{
-			n_cost = var_3ff283ce.zombie_cost;
+			n_cost = e_unitrigger.zombie_cost;
 		}
 	}
 	return n_cost;

@@ -181,7 +181,7 @@ event function_e77b4f15(eventstruct)
 			if(source.turretweapon.name == #"gun_ultimate_turret")
 			{
 				source.var_87b1ba00 = 1;
-				self function_cef454e8(source.killstreaktype);
+				self playkillstreakthreat(source.killstreaktype);
 			}
 		}
 		else if(isdefined(source.weapon))
@@ -249,7 +249,7 @@ event function_4540ef25(eventstruct)
 				}
 				if(isdefined(traceresult[#"entity"].killstreaktype) && !isarray(traceresult[#"entity"].killstreaktype))
 				{
-					self function_cef454e8(traceresult[#"entity"].killstreaktype);
+					self playkillstreakthreat(traceresult[#"entity"].killstreaktype);
 					traceresult[#"entity"].var_9ee835dc = 1;
 					self.enemythreattime = gettime();
 				}
@@ -302,7 +302,7 @@ event function_4540ef25(eventstruct)
 		{
 			if(!traceresult[#"entity"].var_9ee835dc === 1)
 			{
-				self function_cef454e8(traceresult[#"entity"].killstreaktype);
+				self playkillstreakthreat(traceresult[#"entity"].killstreaktype);
 				traceresult[#"entity"].var_9ee835dc = 1;
 				self.enemythreattime = gettime();
 			}
@@ -381,7 +381,7 @@ function private function_1bc99c5e(attacker, inflictor, weapon, mod, killstreakt
 	allyradius = mpdialog_value("killstreakKillAllyRadius", 0);
 	if(isdefined(ally) && distancesquared(self.origin, ally.origin) < sqr(allyradius))
 	{
-		ally function_cef454e8(killstreaktype);
+		ally playkillstreakthreat(killstreaktype);
 		mod.var_95b0150d = gettime();
 	}
 }
@@ -490,7 +490,7 @@ function function_5e1705fa(thrower, projectile, weapon)
 		return;
 	}
 	incomingprojectileradius = mpdialog_value("incomingProjectileRadius", 0);
-	players = projectile function_bdda420f(projectile.origin, incomingprojectileradius);
+	players = projectile getenemiesinradius(projectile.origin, incomingprojectileradius);
 	var_3c0b0429 = (0, 0, thrower getplayerviewheight());
 	foreach(player in players)
 	{

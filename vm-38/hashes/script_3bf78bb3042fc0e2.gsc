@@ -61,7 +61,7 @@ class cself_respawn : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cself_respawn : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,7 +90,7 @@ class cself_respawn : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("self_respawn");
-		cLUIelem::function_da693cbe("percent", 1, 6, "float");
+		cLUIelem::add_clientfield("percent", 1, 6, "float");
 	}
 
 }

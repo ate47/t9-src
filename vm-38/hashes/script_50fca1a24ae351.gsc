@@ -719,7 +719,7 @@ function function_c153f40()
 			[[ generator ]]->getmodel() namespace_c85a46fe::function_47c860ff(0);
 		}
 	}
-	setsaveddvar(#"hash_5ea9a12f34af941e", 0);
+	setsaveddvar(#"hkai_navmeshusehierarchialpathfind", 0);
 	level thread doaenemyfillerfodder();
 	level notify(#"hash_4d5f7cfb3c3f1c9e");
 	level flag::clear("dungeon_building");
@@ -797,7 +797,7 @@ function function_73730269(var_f3c8eb3)
 		var_f3c8eb3 namespace_83eb6304::turnofffx("teleporter_dungeon_light");
 	}
 	level thread namespace_ec06fe4a::function_87612422(level.doa.var_e84586f1.origin, level.doa.var_e84586f1.angles, 1, 8, level.var_564dda4);
-	setsaveddvar(#"hash_5ea9a12f34af941e", 1);
+	setsaveddvar(#"hkai_navmeshusehierarchialpathfind", 1);
 	objective_setstate(13, "invisible");
 	level namespace_c85a46fe::function_edfcfa44(2);
 	namespace_ec06fe4a::function_de70888a();

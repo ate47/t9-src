@@ -110,7 +110,7 @@ function function_43cda488()
 	Parameters: 2
 	Flags: None
 */
-function function_f71ec759(&var_7bef340a, var_5ce08260)
+function function_f71ec759(&suppliers, var_5ce08260)
 {
 	if(isdefined(self.team))
 	{
@@ -127,7 +127,7 @@ function function_f71ec759(&var_7bef340a, var_5ce08260)
 			}
 			if(teammate gadget_combat_efficiency_enabled())
 			{
-				var_7bef340a[teammate getentitynumber()] = teammate;
+				suppliers[teammate getentitynumber()] = teammate;
 			}
 		}
 	}
@@ -467,13 +467,13 @@ function function_791aef0d()
 	Parameters: 5
 	Flags: None
 */
-function gadget_reset(gadgetweapon, changedclass, roundbased, firstround, var_7d1f0fee)
+function gadget_reset(gadgetweapon, changedclass, roundbased, firstround, changedspecialist)
 {
 	if(gadgetweapon.gadget_type == 0)
 	{
 		return;
 	}
-	if(gadgetweapon.var_11389297 == #"ammo")
+	if(gadgetweapon.gadget_powerusetype == #"ammo")
 	{
 		return;
 	}
@@ -504,7 +504,7 @@ function gadget_reset(gadgetweapon, changedclass, roundbased, firstround, var_7d
 		resetonfirstround = isfirstspawn && (!roundbased || firstround);
 		resetonroundswitch = roundbased && !firstround && gadgetweapon.gadget_power_reset_on_round_switch;
 		resetonteamchanged = !isfirstspawn && is_true(self.switchedteamsresetgadgets) && gadgetweapon.gadget_power_reset_on_team_change;
-		var_1a2cf487 = var_7d1f0fee && getdvarint(#"hash_256144ebda864b87", 0) && (!(is_true(level.ingraceperiod) && !is_true(self.hasdonecombat)));
+		var_1a2cf487 = changedspecialist && getdvarint(#"hash_256144ebda864b87", 0) && (!(is_true(level.ingraceperiod) && !is_true(self.hasdonecombat)));
 		var_9468eb59 = is_true(self.switchedteamsresetgadgets) && getdvarint(#"hash_8351525729015ab", 0);
 		deployed = 0;
 		if(isdefined(self.pers[#"hash_68cdf8807cfaabff"]) && is_true(self.pers[#"hash_68cdf8807cfaabff"][gadgetweapon]))
@@ -623,13 +623,13 @@ function aoe_friendlies(weapon, aoe)
 	frac = 0;
 	while(frac < 1 || aoe_applied > 0)
 	{
-		settings = getscriptbundle(weapon.var_4dd46f8a);
+		settings = getscriptbundle(weapon.customsettings);
 		frac = (gettime() - start_time) / aoe.duration;
 		if(frac > 1)
 		{
 			frac = 1;
 		}
-		radius = settings.var_575dfe5;
+		radius = settings.cleanseradius;
 		aoe_applied = 0;
 		if(isdefined(self) && isdefined(self.origin))
 		{
@@ -706,7 +706,7 @@ function aoe_trace_entity(entity, origin, trace_z_offset)
 */
 function is_hero_weapon(gadgetweapon)
 {
-	if(gadgetweapon.isheavyweapon || gadgetweapon.var_b76e0a09 && gadgetweapon.gadget_type == 11)
+	if(gadgetweapon.isheavyweapon || gadgetweapon.issignatureweapon && gadgetweapon.gadget_type == 11)
 	{
 		return true;
 	}

@@ -461,7 +461,7 @@ function function_624f04c6(playerbundle)
 	Parameters: 2
 	Flags: Linked
 */
-function function_e9f06034(player, var_cda945ba)
+function function_e9f06034(player, playbreath)
 {
 	if(player hasperk(#"specialty_quieter"))
 	{
@@ -477,12 +477,12 @@ function function_e9f06034(player, var_cda945ba)
 	{
 		return;
 	}
-	if(var_cda945ba && isdefined(playerbundle.exertemergegasp))
+	if(playbreath && isdefined(playerbundle.exertemergegasp))
 	{
 		dialogalias = voiceprefix + playerbundle.exertemergegasp;
 		self thread function_a48c33ff(dialogalias, 22, mpdialog_value("playerExertBuffer", 0));
 	}
-	else if(!var_cda945ba && isdefined(playerbundle.exertemergebreath))
+	else if(!playbreath && isdefined(playerbundle.exertemergebreath))
 	{
 		dialogalias = voiceprefix + playerbundle.exertemergebreath;
 		self thread function_a48c33ff(dialogalias, 22, mpdialog_value("playerExertBuffer", 0));

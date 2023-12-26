@@ -1,7 +1,7 @@
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
-#using script_4d85e8de54b02198;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\spawner_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -655,12 +655,12 @@ function private function_9dac9d34()
 function private function_56e443d9()
 {
 	self.var_b20b0960 endon(#"death");
-	var_adea2587 = undefined;
-	var_adea2587 = self.var_b20b0960 waittill(#"reached_end_node", #"zipline_start_disconnect");
-	if(var_adea2587._notify === "zipline_start_disconnect")
+	s_results = undefined;
+	s_results = self.var_b20b0960 waittill(#"reached_end_node", #"zipline_start_disconnect");
+	if(s_results._notify === "zipline_start_disconnect")
 	{
-		var_adea2587 = undefined;
-		var_adea2587 = self.var_b20b0960 waittilltimeout(0.35, #"reached_end_node");
+		s_results = undefined;
+		s_results = self.var_b20b0960 waittilltimeout(0.35, #"reached_end_node");
 	}
 	function_c4cfe0f5();
 }
@@ -902,10 +902,10 @@ function number_b_(var_5c57c958, var_f3e138f3, var_3800dad7, plane_normal)
 	{
 		var_fa608360 = var_3800dad7 - var_5c57c958;
 		var_bc4566f4 = vectordot(var_fa608360, plane_normal);
-		var_c7ca84dc = var_bc4566f4 / var_a979e3a2;
-		if(var_c7ca84dc >= 0)
+		hit_time = var_bc4566f4 / var_a979e3a2;
+		if(hit_time >= 0)
 		{
-			result = var_c7ca84dc;
+			result = hit_time;
 		}
 	}
 	return result;

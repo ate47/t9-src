@@ -96,12 +96,12 @@ function private function_70a657d8()
 		level.spawnsystem.var_3709dc53 = 1;
 	}
 	function_8e22661a();
-	function_44c8af7f();
+	init_teams();
 	function_d0149d6b();
 	function_f210e027();
 	function_d9deb7d7();
 	namespace_aaddef5a::function_98ebe1b4();
-	callback::add_callback(#"hash_79b2aab11c0a9902", &function_44c8af7f);
+	callback::add_callback(#"init_teams", &init_teams);
 	callback::on_connect(&on_player_connect);
 	callback::on_spawned(&on_player_spawned);
 	callback::on_joined_team(&on_joined_team);
@@ -164,7 +164,7 @@ function private function_8e22661a()
 	level.spawnsystem.var_a9293f4a = randomint(1033);
 	level.spawnsystem.var_d9984264 = (isdefined(getgametypesetting(#"spawnprotectiontime")) ? getgametypesetting(#"spawnprotectiontime") : 0);
 	level.spawnsystem.spawntraptriggertime = (isdefined(getgametypesetting(#"spawntraptriggertime")) ? getgametypesetting(#"spawntraptriggertime") : 0);
-	level.spawnsystem.var_f220c297 = (isdefined(getgametypesetting(#"hash_19400c3e10b77e6b")) ? getgametypesetting(#"hash_19400c3e10b77e6b") : 0);
+	level.spawnsystem.deathcirclerespawn = (isdefined(getgametypesetting(#"deathcirclerespawn")) ? getgametypesetting(#"deathcirclerespawn") : 0);
 	level.spawnsystem.var_c2cc011f = (isdefined(getgametypesetting(#"hash_4bdd1bd86b610871")) ? getgametypesetting(#"hash_4bdd1bd86b610871") : 0);
 }
 
@@ -191,7 +191,7 @@ function add_default_spawnlist(spawnlist)
 }
 
 /*
-	Name: function_44c8af7f
+	Name: init_teams
 	Namespace: spawning
 	Checksum: 0xAB80DE89
 	Offset: 0x6E0
@@ -199,7 +199,7 @@ function add_default_spawnlist(spawnlist)
 	Parameters: 0
 	Flags: Linked
 */
-function function_44c8af7f()
+function init_teams()
 {
 	spawnsystem = level.spawnsystem;
 	spawnsystem.ispawn_teammask = [];

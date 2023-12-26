@@ -30,7 +30,7 @@ function private autoexec function_5923e3d3()
 */
 function function_70a657d8()
 {
-	if(currentsessionmode() == 4 || !(isdefined(getgametypesetting(#"hash_7ab596bf4932361d")) ? getgametypesetting(#"hash_7ab596bf4932361d") : 0))
+	if(currentsessionmode() == 4 || !(isdefined(getgametypesetting(#"allowlaststandforactiveclients")) ? getgametypesetting(#"allowlaststandforactiveclients") : 0))
 	{
 		return;
 	}

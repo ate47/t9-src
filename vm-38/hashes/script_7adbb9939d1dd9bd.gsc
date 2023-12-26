@@ -155,7 +155,7 @@ function function_97346595()
 				{
 					level thread zombie_open_sesame();
 				}
-				var_b2efd61b = 4 - players.size;
+				remainingplayers = 4 - players.size;
 				callback::on_spawned(&function_c5342e8d);
 				players = getplayers();
 				foreach(player in players)
@@ -163,7 +163,7 @@ function function_97346595()
 					player val::set(#"hash_401e97eafd7ce04d", "takedamage", 0);
 				}
 				/#
-					adddebugcommand("" + var_b2efd61b);
+					adddebugcommand("" + remainingplayers);
 				#/
 				waitframe(1);
 				/#

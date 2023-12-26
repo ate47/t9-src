@@ -1,4 +1,4 @@
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -37,7 +37,7 @@ function private autoexec function_7af779fe()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"colors", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"colors", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -101,19 +101,19 @@ function private function_70a657d8()
 		level.colornodes_debug_array[#"team3"] = [];
 	#/
 	level.color_node_type_function = [];
-	add_cover_node(#"hash_397b1509f632dd34");
-	add_cover_node(#"hash_581529fff05853f0");
-	add_cover_node(#"hash_6d8019ab9d39bf96");
-	add_cover_node(#"hash_12feb47aa56f29ee");
-	add_cover_node(#"hash_280d1247a6abdbae");
-	add_cover_node(#"hash_2a7b1ca393696762");
-	add_cover_node(#"hash_63cbb4767da2a801");
+	add_cover_node(#"bad node");
+	add_cover_node(#"cover stand");
+	add_cover_node(#"cover crouch");
+	add_cover_node(#"cover prone");
+	add_cover_node(#"cover crouch window");
+	add_cover_node(#"cover right");
+	add_cover_node(#"cover left");
 	add_cover_node(#"hash_22a0cbc4c551a678");
 	add_cover_node(#"hash_4c95cba4aba377ad");
-	add_cover_node(#"hash_7a0e62fbbe3989d4");
-	add_cover_node(#"hash_1bb444d857814e92");
-	add_cover_node(#"hash_171465527444ed14");
-	add_cover_node(#"hash_15ababf467e5750c");
+	add_cover_node(#"cover pillar");
+	add_cover_node(#"conceal stand");
+	add_cover_node(#"conceal crouch");
+	add_cover_node(#"conceal prone");
 	add_cover_node(#"reacquire");
 	add_cover_node(#"balcony");
 	add_cover_node(#"scripted");
@@ -170,7 +170,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: colors
 	Checksum: 0x334626C5
 	Offset: 0xD08
@@ -178,7 +178,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	foreach(trig in trigger::get_all())
 	{

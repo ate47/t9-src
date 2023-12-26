@@ -46,8 +46,8 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	clientfield::register("toplayer", "healthregen", 1, 1, "int", &function_31f57700, 0, 1);
-	clientfield::function_a8bbc967("hudItems.healingActive", #"hud_items", #"hash_42940f86f5b624d7", 1, 1, "int", undefined, 0, 1);
-	clientfield::function_a8bbc967("hudItems.numHealthPickups", #"hud_items", #"hash_6b3d8a8cbb8de782", 1, 2, "int", undefined, 0, 1);
+	clientfield::register_clientuimodel("hudItems.healingActive", #"hud_items", #"healingactive", 1, 1, "int", undefined, 0, 1);
+	clientfield::register_clientuimodel("hudItems.numHealthPickups", #"hud_items", #"numhealthpickups", 1, 2, "int", undefined, 0, 1);
 }
 
 /*
@@ -61,7 +61,7 @@ function private function_70a657d8()
 */
 function function_31f57700(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	if(sessionmodeismultiplayergame() || function_f99d2668() || sessionmodeiscampaigngame())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame() || sessionmodeiscampaigngame())
 	{
 		if(bwastimejump)
 		{

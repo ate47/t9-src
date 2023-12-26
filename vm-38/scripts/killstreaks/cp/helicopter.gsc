@@ -1,4 +1,4 @@
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -43,7 +43,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		killstreaks::register_killstreak("killstreak_helicopter_comlink" + "_cp", &usekillstreakhelicopter);
 	}

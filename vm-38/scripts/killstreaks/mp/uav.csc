@@ -83,7 +83,7 @@ function spawned(localclientnum, oldval, newval, bnewent, binitialsnap, fieldnam
 */
 function private function_6fe2ffad()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return "killstreak_uav_wz";
 	}

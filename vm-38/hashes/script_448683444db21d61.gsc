@@ -1,9 +1,9 @@
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_340a2e805e35f7a2;
 #using script_471b31bd963b388e;
 #using script_5e96d104c70be5ac;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7a8059ca02b7b09e;
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;
@@ -58,7 +58,7 @@ function private autoexec function_8c17fa74()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_684573a459d68beb", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_684573a459d68beb", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -76,7 +76,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_207ea311
 	Checksum: 0xBD8DAFB3
 	Offset: 0x268
@@ -84,7 +84,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	callback::on_spawned(&on_player_spawned);
 	callback::on_player_killed(&on_death);

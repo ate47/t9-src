@@ -1,4 +1,4 @@
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_32c8b5b0eb2854f3;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -38,7 +38,7 @@ function private autoexec function_3833a921()
 function autoexec __init__()
 {
 	callback::on_spawned(&on_player_spawned);
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 }
 
 /*
@@ -197,7 +197,7 @@ function on_player_spawned()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: player
 	Checksum: 0xA536CEED
 	Offset: 0x738
@@ -205,7 +205,7 @@ function on_player_spawned()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	level flag::set("game_start_doublexp");
 }
@@ -273,8 +273,8 @@ function last_valid_position()
 			wait(1);
 			continue;
 		}
-		var_fab0ffd6 = self getpathfindingradius();
-		if(distance2dsquared(origin, self.last_valid_position) < sqr(var_fab0ffd6) && (sqr(origin[2] - self.last_valid_position[2])) < sqr(16))
+		playerradius = self getpathfindingradius();
+		if(distance2dsquared(origin, self.last_valid_position) < sqr(playerradius) && (sqr(origin[2] - self.last_valid_position[2])) < sqr(16))
 		{
 			wait(0.1);
 			continue;
@@ -292,7 +292,7 @@ function last_valid_position()
 			}
 			else
 			{
-				position = getclosestpointonnavmesh(origin, 100, var_fab0ffd6);
+				position = getclosestpointonnavmesh(origin, 100, playerradius);
 				if(isdefined(position))
 				{
 					self.last_valid_position = position;

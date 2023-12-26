@@ -47,7 +47,7 @@ class class_5813c56a : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class class_5813c56a : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,8 +90,8 @@ class class_5813c56a : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_silver_hud");
-		cLUIelem::function_da693cbe("aetherscopeStatus", 1, 2, "int", 0);
-		cLUIelem::function_da693cbe("showPhoto", 1, 1, "int");
+		cLUIelem::add_clientfield("aetherscopeStatus", 1, 2, "int", 0);
+		cLUIelem::add_clientfield("showPhoto", 1, 1, "int");
 	}
 
 	/*

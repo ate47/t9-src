@@ -86,7 +86,7 @@ class cremote_missile_target_lockon : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cremote_missile_target_lockon
 		Checksum: 0x27922D22
 		Offset: 0x4D8
@@ -94,9 +94,9 @@ class cremote_missile_target_lockon : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("remote_missile_target_lockon");
+		cLUIelem::register_clientside("remote_missile_target_lockon");
 	}
 
 	/*
@@ -211,7 +211,7 @@ function register(var_c05c67e2, var_486334bd, var_683d075d, killedcallback, var_
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: remote_missile_target_lockon
 	Checksum: 0xE5308EF6
 	Offset: 0x2C0
@@ -219,10 +219,10 @@ function register(var_c05c67e2, var_486334bd, var_683d075d, killedcallback, var_
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cremote_missile_target_lockon();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

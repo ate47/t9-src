@@ -1,10 +1,10 @@
 #using scripts\mp_common\player\player_callbacks.gsc;
-#using script_184abbae9afad370;
-#using script_29ed825598140ca0;
-#using script_35b5ff21c2a0960f;
-#using script_43956600fe6c6be1;
-#using script_4c6debf78dffeeaf;
-#using script_6f416ed516b814a3;
+#using scripts\mp_common\player\player_damage.gsc;
+#using scripts\mp_common\player\player_killed.gsc;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
+#using scripts\mp_common\gametypes\globallogic_scriptmover.gsc;
+#using scripts\mp_common\player\player_connect.gsc;
+#using scripts\mp_common\player\player_disconnect.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -59,7 +59,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_10006d25
+	Name: on_prematch_end
 	Namespace: callback
 	Checksum: 0xEF95EAEF
 	Offset: 0x158
@@ -67,15 +67,15 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Linked
 */
-function function_10006d25(func, obj)
+function on_prematch_end(func, obj)
 {
 	if(self == level)
 	{
-		add_callback(#"hash_1303178bdaf337b5", func, obj);
+		add_callback(#"prematch_end", func, obj);
 	}
 	else
 	{
-		function_d8abfc3d(#"hash_1303178bdaf337b5", func, obj);
+		function_d8abfc3d(#"prematch_end", func, obj);
 	}
 }
 
@@ -101,7 +101,7 @@ function function_c11071a8(func, obj)
 }
 
 /*
-	Name: function_7117ff72
+	Name: on_changed_specialist
 	Namespace: callback
 	Checksum: 0xE11C1727
 	Offset: 0x248
@@ -109,7 +109,7 @@ function function_c11071a8(func, obj)
 	Parameters: 2
 	Flags: Linked
 */
-function function_7117ff72(func, obj)
+function on_changed_specialist(func, obj)
 {
 	add_callback(#"changed_specialist", func, obj);
 }
@@ -131,14 +131,14 @@ function set_default_callbacks()
 	level.callbackplayerdamage = &player::callback_playerdamage;
 	level.callbackplayerkilled = &player::callback_playerkilled;
 	level.var_3a9881cb = &player::function_74b6d714;
-	level.var_7509c7d8 = &player::callback_playershielddamageblocked;
+	level.callbackplayershielddamageblocked = &player::callback_playershielddamageblocked;
 	level.callbackplayermelee = &player::callback_playermelee;
 	level.callbackplayerlaststand = &player::callback_playerlaststand;
 	level.callbackactorspawned = &globallogic_actor::callback_actorspawned;
 	level.callbackactordamage = &globallogic_actor::callback_actordamage;
 	level.callbackactorkilled = &globallogic_actor::callback_actorkilled;
 	level.callbackactorcloned = &globallogic_actor::callback_actorcloned;
-	level.var_6788bf11 = &namespace_e42b3e24::function_8c7ec52f;
+	level.var_6788bf11 = &globallogic_scriptmover::function_8c7ec52f;
 	level.callbackvehiclespawned = &globallogic_vehicle::callback_vehiclespawned;
 	level.callbackvehicledamage = &globallogic_vehicle::callback_vehicledamage;
 	level.callbackvehiclekilled = &globallogic_vehicle::callback_vehiclekilled;

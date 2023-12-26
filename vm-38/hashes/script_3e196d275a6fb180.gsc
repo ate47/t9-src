@@ -150,14 +150,14 @@ function function_100e84f()
 	Parameters: 2
 	Flags: None
 */
-function function_d400d613(targetname, var_37c5ce49)
+function function_d400d613(targetname, typesarray)
 {
 	returnarray = [];
 	rawspawns = struct::get_array(targetname, "targetname");
 	rawspawns = function_b404fc61(rawspawns);
 	foreach(spawn in rawspawns)
 	{
-		foreach(supportedspawntype in var_37c5ce49)
+		foreach(supportedspawntype in typesarray)
 		{
 			if(!function_82ca1565(spawn, supportedspawntype))
 			{

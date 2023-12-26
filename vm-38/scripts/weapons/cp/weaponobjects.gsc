@@ -82,6 +82,6 @@ function on_player_spawned()
 			arrayremoveindex(self.weaponobjectwatcherarray, watcher);
 		}
 	}
-	self function_9d7ae85f("spike_launcher", &createspikelauncherwatcher, 1);
+	self createwatcher("spike_launcher", &createspikelauncherwatcher, 1);
 }
 

@@ -116,7 +116,7 @@ function function_b07539aa()
 	{
 		self influencers::create_influencer_generic("enemy", self.origin, self.team, 1);
 	}
-	if(is_true(self.settings.var_668fd77a))
+	if(is_true(self.settings.keylinerender))
 	{
 		self clientfield::set("turret_keyline_render", 1);
 	}
@@ -124,7 +124,7 @@ function function_b07539aa()
 	{
 		[[level.vehicle_initializer_cb]](self);
 	}
-	if(is_true(self.settings.var_d3cc01c7) && !is_true(self.var_fcb567c8))
+	if(is_true(self.settings.var_d3cc01c7) && !is_true(self.has_bad_place))
 	{
 		if(!isdefined(level.var_c70c6768))
 		{
@@ -136,7 +136,7 @@ function function_b07539aa()
 		}
 		self.turret_id = string(level.var_c70c6768);
 		badplace_cylinder("turret_bad_place_" + self.turret_id, 0, self.origin, self.settings.var_9493f6dc, self.settings.var_c9c01aa4, #"axis", #"allies", #"neutral");
-		self.var_fcb567c8 = 1;
+		self.has_bad_place = 1;
 	}
 	if(isdefined(self.settings.cleanup_after_time) && self.settings.cleanup_after_time > 0)
 	{
@@ -210,10 +210,10 @@ function state_death_update(params)
 	}
 	self setturretspinning(0);
 	self turret::toggle_lensflare(0);
-	if(is_true(self.var_fcb567c8))
+	if(is_true(self.has_bad_place))
 	{
 		badplace_delete("turret_bad_place_" + self.turret_id);
-		self.var_fcb567c8 = 0;
+		self.has_bad_place = 0;
 	}
 	if(target_istarget(self))
 	{
@@ -224,7 +224,7 @@ function state_death_update(params)
 	self.turretrotscale = 2;
 	self rest_turret(params.resting_pitch);
 	self vehicle_ai::defaultstate_death_update(params);
-	if(is_true(self.settings.var_668fd77a))
+	if(is_true(self.settings.keylinerender))
 	{
 		self clientfield::set("turret_keyline_render", 0);
 	}

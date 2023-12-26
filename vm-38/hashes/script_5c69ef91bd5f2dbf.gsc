@@ -1,4 +1,4 @@
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\beam_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
@@ -364,10 +364,10 @@ function function_9dd3c047(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(isdefined(self.var_678bc6e2))
 		{
-			self function_5d482e78(self.var_678bc6e2);
+			self stoprenderoverridebundle(self.var_678bc6e2);
 		}
 		self.var_678bc6e2 = #"hash_6ca42734951d5ff2";
-		self function_bf9d3071(#"hash_6ca42734951d5ff2");
+		self playrenderoverridebundle(#"hash_6ca42734951d5ff2");
 		self fxclientutils::stopfxbundle(fieldname, self, self.fxdef);
 		for(head_index = 0; head_index < 3; head_index++)
 		{
@@ -386,10 +386,10 @@ function function_9dd3c047(localclientnum, oldval, newval, bnewent, binitialsnap
 		{
 			if(isdefined(self.var_678bc6e2))
 			{
-				self function_5d482e78(self.var_678bc6e2);
+				self stoprenderoverridebundle(self.var_678bc6e2);
 			}
-			self function_bf9d3071(#"hash_7da0355cbf3ae01f");
-			self function_5d482e78(#"hash_7da0355cbf3ae01f");
+			self playrenderoverridebundle(#"hash_7da0355cbf3ae01f");
+			self stoprenderoverridebundle(#"hash_7da0355cbf3ae01f");
 			self thread function_27767c7e(fieldname, #"hash_14a734dce3c8f778");
 			function_187b10a5(fieldname, 0);
 			self thread function_bfde165(fieldname, self);
@@ -597,7 +597,7 @@ function function_7d380ea9(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(bwastimejump && bwastimejump < (var_a04a4858.size + 1))
 	{
 		self.var_da783696 = var_a04a4858[bwastimejump - 1];
-		self function_bf9d3071(self.var_da783696);
+		self playrenderoverridebundle(self.var_da783696);
 	}
 }
 

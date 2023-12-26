@@ -38,7 +38,7 @@ function init()
 			level.rat = spawnstruct();
 			level.rat.common = spawnstruct();
 			level.rat.script_command_list = [];
-			level.rat.var_e53a63ce = 0;
+			level.rat.playerskilled = 0;
 			level.rat.var_cd4fd549 = 0;
 			callback::on_player_killed(&function_cecf7c3d);
 			level.rat.var_44083397 = [];
@@ -203,9 +203,9 @@ event codecallback_ratscriptcommand(params)
 function getplayer(params)
 {
 	/#
-		if(isdefined(params.var_61e64cb8))
+		if(isdefined(params._xuid))
 		{
-			xuid = int(params.var_61e64cb8);
+			xuid = int(params._xuid);
 			foreach(player in getplayers())
 			{
 				if(!isdefined(player.bot))
@@ -557,7 +557,7 @@ function function_3b51dc31(params)
 	/#
 		player = getplayer(params);
 		currentweapon = player getcurrentweapon();
-		return player function_f09c133d(currentweapon);
+		return player getweaponammoclipsize(currentweapon);
 	#/
 }
 
@@ -619,7 +619,7 @@ function function_cecf7c3d(params)
 		}
 		else
 		{
-			level.rat.var_e53a63ce = level.rat.var_e53a63ce + 1;
+			level.rat.playerskilled = level.rat.playerskilled + 1;
 		}
 	#/
 }
@@ -636,7 +636,7 @@ function function_cecf7c3d(params)
 function function_d197a150(params)
 {
 	/#
-		return level.rat.var_e53a63ce;
+		return level.rat.playerskilled;
 	#/
 }
 

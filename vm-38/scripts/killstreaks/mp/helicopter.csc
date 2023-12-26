@@ -1,4 +1,4 @@
-#using script_1b80a90bb1ce332e;
+#using scripts\killstreaks\helicopter_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\fx_shared.csc;
@@ -50,7 +50,7 @@ function private function_70a657d8()
 {
 	init_shared();
 	bundle = "killstreak_helicopter_guard";
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundle = bundle + "_wz";
 	}

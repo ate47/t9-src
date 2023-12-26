@@ -1,23 +1,23 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
-#using script_20ac552ee498eb9d;
+#using scripts\zm_common\gametypes\globallogic_scriptmover.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using script_32c8b5b0eb2854f3;
-#using script_35598499769dbb3d;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_3751b21462a54a7d;
 #using scripts\core_common\status_effects\status_effects.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4194df57536e11ed;
 #using script_45fdb6cec5580007;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\zm_common\bots\zm_bot.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\zm_common\zm_trial.gsc;
 #using script_6167e26342be354b;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\armor.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -118,8 +118,8 @@ function private function_34c2aeb5()
 	self.var_66cb03ad = n_target;
 	self.maxhealth = n_target;
 	self setmaxhealth(n_target);
-	self zm_utility::function_e0448fec();
-	self.var_edd3eb35 = zombie_utility::function_d2dfacfd("player_health_regen_delay");
+	self zm_utility::set_max_health();
+	self.n_regen_delay = zombie_utility::function_d2dfacfd("player_health_regen_delay");
 	self.n_regen_rate = zombie_utility::function_d2dfacfd("player_health_regen_rate");
 }
 
@@ -565,7 +565,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	/#
 		assert(isdefined(idamage), "");
 	#/
-	if(is_true(level.var_4804edae) && isbot(self) && isdefined(einflictor) && isactor(einflictor))
+	if(is_true(level.zm_bots_scale) && isbot(self) && isdefined(einflictor) && isactor(einflictor))
 	{
 		idamage = int(idamage / zm_bot::function_e16b5033(einflictor));
 	}
@@ -622,7 +622,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 		{
 			zm_custom::function_db030433();
 			self zm_score::player_reduce_points("points_lost_on_hit_value", level.var_39e18a71);
-			if(zm_trial::function_b47f6aba())
+			if(zm_trial::is_trial_mode())
 			{
 				self playsoundtoplayer(#"hash_3109126d3731f3d2", self);
 			}
@@ -801,7 +801,7 @@ function function_8ef51109(var_fb6fa3e1, var_bbbf9a69)
 {
 	if(!function_3799b373(var_fb6fa3e1, var_bbbf9a69) && !zm_utility::function_91403f47())
 	{
-		if(zm_trial::function_b47f6aba())
+		if(zm_trial::is_trial_mode())
 		{
 			var_57807cdc = [];
 			a_e_players = getplayers();
@@ -973,7 +973,7 @@ function onplayerspawned()
 				self thread val::set_for_time(3, #"player_spawn_protection", "ignoreme");
 			}
 		}
-		self notify(#"hash_6983c1a427fa8913");
+		self notify(#"perks_initialized");
 	}
 }
 
@@ -2990,7 +2990,7 @@ function zm_on_player_spawned()
 	self setperk("specialty_sprintreload");
 	self setperk("specialty_slide");
 	thread zm_utility::update_zone_name();
-	if(!isdefined(self.var_edf90e4e) || self.var_edf90e4e < 1 || self.var_edf90e4e > 4)
+	if(!isdefined(self.teammateindex) || self.teammateindex < 1 || self.teammateindex > 4)
 	{
 		self squads::function_c70b26ea();
 	}

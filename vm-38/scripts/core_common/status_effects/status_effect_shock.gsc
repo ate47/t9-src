@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\values_shared.gsc;
 
@@ -44,8 +44,8 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	status_effect::register_status_effect_callback_apply(5, &shock_apply);
-	status_effect::function_5bae5120(5, &function_1eac7817);
-	status_effect::function_6f4eaf88(function_4d1e7b48("shock"));
+	status_effect::function_5bae5120(5, &shock_end);
+	status_effect::function_6f4eaf88(getstatuseffect("shock"));
 }
 
 /*
@@ -57,28 +57,28 @@ function private function_70a657d8()
 	Parameters: 3
 	Flags: Linked
 */
-function shock_apply(var_756fda07, weapon, var_84171a6c)
+function shock_apply(var_756fda07, weapon, applicant)
 {
-	if((isdefined(var_84171a6c.var_120475e6) ? var_84171a6c.var_120475e6 : 0))
+	if((isdefined(applicant.var_120475e6) ? applicant.var_120475e6 : 0))
 	{
 		self.owner setlowready(1);
 		self.owner val::set(#"shock", "freezecontrols");
 	}
 	self.var_52b189ce = 1;
-	if(isdefined(var_84171a6c))
+	if(isdefined(applicant))
 	{
-		self.var_52b189ce = (isdefined(var_84171a6c.var_52b189ce) ? var_84171a6c.var_52b189ce : 1);
+		self.var_52b189ce = (isdefined(applicant.var_52b189ce) ? applicant.var_52b189ce : 1);
 	}
 	if(self.var_52b189ce)
 	{
 		self.owner setelectrifiedstate(1);
-		self thread function_51356342(float(self.duration) / 1000);
+		self thread shock_rumble_loop(float(self.duration) / 1000);
 		self.owner playsound(#"hash_7d53dd7b886b60ae");
 	}
 }
 
 /*
-	Name: function_1eac7817
+	Name: shock_end
 	Namespace: status_effect_shock
 	Checksum: 0xFE9AA38
 	Offset: 0x2E0
@@ -86,7 +86,7 @@ function shock_apply(var_756fda07, weapon, var_84171a6c)
 	Parameters: 0
 	Flags: Linked
 */
-function function_1eac7817()
+function shock_end()
 {
 	if(isdefined(self))
 	{
@@ -104,7 +104,7 @@ function function_1eac7817()
 }
 
 /*
-	Name: function_51356342
+	Name: shock_rumble_loop
 	Namespace: status_effect_shock
 	Checksum: 0x8B7A168E
 	Offset: 0x3B0
@@ -112,10 +112,10 @@ function function_1eac7817()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_51356342(duration)
+function private shock_rumble_loop(duration)
 {
-	self notify(#"hash_50998937b8ffdf86");
-	self endon(#"hash_50998937b8ffdf86", #"hash_13d72ca5a7cfd2bd");
+	self notify(#"shock_rumble_loop");
+	self endon(#"shock_rumble_loop", #"endstatuseffect");
 	self.owner endon(#"disconnect", #"death");
 	goaltime = gettime() + (int(duration * 1000));
 	while(gettime() < goaltime && isdefined(self.owner))

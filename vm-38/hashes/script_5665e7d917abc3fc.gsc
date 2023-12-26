@@ -32,7 +32,7 @@ function private autoexec function_5622bb00()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_7da9887a9375293", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_7da9887a9375293", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -52,7 +52,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_dd7e54e3
 	Checksum: 0x80F724D1
 	Offset: 0x200
@@ -60,7 +60,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 }
 
@@ -77,7 +77,7 @@ function function_af3e97c(localclientnum, oldval, newval, bnewent, binitialsnap,
 {
 	if(bwastimejump)
 	{
-		self function_bf9d3071(#"hash_67554d3a2940aec6");
+		self playrenderoverridebundle(#"hash_67554d3a2940aec6");
 		if(!isdefined(self.var_89e0f17d))
 		{
 			self.var_89e0f17d = playfx(fieldname, #"zombie/fx9_armor_station_idle", self.origin, anglestoforward(self.angles), anglestoup(self.angles));
@@ -129,7 +129,7 @@ function function_af3e97c(localclientnum, oldval, newval, bnewent, binitialsnap,
 	}
 	else
 	{
-		self function_5d482e78(#"hash_67554d3a2940aec6");
+		self stoprenderoverridebundle(#"hash_67554d3a2940aec6");
 		if(isdefined(self.var_89e0f17d))
 		{
 			stopfx(fieldname, self.var_89e0f17d);

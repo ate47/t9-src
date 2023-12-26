@@ -1,4 +1,4 @@
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -48,7 +48,7 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	level.var_2da60c10 = [];
-	if(is_true(getgametypesetting(#"hash_29e7b59313a2f532")))
+	if(is_true(getgametypesetting(#"wzenablehomunculus")))
 	{
 		level.var_cc310d06 = &function_7bfc867f;
 		level thread function_c83057f0();

@@ -44,7 +44,7 @@ class class_a5d10b03 : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_a5d10b03
 		Checksum: 0x909E9EB7
 		Offset: 0x340
@@ -52,9 +52,9 @@ class class_a5d10b03 : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("cp_killcam");
+		cLUIelem::register_clientside("cp_killcam");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: cp_killcam
 	Checksum: 0x914B7F0F
 	Offset: 0x240
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: Linked
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_a5d10b03();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

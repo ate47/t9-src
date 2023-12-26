@@ -40,7 +40,7 @@ function private autoexec function_bc55259f()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_2d064899850813e2", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_2d064899850813e2", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -69,16 +69,16 @@ function function_70a657d8()
 	function_e854b81f(#"hash_602a1b6107105f07", #"hash_17ccbaee64daa05b", #"hash_17ccbbee64daa20e", #"hash_17ccbcee64daa3c1", #"hash_17ccbdee64daa574", #"hash_17ccbeee64daa727");
 	function_e854b81f(#"hash_51b6cc6dbafb7f31", #"hash_79774556f321d921", #"hash_79774256f321d408", #"hash_79774356f321d5bb", #"hash_79774856f321de3a", #"hash_79774956f321dfed");
 	function_e854b81f(#"hash_38c08136902fd553", #"hash_59dbecf72baaa96f", #"hash_59dbedf72baaab22", #"hash_59dbeef72baaacd5", #"hash_59dbe7f72baaa0f0", #"hash_59dbe8f72baaa2a3");
-	clientfield::function_a8bbc967("zm_perks_per_controller.count", 1, 4, "int", 0);
+	clientfield::register_clientuimodel("zm_perks_per_controller.count", 1, 4, "int", 0);
 	for(i = 1; i <= 9; i++)
 	{
-		clientfield::function_a8bbc967(("zm_perks_per_controller." + i) + ".itemIndex", 1, 8, "int", 0);
-		clientfield::function_a8bbc967(("zm_perks_per_controller." + i) + ".lost", 1, 2, "int", 0);
+		clientfield::register_clientuimodel(("zm_perks_per_controller." + i) + ".itemIndex", 1, 8, "int", 0);
+		clientfield::register_clientuimodel(("zm_perks_per_controller." + i) + ".lost", 1, 2, "int", 0);
 	}
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_791d0451
 	Checksum: 0x80F724D1
 	Offset: 0x738
@@ -86,7 +86,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 }
 
@@ -261,7 +261,7 @@ function function_a0a66726()
 	foreach(var_91b99f7 in self.var_7341f980)
 	{
 		itemindex = 0;
-		if(isdefined(var_91b99f7) && function_7a600918(var_91b99f7) && var_91b99f7 != #"")
+		if(isdefined(var_91b99f7) && ishash(var_91b99f7) && var_91b99f7 != #"")
 		{
 			itemindex = getitemindexfromref(var_91b99f7);
 		}
@@ -548,14 +548,14 @@ function private function_b4083162(talent)
 */
 function perk_give_bottle_begin(str_perk)
 {
-	weapon = function_6dc1382(str_perk);
+	weapon = get_perk_weapon(str_perk);
 	self giveweapon(weapon);
 	self switchtooffhand(weapon);
 	self thread gestures::function_f3e2696f(self, weapon, undefined, 2.5, undefined, undefined, undefined);
 }
 
 /*
-	Name: function_6dc1382
+	Name: get_perk_weapon
 	Namespace: namespace_791d0451
 	Checksum: 0x6DE1CFE9
 	Offset: 0x1900
@@ -563,7 +563,7 @@ function perk_give_bottle_begin(str_perk)
 	Parameters: 1
 	Flags: Linked
 */
-function function_6dc1382(str_perk)
+function get_perk_weapon(str_perk)
 {
 	switch(str_perk)
 	{

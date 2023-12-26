@@ -77,7 +77,7 @@ function private function_9abee270(model)
 	}
 	if(is_true(model.var_3ee8e0e2))
 	{
-		model util::function_c596f193();
+		model util::make_sentient();
 	}
 	if(is_true(model.var_5d16ec51))
 	{

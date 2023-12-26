@@ -1,7 +1,7 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_6b221588ece2c4aa;
 #using scripts\core_common\battlechatter.gsc;
@@ -48,10 +48,10 @@ function private autoexec function_1c88fe9d()
 function init_shared()
 {
 	callback::on_start_gametype(&start_gametype);
-	callback::function_e0b66c97(&function_e0b66c97);
-	callback::function_d800788e(&function_d800788e);
+	callback::on_detonate(&on_detonate);
+	callback::on_double_tap_detonate(&on_double_tap_detonate);
 	clientfield::register("toplayer", "proximity_alarm", 1, 3, "int");
-	clientfield::function_a8bbc967("hudItems.proximityAlarm", 1, 3, "int");
+	clientfield::register_clientuimodel("hudItems.proximityAlarm", 1, 3, "int");
 	clientfield::register("missile", "retrievable", 1, 1, "int");
 	clientfield::register("scriptmover", "retrievable", 1, 1, "int");
 	clientfield::register("missile", "enemyequip", 1, 2, "int");
@@ -176,20 +176,20 @@ function on_player_spawned()
 */
 function function_e6400478(name, func, var_8411d55d)
 {
-	if(!isdefined(level.var_e1b654ee))
+	if(!isdefined(level.watcherregisters))
 	{
-		level.var_e1b654ee = [];
+		level.watcherregisters = [];
 	}
 	if(isdefined(name))
 	{
-		struct = level.var_e1b654ee[name];
+		struct = level.watcherregisters[name];
 		if(isdefined(struct))
 		{
 			if(isdefined(var_8411d55d) && var_8411d55d != 2)
 			{
 				struct.func = func;
 				struct.var_8411d55d = var_8411d55d;
-				level.var_e1b654ee[name] = struct;
+				level.watcherregisters[name] = struct;
 			}
 		}
 		else
@@ -197,7 +197,7 @@ function function_e6400478(name, func, var_8411d55d)
 			struct = spawnstruct();
 			struct.func = func;
 			struct.type = var_8411d55d;
-			level.var_e1b654ee[name] = struct;
+			level.watcherregisters[name] = struct;
 		}
 	}
 }
@@ -236,22 +236,22 @@ event loadout_changed(eventstruct)
 */
 function private snipinterfaceattributes(weapon)
 {
-	if(isdefined(level.var_e1b654ee))
+	if(isdefined(level.watcherregisters))
 	{
-		struct = level.var_e1b654ee[weapon.name];
+		struct = level.watcherregisters[weapon.name];
 		if(isdefined(struct))
 		{
-			self function_9d7ae85f(weapon.name, struct.func, struct.type);
+			self createwatcher(weapon.name, struct.func, struct.type);
 		}
-		if(weapon.ischargeshot && weapon.var_3d85028 != level.weaponnone)
+		if(weapon.ischargeshot && weapon.nextchargelevelweapon != level.weaponnone)
 		{
-			self snipinterfaceattributes(weapon.var_3d85028);
+			self snipinterfaceattributes(weapon.nextchargelevelweapon);
 		}
 	}
 }
 
 /*
-	Name: function_9d7ae85f
+	Name: createwatcher
 	Namespace: weaponobjects
 	Checksum: 0xE4E10FE0
 	Offset: 0xBE8
@@ -259,7 +259,7 @@ function private snipinterfaceattributes(weapon)
 	Parameters: 3
 	Flags: Linked
 */
-function function_9d7ae85f(weaponname, createfunc, var_7b2908f)
+function createwatcher(weaponname, createfunc, var_7b2908f)
 {
 	if(!isdefined(var_7b2908f))
 	{
@@ -788,7 +788,7 @@ function function_6d8aa6a0(player, watcher)
 {
 	self endon(#"death", #"hacked", #"hash_3a9500a4f045d0f3");
 	waittills = [3:"changed_specialist", 2:"disconnect", 1:"joined_spectators", 0:"joined_team"];
-	if((isdefined(watcher.weapon.var_87a1c29f) ? watcher.weapon.var_87a1c29f : 0))
+	if((isdefined(watcher.weapon.dieonrespawn) ? watcher.weapon.dieonrespawn : 0))
 	{
 		waittills[waittills.size] = "spawned";
 	}
@@ -865,7 +865,7 @@ function cleanupwatcherondeath(watcher)
 function weapon_object_timeout(watcher, var_84e5ee08)
 {
 	weapon_instance = self;
-	weapon_instance endon(#"death", #"hash_602ae7ca650d6287");
+	weapon_instance endon(#"death", #"cancel_timeout");
 	var_754e514 = (isdefined(var_84e5ee08) ? var_84e5ee08 : watcher.timeout);
 	wait(var_754e514);
 	if(isdefined(watcher) && isdefined(watcher.ontimeout))
@@ -1268,15 +1268,15 @@ function function_127fb8f3(var_983dc34, attackingplayer)
 */
 function function_b4793bda(entity, weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return;
 	}
-	var_4dd46f8a = weapons::function_7a677105(weapon);
-	fx = var_4dd46f8a.detonatefx;
+	customsettings = weapons::function_7a677105(weapon);
+	fx = customsettings.detonatefx;
 	if(isdefined(fx))
 	{
-		tag = var_4dd46f8a.var_abd3e497;
+		tag = customsettings.var_abd3e497;
 		if(isdefined(tag))
 		{
 			origin = entity gettagorigin(tag);
@@ -1287,14 +1287,14 @@ function function_b4793bda(entity, weapon)
 		if(isdefined(tag))
 		{
 			var_bc514cf = anglestoforward(angles);
-			var_cd148a81 = anglestoup(angles);
+			fxup = anglestoup(angles);
 		}
 		else
 		{
 			var_bc514cf = anglestoup(angles);
-			var_cd148a81 = anglestoforward(angles);
+			fxup = anglestoforward(angles);
 		}
-		playfx(fx, origin, var_bc514cf, var_cd148a81);
+		playfx(fx, origin, var_bc514cf, fxup);
 	}
 }
 
@@ -1309,11 +1309,11 @@ function function_b4793bda(entity, weapon)
 */
 function function_f2a06099(entity, weapon)
 {
-	if(isdefined(weapon.var_4dd46f8a))
+	if(isdefined(weapon.customsettings))
 	{
-		var_4dd46f8a = weapons::function_7a677105(weapon);
-		fx = var_4dd46f8a.var_9fed82b8;
-		tag = var_4dd46f8a.var_41d39c92;
+		customsettings = weapons::function_7a677105(weapon);
+		fx = customsettings.var_9fed82b8;
+		tag = customsettings.var_41d39c92;
 	}
 	fx = (isdefined(fx) ? fx : level._equipment_fizzleout_fx);
 	if(isdefined(tag))
@@ -1326,14 +1326,14 @@ function function_f2a06099(entity, weapon)
 	if(isdefined(tag))
 	{
 		var_bc514cf = anglestoforward(angles);
-		var_cd148a81 = anglestoup(angles);
+		fxup = anglestoup(angles);
 	}
 	else
 	{
 		var_bc514cf = anglestoup(angles);
-		var_cd148a81 = anglestoforward(angles);
+		fxup = anglestoforward(angles);
 	}
-	playfx(fx, origin, var_bc514cf, var_cd148a81);
+	playfx(fx, origin, var_bc514cf, fxup);
 }
 
 /*
@@ -1470,7 +1470,7 @@ function private createweaponobjectwatcher(weaponname, ownerteam)
 		weaponobjectwatcher.deleteonkillbrush = 1;
 		weaponobjectwatcher.deleteondifferentobjectspawn = 1;
 		weaponobjectwatcher.enemydestroy = 0;
-		weaponobjectwatcher.deleteonplayerspawn = weaponobjectwatcher.weapon.var_87a1c29f;
+		weaponobjectwatcher.deleteonplayerspawn = weaponobjectwatcher.weapon.dieonrespawn;
 		weaponobjectwatcher.ignorevehicles = 0;
 		weaponobjectwatcher.ignoreai = 0;
 		weaponobjectwatcher.activationdelay = 0;
@@ -2381,7 +2381,7 @@ function hackerinit(watcher)
 		triggerorigin = self gettagorigin(self.weapon.hackertriggerorigintag);
 	}
 	self.hackertrigger = function_c7cdf243(triggerorigin, level.weaponobjects_hacker_trigger_width, level.weaponobjects_hacker_trigger_height);
-	self.hackertrigger set_hint_string(self.weapon.var_2f3ca476, #"hash_249ca5756f6ccd3e");
+	self.hackertrigger set_hint_string(self.weapon.var_2f3ca476, #"mp/generic_hacking");
 	self.hackertrigger setignoreentfortrigger(self);
 	self.hackertrigger setperkfortrigger(#"specialty_disarmexplosive");
 	self.hackertrigger thread hackertriggersetvisibility(self.owner);
@@ -2448,7 +2448,7 @@ function itemhacked(watcher, player)
 		scoreevents::processscoreevent(#"hacked", player, undefined, undefined);
 		player stats::function_e24eec31(getweapon(#"pda_hack"), #"combatrecordstat", 1);
 		player challenges::hackedordestroyedequipment();
-		player contracts::function_a54e2068(#"hash_43530a1351ecbed6");
+		player contracts::increment_contract(#"hash_43530a1351ecbed6");
 	}
 	/#
 		if(self.weapon.rootweapon == level.weaponsatchelcharge && isdefined(player.lowermessage))
@@ -3013,7 +3013,7 @@ function function_f5b8ea19(s_watcher, var_6e4025f7, var_20d0363e)
 			var_8dc1cd0d = gettime() - var_bccce0e1;
 		}
 		triggered = 0;
-		foreach(ent in self function_bdda420f(self.origin, var_6e4025f7.detonateradius))
+		foreach(ent in self getenemiesinradius(self.origin, var_6e4025f7.detonateradius))
 		{
 			if(function_5b0e3a9e(var_6e4025f7, ent))
 			{
@@ -3069,9 +3069,9 @@ function function_5b0e3a9e(s_watcher, ent)
 	var_81fd2297 = 1;
 	if(isdefined(self.weapon))
 	{
-		if(self.weapon.var_9a2941f1 > 0)
+		if(self.weapon.explosionnormaloffset > 0)
 		{
-			var_81fd2297 = self.weapon.var_9a2941f1;
+			var_81fd2297 = self.weapon.explosionnormaloffset;
 		}
 	}
 	var_f1e2d68b = self.origin + (v_up * var_81fd2297);
@@ -3234,7 +3234,7 @@ function deleteonkillbrush(player)
 }
 
 /*
-	Name: function_d800788e
+	Name: on_double_tap_detonate
 	Namespace: weaponobjects
 	Checksum: 0x52CC59D9
 	Offset: 0x7530
@@ -3242,7 +3242,7 @@ function deleteonkillbrush(player)
 	Parameters: 0
 	Flags: Linked
 */
-function function_d800788e()
+function on_double_tap_detonate()
 {
 	if(!isalive(self) && !self util::isusingremote())
 	{
@@ -3263,7 +3263,7 @@ function function_d800788e()
 }
 
 /*
-	Name: function_e0b66c97
+	Name: on_detonate
 	Namespace: weaponobjects
 	Checksum: 0x1D74765D
 	Offset: 0x7630
@@ -3271,7 +3271,7 @@ function function_d800788e()
 	Parameters: 0
 	Flags: Linked
 */
-function function_e0b66c97()
+function on_detonate()
 {
 	if(self isusingoffhand())
 	{
@@ -3357,7 +3357,7 @@ function saydamaged(orig, amount)
 function private function_c9fc5521(player, weapon)
 {
 	maxammo = 0;
-	loadout = player loadout::function_1ee886f7(weapon);
+	loadout = player loadout::find_loadout_slot(weapon);
 	if(isdefined(loadout))
 	{
 		if(loadout.count > 0)
@@ -3391,7 +3391,7 @@ function private function_c9fc5521(player, weapon)
 }
 
 /*
-	Name: function_3847e88b
+	Name: get_ammo
 	Namespace: weaponobjects
 	Checksum: 0xCE21AEEB
 	Offset: 0x79C0
@@ -3399,7 +3399,7 @@ function private function_c9fc5521(player, weapon)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_3847e88b(player, weapon)
+function private get_ammo(player, weapon)
 {
 	ammo = player getweaponammoclip(weapon);
 	if(!weapon.iscliponly)
@@ -3425,7 +3425,7 @@ function private function_e0093db1(player, weapon)
 	{
 		return false;
 	}
-	ammo = function_3847e88b(player, weapon);
+	ammo = get_ammo(player, weapon);
 	if(ammo >= maxammo)
 	{
 		return false;
@@ -3867,7 +3867,7 @@ function function_9dbd349e(watcher, player, origin)
 }
 
 /*
-	Name: function_452dcb49
+	Name: add_ammo
 	Namespace: weaponobjects
 	Checksum: 0x5A3E8B72
 	Offset: 0x8A28
@@ -3875,13 +3875,13 @@ function function_9dbd349e(watcher, player, origin)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_452dcb49(player, weapon)
+function private add_ammo(player, weapon)
 {
 	if(weapon.iscliponly || weapon.var_d98594b2 == "Clip Then Ammo")
 	{
 		ammo = player getweaponammoclip(weapon);
 		ammo++;
-		clip_size = player function_f09c133d(weapon);
+		clip_size = player getweaponammoclipsize(weapon);
 		if(ammo <= clip_size)
 		{
 			player setweaponammoclip(weapon, ammo);
@@ -3911,24 +3911,24 @@ function function_a6616b9c(player, heldweapon)
 	{
 		return;
 	}
-	var_e8c9ea25 = self.weapon;
+	pickedweapon = self.weapon;
 	self notify(#"picked_up");
 	heldweapon = player function_672ba881(self.weapon);
 	if(!isdefined(heldweapon))
 	{
 		return;
 	}
-	if("ammo" != heldweapon.var_11389297)
+	if("ammo" != heldweapon.gadget_powerusetype)
 	{
 		slot = player gadgetgetslot(heldweapon);
-		player gadgetpowerchange(slot, heldweapon.var_7d70a9f);
+		player gadgetpowerchange(slot, heldweapon.gadget_powergainonretrieve);
 		return;
 	}
 	if(!function_e0093db1(player, heldweapon))
 	{
 		return;
 	}
-	function_452dcb49(player, heldweapon);
+	add_ammo(player, heldweapon);
 }
 
 /*
@@ -3942,7 +3942,7 @@ function function_a6616b9c(player, heldweapon)
 */
 function function_d9219ce2(player, weapon)
 {
-	if(weapon.var_7d70a9f > 0)
+	if(weapon.gadget_powergainonretrieve > 0)
 	{
 		slot = player gadgetgetslot(weapon);
 		if(slot >= 0)
@@ -3950,18 +3950,18 @@ function function_d9219ce2(player, weapon)
 			clipsize = player function_b7f1fd2c(weapon);
 			if(clipsize && weapon.var_ce34bb7e)
 			{
-				var_34d6b5e3 = weapon.var_7d70a9f / clipsize;
+				powergain = weapon.gadget_powergainonretrieve / clipsize;
 			}
 			else
 			{
-				var_34d6b5e3 = weapon.var_7d70a9f;
+				powergain = weapon.gadget_powergainonretrieve;
 			}
-			player gadgetpowerchange(slot, var_34d6b5e3);
+			player gadgetpowerchange(slot, powergain);
 			self notify(#"picked_up");
 			return;
 		}
 	}
-	function_452dcb49(player, weapon);
+	add_ammo(player, weapon);
 	self notify(#"picked_up");
 }
 
@@ -4032,7 +4032,7 @@ function watchshutdown(player)
 	Parameters: 6
 	Flags: Linked
 */
-function watchusetrigger(trigger, callback, playersoundonuse, npcsoundonuse, var_61dedb9f, var_acddd81e)
+function watchusetrigger(trigger, callback, playersoundonuse, npcsoundonuse, callback_data, var_acddd81e)
 {
 	self endon(#"death", #"delete");
 	trigger endon(#"death");
@@ -4089,7 +4089,7 @@ function watchusetrigger(trigger, callback, playersoundonuse, npcsoundonuse, var
 			{
 				player [[level.var_b8e083d0]](self.weapon);
 			}
-			self thread [[callback]](player, var_61dedb9f);
+			self thread [[callback]](player, callback_data);
 		}
 	}
 }
@@ -4285,7 +4285,7 @@ function watch_supplemental_object_death()
 */
 function function_d9c08e94(var_2f190eaf, var_46f3f2d3)
 {
-	self endon(#"hash_602ae7ca650d6287");
+	self endon(#"cancel_timeout");
 	if(!isdefined(var_2f190eaf) || var_2f190eaf <= 0)
 	{
 		return;
@@ -4315,7 +4315,7 @@ function proximitydetonate(attacker, weapon, target)
 		{
 			if(self.owner util::isenemyplayer(weapon))
 			{
-				if(sessionmodeismultiplayergame() || function_f99d2668())
+				if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 				{
 					weapon challenges::destroyedexplosive(target);
 					self.owner globallogic_score::function_5829abe3(weapon, target, self.weapon);

@@ -62,7 +62,7 @@ function private autoexec function_735ef6d8()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"skipto", &function_70a657d8, &function_8ac3bea9, &on_finalize_initialization, undefined);
+	system::register(#"skipto", &function_70a657d8, &postinit, &on_finalize_initialization, undefined);
 }
 
 /*
@@ -101,7 +101,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: skipto
 	Checksum: 0xC59F5D06
 	Offset: 0xB68
@@ -109,7 +109,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level thread entity_mover_main();
 	level thread handle();
@@ -153,7 +153,7 @@ function function_228558fd(var_f2d4fd10, var_7a646627)
 				}
 				continue;
 			}
-			if(is_true(var_65792f8b.var_beb20e53))
+			if(is_true(var_65792f8b.issafehouse))
 			{
 				if(var_7a646627)
 				{
@@ -1029,7 +1029,7 @@ function get_current_skiptos(var_7e8557ba)
 	}
 	if(is_true(var_7e8557ba))
 	{
-		skiptos = tolower(getdvarstring(#"hash_1d8621150bcf0c0c"));
+		skiptos = tolower(getdvarstring(#"sv_savegameskipto"));
 	}
 	else
 	{
@@ -1048,13 +1048,13 @@ function get_current_skiptos(var_7e8557ba)
 	Parameters: 1
 	Flags: Linked
 */
-function function_5011fee2(var_1fdcd030)
+function function_5011fee2(missionname)
 {
-	if(!isdefined(var_1fdcd030))
+	if(!isdefined(missionname))
 	{
-		var_1fdcd030 = savegame::get_mission_name();
+		missionname = savegame::get_mission_name();
 	}
-	var_65792f8b = function_2717b55f(var_1fdcd030);
+	var_65792f8b = function_2717b55f(missionname);
 	if(isdefined(var_65792f8b) && isdefined(var_65792f8b.var_a04dfce6))
 	{
 		return var_65792f8b.var_a04dfce6;
@@ -1079,13 +1079,13 @@ function function_547ca7d2(safehouse, var_fc9732a9)
 	}
 	var_65792f8b = function_2717b55f(safehouse);
 	/#
-		assert(isdefined(var_65792f8b) && isdefined(var_65792f8b.var_beb20e53));
+		assert(isdefined(var_65792f8b) && isdefined(var_65792f8b.issafehouse));
 	#/
 	if(safehouse == #"cp_ger_hub_post_cuba" || safehouse == #"cp_ger_hub8")
 	{
 		var_fc9732a9 = 0;
 	}
-	if(isdefined(var_65792f8b) && is_true(var_65792f8b.var_beb20e53))
+	if(isdefined(var_65792f8b) && is_true(var_65792f8b.issafehouse))
 	{
 		skipto = "";
 		if(safehouse == "cp_ger_hub")
@@ -1738,12 +1738,12 @@ function on_player_connect()
 	{
 		return;
 	}
-	var_74979d0 = getrootmapname();
-	if(!isdefined(var_74979d0))
+	rootmapname = getrootmapname();
+	if(!isdefined(rootmapname))
 	{
 		return;
 	}
-	if(getdvarint(#"hash_30a8d8634a92b501", 0) == 0)
+	if(getdvarint(#"ui_blocksaves", 0) == 0)
 	{
 		if(self ishost())
 		{
@@ -1758,11 +1758,11 @@ function on_player_connect()
 			}
 			if(!var_ea1ac9c)
 			{
-				self savegame::set_player_data("savegame_score", self function_8338f930("SCORE", var_74979d0));
-				self savegame::set_player_data("savegame_kills", self function_8338f930("KILLS", var_74979d0));
-				self savegame::set_player_data("savegame_assists", self function_8338f930("ASSISTS", var_74979d0));
-				self savegame::set_player_data("savegame_incaps", self function_8338f930("INCAPS", var_74979d0));
-				self savegame::set_player_data("savegame_revives", self function_8338f930("REVIVES", var_74979d0));
+				self savegame::set_player_data("savegame_score", self function_8338f930("SCORE", rootmapname));
+				self savegame::set_player_data("savegame_kills", self function_8338f930("KILLS", rootmapname));
+				self savegame::set_player_data("savegame_assists", self function_8338f930("ASSISTS", rootmapname));
+				self savegame::set_player_data("savegame_incaps", self function_8338f930("INCAPS", rootmapname));
+				self savegame::set_player_data("savegame_revives", self function_8338f930("REVIVES", rootmapname));
 				if(sessionmodeisonlinegame())
 				{
 					self stats::set_stat(#"hash_46e7db8ceaba5b2f", 1);
@@ -2470,7 +2470,7 @@ function function_455cb6c5(var_83104433)
 	if(isdefined(var_83104433))
 	{
 		var_266acb38 = getmaporder();
-		var_74979d0 = getrootmapname(tolower(var_83104433));
+		rootmapname = getrootmapname(tolower(var_83104433));
 		if(var_266acb38 >= 0)
 		{
 			var_65792f8b = function_2717b55f(savegame::get_mission_name());
@@ -2478,7 +2478,7 @@ function function_455cb6c5(var_83104433)
 			{
 				foreach(var_5c9a8c92 in var_65792f8b.var_c9d6f30a)
 				{
-					if(tolower(var_5c9a8c92.nextmap) == var_74979d0)
+					if(tolower(var_5c9a8c92.nextmap) == rootmapname)
 					{
 						return var_5c9a8c92.skipto;
 					}
@@ -2507,10 +2507,10 @@ function function_3a9156bf(mission_index)
 	var_9ba5cef7 = savegame::get_player_data("previous_mission", "");
 	if(var_9ba5cef7.size == 0)
 	{
-		var_1fdcd030 = getmapatindex(mission_index - 1);
-		if(isdefined(var_1fdcd030) && var_1fdcd030.size != 0)
+		missionname = getmapatindex(mission_index - 1);
+		if(isdefined(missionname) && missionname.size != 0)
 		{
-			var_9ba5cef7 = var_1fdcd030;
+			var_9ba5cef7 = missionname;
 		}
 	}
 	return var_9ba5cef7;
@@ -2546,12 +2546,12 @@ function function_6914f647()
 	}
 	for(i = missionindex - 1; i >= 0; i--)
 	{
-		var_1fdcd030 = getmapatindex(i);
-		var_65792f8b = function_2717b55f(var_1fdcd030);
-		var_8670e6a3 = savegame::get_mission_data(#"persistent", var_1fdcd030);
-		if(isdefined(var_65792f8b) && is_true(var_65792f8b.var_beb20e53) && is_true(var_8670e6a3.unlocked) && var_1fdcd030 != #"cp_ger_hub_post_cuba" && var_1fdcd030 != #"cp_ger_hub8")
+		missionname = getmapatindex(i);
+		var_65792f8b = function_2717b55f(missionname);
+		var_8670e6a3 = savegame::get_mission_data(#"persistent", missionname);
+		if(isdefined(var_65792f8b) && is_true(var_65792f8b.issafehouse) && is_true(var_8670e6a3.unlocked) && missionname != #"cp_ger_hub_post_cuba" && missionname != #"cp_ger_hub8")
 		{
-			return var_1fdcd030;
+			return missionname;
 		}
 	}
 	return "cp_ger_hub";
@@ -2608,18 +2608,18 @@ function function_cfb483b7()
 	Parameters: 2
 	Flags: None
 */
-function function_787007b6(var_74979d0, stat_name)
+function function_787007b6(rootmapname, stat_name)
 {
-	if(!isdefined(var_74979d0))
+	if(!isdefined(rootmapname))
 	{
 		return;
 	}
-	var_2102f84a = self function_8338f930(stat_name, var_74979d0);
+	var_2102f84a = self function_8338f930(stat_name, rootmapname);
 	var_7176c82c = self savegame::get_player_data("savegame_" + stat_name);
-	var_aa0ccaed = self stats::get_stat(#"playerstatsbymap", var_74979d0, #"hash_2f236080a1058999", stat_name);
+	var_aa0ccaed = self stats::get_stat(#"playerstatsbymap", rootmapname, #"hash_2f236080a1058999", stat_name);
 	var_2fc24ec6 = var_2102f84a - var_7176c82c;
 	var_aa0ccaed = var_aa0ccaed + var_2fc24ec6;
-	self stats::set_stat(#"playerstatsbymap", var_74979d0, #"hash_2f236080a1058999", stat_name, var_aa0ccaed);
+	self stats::set_stat(#"playerstatsbymap", rootmapname, #"hash_2f236080a1058999", stat_name, var_aa0ccaed);
 }
 
 /*
@@ -2728,14 +2728,14 @@ function level_completed(var_83104433, var_585e39fb)
 	if(!is_final_level())
 	{
 		var_4d75d53a = function_2717b55f(currentmission);
-		is_safehouse = is_true(var_4d75d53a.var_beb20e53);
+		is_safehouse = is_true(var_4d75d53a.issafehouse);
 		var_510f193a = is_true(var_4d75d53a.var_32a51de2);
 		var_5e7454e = 0;
 		var_9ba5cef7 = savegame::get_player_data("previous_mission", "");
 		if(var_9ba5cef7 != "")
 		{
 			var_43758eae = function_2717b55f(var_9ba5cef7);
-			var_5e7454e = is_true(var_43758eae.var_beb20e53) && var_9ba5cef7 != #"cp_ger_hub_post_cuba" && var_9ba5cef7 != #"cp_ger_hub8";
+			var_5e7454e = is_true(var_43758eae.issafehouse) && var_9ba5cef7 != #"cp_ger_hub_post_cuba" && var_9ba5cef7 != #"cp_ger_hub8";
 		}
 		if(!var_8e962e56)
 		{
@@ -2774,7 +2774,7 @@ function level_completed(var_83104433, var_585e39fb)
 		return;
 	}
 	level.level_ending = 1;
-	setdvar(#"hash_54488b7c651bd0ec", 1);
+	setdvar(#"ui_busyblockingamemenu", 1);
 	foreach(var_bd93cbe5 in level.players)
 	{
 		bb::logobjectivestatuschange("_level", var_bd93cbe5, "complete");
@@ -2957,13 +2957,13 @@ function function_18193dd4()
 	Parameters: 2
 	Flags: Linked
 */
-function function_8338f930(stat_name, var_74979d0)
+function function_8338f930(stat_name, rootmapname)
 {
-	if(!isdefined(var_74979d0))
+	if(!isdefined(rootmapname))
 	{
 		return 0;
 	}
-	var_2c4f2782 = self stats::get_stat(#"playerstatsbymap", var_74979d0, #"hash_2f236080a1058999", stat_name);
+	var_2c4f2782 = self stats::get_stat(#"playerstatsbymap", rootmapname, #"hash_2f236080a1058999", stat_name);
 	var_a1bd2428 = self stats::get_stat(#"playerstatslist", stat_name, #"statvalue");
 	if(!isdefined(var_2c4f2782) || !isdefined(var_a1bd2428))
 	{
@@ -3032,7 +3032,7 @@ function private standard_objective_done(skipto, starting, direct, player)
 		level thread function_30523221(player);
 		level thread function_8ca86687(player);
 	}
-	level thread traps_deployable::function_64590698(0, player, undefined);
+	level thread traps_deployable::clean_traps(0, player, undefined);
 }
 
 /*
@@ -3069,8 +3069,8 @@ function function_30523221(str_skipto)
 */
 function function_8ca86687(str_skipto)
 {
-	var_c3977917 = struct::get_array(str_skipto, "script_objective");
-	foreach(s_gameobject in var_c3977917)
+	a_s_gameobjects = struct::get_array(str_skipto, "script_objective");
+	foreach(s_gameobject in a_s_gameobjects)
 	{
 		if(isdefined(s_gameobject.mdl_gameobject))
 		{

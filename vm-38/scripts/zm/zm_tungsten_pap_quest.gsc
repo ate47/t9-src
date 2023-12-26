@@ -1,11 +1,11 @@
 #using script_1029986e2bc8ca8e;
 #using scripts\zm\zm_tungsten.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\zm_tungsten_zones.gsc;
 #using scripts\zm_common\zm_items.gsc;
 #using script_4acbbbcdc7ef16a0;
 #using scripts\zm_common\zm_crafting.gsc;
-#using script_52c6c2d1a2ef1b46;
+#using scripts\zm_common\zm_ui_inventory.gsc;
 #using script_5c8450156115b2ba;
 #using scripts\zm_common\zm_sq.gsc;
 #using scripts\zm_common\zm_round_logic.gsc;
@@ -155,7 +155,7 @@ function function_1d310878()
 	level.var_9b33b774 = undefined;
 	namespace_c097de49::function_2c40648c(1);
 	callback::remove_on_spawned(&function_9649136);
-	callback::function_61f038c(&function_7eea09b8);
+	callback::remove_on_revived(&function_7eea09b8);
 	level flag::set(#"hash_3b763d6426336ce0");
 }
 
@@ -751,25 +751,25 @@ function on_item_pickup(params)
 		case "hash_74d379a1496a3d22":
 		{
 			level thread function_3ddd0bcb("a");
-			level namespace_6747c550::function_7df6bb60(#"hash_689d93f2ecc4ae51", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_689d93f2ecc4ae51", 1);
 			break;
 		}
 		case "hash_74d378a1496a3b6f":
 		{
 			level thread function_3ddd0bcb("b");
-			level namespace_6747c550::function_7df6bb60(#"hash_689d90f2ecc4a938", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_689d90f2ecc4a938", 1);
 			break;
 		}
 		case "hash_74d377a1496a39bc":
 		{
 			level thread function_3ddd0bcb("c");
-			level namespace_6747c550::function_7df6bb60(#"hash_689d91f2ecc4aaeb", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_689d91f2ecc4aaeb", 1);
 			break;
 		}
 		case "hash_74d376a1496a3809":
 		{
 			level thread function_3ddd0bcb("d");
-			level namespace_6747c550::function_7df6bb60(#"hash_689d96f2ecc4b36a", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_689d96f2ecc4b36a", 1);
 			break;
 		}
 	}
@@ -794,7 +794,7 @@ function function_3ddd0bcb(str_part)
 	}
 	foreach(e_player in getplayers())
 	{
-		zm_items::player_pick_up(e_player, zm_crafting::function_4c2f8683(hash("zitem_tungsten_teleporter_part_" + str_part)));
+		zm_items::player_pick_up(e_player, zm_crafting::get_component(hash("zitem_tungsten_teleporter_part_" + str_part)));
 	}
 	level flag::set(#"hash_489085945502c0b4" + str_part);
 }
@@ -915,16 +915,16 @@ function function_2d857fb2(b_skipped, var_19e802fa)
 */
 function private function_43828640()
 {
-	level namespace_6747c550::function_7df6bb60(#"hash_689d93f2ecc4ae51", 1);
-	level namespace_6747c550::function_7df6bb60(#"hash_689d90f2ecc4a938", 1);
-	level namespace_6747c550::function_7df6bb60(#"hash_689d91f2ecc4aaeb", 1);
-	level namespace_6747c550::function_7df6bb60(#"hash_689d96f2ecc4b36a", 1);
+	level zm_ui_inventory::function_7df6bb60(#"hash_689d93f2ecc4ae51", 1);
+	level zm_ui_inventory::function_7df6bb60(#"hash_689d90f2ecc4a938", 1);
+	level zm_ui_inventory::function_7df6bb60(#"hash_689d91f2ecc4aaeb", 1);
+	level zm_ui_inventory::function_7df6bb60(#"hash_689d96f2ecc4b36a", 1);
 	foreach(e_player in getplayers())
 	{
-		zm_items::player_pick_up(e_player, zm_crafting::function_4c2f8683(#"hash_4d2989acf6d2c3f4"));
-		zm_items::player_pick_up(e_player, zm_crafting::function_4c2f8683(#"hash_4d298cacf6d2c90d"));
-		zm_items::player_pick_up(e_player, zm_crafting::function_4c2f8683(#"hash_4d298bacf6d2c75a"));
-		zm_items::player_pick_up(e_player, zm_crafting::function_4c2f8683(#"hash_4d2986acf6d2bedb"));
+		zm_items::player_pick_up(e_player, zm_crafting::get_component(#"hash_4d2989acf6d2c3f4"));
+		zm_items::player_pick_up(e_player, zm_crafting::get_component(#"hash_4d298cacf6d2c90d"));
+		zm_items::player_pick_up(e_player, zm_crafting::get_component(#"hash_4d298bacf6d2c75a"));
+		zm_items::player_pick_up(e_player, zm_crafting::get_component(#"hash_4d2986acf6d2bedb"));
 	}
 	foreach(var_bd8c06d4 in level.var_ec7a1fe8)
 	{

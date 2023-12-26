@@ -72,7 +72,7 @@ function private on_connect()
 */
 function private function_c5b14b2f()
 {
-	callback::function_d8abfc3d(#"hash_25663702210244cc", &function_afade0d0);
+	callback::function_d8abfc3d(#"done_healing", &function_afade0d0);
 	self.var_f7500d42 = self.health;
 	self.ignore_health_regen_delay = 1;
 }
@@ -88,7 +88,7 @@ function private function_c5b14b2f()
 */
 function private function_afade0d0()
 {
-	callback::function_52ac9652(#"hash_25663702210244cc", &function_afade0d0);
+	callback::function_52ac9652(#"done_healing", &function_afade0d0);
 	if(isdefined(self.var_f7500d42))
 	{
 		self.var_c2b7641c = self.health - self.var_f7500d42;

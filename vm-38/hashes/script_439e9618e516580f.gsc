@@ -47,7 +47,7 @@ class ccp_skip_scene_menu : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class ccp_skip_scene_menu : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -118,10 +118,10 @@ class ccp_skip_scene_menu : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("cp_skip_scene_menu");
-		cLUIelem::function_da693cbe("showSkipButton", 1, 2, "int");
-		cLUIelem::function_da693cbe("hostIsSkipping", 1, 1, "int");
-		cLUIelem::function_da693cbe("votedToSkip", 1, 1, "int");
-		cLUIelem::function_da693cbe("sceneSkipEndTime", 1, 3, "int");
+		cLUIelem::add_clientfield("showSkipButton", 1, 2, "int");
+		cLUIelem::add_clientfield("hostIsSkipping", 1, 1, "int");
+		cLUIelem::add_clientfield("votedToSkip", 1, 1, "int");
+		cLUIelem::add_clientfield("sceneSkipEndTime", 1, 3, "int");
 	}
 
 	/*

@@ -44,7 +44,7 @@ class cmp_prop_controls : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cmp_prop_controls
 		Checksum: 0x3FFCC4F1
 		Offset: 0x348
@@ -52,9 +52,9 @@ class cmp_prop_controls : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("mp_prop_controls");
+		cLUIelem::register_clientside("mp_prop_controls");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: mp_prop_controls
 	Checksum: 0x469AAE33
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cmp_prop_controls();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

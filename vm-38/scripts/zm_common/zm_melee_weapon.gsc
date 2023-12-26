@@ -1,4 +1,4 @@
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
@@ -44,7 +44,7 @@ function private autoexec function_cf1513ad()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"melee_weapon", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"melee_weapon", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -65,7 +65,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_melee_weapon
 	Checksum: 0x80F724D1
 	Offset: 0x200
@@ -73,7 +73,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -121,7 +121,7 @@ function init(weapon_name, flourish_weapon_name, cost, wallbuy_targetname, hint_
 	}
 	zm_loadout::register_melee_weapon_for_level(weapon.name);
 	/#
-		if(!isdefined(level.zombie_weapons[weapon]) && (!is_ee || getdvarint(#"hash_11ad6a9695943217", 0)))
+		if(!isdefined(level.zombie_weapons[weapon]) && (!is_ee || getdvarint(#"zm_debug_ee", 0)))
 		{
 			if(isdefined(level.devgui_add_weapon))
 			{
@@ -339,7 +339,7 @@ function function_e5bf8f08(player)
 	}
 	else
 	{
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			return false;
 		}
@@ -347,7 +347,7 @@ function function_e5bf8f08(player)
 		{
 			self.stub.cursor_hint = "HINT_WEAPON";
 			cost = zm_weapons::get_weapon_cost(weapon);
-			if(player bgb::is_enabled(#"hash_4a6b297c85fafec1"))
+			if(player bgb::is_enabled(#"zm_bgb_wall_to_wall_clearance"))
 			{
 				if(player function_8b1a219a())
 				{
@@ -568,7 +568,7 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 			wait(0.1);
 			continue;
 		}
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			wait(0.1);
 			continue;
@@ -651,9 +651,9 @@ function melee_weapon_think(weapon, cost, flourish_fn, vo_dialog_id, flourish_we
 				level notify(#"weapon_bought", {#weapon:weapon, #player:player});
 				player zm_score::minus_to_player_score(cost);
 				player zm_stats::function_c0c6ab19(#"wallbuys", 1, 1);
-				player zm_stats::function_c0c6ab19(#"hash_6f9f408a95b50400", 1, 1);
-				player contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
-				player contracts::function_5b88297d(#"hash_56a15f4e4fa5f4b7", 1, #"zstandard");
+				player zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
+				player contracts::increment_zm_contract(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
+				player contracts::increment_zm_contract(#"hash_56a15f4e4fa5f4b7", 1, #"zstandard");
 				player thread give_melee_weapon(vo_dialog_id, flourish_weapon, weapon, flourish_fn, self);
 			}
 			else

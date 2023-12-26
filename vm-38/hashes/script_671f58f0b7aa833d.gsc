@@ -516,7 +516,7 @@ function private function_1913c46(location)
 	enemies = [];
 	if(isdefined(location.var_c9dbde14) && location.var_c9dbde14 > 0)
 	{
-		enemies = level._fx.player function_bdda420f(location.origin, location.var_c9dbde14);
+		enemies = level._fx.player getenemiesinradius(location.origin, location.var_c9dbde14);
 	}
 	return true;
 }

@@ -272,9 +272,9 @@ function function_ff022837(n_duration, weapon)
 	self.var_b1164fd0 = 1;
 	self clientfield::set("" + #"hash_59400ab6cbfaec5d", 1);
 	self val::set(#"aether_shroud", "ignoreme", 1);
-	var_be17187b = undefined;
-	var_be17187b = self waittilltimeout(n_duration, #"scene_igc_shot_started", #"death");
-	if(var_be17187b._notify != "death")
+	s_waitresult = undefined;
+	s_waitresult = self waittilltimeout(n_duration, #"scene_igc_shot_started", #"death");
+	if(s_waitresult._notify != "death")
 	{
 		self thread battlechatter::play_gadget_success(weapon);
 	}

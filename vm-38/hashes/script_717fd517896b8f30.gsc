@@ -45,7 +45,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -173,7 +173,7 @@ function private function_e4c3443c(s_challenge)
 				self.var_167bc422 = undefined;
 			}
 		}
-		self waittill(#"earned_points", #"spent_points", #"hash_733a824fa6229915");
+		self waittill(#"earned_points", #"spent_points", #"reduced_points");
 	}
 }
 

@@ -147,12 +147,12 @@ function function_96d38b95(result)
 			secondaryweaponname = secondary_weapon.name;
 			secondaryweaponattachstr = function_685505ce(getarraykeys(secondary_weapon.attachments));
 		}
-		loadout = player loadout::function_e27dc453("primarygrenade");
+		loadout = player loadout::get_loadout_slot("primarygrenade");
 		if(isdefined(loadout))
 		{
 			grenadeprimaryname = loadout.weapon.name;
 		}
-		loadout = player loadout::function_e27dc453("secondarygrenade");
+		loadout = player loadout::get_loadout_slot("secondarygrenade");
 		if(isdefined(loadout))
 		{
 			grenadesecondaryname = loadout.weapon.name;
@@ -165,11 +165,11 @@ function function_96d38b95(result)
 	}
 	gamelength = float(game.timepassed) / 1000;
 	timeplayed = player globallogic::gettotaltimeplayed(gamelength);
-	totalkills = player stats::function_441050ca(#"kills");
-	totalhits = player stats::function_441050ca(#"hits");
-	totaldeaths = player stats::function_441050ca(#"deaths");
-	totalwins = player stats::function_441050ca(#"wins");
-	totalxp = player stats::function_441050ca(#"rankxp");
+	totalkills = player stats::get_stat_global(#"kills");
+	totalhits = player stats::get_stat_global(#"hits");
+	totaldeaths = player stats::get_stat_global(#"deaths");
+	totalwins = player stats::get_stat_global(#"wins");
+	totalxp = player stats::get_stat_global(#"rankxp");
 	killcount = 0;
 	hitcount = 0;
 	if(level.mpcustommatch)
@@ -300,7 +300,7 @@ function function_96d38b95(result)
 	var_8607894c = spawnstruct();
 	var_8607894c.var_3cc73d67 = player function_5d23af5b();
 	var_8607894c.specialist_head = player function_44a7328f();
-	var_8607894c.var_d5985917 = player function_cde23658();
+	var_8607894c.specialist_legs = player function_cde23658();
 	var_8607894c.var_ef44bb8b = player function_92ea4100();
 	var_8607894c.specialist_showcase = showcaseweapon.weapon.name;
 	function_92d1707f(#"hash_4c5946fa1191bc64", #"hash_71960e91f80c3365", var_906bdcf3, #"hash_4682ee0eb5071d2", var_811ed119, #"hash_209c80d657442a83", var_a14ea2be, #"hash_43cb38816354c3aa", var_b65d83f5, #"hash_11fcb8f188ed5050", var_6e81e3c3, #"hash_78a6c018d9f82184", var_8607894c);
@@ -360,17 +360,17 @@ function record_global_mp_stats_for_player_at_match_start()
 	{
 		return;
 	}
-	startkills = self stats::function_441050ca(#"kills");
-	startdeaths = self stats::function_441050ca(#"deaths");
-	startwins = self stats::function_441050ca(#"wins");
-	startlosses = self stats::function_441050ca(#"losses");
-	starthits = self stats::function_441050ca(#"hits");
-	startmisses = self stats::function_441050ca(#"misses");
-	starttimeplayedtotal = self stats::function_441050ca(#"time_played_total");
-	startscore = self stats::function_441050ca(#"score");
-	startprestige = self stats::function_441050ca(#"plevel");
+	startkills = self stats::get_stat_global(#"kills");
+	startdeaths = self stats::get_stat_global(#"deaths");
+	startwins = self stats::get_stat_global(#"wins");
+	startlosses = self stats::get_stat_global(#"losses");
+	starthits = self stats::get_stat_global(#"hits");
+	startmisses = self stats::get_stat_global(#"misses");
+	starttimeplayedtotal = self stats::get_stat_global(#"time_played_total");
+	startscore = self stats::get_stat_global(#"score");
+	startprestige = self stats::get_stat_global(#"plevel");
 	startunlockpoints = self stats::get_stat(#"unlocks", 0);
-	ties = self stats::function_441050ca(#"ties");
+	ties = self stats::get_stat_global(#"ties");
 	startgamesplayed = (startwins + startlosses) + ties;
 	self.startkills = startkills;
 	self.starthits = starthits;
@@ -403,17 +403,17 @@ function record_global_mp_stats_for_player_at_match_end()
 	{
 		return;
 	}
-	endkills = self stats::function_441050ca(#"kills");
-	enddeaths = self stats::function_441050ca(#"deaths");
-	endwins = self stats::function_441050ca(#"wins");
-	endlosses = self stats::function_441050ca(#"losses");
-	endhits = self stats::function_441050ca(#"hits");
-	endmisses = self stats::function_441050ca(#"misses");
-	endtimeplayedtotal = self stats::function_441050ca(#"time_played_total");
-	endscore = self stats::function_441050ca(#"score");
-	endprestige = self stats::function_441050ca(#"plevel");
+	endkills = self stats::get_stat_global(#"kills");
+	enddeaths = self stats::get_stat_global(#"deaths");
+	endwins = self stats::get_stat_global(#"wins");
+	endlosses = self stats::get_stat_global(#"losses");
+	endhits = self stats::get_stat_global(#"hits");
+	endmisses = self stats::get_stat_global(#"misses");
+	endtimeplayedtotal = self stats::get_stat_global(#"time_played_total");
+	endscore = self stats::get_stat_global(#"score");
+	endprestige = self stats::get_stat_global(#"plevel");
 	endunlockpoints = self stats::get_stat(#"unlocks", 0);
-	ties = self stats::function_441050ca(#"ties");
+	ties = self stats::get_stat_global(#"ties");
 	endgamesplayed = (endwins + endlosses) + ties;
 	recordplayerstats(self, "end_kills", endkills);
 	recordplayerstats(self, "end_deaths", enddeaths);
@@ -494,10 +494,10 @@ function function_ea5da381()
 	{
 		self persistence::function_acac764e();
 	}
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
-		self persistence::set_recent_stat(0, 0, #"hash_95906bc03912ac4", self.pers[#"hash_95906bc03912ac4"]);
-		self persistence::set_recent_stat(0, 0, #"hash_50ee08d8d2973448", self.pers[#"hash_50ee08d8d2973448"]);
+		self persistence::set_recent_stat(0, 0, #"placement_team", self.pers[#"placement_team"]);
+		self persistence::set_recent_stat(0, 0, #"placement_player", self.pers[#"placement_player"]);
 		self persistence::set_recent_stat(0, 0, #"timeplayed", self.timeplayed[#"total"]);
 	}
 }
@@ -527,7 +527,7 @@ function function_7569c0fb()
 	self persistence::set_recent_stat(0, 0, #"damage", self.pers[#"damagedone"]);
 	self persistence::set_recent_stat(0, 0, #"objectiveekia", self.pers[#"objectiveekia"]);
 	self persistence::set_recent_stat(0, 0, #"objectivescore", self.pers[#"objectivescore"]);
-	self persistence::set_recent_stat(0, 0, #"hash_2dadc7ba42ffd04d", self.pers[#"hash_2dadc7ba42ffd04d"]);
+	self persistence::set_recent_stat(0, 0, #"objectivedefends", self.pers[#"objectivedefends"]);
 	self persistence::set_recent_stat(0, 0, #"objectivetime", self.pers[#"objectivetime"]);
 	self function_ea5da381();
 	self stats::function_81f5c0fe(self.pers[#"outcome"], 1);
@@ -560,9 +560,9 @@ function function_7569c0fb()
 		case "hash_5cb44bd4d87aa317":
 		case "war":
 		case "hash_5fd7317230bb0fac":
-		case "hash_60af7b31f15b60dc":
+		case "dom_bb_hc":
 		case "vip":
-		case "hash_69aed4920e1ebe82":
+		case "escort_bb":
 		case "hash_7020e89c237486d0":
 		case "clean":
 		case "clean_bb":

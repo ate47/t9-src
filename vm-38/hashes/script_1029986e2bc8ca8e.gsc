@@ -84,7 +84,7 @@ function private function_70a657d8()
 function private finalize()
 {
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -108,13 +108,13 @@ function function_b3464a7c(scriptname, spawncallback, var_74c67ede, category, wa
 		var_549cb6f6 = undefined;
 	}
 	/#
-		assert(isstring(scriptname) || function_7a600918(scriptname));
+		assert(isstring(scriptname) || ishash(scriptname));
 	#/
 	/#
 		assert(isfunctionptr(var_74c67ede));
 	#/
 	/#
-		assert(function_7a600918(category));
+		assert(ishash(category));
 	#/
 	/#
 		assert(isinarray(level.var_4e996a3f, category), ("" + function_9e72a96(category)) + "");
@@ -148,13 +148,13 @@ function objective_ended(instance, completed)
 		assert(isstruct(instance));
 	#/
 	/#
-		assert(level.var_7d45d0d4.var_3385b421 == instance);
+		assert(level.var_7d45d0d4.activeobjective == instance);
 	#/
 	/#
 		assert(isint(completed));
 	#/
-	level.var_7d45d0d4.var_1d9d92ba = level.var_7d45d0d4.var_3385b421;
-	level.var_7d45d0d4.var_3385b421 = undefined;
+	level.var_7d45d0d4.var_1d9d92ba = level.var_7d45d0d4.activeobjective;
+	level.var_7d45d0d4.activeobjective = undefined;
 	level flag::clear("objective_locked");
 	function_2fe379cd();
 	if(completed)
@@ -207,7 +207,7 @@ function function_d28e25e7(var_2e19be37)
 	/#
 		assert(var_2e19be37 <= 32, "");
 	#/
-	if(clientfield::function_6b3b55da("hudItems.warzone.objectivesCompleted"))
+	if(clientfield::can_set("hudItems.warzone.objectivesCompleted"))
 	{
 		level clientfield::set_world_uimodel("hudItems.warzone.objectivesCompleted", var_2e19be37);
 	}
@@ -227,7 +227,7 @@ function function_9f6de950(objectivetotal)
 	/#
 		assert(objectivetotal <= 32, "");
 	#/
-	if(clientfield::function_6b3b55da("hudItems.warzone.objectiveTotal"))
+	if(clientfield::can_set("hudItems.warzone.objectiveTotal"))
 	{
 		level clientfield::set_world_uimodel("hudItems.warzone.objectiveTotal", objectivetotal);
 	}
@@ -716,11 +716,11 @@ function start_objective(instance, activator)
 	{
 		activator = undefined;
 	}
-	if(isdefined(level.var_7d45d0d4.var_3385b421))
+	if(isdefined(level.var_7d45d0d4.activeobjective))
 	{
 		return false;
 	}
-	level.var_7d45d0d4.var_3385b421 = instance;
+	level.var_7d45d0d4.activeobjective = instance;
 	level flag::set("objective_locked");
 	if(isdefined(instance.var_e55c8b4e))
 	{
@@ -1494,7 +1494,7 @@ function autoexec function_42fa2bab()
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: objective_manager
 	Checksum: 0xDBF29B4E
 	Offset: 0x4080
@@ -1502,27 +1502,27 @@ function autoexec function_42fa2bab()
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		util::waittill_can_add_debug_command();
 		level thread function_7a7ab1a2();
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 100), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 100), "");
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 101), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 101), "");
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 102), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 102), "");
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 102), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 102), "");
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 102), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 102), "");
 		setdvar(#"hash_5ec9d9c47f22480b", 0);
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 103), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 103), "");
 		function_cd140ee9(#"hash_5ec9d9c47f22480b", &function_a8417c4a);
 		adddebugcommand("");
-		util::add_devgui(namespace_8b6a9d79::function_7956c7ac("", 104), "");
+		util::add_devgui(namespace_8b6a9d79::devgui_path("", 104), "");
 	#/
 }
 
@@ -1639,23 +1639,23 @@ function function_7a7ab1a2()
 			if(getdvarint(#"hash_6b5cf36b6de48f0a", 0))
 			{
 				setdvar(#"hash_6b5cf36b6de48f0a", 0);
-				if(isdefined(level.var_7d45d0d4.var_3385b421))
+				if(isdefined(level.var_7d45d0d4.activeobjective))
 				{
-					objective_ended(level.var_7d45d0d4.var_3385b421, 1);
+					objective_ended(level.var_7d45d0d4.activeobjective, 1);
 				}
 			}
 			else if(getdvarint(#"hash_41c8b0af55de9e31", 0))
 			{
 				setdvar(#"hash_41c8b0af55de9e31", 0);
-				if(isdefined(level.var_7d45d0d4.var_3385b421))
+				if(isdefined(level.var_7d45d0d4.activeobjective))
 				{
-					objective_ended(level.var_7d45d0d4.var_3385b421, 0);
+					objective_ended(level.var_7d45d0d4.activeobjective, 0);
 				}
 			}
 			if(getdvarint(#"hash_56fb5b3dc9a94fb6", 0))
 			{
 				setdvar(#"hash_56fb5b3dc9a94fb6", 0);
-				instance = level.var_7d45d0d4.var_3385b421;
+				instance = level.var_7d45d0d4.activeobjective;
 				if(!isdefined(instance))
 				{
 					instance = level.var_d56035;

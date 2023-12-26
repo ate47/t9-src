@@ -61,7 +61,7 @@ function private function_70a657d8()
 */
 function private function_df836293()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return "killstreak_counteruav_wz";
 	}

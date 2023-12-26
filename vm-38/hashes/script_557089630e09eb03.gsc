@@ -72,7 +72,7 @@ class conslaught_hud : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: conslaught_hud
 		Checksum: 0x689B5E8D
 		Offset: 0x7A0
@@ -80,9 +80,9 @@ class conslaught_hud : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("onslaught_hud");
+		cLUIelem::register_clientside("onslaught_hud");
 	}
 
 	/*
@@ -99,13 +99,13 @@ class conslaught_hud : cLUIelem
 		cLUIelem::setup_clientfields("onslaught_hud");
 		cLUIelem::function_dcb34c80("string", "bossAlertText", 1);
 		cLUIelem::function_dcb34c80("string", "objective2Text", 1);
-		cLUIelem::function_da693cbe("score3Points", 1, 8, "int", var_a584bc49);
+		cLUIelem::add_clientfield("score3Points", 1, 8, "int", var_a584bc49);
 		cLUIelem::function_dcb34c80("string", "objectiveText", 1);
-		cLUIelem::function_da693cbe("showEndScore", 1, 1, "int", var_52a170c);
-		cLUIelem::function_da693cbe("showScore", 1, 1, "int", var_4e7bf429);
-		cLUIelem::function_da693cbe("showObjective", 1, 1, "int", var_9a88505e);
-		cLUIelem::function_da693cbe("showBossAlert", 1, 1, "int", var_e805c474);
-		cLUIelem::function_da693cbe("showObjective2", 1, 1, "int", var_f1a2774e);
+		cLUIelem::add_clientfield("showEndScore", 1, 1, "int", var_52a170c);
+		cLUIelem::add_clientfield("showScore", 1, 1, "int", var_4e7bf429);
+		cLUIelem::add_clientfield("showObjective", 1, 1, "int", var_9a88505e);
+		cLUIelem::add_clientfield("showBossAlert", 1, 1, "int", var_e805c474);
+		cLUIelem::add_clientfield("showObjective2", 1, 1, "int", var_f1a2774e);
 	}
 
 	/*
@@ -280,7 +280,7 @@ function register(var_ef8933e3, var_61963aa5, var_964ac54, var_a584bc49, var_52a
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: onslaught_hud
 	Checksum: 0x480D0A60
 	Offset: 0x340
@@ -288,10 +288,10 @@ function register(var_ef8933e3, var_61963aa5, var_964ac54, var_a584bc49, var_52a
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new conslaught_hud();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -697,7 +697,7 @@ function updatedevsettings()
 				}
 			}
 		}
-		if(getdvarstring(#"hash_5b311cf6da67afb") == "")
+		if(getdvarstring(#"scr_givetalent") == "")
 		{
 			players = getplayers();
 			iprintln("");
@@ -710,11 +710,11 @@ function updatedevsettings()
 				player function_e6f9e3cd();
 				player loadout::giveloadout(player.team, player.curclass);
 			}
-			setdvar(#"hash_5b311cf6da67afb", "");
+			setdvar(#"scr_givetalent", "");
 		}
-		if(getdvarstring(#"hash_5b311cf6da67afb") != "")
+		if(getdvarstring(#"scr_givetalent") != "")
 		{
-			talentname = getdvarstring(#"hash_5b311cf6da67afb");
+			talentname = getdvarstring(#"scr_givetalent");
 			var_2fe3f7e3 = hash(talentname);
 			players = getplayers();
 			iprintln(("" + talentname) + "");
@@ -727,7 +727,7 @@ function updatedevsettings()
 				player function_b5feff95(var_2fe3f7e3);
 				player loadout::giveloadout(player.team, player.curclass);
 			}
-			setdvar(#"hash_5b311cf6da67afb", "");
+			setdvar(#"scr_givetalent", "");
 		}
 	#/
 }

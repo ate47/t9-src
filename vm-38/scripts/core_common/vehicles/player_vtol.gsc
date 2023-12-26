@@ -1,7 +1,7 @@
 #using scripts\weapons\heatseekingmissile.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
-#using script_751513c609504a42;
+#using scripts\core_common\targetting_delay.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\core_common\turret_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
@@ -70,7 +70,7 @@ function function_1b39ded0()
 	self.var_51e39f11 = [];
 	self thread function_7d2e878c();
 	self thread function_fcc7ca52();
-	self thread namespace_14c38db0::function_7e1a12ce(self.var_fc0dee44);
+	self thread targetting_delay::function_7e1a12ce(self.var_fc0dee44);
 }
 
 /*

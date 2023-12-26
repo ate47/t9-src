@@ -44,7 +44,7 @@ class cbountyhunterbuy : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cbountyhunterbuy
 		Checksum: 0xE0F80EA9
 		Offset: 0x340
@@ -52,9 +52,9 @@ class cbountyhunterbuy : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("BountyHunterBuy");
+		cLUIelem::register_clientside("BountyHunterBuy");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: bountyhunterbuy
 	Checksum: 0x26BEC83B
 	Offset: 0x240
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cbountyhunterbuy();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

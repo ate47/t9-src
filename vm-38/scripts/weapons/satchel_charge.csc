@@ -52,9 +52,9 @@ function satchel_spawned(localclientnum)
 		return;
 	}
 	self util::waittill_dobj(localclientnum);
-	if(isdefined(self.weapon.var_4dd46f8a))
+	if(isdefined(self.weapon.customsettings))
 	{
-		var_966a1350 = getscriptbundle(self.weapon.var_4dd46f8a);
+		var_966a1350 = getscriptbundle(self.weapon.customsettings);
 		self.var_966a1350 = var_966a1350;
 		if(isdefined(var_966a1350.var_b941081f) && isdefined(var_966a1350.var_40772cbe))
 		{

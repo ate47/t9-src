@@ -1,6 +1,6 @@
 #using script_340a2e805e35f7a2;
 #using script_34ab99a4ca1a43d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_ab862743b3070a;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -235,7 +235,7 @@ function private function_5928d77d()
 			function_1eaaceab(dog_array);
 			if(dog_array.size < var_ef5ad4eb)
 			{
-				ai = namespace_c402654::function_62db7b1c();
+				ai = zombie_dog_util::function_62db7b1c();
 				if(!isdefined(dog_array))
 				{
 					dog_array = [];

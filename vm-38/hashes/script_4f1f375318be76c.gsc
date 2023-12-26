@@ -47,7 +47,7 @@ class ccp_captured_supplydrop : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -103,7 +103,7 @@ class ccp_captured_supplydrop : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -132,13 +132,13 @@ class ccp_captured_supplydrop : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("cp_captured_supplydrop");
-		cLUIelem::function_da693cbe("micromissile_count", 1, 2, "int");
-		cLUIelem::function_da693cbe("wasp_count", 1, 2, "int");
-		cLUIelem::function_da693cbe("rcxd_count", 1, 2, "int");
-		cLUIelem::function_da693cbe("guardian_count", 1, 2, "int");
-		cLUIelem::function_da693cbe("robot_count", 1, 2, "int");
-		cLUIelem::function_da693cbe("raps_count", 1, 2, "int");
-		cLUIelem::function_da693cbe("selector_state", 1, 3, "int");
+		cLUIelem::add_clientfield("micromissile_count", 1, 2, "int");
+		cLUIelem::add_clientfield("wasp_count", 1, 2, "int");
+		cLUIelem::add_clientfield("rcxd_count", 1, 2, "int");
+		cLUIelem::add_clientfield("guardian_count", 1, 2, "int");
+		cLUIelem::add_clientfield("robot_count", 1, 2, "int");
+		cLUIelem::add_clientfield("raps_count", 1, 2, "int");
+		cLUIelem::add_clientfield("selector_state", 1, 3, "int");
 	}
 
 	/*

@@ -47,7 +47,7 @@ class conslaught_hud : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -89,7 +89,7 @@ class conslaught_hud : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -106,13 +106,13 @@ class conslaught_hud : cLUIelem
 		cLUIelem::setup_clientfields("onslaught_hud");
 		cLUIelem::function_dcb34c80("string", "bossAlertText", 1);
 		cLUIelem::function_dcb34c80("string", "objective2Text", 1);
-		cLUIelem::function_da693cbe("score3Points", 1, 8, "int");
+		cLUIelem::add_clientfield("score3Points", 1, 8, "int");
 		cLUIelem::function_dcb34c80("string", "objectiveText", 1);
-		cLUIelem::function_da693cbe("showEndScore", 1, 1, "int");
-		cLUIelem::function_da693cbe("showScore", 1, 1, "int");
-		cLUIelem::function_da693cbe("showObjective", 1, 1, "int");
-		cLUIelem::function_da693cbe("showBossAlert", 1, 1, "int");
-		cLUIelem::function_da693cbe("showObjective2", 1, 1, "int");
+		cLUIelem::add_clientfield("showEndScore", 1, 1, "int");
+		cLUIelem::add_clientfield("showScore", 1, 1, "int");
+		cLUIelem::add_clientfield("showObjective", 1, 1, "int");
+		cLUIelem::add_clientfield("showBossAlert", 1, 1, "int");
+		cLUIelem::add_clientfield("showObjective2", 1, 1, "int");
 	}
 
 	/*

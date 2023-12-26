@@ -142,8 +142,8 @@ function function_965ea244(var_6c93328a, var_f99420aa)
 			var_13711f02[var_13711f02.size] = i;
 		}
 	}
-	var_f11eb5f2 = var_13711f02[randomint(var_13711f02.size)];
-	return var_f11eb5f2;
+	roleindex = var_13711f02[randomint(var_13711f02.size)];
+	return roleindex;
 }
 
 /*
@@ -273,7 +273,7 @@ function set(index, force)
 	{
 		if(currentsessionmode() == 2)
 		{
-			customloadoutindex = self stats::get_stat(#"hash_2a738807be622e31");
+			customloadoutindex = self stats::get_stat(#"selectedcustomclass");
 		}
 		else
 		{

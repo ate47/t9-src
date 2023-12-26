@@ -60,7 +60,7 @@ class class_ab111f2c : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_ab111f2c
 		Checksum: 0x6A2ED9B6
 		Offset: 0x520
@@ -68,9 +68,9 @@ class class_ab111f2c : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("cp_hint_text");
+		cLUIelem::register_clientside("cp_hint_text");
 	}
 
 	/*
@@ -102,9 +102,9 @@ class class_ab111f2c : cLUIelem
 	{
 		cLUIelem::setup_clientfields("cp_hint_text");
 		cLUIelem::function_dcb34c80("string", "hint_text", 1);
-		cLUIelem::function_da693cbe("display_blink", 1, 1, "counter", var_8f133ca4);
-		cLUIelem::function_da693cbe("fadeout", 1, 1, "counter", var_b38e91b5);
-		cLUIelem::function_da693cbe("display_noblink", 1, 1, "counter", var_101d8535);
+		cLUIelem::add_clientfield("display_blink", 1, 1, "counter", var_8f133ca4);
+		cLUIelem::add_clientfield("fadeout", 1, 1, "counter", var_b38e91b5);
+		cLUIelem::add_clientfield("display_noblink", 1, 1, "counter", var_101d8535);
 	}
 
 	/*
@@ -206,7 +206,7 @@ function register(var_4f361551, var_8f133ca4, var_b38e91b5, var_101d8535)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: cp_hint_text
 	Checksum: 0xF7880D40
 	Offset: 0x2B8
@@ -214,10 +214,10 @@ function register(var_4f361551, var_8f133ca4, var_b38e91b5, var_101d8535)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_ab111f2c();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -37,7 +37,7 @@ function private autoexec function_c703b42d()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"ui", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"ui", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -56,12 +56,12 @@ function private function_70a657d8()
 		level.var_ef4974d7 = [];
 	}
 	/#
-		level thread function_5f747d5a();
+		level thread devgui_loop();
 	#/
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: ui
 	Checksum: 0x65CC2271
 	Offset: 0x340
@@ -69,7 +69,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level thread game_time();
 }
@@ -90,7 +90,7 @@ function game_time()
 }
 
 /*
-	Name: function_ebd7bf6a
+	Name: countdown_timer
 	Namespace: ui
 	Checksum: 0x75FFC77C
 	Offset: 0x3A0
@@ -98,7 +98,7 @@ function game_time()
 	Parameters: 10
 	Flags: None
 */
-function function_ebd7bf6a(var_753cb060, var_3b192471, str_team, var_9c038d31, var_f27011e3, var_3efd443d, var_edf9778a, var_72f304a8, var_243f2dbe, var_f2a3a140)
+function countdown_timer(var_753cb060, var_3b192471, str_team, var_9c038d31, var_f27011e3, var_3efd443d, var_edf9778a, var_72f304a8, var_243f2dbe, var_f2a3a140)
 {
 	if(!isdefined(var_3b192471))
 	{
@@ -597,7 +597,7 @@ function game_result(str_winning_team)
 }
 
 /*
-	Name: function_5f747d5a
+	Name: devgui_loop
 	Namespace: ui
 	Checksum: 0x6CA45DB9
 	Offset: 0x1630
@@ -605,7 +605,7 @@ function game_result(str_winning_team)
 	Parameters: 0
 	Flags: Private
 */
-function private function_5f747d5a()
+function private devgui_loop()
 {
 	/#
 		while(true)

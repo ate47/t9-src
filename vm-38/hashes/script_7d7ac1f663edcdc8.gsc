@@ -1,7 +1,7 @@
 #using script_113dd7f0ea2a1d4f;
 #using script_1cc417743d7c262d;
 #using script_2618e0f3e5e11649;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_437ce686d29bb81b;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

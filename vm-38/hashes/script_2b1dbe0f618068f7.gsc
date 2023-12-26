@@ -44,8 +44,8 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.armorPlateCount", #"hud_items", #"hash_7c65108f5dcd93ef", 1, 4, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.armorPlateMaxCarry", #"hud_items", #"hash_6260c609342f556d", 1, 4, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.armorPlateCount", #"hud_items", #"hash_7c65108f5dcd93ef", 1, 4, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.armorPlateMaxCarry", #"hud_items", #"hash_6260c609342f556d", 1, 4, "int", undefined, 0, 0);
 	level.var_a05cd64e = &function_a05cd64e;
 	level.var_8ef8b9e8 = getweapon(#"hash_9825a3f1d038c6f");
 	callback::on_localclient_connect(&on_localclient_connect);
@@ -171,7 +171,7 @@ function private function_86b9a404()
 	}
 	var_6aae821e = hasweapon(localclientnum, level.var_8ef8b9e8);
 	currentcount = self clientfield::get_player_uimodel("hudItems.armorPlateCount");
-	return currentcount > 0 && self function_e8ef30cc() < 225 && var_6aae821e;
+	return currentcount > 0 && self getplayerarmor() < 225 && var_6aae821e;
 }
 
 /*

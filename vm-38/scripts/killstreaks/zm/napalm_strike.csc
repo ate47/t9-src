@@ -145,7 +145,7 @@ function function_85734aa(localclientnum, marker)
 	if(isplayer(player))
 	{
 		player postfx::function_c8b5f318("pstfx_napalm_strike_bundle", #"hash_1dc8a3cb360b2900" + marker.var_595cc3a1, 4);
-		player postfx::function_c8b5f318("pstfx_napalm_strike_bundle", #"hash_3930a65cbb342a89" + marker.var_595cc3a1, 290);
+		player postfx::function_c8b5f318("pstfx_napalm_strike_bundle", #"radius " + marker.var_595cc3a1, 290);
 	}
 }
 

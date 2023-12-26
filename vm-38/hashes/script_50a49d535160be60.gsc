@@ -44,7 +44,7 @@ class czm_hint_text : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_hint_text
 		Checksum: 0x2702F1C4
 		Offset: 0x420
@@ -52,9 +52,9 @@ class czm_hint_text : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_hint_text");
+		cLUIelem::register_clientside("zm_hint_text");
 	}
 
 	/*
@@ -69,7 +69,7 @@ class czm_hint_text : cLUIelem
 	function setup_clientfields(var_f5852d69)
 	{
 		cLUIelem::setup_clientfields("zm_hint_text");
-		cLUIelem::function_da693cbe("_state", 1, 1, "int");
+		cLUIelem::add_clientfield("_state", 1, 1, "int");
 		cLUIelem::function_dcb34c80("string", "text", 1);
 	}
 
@@ -186,7 +186,7 @@ function register(var_f5852d69)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_hint_text
 	Checksum: 0x82DE0225
 	Offset: 0x268
@@ -194,10 +194,10 @@ function register(var_f5852d69)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new czm_hint_text();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

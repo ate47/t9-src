@@ -1,6 +1,6 @@
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\zm_common\zm_bgb_pack.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -52,7 +52,7 @@ function private autoexec function_9cb7d712()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"bgb", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"bgb", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -74,19 +74,19 @@ function private function_70a657d8()
 	level.weaponbgbgrab = getweapon(#"zombie_bgb_grab");
 	level.var_ddff6359 = array(getweapon(#"hash_d0f29de78e218ad"), getweapon(#"hash_5e07292c519531e6"), getweapon(#"hash_305e5faa9ecb625a"), getweapon(#"hash_23cc1f9c16b375c3"), getweapon(#"hash_155cc0a9ba3c3260"), getweapon(#"hash_2394c41f048f7d2"), getweapon(#"hash_4565adf3abc61ea3"));
 	level.bgb = [];
-	clientfield::function_a8bbc967("zmhud.bgb_current", 1, 8, "int", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_display", 1, 1, "int", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_timer", 1, 8, "float", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_activations_remaining", 1, 3, "int", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_invalid_use", 1, 1, "counter", 0);
-	clientfield::function_a8bbc967("zmhud.bgb_one_shot_use", 1, 1, "counter", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_current", 1, 8, "int", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_display", 1, 1, "int", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_timer", 1, 8, "float", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_activations_remaining", 1, 3, "int", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_invalid_use", 1, 1, "counter", 0);
+	clientfield::register_clientuimodel("zmhud.bgb_one_shot_use", 1, 1, "counter", 0);
 	clientfield::register("toplayer", "bgb_blow_bubble", 1, 1, "counter");
 	zm::register_vehicle_damage_callback(&vehicle_damage_override);
 	zm_perks::register_lost_perk_override(&lost_perk_override);
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: bgb
 	Checksum: 0x51C5971E
 	Offset: 0x620
@@ -94,7 +94,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(!is_true(level.bgb_in_use))
 	{
@@ -294,11 +294,11 @@ function private bgb_finalize()
 			#/
 			continue;
 		}
-		if(!isdefined(var_5415dfb9.var_f5aaa47e))
+		if(!isdefined(var_5415dfb9.bgbrarity))
 		{
-			var_5415dfb9.var_f5aaa47e = 0;
+			var_5415dfb9.bgbrarity = 0;
 		}
-		v.rarity = var_5415dfb9.var_f5aaa47e;
+		v.rarity = var_5415dfb9.bgbrarity;
 		if(0 == v.rarity || 1 == v.rarity)
 		{
 			v.consumable = 0;
@@ -723,7 +723,7 @@ function function_a6c704c(bgb)
 	level endon(#"end_game");
 	self thread function_b331a28c(bgb);
 	self thread function_1f3eb76f(bgb);
-	util::delay(#"hash_7b6a55a9b65e3194", "death", &zm_audio::create_and_play_dialog, #"elixir", #"drink");
+	util::delay(#"offhand_fire", "death", &zm_audio::create_and_play_dialog, #"elixir", #"drink");
 	if(is_true(level.bgb[bgb].var_4a9b0cdc) || self function_e98aa964(1))
 	{
 		self notify(#"hash_27b238d082f65849", bgb);
@@ -768,10 +768,10 @@ function private bgb_get_gumball_anim_weapon(bgb)
 	var_ab8d8da3 = undefined;
 	if(isdefined(level.bgb[bgb]))
 	{
-		var_c16a4a5b = level.bgb[bgb].rarity;
-		if(isdefined(level.var_ddff6359) && isdefined(var_c16a4a5b))
+		n_rarity = level.bgb[bgb].rarity;
+		if(isdefined(level.var_ddff6359) && isdefined(n_rarity))
 		{
-			var_ab8d8da3 = level.var_ddff6359[var_c16a4a5b];
+			var_ab8d8da3 = level.var_ddff6359[n_rarity];
 		}
 	}
 	return var_ab8d8da3;
@@ -1920,8 +1920,8 @@ function function_c6cd71d5(str_powerup, v_origin, var_22a4c702)
 	{
 		var_22a4c702 = self get_player_dropped_powerup_origin();
 	}
-	var_7d81025 = zm_powerups::specific_powerup_drop(v_origin, var_22a4c702, undefined, 0.1, undefined, undefined, 1, 1, 1, 1);
-	var_7d81025.var_2b5ec373 = self;
+	e_powerup = zm_powerups::specific_powerup_drop(v_origin, var_22a4c702, undefined, 0.1, undefined, undefined, 1, 1, 1, 1);
+	e_powerup.var_2b5ec373 = self;
 	if(isplayer(self))
 	{
 		self zm_stats::increment_challenge_stat(#"hash_3ebae93ea866519c");

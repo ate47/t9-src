@@ -51,7 +51,7 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	level.var_46821767 = getdvarint(#"hash_661461deeee00da6", 0);
-	telemetry::add_callback(#"hash_361e06db4b210e", &function_72c32279);
+	telemetry::add_callback(#"on_game_playing", &function_72c32279);
 	telemetry::add_callback(#"hash_3ca80e35288a78d0", &function_d519e318);
 	telemetry::add_callback(#"on_end_game", &function_f0ffff28);
 	telemetry::add_callback(#"on_player_connect", &on_player_connect);
@@ -347,19 +347,19 @@ function on_player_disconnect()
 	playerdata.objectives = (isdefined(self.objectives) ? self.objectives : 0);
 	if(!is_true(level.disablestattracking))
 	{
-		playerdata.var_9ffd4086 = self stats::function_441050ca(#"kills");
-		playerdata.var_56c22769 = self stats::function_441050ca(#"deaths");
-		playerdata.var_3c57e59 = self stats::function_441050ca(#"wins");
-		playerdata.var_e42ad7c9 = self stats::function_441050ca(#"losses");
-		playerdata.var_270e8e42 = self stats::function_441050ca(#"ties");
-		playerdata.var_4c4d425a = self stats::function_441050ca(#"hits");
-		playerdata.var_5197016d = self stats::function_441050ca(#"misses");
-		playerdata.var_359ee86a = self stats::function_441050ca(#"time_played_total");
-		playerdata.var_4ab9220a = self stats::function_441050ca(#"score");
+		playerdata.var_9ffd4086 = self stats::get_stat_global(#"kills");
+		playerdata.var_56c22769 = self stats::get_stat_global(#"deaths");
+		playerdata.var_3c57e59 = self stats::get_stat_global(#"wins");
+		playerdata.var_e42ad7c9 = self stats::get_stat_global(#"losses");
+		playerdata.var_270e8e42 = self stats::get_stat_global(#"ties");
+		playerdata.var_4c4d425a = self stats::get_stat_global(#"hits");
+		playerdata.var_5197016d = self stats::get_stat_global(#"misses");
+		playerdata.var_359ee86a = self stats::get_stat_global(#"time_played_total");
+		playerdata.var_4ab9220a = self stats::get_stat_global(#"score");
 	}
 	playerdata.operator = 0;
 	role = self player_role::get();
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		var_a791abd1 = function_b14806c6(role, currentsessionmode());
 		playerdata.operator = (isdefined(var_a791abd1) ? var_a791abd1 : 0);
@@ -738,27 +738,27 @@ function function_6d57b52a(player, var_6165a2d8, var_cc4bc1dd)
 			case 6:
 			default:
 			{
-				var_2153b0fe.perks[5] = var_cc4bc1dd[5].var_3cf2d21;
+				var_2153b0fe.perks[5] = var_cc4bc1dd[5].namehash;
 			}
 			case 5:
 			{
-				var_2153b0fe.perks[4] = var_cc4bc1dd[4].var_3cf2d21;
+				var_2153b0fe.perks[4] = var_cc4bc1dd[4].namehash;
 			}
 			case 4:
 			{
-				var_2153b0fe.perks[3] = var_cc4bc1dd[3].var_3cf2d21;
+				var_2153b0fe.perks[3] = var_cc4bc1dd[3].namehash;
 			}
 			case 3:
 			{
-				var_2153b0fe.perks[2] = var_cc4bc1dd[2].var_3cf2d21;
+				var_2153b0fe.perks[2] = var_cc4bc1dd[2].namehash;
 			}
 			case 2:
 			{
-				var_2153b0fe.perks[1] = var_cc4bc1dd[1].var_3cf2d21;
+				var_2153b0fe.perks[1] = var_cc4bc1dd[1].namehash;
 			}
 			case 1:
 			{
-				var_2153b0fe.perks[0] = var_cc4bc1dd[0].var_3cf2d21;
+				var_2153b0fe.perks[0] = var_cc4bc1dd[0].namehash;
 			}
 			case 0:
 			{

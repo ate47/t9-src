@@ -1,4 +1,4 @@
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_68d08b784c92da95;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -846,7 +846,7 @@ function function_b69b2de4(obj)
 	{
 		return false;
 	}
-	if(!isstring(obj.scriptbundlename) && !function_7a600918(obj.scriptbundlename))
+	if(!isstring(obj.scriptbundlename) && !ishash(obj.scriptbundlename))
 	{
 		return false;
 	}
@@ -1395,7 +1395,7 @@ function private function_23eef632()
 			foreach(obj in level.smartobjectpoints)
 			{
 				scriptbundlename = obj.scriptbundlename;
-				if(function_7a600918(scriptbundlename))
+				if(ishash(scriptbundlename))
 				{
 					scriptbundlename = function_9e72a96(scriptbundlename);
 				}
@@ -1451,7 +1451,7 @@ function private function_ed7733c7()
 			foreach(obj in level.var_49430738)
 			{
 				scriptbundlename = obj.scriptbundlename;
-				if(function_7a600918(scriptbundlename))
+				if(ishash(scriptbundlename))
 				{
 					scriptbundlename = function_9e72a96(scriptbundlename);
 				}

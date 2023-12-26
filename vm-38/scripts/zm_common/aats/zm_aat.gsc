@@ -549,7 +549,7 @@ function function_70c0e823(aat_name)
 {
 	/#
 		/#
-			assert(isdefined(level.aat[aat_name]), "" + (function_7a600918(aat_name) ? function_9e72a96(aat_name) : aat_name));
+			assert(isdefined(level.aat[aat_name]), "" + (ishash(aat_name) ? function_9e72a96(aat_name) : aat_name));
 		#/
 	#/
 	return level.aat[aat_name].element;

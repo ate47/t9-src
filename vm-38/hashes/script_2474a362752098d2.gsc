@@ -465,7 +465,7 @@ function function_f143eef7()
 	if(isdefined(usetrigger))
 	{
 		usetrigger setcursorhint("HINT_NOICON");
-		usetrigger callback::function_35a12f19(&onusecallback);
+		usetrigger callback::on_trigger(&onusecallback);
 	}
 	return usetrigger;
 }

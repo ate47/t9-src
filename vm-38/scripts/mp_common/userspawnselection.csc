@@ -69,8 +69,8 @@ function setupclientfields()
 		clientfield::function_5b7d846d(basename + "useStatus", #"hash_5e10ae8c08eeb04b", [1:#"usestatus", 0:hash((isdefined(index) ? "" + index : ""))], 1, 1, "int", undefined, 0, 1);
 		clientfield::function_5b7d846d(basename + "team", #"hash_5e10ae8c08eeb04b", [1:#"team", 0:hash((isdefined(index) ? "" + index : ""))], 1, 2, "int", undefined, 0, 1);
 	}
-	clientfield::function_a8bbc967("hudItems.showSpawnSelect", #"hud_items", #"showspawnselect", 1, 1, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.killcamActive", #"hud_items", #"hash_2f977a17b0f526fa", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.showSpawnSelect", #"hud_items", #"showspawnselect", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.killcamActive", #"hud_items", #"killcamactive", 1, 1, "int", undefined, 0, 0);
 	clientfield::function_5b7d846d("hideautospawnoption", #"hash_5e10ae8c08eeb04b", #"hideautospawnoption", 1, 1, "int", undefined, 0, 0);
 }
 

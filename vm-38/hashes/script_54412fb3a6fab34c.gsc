@@ -330,7 +330,7 @@ function private function_44a0fc4(var_af8e391e, var_48a9b1c9, var_a3fbfa71)
 	/#
 		var_749178c6 = "";
 		var_c8c21635 = 0;
-		var_31480f62 = 0;
+		isbuttonpressed = 0;
 		var_9b9a42b1 = 0.8;
 		if(isdefined(var_af8e391e) == 0)
 		{
@@ -345,7 +345,7 @@ function private function_44a0fc4(var_af8e391e, var_48a9b1c9, var_a3fbfa71)
 			var_a3fbfa71 = 500;
 		}
 		var_c1ed6f8 = var_9b9a42b1;
-		var_5491c04c = var_31480f62;
+		var_5491c04c = isbuttonpressed;
 		var_b00eae99 = undefined;
 		var_b053696b = 0;
 		/#
@@ -367,16 +367,16 @@ function private function_44a0fc4(var_af8e391e, var_48a9b1c9, var_a3fbfa71)
 		{
 			volume = getdvarfloat(var_749178c6);
 			var_5cbd7bfa = 0;
-			var_31480f62 = level.player buttonpressed(var_48a9b1c9);
-			if(var_31480f62 == 1 && var_5491c04c == 0)
+			isbuttonpressed = level.player buttonpressed(var_48a9b1c9);
+			if(isbuttonpressed == 1 && var_5491c04c == 0)
 			{
 				var_b053696b = gettime();
 			}
-			else if(var_31480f62 == 0)
+			else if(isbuttonpressed == 0)
 			{
 				var_b053696b = 0;
 			}
-			if(var_31480f62 == 1 && var_b053696b > 0)
+			if(isbuttonpressed == 1 && var_b053696b > 0)
 			{
 				buttonholdtime = gettime() - var_b053696b;
 				if(buttonholdtime >= var_a3fbfa71)
@@ -415,7 +415,7 @@ function private function_44a0fc4(var_af8e391e, var_48a9b1c9, var_a3fbfa71)
 				var_b00eae99.sort = 2;
 				var_b00eae99.font = "";
 				var_b00eae99.fontscale = fontscale;
-				var_b00eae99.var_5ca83600 = 1;
+				var_b00eae99.shadowed = 1;
 				var_b00eae99.foreground = 1;
 				var_b00eae99.label = var_5ebf496b;
 			}
@@ -425,7 +425,7 @@ function private function_44a0fc4(var_af8e391e, var_48a9b1c9, var_a3fbfa71)
 				var_b00eae99 = undefined;
 			}
 			var_c1ed6f8 = var_9b9a42b1;
-			var_5491c04c = var_31480f62;
+			var_5491c04c = isbuttonpressed;
 			waitframe(1);
 		}
 	#/

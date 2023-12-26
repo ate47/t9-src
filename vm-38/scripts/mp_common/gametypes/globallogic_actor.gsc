@@ -1,8 +1,8 @@
 #using scripts\core_common\player\player_shared.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_32c8b5b0eb2854f3;
-#using script_35598499769dbb3d;
-#using script_41fe08c37d53a635;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\weapons\weapons.gsc;

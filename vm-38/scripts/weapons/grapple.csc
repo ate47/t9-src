@@ -61,7 +61,7 @@ function private function_70a657d8()
 function player_on_spawned(localclientnum)
 {
 	player = self;
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		if(!player function_21c0fa55())
 		{
@@ -87,7 +87,7 @@ function function_664d0a50(localclientnum)
 	self endon("23372589bea0150");
 	player = self;
 	var_e413b7c3 = undefined;
-	var_e562bc9b = undefined;
+	invalidhandle = undefined;
 	while(isdefined(player))
 	{
 		var_6e521a44 = function_15f112c3(localclientnum);
@@ -95,16 +95,16 @@ function function_664d0a50(localclientnum)
 		{
 			if(var_6e521a44 && !isdefined(var_e413b7c3))
 			{
-				if(isdefined(var_e562bc9b))
+				if(isdefined(invalidhandle))
 				{
-					killfx(localclientnum, var_e562bc9b);
+					killfx(localclientnum, invalidhandle);
 					player notify("grapple_light_done_watch" + "invalid");
-					var_e562bc9b = undefined;
+					invalidhandle = undefined;
 				}
 				var_e413b7c3 = playviewmodelfx(localclientnum, #"hash_2a3978ae302f2faf", "tag_fx1", 0);
 				thread grapple_light_watch_end(localclientnum, var_e413b7c3, "valid");
 			}
-			else if(!var_6e521a44 && !isdefined(var_e562bc9b))
+			else if(!var_6e521a44 && !isdefined(invalidhandle))
 			{
 				if(isdefined(var_e413b7c3))
 				{
@@ -112,16 +112,16 @@ function function_664d0a50(localclientnum)
 					player notify("grapple_light_done_watch" + "valid");
 					var_e413b7c3 = undefined;
 				}
-				var_e562bc9b = playviewmodelfx(localclientnum, #"hash_39ed4a0ecba806a2", "tag_fx1", 0);
-				thread grapple_light_watch_end(localclientnum, var_e562bc9b, "invalid");
+				invalidhandle = playviewmodelfx(localclientnum, #"hash_39ed4a0ecba806a2", "tag_fx1", 0);
+				thread grapple_light_watch_end(localclientnum, invalidhandle, "invalid");
 			}
 		}
 		else
 		{
-			if(isdefined(var_e562bc9b))
+			if(isdefined(invalidhandle))
 			{
-				killfx(localclientnum, var_e562bc9b);
-				var_e562bc9b = undefined;
+				killfx(localclientnum, invalidhandle);
+				invalidhandle = undefined;
 			}
 			if(isdefined(var_e413b7c3))
 			{
@@ -177,7 +177,7 @@ function function_2297363d(localclientnum)
 		{
 			if(doearthquake)
 			{
-				player.var_8e03a0d4 = earthquake(localclientnum, level.var_1b2035de.var_1598129, 10000, player.origin, 0, 0);
+				player.grappleeq = earthquake(localclientnum, level.var_1b2035de.var_1598129, 10000, player.origin, 0, 0);
 				doearthquake = 0;
 			}
 			player mapshaderconstant(localclientnum, 0, "scriptVector1", var_30f9f328, 0, 0, 0);
@@ -193,10 +193,10 @@ function function_2297363d(localclientnum)
 			else
 			{
 				player mapshaderconstant(localclientnum, 0, "scriptVector1", 0, 0, 0, 0);
-				if(isdefined(player.var_8e03a0d4))
+				if(isdefined(player.grappleeq))
 				{
-					function_196e7c4b(localclientnum, player.var_8e03a0d4);
-					player.var_8e03a0d4 = undefined;
+					function_196e7c4b(localclientnum, player.grappleeq);
+					player.grappleeq = undefined;
 					doearthquake = 1;
 				}
 			}

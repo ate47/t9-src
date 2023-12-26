@@ -43,8 +43,8 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.playerInCombat", #"hud_items", #"playerincombat", 1, 1, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.serverDifficulty", #"hud_items", #"serverdifficulty", 1, 3, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.playerInCombat", #"hud_items", #"playerincombat", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.serverDifficulty", #"hud_items", #"serverdifficulty", 1, 3, "int", undefined, 0, 0);
 	function_11bcbb57();
 }
 

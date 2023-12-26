@@ -44,7 +44,7 @@ class cinteractive_shot : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cinteractive_shot
 		Checksum: 0xE378D10E
 		Offset: 0x3C0
@@ -52,9 +52,9 @@ class cinteractive_shot : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("interactive_shot");
+		cLUIelem::register_clientside("interactive_shot");
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_f5852d69)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: interactive_shot
 	Checksum: 0xED2E3827
 	Offset: 0x260
@@ -160,10 +160,10 @@ function register(var_f5852d69)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cinteractive_shot();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

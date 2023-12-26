@@ -10,7 +10,7 @@
 #using scripts\zm_common\zm_fasttravel.gsc;
 #using script_3e196d275a6fb180;
 #using script_3e57cc1a9084fdd6;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm\powerup\zm_powerup_insta_kill.gsc;
 #using scripts\zm\powerup\zm_powerup_hero_weapon_power.gsc;
 #using script_44b0b8420eabacad;
@@ -20,7 +20,7 @@
 #using scripts\zm\powerup\zm_powerup_free_perk.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using script_b9d273dc917ee1f;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -78,8 +78,8 @@ event main(eventstruct)
 	level.dog_round_count = 0;
 	changeadvertisedstatus(0);
 	clientfield::register("scriptmover", "" + #"boss_zone_on_radar", 1, 2, "int");
-	clientfield::function_a8bbc967("hudItems.onslaught.wave_number", 1, 7, "int");
-	clientfield::function_a8bbc967("hudItems.onslaught.bosskill_count", 1, 5, "int");
+	clientfield::register_clientuimodel("hudItems.onslaught.wave_number", 1, 7, "int");
+	clientfield::register_clientuimodel("hudItems.onslaught.bosskill_count", 1, 5, "int");
 	clientfield::register("scriptmover", "orb_spawn", 1, 1, "int");
 	clientfield::register("scriptmover", "bot_claim_fx", 1, 2, "int");
 	clientfield::register("actor", "orb_soul_capture_fx", 1, 3, "int");
@@ -247,7 +247,7 @@ function function_37d98bb7(entity)
 	entity zm_laststand::function_3d685b5f(0);
 	entity val::set(#"oob", "takedamage", 1);
 	entity.var_39c78617 = 1;
-	entity notify(#"hash_257d7f8fe6f97830");
+	entity notify(#"instakill_player");
 	if(is_true(entity.laststand))
 	{
 		waitframe(4);
@@ -684,7 +684,7 @@ function onstartgametype()
 {
 	zm_behavior::function_70a657d8();
 	zm_spawner::init();
-	zm_behavior::function_8ac3bea9();
+	zm_behavior::postinit();
 	spawning::function_7a87efaa();
 	zm_powerups::powerup_round_start();
 	if(isdefined(level.zombie_powerups[#"small_ammo"]))
@@ -783,7 +783,7 @@ function function_e88957df(var_a0168ed5)
 	{
 		var_a0168ed5 = 0;
 	}
-	if(util::function_5df4294() === #"zonslaught")
+	if(util::get_game_type() === #"zonslaught")
 	{
 		var_77acb6b1 = self zm_stats::function_de5c64c9(#"hash_50dc15187c54967c", level.var_9b7bd0e8);
 	}
@@ -1084,14 +1084,14 @@ function function_e88957df(var_a0168ed5)
 	Parameters: 2
 	Flags: None
 */
-function function_d400d613(targetname, var_37c5ce49)
+function function_d400d613(targetname, typesarray)
 {
 	returnarray = [];
 	rawspawns = struct::get_array(targetname, "targetname");
 	rawspawns = spawning::function_b404fc61(rawspawns);
 	foreach(spawn in rawspawns)
 	{
-		foreach(supportedspawntype in var_37c5ce49)
+		foreach(supportedspawntype in typesarray)
 		{
 			if(!function_82ca1565(spawn, supportedspawntype))
 			{

@@ -61,7 +61,7 @@ class cfull_screen_movie : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -117,7 +117,7 @@ class cfull_screen_movie : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -175,11 +175,11 @@ class cfull_screen_movie : cLUIelem
 	{
 		cLUIelem::setup_clientfields("full_screen_movie");
 		cLUIelem::function_dcb34c80("moviefile", "movieName", 1);
-		cLUIelem::function_da693cbe("showBlackScreen", 1, 1, "int");
-		cLUIelem::function_da693cbe("looping", 1, 1, "int");
-		cLUIelem::function_da693cbe("additive", 1, 1, "int");
-		cLUIelem::function_da693cbe("playOutroMovie", 1, 1, "int");
-		cLUIelem::function_da693cbe("skippable", 1, 1, "int");
+		cLUIelem::add_clientfield("showBlackScreen", 1, 1, "int");
+		cLUIelem::add_clientfield("looping", 1, 1, "int");
+		cLUIelem::add_clientfield("additive", 1, 1, "int");
+		cLUIelem::add_clientfield("playOutroMovie", 1, 1, "int");
+		cLUIelem::add_clientfield("skippable", 1, 1, "int");
 		cLUIelem::function_dcb34c80("moviefile", "movieKey", 1);
 	}
 

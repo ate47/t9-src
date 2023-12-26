@@ -417,8 +417,8 @@ function turret_timer(duration)
 function random_spread(ent)
 {
 	self endon(#"death");
-	self notify(#"hash_db4bcf6e900f466");
-	self endon(#"hash_db4bcf6e900f466", #"stopfiring");
+	self notify(#"stop random_spread");
+	self endon(#"stop random_spread", #"stopfiring");
 	self turretsettarget(0, ent);
 	self.manual_target = ent;
 	while(true)

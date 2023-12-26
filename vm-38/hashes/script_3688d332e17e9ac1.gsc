@@ -46,7 +46,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -70,7 +70,7 @@ function private on_begin(var_59803fa8)
 	{
 		player zm_trial_util::function_8677ce00(1);
 		player.b_hit = 0;
-		player callback::function_78ccee50(&function_78ccee50);
+		player callback::on_weapon_fired(&on_weapon_fired);
 		foreach(var_5a1e3e5b in level.hero_weapon)
 		{
 			foreach(w_hero in var_5a1e3e5b)
@@ -111,7 +111,7 @@ function private on_end(round_reset)
 	{
 		player.var_9979ffd6 = undefined;
 		player.b_hit = undefined;
-		player callback::function_deba137d(&function_78ccee50);
+		player callback::remove_on_weapon_fired(&on_weapon_fired);
 		foreach(var_5a1e3e5b in level.hero_weapon)
 		{
 			foreach(w_hero in var_5a1e3e5b)
@@ -152,7 +152,7 @@ function private on_ai_damage(params)
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: namespace_ae2d0839
 	Checksum: 0xC83B749F
 	Offset: 0x938
@@ -160,7 +160,7 @@ function private on_ai_damage(params)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_78ccee50(params)
+function private on_weapon_fired(params)
 {
 	if(!isdefined(params.weapon))
 	{
@@ -259,8 +259,8 @@ event function_f8ea644(eventstruct)
 {
 	if(is_active() && isdefined(eventstruct.projectile))
 	{
-		var_be17187b = undefined;
-		var_be17187b = eventstruct.projectile waittilltimeout(2, #"death", #"explode", #"projectile_impact_explode", #"stationary", #"grenade_stuck");
+		s_waitresult = undefined;
+		s_waitresult = eventstruct.projectile waittilltimeout(2, #"death", #"explode", #"projectile_impact_explode", #"stationary", #"grenade_stuck");
 		self function_b33ed7bd();
 	}
 }

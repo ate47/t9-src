@@ -74,7 +74,7 @@ function zone_init()
 	zm_zonemgr::zone_init("zone_facility_shell_rooftop");
 	zm_zonemgr::zone_init("zone_ndu_room");
 	zm_zonemgr::zone_init("zone_intermission");
-	if(zm_utility::function_e51dc2d8())
+	if(zm_utility::is_ee_enabled())
 	{
 		zm_zonemgr::zone_init("zone_pizza_kitchen");
 		zm_zonemgr::enable_zone("zone_pizza_kitchen");
@@ -667,8 +667,8 @@ function function_44b1279a()
 			self.var_9767e0af = 0;
 			util::setclientsysstate("tritonCmd", "enable", self);
 		}
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"zone_change");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"zone_change");
 	}
 }
 

@@ -47,7 +47,7 @@ class class_90c2e4ec : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class class_90c2e4ec : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -76,8 +76,8 @@ class class_90c2e4ec : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("sr_orda_health_bar");
-		cLUIelem::function_da693cbe("health", 4000, 7, "float");
-		cLUIelem::function_da693cbe("is_beast", 4000, 1, "int");
+		cLUIelem::add_clientfield("health", 4000, 7, "float");
+		cLUIelem::add_clientfield("is_beast", 4000, 1, "int");
 	}
 
 	/*

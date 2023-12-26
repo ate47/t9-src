@@ -1,4 +1,4 @@
-#using script_1b80a90bb1ce332e;
+#using scripts\killstreaks\helicopter_shared.csc;
 #using scripts\killstreaks\airsupport.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\footsteps_shared.csc;

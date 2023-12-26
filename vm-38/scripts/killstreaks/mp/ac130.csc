@@ -100,9 +100,9 @@ function function_555656fe(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 1
 	Flags: Linked
 */
-function function_74f5faf8(var_aa127355)
+function function_74f5faf8(eventparams)
 {
-	localclientnum = var_aa127355.localclientnum;
+	localclientnum = eventparams.localclientnum;
 	if(codcaster::function_b8fe9b52(localclientnum))
 	{
 		player = function_5c10bd79(localclientnum);

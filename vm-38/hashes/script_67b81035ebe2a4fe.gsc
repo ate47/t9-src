@@ -58,7 +58,7 @@ class cmp_prop_timer : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cmp_prop_timer
 		Checksum: 0xC6DA8D11
 		Offset: 0x430
@@ -66,9 +66,9 @@ class cmp_prop_timer : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("mp_prop_timer");
+		cLUIelem::register_clientside("mp_prop_timer");
 	}
 
 	/*
@@ -83,8 +83,8 @@ class cmp_prop_timer : cLUIelem
 	function setup_clientfields(var_43c7e6f7, var_6fb92716)
 	{
 		cLUIelem::setup_clientfields("mp_prop_timer");
-		cLUIelem::function_da693cbe("timeRemaining", 1, 5, "int", var_43c7e6f7);
-		cLUIelem::function_da693cbe("isProp", 1, 1, "int", var_6fb92716);
+		cLUIelem::add_clientfield("timeRemaining", 1, 5, "int", var_43c7e6f7);
+		cLUIelem::add_clientfield("isProp", 1, 1, "int", var_6fb92716);
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_43c7e6f7, var_6fb92716)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: mp_prop_timer
 	Checksum: 0xC23C298F
 	Offset: 0x270
@@ -176,10 +176,10 @@ function register(var_43c7e6f7, var_6fb92716)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cmp_prop_timer();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

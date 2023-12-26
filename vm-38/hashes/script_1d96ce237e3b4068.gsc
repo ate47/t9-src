@@ -44,7 +44,7 @@ class clui_plane_mortar : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: clui_plane_mortar
 		Checksum: 0xE58C6A23
 		Offset: 0x3E8
@@ -52,9 +52,9 @@ class clui_plane_mortar : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("lui_plane_mortar");
+		cLUIelem::register_clientside("lui_plane_mortar");
 	}
 
 	/*
@@ -166,7 +166,7 @@ function register(var_828e1f01, var_a9fceeac)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: lui_plane_mortar
 	Checksum: 0x18128A15
 	Offset: 0x278
@@ -174,10 +174,10 @@ function register(var_828e1f01, var_a9fceeac)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new clui_plane_mortar();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

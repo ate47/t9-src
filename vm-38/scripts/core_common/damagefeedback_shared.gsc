@@ -115,7 +115,7 @@ function play_hit_alert_sfx(mod, inflictor, perkfeedback, weapon, victim, psoffs
 	{
 		hitalias = hit_alert_sfx_cp(mod, inflictor, perkfeedback, weapon, victim, psoffsettime, shitloc, fatal);
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		hitalias = hit_alert_sfx_mp(mod, inflictor, perkfeedback, weapon, victim, psoffsettime, shitloc, fatal, idflags);
 	}
@@ -744,7 +744,7 @@ function update(mod, inflictor, perkfeedback, weapon, victim, psoffsettime, shit
 		return;
 	}
 	var_32f65675 = 0;
-	if(isdefined(victim) && damagestage == 5 && isdefined(level.var_97a55bea) && !is_true(level.var_97a55bea) && !is_true(victim.laststand) && isplayer(victim))
+	if(isdefined(victim) && damagestage == 5 && isdefined(level.skiplaststand) && !is_true(level.skiplaststand) && !is_true(victim.laststand) && isplayer(victim))
 	{
 		var_32f65675 = 1;
 	}

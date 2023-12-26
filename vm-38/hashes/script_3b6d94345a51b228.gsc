@@ -1,5 +1,5 @@
 #using script_2f272fb57a31d81c;
-#using script_747cc3ca88e8d5b4;
+#using scripts\killstreaks\killstreak_vehicle.csc;
 #using scripts\core_common\struct.csc;
 #using scripts\core_common\system_shared.csc;
 
@@ -46,6 +46,6 @@ function private function_70a657d8()
 {
 	init_shared();
 	bundle = getscriptbundle("killstreak_missile_turret");
-	namespace_231aa29a::function_155de655(bundle);
+	killstreak_vehicle::init_killstreak(bundle);
 }
 

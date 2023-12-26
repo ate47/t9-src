@@ -100,7 +100,7 @@ class class_c33e75d1 : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_c33e75d1
 		Checksum: 0xB6D2C54
 		Offset: 0x538
@@ -108,9 +108,9 @@ class class_c33e75d1 : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_tungsten_grandprix");
+		cLUIelem::register_clientside("zm_tungsten_grandprix");
 	}
 
 	/*
@@ -125,10 +125,10 @@ class class_c33e75d1 : cLUIelem
 	function setup_clientfields(var_20264c25, var_bbda5b4d, var_19161bc0, var_b6adcd73)
 	{
 		cLUIelem::setup_clientfields("zm_tungsten_grandprix");
-		cLUIelem::function_da693cbe("raceRanking", 28000, 2, "int", var_20264c25);
-		cLUIelem::function_da693cbe("raceCurrentLap", 28000, 2, "int", var_bbda5b4d);
-		cLUIelem::function_da693cbe("raceTotalLap", 28000, 2, "int", var_19161bc0);
-		cLUIelem::function_da693cbe("raceRewardTier", 28000, 2, "int", var_b6adcd73);
+		cLUIelem::add_clientfield("raceRanking", 28000, 2, "int", var_20264c25);
+		cLUIelem::add_clientfield("raceCurrentLap", 28000, 2, "int", var_bbda5b4d);
+		cLUIelem::add_clientfield("raceTotalLap", 28000, 2, "int", var_19161bc0);
+		cLUIelem::add_clientfield("raceRewardTier", 28000, 2, "int", var_b6adcd73);
 	}
 
 	/*
@@ -200,7 +200,7 @@ function register(var_20264c25, var_bbda5b4d, var_19161bc0, var_b6adcd73)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_tungsten_grandprix
 	Checksum: 0x432597CA
 	Offset: 0x2B8
@@ -208,10 +208,10 @@ function register(var_20264c25, var_bbda5b4d, var_19161bc0, var_b6adcd73)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_c33e75d1();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

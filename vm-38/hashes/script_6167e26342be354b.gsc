@@ -1,4 +1,4 @@
-#using script_2da073d4aa78c206;
+#using scripts\core_common\player\player_insertion.gsc;
 #using script_396f7d71538c9677;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\player\player_stats.gsc;
@@ -238,12 +238,12 @@ function function_e5152e84(fieldname, defaultvalue, var_393bca70)
 */
 function private setupclientfields()
 {
-	clientfield::function_a8bbc967("hudItems.squadSpawnOnStatus", 1, 3, "int");
-	clientfield::function_a8bbc967("hudItems.squadSpawnActive", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.squadSpawnRespawnStatus", 1, 2, "int");
-	clientfield::function_a8bbc967("hudItems.squadSpawnViewType", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.squadAutoSpawnPromptActive", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.squadSpawnSquadWipe", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.squadSpawnOnStatus", 1, 3, "int");
+	clientfield::register_clientuimodel("hudItems.squadSpawnActive", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.squadSpawnRespawnStatus", 1, 2, "int");
+	clientfield::register_clientuimodel("hudItems.squadSpawnViewType", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.squadAutoSpawnPromptActive", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.squadSpawnSquadWipe", 1, 1, "int");
 }
 
 /*
@@ -334,7 +334,7 @@ function function_841e08f9(player)
 	{
 		return false;
 	}
-	if(namespace_67838d10::function_6660c1f() && !is_true(player.var_7689a9b2))
+	if(player_insertion::function_6660c1f() && !is_true(player.var_7689a9b2))
 	{
 		return false;
 	}
@@ -1142,7 +1142,7 @@ function filter_spawn_points(targetplayer, &points)
 */
 function private function_e1997588(targetplayer, &points)
 {
-	nearbyplayers = targetplayer function_bdda420f(targetplayer.origin, 7500);
+	nearbyplayers = targetplayer getenemiesinradius(targetplayer.origin, 7500);
 	if(nearbyplayers.size <= 0)
 	{
 		return points;
@@ -1190,7 +1190,7 @@ function private function_32843fc9(startpoint, endpoint)
 	for(index = 0; index < 7; index++)
 	{
 		groundtrace = groundtrace(startpoint, endpoint, 0, undefined, 0);
-		if(groundtrace[#"fraction"] <= 0 || groundtrace[#"hash_7f9ee3a239b86eea"])
+		if(groundtrace[#"fraction"] <= 0 || groundtrace[#"startsolid"])
 		{
 			if(startpoint[2] > endpoint[2])
 			{
@@ -1598,7 +1598,7 @@ function function_bfb027d2(player)
 	if((isdefined(player.var_12db485c) ? player.var_12db485c : 0) < gettime())
 	{
 		player.var_708884c0 = gettime() + randomintrange(100, 400);
-		enemies = player function_bdda420f(player.origin, (isdefined(getgametypesetting(#"hash_718b497c5205e74b")) ? getgametypesetting(#"hash_718b497c5205e74b") : 0));
+		enemies = player getenemiesinradius(player.origin, (isdefined(getgametypesetting(#"hash_718b497c5205e74b")) ? getgametypesetting(#"hash_718b497c5205e74b") : 0));
 		if(enemies.size > 0)
 		{
 			return 1;
@@ -1813,7 +1813,7 @@ function on_player_killed(params)
 		if(var_72ea2bd8.size >= (max(2, (isdefined(level.var_704bcca1) ? level.var_704bcca1 : 0) - 1)) && isplayer(attacker) && attacker util::isenemyplayer(self))
 		{
 			scoreevents::processscoreevent(#"hash_44c301a9ab6ae990", attacker, self, params.weapon);
-			if(attacker stats::function_441050ca(#"hash_13ea35c63c00066c") >= 10)
+			if(attacker stats::get_stat_global(#"hash_13ea35c63c00066c") >= 10)
 			{
 				attacker giveachievement(#"hash_3f780d94296c68c6");
 			}

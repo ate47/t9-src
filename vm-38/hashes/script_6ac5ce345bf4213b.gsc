@@ -72,7 +72,7 @@ class cdoa_textbubble_playername : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cdoa_textbubble_playername
 		Checksum: 0xE0FF866E
 		Offset: 0x548
@@ -80,9 +80,9 @@ class cdoa_textbubble_playername : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("DOA_TextBubble_PlayerName");
+		cLUIelem::register_clientside("DOA_TextBubble_PlayerName");
 	}
 
 	/*
@@ -227,7 +227,7 @@ function register(var_5a7b4b38, var_c05c67e2, var_5957697a, var_90efc226, var_b7
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: doa_textbubble_playername
 	Checksum: 0x26A400ED
 	Offset: 0x330
@@ -235,10 +235,10 @@ function register(var_5a7b4b38, var_c05c67e2, var_5957697a, var_90efc226, var_b7
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cdoa_textbubble_playername();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

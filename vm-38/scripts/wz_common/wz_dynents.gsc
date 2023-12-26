@@ -130,7 +130,7 @@ function init_elevator(var_fd98a47c)
 			button setcursorhint("HINT_NOICON");
 			button sethintstring(#"hash_29965b65bca9cd7b");
 			button usetriggerignoreuseholdtime();
-			button callback::function_35a12f19(&function_af088c90);
+			button callback::on_trigger(&function_af088c90);
 			button.elevator = elevator;
 			elevator.button = button;
 			elevator.var_e87f4c9 = button.origin - elevator.origin;
@@ -167,7 +167,7 @@ function private function_724a2fa5(eventstruct)
 	{
 		return;
 	}
-	var_a852a7dd = dynent_use::function_bf7b8a27(dynent);
+	var_a852a7dd = dynent_use::use_dynent(dynent);
 	dynent.var_a548ec11 = gettime() + (var_a852a7dd * 1000);
 }
 
@@ -205,12 +205,12 @@ function function_ad26976()
 	while(true)
 	{
 		vehicles = getentitiesinradius(self.origin, 1536, 12);
-		var_4ab0fd8c = getentitiesinradius(self.origin, 1536, 14);
+		vehicle_corpses = getentitiesinradius(self.origin, 1536, 14);
 		foreach(vehicle in vehicles)
 		{
 			vehicle launchvehicle((0, 0, 0), vehicle.origin, 0);
 		}
-		foreach(vehicle_corpse in var_4ab0fd8c)
+		foreach(vehicle_corpse in vehicle_corpses)
 		{
 			vehicle_corpse delete();
 		}
@@ -232,12 +232,12 @@ function function_211e7277(point, var_8bd17d7d)
 	nearby_players = getplayers(undefined, point.origin, 256);
 	move_pos = point.origin;
 	var_93a4284 = 0;
-	var_ff951b7a = 0;
+	check_count = 0;
 	if(nearby_players.size > 0)
 	{
 		var_93a4284 = 1;
 	}
-	while(var_93a4284 && var_ff951b7a < 20)
+	while(var_93a4284 && check_count < 20)
 	{
 		foreach(player in nearby_players)
 		{
@@ -252,7 +252,7 @@ function function_211e7277(point, var_8bd17d7d)
 			}
 			var_93a4284 = 0;
 		}
-		var_ff951b7a++;
+		check_count++;
 	}
 	self setorigin(move_pos);
 }
@@ -388,7 +388,7 @@ function elevator_kill_player(t_damage)
 				}
 				continue;
 			}
-			var_1c8ad6c7 = level flag::get(#"hash_5a3e17fbc33cdc86");
+			var_1c8ad6c7 = level flag::get(#"insertion_teleport_completed");
 			if(var_1c8ad6c7)
 			{
 				e_player.var_1a776c13 = 1;
@@ -470,7 +470,7 @@ function function_26ab1b5e(t_damage)
 							}
 							continue;
 						}
-						var_1c8ad6c7 = level flag::get(#"hash_5a3e17fbc33cdc86");
+						var_1c8ad6c7 = level flag::get(#"insertion_teleport_completed");
 						if(var_1c8ad6c7)
 						{
 							player.var_1a776c13 = 1;

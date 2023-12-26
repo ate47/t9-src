@@ -90,8 +90,8 @@ function init()
 	callback::on_connect(&on_player_connect);
 	callback::on_spawned(&on_player_spawned);
 	callback::on_disconnect(&on_player_disconnect);
-	callback::add_callback(#"hash_4d2043b190b84792", &function_ef860973);
-	callback::add_callback(#"hash_137b937fd26992be", &function_6fa41b21);
+	callback::add_callback(#"on_host_migration_begin", &on_host_migration_begin);
+	callback::add_callback(#"on_host_migration_end", &on_host_migration_end);
 	if(isdefined(level.doa.var_cf250523))
 	{
 		level.callbackplayerkilled = level.doa.var_cf250523;
@@ -107,7 +107,7 @@ function init()
 }
 
 /*
-	Name: function_ef860973
+	Name: on_host_migration_begin
 	Namespace: namespace_b59ddbce
 	Checksum: 0xCFF6AE50
 	Offset: 0xB30
@@ -115,7 +115,7 @@ function init()
 	Parameters: 1
 	Flags: Private
 */
-function private function_ef860973(params)
+function private on_host_migration_begin(params)
 {
 	if(isplayer(self))
 	{
@@ -125,7 +125,7 @@ function private function_ef860973(params)
 }
 
 /*
-	Name: function_6fa41b21
+	Name: on_host_migration_end
 	Namespace: namespace_b59ddbce
 	Checksum: 0x7FF74CCA
 	Offset: 0xB80
@@ -133,7 +133,7 @@ function private function_ef860973(params)
 	Parameters: 1
 	Flags: Private
 */
-function private function_6fa41b21(params)
+function private on_host_migration_end(params)
 {
 	if(isplayer(self))
 	{
@@ -1243,7 +1243,7 @@ function dropnuke()
 	{
 		guys = getaiteamarray();
 	}
-	var_2800ee5b = vectornormalize(origin - player_org);
+	updir = vectornormalize(origin - player_org);
 	var_182c1d00 = 0.3;
 	foreach(guy in guys)
 	{
@@ -1269,7 +1269,7 @@ function dropnuke()
 					continue;
 				}
 			}
-			guy thread nukedeath(var_182c1d00, player_org, self, var_2800ee5b);
+			guy thread nukedeath(var_182c1d00, player_org, self, updir);
 		}
 	}
 	util::wait_network_frame();
@@ -1286,7 +1286,7 @@ function dropnuke()
 	Parameters: 4
 	Flags: Private
 */
-function private nukedeath(var_182c1d00, origin, player, var_2800ee5b)
+function private nukedeath(var_182c1d00, origin, player, updir)
 {
 	self endon(#"death");
 	/#
@@ -1321,7 +1321,7 @@ function private nukedeath(var_182c1d00, origin, player, var_2800ee5b)
 			{
 				self namespace_83eb6304::function_3ecfde67("burn_zombie");
 			}
-			self namespace_ed80aead::function_3ab2b4eb(self.health);
+			self namespace_ed80aead::gib_random_part(self.health);
 		}
 	}
 	if(self.archetype == "zombie")
@@ -1351,7 +1351,7 @@ function private nukedeath(var_182c1d00, origin, player, var_2800ee5b)
 		}
 		util::wait_network_frame();
 	}
-	self dodamage(self.health + 1, player, (isdefined(var_2800ee5b) ? var_2800ee5b : undefined), undefined, "none", "MOD_EXPLOSIVE");
+	self dodamage(self.health + 1, player, (isdefined(updir) ? updir : undefined), undefined, "none", "MOD_EXPLOSIVE");
 	self.marked_for_death = undefined;
 }
 
@@ -1784,7 +1784,7 @@ function function_dc7906e8(einflictor, attacker, idamage, smeansofdeath, weapon,
 }
 
 /*
-	Name: function_ca9b286c
+	Name: codecallback_vehicleenter
 	Namespace: namespace_b59ddbce
 	Checksum: 0x140A9A15
 	Offset: 0x5CA0
@@ -1792,7 +1792,7 @@ function function_dc7906e8(einflictor, attacker, idamage, smeansofdeath, weapon,
 	Parameters: 1
 	Flags: Event
 */
-event function_ca9b286c(eventstruct)
+event codecallback_vehicleenter(eventstruct)
 {
 	if(isvehicle(eventstruct.vehicle))
 	{
@@ -1812,7 +1812,7 @@ event function_ca9b286c(eventstruct)
 }
 
 /*
-	Name: function_e011eea6
+	Name: codecallback_vehicleexit
 	Namespace: namespace_b59ddbce
 	Checksum: 0x3CB662DE
 	Offset: 0x5D60
@@ -1820,7 +1820,7 @@ event function_ca9b286c(eventstruct)
 	Parameters: 1
 	Flags: Event
 */
-event function_e011eea6(eventstruct)
+event codecallback_vehicleexit(eventstruct)
 {
 	if(is_true(self.doa.var_3e81d24c))
 	{

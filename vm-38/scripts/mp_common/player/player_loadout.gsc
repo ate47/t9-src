@@ -60,15 +60,15 @@ function autoexec function_313e9d31()
 	level.var_efe72173 = getgametypesetting(#"hash_3a380fd140cfd77f");
 	level.var_86fd5bf3 = [];
 	level.var_86fd5bf3[0] = getscriptbundle(#"hash_133d2a86644e762d");
-	if(is_true(getgametypesetting(#"hash_ec059b9a7f28627")))
+	if(is_true(getgametypesetting(#"scorestreaksbarebones")))
 	{
-		level.var_5c3d0fba = [];
-		level.var_5c3d0fba[0] = 126;
-		level.var_5c3d0fba[1] = 130;
-		level.var_5c3d0fba[2] = 134;
+		level.scorestreaksbarebones = [];
+		level.scorestreaksbarebones[0] = 126;
+		level.scorestreaksbarebones[1] = 130;
+		level.scorestreaksbarebones[2] = 134;
 	}
-	var_7496e9fb = getscriptbundle(#"hash_4af43f6babe27d21");
-	foreach(wildcard in var_7496e9fb.var_7496e9fb)
+	wildcardtable = getscriptbundle(#"wildcardtable");
+	foreach(wildcard in wildcardtable.wildcardtable)
 	{
 		var_43645456 = wildcard.var_86fd5bf3;
 		var_86fd5bf3 = getscriptbundle(var_43645456);
@@ -99,7 +99,7 @@ function function_dd840c5f()
 	Parameters: 1
 	Flags: Linked
 */
-function function_9f888e75(var_b918343e)
+function function_9f888e75(weapons_table)
 {
 	level.weapon_sig_minigun = getweapon(#"sig_minigun");
 	level.weapon_hero_annihilator = getweapon(#"hero_annihilator");
@@ -176,7 +176,7 @@ function function_9f888e75(var_b918343e)
 	level.meleeweapons[level.meleeweapons.size] = level.weaponmeleeslaybell;
 	level.weaponshotgunenergy = getweapon(#"shotgun_energy");
 	level.weaponpistolenergy = getweapon(#"pistol_energy");
-	level.var_c1954e36 = getweapon(#"hash_721bd01efec90239");
+	level.var_c1954e36 = getweapon(#"ac130_chaingun");
 }
 
 /*
@@ -283,9 +283,9 @@ function mp_init()
 	function_9f888e75();
 	function_5f206535();
 	callback::on_connecting(&on_player_connecting);
-	if(!function_f99d2668())
+	if(!sessionmodeiswarzonegame())
 	{
-		ability_player::register_gadget_activation_callbacks(23, undefined, &function_6dd64ede);
+		ability_player::register_gadget_activation_callbacks(23, undefined, &offhealthregen);
 	}
 }
 
@@ -461,7 +461,7 @@ function private function_6bc4927f()
 		{
 			group_s = iteminfo.itemgroupname;
 			reference_s = iteminfo.name;
-			var_da0b29d2 = iteminfo.var_3cf2d21;
+			var_da0b29d2 = iteminfo.namehash;
 			display_name_s = iteminfo.displayname;
 			if(issubstr(group_s, "weapon_") || group_s == "hero")
 			{
@@ -595,15 +595,15 @@ function private function_f8157311(weaponclass, killstreaknum)
 	{
 		return getdvarint("custom_" + killstreakstring, 0);
 	}
-	if(isdefined(level.var_5c3d0fba) && isdefined(level.var_5c3d0fba[killstreaknum - 1]))
+	if(isdefined(level.scorestreaksbarebones) && isdefined(level.scorestreaksbarebones[killstreaknum - 1]))
 	{
-		return level.var_5c3d0fba[killstreaknum - 1];
+		return level.scorestreaksbarebones[killstreaknum - 1];
 	}
 	return self getloadoutitem(weaponclass, killstreakstring);
 }
 
 /*
-	Name: function_8881abec
+	Name: clear_killstreaks
 	Namespace: loadout
 	Checksum: 0x4FEDEB2A
 	Offset: 0x20E8
@@ -611,7 +611,7 @@ function private function_f8157311(weaponclass, killstreaknum)
 	Parameters: 0
 	Flags: Linked
 */
-function function_8881abec()
+function clear_killstreaks()
 {
 	player = self;
 	if(isdefined(player.killstreak))
@@ -634,7 +634,7 @@ function function_8881abec()
 }
 
 /*
-	Name: function_51dceab7
+	Name: give_killstreaks
 	Namespace: loadout
 	Checksum: 0x9B0E3884
 	Offset: 0x2228
@@ -642,9 +642,9 @@ function function_8881abec()
 	Parameters: 0
 	Flags: Linked
 */
-function function_51dceab7()
+function give_killstreaks()
 {
-	self function_8881abec();
+	self clear_killstreaks();
 	if(!level.loadoutkillstreaksenabled || level.var_bc4f0fc1 === 1)
 	{
 		return;
@@ -859,12 +859,12 @@ function init_player(takeallweapons)
 		self takeallweapons();
 	}
 	self.specialty = [];
-	self function_8881abec();
+	self clear_killstreaks();
 	self notify(#"give_map");
 }
 
 /*
-	Name: function_f8ae6f87
+	Name: give_gesture
 	Namespace: loadout
 	Checksum: 0x607B6BB6
 	Offset: 0x2A10
@@ -872,9 +872,9 @@ function init_player(takeallweapons)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_f8ae6f87()
+function private give_gesture()
 {
-	self gestures::function_ae63f496();
+	self gestures::clear_gesture();
 }
 
 /*
@@ -922,7 +922,7 @@ function private function_c84c77d8(loadoutslot)
 }
 
 /*
-	Name: function_c0a72f5c
+	Name: give_talents
 	Namespace: loadout
 	Checksum: 0xA3F38159
 	Offset: 0x2B18
@@ -930,7 +930,7 @@ function private function_c84c77d8(loadoutslot)
 	Parameters: 1
 	Flags: Linked
 */
-function function_c0a72f5c(givingloadout)
+function give_talents(givingloadout)
 {
 	if(!isdefined(givingloadout))
 	{
@@ -940,14 +940,14 @@ function function_c0a72f5c(givingloadout)
 	self.var_c8836f02 = self function_fd62a2aa(self.class_num);
 	foreach(var_ebdddedf in self.var_c8836f02)
 	{
-		if(var_ebdddedf.var_3cf2d21 == #"hash_6be738527a4213aa" && level.hardcoremode)
+		if(var_ebdddedf.namehash == #"hash_6be738527a4213aa" && level.hardcoremode)
 		{
-			var_ebdddedf.var_3cf2d21 = #"hash_5c9c79c25b74b7bb";
+			var_ebdddedf.namehash = #"hash_5c9c79c25b74b7bb";
 		}
 		var_b3ed76f5 = function_c84c77d8(var_ebdddedf.loadoutslot);
-		if(var_b3ed76f5 && !self function_6c32d092(var_ebdddedf.var_3cf2d21))
+		if(var_b3ed76f5 && !self function_6c32d092(var_ebdddedf.namehash))
 		{
-			self function_b5feff95(var_ebdddedf.var_3cf2d21);
+			self function_b5feff95(var_ebdddedf.namehash);
 		}
 	}
 	var_621c7d1e = 0;
@@ -975,7 +975,7 @@ function function_c0a72f5c(givingloadout)
 		}
 		else
 		{
-			loadout = self function_e27dc453("secondarygrenade");
+			loadout = self get_loadout_slot("secondarygrenade");
 			if(isdefined(loadout.weapon) && loadout.weapon.name == #"eq_stimshot")
 			{
 				var_72c4edde = 1;
@@ -997,7 +997,7 @@ function function_c0a72f5c(givingloadout)
 }
 
 /*
-	Name: function_5ac66375
+	Name: give_perks
 	Namespace: loadout
 	Checksum: 0x5F40AB31
 	Offset: 0x2EB0
@@ -1005,7 +1005,7 @@ function function_c0a72f5c(givingloadout)
 	Parameters: 0
 	Flags: Linked
 */
-function function_5ac66375()
+function give_perks()
 {
 	pixbeginevent();
 	self.specialty = self getloadoutperks(self.class_num);
@@ -1075,8 +1075,8 @@ function function_6972fdbb(weaponclass)
 	/#
 		assert(isdefined(weaponclass));
 	#/
-	var_d131d1b2 = "CLASS_CUSTOM";
-	var_8bba14bc = self function_b69de520();
+	prefixstring = "CLASS_CUSTOM";
+	var_8bba14bc = self getcustomclasscount();
 	var_8bba14bc = max(var_8bba14bc, 0);
 	if(isstring(weaponclass) && issubstr(weaponclass, "CLASS_CUSTOM_BONUS"))
 	{
@@ -1084,9 +1084,9 @@ function function_6972fdbb(weaponclass)
 	}
 	else
 	{
-		if(isstring(weaponclass) && issubstr(weaponclass, var_d131d1b2))
+		if(isstring(weaponclass) && issubstr(weaponclass, prefixstring))
 		{
-			var_3858e4e = getsubstr(weaponclass, var_d131d1b2.size);
+			var_3858e4e = getsubstr(weaponclass, prefixstring.size);
 			class_num = int(var_3858e4e) - 1;
 			if(class_num == -1)
 			{
@@ -1110,7 +1110,7 @@ function function_6972fdbb(weaponclass)
 	}
 	if(!isdefined(class_num))
 	{
-		class_num = self stats::get_stat(#"hash_2a738807be622e31");
+		class_num = self stats::get_stat(#"selectedcustomclass");
 		if(!isdefined(class_num))
 		{
 			class_num = 0;
@@ -1142,7 +1142,7 @@ function private function_d81e599e()
 }
 
 /*
-	Name: function_297a521e
+	Name: get_weapon_options
 	Namespace: loadout
 	Checksum: 0x7F3F6341
 	Offset: 0x33B8
@@ -1150,7 +1150,7 @@ function private function_d81e599e()
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_297a521e(type_index)
+function private get_weapon_options(type_index)
 {
 	return self function_6eff28b5(self.class_num, type_index);
 }
@@ -1211,10 +1211,10 @@ function private give_weapon(weapon, slot, var_a6a8156, var_bc218695)
 		{
 			self givemaxammo(weapon);
 		}
-		var_7d1f0fee = self.pers[#"changed_specialist"];
+		changedspecialist = self.pers[#"changed_specialist"];
 		if(weapon.isgadget)
 		{
-			self ability_util::gadget_reset(weapon, self.pers[#"changed_class"], !util::isoneround(), util::isfirstround(), var_7d1f0fee);
+			self ability_util::gadget_reset(weapon, self.pers[#"changed_class"], !util::isoneround(), util::isfirstround(), changedspecialist);
 		}
 	}
 	pixendevent();
@@ -1414,7 +1414,7 @@ function private function_d126318c(slot, weapon)
 	rootweaponname = weapon.rootweapon.name;
 	if(weapon.isdualwield)
 	{
-		if(#"hash_1b055fadc5573c29" == rootweaponname)
+		if(#"smg_handling_t8_dw" == rootweaponname)
 		{
 			rootweaponname = #"smg_handling_t8";
 		}
@@ -1433,7 +1433,7 @@ function private function_d126318c(slot, weapon)
 */
 function private function_68c2f1dc(slot, previous_weapon, var_c41b864, var_fe5710f, var_60b97679)
 {
-	loadout = self function_e27dc453(slot);
+	loadout = self get_loadout_slot(slot);
 	var_8feec653 = loadout.weapon;
 	weapon = self function_2ada6938(slot);
 	if(weapon != level.weaponnull)
@@ -1541,13 +1541,13 @@ function private give_weapons(previous_weapon)
 	pixbeginevent();
 	self.primaryloadoutgunsmithvariantindex = self getloadoutgunsmithvariantindex(self.class_num, 0);
 	self.secondaryloadoutgunsmithvariantindex = self getloadoutgunsmithvariantindex(self.class_num, 1);
-	spawn_weapon = self function_68c2f1dc("primary", previous_weapon, level.weaponnull, 0, &function_297a521e);
-	spawn_weapon = self function_68c2f1dc("secondary", previous_weapon, spawn_weapon, 1, &function_297a521e);
+	spawn_weapon = self function_68c2f1dc("primary", previous_weapon, level.weaponnull, 0, &get_weapon_options);
+	spawn_weapon = self function_68c2f1dc("secondary", previous_weapon, spawn_weapon, 1, &get_weapon_options);
 	spawn_weapon = self function_286ee0b6(previous_weapon, spawn_weapon);
 	spawn_weapon = self function_cba7f33e("primarygrenade", previous_weapon, spawn_weapon, &function_8e961216);
 	spawn_weapon = self function_cba7f33e("secondarygrenade", previous_weapon, spawn_weapon, &function_c3448ab0);
-	spawn_weapon = self function_cba7f33e("specialgrenade", previous_weapon, spawn_weapon, &function_215f4f21);
-	spawn_weapon = self function_f20f595a(previous_weapon, spawn_weapon, &function_c4d5300a);
+	spawn_weapon = self function_cba7f33e("specialgrenade", previous_weapon, spawn_weapon, &give_special_offhand);
+	spawn_weapon = self function_f20f595a(previous_weapon, spawn_weapon, &give_ultimate);
 	self function_d98a8122(spawn_weapon);
 	self function_da96d067();
 	self function_ee9b8d55();
@@ -1621,7 +1621,7 @@ function private function_8e961216(slot, previous_weapon)
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	primaryoffhand = level.weaponnone;
 	primaryoffhandcount = 0;
 	primaryoffhandname = self function_b958b70d(self.class_num, "primarygrenade");
@@ -1654,10 +1654,10 @@ function private function_8e961216(slot, previous_weapon)
 		self giveweapon(primaryoffhand);
 		self setweaponammoclip(primaryoffhand, primaryoffhandcount);
 		self switchtooffhand(primaryoffhand);
-		loadout = self function_e27dc453(previous_weapon);
+		loadout = self get_loadout_slot(previous_weapon);
 		loadout.weapon = primaryoffhand;
 		loadout.count = primaryoffhandcount;
-		self ability_util::gadget_reset(primaryoffhand, changedclass, roundbased, firstround, var_7d1f0fee);
+		self ability_util::gadget_reset(primaryoffhand, changedclass, roundbased, firstround, changedspecialist);
 	}
 	if(primaryoffhand.gadget_type == 0)
 	{
@@ -1686,7 +1686,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	secondaryoffhand = level.weaponnone;
 	secondaryoffhandcount = 0;
 	if(getdvarint(#"equipmentasgadgets", 0) == 1)
@@ -1743,7 +1743,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 		self giveweapon(secondaryoffhand);
 		self setweaponammoclip(secondaryoffhand, secondaryoffhandcount);
 		self switchtooffhand(secondaryoffhand);
-		loadout = self function_e27dc453(previous_weapon);
+		loadout = self get_loadout_slot(previous_weapon);
 		loadout.weapon = secondaryoffhand;
 		loadout.count = secondaryoffhandcount;
 		if(secondaryoffhand.gadget_type != 0)
@@ -1754,7 +1754,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 			}
 			else
 			{
-				self ability_util::gadget_reset(secondaryoffhand, changedclass, roundbased, firstround, var_7d1f0fee);
+				self ability_util::gadget_reset(secondaryoffhand, changedclass, roundbased, firstround, changedspecialist);
 			}
 		}
 	}
@@ -1762,7 +1762,7 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 }
 
 /*
-	Name: function_215f4f21
+	Name: give_special_offhand
 	Namespace: loadout
 	Checksum: 0x8E5E655B
 	Offset: 0x4EF0
@@ -1770,13 +1770,13 @@ function function_c3448ab0(slot, previous_weapon, force_give_gadget_health_regen
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_215f4f21(slot, previous_weapon)
+function private give_special_offhand(slot, previous_weapon)
 {
 	pixbeginevent();
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	specialoffhand = level.weaponnone;
 	var_4ee2888b = 0;
 	specialoffhandcount = 0;
@@ -1805,10 +1805,10 @@ function private function_215f4f21(slot, previous_weapon)
 			self setweaponammoclip(specialoffhand, specialoffhandcount);
 		}
 		self switchtooffhand(specialoffhand);
-		loadout = self function_e27dc453(previous_weapon);
+		loadout = self get_loadout_slot(previous_weapon);
 		loadout.weapon = specialoffhand;
 		loadout.count = specialoffhandcount;
-		self ability_util::gadget_reset(specialoffhand, changedclass, roundbased, firstround, var_7d1f0fee);
+		self ability_util::gadget_reset(specialoffhand, changedclass, roundbased, firstround, changedspecialist);
 	}
 	if(specialoffhand.gadget_type == 0)
 	{
@@ -1819,7 +1819,7 @@ function private function_215f4f21(slot, previous_weapon)
 }
 
 /*
-	Name: function_c4d5300a
+	Name: give_ultimate
 	Namespace: loadout
 	Checksum: 0xBCEF5728
 	Offset: 0x5318
@@ -1827,13 +1827,13 @@ function private function_215f4f21(slot, previous_weapon)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_c4d5300a(slot, previous_weapon)
+function private give_ultimate(slot, previous_weapon)
 {
 	pixbeginevent();
 	changedclass = self.pers[#"changed_class"];
 	roundbased = !util::isoneround();
 	firstround = util::isfirstround();
-	var_7d1f0fee = self.pers[#"changed_specialist"];
+	changedspecialist = self.pers[#"changed_specialist"];
 	classnum = self.class_num_for_global_weapons;
 	ultimate = level.weaponnone;
 	var_36aac800 = 0;
@@ -1867,10 +1867,10 @@ function private function_c4d5300a(slot, previous_weapon)
 	{
 		self giveweapon(ultimate);
 		self setweaponammoclip(ultimate, var_36aac800);
-		loadout = self function_e27dc453("ultimate");
+		loadout = self get_loadout_slot("ultimate");
 		loadout.weapon = ultimate;
 		loadout.count = var_36aac800;
-		self ability_util::gadget_reset(ultimate, changedclass, roundbased, firstround, var_7d1f0fee);
+		self ability_util::gadget_reset(ultimate, changedclass, roundbased, firstround, changedspecialist);
 		self function_442539(previous_weapon, ultimate);
 	}
 	pixendevent();
@@ -1954,13 +1954,13 @@ function give_loadout(team, weaponclass, var_e0f216b9)
 			if(var_c8f2f688)
 			{
 				self function_e6f9e3cd();
-				function_c0a72f5c();
+				give_talents();
 			}
-			function_5ac66375();
+			give_perks();
 			give_weapons(current_weapon);
 			function_5536bd9e();
-			function_f8ae6f87();
-			function_51dceab7();
+			give_gesture();
+			give_killstreaks();
 			function_6573eeeb();
 			self.attackeraccuracy = self function_968b6c6a();
 		}
@@ -2161,7 +2161,7 @@ function function_d7c205b9(newclass, var_eead10f0)
 	}
 	if(isdefined(loadoutindex))
 	{
-		self function_ad20e845(loadoutindex);
+		self setloadoutindex(loadoutindex);
 		self setplayerstateloadoutweapons(loadoutindex);
 	}
 }
@@ -2224,7 +2224,7 @@ function register_perks()
 {
 	pixbeginevent();
 	perks = self.specialty;
-	perks::function_3cd6f625();
+	perks::perk_reset_all();
 	if(isdefined(perks) && is_true(level.perksenabled))
 	{
 		for(i = 0; i < perks.size; i++)
@@ -2392,7 +2392,7 @@ function private grenade_stuck(inflictor)
 }
 
 /*
-	Name: function_6dd64ede
+	Name: offhealthregen
 	Namespace: loadout
 	Checksum: 0x9169DBF2
 	Offset: 0x6AD0
@@ -2400,7 +2400,7 @@ function private grenade_stuck(inflictor)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_6dd64ede(slot, weapon)
+function private offhealthregen(slot, weapon)
 {
 	self gadgetdeactivate(self.gadget_health_regen_slot, self.gadget_health_regen_weapon);
 	thread function_c57586b8();

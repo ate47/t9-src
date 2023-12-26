@@ -44,7 +44,7 @@ class class_c982469d : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_c982469d
 		Checksum: 0x4EEB1B5D
 		Offset: 0x4B8
@@ -52,9 +52,9 @@ class class_c982469d : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_corrupted_health_bar");
+		cLUIelem::register_clientside("zm_corrupted_health_bar");
 	}
 
 	/*
@@ -80,12 +80,12 @@ class class_c982469d : cLUIelem
 		Parameters: 3
 		Flags: None
 	*/
-	function setup_clientfields(var_663a86fa, var_4ec2b207, var_ed81ff07)
+	function setup_clientfields(healthcallback, var_4ec2b207, var_ed81ff07)
 	{
 		cLUIelem::setup_clientfields("zm_corrupted_health_bar");
-		cLUIelem::function_da693cbe("health", 4000, 7, "float", var_663a86fa);
-		cLUIelem::function_da693cbe("armor", 4000, 7, "float", var_4ec2b207);
-		cLUIelem::function_da693cbe("armor_vis", 4000, 1, "int", var_ed81ff07);
+		cLUIelem::add_clientfield("health", 4000, 7, "float", healthcallback);
+		cLUIelem::add_clientfield("armor", 4000, 7, "float", var_4ec2b207);
+		cLUIelem::add_clientfield("armor_vis", 4000, 1, "int", var_ed81ff07);
 	}
 
 	/*
@@ -160,10 +160,10 @@ function private autoexec function_e9b6493a()
 	Parameters: 3
 	Flags: None
 */
-function register(var_663a86fa, var_4ec2b207, var_ed81ff07)
+function register(healthcallback, var_4ec2b207, var_ed81ff07)
 {
 	elem = new class_c982469d();
-	[[ elem ]]->setup_clientfields(var_663a86fa, var_4ec2b207, var_ed81ff07);
+	[[ elem ]]->setup_clientfields(healthcallback, var_4ec2b207, var_ed81ff07);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -184,7 +184,7 @@ function register(var_663a86fa, var_4ec2b207, var_ed81ff07)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_corrupted_health_bar
 	Checksum: 0x6FE368B5
 	Offset: 0x298
@@ -192,10 +192,10 @@ function register(var_663a86fa, var_4ec2b207, var_ed81ff07)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_c982469d();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

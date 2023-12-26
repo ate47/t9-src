@@ -1,4 +1,4 @@
-#using script_1417f739c5b20576;
+#using scripts\core_common\globallogic\globallogic_shared.gsc;
 #using script_774302f762d76254;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;

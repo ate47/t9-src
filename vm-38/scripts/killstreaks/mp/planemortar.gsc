@@ -1,7 +1,7 @@
 #using script_1cc417743d7c262d;
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
-#using script_4a81c26d2ddde9c;
+#using scripts\killstreaks\planemortar_shared.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
@@ -53,7 +53,7 @@ function private function_70a657d8()
 {
 	init_shared();
 	bundlename = "killstreak_planemortar";
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundlename = bundlename + "_wz";
 	}

@@ -466,7 +466,7 @@ function private function_b78b1ab1(player, var_977d0bf3)
 		#/
 		playerview = var_977d0bf3 function_efda2d6d();
 		playerangles = var_977d0bf3 function_3d31768f();
-		var_a82b48d6 = anglestoright(playerangles);
+		playerright = anglestoright(playerangles);
 		if(soundalias != "")
 		{
 			dist_min = function_7139f5ae(soundalias, "");
@@ -640,7 +640,7 @@ function private function_3d58f598(var_977d0bf3)
 		row = -4;
 		if(is_true(level.var_17e6189d.var_2dd09170))
 		{
-			mapname = tolower(getdvarstring(#"hash_3b7b241b78207c96"));
+			mapname = tolower(getdvarstring(#"sv_mapname"));
 			mapname = function_8cb4e540(mapname, 24);
 			function_d34c1a24(0, row, mapname);
 		}
@@ -772,7 +772,7 @@ function private function_94f79425(var_977d0bf3)
 function private function_fcbbe789(key, value)
 {
 	/#
-		var_76519319 = function_7a600918(key) || isstring(key);
+		var_76519319 = ishash(key) || isstring(key);
 		var_9cb80f5f = isdefined(value);
 		if(function_81fac19d(!var_76519319, ""))
 		{
@@ -901,7 +901,7 @@ function private function_a3f5c17f(p)
 {
 	/#
 		var_cf07c027 = isstruct(p);
-		var_76519319 = function_7a600918(p.name) || isstring(p.name);
+		var_76519319 = ishash(p.name) || isstring(p.name);
 		var_9cb80f5f = isdefined(p.value);
 		var_aa7a0fd6 = var_cf07c027 && var_76519319 && var_9cb80f5f;
 		if(function_81fac19d(!var_aa7a0fd6, ""))

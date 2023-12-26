@@ -64,7 +64,7 @@ function private function_70a657d8()
 */
 function enable_sleight_of_hand_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_5930cf0eb070e35a", #"perk_sleight_of_hand", 3000, #"hash_1fe685096c4f7bd2", getweapon("zombie_perk_bottle_sleight"), undefined, #"hash_8edd17a31990450");
+	zm_perks::register_perk_basic_info(#"hash_5930cf0eb070e35a", #"perk_sleight_of_hand", 3000, #"hash_1fe685096c4f7bd2", getweapon("zombie_perk_bottle_sleight"), undefined, #"zmperksspeed");
 	zm_perks::register_perk_precache_func(#"hash_5930cf0eb070e35a", &sleight_of_hand_precache);
 	zm_perks::register_perk_clientfields(#"hash_5930cf0eb070e35a", &sleight_of_hand_register_clientfield, &sleight_of_hand_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_5930cf0eb070e35a", &sleight_of_hand_perk_machine_setup, undefined, "p9_fxanim_zm_gp_speed_cola_bundle");

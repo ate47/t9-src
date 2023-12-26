@@ -66,7 +66,7 @@ function private function_70a657d8()
 */
 function enable_staminup_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_602a1b6107105f07", #"perk_staminup", 2000, #"hash_7ef29d7842460907", getweapon("zombie_perk_bottle_marathon"), undefined, #"hash_3a15ddcc25d689f6");
+	zm_perks::register_perk_basic_info(#"hash_602a1b6107105f07", #"perk_staminup", 2000, #"zombie/perk_marathon", getweapon("zombie_perk_bottle_marathon"), undefined, #"zmperksstaminup");
 	zm_perks::register_perk_precache_func(#"hash_602a1b6107105f07", &staminup_precache);
 	zm_perks::register_perk_clientfields(#"hash_602a1b6107105f07", &staminup_register_clientfield, &staminup_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_602a1b6107105f07", &staminup_perk_machine_setup);

@@ -41,11 +41,11 @@ function private autoexec function_942e4ef6()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"placeable_mine", undefined, &function_8ac3bea9, undefined, undefined);
+	system::register(#"placeable_mine", undefined, &postinit, undefined, undefined);
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_placeable_mine
 	Checksum: 0xE115C69
 	Offset: 0x1D0
@@ -53,7 +53,7 @@ function private autoexec __init__system__()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(isdefined(level.placeable_mines))
 	{

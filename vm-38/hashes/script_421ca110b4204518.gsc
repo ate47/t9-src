@@ -77,12 +77,12 @@ function private function_70a657d8()
 	namespace_1b527536::function_dbd391bf(#"hash_631a023758cd5c4", &function_309daad7);
 	namespace_1b527536::function_dbd391bf(#"hash_6319f23758cd411", &function_309daad7);
 	namespace_1b527536::function_dbd391bf(#"hash_6319e23758cd25e", &function_309daad7);
-	namespace_9ff9f642::function_9d45c058(#"ring_of_fire", 25, 5, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
-	namespace_9ff9f642::function_9d45c058(#"hash_631a223758cd92a", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
-	namespace_9ff9f642::function_9d45c058(#"hash_631a123758cd777", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
-	namespace_9ff9f642::function_9d45c058(#"hash_631a023758cd5c4", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
-	namespace_9ff9f642::function_9d45c058(#"hash_6319f23758cd411", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
-	namespace_9ff9f642::function_9d45c058(#"hash_6319e23758cd25e", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
+	namespace_9ff9f642::register_burn(#"ring_of_fire", 25, 5, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
+	namespace_9ff9f642::register_burn(#"hash_631a223758cd92a", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
+	namespace_9ff9f642::register_burn(#"hash_631a123758cd777", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
+	namespace_9ff9f642::register_burn(#"hash_631a023758cd5c4", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
+	namespace_9ff9f642::register_burn(#"hash_6319f23758cd411", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
+	namespace_9ff9f642::register_burn(#"hash_6319e23758cd25e", 25, 10, "" + #"hash_177f6b02e0b5436b", "" + #"hash_40a7e84c380b9b1a");
 	zm_equipment::function_76beede2(#"ring_of_fire", "MOD_BURNED");
 	zm_equipment::function_76beede2(#"hash_631a223758cd92a", "MOD_BURNED");
 	zm_equipment::function_76beede2(#"hash_631a123758cd777", "MOD_BURNED");
@@ -260,7 +260,7 @@ function private function_1cbc22b0(weapon, n_radius)
 		{
 			if(isdefined(self))
 			{
-				a_ai = self function_bdda420f(var_3889eb68.origin, n_radius);
+				a_ai = self getenemiesinradius(var_3889eb68.origin, n_radius);
 				a_ai = arraysortclosest(a_ai, var_3889eb68.origin);
 			}
 			else

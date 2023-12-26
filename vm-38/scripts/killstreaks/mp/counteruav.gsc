@@ -1,11 +1,11 @@
 #using script_1cc417743d7c262d;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\mp_common\teams\teams.gsc;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreak_hacking.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -63,7 +63,7 @@ function private autoexec __init__system__()
 */
 function private function_1f11d560()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		return "killstreak_counteruav_wz";
 	}
@@ -158,7 +158,7 @@ function function_c9938281(attacker, victim, weapon, attackerweapon, meansofdeat
 function function_d15ea3d8(params)
 {
 	attacker = params.attacker;
-	attacker contracts::function_a54e2068(#"hash_5c809f1dc8fa445c");
+	attacker contracts::increment_contract(#"hash_5c809f1dc8fa445c");
 	attacker stats::function_dad108fa(#"hash_1546fa6f8e98bd61", 1);
 }
 
@@ -267,7 +267,7 @@ function function_bff5c062(cuav, attackingplayer)
 	if(isdefined(level.var_f1edf93f))
 	{
 		cuav notify(#"hacked");
-		cuav notify(#"hash_602ae7ca650d6287");
+		cuav notify(#"cancel_timeout");
 		var_eb79e7c3 = int([[level.var_f1edf93f]]() * 1000);
 		cuav thread killstreaks::waitfortimeout("counteruav", 30000, &ontimeout, "delete", "death", "crashing");
 	}
@@ -460,7 +460,7 @@ function activatecounteruav(killstreaktype)
 	}
 	else
 	{
-		if(function_f99d2668())
+		if(sessionmodeiswarzonegame())
 		{
 			var_b0490eb9 = getheliheightlockheight(self.origin);
 			trace = groundtrace((self.origin[0], self.origin[1], var_b0490eb9), self.origin - vectorscale((0, 0, 1), 5000), 0, counteruav);
@@ -540,7 +540,7 @@ function spawncounteruav(owner, killstreak_id, bundle, killstreaktype)
 	cuav killstreaks::configure_team(killstreaktype, killstreak_id, owner, undefined, undefined, &configureteampost);
 	cuav killstreak_hacking::enable_hacking("counteruav", &hackedprefunction, undefined);
 	cuav.targetname = "counteruav";
-	cuav util::function_c596f193();
+	cuav util::make_sentient();
 	cuav.weapon = getweapon("counteruav");
 	cuav setweapon(cuav.weapon);
 	cuav.victimsoundmod = "vehicle";
@@ -659,7 +659,7 @@ function ontimeout()
 	}
 	self namespace_f9b02f80::play_pilot_dialog_on_owner("timeout", "counteruav", self.killstreak_id);
 	self removeactivecounteruav();
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		var_384be02f = 4000;
 	}

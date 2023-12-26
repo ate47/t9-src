@@ -59,7 +59,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_7860b659
+	Name: item_remover
 	Namespace: namespace_1c7b37c6
 	Checksum: 0x48A48C64
 	Offset: 0x108
@@ -67,7 +67,7 @@ function private function_70a657d8()
 	Parameters: 2
 	Flags: Linked
 */
-function function_7860b659(func1, param1)
+function item_remover(func1, param1)
 {
 	if(!isdefined(param1))
 	{
@@ -80,7 +80,7 @@ function function_7860b659(func1, param1)
 }
 
 /*
-	Name: function_149cbc84
+	Name: item_replacer
 	Namespace: namespace_1c7b37c6
 	Checksum: 0xD980B600
 	Offset: 0x148
@@ -88,7 +88,7 @@ function function_7860b659(func1, param1)
 	Parameters: 3
 	Flags: Linked
 */
-function function_149cbc84(func1, var_f3ef555b, var_e3c89f9)
+function item_replacer(func1, var_f3ef555b, var_e3c89f9)
 {
 	if(!isdefined(var_f3ef555b) || !isdefined(var_e3c89f9))
 	{
@@ -111,8 +111,8 @@ function function_149cbc84(func1, var_f3ef555b, var_e3c89f9)
 */
 function function_41453b43()
 {
-	var_87d0eef8 = &namespace_b0722f43::function_63bfe27;
-	var_74257310 = &namespace_b0722f43::function_6da5e673;
-	var_f8a4c541 = &namespace_b0722f43::function_6991057;
+	var_87d0eef8 = &item_world_fixup::remove_item;
+	var_74257310 = &item_world_fixup::add_item_replacement;
+	var_f8a4c541 = &item_world_fixup::function_6991057;
 }
 

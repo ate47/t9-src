@@ -44,7 +44,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: csr_weapon_upgrade_menu
 		Checksum: 0x52775501
 		Offset: 0x3C8
@@ -52,9 +52,9 @@ class csr_weapon_upgrade_menu : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_weapon_upgrade_menu");
+		cLUIelem::register_clientside("sr_weapon_upgrade_menu");
 	}
 
 	/*
@@ -83,7 +83,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 	function setup_clientfields(var_52c93aa0)
 	{
 		cLUIelem::setup_clientfields("sr_weapon_upgrade_menu");
-		cLUIelem::function_da693cbe("cannotAmmoMod", 16000, 1, "int", var_52c93aa0);
+		cLUIelem::add_clientfield("cannotAmmoMod", 16000, 1, "int", var_52c93aa0);
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_52c93aa0)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_weapon_upgrade_menu
 	Checksum: 0xD2D46173
 	Offset: 0x268
@@ -160,10 +160,10 @@ function register(var_52c93aa0)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new csr_weapon_upgrade_menu();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

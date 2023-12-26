@@ -1,16 +1,16 @@
-#using script_1af22ad25a2111f7;
+#using scripts\abilities\gadgets\gadget_jammer_shared.gsc;
 #using script_2c5daa95f8fec03c;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_41fe08c37d53a635;
-#using script_4bf952f6ba31bb17;
-#using script_4d85e8de54b02198;
-#using script_522aeb6ae906391e;
-#using script_57f7003580bb15e0;
-#using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
-#using script_7b7ed6e4bc963a51;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\ai_blackboard.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -49,7 +49,7 @@ function private autoexec function_e0643c0f()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"archetype_avogadro", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"archetype_avogadro", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -76,7 +76,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: archetype_avogadro
 	Checksum: 0x21C5FF89
 	Offset: 0x600
@@ -84,9 +84,9 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
-	level.var_2ea60515 = function_4d1e7b48(#"hash_3a1f530cdb5f75f4");
+	level.var_2ea60515 = getstatuseffect(#"hash_3a1f530cdb5f75f4");
 }
 
 /*
@@ -444,7 +444,7 @@ function private function_f8e8c129(entity)
 	{
 		vec_enemy = enemy.origin - self.origin;
 		dist_sq = lengthsquared(vec_enemy);
-		if(dist_sq > 14400 || is_false(entity.var_97a22974) && dist_sq < 2250000)
+		if(dist_sq > 14400 || is_false(entity.can_phase) && dist_sq < 2250000)
 		{
 			vec_facing = anglestoforward(self.angles);
 			var_482d3bba = (vec_facing[0], vec_facing[1], 0);
@@ -1019,21 +1019,21 @@ function function_2eb165a4(entity)
 */
 function function_c3ceb539(entity)
 {
-	var_9901d38a = [];
+	test_points = [];
 	target = get_target_ent(entity);
 	var_5494b2e9 = 0;
-	self.var_97a22974 = 0;
+	self.can_phase = 0;
 	if(isdefined(entity.attackable) && entity.attackable === target)
 	{
 		var_5494b2e9 = 1;
-		var_9901d38a = array();
+		test_points = array();
 		slots = array::randomize(entity.attackable.var_b79a8ac7.slots);
 		var_c51aeb32 = int(min(slots.size, 3));
 		for(i = 0; i < var_c51aeb32; i++)
 		{
 			slot = slots[i];
 			angles = vectortoangles(slot.origin - entity.attackable.origin);
-			var_9901d38a[var_9901d38a.size] = entity.attackable.origin + (anglestoforward((0, angles[1], 0)) * randomfloatrange(150, 500));
+			test_points[test_points.size] = entity.attackable.origin + (anglestoforward((0, angles[1], 0)) * randomfloatrange(150, 500));
 		}
 	}
 	else
@@ -1042,14 +1042,14 @@ function function_c3ceb539(entity)
 		{
 			var_5494b2e9 = 1;
 			enemy_angles = entity.favoriteenemy getplayerangles();
-			var_9901d38a = array(entity.favoriteenemy.origin + (anglestoforward((0, angleclamp180(enemy_angles[1] + (randomfloatrange(20, 40) / 2)), 0))) * randomfloatrange(1000, 1500), entity.favoriteenemy.origin + (anglestoforward((0, angleclamp180(enemy_angles[1] - (randomfloatrange(20, 40) / 2)), 0))) * randomfloatrange(1000, 1500));
+			test_points = array(entity.favoriteenemy.origin + (anglestoforward((0, angleclamp180(enemy_angles[1] + (randomfloatrange(20, 40) / 2)), 0))) * randomfloatrange(1000, 1500), entity.favoriteenemy.origin + (anglestoforward((0, angleclamp180(enemy_angles[1] - (randomfloatrange(20, 40) / 2)), 0))) * randomfloatrange(1000, 1500));
 		}
 		else
 		{
 			if(isalive(entity.favoriteenemy) && entity.favoriteenemy === target)
 			{
 				var_5494b2e9 = 1;
-				var_9901d38a = array(entity.favoriteenemy.origin + (anglestoforward((0, randomfloat(180), 0)) * randomfloatrange(1000, 1500)), entity.favoriteenemy.origin + (anglestoforward((0, randomfloat(180) * -1, 0))) * randomfloatrange(1000, 1500));
+				test_points = array(entity.favoriteenemy.origin + (anglestoforward((0, randomfloat(180), 0)) * randomfloatrange(1000, 1500)), entity.favoriteenemy.origin + (anglestoforward((0, randomfloat(180) * -1, 0))) * randomfloatrange(1000, 1500));
 			}
 			else
 			{
@@ -1058,11 +1058,11 @@ function function_c3ceb539(entity)
 		}
 	}
 	enemy = target;
-	var_9901d38a = array::randomize(var_9901d38a);
+	test_points = array::randomize(test_points);
 	if(var_5494b2e9)
 	{
 		bestpoint = undefined;
-		foreach(point in var_9901d38a)
+		foreach(point in test_points)
 		{
 			bestpoint = function_3d3ee1a4(entity, point, enemy);
 			if(isdefined(bestpoint))
@@ -1073,7 +1073,7 @@ function function_c3ceb539(entity)
 	}
 	else
 	{
-		bestpoint = var_9901d38a[0];
+		bestpoint = test_points[0];
 	}
 	/#
 		if(isdefined(bestpoint))
@@ -1093,7 +1093,7 @@ function function_c3ceb539(entity)
 			}
 		}
 	#/
-	self.var_97a22974 = isdefined(bestpoint);
+	self.can_phase = isdefined(bestpoint);
 	return bestpoint;
 }
 

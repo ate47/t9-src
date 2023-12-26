@@ -178,7 +178,7 @@ function function_9a4f865b()
 {
 	self endon(#"disconnect");
 	level endon(#"end_game");
-	level waittill(#"hash_4b00aa230ebbe82b");
+	level waittill(#"main_quest_completed");
 	self zm_utility::give_achievement(#"hash_5fb48c8391ec697a");
 }
 

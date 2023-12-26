@@ -1,4 +1,4 @@
-#using script_14d2d89964cae0b1;
+#using scripts\core_common\ai\systems\gib.csc;
 #using script_3d35e2ff167b3a82;
 #using script_618d6f5ff5d18933;
 #using scripts\core_common\callbacks_shared.csc;
@@ -36,7 +36,7 @@ function private autoexec function_ee0d27f8()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_4c62174ea005e84e", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_4c62174ea005e84e", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -57,7 +57,7 @@ function private function_70a657d8()
 	clientfield::register("actor", "" + #"hash_5c2324e6d994b886", 28000, 1, "counter", &function_21f99cd2, 0, 0);
 	clientfield::register("allplayers", "" + #"hash_5d6139b1ce0e7c82", 28000, 2, "int", &function_f564024f, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_13f32f06b0e858dd", 28000, 3, "int", &function_36ef6d02, 0, 0);
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	if(!isdefined(level.var_5bc34f35))
 	{
 		level.var_5bc34f35 = [];
@@ -106,7 +106,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_6fc19861
 	Checksum: 0x5EB04511
 	Offset: 0x8B8
@@ -114,13 +114,13 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: None
 */
-function function_8ac3bea9()
+function postinit()
 {
 	zm_weapons::function_8389c033(#"hash_69461751fa492ea4", #"hash_69461751fa492ea4");
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: namespace_6fc19861
 	Checksum: 0xF5F46037
 	Offset: 0x8F8
@@ -128,7 +128,7 @@ function function_8ac3bea9()
 	Parameters: 1
 	Flags: None
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(self == level || !isplayer(self))
 	{
@@ -430,10 +430,10 @@ function function_6247981b(localclientnum, var_a6762160)
 		{
 			continue;
 		}
-		var_291c422e = self namespace_a0d533d1::function_2b83d3ff(var_9ccb901d);
-		if(function_58d581b6(var_291c422e))
+		slot_weapon = self namespace_a0d533d1::function_2b83d3ff(var_9ccb901d);
+		if(function_58d581b6(slot_weapon))
 		{
-			var_b84949d0 = var_291c422e;
+			var_b84949d0 = slot_weapon;
 			break;
 		}
 	}
@@ -471,7 +471,7 @@ function function_72dbb6b0(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(bwastimejump)
 	{
 		self thread function_a77b707(fieldname);
-		self function_bf9d3071(#"hash_20021a924b743e3e");
+		self playrenderoverridebundle(#"hash_20021a924b743e3e");
 		if(!isdefined(self.var_97928c44))
 		{
 			self playsound(fieldname, #"hash_3376f5f8d417f9f1");
@@ -488,7 +488,7 @@ function function_72dbb6b0(localclientnum, oldval, newval, bnewent, binitialsnap
 			self.var_97928c44 = undefined;
 		}
 		playsound(fieldname, #"hash_7c352e97b08234f4", self.origin + vectorscale((0, 0, 1), 40));
-		self function_5d482e78(#"hash_20021a924b743e3e");
+		self stoprenderoverridebundle(#"hash_20021a924b743e3e");
 		self thread function_82a54d90(fieldname);
 		self hide();
 	}
@@ -830,7 +830,7 @@ function function_60baf83(var_ee6bcd51)
 	{
 		self zm_utility::function_f933b697(var_ee6bcd51);
 	}
-	self function_5d482e78(var_ee6bcd51);
+	self stoprenderoverridebundle(var_ee6bcd51);
 }
 
 /*
@@ -848,13 +848,13 @@ function function_2f16cef6(var_ee6bcd51)
 	{
 		if(self zm_utility::function_10df0b9c(var_ee6bcd51))
 		{
-			self function_bf9d3071(var_ee6bcd51);
+			self playrenderoverridebundle(var_ee6bcd51);
 		}
 		self zm_utility::function_8065ace2(var_ee6bcd51);
 	}
 	else
 	{
-		self function_bf9d3071(var_ee6bcd51);
+		self playrenderoverridebundle(var_ee6bcd51);
 	}
 }
 

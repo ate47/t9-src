@@ -1,6 +1,6 @@
 #using scripts\weapons\teargas.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\core_common\system_shared.gsc;
 
 #namespace teargas;

@@ -1,14 +1,14 @@
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\lui_shared.gsc;
 
-class class_5c7b7dcc : cLUIelem
+class cmp_infect_timer : cLUIelem
 {
 	var var_bf9c8c95;
 	var var_d5213cbb;
 
 	/*
 		Name: constructor
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0xA022DF69
 		Offset: 0x1F8
 		Size: 0x14
@@ -21,7 +21,7 @@ class class_5c7b7dcc : cLUIelem
 
 	/*
 		Name: destructor
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0xA2CBEE09
 		Offset: 0x330
 		Size: 0x14
@@ -34,7 +34,7 @@ class class_5c7b7dcc : cLUIelem
 
 	/*
 		Name: open
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0xD022D25A
 		Offset: 0x268
 		Size: 0x3C
@@ -47,12 +47,12 @@ class class_5c7b7dcc : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
 		Name: close
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0xB728AC2B
 		Offset: 0x2B0
 		Size: 0x24
@@ -61,12 +61,12 @@ class class_5c7b7dcc : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
 		Name: set_infectionTimeRemaining
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x1312B564
 		Offset: 0x2E0
 		Size: 0x44
@@ -80,7 +80,7 @@ class class_5c7b7dcc : cLUIelem
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x2D502691
 		Offset: 0x218
 		Size: 0x44
@@ -90,7 +90,7 @@ class class_5c7b7dcc : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("mp_infect_timer");
-		cLUIelem::function_da693cbe("infectionTimeRemaining", 1, 4, "int", 0);
+		cLUIelem::add_clientfield("infectionTimeRemaining", 1, 4, "int", 0);
 	}
 
 }
@@ -122,7 +122,7 @@ function private autoexec function_53658969()
 */
 function register()
 {
-	elem = new class_5c7b7dcc();
+	elem = new cmp_infect_timer();
 	[[ elem ]]->setup_clientfields();
 	return elem;
 }

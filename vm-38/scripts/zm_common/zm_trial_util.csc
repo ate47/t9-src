@@ -49,16 +49,16 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	level.var_940b67bb = getuimodel(function_5f72e972(#"hash_21ac7bf03dae9888"), "roundTitle");
-	level.var_63e5f17c = getuimodel(function_5f72e972(#"hash_21ac7bf03dae9888"), "roundDescription");
-	if(!zm_trial::function_b47f6aba())
+	level.var_940b67bb = getuimodel(function_5f72e972(#"zm_trials"), "roundTitle");
+	level.var_63e5f17c = getuimodel(function_5f72e972(#"zm_trials"), "roundDescription");
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
 	callback::on_localclient_connect(&on_localplayer_connect);
 	level.var_a2859227 = 0;
 	level.var_f995ece6 = zm_trial_timer::register();
-	level.var_e7295382 = zm_trial_weapon_locked::function_5c1bb138();
+	level.var_e7295382 = zm_trial_weapon_locked::register_clientside();
 }
 
 /*
@@ -87,32 +87,32 @@ function private on_localplayer_connect(localclientnum)
 */
 function private finalize_clientfields(localclientnum)
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
 	clientfield::register("world", "ZMHudGlobal.trials.trialIndex", 1, getminbitcountfornum(15), "int", &function_741dae5b, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_6536ca4fb2858a9f", 16000, 1, "int", &function_ff287922, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.roundNumber", #"hash_21ac7bf03dae9888", #"roundnumber", 1, getminbitcountfornum(30), "int", &function_88806df3, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.roundSuccess", #"hash_21ac7bf03dae9888", #"hash_3b7f05fe05dce5e6", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.strikes", #"hash_21ac7bf03dae9888", #"strikes", 1, getminbitcountfornum(3), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableGun", #"hash_21ac7bf03dae9888", #"hash_121100bede030e4f", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableEquip", #"hash_21ac7bf03dae9888", #"hash_3f350b9f24137025", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableSpecial", #"hash_21ac7bf03dae9888", #"hash_6627206e68f6e85a", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.disablePerks", #"hash_21ac7bf03dae9888", #"hash_2c36699ed141ee48", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableAbilities", #"hash_21ac7bf03dae9888", #"hash_1a2530c4fe94e577", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.roundNumber", #"zm_trials", #"roundnumber", 1, getminbitcountfornum(30), "int", &function_88806df3, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.roundSuccess", #"zm_trials", #"roundsuccess", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.strikes", #"zm_trials", #"strikes", 1, getminbitcountfornum(3), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableGun", #"zm_trials", #"disablegun", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableEquip", #"zm_trials", #"disableequip", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableSpecial", #"zm_trials", #"disablespecial", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.disablePerks", #"zm_trials", #"disableperks", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.disableAbilities", #"zm_trials", #"disableabilities", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
 	clientfield::register("toplayer", "zm_trials_timer", 1, getminbitcountfornum(540), "int", &function_bb753058, 0, 1);
 	clientfield::register("toplayer", "zm_trials_weapon_locked", 1, 1, "counter", &function_4b6a4a84, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.playerCounterMax", #"hash_21ac7bf03dae9888", #"hash_6ec8cc3d808f0872", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.gameState", #"hash_21ac7bf03dae9888", #"gamestate", 1, 2, "int", &function_686840b2, 0, 1);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.failurePlayer", #"hash_21ac7bf03dae9888", #"hash_637785e54dff107c", 1, 4, "int", undefined, 0, 0);
-	clientfield::function_d89771ec("string", "ZMHudGlobal.trials.failureReason", #"hash_21ac7bf03dae9888", #"hash_32c0f4516e34ccbd", 1, &function_b9a5a377, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.gameStartTime", #"hash_21ac7bf03dae9888", #"gamestarttime", 1, 31, "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.showScoreboard", #"hash_21ac7bf03dae9888", #"showscoreboard", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.globalCheckState", #"hash_21ac7bf03dae9888", #"hash_5c4404da19676603", 1, getminbitcountfornum(2), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.globalCounterValue", #"hash_21ac7bf03dae9888", #"hash_13183edb0d19f05f", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.globalCounterMax", #"hash_21ac7bf03dae9888", #"hash_12ffdfd0c5746280", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("ZMHudGlobal.trials.hudDeactivated", #"hash_21ac7bf03dae9888", #"hash_8eae759a6611660", 1, 1, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.playerCounterMax", #"zm_trials", #"playercountermax", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.gameState", #"zm_trials", #"gamestate", 1, 2, "int", &function_686840b2, 0, 1);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.failurePlayer", #"zm_trials", #"failureplayer", 1, 4, "int", undefined, 0, 0);
+	clientfield::function_d89771ec("string", "ZMHudGlobal.trials.failureReason", #"zm_trials", #"failurereason", 1, &function_b9a5a377, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.gameStartTime", #"zm_trials", #"gamestarttime", 1, 31, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.showScoreboard", #"zm_trials", #"showscoreboard", 1, getminbitcountfornum(1), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.globalCheckState", #"zm_trials", #"globalcheckstate", 1, getminbitcountfornum(2), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.globalCounterValue", #"zm_trials", #"globalcountervalue", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.globalCounterMax", #"zm_trials", #"globalcountermax", 1, getminbitcountfornum(1000), "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("ZMHudGlobal.trials.hudDeactivated", #"zm_trials", #"huddeactivated", 1, 1, "int", undefined, 0, 0);
 	for(i = 0; i < 5; i++)
 	{
 		clientfield::function_5b7d846d((("PlayerList.client" + i) + ".") + "trialsCheckState", #"hash_97df1852304b867", [1:#"trialscheckstate", 0:hash((isdefined(i) ? "" + i : ""))], 1, 2, "int", undefined, 0, 0);
@@ -166,11 +166,11 @@ function private function_741dae5b(localclientnum, oldval, newval, bnewent, bini
 */
 function private function_88806df3(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_ef0a371f = bwastimejump - 1;
-	if(isdefined(level.var_6d87ac05) && isdefined(level.var_6d87ac05.rounds[var_ef0a371f]))
+	round_index = bwastimejump - 1;
+	if(isdefined(level.var_6d87ac05) && isdefined(level.var_6d87ac05.rounds[round_index]))
 	{
 		on_challenge_end(fieldname);
-		level.var_1420e3f6 = level.var_6d87ac05.rounds[var_ef0a371f];
+		level.var_1420e3f6 = level.var_6d87ac05.rounds[round_index];
 		function_c3febfe1(fieldname);
 	}
 	else

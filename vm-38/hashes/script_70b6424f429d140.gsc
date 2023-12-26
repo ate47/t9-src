@@ -839,10 +839,10 @@ function function_cbe25a41(var_4cd99adc, tag, var_fa2357fe, var_1a67724f, var_55
 				}
 			}
 		}
-		var_c6488229 = self gettagangles(tag);
+		tag_ang = self gettagangles(tag);
 		org = self gettagorigin(tag) + (vectorscale((0, 0, -1), 10));
 		to = vectortoangles(self.track_ent.origin - org);
-		new_ang = to - var_c6488229;
+		new_ang = to - tag_ang;
 		waitframe(1);
 	}
 }

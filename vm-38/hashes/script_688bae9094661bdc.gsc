@@ -324,18 +324,18 @@ function threat_sight_player_sight_audio(var_56a7a731, maxthreat, var_2107b994)
 		#/
 		foreach(snd_ent in self.stealth.threat_sight_snd_ent)
 		{
-			var_3d454e88 = 1;
+			coef = 1;
 			switch(index)
 			{
 				case 0:
 				{
 					if(maxthreat < 0.75)
 					{
-						var_3d454e88 = cos((var_999aef6a * maxthreat) * 0.666);
+						coef = cos((var_999aef6a * maxthreat) * 0.666);
 					}
 					else
 					{
-						var_3d454e88 = 0;
+						coef = 0;
 					}
 					break;
 				}
@@ -343,17 +343,17 @@ function threat_sight_player_sight_audio(var_56a7a731, maxthreat, var_2107b994)
 				{
 					if(maxthreat < 0.75)
 					{
-						var_3d454e88 = sin((var_999aef6a * maxthreat) * 0.666);
+						coef = sin((var_999aef6a * maxthreat) * 0.666);
 					}
 					else
 					{
 						if(maxthreat < 1)
 						{
-							var_3d454e88 = sin((var_999aef6a * (1 - maxthreat)) * 2);
+							coef = sin((var_999aef6a * (1 - maxthreat)) * 2);
 						}
 						else
 						{
-							var_3d454e88 = 0;
+							coef = 0;
 						}
 					}
 					break;
@@ -362,16 +362,16 @@ function threat_sight_player_sight_audio(var_56a7a731, maxthreat, var_2107b994)
 				{
 					if(maxthreat < 0.75)
 					{
-						var_3d454e88 = 0;
+						coef = 0;
 					}
 					else
 					{
-						var_3d454e88 = cos((var_999aef6a * (1 - maxthreat)) * 2);
+						coef = cos((var_999aef6a * (1 - maxthreat)) * 2);
 					}
 					break;
 				}
 			}
-			vol = math::clamp(self.stealth.threat_sight_snd_vol * var_3d454e88, 0, 1);
+			vol = math::clamp(self.stealth.threat_sight_snd_vol * coef, 0, 1);
 			if(vol > 0)
 			{
 				var_7fe1c557 = 1;
@@ -388,7 +388,7 @@ function threat_sight_player_sight_audio(var_56a7a731, maxthreat, var_2107b994)
 				if(var_2107b994)
 				{
 					debug2dtext((32, 540 + (index * 16), 0), (("" + index) + "") + vol, (1, 1, 1), 1.5);
-					debug2dtext((384, 540 + (index * 16), 0), "" + var_3d454e88, (1, 1, 1), 1.5);
+					debug2dtext((384, 540 + (index * 16), 0), "" + coef, (1, 1, 1), 1.5);
 				}
 			#/
 			index++;

@@ -47,7 +47,7 @@ class cluielem_entity_bar : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cluielem_entity_bar : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -118,14 +118,14 @@ class cluielem_entity_bar : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("LUIelem_entity_bar");
-		cLUIelem::function_da693cbe("_state", 1, 3, "int");
-		cLUIelem::function_da693cbe("progress_percent", 1, 7, "float");
-		cLUIelem::function_da693cbe("entnum", 1, 7, "int");
-		cLUIelem::function_da693cbe("offset_x", 1, 6, "int");
-		cLUIelem::function_da693cbe("offset_y", 1, 6, "int");
-		cLUIelem::function_da693cbe("offset_z", 1, 6, "int");
-		cLUIelem::function_da693cbe("entityClamp", 1, 1, "int");
-		cLUIelem::function_da693cbe("entityScale", 1, 1, "int");
+		cLUIelem::add_clientfield("_state", 1, 3, "int");
+		cLUIelem::add_clientfield("progress_percent", 1, 7, "float");
+		cLUIelem::add_clientfield("entnum", 1, 7, "int");
+		cLUIelem::add_clientfield("offset_x", 1, 6, "int");
+		cLUIelem::add_clientfield("offset_y", 1, 6, "int");
+		cLUIelem::add_clientfield("offset_z", 1, 6, "int");
+		cLUIelem::add_clientfield("entityClamp", 1, 1, "int");
+		cLUIelem::add_clientfield("entityScale", 1, 1, "int");
 	}
 
 	/*

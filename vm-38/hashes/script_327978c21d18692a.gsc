@@ -49,7 +49,7 @@ event main(eventstruct)
 */
 function function_386821d6(eventstruct)
 {
-	if(level.var_7d45d0d4.var_3385b421.content_script_name === "holdout")
+	if(level.var_7d45d0d4.activeobjective.content_script_name === "holdout")
 	{
 		clientfield::set("set_objective_fog", 2);
 	}

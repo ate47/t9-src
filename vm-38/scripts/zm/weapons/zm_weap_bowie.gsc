@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
 #using scripts\zm_common\zm_melee_weapon.gsc;
@@ -32,7 +32,7 @@ function private autoexec function_feb1e7c4()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"bowie_knife", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"bowie_knife", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -50,7 +50,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_weap_bowie
 	Checksum: 0x40A7711F
 	Offset: 0x1D8
@@ -58,7 +58,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(isdefined(level.bowie_cost))
 	{
@@ -72,7 +72,7 @@ function private function_8ac3bea9()
 	level.var_8e4168e9 = "bowie_knife";
 	level.var_63af3e00 = "bowie_flourish";
 	var_57858dd5 = "zombie_fists_bowie";
-	if(namespace_cb7cafc3::get_story() == 1)
+	if(zm_maptable::get_story() == 1)
 	{
 		level.var_8e4168e9 = "bowie_knife_story_1";
 		level.var_63af3e00 = "bowie_flourish_story_1";

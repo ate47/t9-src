@@ -153,7 +153,7 @@ function function_74872db6()
 		{
 			if(!is_true(e_player.var_bd1368a8))
 			{
-				e_player function_5b88297d(#"hash_672bb6ed2dd40cab", 1, #"zstandard");
+				e_player increment_zm_contract(#"hash_672bb6ed2dd40cab", 1, #"zstandard");
 			}
 		}
 		level notify(#"hash_786860db94bcc0f3");
@@ -162,7 +162,7 @@ function function_74872db6()
 	{
 		foreach(e_player in getplayers())
 		{
-			e_player function_5b88297d(#"hash_299f40b6488b37df", 1, #"zstandard");
+			e_player increment_zm_contract(#"hash_299f40b6488b37df", 1, #"zstandard");
 		}
 		callback::function_50fdac80(&function_74872db6);
 	}
@@ -229,11 +229,11 @@ function on_round_end()
 	{
 		if(isdefined(var_c5440c34))
 		{
-			e_player function_5b88297d(var_c5440c34, 1, #"zstandard");
+			e_player increment_zm_contract(var_c5440c34, 1, #"zstandard");
 		}
 		if(isdefined(var_fc80b645))
 		{
-			e_player function_5b88297d(var_fc80b645, 1);
+			e_player increment_zm_contract(var_fc80b645, 1);
 		}
 	}
 }
@@ -271,7 +271,7 @@ function can_process_contracts()
 }
 
 /*
-	Name: function_5b88297d
+	Name: increment_zm_contract
 	Namespace: contracts
 	Checksum: 0x5D925DEA
 	Offset: 0x9A8
@@ -279,7 +279,7 @@ function can_process_contracts()
 	Parameters: 3
 	Flags: Linked
 */
-function function_5b88297d(var_38280f2f, delta, var_86024473)
+function increment_zm_contract(var_38280f2f, delta, var_86024473)
 {
 	if(!isdefined(delta))
 	{
@@ -301,7 +301,7 @@ function function_5b88297d(var_38280f2f, delta, var_86024473)
 		}
 		foreach(var_86603201 in var_86024473)
 		{
-			if(var_86603201 == util::function_5df4294())
+			if(var_86603201 == util::get_game_type())
 			{
 				return;
 			}
@@ -345,18 +345,18 @@ function private function_902ef0de(var_38280f2f, delta)
 	if(new_progress != old_progress)
 	{
 		self.pers[#"contracts"][var_38280f2f].current_value = new_progress;
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
-			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.var_90031a39[var_38280f2f], new_progress);
+			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.contract_ids[var_38280f2f], new_progress);
 		}
 	}
 	if(old_progress < target_value && target_value <= new_progress)
 	{
 		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = self.pers[#"time_played_total"];
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
 			zm_stats::function_ea5b4947(0);
-			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.var_90031a39[var_38280f2f]);
+			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.contract_ids[var_38280f2f]);
 		}
 	}
 	/#
@@ -421,7 +421,7 @@ function function_dff4c02f()
 	self.shlocalh++;
 	if(self.shlocalh == 100)
 	{
-		self function_5b88297d(#"hash_38b41a1f3105c462");
+		self increment_zm_contract(#"hash_38b41a1f3105c462");
 	}
 }
 
@@ -447,7 +447,7 @@ function function_ac03f21e()
 	self.var_45ce0c21++;
 	if(self.var_45ce0c21 == 25)
 	{
-		self function_5b88297d(#"hash_16a10697c6afa82");
+		self increment_zm_contract(#"hash_16a10697c6afa82");
 	}
 }
 
@@ -509,7 +509,7 @@ function function_30dc9a23()
 		}
 		if(var_c16ab86f >= 5)
 		{
-			self function_5b88297d(#"hash_7a3b8f92688f1d73");
+			self increment_zm_contract(#"hash_7a3b8f92688f1d73");
 			return;
 		}
 	}
@@ -566,7 +566,7 @@ function function_9d5cd9ee()
 		}
 		if(var_c16ab86f >= 10)
 		{
-			self function_5b88297d(#"hash_5a030c886808c790");
+			self increment_zm_contract(#"hash_5a030c886808c790");
 			return;
 		}
 	}
@@ -637,7 +637,7 @@ function function_51db541e()
 		}
 		if(var_c16ab86f >= 10)
 		{
-			self function_5b88297d(#"hash_507eaa1fcb5caa86");
+			self increment_zm_contract(#"hash_507eaa1fcb5caa86");
 			self notify(#"hash_4bf9f2755fe74a0d");
 			return;
 		}
@@ -684,10 +684,10 @@ function function_1d4fae71()
 function devgui_setup()
 {
 	/#
-		var_74757534 = "";
+		devgui_base = "";
 		wait(3);
-		function_e07e542b(var_74757534, undefined);
-		function_295a8005(var_74757534);
+		function_e07e542b(devgui_base, undefined);
+		function_295a8005(devgui_base);
 	#/
 }
 

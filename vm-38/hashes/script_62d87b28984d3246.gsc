@@ -52,7 +52,7 @@ function create(message, var_400e244b, pulse, endons)
 	}
 	else
 	{
-		if(isstring(var_400e244b) || function_7a600918(var_400e244b) || isarray(var_400e244b))
+		if(isstring(var_400e244b) || ishash(var_400e244b) || isarray(var_400e244b))
 		{
 			self waittill(var_400e244b);
 		}

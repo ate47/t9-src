@@ -1,25 +1,25 @@
 #using script_164a456ce05c3483;
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using script_17dcb1172e441bf6;
 #using script_1b01e95a6b5270fd;
-#using script_1b905a8474ed2a62;
+#using scripts\core_common\ai\blackboard_vehicle.gsc;
 #using script_1ee011cd0961afd7;
 #using script_2a5bf5b4a00cee0d;
 #using script_2c5daa95f8fec03c;
-#using script_35598499769dbb3d;
-#using script_3aa0f32b70d4f7cb;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
 #using script_3faf478d5b0850fe;
-#using script_41fe08c37d53a635;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
 #using script_47851dbeea22fe66;
-#using script_4d85e8de54b02198;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using script_5701633066d199f2;
-#using script_57f7003580bb15e0;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using script_5f20d3b434d24884;
 #using script_79cafc73107dd980;
-#using script_7b7ed6e4bc963a51;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\ai_blackboard.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -787,7 +787,7 @@ function private function_afce1cf(inflictor, attacker, damage, flags, meansofdam
 	registerzombie_bgb_used_reinforce = var_786d7e06.registerzombie_bgb_used_reinforce;
 	if(namespace_ec06fe4a::is_explosive_damage(meansofdamage))
 	{
-		damage_scale = max(damage_scale, entity ai::function_9139c839().var_da5a2805);
+		damage_scale = max(damage_scale, entity ai::function_9139c839().explosivedamagescale);
 		final_damage = int(damage * damage_scale);
 		if(meansofdamage === "MOD_PROJECTILE" && isdefined(var_84ed9a13) && registerzombie_bgb_used_reinforce)
 		{
@@ -1073,10 +1073,10 @@ function private function_19249d10(entity)
 		return false;
 	}
 	forward = anglestoforward(entity.angles);
-	var_7af8b86b = vectornormalize((forward[0], forward[1], 0));
+	forward2d = vectornormalize((forward[0], forward[1], 0));
 	dirtotarget = entity.favoriteenemy.origin - entity.origin;
 	var_854904a = vectornormalize((dirtotarget[0], dirtotarget[1], 0));
-	dot = vectordot(var_7af8b86b, var_854904a);
+	dot = vectordot(forward2d, var_854904a);
 	if(dot < entity ai::function_9139c839().var_aa503e5a)
 	{
 		return false;
@@ -1478,7 +1478,7 @@ function private function_124486ee(delay)
 		return;
 	}
 	var_892397fd = self;
-	var_e9f94272 = var_892397fd.var_52334e8c;
+	missile_owner = var_892397fd.var_52334e8c;
 	blast_radius = 128;
 	var_83f35abe = 45;
 	var_6927cfa0 = 40;
@@ -1492,9 +1492,9 @@ function private function_124486ee(delay)
 		var_892397fd notify(#"detonated");
 		var_892397fd moveto(var_892397fd.origin, 0.05);
 		var_892397fd clientfield::set("blight_father_chaos_missile_explosion_clientfield", 1);
-		var_a7530fbc = var_892397fd.var_52334e8c;
+		e_blightfather = var_892397fd.var_52334e8c;
 		w_weapon = getweapon(#"none");
-		var_892397fd function_8e8b1dfc(var_c45ef84c, var_a7530fbc, w_weapon);
+		var_892397fd function_8e8b1dfc(var_c45ef84c, e_blightfather, w_weapon);
 		var_892397fd namespace_83eb6304::function_3ecfde67("nova_crawler_burst");
 		var_892397fd namespace_e32bb68::function_3a59ec34("zmb_doa_ai_bfather_missile_imp");
 		var_892397fd namespace_e32bb68::function_ae271c0b("zmb_doa_ai_bfather_missile_lp");

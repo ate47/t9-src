@@ -61,7 +61,7 @@ class cpip_menu : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -89,7 +89,7 @@ class cpip_menu : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -133,9 +133,9 @@ class cpip_menu : cLUIelem
 	{
 		cLUIelem::setup_clientfields("pip_menu");
 		cLUIelem::function_dcb34c80("moviefile", "movieName", 1);
-		cLUIelem::function_da693cbe("showBlackScreen", 1, 1, "int");
-		cLUIelem::function_da693cbe("looping", 1, 1, "int");
-		cLUIelem::function_da693cbe("additive", 1, 1, "int");
+		cLUIelem::add_clientfield("showBlackScreen", 1, 1, "int");
+		cLUIelem::add_clientfield("looping", 1, 1, "int");
+		cLUIelem::add_clientfield("additive", 1, 1, "int");
 	}
 
 }

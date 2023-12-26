@@ -1643,7 +1643,7 @@ class cdoor
 					m_e_trigger setcursorhint("HINT_NOICON");
 					if(is_true(m_s_bundle.door_closes) && !is_true(m_e_trigger.var_2dbb0ac1))
 					{
-						local_offset = function_e2ee5807(m_e_trigger.origin, m_e_door.origin, m_e_door.angles);
+						local_offset = coordtransformtranspose(m_e_trigger.origin, m_e_door.origin, m_e_door.angles);
 						m_e_trigger enablelinkto();
 						m_e_trigger linkto(m_e_door, undefined, local_offset);
 					}
@@ -2119,7 +2119,7 @@ function private autoexec function_f819c15()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"doors", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"doors", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -2136,7 +2136,7 @@ function private function_70a657d8()
 	level.var_1def7d37 = [];
 	util::init_dvar("scr_door_bash_requires_use", 0, &function_bae7ed2e);
 	util::init_dvar("scr_door_player_gestures", 1, &function_bae7ed2e);
-	util::init_dvar(#"hash_1da83e9a3dca0a70", 0, &function_bae7ed2e);
+	util::init_dvar(#"disabledoors", 0, &function_bae7ed2e);
 	/#
 		util::init_dvar("", 0, &function_bae7ed2e);
 	#/
@@ -2164,7 +2164,7 @@ function private function_bae7ed2e(dvar)
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: doors
 	Checksum: 0x5A76CF8
 	Offset: 0x62E8
@@ -2172,16 +2172,16 @@ function private function_bae7ed2e(dvar)
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level flag::wait_till("radiant_gameobjects_initialized");
 	var_1cde154f = getgametypesetting(#"use_doors");
-	if(isstring(var_1cde154f) || function_7a600918(var_1cde154f))
+	if(isstring(var_1cde154f) || ishash(var_1cde154f))
 	{
 		var_1cde154f = 1;
 	}
 	var_1cde154f = int(var_1cde154f);
-	var_5a23774b = int(level.var_1def7d37[#"hash_1da83e9a3dca0a70"]);
+	var_5a23774b = int(level.var_1def7d37[#"disabledoors"]);
 	if(!is_true(var_1cde154f) || is_true(var_5a23774b))
 	{
 		return;
@@ -2315,7 +2315,7 @@ function door_panel_interact(b_is_panel_reusable)
 						[[ door ]]->close();
 						if(!is_true(door.m_s_bundle.door_closes) && is_true(door.m_s_bundle.var_d37e8f3e))
 						{
-							door notify(#"hash_32171706aecfce6a", {#player:e_player});
+							door notify(#"set_destructible", {#player:e_player});
 						}
 						continue;
 					}
@@ -3279,7 +3279,7 @@ function function_426a2a1b(c_door)
 	{
 		if(is_true(c_door.m_s_bundle.var_d37e8f3e))
 		{
-			c_door notify(#"hash_32171706aecfce6a", {#player:c_door.var_9b9642be});
+			c_door notify(#"set_destructible", {#player:c_door.var_9b9642be});
 		}
 	}
 }
@@ -3317,13 +3317,13 @@ function door_update_lock_scripted(c_door)
 function function_dc98f943(c_door)
 {
 	e_door = c_door.m_e_door;
-	e_door endon(#"hash_d46ecc32678f28a", #"death");
+	e_door endon(#"door_cleared", #"death");
 	/#
 		assert(isdefined(e_door), "");
 	#/
 	e_door setcandamage(0);
 	waitresult = undefined;
-	waitresult = c_door waittill(#"hash_32171706aecfce6a");
+	waitresult = c_door waittill(#"set_destructible");
 	e_door waittill(#"door_closed");
 	e_door setcandamage(1);
 	e_door setteam(waitresult.player.team);
@@ -3380,7 +3380,7 @@ function function_dc98f943(c_door)
 	}
 	e_door notsolid();
 	[[ c_door ]]->function_f584b243(0);
-	e_door notify(#"hash_d46ecc32678f28a");
+	e_door notify(#"door_cleared");
 }
 
 /*

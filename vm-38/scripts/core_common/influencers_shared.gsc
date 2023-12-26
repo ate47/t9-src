@@ -53,7 +53,7 @@ function private function_70a657d8()
 	level.var_a3e7732d = sessionmode == 1 || sessionmode == 3;
 	if(level.var_3d984b4c && level.var_a3e7732d)
 	{
-		callback::function_20263b9e(&function_20263b9e);
+		callback::on_grenade_fired(&on_grenade_fired);
 		callback::on_player_killed(&on_player_death);
 		callback::on_joined_team(&on_joined_team);
 		callback::on_spawned(&on_spawned);
@@ -108,7 +108,7 @@ function on_joined_team(params)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: influencers
 	Checksum: 0xA4E9146B
 	Offset: 0x340
@@ -116,7 +116,7 @@ function on_joined_team(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	weapon = params.weapon;

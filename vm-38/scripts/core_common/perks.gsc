@@ -43,8 +43,8 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.ammoCooldowns.equipment.tactical", 1, 5, "float", 0);
-	clientfield::function_a8bbc967("hudItems.ammoCooldowns.equipment.lethal", 1, 5, "float", 0);
+	clientfield::register_clientuimodel("hudItems.ammoCooldowns.equipment.tactical", 1, 5, "float", 0);
+	clientfield::register_clientuimodel("hudItems.ammoCooldowns.equipment.lethal", 1, 5, "float", 0);
 	callback::on_spawned(&on_player_spawned);
 	level.var_b8e083d0 = &function_b8e083d0;
 }
@@ -126,7 +126,7 @@ function perk_hasperk(str_perk)
 }
 
 /*
-	Name: function_3cd6f625
+	Name: perk_reset_all
 	Namespace: perks
 	Checksum: 0xC4BEEA07
 	Offset: 0x438
@@ -134,7 +134,7 @@ function perk_hasperk(str_perk)
 	Parameters: 0
 	Flags: Linked
 */
-function function_3cd6f625()
+function perk_reset_all()
 {
 	self clearperks();
 	self.var_fb3c9d6a = [];

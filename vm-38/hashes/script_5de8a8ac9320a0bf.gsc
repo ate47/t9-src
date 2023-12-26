@@ -44,7 +44,7 @@ class cdebug_center_screen : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cdebug_center_screen
 		Checksum: 0x1C8CEAA7
 		Offset: 0x348
@@ -52,9 +52,9 @@ class cdebug_center_screen : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("debug_center_screen");
+		cLUIelem::register_clientside("debug_center_screen");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: debug_center_screen
 	Checksum: 0xAFD1561A
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cdebug_center_screen();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

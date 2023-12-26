@@ -311,7 +311,7 @@ function spawnplayer()
 	hadspawned = self.hasspawned;
 	self player::spawn_player();
 	self setcharacterbodytype(0);
-	self function_8fd843dd(0);
+	self setcharacteroutfit(0);
 	self hud_message::clearlowermessage();
 	self.nextkillstreakfree = undefined;
 	self.activeuavs = 0;
@@ -438,7 +438,7 @@ function spawnplayer()
 	self util::set_sun_shadow_split_distance();
 	self.firstspawn = 0;
 	self.var_88f8dfe3 = gettime();
-	self thread util::function_419f0c21();
+	self thread util::cleanup_fancycam();
 }
 
 /*

@@ -78,7 +78,7 @@ function private function_70a657d8()
 	add_global_spawn_function(#"allies", &global_ai_array);
 	add_global_spawn_function(#"team3", &global_ai_array);
 	/#
-		level thread function_fe02300();
+		level thread aigroup_debug();
 	#/
 }
 
@@ -379,7 +379,7 @@ function run_spawn_functions()
 		}
 	}
 	self.finished_spawning = 1;
-	self notify(#"hash_a8d38936f5f8fa4");
+	self notify(#"finished spawning");
 }
 
 /*
@@ -1424,7 +1424,7 @@ function get_goal(str_goal, str_key)
 }
 
 /*
-	Name: function_fe02300
+	Name: aigroup_debug
 	Namespace: spawner
 	Checksum: 0xC6C42D98
 	Offset: 0x3210
@@ -1432,19 +1432,19 @@ function get_goal(str_goal, str_key)
 	Parameters: 0
 	Flags: None
 */
-function function_fe02300()
+function aigroup_debug()
 {
 	/#
-		var_e7463378 = [];
+		a_aigroups = [];
 		a_spawners = getspawnerarray();
 		foreach(spawner in a_spawners)
 		{
-			if(isdefined(spawner.script_aigroup) && !isinarray(var_e7463378, spawner.script_aigroup))
+			if(isdefined(spawner.script_aigroup) && !isinarray(a_aigroups, spawner.script_aigroup))
 			{
-				array::add(var_e7463378, spawner.script_aigroup, 0);
+				array::add(a_aigroups, spawner.script_aigroup, 0);
 			}
 		}
-		foreach(aigroup in var_e7463378)
+		foreach(aigroup in a_aigroups)
 		{
 			cmd = ((("" + aigroup) + "") + aigroup) + "";
 			adddebugcommand(cmd);
@@ -1453,7 +1453,7 @@ function function_fe02300()
 		adddebugcommand(cmd);
 		while(true)
 		{
-			var_d4f26db9 = getdvarstring(#"hash_c7bb03f6ed72246", "");
+			var_d4f26db9 = getdvarstring(#"debug_aigroup", "");
 			var_c708e6e1 = 120;
 			if(var_d4f26db9 != "")
 			{
@@ -1724,9 +1724,9 @@ function spawn(b_force, str_targetname, v_origin, v_angles, bignorespawninglimit
 		#/
 	}
 	/#
-		var_ca330541 = self.classname === "";
-		var_cff301a5 = !is_true(var_ca330541) || !is_true(level.var_3313aeb2);
-		if(isdefined(level.archetype_spawners) && isarray(level.archetype_spawners) && var_cff301a5)
+		vehiclespawner = self.classname === "";
+		overridevehicle = !is_true(vehiclespawner) || !is_true(level.var_3313aeb2);
+		if(isdefined(level.archetype_spawners) && isarray(level.archetype_spawners) && overridevehicle)
 		{
 			archetype = undefined;
 			archetype_spawner = undefined;
@@ -2049,7 +2049,7 @@ function spawn_failed(spawn)
 		spawn endon(#"death");
 		if(!isdefined(spawn.finished_spawning))
 		{
-			spawn waittill(#"hash_a8d38936f5f8fa4");
+			spawn waittill(#"finished spawning");
 		}
 		waittillframeend();
 		if(isalive(spawn))

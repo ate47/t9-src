@@ -1666,8 +1666,8 @@ function function_afa7d50a(arena_struct, index)
 	[[ arena ]]->initialize(arena_struct, index);
 	level.doa.arenas[[[ arena ]]->getid()] = arena;
 	var_663588d = "Zombietron/Arenas/";
-	var_59ea00e = ("scr_arena_activate " + ([[ arena ]]->getname())) + "; zombie_devgui arena";
-	util::add_devgui(((var_663588d + ([[ arena ]]->getname())) + ":") + ([[ arena ]]->getid()), var_59ea00e);
+	cmdline = ("scr_arena_activate " + ([[ arena ]]->getname())) + "; zombie_devgui arena";
+	util::add_devgui(((var_663588d + ([[ arena ]]->getname())) + ":") + ([[ arena ]]->getid()), cmdline);
 }
 
 /*
@@ -2125,8 +2125,8 @@ function function_6d6bfe1f(var_e1dd1170, rounds)
 		level.doa.var_f66b524a = level.doa.roundendtime - level.doa.roundstarttime;
 		if(!is_true(level.doa.var_3ec3c9aa))
 		{
-			var_aa127355 = {#hash_49a074e7:int(float(level.doa.var_f66b524a) / 1000), #roundnumber:level.doa.roundnumber};
-			function_92d1707f(#"hash_70c149ea78c8a7ac", var_aa127355);
+			eventparams = {#hash_49a074e7:int(float(level.doa.var_f66b524a) / 1000), #roundnumber:level.doa.roundnumber};
+			function_92d1707f(#"hash_70c149ea78c8a7ac", eventparams);
 		}
 		else
 		{

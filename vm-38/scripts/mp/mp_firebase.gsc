@@ -50,7 +50,7 @@ event main(eventstruct)
 function function_876cf680()
 {
 	var_a139d000 = strtok("sd sd_cdl", " ");
-	str_gametype = util::function_5df4294();
+	str_gametype = util::get_game_type();
 	if(isinarray(var_a139d000, str_gametype))
 	{
 		hidemiscmodels("cave_cover_01");

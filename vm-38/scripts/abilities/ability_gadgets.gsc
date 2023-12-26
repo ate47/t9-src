@@ -47,8 +47,8 @@ function private function_70a657d8()
 {
 	callback::on_connect(&on_player_connect);
 	callback::on_spawned(&on_player_spawned);
-	clientfield::function_a8bbc967("huditems.abilityHoldToActivate", 1, 2, "int");
-	clientfield::function_a8bbc967("huditems.abilityDelayProgress", 1, 5, "float");
+	clientfield::register_clientuimodel("huditems.abilityHoldToActivate", 1, 2, "int");
+	clientfield::register_clientuimodel("huditems.abilityDelayProgress", 1, 5, "float");
 }
 
 /*

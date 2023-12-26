@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -39,7 +39,7 @@ function private autoexec function_e1263c28()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_powerup_bonfire_sale", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_powerup_bonfire_sale", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -61,7 +61,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_powerup_bonfire_sale
 	Checksum: 0x80F724D1
 	Offset: 0x2C8
@@ -69,7 +69,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 

@@ -1,14 +1,14 @@
-#using script_184abbae9afad370;
-#using script_57f7003580bb15e0;
+#using scripts\mp_common\player\player_damage.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\core_common\scoreevents_shared.gsc;
 #using scripts\core_common\util_shared.gsc;
 #using scripts\mp_common\gametypes\globallogic_ui.gsc;
 
-#namespace namespace_9fd956a6;
+#namespace player_callbacks;
 
 /*
 	Name: function_96808cd7
-	Namespace: namespace_9fd956a6
+	Namespace: player_callbacks
 	Checksum: 0x960A05EC
 	Offset: 0xA8
 	Size: 0x14

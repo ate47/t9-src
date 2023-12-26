@@ -44,7 +44,7 @@ class cconsequences_notification : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cconsequences_notification
 		Checksum: 0x9B84CCE1
 		Offset: 0x440
@@ -52,9 +52,9 @@ class cconsequences_notification : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("consequences_notification");
+		cLUIelem::register_clientside("consequences_notification");
 	}
 
 	/*
@@ -69,8 +69,8 @@ class cconsequences_notification : cLUIelem
 	function setup_clientfields(var_6ad1a3bb, var_b8233aa2)
 	{
 		cLUIelem::setup_clientfields("consequences_notification");
-		cLUIelem::function_da693cbe("visible", 1, 1, "int", var_6ad1a3bb);
-		cLUIelem::function_da693cbe("content_index", 1, 4, "int", var_b8233aa2);
+		cLUIelem::add_clientfield("visible", 1, 1, "int", var_6ad1a3bb);
+		cLUIelem::add_clientfield("content_index", 1, 4, "int", var_b8233aa2);
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_6ad1a3bb, var_b8233aa2)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: consequences_notification
 	Checksum: 0x2CCA6B68
 	Offset: 0x280
@@ -176,10 +176,10 @@ function register(var_6ad1a3bb, var_b8233aa2)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cconsequences_notification();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

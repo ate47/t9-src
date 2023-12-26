@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\system_shared.gsc;
 

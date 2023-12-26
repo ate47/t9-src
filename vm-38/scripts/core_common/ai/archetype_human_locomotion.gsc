@@ -1,8 +1,8 @@
-#using script_178024232e91b0a1;
-#using script_3aa0f32b70d4f7cb;
-#using script_489b835a247c990e;
-#using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\archetype_locomotion_utility.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 
 #namespace archetype_human_locomotion;
@@ -832,7 +832,7 @@ function private shouldtacticalarrivecondition(behaviortreeentity)
 	{
 		return false;
 	}
-	if(!behaviortreeentity.node.type == #"hash_63cbb4767da2a801")
+	if(!behaviortreeentity.node.type == #"cover left")
 	{
 		return false;
 	}

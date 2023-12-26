@@ -66,7 +66,7 @@ function private function_70a657d8()
 */
 function init()
 {
-	game.strings[#"autobalance"] = #"hash_3e1f31b57ad2d3d9";
+	game.strings[#"autobalance"] = #"mp/autobalance_now";
 	level.teambalance = getdvarint(#"scr_teambalance", 0);
 	level.teambalancetimer = 0;
 	level.timeplayedcap = getdvarint(#"scr_timeplayedcap", 1800);
@@ -102,7 +102,7 @@ function init()
 */
 function on_player_connect()
 {
-	self function_fc746047();
+	self init_played_time();
 }
 
 /*
@@ -170,7 +170,7 @@ function function_45721cef()
 }
 
 /*
-	Name: function_fc746047
+	Name: init_played_time
 	Namespace: teams
 	Checksum: 0xC2A067DB
 	Offset: 0x4E0
@@ -178,7 +178,7 @@ function function_45721cef()
 	Parameters: 0
 	Flags: Linked
 */
-function function_fc746047()
+function init_played_time()
 {
 	if(!isdefined(self.pers[#"totaltimeplayed"]))
 	{

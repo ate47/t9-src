@@ -1,6 +1,6 @@
 #using script_2c5daa95f8fec03c;
-#using script_3f9e0dc8454d98e1;
-#using script_41fe08c37d53a635;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
 #using script_62caa307a394c18c;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\core_common\aat_shared.gsc;

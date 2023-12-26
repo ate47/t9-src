@@ -213,11 +213,11 @@ function function_a74dcd0a(player)
 	Parameters: 1
 	Flags: Linked
 */
-function function_64c67df3(var_e2414b1b)
+function function_64c67df3(zone_path)
 {
-	if(isdefined(level.var_fdcaf3a6) && isdefined(var_e2414b1b))
+	if(isdefined(level.var_fdcaf3a6) && isdefined(zone_path))
 	{
-		if(var_e2414b1b.cost == 2)
+		if(zone_path.cost == 2)
 		{
 			if(self.cached_zone.name === #"zone_tunnel_interior")
 			{
@@ -268,8 +268,8 @@ function function_44b1279a()
 			self clientfield::set_to_player("" + #"hash_464e0cd19b3b8c12", 0);
 			self clientfield::set_to_player("" + #"hash_4be33f9c734f0cb9", 0);
 		}
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"zone_change");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"zone_change");
 	}
 }
 

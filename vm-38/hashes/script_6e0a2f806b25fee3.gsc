@@ -44,7 +44,7 @@ class cstim_count : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cstim_count
 		Checksum: 0x148641E6
 		Offset: 0x3B0
@@ -52,9 +52,9 @@ class cstim_count : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("stim_count");
+		cLUIelem::register_clientside("stim_count");
 	}
 
 	/*
@@ -83,7 +83,7 @@ class cstim_count : cLUIelem
 	function setup_clientfields(var_ce21941e)
 	{
 		cLUIelem::setup_clientfields("stim_count");
-		cLUIelem::function_da693cbe("stim_count", 1, 4, "int", var_ce21941e);
+		cLUIelem::add_clientfield("stim_count", 1, 4, "int", var_ce21941e);
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_ce21941e)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: stim_count
 	Checksum: 0x46CF1619
 	Offset: 0x250
@@ -160,10 +160,10 @@ function register(var_ce21941e)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cstim_count();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

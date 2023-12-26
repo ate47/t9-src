@@ -1,12 +1,12 @@
 #using script_1435f3c9fc699e04;
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_3d703ef87a841fe4;
 #using script_3e196d275a6fb180;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using script_7a8059ca02b7b09e;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -85,7 +85,7 @@ event main(eventstruct)
 	level.ononeleftevent = &ononeleftevent;
 	level.onendround = &on_end_round;
 	level.gettimelimit = &gettimelimit;
-	level.ondeadevent = &function_40843d72;
+	level.ondeadevent = &on_dead_event;
 	level.doprematch = 1;
 	level.warstarttime = 0;
 	level.var_f5a73a96 = 1;
@@ -95,7 +95,7 @@ event main(eventstruct)
 	level.capturetime = getgametypesetting(#"capturetime");
 	level.destroytime = getgametypesetting(#"destroytime");
 	level.timepauseswheninzone = getgametypesetting(#"timepauseswheninzone");
-	level.var_8b4ff11a = getgametypesetting(#"delayplayer");
+	level.dela = getgametypesetting(#"delayplayer");
 	level.scoreperplayer = getgametypesetting(#"scoreperplayer");
 	level.neutralzone = getgametypesetting(#"neutralzone");
 	level.decaycapturedzones = getgametypesetting(#"decaycapturedzones");
@@ -293,7 +293,7 @@ function on_time_limit()
 	}
 	else
 	{
-		round::function_d1e740f6(game.defenders);
+		round::set_winner(game.defenders);
 	}
 	thread globallogic::end_round(2);
 }
@@ -1056,7 +1056,7 @@ function get_zone_array()
 */
 function update_objective_hint_message(attackersmsg, defendersmsg)
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	foreach(team, _ in level.teams)
 	{
 		if(team == game.attackers)
@@ -1079,9 +1079,9 @@ function update_objective_hint_message(attackersmsg, defendersmsg)
 */
 function setup_objectives()
 {
-	level.objectivehintpreparezone = #"hash_428c6be88cdba7e1";
-	level.objectivehintcapturezone = #"hash_20ab0af94351c0d8";
-	level.objectivehintdefendhq = #"hash_257d8ae2e7fc8eb8";
+	level.objectivehintpreparezone = #"mp/control_koth";
+	level.objectivehintcapturezone = #"mp/capture_koth";
+	level.objectivehintdefendhq = #"mp/defend_koth";
 	if(level.zonespawntime)
 	{
 		update_objective_hint_message(level.objectivehintpreparezone);
@@ -1177,11 +1177,11 @@ function main_loop()
 	waittillframeend();
 	if(is_true(level.neutralzone))
 	{
-		update_objective_hint_message(#"hash_68ddcee590e87b3d", #"hash_68ddcee590e87b3d");
+		update_objective_hint_message(#"mp/capture_strong", #"mp/capture_strong");
 	}
 	else
 	{
-		update_objective_hint_message(#"hash_68ddcee590e87b3d", #"hash_4900ca003706dc1d");
+		update_objective_hint_message(#"mp/capture_strong", #"mp/defend_strong");
 	}
 	sound::play_on_players("mpl_hq_cap_us");
 	thread function_23bedaa1();
@@ -1286,7 +1286,7 @@ function capture_loop(zone)
 	zone.gameobject.capturecount = 0;
 	zone.gameobject gameobjects::allow_use(#"hash_33c49a99551acae7");
 	zone.gameobject gameobjects::set_use_time(level.capturetime);
-	zone.gameobject gameobjects::set_use_text(#"hash_467145983994c6c2");
+	zone.gameobject gameobjects::set_use_text(#"mp/capturing_objective");
 	zone.gameobject gameobjects::set_visible(#"hash_5ccfd7bbbf07c770");
 	zone.gameobject gameobjects::set_model_visibility(1, 1);
 	zone.gameobject gameobjects::must_maintain_claim(0);
@@ -1654,9 +1654,9 @@ function private on_zone_capture(sentient)
 	string = #"hash_6d6f47aad6be619f";
 	if(!isdefined(self.lastcaptureteam) || self.lastcaptureteam != capture_team)
 	{
-		if(is_true(getgametypesetting(#"hash_5362566b7e897067")))
+		if(is_true(getgametypesetting(#"contributioncapture")))
 		{
-			var_1dbb2b2b = arraycopy(self.users[capture_team].var_5b307a20);
+			var_1dbb2b2b = arraycopy(self.users[capture_team].contributors);
 			var_6d7ae157 = arraycopy(self.users[capture_team].touching.players);
 			self thread function_ef09febd(var_1dbb2b2b, var_6d7ae157, string, capturetime, capture_team, self.lastcaptureteam);
 		}
@@ -1726,7 +1726,7 @@ function private on_zone_capture(sentient)
 	sentient notify("event_ended" + self.owningzone.zone_index);
 	if(level.zones.size == level.capturedzones)
 	{
-		round::function_d1e740f6(game.attackers);
+		round::set_winner(game.attackers);
 		level thread globallogic::end_round(1);
 	}
 	else
@@ -1765,9 +1765,9 @@ function private on_zone_capture_neutral(sentient)
 	string = #"hash_6d6f47aad6be619f";
 	if(!isdefined(self.lastcaptureteam) || self.lastcaptureteam != capture_team)
 	{
-		if(is_true(getgametypesetting(#"hash_5362566b7e897067")))
+		if(is_true(getgametypesetting(#"contributioncapture")))
 		{
-			var_1dbb2b2b = arraycopy(self.users[capture_team].var_5b307a20);
+			var_1dbb2b2b = arraycopy(self.users[capture_team].contributors);
 			var_6d7ae157 = arraycopy(self.users[capture_team].touching.players);
 			self thread function_ef09febd(var_1dbb2b2b, var_6d7ae157, string, capturetime, capture_team, self.lastcaptureteam);
 		}
@@ -1847,19 +1847,19 @@ function private function_ef09febd(var_1dbb2b2b, var_6d7ae157, string, captureti
 	{
 		if(isdefined(contribution))
 		{
-			var_9b38d2c0 = contribution.player;
-			if(isdefined(var_9b38d2c0) && isdefined(contribution.contribution))
+			contributor = contribution.player;
+			if(isdefined(contributor) && isdefined(contribution.contribution))
 			{
 				percentage = (100 * contribution.contribution) / self.usetime;
-				var_9b38d2c0.var_759a143b = int(0.5 + percentage);
-				var_9b38d2c0.var_1aea8209 = contribution.starttime;
-				if(percentage < getgametypesetting(#"hash_1c94fa23e276efe9"))
+				contributor.var_759a143b = int(0.5 + percentage);
+				contributor.var_1aea8209 = contribution.starttime;
+				if(percentage < getgametypesetting(#"contributionmin"))
 				{
 					continue;
 				}
-				if(contribution.var_e22ea52b && (!isdefined(earliestplayer) || var_9b38d2c0.var_1aea8209 < earliestplayer.var_1aea8209))
+				if(contribution.var_e22ea52b && (!isdefined(earliestplayer) || contributor.var_1aea8209 < earliestplayer.var_1aea8209))
 				{
-					earliestplayer = var_9b38d2c0;
+					earliestplayer = contributor;
 				}
 				if(!isdefined(var_b4613aa2))
 				{
@@ -1869,7 +1869,7 @@ function private function_ef09febd(var_1dbb2b2b, var_6d7ae157, string, captureti
 				{
 					var_b4613aa2 = array(var_b4613aa2);
 				}
-				var_b4613aa2[var_b4613aa2.size] = var_9b38d2c0;
+				var_b4613aa2[var_b4613aa2.size] = contributor;
 			}
 		}
 	}
@@ -1932,7 +1932,7 @@ function private credit_player(player, string, capturetime, capture_team, lastca
 	{
 		string challenges::capturedobjective(capture_team, self.trigger);
 		scoreevents::processscoreevent(#"war_captured_zone", string, undefined, undefined);
-		string contracts::function_a54e2068(#"hash_afec1ad46ac353");
+		string contracts::increment_contract(#"hash_afec1ad46ac353");
 		string recordgameevent("capture");
 		level thread telemetry::function_18135b72(#"hash_540cddd637f71a5e", {#eventtype:#"capture", #player:string});
 		if(var_a84f97bf)
@@ -1945,7 +1945,7 @@ function private credit_player(player, string, capturetime, capture_team, lastca
 			string.captures = string.pers[#"captures"];
 			if((string.pers[#"captures"] % 3) == 0)
 			{
-				string contracts::function_a54e2068(#"hash_47886fea64d2a151");
+				string contracts::increment_contract(#"hash_47886fea64d2a151");
 			}
 		}
 		string.pers[#"objectives"]++;
@@ -1958,15 +1958,15 @@ function private credit_player(player, string, capturetime, capture_team, lastca
 		potm::bookmark(#"event", gettime(), string);
 		string stats::function_bb7eedf0(#"captures", 1);
 		string globallogic_score::incpersstat(#"objectivescore", 1, 0, 1);
-		if(is_true(getgametypesetting(#"hash_5362566b7e897067")))
+		if(is_true(getgametypesetting(#"contributioncapture")))
 		{
-			string luinotifyevent(#"hash_289bacbf80b953c9", 2, self.objectiveid, string.var_759a143b);
+			string luinotifyevent(#"waypoint_captured", 2, self.objectiveid, string.var_759a143b);
 			string.var_759a143b = undefined;
 		}
 		if(var_af8f6146)
 		{
 			string stats::function_dad108fa(#"hash_2f1df496791a2f5f", 1);
-			string contracts::function_a54e2068(#"hash_4fa0008b60deaab4");
+			string contracts::increment_contract(#"hash_4fa0008b60deaab4");
 			globallogic::function_3305e557(string, "captureInArea", 0);
 		}
 	}
@@ -2935,7 +2935,7 @@ function private function_da460cb8(var_b6ec55d)
 }
 
 /*
-	Name: function_40843d72
+	Name: on_dead_event
 	Namespace: mission_koth
 	Checksum: 0xBDD11815
 	Offset: 0x90F8
@@ -2943,7 +2943,7 @@ function private function_da460cb8(var_b6ec55d)
 	Parameters: 1
 	Flags: Private
 */
-function private function_40843d72(team)
+function private on_dead_event(team)
 {
 	if(team != "all")
 	{

@@ -263,7 +263,7 @@ function think()
 		}
 		else
 		{
-			goalpoint = function_ad6356f5(info.overridegoalpos);
+			goalpoint = getclosesttacpoint(info.overridegoalpos);
 			if(isdefined(goalpoint))
 			{
 				if(!self function_de0e95b7(goalpoint))
@@ -317,10 +317,10 @@ function private point_in_goal(point, info)
 	{
 		return 0;
 	}
-	if(isdefined(info.var_151c9dda))
+	if(isdefined(info.regionid))
 	{
-		tpoint = function_ad6356f5(point);
-		return isdefined(tpoint) && info.var_151c9dda == tpoint.region;
+		tpoint = getclosesttacpoint(point);
+		return isdefined(tpoint) && info.regionid == tpoint.region;
 	}
 	if(isdefined(info.goalvolume))
 	{
@@ -552,9 +552,9 @@ function private set_position(point, var_e125ba43)
 function private function_a59f8a5d(info)
 {
 	points = undefined;
-	if(isdefined(info.var_151c9dda))
+	if(isdefined(info.regionid))
 	{
-		points = tacticalquery(#"hash_5c2d9f19faff9f7", info.var_151c9dda, self);
+		points = tacticalquery(#"hash_5c2d9f19faff9f7", info.regionid, self);
 	}
 	else
 	{
@@ -593,9 +593,9 @@ function private function_a59f8a5d(info)
 function private function_7d01d83b(info)
 {
 	points = undefined;
-	if(isdefined(info.var_151c9dda))
+	if(isdefined(info.regionid))
 	{
-		points = tacticalquery(#"hash_db073a01c2b4177", info.var_151c9dda, self);
+		points = tacticalquery(#"hash_db073a01c2b4177", info.regionid, self);
 	}
 	else
 	{
@@ -639,9 +639,9 @@ function private function_7b48fb52(info)
 	{
 		var_27c6a11e = var_27c6a11e getcentroid();
 	}
-	if(isdefined(info.var_151c9dda))
+	if(isdefined(info.regionid))
 	{
-		points = tacticalquery(#"hash_74a4ccc745696184", info.var_151c9dda, self, var_27c6a11e);
+		points = tacticalquery(#"hash_74a4ccc745696184", info.regionid, self, var_27c6a11e);
 	}
 	else
 	{

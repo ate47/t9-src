@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\system_shared.gsc;
@@ -89,14 +89,14 @@ function grab_double_points(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_6fd6ae61(var_7d81025, player)
+function function_6fd6ae61(e_powerup, player)
 {
 	player notify(#"powerup points scaled");
 	player endon(#"powerup points scaled", #"disconnect");
 	player thread zm_powerups::function_5091b029("double_points");
-	if(isdefined(player) && isplayer(player) && isdefined(var_7d81025.hint))
+	if(isdefined(player) && isplayer(player) && isdefined(e_powerup.hint))
 	{
-		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", var_7d81025.hint);
+		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", e_powerup.hint);
 	}
 	player zombie_utility::function_826f5e98(#"zombie_point_scalar", 2);
 	player clientfield::set_player_uimodel("hudItems.doublePointsActive", 1);

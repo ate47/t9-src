@@ -56,14 +56,14 @@ function function_70a657d8()
 	{
 		return;
 	}
-	clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int", &function_6567bf42, 0, 0);
+	clientfield::register("scriptmover", "supply_drop_parachute_rob", 1, 1, "int", &supply_drop_parachute, 0, 0);
 	callback::on_vehicle_spawned(&on_vehicle_spawned);
 	namespace_5b1144e::function_5ae4a10c(undefined, "helicopter_escape_heli", #"hash_5783e6ae1065d00", "pingVehicle");
 	namespace_5b1144e::function_5ae4a10c(#"wpn_t9_streak_care_package_friendly_world", "helicopter_escape_crate", #"hash_12f3d2dc40a1670e", #"hash_49f4ae06ae4af262", #"hash_50bc9e26c4837c85");
 }
 
 /*
-	Name: function_6567bf42
+	Name: supply_drop_parachute
 	Namespace: namespace_780aaec4
 	Checksum: 0x161BBE36
 	Offset: 0x2E8
@@ -71,15 +71,15 @@ function function_70a657d8()
 	Parameters: 7
 	Flags: None
 */
-function function_6567bf42(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function supply_drop_parachute(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	if(bwastimejump == 1)
 	{
-		self function_bf9d3071(#"hash_336cece53ae2342f");
+		self playrenderoverridebundle(#"hash_336cece53ae2342f");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_336cece53ae2342f");
+		self stoprenderoverridebundle(#"hash_336cece53ae2342f");
 	}
 }
 

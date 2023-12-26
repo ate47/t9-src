@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -54,7 +54,7 @@ function private function_70a657d8()
 	zm_powerups::register_powerup("nuke", &grab_nuke);
 	clientfield::register("actor", "zm_nuked", 1, 1, "int");
 	clientfield::register("vehicle", "zm_nuked", 1, 1, "int");
-	zm_powerups::add_zombie_powerup("nuke", "p7_zm_power_up_nuke", #"hash_39772b1fab5ee98c", &function_8d3a47ed, 0, 0, 0, "zombie/fx9_powerup_nuke");
+	zm_powerups::add_zombie_powerup("nuke", "p7_zm_power_up_nuke", #"zombie/powerup_nuke", &function_8d3a47ed, 0, 0, 0, "zombie/fx9_powerup_nuke");
 	level flag::init(#"hash_21921ed511559aa3");
 }
 
@@ -100,7 +100,7 @@ function function_8d3a47ed()
 		a_players = getplayers();
 		foreach(player in a_players)
 		{
-			a_enemies = player function_bdda420f(player.origin, 3000);
+			a_enemies = player getenemiesinradius(player.origin, 3000);
 			if(a_enemies.size)
 			{
 				return true;
@@ -134,7 +134,7 @@ function nuke_powerup(drop_item, player_team, var_264cf1f9)
 	}
 	if(zm_utility::is_survival())
 	{
-		a_enemies = var_264cf1f9 function_bdda420f(location, 3000);
+		a_enemies = var_264cf1f9 getenemiesinradius(location, 3000);
 	}
 	else
 	{

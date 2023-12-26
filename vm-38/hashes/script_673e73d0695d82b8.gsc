@@ -47,7 +47,7 @@ class cSpectreRisingIndicator : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -75,7 +75,7 @@ class cSpectreRisingIndicator : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -104,8 +104,8 @@ class cSpectreRisingIndicator : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("SpectreRisingIndicator");
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int");
-		cLUIelem::function_da693cbe("isAlive", 1, 1, "int");
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int");
+		cLUIelem::add_clientfield("isAlive", 1, 1, "int");
 	}
 
 }

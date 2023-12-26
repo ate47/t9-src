@@ -32,7 +32,7 @@ function private autoexec function_26f4f657()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"cymbal_monkey", &function_70a657d8, &function_8ac3bea9, &finalize, undefined);
+	system::register(#"cymbal_monkey", &function_70a657d8, &postinit, &finalize, undefined);
 }
 
 /*
@@ -53,7 +53,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: gadget_cymbal_monkey
 	Checksum: 0x15FBD192
 	Offset: 0x1A8
@@ -61,7 +61,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level._effect[#"monkey_glow"] = #"hash_5d0dd3293cfdb3dd";
 }

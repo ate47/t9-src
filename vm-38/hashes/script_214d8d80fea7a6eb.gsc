@@ -1018,7 +1018,7 @@ function private function_23f6671d()
 	self postfx::function_c8b5f318("pstfx_speedblur", "Blur", 0);
 	self postfx::function_c8b5f318("pstfx_rain_loop_tkdn_rccar", "Sprite Count Squash", 1);
 	setdvar(#"hash_252e699c41531f1a", 2);
-	setdvar(#"hash_38c17ad45d6603c0", 0.2);
+	setdvar(#"r_motionblurstrength", 0.2);
 	while(true)
 	{
 		level._fx.var_e561515d.velocity = function_72c0c267(level._fx.var_e561515d getvelocity(), level._fx.var_e561515d.angles);
@@ -1159,7 +1159,7 @@ function private function_d1374213(localclientnum, oldval, newval, bnewent, bini
 		}
 		case 1:
 		{
-			self function_bf9d3071("rob_p9_cp_takedown_snipercam_blood_henchman");
+			self playrenderoverridebundle("rob_p9_cp_takedown_snipercam_blood_henchman");
 			break;
 		}
 		case 2:
@@ -1169,7 +1169,7 @@ function private function_d1374213(localclientnum, oldval, newval, bnewent, bini
 		}
 		case 3:
 		{
-			self function_bf9d3071("rob_p9_cp_takedown_snipercam_blood_splatter");
+			self playrenderoverridebundle("rob_p9_cp_takedown_snipercam_blood_splatter");
 			break;
 		}
 	}

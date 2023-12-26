@@ -122,9 +122,9 @@ function private function_77512b90(killstreakbundle, var_e8992218)
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_898628ef(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
+function private function_898628ef(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slotid)
 {
-	killstreakbundle = getscriptbundle(var_d8138db2.var_a6762160.killstreak);
+	killstreakbundle = getscriptbundle(itemid.var_a6762160.killstreak);
 	result = 0;
 	killstreakname = undefined;
 	if(isdefined(killstreakbundle) && isdefined(killstreakbundle.var_fc0c8eae) && isdefined(killstreakbundle.var_fc0c8eae.name))
@@ -141,7 +141,7 @@ function private function_898628ef(item, player, var_bd027dd9, var_d8138db2, ite
 		weapons = itemcount getweaponslist();
 		foreach(weapon in weapons)
 		{
-			var_16f12c31 = namespace_ad5a0cd6::function_3531b9ba(weapon.name);
+			var_16f12c31 = item_world_util::function_3531b9ba(weapon.name);
 			if(!isdefined(var_16f12c31))
 			{
 				continue;
@@ -150,13 +150,13 @@ function private function_898628ef(item, player, var_bd027dd9, var_d8138db2, ite
 			hasammo = ammo > 0;
 			if(hasammo)
 			{
-				var_d90e0e15 = function_4ba8fde(var_16f12c31);
-				var_390fc2d8 = getscriptbundle(var_d90e0e15.var_a6762160.killstreak);
+				itempoint = function_4ba8fde(var_16f12c31);
+				var_390fc2d8 = getscriptbundle(itempoint.var_a6762160.killstreak);
 				if(var_390fc2d8.var_fc0c8eae.name == #"inventory_planemortar")
 				{
 					ammo = (isdefined(itemcount.pers[#"hash_1aaccfe69e328d6e"][3]) ? itemcount.pers[#"hash_1aaccfe69e328d6e"][3] : 3);
 				}
-				level thread item_drop::drop_item(0, undefined, 1, ammo, var_d90e0e15.id, itemcount.origin + (anglestoforward(itemcount.angles) * randomfloatrange(10, 30)), itemcount.angles, 2);
+				level thread item_drop::drop_item(0, undefined, 1, ammo, itempoint.id, itemcount.origin + (anglestoforward(itemcount.angles) * randomfloatrange(10, 30)), itemcount.angles, 2);
 				var_e8992218 = 1;
 			}
 			itemcount takeweapon(weapon);
@@ -197,19 +197,19 @@ function private function_898628ef(item, player, var_bd027dd9, var_d8138db2, ite
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_a712496a(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
+function private function_a712496a(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slotid)
 {
 	primaryweapons = var_aec6fa7f getweaponslistprimaries();
 	primaryweapon = (isdefined(primaryweapons[0]) ? primaryweapons[0] : level.weaponnone);
-	var_aba204a7 = (isdefined(primaryweapons[1]) ? primaryweapons[1] : level.weaponnone);
+	stowedweapon = (isdefined(primaryweapons[1]) ? primaryweapons[1] : level.weaponnone);
 	if(primaryweapon != var_aec6fa7f getcurrentweapon())
 	{
-		var_d3b74270 = var_aba204a7;
-		var_aba204a7 = primaryweapon;
+		var_d3b74270 = stowedweapon;
+		stowedweapon = primaryweapon;
 		primaryweapon = var_d3b74270;
 	}
 	var_4f3ed40 = function_9f1cc9a9(primaryweapon) != 0;
-	var_8b94e68d = function_9f1cc9a9(var_aba204a7) != 0;
+	var_8b94e68d = function_9f1cc9a9(stowedweapon) != 0;
 	/#
 		assert(!(var_4f3ed40 && var_8b94e68d));
 	#/
@@ -251,7 +251,7 @@ function private function_a712496a(item, player, var_bd027dd9, var_d8138db2, ite
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_6598f0a0(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slotid)
+function private function_6598f0a0(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slotid)
 {
 	var_6a4efe8e = var_aec6fa7f clientfield::get_player_uimodel("hud_items.selfReviveAvailable");
 	if(var_6a4efe8e)

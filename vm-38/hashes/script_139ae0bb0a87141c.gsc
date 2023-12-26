@@ -188,7 +188,7 @@ function clearallgroups()
 			{
 				foreach(pod in group.pods)
 				{
-					pod notify(#"hash_55de2cfece5469ed");
+					pod notify(#"debug off");
 				}
 			}
 		}

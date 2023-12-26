@@ -1,5 +1,5 @@
-#using script_4bf952f6ba31bb17;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\math_shared.gsc;
 
 #namespace archetype_mocomps_utility;

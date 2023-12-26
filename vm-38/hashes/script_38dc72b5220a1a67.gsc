@@ -72,7 +72,7 @@ class cLUIelemBar : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cLUIelemBar
 		Checksum: 0x60F1FD00
 		Offset: 0x628
@@ -80,9 +80,9 @@ class cLUIelemBar : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("LUIelemBar");
+		cLUIelem::register_clientside("LUIelemBar");
 	}
 
 	/*
@@ -136,7 +136,7 @@ class cLUIelemBar : cLUIelem
 		Parameters: 10
 		Flags: Linked
 	*/
-	function setup_clientfields(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_661989d5)
+	function setup_clientfields(xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_661989d5)
 	{
 		cLUIelem::setup_clientfields("LUIelemBar");
 	}
@@ -262,10 +262,10 @@ function private autoexec function_d54d6baa()
 	Parameters: 10
 	Flags: Linked
 */
-function register(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_661989d5)
+function register(xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_661989d5)
 {
 	elem = new cLUIelemBar();
-	[[ elem ]]->setup_clientfields(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_661989d5);
+	[[ elem ]]->setup_clientfields(xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_661989d5);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -286,7 +286,7 @@ function register(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTi
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: luielembar
 	Checksum: 0xF22089BF
 	Offset: 0x2F8
@@ -294,10 +294,10 @@ function register(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTi
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cLUIelemBar();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

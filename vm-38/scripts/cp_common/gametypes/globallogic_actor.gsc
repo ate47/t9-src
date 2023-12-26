@@ -1,8 +1,8 @@
 #using scripts\core_common\player\player_shared.gsc;
-#using script_35598499769dbb3d;
-#using script_41fe08c37d53a635;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
 #using script_4ab78e327b76395f;
-#using script_4c5c4a64a59247a2;
+#using scripts\core_common\ai\systems\shared.gsc;
 #using scripts\weapons\weapon_utils.gsc;
 #using scripts\core_common\globallogic\globallogic_player.gsc;
 #using scripts\core_common\ammo_shared.gsc;
@@ -104,7 +104,7 @@ function callback_actordamage(einflictor, eattacker, idamage, idflags, smeansofd
 		idamage = idamage * 3;
 	}
 	idamage = int(idamage);
-	var_a1f8d00b = idamage;
+	unmodified = idamage;
 	if(isdefined(self.overrideactordamage))
 	{
 		idamage = self [[self.overrideactordamage]](einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, var_fd90b0bb, vpoint, vdir, shitloc, psoffsettime, boneindex, modelindex);
@@ -125,9 +125,9 @@ function callback_actordamage(einflictor, eattacker, idamage, idflags, smeansofd
 			idamage = self [[damagecallback]](einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, var_fd90b0bb, vpoint, vdir, shitloc, psoffsettime, boneindex, modelindex);
 		}
 	}
-	if(idflags & 8192 && idamage < var_a1f8d00b)
+	if(idflags & 8192 && idamage < unmodified)
 	{
-		idamage = var_a1f8d00b;
+		idamage = unmodified;
 	}
 	/#
 		assert(isdefined(idamage), "");

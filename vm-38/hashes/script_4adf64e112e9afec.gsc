@@ -154,7 +154,7 @@ function function_381c8192()
 	for(i = 0; i < 8; i++)
 	{
 		obj = spawnstruct();
-		obj.var_e429ef89 = luielem_entity_bar::function_5c1bb138();
+		obj.var_e429ef89 = luielem_entity_bar::register_clientside();
 		obj.localclientnum = -1;
 		obj.entitynum = -1;
 		level.doa.healthbars[i] = obj;
@@ -401,7 +401,7 @@ function function_9d1ddcae()
 	for(i = 0; i < 8; i++)
 	{
 		obj = spawnstruct();
-		obj.var_e429ef89 = doa_textbubble::function_5c1bb138();
+		obj.var_e429ef89 = doa_textbubble::register_clientside();
 		obj.localclientnum = -1;
 		obj.entitynum = -1;
 		level.doa.var_b1d82287[i] = obj;
@@ -410,7 +410,7 @@ function function_9d1ddcae()
 	for(i = 0; i < 4; i++)
 	{
 		obj = spawnstruct();
-		obj.var_e429ef89 = doa_textbubble_playername::function_5c1bb138();
+		obj.var_e429ef89 = doa_textbubble_playername::register_clientside();
 		obj.localclientnum = -1;
 		obj.entitynum = -1;
 		level.doa.var_96dc6b3b[i] = obj;

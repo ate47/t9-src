@@ -1270,13 +1270,13 @@ function init()
 		{
 			for(i = 0; i < sections; i++)
 			{
-				var_59ea00e = ((("scr_wild_activate " + ([[ var_3d2cc936 ]]->getname())) + "@") + i) + "; zombie_devgui wild";
-				util::add_devgui((((var_663588d + ([[ var_3d2cc936 ]]->getname())) + "    Section ") + (i + 1) + ":") + ([[ var_3d2cc936 ]]->getid()), var_59ea00e);
+				cmdline = ((("scr_wild_activate " + ([[ var_3d2cc936 ]]->getname())) + "@") + i) + "; zombie_devgui wild";
+				util::add_devgui((((var_663588d + ([[ var_3d2cc936 ]]->getname())) + "    Section ") + (i + 1) + ":") + ([[ var_3d2cc936 ]]->getid()), cmdline);
 			}
 			continue;
 		}
-		var_59ea00e = ("scr_wild_activate " + ([[ var_3d2cc936 ]]->getname())) + "; zombie_devgui wild";
-		util::add_devgui(((var_663588d + ([[ var_3d2cc936 ]]->getname())) + ":") + ([[ var_3d2cc936 ]]->getid()), var_59ea00e);
+		cmdline = ("scr_wild_activate " + ([[ var_3d2cc936 ]]->getname())) + "; zombie_devgui wild";
+		util::add_devgui(((var_663588d + ([[ var_3d2cc936 ]]->getname())) + ":") + ([[ var_3d2cc936 ]]->getid()), cmdline);
 	}
 }
 

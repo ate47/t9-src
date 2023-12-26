@@ -154,7 +154,7 @@ function function_692bd0bc(player)
 	}
 	primaryoffhand = player function_826ed2dd();
 	player setweaponammoclip(primaryoffhand, player function_b7f1fd2c(primaryoffhand));
-	loadout = player loadout::function_e27dc453("secondarygrenade");
+	loadout = player loadout::get_loadout_slot("secondarygrenade");
 	secondaryoffhand = loadout.weapon;
 	if(isdefined(secondaryoffhand) && player hasweapon(secondaryoffhand))
 	{

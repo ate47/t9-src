@@ -1,4 +1,4 @@
-#using script_299f56e6d0b16416;
+#using scripts\zm_common\zm_quick_spawning.gsc;
 #using script_2c5daa95f8fec03c;
 #using script_3411bb48d41bd3b;
 #using script_3819e7a1427df6d2;
@@ -7,7 +7,7 @@
 #using script_799de24f8ad427f7;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_7fc996fe8678852;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -51,7 +51,7 @@ function private autoexec function_b7cbb23d()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_ai_mimic", &function_70a657d8, &function_8ac3bea9, undefined, "zm_destination_manager");
+	system::register(#"zm_ai_mimic", &function_70a657d8, &postinit, undefined, "zm_destination_manager");
 }
 
 /*
@@ -90,7 +90,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_ai_mimic
 	Checksum: 0x7C564D9A
 	Offset: 0x4F8
@@ -98,7 +98,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	if(zm_utility::is_classic())
 	{
@@ -315,7 +315,7 @@ function function_9832759c(origin, num_points)
 */
 function function_7a3d3a78(zone_name, spawn_points)
 {
-	if(!isdefined(zone_name) || (!isstring(zone_name) && !function_7a600918(zone_name)))
+	if(!isdefined(zone_name) || (!isstring(zone_name) && !ishash(zone_name)))
 	{
 		return spawn_points;
 	}
@@ -663,7 +663,7 @@ function function_62b67aab()
 */
 function function_a7a45f60(target_player)
 {
-	var_7bc72d27 = namespace_df043b58::function_f1ec5df(target_player, target_player getvelocity(), 1);
+	var_7bc72d27 = zm_quick_spawning::function_f1ec5df(target_player, target_player getvelocity(), 1);
 	if(var_7bc72d27.size)
 	{
 		player_zone = var_7bc72d27[randomint(var_7bc72d27.size)];

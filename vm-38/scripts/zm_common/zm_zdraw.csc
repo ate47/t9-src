@@ -37,7 +37,7 @@ function private autoexec function_ded25716()
 function private autoexec __init__system__()
 {
 	/#
-		system::register(#"zdraw", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+		system::register(#"zdraw", &function_70a657d8, &postinit, undefined, undefined);
 	#/
 }
 
@@ -63,7 +63,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_zdraw
 	Checksum: 0xA6AD33F8
 	Offset: 0x1C8
@@ -71,7 +71,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	/#
 	#/
@@ -476,7 +476,7 @@ function function_82f2d020(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -506,7 +506,7 @@ function function_f7176625(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -536,7 +536,7 @@ function function_cb18c560(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -566,7 +566,7 @@ function function_82201799(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -596,7 +596,7 @@ function function_a026f442(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -626,7 +626,7 @@ function function_912c8db9(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -676,7 +676,7 @@ function function_b59acc83(var_a99ac828, startat)
 	/#
 		if(isdefined(var_a99ac828[startat]))
 		{
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -688,7 +688,7 @@ function function_b59acc83(var_a99ac828, startat)
 				function_96c207f("");
 				return startat;
 			}
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -700,7 +700,7 @@ function function_b59acc83(var_a99ac828, startat)
 				function_96c207f("");
 				return startat;
 			}
-			var_769ff4d7 = function_6291f508(var_a99ac828, startat);
+			var_769ff4d7 = revive_getdvar(var_a99ac828, startat);
 			if(var_769ff4d7 > startat)
 			{
 				startat = var_769ff4d7;
@@ -718,7 +718,7 @@ function function_b59acc83(var_a99ac828, startat)
 }
 
 /*
-	Name: function_6291f508
+	Name: revive_getdvar
 	Namespace: zm_zdraw
 	Checksum: 0xB5303EBE
 	Offset: 0x1998
@@ -726,7 +726,7 @@ function function_b59acc83(var_a99ac828, startat)
 	Parameters: 2
 	Flags: None
 */
-function function_6291f508(var_a99ac828, startat)
+function revive_getdvar(var_a99ac828, startat)
 {
 	/#
 		if(isdefined(var_a99ac828[startat]))

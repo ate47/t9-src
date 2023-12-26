@@ -252,12 +252,12 @@ function power_gain_event(slot, eattacker, val, source)
 	powertoadd = val;
 	if(abs(powertoadd) > 0.0001)
 	{
-		var_2c7315a = self._gadgets_player[eattacker].var_1e89f40;
-		if(var_2c7315a && 0 < powertoadd)
+		maxscore = self._gadgets_player[eattacker].var_1e89f40;
+		if(maxscore && 0 < powertoadd)
 		{
-			if(powertoadd + self.var_aec4af05[eattacker] > var_2c7315a)
+			if(powertoadd + self.var_aec4af05[eattacker] > maxscore)
 			{
-				powertoadd = var_2c7315a - self.var_aec4af05[eattacker];
+				powertoadd = maxscore - self.var_aec4af05[eattacker];
 				if(0 >= powertoadd)
 				{
 					return;

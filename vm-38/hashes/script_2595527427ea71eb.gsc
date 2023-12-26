@@ -47,7 +47,7 @@ class czm_trial_timer : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class czm_trial_timer : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -105,7 +105,7 @@ class czm_trial_timer : cLUIelem
 	{
 		cLUIelem::setup_clientfields("zm_trial_timer");
 		cLUIelem::function_dcb34c80("string", "timer_text", 1);
-		cLUIelem::function_da693cbe("under_round_rules", 1, 1, "int");
+		cLUIelem::add_clientfield("under_round_rules", 1, 1, "int");
 	}
 
 }

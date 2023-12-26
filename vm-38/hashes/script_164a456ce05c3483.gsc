@@ -13,7 +13,7 @@
 #using script_40f967ad5d18ea74;
 #using script_4611af4073d18808;
 #using script_47851dbeea22fe66;
-#using script_4c5c4a64a59247a2;
+#using scripts\core_common\ai\systems\shared.gsc;
 #using script_4d748e58ce25b60c;
 #using script_5701633066d199f2;
 #using script_5f20d3b434d24884;
@@ -2127,13 +2127,13 @@ function function_8fef418b()
 	{
 		self.last_valid_position = getclosestpointonnavmesh(self.origin, 2048, 0);
 	}
-	if(!isdefined(self.var_fab0ffd6))
+	if(!isdefined(self.playerradius))
 	{
-		self.var_fab0ffd6 = 24;
+		self.playerradius = 24;
 	}
 	if(!isdefined(self.var_f09063b2))
 	{
-		self.var_f09063b2 = sqr(self.var_fab0ffd6);
+		self.var_f09063b2 = sqr(self.playerradius);
 	}
 	if(!isdefined(self.last_valid_position))
 	{
@@ -2168,7 +2168,7 @@ function function_8fef418b()
 			origin = self.origin;
 		}
 	}
-	if(ispointonnavmesh(self.last_valid_position) && distance2dsquared(origin, self.last_valid_position) < sqr(self.var_fab0ffd6) && (sqr(origin[2] - self.last_valid_position[2])) < sqr(16))
+	if(ispointonnavmesh(self.last_valid_position) && distance2dsquared(origin, self.last_valid_position) < sqr(self.playerradius) && (sqr(origin[2] - self.last_valid_position[2])) < sqr(16))
 	{
 		return;
 	}
@@ -2176,7 +2176,7 @@ function function_8fef418b()
 	{
 		if(isdefined(self.var_5d991645))
 		{
-			if(distancesquared(origin, self.var_5d991645) < sqr(self.var_fab0ffd6))
+			if(distancesquared(origin, self.var_5d991645) < sqr(self.playerradius))
 			{
 				return;
 			}
@@ -2186,7 +2186,7 @@ function function_8fef418b()
 		{
 			return;
 		}
-		position = getclosestpointonnavmesh(ground_pos, 256, self.var_fab0ffd6);
+		position = getclosestpointonnavmesh(ground_pos, 256, self.playerradius);
 		if(isdefined(position))
 		{
 			self.last_valid_position = position;
@@ -2195,17 +2195,17 @@ function function_8fef418b()
 	}
 	else
 	{
-		if(ispointonnavmesh(origin, self.var_fab0ffd6))
+		if(ispointonnavmesh(origin, self.playerradius))
 		{
 			self.last_valid_position = origin;
 		}
 		else
 		{
-			if(ispointonnavmesh(self.last_valid_position, self.var_fab0ffd6) && distance2dsquared(origin, self.last_valid_position) < self.var_f09063b2 && (sqr(origin[2] - self.last_valid_position[2])) < self.var_f09063b2)
+			if(ispointonnavmesh(self.last_valid_position, self.playerradius) && distance2dsquared(origin, self.last_valid_position) < self.var_f09063b2 && (sqr(origin[2] - self.last_valid_position[2])) < self.var_f09063b2)
 			{
 				return;
 			}
-			position = getclosestpointonnavmesh(origin, 100, self.var_fab0ffd6);
+			position = getclosestpointonnavmesh(origin, 100, self.playerradius);
 			if(isdefined(position))
 			{
 				self.last_valid_position = position;

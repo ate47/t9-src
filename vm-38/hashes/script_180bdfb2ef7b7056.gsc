@@ -58,7 +58,7 @@ class cself_respawn : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cself_respawn
 		Checksum: 0x3DD4B28F
 		Offset: 0x3C0
@@ -66,9 +66,9 @@ class cself_respawn : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("self_respawn");
+		cLUIelem::register_clientside("self_respawn");
 	}
 
 	/*
@@ -83,7 +83,7 @@ class cself_respawn : cLUIelem
 	function setup_clientfields(var_1089a5f3)
 	{
 		cLUIelem::setup_clientfields("self_respawn");
-		cLUIelem::function_da693cbe("percent", 1, 6, "float", var_1089a5f3);
+		cLUIelem::add_clientfield("percent", 1, 6, "float", var_1089a5f3);
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_1089a5f3)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: self_respawn
 	Checksum: 0xFE2FF996
 	Offset: 0x260
@@ -160,10 +160,10 @@ function register(var_1089a5f3)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cself_respawn();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

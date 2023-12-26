@@ -218,11 +218,11 @@ function function_ade393f4(var_a0345f37, player, weapon)
 	{
 		player.var_2a26f02 = [];
 	}
-	if(killstreaks::is_killstreak_weapon(weapon) && isdefined(level.var_7d45d0d4.var_3385b421))
+	if(killstreaks::is_killstreak_weapon(weapon) && isdefined(level.var_7d45d0d4.activeobjective))
 	{
-		if(!isdefined(player.var_2a26f02[weapon.statname]) || player.var_2a26f02[weapon.statname].objective !== level.var_7d45d0d4.var_3385b421)
+		if(!isdefined(player.var_2a26f02[weapon.statname]) || player.var_2a26f02[weapon.statname].objective !== level.var_7d45d0d4.activeobjective)
 		{
-			player.var_2a26f02[weapon.statname] = {#hash_22835c3f:0, #kill_count:0, #objective:level.var_7d45d0d4.var_3385b421};
+			player.var_2a26f02[weapon.statname] = {#hash_22835c3f:0, #kill_count:0, #objective:level.var_7d45d0d4.activeobjective};
 		}
 		player.var_2a26f02[weapon.statname].kill_count++;
 		if(player.var_2a26f02[weapon.statname].kill_count === 10 && player.var_2a26f02[weapon.statname].var_22835c3f === 0)
@@ -231,7 +231,7 @@ function function_ade393f4(var_a0345f37, player, weapon)
 			player zm_stats::increment_challenge_stat(#"hash_36c9caf1c41a8356");
 		}
 	}
-	if(level.var_7d45d0d4.var_3385b421.content_script_name === "holdout")
+	if(level.var_7d45d0d4.activeobjective.content_script_name === "holdout")
 	{
 		if(var_a0345f37.var_1d8cde9 === 1)
 		{
@@ -252,7 +252,7 @@ function function_ade393f4(var_a0345f37, player, weapon)
 */
 function function_88e6f8b7(params)
 {
-	if(level.var_7d45d0d4.var_3385b421.content_script_name === "retrieval" && isdefined(params.enemy))
+	if(level.var_7d45d0d4.activeobjective.content_script_name === "retrieval" && isdefined(params.enemy))
 	{
 		params.enemy function_513fa6e4(params.enemy.attacker);
 	}

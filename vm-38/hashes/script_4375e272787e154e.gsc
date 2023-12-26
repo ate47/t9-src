@@ -35,7 +35,7 @@ function private autoexec function_1b1bcd7e()
 event codecallback_preinitialization(eventstruct)
 {
 	clientfield::register("world", "hide_intro_models", 1, 1, "int", &hide_intro_models, 0, 0);
-	clientfield::function_a8bbc967("closeLoadingMovie", #"hash_414f1dabe0f0c1a5", #"closeloadingmovie", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("closeLoadingMovie", #"hash_414f1dabe0f0c1a5", #"closeloadingmovie", 1, 1, "int", undefined, 0, 0);
 	var_43a36c6f = function_6681bbf6();
 	function_e526b83(var_43a36c6f);
 	level.var_5337a48a = [];

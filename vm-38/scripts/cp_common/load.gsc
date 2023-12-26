@@ -9,7 +9,7 @@
 #using script_691641bee32b9cd5;
 #using scripts\weapons\cp\weaponobjects.gsc;
 #using script_7cc5fb39b97494c4;
-#using script_7f8766df179db65d;
+#using scripts\weapons\antipersonnelguidance.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\audio_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -140,8 +140,8 @@ function function_5e443ed1()
 	function_fbb2b180();
 	setdvar(#"playerenenergy_enabled", 0);
 	setdvar(#"g_speed", 160);
-	setdvar(#"hash_57692563a7cbec8", 120);
-	setdvar(#"hash_59288563a952882", 150);
+	setdvar(#"ik_terrain_vel_min", 120);
+	setdvar(#"ik_terrain_vel_max", 150);
 	var_4a3ec1d1 = getgametypesetting(#"hash_72a2919d2ac65850");
 	setdvar(#"hash_7188be5be867a9ba", var_4a3ec1d1);
 	setdvar(#"hash_862358d532e674c", var_4a3ec1d1);

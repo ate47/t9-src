@@ -2,7 +2,7 @@
 #using scripts\core_common\bots\bot.gsc;
 #using scripts\zm_common\zm_trial_util.gsc;
 #using scripts\zm_common\zm_trial.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -60,7 +60,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -78,7 +78,7 @@ function private function_70a657d8()
 */
 function __main__()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -100,11 +100,11 @@ function private on_begin(var_9e0a2a85)
 		var_9e0a2a85 = 1;
 	}
 	level endon(#"hash_7646638df88a3656");
-	if(function_7a600918(var_9e0a2a85))
+	if(ishash(var_9e0a2a85))
 	{
 		var_9e0a2a85 = zm_trial::function_5769f26a(var_9e0a2a85);
 	}
-	level.var_3c2226ce = zm_custom::function_901b751c(#"hash_3f8f02e8109b6e93");
+	level.var_3c2226ce = zm_custom::function_901b751c(#"zmfriendlyfiretype");
 	zm_custom::function_928be07c(var_9e0a2a85);
 	callback::on_player_damage(&on_player_damage);
 	level.var_edae191d = 1;
@@ -133,8 +133,8 @@ function private on_begin(var_9e0a2a85)
 			player thread function_6aa8dd73();
 		}
 	}
-	level.var_cd0fc105 = level.var_4804edae;
-	level.var_4804edae = 0;
+	level.var_cd0fc105 = level.zm_bots_scale;
+	level.zm_bots_scale = 0;
 	zm::register_actor_damage_callback(&function_c4e6367a);
 }
 
@@ -169,7 +169,7 @@ function private on_end(round_reset)
 	{
 		arrayremovevalue(level.actor_damage_callbacks, &function_c4e6367a, 0);
 	}
-	level.var_4804edae = level.var_cd0fc105;
+	level.zm_bots_scale = level.var_cd0fc105;
 	level.var_cd0fc105 = undefined;
 }
 
@@ -278,7 +278,7 @@ function function_6aa8dd73()
 	}
 	if(level.round_number >= 20)
 	{
-		var_98cb6e9 = array::randomize(array(#"ar_accurate_t8_upgraded", #"ar_fastfire_t8_upgraded", #"ar_stealth_t8_upgraded", #"hash_e1311542f5782b5", #"smg_capacity_t8_upgraded", #"hash_81c373345c076c1"));
+		var_98cb6e9 = array::randomize(array(#"ar_accurate_t8_upgraded", #"ar_fastfire_t8_upgraded", #"ar_stealth_t8_upgraded", #"ar_modular_t8_upgraded", #"smg_capacity_t8_upgraded", #"tr_powersemi_t8_upgraded"));
 		n_repacks = 3;
 		self zm_perks::function_cc24f525();
 	}
@@ -286,7 +286,7 @@ function function_6aa8dd73()
 	{
 		if(level.round_number >= 10)
 		{
-			var_98cb6e9 = array::randomize(array(#"ar_accurate_t8_upgraded", #"ar_fastfire_t8_upgraded", #"ar_stealth_t8_upgraded", #"hash_e1311542f5782b5", #"smg_capacity_t8_upgraded", #"hash_81c373345c076c1"));
+			var_98cb6e9 = array::randomize(array(#"ar_accurate_t8_upgraded", #"ar_fastfire_t8_upgraded", #"ar_stealth_t8_upgraded", #"ar_modular_t8_upgraded", #"smg_capacity_t8_upgraded", #"tr_powersemi_t8_upgraded"));
 			n_repacks = 1;
 		}
 		else

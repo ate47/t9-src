@@ -60,7 +60,7 @@ class czm_trial_weapon_locked : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_trial_weapon_locked
 		Checksum: 0x231AA368
 		Offset: 0x3C0
@@ -68,9 +68,9 @@ class czm_trial_weapon_locked : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_trial_weapon_locked");
+		cLUIelem::register_clientside("zm_trial_weapon_locked");
 	}
 
 	/*
@@ -85,7 +85,7 @@ class czm_trial_weapon_locked : cLUIelem
 	function setup_clientfields(var_18c795d0)
 	{
 		cLUIelem::setup_clientfields("zm_trial_weapon_locked");
-		cLUIelem::function_da693cbe("show_icon", 1, 1, "counter", var_18c795d0);
+		cLUIelem::add_clientfield("show_icon", 1, 1, "counter", var_18c795d0);
 	}
 
 	/*
@@ -154,7 +154,7 @@ function register(var_18c795d0)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_trial_weapon_locked
 	Checksum: 0xF312C59B
 	Offset: 0x268
@@ -162,10 +162,10 @@ function register(var_18c795d0)
 	Parameters: 0
 	Flags: Linked
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new czm_trial_weapon_locked();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

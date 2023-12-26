@@ -1,5 +1,5 @@
 #using script_24c32478acf44108;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_62caa307a394c18c;
 #using script_72401f526ba71638;
 #using scripts\core_common\ai_shared.gsc;
@@ -174,7 +174,7 @@ function function_1e0fa475(weapon, var_2b003a39, var_5baceff5, n_duration)
 				circle(self.origin, var_5baceff5, (0, 1, 0), undefined, 1);
 			}
 		#/
-		a_enemies = self function_bdda420f(self.origin, var_5baceff5);
+		a_enemies = self getenemiesinradius(self.origin, var_5baceff5);
 		foreach(ai in a_enemies)
 		{
 			if(ai function_165a06f0(self, var_2b003a39, var_5baceff5, weapon))
@@ -225,7 +225,7 @@ function function_5bcee875(var_12a907ec, weapon, var_5baceff5, var_2b003a39)
 				circle(self.origin, var_2b003a39, (1, 0, 0), undefined, 1);
 			}
 		#/
-		a_enemies = self function_bdda420f(self.origin, var_5baceff5);
+		a_enemies = self getenemiesinradius(self.origin, var_5baceff5);
 		foreach(ai in a_enemies)
 		{
 			if(ai function_165a06f0(self, var_2b003a39, var_5baceff5, weapon))

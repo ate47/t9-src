@@ -47,7 +47,7 @@ class cmp_laststand_client : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class cmp_laststand_client : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,8 +90,8 @@ class cmp_laststand_client : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("mp_laststand_client");
-		cLUIelem::function_da693cbe("bleedout_progress", 1, 6, "float");
-		cLUIelem::function_da693cbe("revive_progress", 1, 5, "float");
+		cLUIelem::add_clientfield("bleedout_progress", 1, 6, "float");
+		cLUIelem::add_clientfield("revive_progress", 1, 5, "float");
 	}
 
 	/*

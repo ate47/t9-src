@@ -1,6 +1,6 @@
 #using script_1292451e284848cc;
 #using script_4ccd0c3512b52a10;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_73e0d5e10c6348fa;
 #using script_7cf3e180e994d17f;
 #using scripts\core_common\ai_shared.gsc;

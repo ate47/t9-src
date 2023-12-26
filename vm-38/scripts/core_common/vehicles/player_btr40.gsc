@@ -138,9 +138,9 @@ function function_32ff31aa(params)
 	{
 		self vehicle::toggle_control_bone_group((eventstruct.seat_index - 1) + 1, 0);
 	}
-	if(eventstruct.var_21911287 >= 1 && eventstruct.var_21911287 <= 4)
+	if(eventstruct.old_seat_index >= 1 && eventstruct.old_seat_index <= 4)
 	{
-		self vehicle::toggle_control_bone_group((eventstruct.var_21911287 - 1) + 1, 1);
+		self vehicle::toggle_control_bone_group((eventstruct.old_seat_index - 1) + 1, 1);
 	}
 }
 

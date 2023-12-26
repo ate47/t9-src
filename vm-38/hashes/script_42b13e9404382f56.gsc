@@ -47,7 +47,7 @@ class class_c982469d : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class class_c982469d : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,9 +90,9 @@ class class_c982469d : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("zm_corrupted_health_bar");
-		cLUIelem::function_da693cbe("health", 4000, 7, "float");
-		cLUIelem::function_da693cbe("armor", 4000, 7, "float");
-		cLUIelem::function_da693cbe("armor_vis", 4000, 1, "int");
+		cLUIelem::add_clientfield("health", 4000, 7, "float");
+		cLUIelem::add_clientfield("armor", 4000, 7, "float");
+		cLUIelem::add_clientfield("armor_vis", 4000, 1, "int");
 	}
 
 	/*

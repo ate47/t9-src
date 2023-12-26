@@ -47,7 +47,7 @@ class cLUIelemText : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -103,7 +103,7 @@ class cLUIelemText : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -146,16 +146,16 @@ class cLUIelemText : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("LUIelemText");
-		cLUIelem::function_da693cbe("x", 1, 7, "int");
-		cLUIelem::function_da693cbe("y", 1, 6, "int");
-		cLUIelem::function_da693cbe("height", 1, 2, "int");
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int");
-		cLUIelem::function_da693cbe("alpha", 1, 4, "float");
-		cLUIelem::function_da693cbe("red", 1, 4, "float");
-		cLUIelem::function_da693cbe("green", 1, 4, "float");
-		cLUIelem::function_da693cbe("blue", 1, 4, "float");
+		cLUIelem::add_clientfield("x", 1, 7, "int");
+		cLUIelem::add_clientfield("y", 1, 6, "int");
+		cLUIelem::add_clientfield("height", 1, 2, "int");
+		cLUIelem::add_clientfield("fadeOverTime", 1, 5, "int");
+		cLUIelem::add_clientfield("alpha", 1, 4, "float");
+		cLUIelem::add_clientfield("red", 1, 4, "float");
+		cLUIelem::add_clientfield("green", 1, 4, "float");
+		cLUIelem::add_clientfield("blue", 1, 4, "float");
 		cLUIelem::function_dcb34c80("string", "text", 1);
-		cLUIelem::function_da693cbe("horizontal_alignment", 1, 2, "int");
+		cLUIelem::add_clientfield("horizontal_alignment", 1, 2, "int");
 	}
 
 	/*

@@ -75,9 +75,9 @@ function private finalize_init()
 		challenges::registerchallengescallback("gameEnd", &function_a4c8ce2a);
 		globallogic_score::registercontractwinevent(&contract_win);
 		register_player_contract_event(#"score", &on_player_score, 2);
-		register_player_contract_event(#"ekia", &function_71eb8a5a, 2);
-		register_player_contract_event(#"objective_ekia", &function_660b0026);
-		register_player_contract_event(#"damagedone", &function_6d90b18a, 1);
+		register_player_contract_event(#"ekia", &on_ekia, 2);
+		register_player_contract_event(#"objective_ekia", &on_objective_ekia);
+		register_player_contract_event(#"damagedone", &on_damagedone, 1);
 		level.var_79a93566 = &function_902ef0de;
 		level.var_c3e2bb05 = 2;
 		function_7364a587();
@@ -228,7 +228,7 @@ function on_player_score(new_score, delta_score)
 }
 
 /*
-	Name: function_71eb8a5a
+	Name: on_ekia
 	Namespace: contracts
 	Checksum: 0x7822795D
 	Offset: 0x958
@@ -236,7 +236,7 @@ function on_player_score(new_score, delta_score)
 	Parameters: 2
 	Flags: Linked
 */
-function function_71eb8a5a(weapon, victim)
+function on_ekia(weapon, victim)
 {
 	gametype = level.gametype;
 	if(!isdefined(level.var_9d6b3096[gametype]))
@@ -274,7 +274,7 @@ function function_71eb8a5a(weapon, victim)
 }
 
 /*
-	Name: function_660b0026
+	Name: on_objective_ekia
 	Namespace: contracts
 	Checksum: 0xC931B662
 	Offset: 0xB10
@@ -282,7 +282,7 @@ function function_71eb8a5a(weapon, victim)
 	Parameters: 0
 	Flags: Linked
 */
-function function_660b0026()
+function on_objective_ekia()
 {
 	gametype = level.gametype;
 	if(!isdefined(level.var_9d6b3096[gametype]))
@@ -316,7 +316,7 @@ function function_660b0026()
 }
 
 /*
-	Name: function_6d90b18a
+	Name: on_damagedone
 	Namespace: contracts
 	Checksum: 0x81EE2624
 	Offset: 0xC80
@@ -324,7 +324,7 @@ function function_660b0026()
 	Parameters: 1
 	Flags: Linked
 */
-function function_6d90b18a(damagedone)
+function on_damagedone(damagedone)
 {
 	player = self;
 	if(player is_contract_active(#"hash_783240d7e11018c9"))
@@ -418,18 +418,18 @@ function private function_902ef0de(var_38280f2f, delta)
 	if(new_progress != old_progress)
 	{
 		self.pers[#"contracts"][var_38280f2f].current_value = new_progress;
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
-			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.var_90031a39[var_38280f2f], new_progress);
+			self luinotifyevent(#"hash_4b04b1cb4b3498d0", 2, level.contract_ids[var_38280f2f], new_progress);
 		}
 	}
 	if(old_progress < target_value && target_value <= new_progress)
 	{
 		var_9d12108c = (isdefined(self.timeplayed[self.team]) ? self.timeplayed[self.team] : 0);
-		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = (self stats::function_441050ca(#"time_played_total") - self.pers[#"hash_5651f00c6c1790a4"]) + var_9d12108c;
-		if(isdefined(level.var_90031a39[var_38280f2f]))
+		self.pers[#"contracts"][var_38280f2f].var_be5bf249 = (self stats::get_stat_global(#"time_played_total") - self.pers[#"hash_5651f00c6c1790a4"]) + var_9d12108c;
+		if(isdefined(level.contract_ids[var_38280f2f]))
 		{
-			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.var_90031a39[var_38280f2f]);
+			self luinotifyevent(#"hash_1739c4bd5baf83bc", 1, level.contract_ids[var_38280f2f]);
 		}
 	}
 	/#
@@ -505,17 +505,17 @@ function function_a4c8ce2a(data)
 		{
 			if(level.placement[team][i] == player)
 			{
-				player function_a54e2068(#"hash_355152b5a8de61ef");
+				player increment_contract(#"hash_355152b5a8de61ef");
 				break;
 			}
 		}
 	}
 	arenaslot = arenagetslot();
-	var_67d27328 = player stats::get_stat(#"arenastats", arenaslot, #"hash_60f1e9335197f661", #"hash_36cd820c1ff6c16b");
+	var_67d27328 = player stats::get_stat(#"arenastats", arenaslot, #"leagueplaystats", #"hash_36cd820c1ff6c16b");
 	if(var_67d27328 > 0)
 	{
-		player function_a54e2068(#"hash_35e52e40ab6d1223", var_67d27328);
-		player function_a54e2068(#"hash_421c3b5196a40f99", var_67d27328);
+		player increment_contract(#"hash_35e52e40ab6d1223", var_67d27328);
+		player increment_contract(#"hash_421c3b5196a40f99", var_67d27328);
 	}
 	player function_78083139();
 }
@@ -551,7 +551,7 @@ function contract_win(winner)
 			break;
 		}
 	}
-	var_283195f2 = winner stats::function_441050ca(#"hash_56a0e77eea02664d");
+	var_283195f2 = winner stats::get_stat_global(#"hash_56a0e77eea02664d");
 	if(var_283195f2 > 0)
 	{
 		if((var_283195f2 % 4) == 0)
@@ -577,15 +577,15 @@ function contract_win(winner)
 function devgui_setup()
 {
 	/#
-		var_74757534 = "";
+		devgui_base = "";
 		wait(3);
-		function_e07e542b(var_74757534, undefined);
-		function_17a92a99(var_74757534);
-		function_7f05e018(var_74757534);
-		function_bdc473ef(var_74757534);
-		function_936f8390(var_74757534);
-		function_2e9917ec(var_74757534);
-		function_295a8005(var_74757534);
+		function_e07e542b(devgui_base, undefined);
+		function_17a92a99(devgui_base);
+		function_7f05e018(devgui_base);
+		function_bdc473ef(devgui_base);
+		function_936f8390(devgui_base);
+		function_2e9917ec(devgui_base);
+		function_295a8005(devgui_base);
 	#/
 }
 

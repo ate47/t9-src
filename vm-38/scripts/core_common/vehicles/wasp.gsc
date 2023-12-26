@@ -358,11 +358,11 @@ function function_d34735d1()
 	Parameters: 3
 	Flags: Linked
 */
-function fall_and_bounce(killonimpact_speed, killonimpact_time, var_666e0401)
+function fall_and_bounce(killonimpact_speed, killonimpact_time, killonimpact)
 {
-	if(!isdefined(var_666e0401))
+	if(!isdefined(killonimpact))
 	{
-		var_666e0401 = 0;
+		killonimpact = 0;
 	}
 	self endon(#"death", #"change_state");
 	maxbouncetime = 3;
@@ -380,7 +380,7 @@ function fall_and_bounce(killonimpact_speed, killonimpact_time, var_666e0401)
 		waitresult = self waittill(#"veh_collision");
 		impact_vel = waitresult.velocity;
 		normal = waitresult.normal;
-		if(var_666e0401)
+		if(killonimpact)
 		{
 			self kill();
 		}

@@ -1,5 +1,5 @@
 #using script_396f7d71538c9677;
-#using script_7dd6557e89e9840b;
+#using scripts\killstreaks\remotemissile_shared.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\system_shared.gsc;
 
@@ -45,7 +45,7 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	bundlename = "killstreak_remote_missile";
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundlename = bundlename + "_wz";
 	}
@@ -101,7 +101,7 @@ function function_dab39bb8(rocket)
 		dotproduct = vectordot(relativepos, dir);
 		if(dotproduct > 0 && sighttracepassed(self.origin, eyepoint, 1, enemy, self))
 		{
-			enemy thread battlechatter::function_cef454e8("remote_missile");
+			enemy thread battlechatter::playkillstreakthreat("remote_missile");
 			var_b5e50364 = 1;
 		}
 		wait(0.1);

@@ -129,7 +129,7 @@ function main()
 	game._team1_num = 0;
 	game._team2_num = 0;
 	map_name = level.script;
-	mode = util::function_5df4294();
+	mode = util::get_game_type();
 	if(!isdefined(mode) || mode == "" && isdefined(level.default_game_mode))
 	{
 		mode = level.default_game_mode;
@@ -151,7 +151,7 @@ function main()
 	{
 		game.switchedsides = 0;
 	}
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	game.dialog[#"gametype"] = gametype + "_start";
 	game.dialog[#"gametype_hardcore"] = gametype + "_start";
 	game.dialog[#"offense_obj"] = "generic_boost";
@@ -555,7 +555,7 @@ function onspawnplayer(predictedspawn)
 */
 function get_player_spawns_for_gametype()
 {
-	var_19c35ca = [];
+	a_s_player_spawns = [];
 	a_structs = struct::get_array("player_respawn_point", "targetname");
 	foreach(struct in a_structs)
 	{
@@ -566,30 +566,30 @@ function get_player_spawns_for_gametype()
 			{
 				if(var_5d975b01 == level.scr_zm_ui_gametype)
 				{
-					if(!isdefined(var_19c35ca))
+					if(!isdefined(a_s_player_spawns))
 					{
-						var_19c35ca = [];
+						a_s_player_spawns = [];
 					}
-					else if(!isarray(var_19c35ca))
+					else if(!isarray(a_s_player_spawns))
 					{
-						var_19c35ca = array(var_19c35ca);
+						a_s_player_spawns = array(a_s_player_spawns);
 					}
-					var_19c35ca[var_19c35ca.size] = struct;
+					a_s_player_spawns[a_s_player_spawns.size] = struct;
 				}
 			}
 			continue;
 		}
-		if(!isdefined(var_19c35ca))
+		if(!isdefined(a_s_player_spawns))
 		{
-			var_19c35ca = [];
+			a_s_player_spawns = [];
 		}
-		else if(!isarray(var_19c35ca))
+		else if(!isarray(a_s_player_spawns))
 		{
-			var_19c35ca = array(var_19c35ca);
+			a_s_player_spawns = array(a_s_player_spawns);
 		}
-		var_19c35ca[var_19c35ca.size] = struct;
+		a_s_player_spawns[a_s_player_spawns.size] = struct;
 	}
-	return var_19c35ca;
+	return a_s_player_spawns;
 }
 
 /*
@@ -656,7 +656,7 @@ function menu_init()
 	game.menu[#"menu_changeclass"] = "PositionDraft";
 	game.menu[#"menu_changeclass_offline"] = "PositionDraft";
 	game.menu[#"menu_changeclass_custom"] = "PositionDraft";
-	game.menu[#"hash_644a9c94f3d35a8a"] = "PositionDraft";
+	game.menu[#"menu_draft"] = "PositionDraft";
 	game.menu[#"menu_controls"] = "ingame_controls";
 	game.menu[#"menu_options"] = "ingame_options";
 	game.menu[#"menu_leavegame"] = "popup_leavegame";
@@ -678,7 +678,7 @@ function menu_onplayerconnect()
 }
 
 /*
-	Name: function_22d79e6e
+	Name: zm_map_restart
 	Namespace: zm_gametype
 	Checksum: 0x725E2A03
 	Offset: 0x2158
@@ -686,7 +686,7 @@ function menu_onplayerconnect()
 	Parameters: 0
 	Flags: Linked
 */
-function function_22d79e6e()
+function zm_map_restart()
 {
 	self endon(#"disconnect");
 	while(!function_65f7de49())
@@ -1028,10 +1028,10 @@ function onplayerconnect_check_for_hotjoin()
 			return;
 		}
 	#/
-	gametype = hash(util::function_5df4294());
+	gametype = hash(util::get_game_type());
 	if(gametype == #"zsurvival")
 	{
-		if(isdefined(level.var_7d45d0d4.var_3385b421))
+		if(isdefined(level.var_7d45d0d4.activeobjective))
 		{
 			self thread player_hotjoin();
 		}

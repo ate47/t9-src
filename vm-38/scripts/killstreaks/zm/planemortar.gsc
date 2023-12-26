@@ -1,9 +1,9 @@
 #using script_1cc417743d7c262d;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_396f7d71538c9677;
 #using scripts\killstreaks\zm\airsupport.gsc;
 #using script_4721de209091b1a6;
-#using script_4a81c26d2ddde9c;
+#using scripts\killstreaks\planemortar_shared.gsc;
 #using script_61828ad9e71c6616;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -285,7 +285,7 @@ function function_66133f8b(var_5b276012)
 	self endon(#"disconnect");
 	s_params = killstreaks::get_script_bundle("planemortar");
 	var_2558cb51 = array("planemortar_complete" + var_5b276012, "planemortar_failed" + var_5b276012);
-	self namespace_bf7415ae::function_890b3889("planemortar", s_params.var_1ab696c6, 2500, &function_142c133b, &function_f2cd26bf, var_2558cb51, 0);
+	self namespace_bf7415ae::function_890b3889("planemortar", s_params.ksweapon, 2500, &function_142c133b, &function_f2cd26bf, var_2558cb51, 0);
 	s_location = self namespace_bf7415ae::function_be6de952("planemortar", &function_c6fe946e);
 	if(isdefined(s_location))
 	{

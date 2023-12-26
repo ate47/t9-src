@@ -48,7 +48,7 @@ function private function_70a657d8()
 */
 function function_201c2cb7(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self function_bf9d3071((isdefined(self.var_fab3cf78) ? self.var_fab3cf78 : #"hash_435832b390f73dff"));
+	self playrenderoverridebundle((isdefined(self.var_fab3cf78) ? self.var_fab3cf78 : #"hash_435832b390f73dff"));
 }
 
 /*

@@ -39,7 +39,7 @@ function init_shared(var_4b51853b)
 	level.var_87226c31.var_3e7344ee = getweapon(#"eq_concertina_wire");
 	level.var_87226c31.var_546a220c = "concertina_wire_objective_default";
 	level.var_87226c31.var_925bbb2 = [];
-	deployable::function_2e088f73(level.var_87226c31.var_3e7344ee, 1);
+	deployable::register_deployable(level.var_87226c31.var_3e7344ee, 1);
 }
 
 /*
@@ -202,11 +202,11 @@ function function_1c2930c7(localclientnum)
 		{
 			if(var_b43e8dc2.var_bf9ca9b0)
 			{
-				var_688ed1a6 = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 0, 1);
+				previewmodel = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 0, 1);
 			}
 			else
 			{
-				var_688ed1a6 = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 2, 3);
+				previewmodel = player function_8fb44aff(localclientnum, var_b43e8dc2.origin, var_b43e8dc2.angles, var_b43e8dc2.isvalid, 2, 3);
 			}
 		}
 	}

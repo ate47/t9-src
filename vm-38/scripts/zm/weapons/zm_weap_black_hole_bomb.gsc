@@ -1,11 +1,11 @@
 #using scripts\core_common\item_inventory.gsc;
 #using script_24c32478acf44108;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_4108035fe400ce67;
 #using script_471b31bd963b388e;
 #using script_4dc6a9b234b838e1;
 #using script_6167e26342be354b;
-#using script_6f7b2cd5eb7f3e6d;
+#using scripts\core_common\ai\zombie_vortex.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -45,7 +45,7 @@ function private autoexec function_1aa03bfe()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_weap_black_hole_bomb", &function_70a657d8, &function_8ac3bea9, undefined, "zm_weapons");
+	system::register(#"zm_weap_black_hole_bomb", &function_70a657d8, &postinit, undefined, "zm_weapons");
 }
 
 /*
@@ -105,7 +105,7 @@ function function_ca505fd3(params)
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_weap_black_hole_bomb
 	Checksum: 0x80F724D1
 	Offset: 0x5C8
@@ -113,7 +113,7 @@ function function_ca505fd3(params)
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 }
 
@@ -201,9 +201,9 @@ function private function_600a82c(player)
 		var_fa3df96 = player item_inventory::function_e66dcff5(item);
 		if(isdefined(var_fa3df96))
 		{
-			if(!namespace_ad5a0cd6::function_db35e94f(item.var_bd027dd9))
+			if(!item_world_util::function_db35e94f(item.var_bd027dd9))
 			{
-				item.var_bd027dd9 = namespace_ad5a0cd6::function_970b8d86(var_fa3df96);
+				item.var_bd027dd9 = item_world_util::function_970b8d86(var_fa3df96);
 			}
 			var_ddeb881e = item_inventory::function_2e711614(var_fa3df96);
 			while(var_ddeb881e.var_a6762160 === item.var_a6762160)

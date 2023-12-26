@@ -1,6 +1,6 @@
 #using scripts\core_common\player\player_shared.gsc;
 #using script_3751b21462a54a7d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_5f261a5d57de5f7c;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -135,7 +135,7 @@ function function_366a682a(einflictor, eattacker, idamage, idflags, smeansofdeat
 */
 function enable_juggernaut_perk_for_level()
 {
-	zm_perks::register_perk_basic_info(#"hash_47d7a8105237c88", #"perk_juggernog", 2500, #"hash_27b60f868a13cc91", getweapon("zombie_perk_bottle_jugg"), undefined, #"hash_7520ccdc8dcaee8d");
+	zm_perks::register_perk_basic_info(#"hash_47d7a8105237c88", #"perk_juggernog", 2500, #"hash_27b60f868a13cc91", getweapon("zombie_perk_bottle_jugg"), undefined, #"zmperksjuggernaut");
 	zm_perks::register_perk_precache_func(#"hash_47d7a8105237c88", &juggernaut_precache);
 	zm_perks::register_perk_clientfields(#"hash_47d7a8105237c88", &juggernaut_register_clientfield, &juggernaut_set_clientfield);
 	zm_perks::register_perk_machine(#"hash_47d7a8105237c88", &juggernaut_perk_machine_setup, &init_juggernaut);

@@ -72,7 +72,7 @@ event main(eventstruct)
 	init_flags();
 	init_clientfields();
 	init_skiptos();
-	level thread lui::function_b95a3ba5("full_screen_movie", &full_screen_movie::register);
+	level thread lui::add_luimenu("full_screen_movie", &full_screen_movie::register);
 	load::main();
 	init_scenes();
 	init_callbacks();
@@ -262,11 +262,11 @@ function function_8106e2e1()
 	self setcharacterbodytype(1);
 	if(strstartswith(level.skipto_current_objective[0], "tkdn_af_"))
 	{
-		self function_8fd843dd(9);
+		self setcharacteroutfit(9);
 	}
 	else
 	{
-		self function_8fd843dd(2);
+		self setcharacteroutfit(2);
 	}
 	thread namespace_b100dd86::setup_objectives(level.skipto_current_objective[0]);
 	knife = getweapon(#"knife_held");

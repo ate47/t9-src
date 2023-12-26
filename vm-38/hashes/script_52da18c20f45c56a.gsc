@@ -1388,7 +1388,7 @@ function function_44a46209(var_d8ba335a)
 	Parameters: 7
 	Flags: Linked
 */
-function function_3ceda691(gesture, target, var_584fcd3e, blendtime, starttime, var_8021ec1b, var_e67d2436)
+function function_3ceda691(gesture, target, var_584fcd3e, blendtime, starttime, var_8021ec1b, stopall)
 {
 	if(!isdefined(gesture))
 	{
@@ -1396,7 +1396,7 @@ function function_3ceda691(gesture, target, var_584fcd3e, blendtime, starttime, 
 	}
 	if(isgesture(gesture))
 	{
-		self thread function_6f3e9127(gesture, target, var_584fcd3e, blendtime, starttime, var_8021ec1b, var_e67d2436);
+		self thread function_6f3e9127(gesture, target, var_584fcd3e, blendtime, starttime, var_8021ec1b, stopall);
 	}
 	else
 	{
@@ -1429,7 +1429,7 @@ function function_b56ad054()
 	Parameters: 7
 	Flags: Linked, Private
 */
-function private function_6f3e9127(gesture, target, var_584fcd3e, blendtime, starttime, var_8021ec1b, var_e67d2436)
+function private function_6f3e9127(gesture, target, var_584fcd3e, blendtime, starttime, var_8021ec1b, stopall)
 {
 	self notify("39ccfd1ac8ddccb");
 	self endon("39ccfd1ac8ddccb");
@@ -1452,7 +1452,7 @@ function private function_6f3e9127(gesture, target, var_584fcd3e, blendtime, sta
 	{
 		waitframe(1);
 	}
-	self playgestureviewmodel(target, var_584fcd3e, blendtime, 0, starttime, var_8021ec1b, var_e67d2436);
+	self playgestureviewmodel(target, var_584fcd3e, blendtime, 0, starttime, var_8021ec1b, stopall);
 }
 
 /*

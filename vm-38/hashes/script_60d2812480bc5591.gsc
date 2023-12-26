@@ -65,27 +65,27 @@ function on_player_spawn()
 	self endoncallback(&function_b5b9317a, #"death");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_360ecb13f668ae0f", #"hash_52a52b5007f36141");
-		if(var_be17187b._notify === #"hash_360ecb13f668ae0f")
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"hash_360ecb13f668ae0f", #"hash_52a52b5007f36141");
+		if(s_waitresult._notify === #"hash_360ecb13f668ae0f")
 		{
 			self.var_9c1a4644 = #"cdp_taacom";
 			while(true)
 			{
-				var_be17187b = undefined;
-				var_be17187b = self waittill(#"hash_360ecb13f668ae0f", #"hash_52a52b5007f36141", #"killstreak_done");
-				if(var_be17187b._notify === #"hash_360ecb13f668ae0f")
+				s_waitresult = undefined;
+				s_waitresult = self waittill(#"hash_360ecb13f668ae0f", #"hash_52a52b5007f36141", #"killstreak_done");
+				if(s_waitresult._notify === #"hash_360ecb13f668ae0f")
 				{
 					continue;
 				}
-				if(var_be17187b._notify === #"killstreak_done")
+				if(s_waitresult._notify === #"killstreak_done")
 				{
-					if(is_true(var_be17187b.is_successful))
+					if(is_true(s_waitresult.is_successful))
 					{
-						var_be17187b = undefined;
-						var_be17187b = self waittilltimeout(20, #"hash_360ecb13f668ae0f", #"hash_52a52b5007f36141");
+						s_waitresult = undefined;
+						s_waitresult = self waittilltimeout(20, #"hash_360ecb13f668ae0f", #"hash_52a52b5007f36141");
 					}
-					if(var_be17187b._notify !== #"hash_360ecb13f668ae0f")
+					if(s_waitresult._notify !== #"hash_360ecb13f668ae0f")
 					{
 						break;
 					}
@@ -243,7 +243,7 @@ function function_e23b5b30()
 	level endon(#"end_game", #"pap_quest_completed");
 	var_a2bc7f20 = array::random([4:#"hash_23c8aa02a3fb5c75", 3:#"hash_23c8a902a3fb5ac2", 2:#"hash_23c8a402a3fb5243", 1:#"hash_23c8a302a3fb5090", 0:#"hash_23c8a602a3fb55a9"]);
 	var_c08d39 = array::random([4:#"hash_7e78bfc835a04714", 3:#"hash_7e78c0c835a048c7", 2:#"hash_7e78bdc835a043ae", 1:#"hash_7e78bec835a04561", 0:#"hash_7e78bbc835a04048"]);
-	level waittill(#"enable_firebase_zone", #"hash_e66663be8ba322f");
+	level waittill(#"enable_firebase_zone", #"fasttravel_bought");
 	zm_vo::function_3c173d37();
 	for(scene_index = 1; scene_index <= 5; scene_index++)
 	{
@@ -384,9 +384,9 @@ function function_20df51b5()
 	self endon("4691fb805f755f3f");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"hash_5db01607981fb0ea", #"hash_5db01507981faf37", #"hash_5db01407981fad84", #"hash_5db01307981fabd1");
-		switch(var_be17187b._notify)
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"hash_5db01607981fb0ea", #"hash_5db01507981faf37", #"hash_5db01407981fad84", #"hash_5db01307981fabd1");
+		switch(s_waitresult._notify)
 		{
 			case "hash_5db01607981fb0ea":
 			{
@@ -482,7 +482,7 @@ function function_51e0aa02(var_23d9277f)
 		level endon(#"pap_quest_completed");
 		while(true)
 		{
-			if(getdvarint(#"hash_11ad6a9695943217", 0))
+			if(getdvarint(#"zm_debug_ee", 0))
 			{
 				circle(var_23d9277f.origin, 8, (0, 1, 0));
 				print3d(var_23d9277f.origin, "", (0, 1, 0), undefined, 0.15);
@@ -758,8 +758,8 @@ function private function_543f9e02()
 	level endon(#"end_game");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_6d7ff9f9ff07619c");
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"hash_6d7ff9f9ff07619c");
 		switch(level.var_85422c0e)
 		{
 			case "strauss":
@@ -789,7 +789,7 @@ function private function_543f9e02()
 			if(!is_true(player.var_e0059718))
 			{
 				var_a74e1ff8 = 0;
-				var_be17187b.ai_mimic thread function_9a419851(player, var_b3b54a4);
+				s_waitresult.ai_mimic thread function_9a419851(player, var_b3b54a4);
 			}
 		}
 		if(var_a74e1ff8)

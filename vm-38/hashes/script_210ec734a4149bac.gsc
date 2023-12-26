@@ -1,7 +1,7 @@
-#using script_3aa0f32b70d4f7cb;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
 #using scripts\core_common\ai\archetype_civilian.gsc;
-#using script_6809bf766eba194a;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -38,7 +38,7 @@ function private autoexec function_4287f26c()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_2846a4f4bd094545", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_2846a4f4bd094545", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -66,7 +66,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_f592a7b
 	Checksum: 0xB0097304
 	Offset: 0x468
@@ -74,7 +74,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level.__ai_interface[#"civilian"][#"hash_78e762abc4fbf1de"][#"callback"] = &function_e2953db0;
 }

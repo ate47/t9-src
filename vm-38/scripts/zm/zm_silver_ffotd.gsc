@@ -29,7 +29,7 @@ function private autoexec function_67f43f1e()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_silver_ffotd", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_silver_ffotd", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -46,7 +46,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_silver_ffotd
 	Checksum: 0x7B52CE56
 	Offset: 0x1B8
@@ -54,7 +54,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	spawncollision("collision_clip_wall_64x64x10", "collider", (392.963, -57.25, -546.976), vectorscale((0, 1, 0), 180));
 	spawncollision("collision_clip_wall_64x64x10", "collider", (392.963, -75.75, -546.976), vectorscale((0, 1, 0), 180));

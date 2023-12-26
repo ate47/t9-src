@@ -91,7 +91,7 @@ function private function_bf06b7aa(victim, attacker, on_use_function, var_f75dca
 	{
 		trigger.var_a865c2cd = 0;
 	}
-	objectivename = (isdefined(level.var_febab1ea) ? level.var_febab1ea : #"hash_bc7bcc75f63dc7b");
+	objectivename = (isdefined(level.var_febab1ea) ? level.var_febab1ea : #"conf_dogtags");
 	dogtag = gameobjects::create_use_object(attacker.team, trigger, visuals, (0, 0, 0), objectivename);
 	trigger.dogtag = dogtag;
 	dogtag gameobjects::set_use_time(0);

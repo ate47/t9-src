@@ -33,7 +33,7 @@ function private autoexec function_2d2b0cb7()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_52556758a0c8acfe", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_52556758a0c8acfe", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -53,7 +53,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_a5ef5769
 	Checksum: 0xC3855332
 	Offset: 0x3D0
@@ -61,7 +61,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	zm_weapons::function_8389c033(#"hash_5bd48d860ebd5a41", #"hash_5bd48d860ebd5a41");
 	zm_weapons::function_8389c033(#"hash_5bd48d860ebd5a41", #"ray_gun");
@@ -212,7 +212,7 @@ function function_219213be(localclientnum, oldval, newval, bnewent, binitialsnap
 	if(bwastimejump && bwastimejump < (var_2ddbe94.size + 1))
 	{
 		self.var_b159952f = var_2ddbe94[bwastimejump - 1];
-		self function_bf9d3071(self.var_b159952f);
+		self playrenderoverridebundle(self.var_b159952f);
 	}
 }
 

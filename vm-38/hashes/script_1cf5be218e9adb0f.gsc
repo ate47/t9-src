@@ -693,9 +693,9 @@ function private function_c3f05233()
 		rob = #"hash_44adc567f9f60d61";
 	}
 	self.highlighted = 1;
-	self function_bf9d3071(rob);
+	self playrenderoverridebundle(rob);
 	self waittill(#"death", #"hash_c2721e96b517b9a");
-	self function_5d482e78(rob);
+	self stoprenderoverridebundle(rob);
 	self.highlighted = 0;
 }
 

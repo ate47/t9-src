@@ -1,4 +1,4 @@
-#using script_14d2d89964cae0b1;
+#using scripts\core_common\ai\systems\gib.csc;
 #using script_18869d46adac498f;
 #using script_20055f2f97341caa;
 #using script_311c446e3df6c3fa;
@@ -189,12 +189,12 @@ function function_e56be134(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(bwasdemojump)
 	{
-		self function_bf9d3071(#"hash_33472031c8a872cd");
+		self playrenderoverridebundle(#"hash_33472031c8a872cd");
 		self playsound(fieldname, #"hash_1bf3ee4eb2a58e82");
 	}
 	else
 	{
-		self function_5d482e78(#"hash_33472031c8a872cd");
+		self stoprenderoverridebundle(#"hash_33472031c8a872cd");
 		self playsound(fieldname, #"hash_3a07d2cfdb8bbda7");
 	}
 }
@@ -460,7 +460,7 @@ function function_b794d678(localclientnum, oldval, newval, bnewent, binitialsnap
 {
 	if(isdefined(self.var_a00ef04e))
 	{
-		self function_5d482e78(self.var_a00ef04e);
+		self stoprenderoverridebundle(self.var_a00ef04e);
 		self.var_a00ef04e = undefined;
 	}
 	var_ce472137 = function_8978c19(fieldname);
@@ -493,7 +493,7 @@ function function_b794d678(localclientnum, oldval, newval, bnewent, binitialsnap
 	}
 	if(isdefined(self.var_a00ef04e))
 	{
-		self function_bf9d3071(self.var_a00ef04e);
+		self playrenderoverridebundle(self.var_a00ef04e);
 	}
 }
 

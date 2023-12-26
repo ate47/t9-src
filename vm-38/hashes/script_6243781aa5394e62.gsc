@@ -1,6 +1,6 @@
 #using script_44c87b4589ee1f93;
 #using scripts\zm\ai\zm_ai_dog.csc;
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

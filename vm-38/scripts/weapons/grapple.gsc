@@ -1,5 +1,5 @@
 #using scripts\abilities\ability_player.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\callbacks_shared.gsc;

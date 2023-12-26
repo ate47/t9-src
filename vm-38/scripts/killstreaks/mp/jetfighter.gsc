@@ -1,5 +1,5 @@
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -238,7 +238,7 @@ function private function_4b3b25af(killstreak_id)
 function private function_6ff76fc6()
 {
 	height = (killstreaks::function_43f4782d() + 4000) + (randomfloatrange(-200, 200));
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		height = height + self.origin[2];
 	}
@@ -297,7 +297,7 @@ function private function_8f304847(var_d44b8c3e, startangles)
 {
 	startforward = anglestoforward(startangles);
 	startforward = (startforward[0], startforward[1], 0);
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		var_51cabd75 = 180 / 30;
 		var_ddd8ddab = (20000 * 2.5) / (3 - 1);
@@ -386,7 +386,7 @@ function private function_ce402c10(bundle, team, var_d44b8c3e)
 			{
 				if(util::function_fbce7263(streak.team, team))
 				{
-					if(function_f99d2668() && distance2dsquared(var_d44b8c3e, streak.origin) > var_85014cc6)
+					if(sessionmodeiswarzonegame() && distance2dsquared(var_d44b8c3e, streak.origin) > var_85014cc6)
 					{
 						continue;
 					}
@@ -436,7 +436,7 @@ function private function_a0624137(var_be96ce4e)
 			{
 				if(util::function_fbce7263(streak.team, self.team))
 				{
-					if(function_f99d2668() && distance2dsquared(self.origin, streak.origin) > var_85014cc6)
+					if(sessionmodeiswarzonegame() && distance2dsquared(self.origin, streak.origin) > var_85014cc6)
 					{
 						continue;
 					}
@@ -577,7 +577,7 @@ function private function_8f23fd43()
 	{
 		self.scoreeventprocessed = 1;
 		scoreevents::processscoreevent(#"hash_5432fd0f11d1c9c4", self.owner, undefined, getweapon("jetfighter"));
-		self.owner contracts::function_a54e2068(#"hash_566ff65991651a40");
+		self.owner contracts::increment_contract(#"hash_566ff65991651a40");
 		self.owner stats::function_8fb23f94("jetfighter", #"destructions", 1);
 		self.owner stats::function_b04e7184("jetfighter", #"hash_98b8582b08abfa5");
 	}
@@ -780,8 +780,8 @@ function private function_c3c5d5e1(jets)
 		jet clientfield::set("jetfighter_contrail", 1);
 		jet playloopsound(#"hash_1245719ce362e37");
 	}
-	var_31688e84 = scene::function_12479eba(#"p9_fxanim_mp_jetfighter_bundle");
-	wait(var_31688e84 - 1.5);
+	scenelength = scene::function_12479eba(#"p9_fxanim_mp_jetfighter_bundle");
+	wait(scenelength - 1.5);
 	foreach(jet in jets)
 	{
 		if(isdefined(jet))

@@ -1,6 +1,6 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\player\player_stats.gsc;
@@ -71,7 +71,7 @@ event main(eventstruct)
 	gunlist = getgametypesetting(#"gunselection");
 	function_9ffa772e(gunlist);
 	/#
-		level thread function_2085db3b();
+		level thread init_devgui();
 	#/
 }
 
@@ -217,7 +217,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 function onendgame(var_c1e98979)
 {
 	player = round::function_b5f4c9d8();
-	match::function_d1e740f6(player);
+	match::set_winner(player);
 }
 
 /*
@@ -418,15 +418,15 @@ function givecustomloadout(takeoldweapon)
 	self giveweapon(primaryoffhand);
 	self setweaponammostock(primaryoffhand, primaryoffhandcount);
 	self switchtooffhand(primaryoffhand);
-	var_5a17505c = 1;
-	if(!var_5a17505c)
+	e_whippings = 1;
+	if(!e_whippings)
 	{
 		secondaryoffhand = getweapon(#"gadget_health_regen");
 		secondaryoffhandcount = 0;
 		self giveweapon(secondaryoffhand);
 		self setweaponammoclip(secondaryoffhand, secondaryoffhandcount);
 		self switchtooffhand(secondaryoffhand);
-		loadout = self loadout::function_e27dc453("secondarygrenade");
+		loadout = self loadout::get_loadout_slot("secondarygrenade");
 		loadout.weapon = secondaryoffhand;
 		loadout.count = secondaryoffhandcount;
 		self ability_util::function_36a15b60(secondaryoffhand);
@@ -654,7 +654,7 @@ function function_cfef3f4c()
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: gun
 	Checksum: 0x9D0ACB8E
 	Offset: 0x1C00
@@ -662,7 +662,7 @@ function function_cfef3f4c()
 	Parameters: 0
 	Flags: Private
 */
-function private function_2085db3b()
+function private init_devgui()
 {
 	/#
 		util::init_dvar(#"hash_30c63c4ab5be356f", 0, &function_9209a6f8);

@@ -1,4 +1,4 @@
-#using script_18fed4d66b0b9c1;
+#using scripts\core_common\loot_tracking.gsc;
 #using script_1d29de500c266470;
 #using script_32c8b5b0eb2854f3;
 #using scripts\core_common\player\player_stats.gsc;

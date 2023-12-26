@@ -1,4 +1,4 @@
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\weapons.gsc;
@@ -95,7 +95,7 @@ function function_83904681(location, usedcallback, killstreakname)
 			{
 				self [[level.var_1492d026]](killstreakname, team, killstreak_id);
 			}
-			self stats::function_e24eec31(params.var_1ab696c6, #"used", 1);
+			self stats::function_e24eec31(params.ksweapon, #"used", 1);
 		}
 		return self [[usedcallback]](location, killstreak_id, killstreakname);
 	}
@@ -751,7 +751,7 @@ function function_e0e908c3(var_dbd23dc, path, stopatgoal)
 			var_baa92af9 = ispointinnavvolume(self.origin, "navvolume_big");
 			if(var_baa92af9)
 			{
-				self util::function_c596f193();
+				self util::make_sentient();
 				break;
 			}
 			waitframe(1);

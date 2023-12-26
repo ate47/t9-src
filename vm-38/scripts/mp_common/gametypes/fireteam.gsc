@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
 #using scripts\killstreaks\mp\killstreaks.gsc;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using scripts\core_common\player\player_role.gsc;
 #using script_44b0b8420eabacad;

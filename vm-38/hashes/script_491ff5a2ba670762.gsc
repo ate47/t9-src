@@ -38,7 +38,7 @@ function private autoexec function_50029148()
 */
 function function_d9deb7d7()
 {
-	level.var_8a38cf55 = sessionmodeismultiplayergame() || function_f99d2668();
+	level.var_8a38cf55 = sessionmodeismultiplayergame() || sessionmodeiswarzonegame();
 	if(!isdefined(level.var_e1a685a6))
 	{
 		level.var_e1a685a6 = [];

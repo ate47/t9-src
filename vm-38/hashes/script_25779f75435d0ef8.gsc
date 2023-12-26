@@ -86,7 +86,7 @@ class ccp_captured_supplydrop : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: ccp_captured_supplydrop
 		Checksum: 0xC320422
 		Offset: 0x6B0
@@ -94,9 +94,9 @@ class ccp_captured_supplydrop : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("cp_captured_supplydrop");
+		cLUIelem::register_clientside("cp_captured_supplydrop");
 	}
 
 	/*
@@ -125,13 +125,13 @@ class ccp_captured_supplydrop : cLUIelem
 	function setup_clientfields(var_e4f88108, var_a5022382, var_cad0ba31, var_dc5e3aea, var_efc8a38a, var_28bdc188, var_61794ad8)
 	{
 		cLUIelem::setup_clientfields("cp_captured_supplydrop");
-		cLUIelem::function_da693cbe("micromissile_count", 1, 2, "int", var_e4f88108);
-		cLUIelem::function_da693cbe("wasp_count", 1, 2, "int", var_a5022382);
-		cLUIelem::function_da693cbe("rcxd_count", 1, 2, "int", var_cad0ba31);
-		cLUIelem::function_da693cbe("guardian_count", 1, 2, "int", var_dc5e3aea);
-		cLUIelem::function_da693cbe("robot_count", 1, 2, "int", var_efc8a38a);
-		cLUIelem::function_da693cbe("raps_count", 1, 2, "int", var_28bdc188);
-		cLUIelem::function_da693cbe("selector_state", 1, 3, "int", var_61794ad8);
+		cLUIelem::add_clientfield("micromissile_count", 1, 2, "int", var_e4f88108);
+		cLUIelem::add_clientfield("wasp_count", 1, 2, "int", var_a5022382);
+		cLUIelem::add_clientfield("rcxd_count", 1, 2, "int", var_cad0ba31);
+		cLUIelem::add_clientfield("guardian_count", 1, 2, "int", var_dc5e3aea);
+		cLUIelem::add_clientfield("robot_count", 1, 2, "int", var_efc8a38a);
+		cLUIelem::add_clientfield("raps_count", 1, 2, "int", var_28bdc188);
+		cLUIelem::add_clientfield("selector_state", 1, 3, "int", var_61794ad8);
 	}
 
 	/*
@@ -248,7 +248,7 @@ function register(var_e4f88108, var_a5022382, var_cad0ba31, var_dc5e3aea, var_ef
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: cp_captured_supplydrop
 	Checksum: 0x39330D52
 	Offset: 0x310
@@ -256,10 +256,10 @@ function register(var_e4f88108, var_a5022382, var_cad0ba31, var_dc5e3aea, var_ef
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new ccp_captured_supplydrop();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

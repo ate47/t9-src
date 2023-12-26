@@ -49,7 +49,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.radiationVestHealth", 1, 5, "float");
+	clientfield::register_clientuimodel("hudItems.radiationVestHealth", 1, 5, "float");
 }
 
 /*
@@ -94,10 +94,10 @@ function drop_armor(var_4c42f7cf)
 	/#
 		assert(isplayer(self));
 	#/
-	var_d90e0e15 = function_4ba8fde(#"hash_fb37841b0d2d7e7");
+	itempoint = function_4ba8fde(#"hash_fb37841b0d2d7e7");
 	for(index = 0; index < self.var_7d7d976a; index++)
 	{
-		level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, 0, var_d90e0e15.id, self.origin, (0, randomintrange(0, 360), 0), 2);
+		level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, 0, itempoint.id, self.origin, (0, randomintrange(0, 360), 0), 2);
 	}
 	return var_4c42f7cf + index;
 }
@@ -128,7 +128,7 @@ function function_d912fa6e(player)
 	Parameters: 7
 	Flags: None
 */
-function function_dd8cb464(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot)
+function function_dd8cb464(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot)
 {
 	if(!function_d912fa6e(slot))
 	{
@@ -155,8 +155,8 @@ function function_b31f892b(var_4c42f7cf)
 	index = 0;
 	if(function_d912fa6e(self))
 	{
-		var_d90e0e15 = function_4ba8fde("armor_pouch_item_t9");
-		level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, 0, var_d90e0e15.id, self.origin, (0, randomintrange(0, 360), 0), 2);
+		itempoint = function_4ba8fde("armor_pouch_item_t9");
+		level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, 0, itempoint.id, self.origin, (0, randomintrange(0, 360), 0), 2);
 		index++;
 	}
 	return var_4c42f7cf + index;
@@ -180,7 +180,7 @@ function function_d5766919(var_4c42f7cf)
 	index = 0;
 	foreach(weapon in weapons)
 	{
-		var_16f12c31 = namespace_ad5a0cd6::function_3531b9ba(weapon.name);
+		var_16f12c31 = item_world_util::function_3531b9ba(weapon.name);
 		if(!isdefined(var_16f12c31))
 		{
 			continue;
@@ -189,13 +189,13 @@ function function_d5766919(var_4c42f7cf)
 		hasammo = ammo > 0;
 		if(hasammo)
 		{
-			var_d90e0e15 = function_4ba8fde(var_16f12c31);
-			killstreakbundle = getscriptbundle(var_d90e0e15.var_a6762160.killstreak);
+			itempoint = function_4ba8fde(var_16f12c31);
+			killstreakbundle = getscriptbundle(itempoint.var_a6762160.killstreak);
 			killstreaks::take(killstreakbundle.var_d3413870);
 			var_f8ffe143 = 0;
 			if(killstreakbundle.var_fc0c8eae.name == #"inventory_recon_car")
 			{
-				if(self hasweapon(killstreakbundle.var_1ab696c6))
+				if(self hasweapon(killstreakbundle.ksweapon))
 				{
 					var_f8ffe143 = 1;
 				}
@@ -206,7 +206,7 @@ function function_d5766919(var_4c42f7cf)
 			}
 			if(!var_f8ffe143)
 			{
-				level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, ammo, var_d90e0e15.id, self.origin, (0, randomintrange(0, 360), 0), 2);
+				level thread item_drop::function_7910964d(var_4c42f7cf + index, undefined, 1, ammo, itempoint.id, self.origin, (0, randomintrange(0, 360), 0), 2);
 				index++;
 			}
 			self takeweapon(weapon);
@@ -234,8 +234,8 @@ function function_e50b5cec(var_4c42f7cf)
 	if(var_6a4efe8e)
 	{
 		self clientfield::set_player_uimodel("hud_items.selfReviveAvailable", 0);
-		var_d90e0e15 = function_4ba8fde(#"hash_b8b2580ac5556e1");
-		level thread item_drop::function_7910964d(var_4c42f7cf + 1, undefined, 1, 0, var_d90e0e15.id, self.origin, (0, randomintrange(0, 360), 0), 2);
+		itempoint = function_4ba8fde(#"hash_b8b2580ac5556e1");
+		level thread item_drop::function_7910964d(var_4c42f7cf + 1, undefined, 1, 0, itempoint.id, self.origin, (0, randomintrange(0, 360), 0), 2);
 		return var_4c42f7cf + 1;
 	}
 	return var_4c42f7cf;
@@ -311,7 +311,7 @@ function function_b0000c15()
 	Parameters: 7
 	Flags: None
 */
-function function_98942433(item, player, var_bd027dd9, var_d8138db2, itemcount, var_aec6fa7f, slot)
+function function_98942433(item, player, var_bd027dd9, itemid, itemcount, var_aec6fa7f, slot)
 {
 	if(function_36b9f4fe(slot))
 	{
@@ -374,7 +374,7 @@ function function_8d066de9(var_feb0fc80, var_27ad329a, var_40f483c8, var_212c905
 	level.var_9d86498a = var_27ad329a;
 	level.var_c121bd48 = var_40f483c8;
 	level.var_a17d47bf = var_212c9055;
-	level waittill(#"hash_38a387462f3a9ad");
+	level waittill(#"item_world_reset");
 	level thread function_588a586d(#"dirty_bomb_stash", level.var_f8299840);
 }
 
@@ -389,7 +389,7 @@ function function_8d066de9(var_feb0fc80, var_27ad329a, var_40f483c8, var_212c905
 */
 function function_588a586d(targetname, probability)
 {
-	level flag::wait_till(#"hash_38a387462f3a9ad");
+	level flag::wait_till(#"item_world_reset");
 	probability = (isdefined(probability) ? probability : level.var_f8299840);
 	dynents = item_world::function_7a0c5d2e(probability, targetname);
 	var_b0d9d129 = spawnstruct();

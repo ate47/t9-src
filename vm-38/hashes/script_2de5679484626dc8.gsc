@@ -61,7 +61,7 @@ class czm_dac_challenges_hud : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -131,7 +131,7 @@ class czm_dac_challenges_hud : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -148,19 +148,19 @@ class czm_dac_challenges_hud : cLUIelem
 		cLUIelem::setup_clientfields("zm_dac_challenges_hud");
 		cLUIelem::function_dcb34c80("string", "challengeText", 1);
 		cLUIelem::function_dcb34c80("string", "bottomText", 1);
-		cLUIelem::function_da693cbe("bInLocation", 1, 1, "int");
-		cLUIelem::function_da693cbe("progress", 1, 1, "counter");
-		cLUIelem::function_da693cbe("tributeAvailable", 1, 3, "int");
-		cLUIelem::function_da693cbe("rewardHidden", 1, 1, "int");
-		cLUIelem::function_da693cbe("challengeFailing", 1, 1, "int");
+		cLUIelem::add_clientfield("bInLocation", 1, 1, "int");
+		cLUIelem::add_clientfield("progress", 1, 1, "counter");
+		cLUIelem::add_clientfield("tributeAvailable", 1, 3, "int");
+		cLUIelem::add_clientfield("rewardHidden", 1, 1, "int");
+		cLUIelem::add_clientfield("challengeFailing", 1, 1, "int");
 		cLUIelem::function_dcb34c80("string", "rewardText", 1);
-		cLUIelem::function_da693cbe("challengeTypeText", 1, 1, "int");
-		cLUIelem::function_da693cbe("showIntelRewardText", 1, 1, "int");
-		cLUIelem::function_da693cbe("showChallenge", 8000, 1, "int");
+		cLUIelem::add_clientfield("challengeTypeText", 1, 1, "int");
+		cLUIelem::add_clientfield("showIntelRewardText", 1, 1, "int");
+		cLUIelem::add_clientfield("showChallenge", 8000, 1, "int");
 	}
 
 	/*
-		Name: function_96972b9c
+		Name: increment_progress
 		Namespace: czm_dac_challenges_hud
 		Checksum: 0x592530E8
 		Offset: 0x7F0
@@ -168,7 +168,7 @@ class czm_dac_challenges_hud : cLUIelem
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_96972b9c(player)
+	function increment_progress(player)
 	{
 		player clientfield::function_bb878fc3(var_d5213cbb, var_bf9c8c95, "progress");
 	}
@@ -366,7 +366,7 @@ function set_bInLocation(player, value)
 }
 
 /*
-	Name: function_96972b9c
+	Name: increment_progress
 	Namespace: zm_dac_challenges_hud
 	Checksum: 0x8E5AA914
 	Offset: 0x310
@@ -374,9 +374,9 @@ function set_bInLocation(player, value)
 	Parameters: 1
 	Flags: Linked
 */
-function function_96972b9c(player)
+function increment_progress(player)
 {
-	[[ self ]]->function_96972b9c(player);
+	[[ self ]]->increment_progress(player);
 }
 
 /*

@@ -1,9 +1,9 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_3411bb48d41bd3b;
-#using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
-#using script_52c6c2d1a2ef1b46;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\zm_common\zm_ui_inventory.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\ai\archetype_avogadro.gsc;
 #using scripts\zm\ai\zm_ai_avogadro.gsc;
@@ -14,7 +14,7 @@
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using script_ab862743b3070a;
 #using script_b9d273dc917ee1f;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\zm_common\aats\zm_aat.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
@@ -131,9 +131,9 @@ function function_863fc0f1(b_skipped, var_19e802fa)
 		level flag::set(#"hash_377409bcba0102a7");
 		level flag::set(#"hash_6eaa2d1db393bd70");
 		level flag::set(#"hash_6e04e3a3a814cc4b");
-		level namespace_6747c550::function_7df6bb60(#"hash_2d5a3bb1a97e6bcc", 1);
-		level namespace_6747c550::function_7df6bb60(#"hash_2d5a3eb1a97e70e5", 1);
-		level namespace_6747c550::function_7df6bb60(#"hash_2d5a3db1a97e6f32", 1);
+		level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3bb1a97e6bcc", 1);
+		level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3eb1a97e70e5", 1);
+		level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3db1a97e6f32", 1);
 		var_3bc263c7 = struct::get("wwq_part_a_start");
 		var_1f3c6d19 = struct::get(var_3bc263c7.target);
 		if(isdefined(var_3bc263c7.var_f0d7b908))
@@ -413,7 +413,7 @@ function function_4d67771c(n_wave)
 				default:
 				{
 					s_spawn_loc = array::random(a_s_spawn_locs);
-					ai = namespace_c402654::function_62db7b1c(1, s_spawn_loc);
+					ai = zombie_dog_util::function_62db7b1c(1, s_spawn_loc);
 					break;
 				}
 				case 2:
@@ -667,7 +667,7 @@ function on_item_pickup(params)
 		case "hash_42432ddc5b3eecfb":
 		{
 			level flag::set(#"hash_3b34b6b1b8c07116");
-			level namespace_6747c550::function_7df6bb60(#"hash_2d5a3bb1a97e6bcc", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3bb1a97e6bcc", 1);
 			level thread function_f9447d48(self);
 			level clientfield::set("" + #"hash_45b04d88564a1cd", 0);
 			array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_27e4fc2beb53e5e2");
@@ -676,7 +676,7 @@ function on_item_pickup(params)
 		case "hash_42432edc5b3eeeae":
 		{
 			level flag::set(#"hash_377409bcba0102a7");
-			level namespace_6747c550::function_7df6bb60(#"hash_2d5a3eb1a97e70e5", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3eb1a97e70e5", 1);
 			level thread function_75bec488(self);
 			array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_27e4fb2beb53e42f");
 			break;
@@ -684,7 +684,7 @@ function on_item_pickup(params)
 		case "hash_42432fdc5b3ef061":
 		{
 			level flag::set(#"hash_6eaa2d1db393bd70");
-			level namespace_6747c550::function_7df6bb60(#"hash_2d5a3db1a97e6f32", 1);
+			level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3db1a97e6f32", 1);
 			level thread function_da57dd7c(self);
 			array::thread_all(function_a1ef346b(), &namespace_4abf1500::collect_intel, #"hash_27e4fa2beb53e27c");
 			break;
@@ -1321,7 +1321,7 @@ function cmd(cmd)
 			case "hash_649635ef22bf36d8":
 			{
 				level flag::set(#"hash_3b34b6b1b8c07116");
-				level namespace_6747c550::function_7df6bb60(#"hash_2d5a3bb1a97e6bcc", 1);
+				level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3bb1a97e6bcc", 1);
 				level thread function_f9447d48(self);
 				level clientfield::set("" + #"hash_45b04d88564a1cd", 0);
 				var_3bc263c7 = struct::get("");
@@ -1335,14 +1335,14 @@ function cmd(cmd)
 			case "hash_649638ef22bf3bf1":
 			{
 				level flag::set(#"hash_377409bcba0102a7");
-				level namespace_6747c550::function_7df6bb60(#"hash_2d5a3eb1a97e70e5", 1);
+				level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3eb1a97e70e5", 1);
 				level thread function_75bec488(self);
 				break;
 			}
 			case "hash_649637ef22bf3a3e":
 			{
 				level flag::set(#"hash_6eaa2d1db393bd70");
-				level namespace_6747c550::function_7df6bb60(#"hash_2d5a3db1a97e6f32", 1);
+				level zm_ui_inventory::function_7df6bb60(#"hash_2d5a3db1a97e6f32", 1);
 				level thread function_da57dd7c(self);
 				break;
 			}

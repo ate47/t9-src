@@ -1,13 +1,13 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using scripts\core_common\ai\archetype_human_cover.gsc;
-#using script_3aa0f32b70d4f7cb;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
 #using scripts\core_common\ai\archetype_civilian_interface.gsc;
-#using script_522aeb6ae906391e;
-#using script_59f07c660e6710a5;
-#using script_6809bf766eba194a;
-#using script_7b7ed6e4bc963a51;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\ai_blackboard.gsc;
 #using scripts\core_common\ai\archetype_human_locomotion.gsc;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -435,7 +435,7 @@ function private civilianwanderservice(entity)
 */
 function private civilianfollowservice(entity)
 {
-	var_e590f9ad = 300 * 300;
+	followradiussq = 300 * 300;
 	followent = entity getblackboardattribute("follow");
 	if(!isentity(followent))
 	{
@@ -454,7 +454,7 @@ function private civilianfollowservice(entity)
 	forcedgoal = is_true(var_1f2328d0.goalforced);
 	isatscriptgoal = entity isatgoal() || entity isapproachinggoal();
 	itsbeenawhile = gettime() > entity.nextfindbestcovertime;
-	var_1ebff8de = itsbeenawhile || !isatscriptgoal || distsq < 0 || distsq > var_e590f9ad;
+	var_1ebff8de = itsbeenawhile || !isatscriptgoal || distsq < 0 || distsq > followradiussq;
 	if(!var_1ebff8de)
 	{
 		return false;

@@ -58,7 +58,7 @@ class class_1a456b75 : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_1a456b75
 		Checksum: 0xDBD45BBF
 		Offset: 0x490
@@ -66,9 +66,9 @@ class class_1a456b75 : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("sr_objective_secure_hud");
+		cLUIelem::register_clientside("sr_objective_secure_hud");
 	}
 
 	/*
@@ -196,7 +196,7 @@ function register(var_62534560, var_de4b1193, var_b661e7d8, var_2c613188)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: sr_objective_secure_hud
 	Checksum: 0xB3504105
 	Offset: 0x2B0
@@ -204,10 +204,10 @@ function register(var_62534560, var_de4b1193, var_b661e7d8, var_2c613188)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_1a456b75();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

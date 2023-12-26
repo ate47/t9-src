@@ -85,7 +85,7 @@ function init()
 		level thread devgui_notif_init();
 	#/
 	callback::on_connecting(&on_player_connect);
-	callback::add_callback(#"team_message", &function_fad72726);
+	callback::add_callback(#"team_message", &on_team_message);
 }
 
 /*
@@ -174,13 +174,13 @@ function devgui_notif_getchallengestablename(tableid)
 	/#
 		if(sessionmodeiscampaigngame())
 		{
-			return (#"hash_929b58638c59880" + tableid) + "";
+			return (#"gamedata/stats/cp/statsmilestones" + tableid) + "";
 		}
 		if(sessionmodeiszombiesgame())
 		{
-			return (#"hash_34a621a5800b5b4a" + tableid) + "";
+			return (#"gamedata/stats/zm/statsmilestones" + tableid) + "";
 		}
-		return (#"hash_287cf26422669b76" + tableid) + "";
+		return (#"gamedata/stats/mp/statsmilestones" + tableid) + "";
 	#/
 }
 
@@ -205,7 +205,7 @@ function devgui_create_weapon_levels_table()
 				group_s = iteminfo.itemgroupname;
 				if(issubstr(group_s, "") || group_s == "")
 				{
-					reference_s = iteminfo.var_3cf2d21;
+					reference_s = iteminfo.namehash;
 					if(reference_s != "")
 					{
 						level.tbl_weaponids[i][#"reference"] = reference_s;
@@ -266,7 +266,7 @@ function function_a65863ce()
 		{
 			if(getdvarint(#"hash_300689cb3bb5ab4d", 0) > 0)
 			{
-				util::function_d84da933("");
+				util::remove_devgui("");
 				function_ac0bfb9c();
 				return;
 			}
@@ -624,7 +624,7 @@ function notif_devgui_challenges_think()
 							}
 							else
 							{
-								itemindex = getdvarint(#"hash_1a10d0fbf3a34f63", 0);
+								itemindex = getdvarint(#"scr_challenge_itemindex", 0);
 								if(itemindex == 0)
 								{
 									currentweaponname = player.currentweapon.name;
@@ -847,7 +847,7 @@ function shoulddisplayteammessages()
 */
 function function_eb9328f3()
 {
-	self notify(#"hash_d7033aab931511e");
+	self notify(#"received teammessage");
 	self callback::callback(#"team_message");
 }
 
@@ -957,7 +957,7 @@ function private function_bed391aa(notifyhash, message, player, team, var_fd2145
 }
 
 /*
-	Name: function_fad72726
+	Name: on_team_message
 	Namespace: popups
 	Checksum: 0x53AFBE47
 	Offset: 0x2AD0
@@ -965,7 +965,7 @@ function private function_bed391aa(notifyhash, message, player, team, var_fd2145
 	Parameters: 0
 	Flags: Linked
 */
-function function_fad72726()
+function on_team_message()
 {
 	if(!shoulddisplayteammessages())
 	{

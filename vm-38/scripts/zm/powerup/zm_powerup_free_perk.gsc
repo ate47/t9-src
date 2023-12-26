@@ -1,4 +1,4 @@
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;

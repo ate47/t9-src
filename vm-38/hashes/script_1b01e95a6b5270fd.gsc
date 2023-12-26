@@ -352,8 +352,8 @@ function init()
 			}
 		}
 		var_663588d = "Zombietron/AI/";
-		var_59ea00e = ("scr_spawn_enemy " + ([[ var_7a8f2a62 ]]->getname())) + "; zombie_devgui enemy";
-		util::add_devgui(var_663588d + ([[ var_7a8f2a62 ]]->getname()), var_59ea00e);
+		cmdline = ("scr_spawn_enemy " + ([[ var_7a8f2a62 ]]->getname())) + "; zombie_devgui enemy";
+		util::add_devgui(var_663588d + ([[ var_7a8f2a62 ]]->getname()), cmdline);
 	}
 }
 

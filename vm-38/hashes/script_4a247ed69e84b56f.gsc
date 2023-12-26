@@ -2,7 +2,7 @@
 #using script_1ee011cd0961afd7;
 #using script_2a5bf5b4a00cee0d;
 #using script_47851dbeea22fe66;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using script_634ae70c663d1cc9;
 #using script_774302f762d76254;
 #using scripts\core_common\array_shared.gsc;
@@ -168,11 +168,11 @@ function function_7ae8d74a(trap, page)
 		}
 		if(trap.type === #"acid")
 		{
-			trap.var_2e485cc = function_4d1e7b48(#"hash_69c2a47bf2322b6b");
+			trap.var_2e485cc = getstatuseffect(#"hash_69c2a47bf2322b6b");
 		}
 		if(trap.type === #"fire")
 		{
-			trap.var_2e485cc = function_4d1e7b48(#"hash_69374f563cb01313");
+			trap.var_2e485cc = getstatuseffect(#"hash_69374f563cb01313");
 		}
 		trap.initialized = 1;
 	}

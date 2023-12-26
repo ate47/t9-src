@@ -133,7 +133,7 @@ function function_177abcbb(params)
 	if(isalive(self))
 	{
 		eventstruct = params.eventstruct;
-		if(eventstruct.seat_index === 6 || eventstruct.var_21911287 === 6)
+		if(eventstruct.seat_index === 6 || eventstruct.old_seat_index === 6)
 		{
 			return;
 		}

@@ -42,11 +42,11 @@ function init()
 */
 function on_player_spawned(local_client_num)
 {
-	level callback::function_6231c19(&function_f77ced93);
+	level callback::function_6231c19(&on_weapon_change);
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: namespace_daf1661f
 	Checksum: 0x4C4C5574
 	Offset: 0xF8
@@ -54,7 +54,7 @@ function on_player_spawned(local_client_num)
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	if(params.weapon.name == #"none")
 	{

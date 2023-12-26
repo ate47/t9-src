@@ -1,4 +1,4 @@
-#using script_5ce3a97e77bb8a9f;
+#using scripts\killstreaks\remotemissile_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace remotemissile;

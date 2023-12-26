@@ -3,7 +3,7 @@
 #using script_2c5f2d4e7aa698c4;
 #using script_2c6e6e28dd66dcc4;
 #using script_2c8fd33ddb45e78b;
-#using script_302b64aab899ff3a;
+#using scripts\core_common\ai\zombie.csc;
 #using script_5fb8da2731850d9e;
 #using script_60793766a26de8df;
 #using script_6243781aa5394e62;
@@ -63,7 +63,7 @@ function autoexec opt_in()
 */
 event main(eventstruct)
 {
-	clientfield::function_a8bbc967("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("player_lives", #"zm_hud", #"player_lives", 1, 2, "int", undefined, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_464e0cd19b3b8c12", 1, 1, "int", &function_c2858d41, 0, 0);
 	clientfield::register("toplayer", "" + #"hash_4be33f9c734f0cb9", 1, 2, "int", &zm_silver_sound::function_2f3017ad, 0, 0);
 	clientfield::register("world", "" + #"hash_5e38b0496d9664bb", 1, 3, "int", &function_ce2c0029, 0, 0);
@@ -78,11 +78,11 @@ event main(eventstruct)
 	level.var_a396a670 = 1;
 	setdvar(#"player_shallowwaterwadescale", 1);
 	setdvar(#"player_waistwaterwadescale", 1);
-	setdvar(#"hash_70d60913dea5aadd", 1);
+	setdvar(#"player_deepwaterwadescale", 1);
 	setdvar(#"hash_5e3c0f05d2935beb", 1);
 	setsaveddvar(#"hash_235cfa4e56938e9c", 100);
 	namespace_812a8849::init();
-	zm_silver_pap_quest::function_842831cf();
+	zm_silver_pap_quest::init_clientfield();
 	zm_silver_ww_quest::init();
 	zm_silver_main_quest::init();
 	zm_silver_util::init();

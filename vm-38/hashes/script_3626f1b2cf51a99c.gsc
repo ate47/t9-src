@@ -91,11 +91,11 @@ function on_player_spawned()
 	Parameters: 5
 	Flags: Linked
 */
-function function_9ddfe2d(action_name, var_7eba8145, var_e3a917a5, var_9386e7ce, anim_name)
+function function_9ddfe2d(action_name, var_7eba8145, parent_name, var_9386e7ce, anim_name)
 {
-	if(!isdefined(var_e3a917a5) && action_name != "root")
+	if(!isdefined(parent_name) && action_name != "root")
 	{
-		var_e3a917a5 = "root";
+		parent_name = "root";
 	}
 	if(!isdefined(var_9386e7ce))
 	{
@@ -122,13 +122,13 @@ function function_9ddfe2d(action_name, var_7eba8145, var_e3a917a5, var_9386e7ce,
 	action.children = [];
 	action.var_7eba8145 = var_7eba8145;
 	level.var_f467e5b0.actions[action_name] = action;
-	if(isdefined(var_e3a917a5))
+	if(isdefined(parent_name))
 	{
-		if(!isarray(var_e3a917a5))
+		if(!isarray(parent_name))
 		{
-			var_e3a917a5 = [0:var_e3a917a5];
+			parent_name = [0:parent_name];
 		}
-		foreach(parent in var_e3a917a5)
+		foreach(parent in parent_name)
 		{
 			thread function_ff81e3cc(parent, action_name);
 		}
@@ -562,17 +562,17 @@ function function_c11b51e1()
 	Parameters: 2
 	Flags: Linked
 */
-function function_ff81e3cc(var_e3a917a5, action_name)
+function function_ff81e3cc(parent_name, action_name)
 {
 	/#
-		if(!isdefined(var_e3a917a5) || !isdefined(action_name))
+		if(!isdefined(parent_name) || !isdefined(action_name))
 		{
 			/#
 				assertmsg("");
 			#/
 			return;
 		}
-		if(tolower(var_e3a917a5) == tolower(action_name))
+		if(tolower(parent_name) == tolower(action_name))
 		{
 			/#
 				assertmsg(("" + action_name) + "");
@@ -587,18 +587,18 @@ function function_ff81e3cc(var_e3a917a5, action_name)
 			return;
 		}
 	#/
-	if(!isdefined(level.var_f467e5b0.actions[var_e3a917a5]))
+	if(!isdefined(level.var_f467e5b0.actions[parent_name]))
 	{
-		level waittillmatch({#action:var_e3a917a5}, #"hash_2fd6623a6dbe43e9");
-		if(!isdefined(level.var_f467e5b0.actions[var_e3a917a5]))
+		level waittillmatch({#action:parent_name}, #"hash_2fd6623a6dbe43e9");
+		if(!isdefined(level.var_f467e5b0.actions[parent_name]))
 		{
 			/#
-				assertmsg(((("" + action_name) + "") + var_e3a917a5) + "");
+				assertmsg(((("" + action_name) + "") + parent_name) + "");
 			#/
 			return;
 		}
 	}
-	parent = level.var_f467e5b0.actions[var_e3a917a5];
+	parent = level.var_f467e5b0.actions[parent_name];
 	parent.children[action_name] = level.var_f467e5b0.actions[action_name];
 }
 

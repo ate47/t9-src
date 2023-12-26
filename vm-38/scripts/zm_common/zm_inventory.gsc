@@ -1,4 +1,4 @@
-#using script_399c912938783695;
+#using scripts\zm_common\zm_maptable.gsc;
 #using scripts\core_common\util_shared.gsc;
 
 #namespace zm_inventory;
@@ -63,7 +63,7 @@ function private function_cb96f01d(mappingname, internalname, var_2972a1c0, numb
 function function_c7c05a13()
 {
 	level.var_a16c38d9 = [];
-	fields = namespace_cb7cafc3::function_10672567();
+	fields = zm_maptable::function_10672567();
 	if(!isdefined(fields) || !isdefined(fields.zm_inventory))
 	{
 		return;

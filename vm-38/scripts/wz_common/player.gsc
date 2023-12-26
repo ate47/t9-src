@@ -59,11 +59,11 @@ function private function_70a657d8()
 */
 function on_player_spawned()
 {
-	self callback::function_20263b9e(&function_20263b9e);
+	self callback::on_grenade_fired(&on_grenade_fired);
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: wz_player
 	Checksum: 0x99AAFA30
 	Offset: 0x140
@@ -71,7 +71,7 @@ function on_player_spawned()
 	Parameters: 1
 	Flags: None
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	weapon = params.weapon;
@@ -132,7 +132,7 @@ function function_cd8ee3c5()
 		if(isdefined(trace[#"position"]) && trace[#"surfacetype"] != #"none")
 		{
 			org = trace[#"position"];
-			namespace_8f74625a::function_1b48df6d(org, 1);
+			item_supply_drop::drop_supply_drop(org, 1);
 		}
 	}
 }

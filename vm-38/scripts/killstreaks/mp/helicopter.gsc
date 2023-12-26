@@ -1,5 +1,5 @@
-#using script_2c49ae69cd8ce30c;
-#using script_3fda550bc6e1089a;
+#using scripts\mp_common\player\player_utils.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
@@ -57,11 +57,11 @@ function private function_70a657d8()
 	level.var_6af968ce = &function_6af968ce;
 	callback::on_vehicle_killed(&on_vehicle_killed);
 	bundle = "killstreak_helicopter_comlink";
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		bundle = bundle + "_wz";
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		killstreaks::register_killstreak(bundle, &usekillstreakhelicopter);
 		killstreaks::function_94c74046("helicopter_comlink");
@@ -165,10 +165,10 @@ function function_d45a1f8d(einflictor, attacker, idamage, smeansofdeath, weapon,
 	{
 		return;
 	}
-	if(shitloc.owner == psoffsettime && deathanimduration == getweapon(#"cobra_20mm_comlink") && (isdefined(shitloc.var_6ac0633e) ? shitloc.var_6ac0633e : 0) < gettime())
+	if(shitloc.owner == psoffsettime && deathanimduration == getweapon(#"cobra_20mm_comlink") && (isdefined(shitloc.lastkillvo) ? shitloc.lastkillvo : 0) < gettime())
 	{
 		shitloc namespace_f9b02f80::play_pilot_dialog_on_owner("kill", "helicopter_comlink", shitloc.killstreak_id);
-		shitloc.var_6ac0633e = gettime() + 5000;
+		shitloc.lastkillvo = gettime() + 5000;
 	}
 }
 

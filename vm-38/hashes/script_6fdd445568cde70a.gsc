@@ -44,7 +44,7 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: ccp_test_journalist1_uni_download_hack_luielem
 		Checksum: 0x2E990741
 		Offset: 0x450
@@ -52,9 +52,9 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("cp_test_journalist1_uni_download_hack_luielem");
+		cLUIelem::register_clientside("cp_test_journalist1_uni_download_hack_luielem");
 	}
 
 	/*
@@ -69,8 +69,8 @@ class ccp_test_journalist1_uni_download_hack_luielem : cLUIelem
 	function setup_clientfields(var_fff52af4)
 	{
 		cLUIelem::setup_clientfields("cp_test_journalist1_uni_download_hack_luielem");
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
-		cLUIelem::function_da693cbe("download_progress", 1, 7, "float", var_fff52af4);
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("download_progress", 1, 7, "float", var_fff52af4);
 	}
 
 	/*
@@ -193,7 +193,7 @@ function register(var_fff52af4)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: cp_test_journalist1_uni_download_hack_luielem
 	Checksum: 0x6A006570
 	Offset: 0x298
@@ -201,10 +201,10 @@ function register(var_fff52af4)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new ccp_test_journalist1_uni_download_hack_luielem();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

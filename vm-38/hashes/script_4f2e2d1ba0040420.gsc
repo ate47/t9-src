@@ -5,7 +5,7 @@
 #using script_27347f09888ad15;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_4163291d6e693552;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\zm_common\zm_sq.gsc;
@@ -400,9 +400,9 @@ function private function_31125f54()
 {
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_4fbe4720f6f13107", #"exfil_cleared");
-		if(level flag::get(#"exfil_cleared") && level flag::get(#"hash_fdc24944f59c262") || is_true(var_be17187b.b_success))
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"hash_4fbe4720f6f13107", #"exfil_cleared");
+		if(level flag::get(#"exfil_cleared") && level flag::get(#"hash_fdc24944f59c262") || is_true(s_waitresult.b_success))
 		{
 			level.var_9f6064a4 = #"hash_6893db9b6c7b5a58";
 			level.var_73677dfc = 3;

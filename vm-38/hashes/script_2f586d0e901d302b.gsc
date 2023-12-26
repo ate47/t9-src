@@ -44,7 +44,7 @@ class cmobile_armory_loadout : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cmobile_armory_loadout
 		Checksum: 0x343720C7
 		Offset: 0x348
@@ -52,9 +52,9 @@ class cmobile_armory_loadout : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("mobile_armory_loadout");
+		cLUIelem::register_clientside("mobile_armory_loadout");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: mobile_armory_loadout
 	Checksum: 0x5723437D
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cmobile_armory_loadout();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

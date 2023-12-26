@@ -72,12 +72,12 @@ function vip_keyline(localclientnum, oldval, newval, bnewent, binitialsnap, fiel
 		setuimodelvalue(var_c4c5aa27, self getentitynumber());
 		if(self.team == var_5f682f83 && self != localplayer && !self function_d2503806(#"hash_aa2ba3bf66e25d2"))
 		{
-			self function_bf9d3071(#"hash_aa2ba3bf66e25d2");
+			self playrenderoverridebundle(#"hash_aa2ba3bf66e25d2");
 		}
 	}
 	else if(self function_d2503806(#"hash_aa2ba3bf66e25d2"))
 	{
-		self function_5d482e78(#"hash_aa2ba3bf66e25d2");
+		self stoprenderoverridebundle(#"hash_aa2ba3bf66e25d2");
 	}
 }
 

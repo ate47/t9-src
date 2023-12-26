@@ -2,7 +2,7 @@
 #using script_16b1b77a76492c6a;
 #using script_3411bb48d41bd3b;
 #using script_34ab99a4ca1a43d;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_7fc996fe8678852;
 #using scripts\core_common\ai_shared.gsc;
@@ -106,7 +106,7 @@ function function_4d243036(instance)
 	instance.trigger = trigger;
 	t_proximity = spawn("trigger_radius", s_chest.origin - (0, 0, 128 / 2), 0, 350, 128);
 	t_proximity.instance = instance;
-	t_proximity callback::function_35a12f19(&function_29d2d6a4);
+	t_proximity callback::on_trigger(&function_29d2d6a4);
 }
 
 /*
@@ -315,7 +315,7 @@ function private function_ed1e62c9(instance, var_5ec5a681, s_spawn)
 	trigger = spawn("trigger_radius", var_5ec5a681.origin + (0, 0, 128 * -1), 0, 450, 128 * 2);
 	trigger.var_d4358084 = var_d4358084;
 	var_d4358084.trigger = trigger;
-	trigger callback::function_35a12f19(&function_e03c6f84);
+	trigger callback::on_trigger(&function_e03c6f84);
 	var_d4358084.n_obj_id = zm_utility::function_f5a222a8(#"hash_4b8c0ed5c08eb78e", var_d4358084);
 	n_move_time = distance(var_d4358084.origin, var_5ec5a681.origin) / 850;
 	var_d4358084 moveto(var_5ec5a681.origin, n_move_time);

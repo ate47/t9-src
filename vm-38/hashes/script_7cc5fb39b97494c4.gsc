@@ -1254,10 +1254,10 @@ class class_9e71c1a2
 		if(!e_player.var_ff7ce13b[m_s_bundle.type] && isdefined(var_b4563cfa))
 		{
 			show_tutorial_text(e_player);
-			var_be17187b = undefined;
-			var_be17187b = e_player waittill(#"minigame_tutorial_complete", #"hash_226f6717c97d10d6", #"death", #"entering_last_stand");
+			s_waitresult = undefined;
+			s_waitresult = e_player waittill(#"minigame_tutorial_complete", #"hash_226f6717c97d10d6", #"death", #"entering_last_stand");
 			function_673813fe(e_player);
-			if(var_be17187b._notify === "minigame_tutorial_complete")
+			if(s_waitresult._notify === "minigame_tutorial_complete")
 			{
 				e_player.var_ff7ce13b[m_s_bundle.type] = 1;
 			}
@@ -1520,7 +1520,7 @@ event private function_e0a8e4ba(struct)
 */
 function private autoexec __init__system__()
 {
-	system::register("minigames", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register("minigames", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -1551,7 +1551,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: minigame
 	Checksum: 0x13626655
 	Offset: 0x5C0
@@ -1559,7 +1559,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	function_e6adabd1();
 	function_374e4d47();

@@ -52,7 +52,7 @@ event main(eventstruct)
 	clientfield::register("playercorpse", "hide_body", 1, 1, "int");
 	clientfield::register("toplayer", "killcam_menu", 1, 1, "int");
 	globallogic::init();
-	level.gametype = util::function_5df4294();
+	level.gametype = util::get_game_type();
 	level.var_837aa533 = hash(level.gametype);
 	if(isdefined(level.gametype))
 	{

@@ -1,4 +1,4 @@
-#using script_14d2d89964cae0b1;
+#using scripts\core_common\ai\systems\gib.csc;
 #using scripts\core_common\aat_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;

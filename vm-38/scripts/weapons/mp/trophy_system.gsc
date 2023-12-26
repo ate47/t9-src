@@ -60,6 +60,6 @@ function private function_70a657d8()
 function function_ccfcde75(trophy, grenade)
 {
 	self battlechatter::function_fc82b10(trophy.weapon, grenade.origin, trophy);
-	self contracts::function_a54e2068(#"hash_5d75f7e385889afa");
+	self contracts::increment_contract(#"hash_5d75f7e385889afa");
 }
 

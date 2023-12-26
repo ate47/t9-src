@@ -192,11 +192,11 @@ class class_d5e68311
 		{
 			if(is_hidden)
 			{
-				var_884ed4f function_bf9d3071(#"hash_1d4878635b5ea5a3");
+				var_884ed4f playrenderoverridebundle(#"hash_1d4878635b5ea5a3");
 			}
 			else
 			{
-				var_884ed4f function_5d482e78(#"hash_1d4878635b5ea5a3");
+				var_884ed4f stoprenderoverridebundle(#"hash_1d4878635b5ea5a3");
 			}
 		}
 	}

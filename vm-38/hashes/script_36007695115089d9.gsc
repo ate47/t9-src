@@ -47,12 +47,12 @@ event main(eventstruct)
 {
 	namespace_2938acdc::init();
 	namespace_5c32f369::init();
-	level.onstartgametype = &function_d81f6eb7;
+	level.onstartgametype = &on_start_game_type;
 	level.var_61d4f517 = 0;
 }
 
 /*
-	Name: function_d81f6eb7
+	Name: on_start_game_type
 	Namespace: namespace_cf48051e
 	Checksum: 0x932359DF
 	Offset: 0x158
@@ -60,9 +60,9 @@ event main(eventstruct)
 	Parameters: 0
 	Flags: None
 */
-function function_d81f6eb7()
+function on_start_game_type()
 {
-	namespace_17baa64d::function_d81f6eb7();
+	namespace_17baa64d::on_start_game_type();
 	namespace_5c32f369::onstartgametype();
 }
 

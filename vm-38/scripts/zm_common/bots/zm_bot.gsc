@@ -53,8 +53,8 @@ function private function_70a657d8()
 	callback::on_connect(&on_player_connect);
 	level.var_df0a0911 = "bot_tacstate_zm_default";
 	level.var_258cdebb = "bot_tacstate_zm_laststand";
-	level.var_34eb792d = &function_80c40052;
-	level.var_4804edae = getdvarint(#"hash_69669601e8417252", 1);
+	level.var_34eb792d = &handleplayerfasttravel;
+	level.zm_bots_scale = getdvarint(#"zm_bots_scale", 1);
 }
 
 /*
@@ -81,9 +81,9 @@ function on_player_connect()
 */
 function function_e16b5033(actor)
 {
-	var_88f4c6ec = (isdefined(actor.basehealth) ? actor.basehealth : 99);
-	max_health = actor zm_ai_utility::function_f7014c3d(var_88f4c6ec);
-	return (max_health / var_88f4c6ec) * 1;
+	base_health = (isdefined(actor.basehealth) ? actor.basehealth : 99);
+	max_health = actor zm_ai_utility::function_f7014c3d(base_health);
+	return (max_health / base_health) * 1;
 }
 
 /*
@@ -118,7 +118,7 @@ function function_1f9de69d(var_40b86c4b)
 }
 
 /*
-	Name: function_80c40052
+	Name: handleplayerfasttravel
 	Namespace: zm_bot
 	Checksum: 0xF279D404
 	Offset: 0x380
@@ -126,11 +126,11 @@ function function_1f9de69d(var_40b86c4b)
 	Parameters: 2
 	Flags: Linked
 */
-function function_80c40052(player, var_12230d08)
+function handleplayerfasttravel(player, var_12230d08)
 {
 	player endon(#"death");
-	level notify(#"hash_4c873500aa6afd3c");
-	level endon(#"hash_4c873500aa6afd3c");
+	level notify(#"handleplayerfasttravel");
+	level endon(#"handleplayerfasttravel");
 	if(!isdefined(var_12230d08))
 	{
 		return;

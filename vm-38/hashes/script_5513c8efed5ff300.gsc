@@ -694,7 +694,7 @@ function private function_c7410540(var_8f977acb, profilesubject)
 	{
 		var_1659d59a = 0;
 		var_1856af9d = getscriptbundle(#"hash_7dc9096275da99d4");
-		foreach(var_fdf21313 in var_1856af9d.var_a00897d)
+		foreach(var_fdf21313 in var_1856af9d.profiles)
 		{
 			if(var_fdf21313.ref_name == profilesubject)
 			{

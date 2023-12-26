@@ -1,5 +1,5 @@
-#using script_3f9e0dc8454d98e1;
-#using script_7e63597649100b1c;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
 #using scripts\core_common\struct.gsc;
 #using scripts\core_common\util_shared.gsc;

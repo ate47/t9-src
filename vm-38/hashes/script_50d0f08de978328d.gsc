@@ -1,6 +1,6 @@
 #using script_1435f3c9fc699e04;
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\player\player_stats.gsc;
@@ -172,7 +172,7 @@ function onstartgametype()
 	level.kothtotalsecondsinzone = 0;
 	luinotifyevent(#"round_start");
 	spawning::function_fac242d0(10, "koth_zone_", &function_9dc6016e);
-	if(getgametypesetting(#"hash_2a7683d2b8e8be59"))
+	if(getgametypesetting(#"allowovertime"))
 	{
 		level.ontimelimit = &function_35088f57;
 	}
@@ -431,7 +431,7 @@ function function_e221a1d1(zone)
 {
 	zone.gameobject gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
 	zone.gameobject gameobjects::set_use_time(level.capturetime);
-	zone.gameobject gameobjects::set_use_text(#"hash_467145983994c6c2");
+	zone.gameobject gameobjects::set_use_text(#"mp/capturing_objective");
 	zone.gameobject gameobjects::set_visible(#"hash_5ccfd7bbbf07c770");
 	zone.gameobject gameobjects::set_model_visibility(1, 1);
 	zone.gameobject gameobjects::must_maintain_claim(0);
@@ -950,7 +950,7 @@ function give_capture_credit(touchlist, string, capturetime, capture_team, lastc
 			potm::bookmark(#"event", gettime(), player);
 			player stats::function_bb7eedf0(#"captures", 1);
 			player stats::function_bb7eedf0(#"hash_2f1df496791a2f5f", 1);
-			player contracts::function_a54e2068(#"hash_4fa0008b60deaab4");
+			player contracts::increment_contract(#"hash_4fa0008b60deaab4");
 			continue;
 		}
 		/#
@@ -1127,10 +1127,10 @@ function function_a84bac48(team)
 		{
 			player.pers[#"objtime"]++;
 			player.objtime = player.pers[#"objtime"];
-			player contracts::function_a54e2068(#"hash_78c9a64d04286f61", 1);
+			player contracts::increment_contract(#"hash_78c9a64d04286f61", 1);
 			if((player.pers[#"objtime"] % 60) == 0)
 			{
-				player contracts::function_a54e2068(#"hash_92db988270f4f67");
+				player contracts::increment_contract(#"hash_92db988270f4f67");
 			}
 		}
 		var_998771f0 = "hardpoint" + self.script_index;
@@ -1154,7 +1154,7 @@ function function_a84bac48(team)
 			{
 				player.var_b1ff3894 = 1;
 			}
-			player scoreevents::processscoreevent(#"hash_58b63cf172d29d0", player);
+			player scoreevents::processscoreevent(#"hardpoint_owned", player);
 			player.var_592f3e3c[self.script_index] = gettime();
 			player.var_b1ff3894 = min(player.var_b1ff3894 + 1, 5);
 		}
@@ -1239,7 +1239,7 @@ function award_capture_points(team, lastcaptureteam)
 */
 function private function_903a84d4(type, score)
 {
-	if(type === #"hash_58b63cf172d29d0" && isdefined(self.var_b1ff3894))
+	if(type === #"hardpoint_owned" && isdefined(self.var_b1ff3894))
 	{
 		return int(score * self.var_b1ff3894);
 	}
@@ -1674,7 +1674,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 	{
 		if([[level.iskillstreakweapon]](weapon) || (isdefined(weapon.statname) && [[level.iskillstreakweapon]](getweapon(weapon.statname))))
 		{
-			var_629fbd5c = 1;
+			weaponiskillstreak = 1;
 		}
 	}
 	medalgiven = 0;
@@ -1734,7 +1734,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 				}
 				if(var_1cfdf798)
 				{
-					if(!is_true(var_629fbd5c))
+					if(!is_true(weaponiskillstreak))
 					{
 						scoreevents::function_2a2e1723(#"hardpoint_kill", attacker, idamage, weapon);
 					}
@@ -1770,7 +1770,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 				if(var_1cfdf798)
 				{
 					attacker challenges::killedzoneattacker(weapon);
-					if(!is_true(var_629fbd5c))
+					if(!is_true(weaponiskillstreak))
 					{
 						scoreevents::function_2a2e1723(#"hardpoint_kill", attacker, idamage, weapon);
 					}
@@ -1828,7 +1828,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 					if(var_1cfdf798)
 					{
 						attacker challenges::killedzoneattacker(weapon);
-						if(!is_true(var_629fbd5c))
+						if(!is_true(weaponiskillstreak))
 						{
 							scoreevents::function_2a2e1723(#"hardpoint_kill", attacker, idamage, weapon);
 						}
@@ -1854,7 +1854,7 @@ function function_610d3790(einflictor, victim, idamage, weapon)
 				{
 					if(var_1cfdf798)
 					{
-						if(!is_true(var_629fbd5c))
+						if(!is_true(weaponiskillstreak))
 						{
 							scoreevents::function_2a2e1723(#"hardpoint_kill", attacker, idamage, weapon);
 						}

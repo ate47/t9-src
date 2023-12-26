@@ -55,7 +55,7 @@ function private autoexec function_9641b07b()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_7da9887a9375293", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_7da9887a9375293", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -82,7 +82,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_dd7e54e3
 	Checksum: 0xF68E97D8
 	Offset: 0x500
@@ -90,7 +90,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 	var_f5ae494f = struct::get_array(#"hash_313be7fccc870cdd", "variantname");
 	if(zm_utility::is_classic() || zm_utility::function_c4b020f8() && isdefined(var_f5ae494f) && var_f5ae494f.size > 0)
@@ -154,7 +154,7 @@ function function_93a99046(struct)
 	offset = (offset[0], offset[1], offset[2] + 50);
 	if(scriptmodel.script_noteworthy === "power")
 	{
-		trigger = namespace_8b6a9d79::function_214737c7(struct, &function_fe5f8894, #"hash_71158766520dc432", undefined, 64, 128, undefined, offset);
+		trigger = namespace_8b6a9d79::function_214737c7(struct, &function_fe5f8894, #"zombie/need_power", undefined, 64, 128, undefined, offset);
 		scriptmodel.var_49d94d8a = &function_38ac8b73;
 		scriptmodel.var_7cf0a191 = &function_e255b251;
 		scriptmodel thread zm_power::function_da4a8c05(#"hash_614130df578d98f0", struct.script_int);
@@ -256,7 +256,7 @@ function function_6c71e778(machine, trigger)
 		str_hint = #"hash_614130df578d98f0";
 		if(machine.script_noteworthy === "power")
 		{
-			str_hint = #"hash_71158766520dc432";
+			str_hint = #"zombie/need_power";
 		}
 		trigger sethintstringforplayer(self, str_hint);
 		if(isdefined(machine.objectiveid))
@@ -737,7 +737,7 @@ function give_armor(var_cc87b623)
 	{
 		self function_b2f69241();
 		var_fa3df96 = self item_inventory::function_e66dcff5(point);
-		self item_inventory::function_e274f1fe(point, 1, point.var_a6762160.amount, var_fa3df96);
+		self item_inventory::give_inventory_item(point, 1, point.var_a6762160.amount, var_fa3df96);
 		self item_inventory::equip_armor(point);
 		self function_f3ce6afc(var_cc87b623);
 	}
@@ -758,7 +758,7 @@ function function_b2f69241()
 	var_416640e8 = self.inventory.items[6];
 	if(var_416640e8.var_bd027dd9 != 32767)
 	{
-		var_4d7e11d8 = self item_inventory::function_418f9eb8(var_416640e8.var_bd027dd9);
+		var_4d7e11d8 = self item_inventory::drop_inventory_item(var_416640e8.var_bd027dd9);
 		if(isdefined(var_4d7e11d8))
 		{
 			var_4d7e11d8 delete();

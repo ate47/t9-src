@@ -141,7 +141,7 @@ function function_86bba240(localclientnum, oldval, newval, bnewent, binitialsnap
 	{
 		if(bwastimejump)
 		{
-			self function_bf9d3071(#"hash_5e190029d2c86444");
+			self playrenderoverridebundle(#"hash_5e190029d2c86444");
 			self function_78233d29(#"hash_5e190029d2c86444", "", "Brightness", 1);
 			self function_78233d29(#"hash_5e190029d2c86444", "", "Threshold", 1);
 		}

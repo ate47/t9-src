@@ -8,7 +8,7 @@
 #using script_4ab78e327b76395f;
 #using script_4ccd0c3512b52a10;
 #using script_61cfc2ab8e60625;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_6a27f4a76e9218f0;
 #using script_7cf3e180e994d17f;
 #using scripts\core_common\ai_shared.gsc;
@@ -142,7 +142,7 @@ function main(str_skipto, b_starting)
 	level.slide_enemy3.health = 999;
 	level.slide_enemy3.var_c681e4c1 = 1;
 	level.slide_enemy3 disableaimassist();
-	setsaveddvar(#"hash_54e4287f98a644f4", 1);
+	setsaveddvar(#"trm_enabled", 1);
 	level notify(#"hash_530a04ce72c2c9");
 	objectives::show("obj_takedown_qasim");
 	player val::set("slide", "allow_crouch", 0);
@@ -345,14 +345,14 @@ function function_e99afe47()
 	{
 		if(level flag::get("flag_listen_for_slide") && level.var_962e7d10 == 0)
 		{
-			setsaveddvar(#"hash_54e4287f98a644f4", 0);
+			setsaveddvar(#"trm_enabled", 0);
 			self val::set(#"hash_521245c0cfb3048", "allow_jump", 0);
 			self val::set(#"hash_304cd84bed4b8707", "allow_mantle", 0);
 			level thread function_f9dfbac1();
 		}
 		else if(level flag::get("flag_clear_listen_for_slide"))
 		{
-			setsaveddvar(#"hash_54e4287f98a644f4", 1);
+			setsaveddvar(#"trm_enabled", 1);
 			self val::reset(#"hash_521245c0cfb3048", "allow_jump");
 			self val::reset(#"hash_304cd84bed4b8707", "allow_mantle");
 			level.var_962e7d10 = 0;

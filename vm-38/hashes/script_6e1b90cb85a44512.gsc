@@ -1,6 +1,6 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using scripts\killstreaks\recon_plane.gsc;
 #using script_335d0650ed05d36d;
 #using scripts\killstreaks\mp\uav.gsc;
@@ -919,7 +919,7 @@ function function_3f367c2e()
 function function_1a67afed()
 {
 	clientfield::set("" + #"hash_69d32ac298f2aa22", 1);
-	level waittill(#"hash_2f4afe1cb9b6de05");
+	level waittill(#"pre_potm");
 	clientfield::set("" + #"hash_69d32ac298f2aa22", 2);
 	level waittill(#"potm_finished");
 	clientfield::set("" + #"hash_69d32ac298f2aa22", 3);
@@ -997,7 +997,7 @@ function private function_68f13f40()
 	wait(2.1);
 	foreach(player in getplayers())
 	{
-		player gestures::function_b204f6e3(#"hash_6c5354e57d5054f6", undefined, 1);
+		player gestures::play_gesture(#"hash_6c5354e57d5054f6", undefined, 1);
 	}
 	duration = 6.9;
 	wait(duration);

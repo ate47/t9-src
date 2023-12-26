@@ -1,5 +1,5 @@
 #using scripts\core_common\player\player_role.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\abilities\ability_util.gsc;
 #using scripts\abilities\ability_power.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -898,7 +898,7 @@ function give_gadget(slot, weapon)
 			}
 		}
 	}
-	if(sessionmodeismultiplayergame() || function_f99d2668())
+	if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 	{
 		self.heroabilityname = (isdefined(weapon) ? weapon.name : undefined);
 	}
@@ -975,7 +975,7 @@ function turn_gadget_on(slot, weapon)
 			clientnum = self getentitynumber();
 			foreach(player in players)
 			{
-				player luinotifyevent(#"hash_a2cf40647d18112", 2, var_ef2d7dfd, clientnum);
+				player luinotifyevent(#"ability_callout", 2, var_ef2d7dfd, clientnum);
 			}
 			foreach(turn_on in level._gadgets_level[self._gadgets_player[slot].gadget_type].turn_on)
 			{
@@ -1382,7 +1382,7 @@ function gadget_primed(slot, weapon)
 }
 
 /*
-	Name: function_3d2a352e
+	Name: tutorial_timer
 	Namespace: ability_player
 	Checksum: 0x18DE6823
 	Offset: 0x3820
@@ -1390,7 +1390,7 @@ function gadget_primed(slot, weapon)
 	Parameters: 3
 	Flags: Linked
 */
-function function_3d2a352e(weapon, var_8be5aa55, var_de825ec6)
+function tutorial_timer(weapon, var_8be5aa55, var_de825ec6)
 {
 	/#
 		assert(isdefined(var_8be5aa55) && isstring(var_8be5aa55));
@@ -1398,9 +1398,9 @@ function function_3d2a352e(weapon, var_8be5aa55, var_de825ec6)
 	if(isdefined(var_de825ec6))
 	{
 		tutorial_init(weapon);
-		self.pers[#"hash_2c18b7a9ddcf325c"][weapon].(var_8be5aa55) = gettime() + (var_de825ec6 * 1000);
+		self.pers[#"ability_tutorial"][weapon].(var_8be5aa55) = gettime() + (var_de825ec6 * 1000);
 	}
-	return isdefined(self.pers[#"hash_2c18b7a9ddcf325c"][weapon].(var_8be5aa55)) && self.pers[#"hash_2c18b7a9ddcf325c"][weapon].(var_8be5aa55) > gettime();
+	return isdefined(self.pers[#"ability_tutorial"][weapon].(var_8be5aa55)) && self.pers[#"ability_tutorial"][weapon].(var_8be5aa55) > gettime();
 }
 
 /*
@@ -1414,18 +1414,18 @@ function function_3d2a352e(weapon, var_8be5aa55, var_de825ec6)
 */
 function tutorial_init(weapon)
 {
-	if(!isdefined(self.pers[#"hash_2c18b7a9ddcf325c"]))
+	if(!isdefined(self.pers[#"ability_tutorial"]))
 	{
-		self.pers[#"hash_2c18b7a9ddcf325c"] = [];
+		self.pers[#"ability_tutorial"] = [];
 	}
-	if(!isdefined(self.pers[#"hash_2c18b7a9ddcf325c"][weapon]))
+	if(!isdefined(self.pers[#"ability_tutorial"][weapon]))
 	{
-		self.pers[#"hash_2c18b7a9ddcf325c"][weapon] = spawnstruct();
+		self.pers[#"ability_tutorial"][weapon] = spawnstruct();
 	}
 }
 
 /*
-	Name: function_4f74cee6
+	Name: tutorial_hints
 	Namespace: ability_player
 	Checksum: 0x2E9B8501
 	Offset: 0x39C0
@@ -1433,7 +1433,7 @@ function tutorial_init(weapon)
 	Parameters: 6
 	Flags: None
 */
-function function_4f74cee6(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf8864, var_be7c29a3)
+function tutorial_hints(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf8864, var_be7c29a3)
 {
 	self notify("equip_tutorial_text_" + weapon.name);
 	self endon(#"disconnect", #"death", "equip_tutorial_text_" + weapon.name);
@@ -1466,32 +1466,32 @@ function function_4f74cee6(slot, weapon, var_8430d11b, var_6c65cb8d, var_eadf886
 			wait(5);
 			continue;
 		}
-		if(self function_3d2a352e(weapon, "recentlyUsed"))
+		if(self tutorial_timer(weapon, "recentlyUsed"))
 		{
 			wait(5);
 			continue;
 		}
-		if(self function_3d2a352e(weapon, "recentlyEquip"))
+		if(self tutorial_timer(weapon, "recentlyEquip"))
 		{
 			wait(5);
 			continue;
 		}
-		if(self function_3d2a352e(weapon, "recentlyReady"))
+		if(self tutorial_timer(weapon, "recentlyReady"))
 		{
 			wait(5);
 			continue;
 		}
-		if(!self function_3d2a352e(weapon, "recentlyEquipText") && isdefined(var_6c65cb8d) && isdefined(var_be7c29a3) && self [[var_be7c29a3]](slot, weapon))
+		if(!self tutorial_timer(weapon, "recentlyEquipText") && isdefined(var_6c65cb8d) && isdefined(var_be7c29a3) && self [[var_be7c29a3]](slot, weapon))
 		{
-			self function_3d2a352e(weapon, "recentlyEquipText", 60);
+			self tutorial_timer(weapon, "recentlyEquipText", 60);
 			self thread [[var_6c65cb8d]](var_8430d11b, 0, "hide_gadget_equip_hint", 7);
 			/#
 				self function_374c4352(var_8430d11b);
 			#/
 		}
-		if(!self function_3d2a352e(weapon, "recentlyReadyVoice") && isdefined(var_eadf8864))
+		if(!self tutorial_timer(weapon, "recentlyReadyVoice") && isdefined(var_eadf8864))
 		{
-			self function_3d2a352e(weapon, "recentlyReadyVoice", 60);
+			self tutorial_timer(weapon, "recentlyReadyVoice", 60);
 			/#
 				self function_374c4352(var_eadf8864);
 			#/
@@ -1543,7 +1543,7 @@ function function_fc4dc54(var_6fcde3b6)
 function function_374c4352(str)
 {
 	/#
-		if(function_7a600918(str))
+		if(ishash(str))
 		{
 			str = function_9e72a96(str);
 		}
@@ -1718,7 +1718,7 @@ function abilities_devgui_add_power(add_cmd_with_root, pid, menu_index)
 function function_2e0162e9(add_cmd_with_root, pid, menu_index)
 {
 	/#
-		if(sessionmodeiszombiesgame() || function_f99d2668())
+		if(sessionmodeiszombiesgame() || sessionmodeiswarzonegame())
 		{
 			return;
 		}
@@ -1738,7 +1738,7 @@ function function_2e0162e9(add_cmd_with_root, pid, menu_index)
 			}
 			var_d59b8ebf = getplayerrolecategoryinfo(var_854a6ba2);
 			var_1a27a47a = makelocalizedstring(getcharacterdisplayname(i, session_mode));
-			var_1a27a47a = function_ea13f55(var_1a27a47a, "", "");
+			var_1a27a47a = strreplace(var_1a27a47a, "", "");
 			if(var_1a27a47a == "")
 			{
 				var_1a27a47a = "";
@@ -1802,7 +1802,7 @@ function function_2ced294(&a_weapons, &a_array, weaponname)
 	Parameters: 4
 	Flags: None
 */
-function function_60b82b68(&a_weapons, &a_equipment, &var_c5b1a23e, &var_ec1d48cc)
+function function_60b82b68(&a_weapons, &a_equipment, &var_c5b1a23e, &a_ultimates)
 {
 	/#
 		if(sessionmodeiszombiesgame())
@@ -1828,7 +1828,7 @@ function function_60b82b68(&a_weapons, &a_equipment, &var_c5b1a23e, &var_ec1d48c
 			}
 			if(isdefined(fields.ultimateweapon))
 			{
-				function_2ced294(a_weapons, var_ec1d48cc, fields.ultimateweapon);
+				function_2ced294(a_weapons, a_ultimates, fields.ultimateweapon);
 			}
 		}
 	#/
@@ -1851,7 +1851,7 @@ function function_1c3e8791(&a_weapons, &var_dd06e779)
 			iteminfo = getunlockableiteminfofromindex(i, 0);
 			if(isdefined(iteminfo))
 			{
-				reference_s = iteminfo.var_3cf2d21;
+				reference_s = iteminfo.namehash;
 				loadoutslotname = iteminfo.loadoutslotname;
 				if(loadoutslotname == "")
 				{
@@ -1875,39 +1875,39 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 {
 	/#
 		a_weapons = enumerateweapons("");
-		var_6b97f6f9 = [];
+		a_gadgetweapons = [];
 		for(i = 0; i < a_weapons.size; i++)
 		{
 			if(isdefined(a_weapons[i]) && a_weapons[i].isgadget)
 			{
-				if(!isdefined(var_6b97f6f9))
+				if(!isdefined(a_gadgetweapons))
 				{
-					var_6b97f6f9 = [];
+					a_gadgetweapons = [];
 				}
-				else if(!isarray(var_6b97f6f9))
+				else if(!isarray(a_gadgetweapons))
 				{
-					var_6b97f6f9 = array(var_6b97f6f9);
+					a_gadgetweapons = array(a_gadgetweapons);
 				}
-				if(!isinarray(var_6b97f6f9, a_weapons[i]))
+				if(!isinarray(a_gadgetweapons, a_weapons[i]))
 				{
-					var_6b97f6f9[var_6b97f6f9.size] = a_weapons[i];
+					a_gadgetweapons[a_gadgetweapons.size] = a_weapons[i];
 				}
 			}
 		}
 		a_equipment = [];
 		var_c5b1a23e = [];
-		var_ec1d48cc = [];
-		function_60b82b68(var_6b97f6f9, a_equipment, var_c5b1a23e, var_ec1d48cc);
+		a_ultimates = [];
+		function_60b82b68(a_gadgetweapons, a_equipment, var_c5b1a23e, a_ultimates);
 		var_dd06e779 = [];
-		function_1c3e8791(var_6b97f6f9, var_dd06e779);
+		function_1c3e8791(a_gadgetweapons, var_dd06e779);
 		var_ef060ee3 = [];
 		var_cdbfed45 = [];
 		var_7e367d09 = [];
 		var_4557f227 = [];
 		a_heal = [];
-		for(i = 0; i < var_6b97f6f9.size; i++)
+		for(i = 0; i < a_gadgetweapons.size; i++)
 		{
-			if(var_6b97f6f9[i].gadget_type == 11 && var_6b97f6f9[i].var_b76e0a09)
+			if(a_gadgetweapons[i].gadget_type == 11 && a_gadgetweapons[i].issignatureweapon)
 			{
 				if(!isdefined(var_ef060ee3))
 				{
@@ -1917,13 +1917,13 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 				{
 					var_ef060ee3 = array(var_ef060ee3);
 				}
-				if(!isinarray(var_ef060ee3, var_6b97f6f9[i]))
+				if(!isinarray(var_ef060ee3, a_gadgetweapons[i]))
 				{
-					var_ef060ee3[var_ef060ee3.size] = var_6b97f6f9[i];
+					var_ef060ee3[var_ef060ee3.size] = a_gadgetweapons[i];
 				}
 				continue;
 			}
-			if(var_6b97f6f9[i].gadget_type == 11)
+			if(a_gadgetweapons[i].gadget_type == 11)
 			{
 				if(!isdefined(var_cdbfed45))
 				{
@@ -1933,13 +1933,13 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 				{
 					var_cdbfed45 = array(var_cdbfed45);
 				}
-				if(!isinarray(var_cdbfed45, var_6b97f6f9[i]))
+				if(!isinarray(var_cdbfed45, a_gadgetweapons[i]))
 				{
-					var_cdbfed45[var_cdbfed45.size] = var_6b97f6f9[i];
+					var_cdbfed45[var_cdbfed45.size] = a_gadgetweapons[i];
 				}
 				continue;
 			}
-			if(var_6b97f6f9[i].isheavyweapon)
+			if(a_gadgetweapons[i].isheavyweapon)
 			{
 				if(!isdefined(var_7e367d09))
 				{
@@ -1949,13 +1949,13 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 				{
 					var_7e367d09 = array(var_7e367d09);
 				}
-				if(!isinarray(var_7e367d09, var_6b97f6f9[i]))
+				if(!isinarray(var_7e367d09, a_gadgetweapons[i]))
 				{
-					var_7e367d09[var_7e367d09.size] = var_6b97f6f9[i];
+					var_7e367d09[var_7e367d09.size] = a_gadgetweapons[i];
 				}
 				continue;
 			}
-			if(var_6b97f6f9[i].gadget_type == 23)
+			if(a_gadgetweapons[i].gadget_type == 23)
 			{
 				if(!isdefined(a_heal))
 				{
@@ -1965,9 +1965,9 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 				{
 					a_heal = array(a_heal);
 				}
-				if(!isinarray(a_heal, var_6b97f6f9[i]))
+				if(!isinarray(a_heal, a_gadgetweapons[i]))
 				{
-					a_heal[a_heal.size] = var_6b97f6f9[i];
+					a_heal[a_heal.size] = a_gadgetweapons[i];
 				}
 				continue;
 			}
@@ -1979,9 +1979,9 @@ function abilities_devgui_add_gadgets(add_cmd_with_root, pid, menu_index)
 			{
 				var_4557f227 = array(var_4557f227);
 			}
-			if(!isinarray(var_4557f227, var_6b97f6f9[i]))
+			if(!isinarray(var_4557f227, a_gadgetweapons[i]))
 			{
-				var_4557f227[var_4557f227.size] = var_6b97f6f9[i];
+				var_4557f227[var_4557f227.size] = a_gadgetweapons[i];
 			}
 		}
 		function_174037fe(add_cmd_with_root, pid, a_equipment, "", menu_index);
@@ -2177,7 +2177,7 @@ function abilities_devgui_think()
 					abilities_devgui_handle_player_command(cmd, &abilities_devgui_power_toggle_auto_fill);
 					break;
 				}
-				case "hash_5c13c5720e67cf5e":
+				case "ability_power_f":
 				{
 					abilities_devgui_handle_player_command(cmd, &function_3db3dc4f, arg);
 					break;
@@ -2356,14 +2356,14 @@ function function_9a0f80b1(weapon_name)
 	Parameters: 2
 	Flags: None
 */
-function function_f3fa2789(offhandslot, var_f0242d8a)
+function function_f3fa2789(offhandslot, ability_list)
 {
 	/#
-		if(!isdefined(var_f0242d8a))
+		if(!isdefined(ability_list))
 		{
-			var_f0242d8a = level.var_29d4fb5b;
+			ability_list = level.var_29d4fb5b;
 		}
-		if(!isdefined(var_f0242d8a))
+		if(!isdefined(ability_list))
 		{
 			return;
 		}
@@ -2376,17 +2376,17 @@ function function_f3fa2789(offhandslot, var_f0242d8a)
 		if(isdefined(weapon))
 		{
 			var_29bc3853 = 0;
-			for(i = 0; i < var_f0242d8a.size; i++)
+			for(i = 0; i < ability_list.size; i++)
 			{
-				ability_name = var_f0242d8a[i];
+				ability_name = ability_list[i];
 				if(weapon.name == ability_name)
 				{
 					var_29bc3853 = i;
 					break;
 				}
 			}
-			var_29bc3853 = (var_29bc3853 + 1) % var_f0242d8a.size;
-			weapon_name = var_f0242d8a[var_29bc3853];
+			var_29bc3853 = (var_29bc3853 + 1) % ability_list.size;
+			weapon_name = ability_list[var_29bc3853];
 		}
 		if(2 == offhandslot)
 		{
@@ -2636,7 +2636,7 @@ function function_b4f43681(var_a5c8eb94)
 		self function_c9b950e3();
 		self function_c2d9d3e1();
 		self player_role::set(index);
-		if(sessionmodeismultiplayergame() || function_f99d2668())
+		if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 		{
 			spawnselect = level.spawnselectenabled;
 			level.spawnselectenabled = 0;

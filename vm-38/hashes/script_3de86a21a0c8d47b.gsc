@@ -57,7 +57,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	callback::function_f77ced93(&function_f77ced93);
+	callback::on_weapon_change(&on_weapon_change);
 	callback::on_spawned(&function_ab7ec803);
 	clientfield::register("toplayer", "spy_camera_state", 1, 2, "int");
 	clientfield::register("toplayer", "binoculars_overlay", 1, 1, "int");
@@ -198,7 +198,7 @@ function function_c11bdcc0()
 }
 
 /*
-	Name: function_f77ced93
+	Name: on_weapon_change
 	Namespace: spy_camera
 	Checksum: 0x68C7672A
 	Offset: 0x8D0
@@ -206,7 +206,7 @@ function function_c11bdcc0()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f77ced93(params)
+function on_weapon_change(params)
 {
 	var_b67a0cc6 = is_true(self.var_340d4e74) || (params.last_weapon !== level.weaponnone && (params.last_weapon === level.var_e3f5eafc || params.last_weapon === level.var_42db149f));
 	if(var_b67a0cc6 || (params.last_weapon === level.weaponnone && self clientfield::get_to_player("spy_camera_state") != 0))
@@ -396,7 +396,7 @@ function function_f91a82ef(b_enabled, var_b3649521, initial_delay, var_34487abc)
 function function_de6d9b74(prompts)
 {
 	/#
-		assert(isarray(prompts) || function_7a600918(prompts));
+		assert(isarray(prompts) || ishash(prompts));
 	#/
 	level.var_af143f1d = [];
 	if(isarray(prompts))

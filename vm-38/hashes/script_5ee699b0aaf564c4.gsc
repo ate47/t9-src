@@ -1,6 +1,6 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
-#using script_2da073d4aa78c206;
+#using scripts\core_common\player\player_insertion.gsc;
 #using script_305d57cf0618009d;
 #using script_44b0b8420eabacad;
 #using script_75da5547b1822294;
@@ -299,7 +299,7 @@ function function_70f1d702()
 		{
 			continue;
 		}
-		if(player namespace_67838d10::function_51350a25())
+		if(player player_insertion::function_51350a25())
 		{
 			continue;
 		}
@@ -389,7 +389,7 @@ function function_2613549d(origin, angles)
 		vehicle deletedelay();
 	}
 	self setplayerangles((85, angles[1], 0));
-	self namespace_67838d10::start_freefall(launchvelocity, 1);
+	self player_insertion::start_freefall(launchvelocity, 1);
 	self function_c147c6c5();
 	level thread function_5d5011dc(self);
 }

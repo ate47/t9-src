@@ -1,5 +1,5 @@
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -542,7 +542,7 @@ function function_dedc78a9(attacker, victim, weapon, attackerweapon, meansofdeat
 function function_24e13681(params)
 {
 	attacker = params.attacker;
-	attacker contracts::function_a54e2068(#"hash_6c38f28fb66ca0c4");
+	attacker contracts::increment_contract(#"hash_6c38f28fb66ca0c4");
 	attacker stats::function_dad108fa(#"hash_5ea3238f59bae1e5", 1);
 	attacker stats::function_dad108fa(#"hash_4da14f9b7ebe092d", 1);
 }

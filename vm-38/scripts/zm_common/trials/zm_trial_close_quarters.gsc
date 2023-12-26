@@ -46,7 +46,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -64,7 +64,7 @@ function private function_70a657d8()
 */
 function private on_begin()
 {
-	zm::register_actor_damage_callback(&function_306332df);
+	zm::register_actor_damage_callback(&range_check);
 }
 
 /*
@@ -78,9 +78,9 @@ function private on_begin()
 */
 function private on_end(round_reset)
 {
-	if(isinarray(level.actor_damage_callbacks, &function_306332df))
+	if(isinarray(level.actor_damage_callbacks, &range_check))
 	{
-		arrayremovevalue(level.actor_damage_callbacks, &function_306332df, 0);
+		arrayremovevalue(level.actor_damage_callbacks, &range_check, 0);
 	}
 }
 
@@ -100,7 +100,7 @@ function is_active()
 }
 
 /*
-	Name: function_306332df
+	Name: range_check
 	Namespace: zm_trial_close_quarters
 	Checksum: 0x3E5ED2F0
 	Offset: 0x240
@@ -108,7 +108,7 @@ function is_active()
 	Parameters: 13
 	Flags: Private
 */
-function private function_306332df(inflictor, attacker, damage, flags, meansofdeath, weapon, var_fd90b0bb, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
+function private range_check(inflictor, attacker, damage, flags, meansofdeath, weapon, var_fd90b0bb, vpoint, vdir, shitloc, psoffsettime, boneindex, surfacetype)
 {
 	if(!isplayer(boneindex) && !isplayer(psoffsettime))
 	{

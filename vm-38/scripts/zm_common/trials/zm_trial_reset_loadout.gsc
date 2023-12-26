@@ -48,7 +48,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -76,7 +76,7 @@ function private on_begin(var_30dbb2e5, var_f2c84b6b)
 	{
 		if(var_30dbb2e5 === "ammo")
 		{
-			player thread function_af55104(var_f2c84b6b);
+			player thread reset_ammo(var_f2c84b6b);
 			continue;
 		}
 		if(var_30dbb2e5 === "zombie_fists")
@@ -116,7 +116,7 @@ function is_active(var_61ee083c)
 }
 
 /*
-	Name: function_af55104
+	Name: reset_ammo
 	Namespace: zm_trial_reset_loadout
 	Checksum: 0x968037B3
 	Offset: 0x388
@@ -124,7 +124,7 @@ function is_active(var_61ee083c)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_af55104(var_f2c84b6b)
+function private reset_ammo(var_f2c84b6b)
 {
 	self notify("31521b89b82403a5");
 	self endon("31521b89b82403a5");

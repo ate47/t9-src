@@ -1,5 +1,5 @@
-#using script_1254ac024174d9c0;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4ce5d94e8c797350;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -52,7 +52,7 @@ function private autoexec function_db609053()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_fasttravel", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_fasttravel", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -68,7 +68,7 @@ function private function_70a657d8()
 {
 	init_clientfields();
 	function_44a82004("power_on");
-	level flag::init(#"hash_1b9ecc7979b0fcfb");
+	level flag::init(#"disable_fast_travel");
 	/#
 		zm_devgui::add_custom_devgui_callback(&function_dd6276f3);
 		adddebugcommand("");
@@ -118,7 +118,7 @@ function function_44a82004(str_flag)
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_fasttravel
 	Checksum: 0xB8C53DB3
 	Offset: 0x890
@@ -126,7 +126,7 @@ function function_44a82004(str_flag)
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	var_7b5d3a70 = &function_2d4bda34;
 	if(isdefined(level.var_a5689564))
@@ -179,13 +179,13 @@ function private function_8ac3bea9()
 */
 function wormhole_fx(a_ents)
 {
-	var_fd99631b = a_ents[getfirstarraykey(a_ents)];
+	e_wormhole = a_ents[getfirstarraykey(a_ents)];
 	do
 	{
 		util::wait_network_frame();
 	}
-	while(!var_fd99631b isplayinganimscripted());
-	var_fd99631b clientfield::set("" + #"wormhole_fx", zm_utility::get_story());
+	while(!e_wormhole isplayinganimscripted());
+	e_wormhole clientfield::set("" + #"wormhole_fx", zm_utility::get_story());
 }
 
 /*
@@ -199,13 +199,13 @@ function wormhole_fx(a_ents)
 */
 function function_ac7928bd(a_ents)
 {
-	var_fd99631b = a_ents[getfirstarraykey(a_ents)];
+	e_wormhole = a_ents[getfirstarraykey(a_ents)];
 	do
 	{
 		util::wait_network_frame();
 	}
-	while(!var_fd99631b isplayinganimscripted());
-	var_fd99631b clientfield::set("" + #"wormhole_fx", 2);
+	while(!e_wormhole isplayinganimscripted());
+	e_wormhole clientfield::set("" + #"wormhole_fx", 2);
 }
 
 /*
@@ -242,10 +242,10 @@ function function_2d4bda34(s_loc)
 	s_loc.unitrigger_stub.script_string = s_loc.script_string;
 	s_loc.unitrigger_stub.script_noteworthy = s_loc.script_noteworthy;
 	s_loc.unitrigger_stub.var_7b3e65fe = s_loc.var_7b3e65fe;
-	var_a8ca40f5 = (isdefined(s_loc.var_a92d1b24) ? s_loc.var_a92d1b24 : s_loc.var_a4134e51);
-	if(isdefined(var_a8ca40f5))
+	str_flags = (isdefined(s_loc.var_a92d1b24) ? s_loc.var_a92d1b24 : s_loc.var_a4134e51);
+	if(isdefined(str_flags))
 	{
-		s_loc.unitrigger_stub.var_a92d1b24 = util::create_flags_and_return_tokens(var_a8ca40f5);
+		s_loc.unitrigger_stub.var_a92d1b24 = util::create_flags_and_return_tokens(str_flags);
 	}
 	s_loc.unitrigger_stub.zombie_cost = s_loc.zombie_cost;
 	s_loc.unitrigger_stub.var_638d9008 = s_loc.var_638d9008;
@@ -318,7 +318,7 @@ function function_5c18a7f4(player)
 	}
 	if(isdefined(self.hint_string[n_player_index]) && self.hint_string[n_player_index] !== " ")
 	{
-		if(namespace_497ab7da::is_active() && !isdefined(level.var_a29299fb))
+		if(zm_trial_disable_buys::is_active() && !isdefined(level.var_a29299fb))
 		{
 			self sethintstringforplayer(player, #"hash_55d25caf8f7bbb2f");
 		}
@@ -362,7 +362,7 @@ function function_c52e8ba(player, var_8d5d092c)
 	{
 		if(isdefined(self.stub.var_a92d1b24) && !level flag::get_all(self.stub.var_a92d1b24))
 		{
-			self.hint_string[n_player_index] = #"hash_222289639943b061";
+			self.hint_string[n_player_index] = #"zombie/fasttravel_locked";
 			b_result = 1;
 		}
 		else
@@ -428,7 +428,7 @@ function function_d06e636b(player)
 	{
 		return false;
 	}
-	if(level flag::get(#"hash_1b9ecc7979b0fcfb"))
+	if(level flag::get(#"disable_fast_travel"))
 	{
 		return false;
 	}
@@ -465,7 +465,7 @@ function function_6cde5436()
 		{
 			continue;
 		}
-		if(namespace_497ab7da::is_active() && !isdefined(level.var_a29299fb))
+		if(zm_trial_disable_buys::is_active() && !isdefined(level.var_a29299fb))
 		{
 			continue;
 		}
@@ -521,9 +521,9 @@ function function_6cde5436()
 			continue;
 		}
 		player zm_score::minus_to_player_score(n_cost);
-		player contracts::function_5b88297d(#"hash_71ed95630568c0a5");
-		level notify(#"hash_e66663be8ba322f", {#player:player});
-		player notify(#"hash_e66663be8ba322f");
+		player contracts::increment_zm_contract(#"hash_71ed95630568c0a5");
+		level notify(#"fasttravel_bought", {#player:player});
+		player notify(#"fasttravel_bought");
 		if(isdefined(level.var_352c9e03))
 		{
 			player [[level.var_352c9e03]](self);
@@ -614,13 +614,13 @@ function function_b9c7ccbb(var_12230d08, var_829a20a8)
 	{
 		var_f0bbde5 = self function_c78572ab(var_f80635c);
 	}
-	var_264e247c = 1;
+	vgt_vtx_cnt_en = 1;
 	var_f499ccef = 1;
 	if(var_4500bf3f == "traverse")
 	{
 		if(is_true(level.var_2053e15f))
 		{
-			var_264e247c = 0;
+			vgt_vtx_cnt_en = 0;
 		}
 		else
 		{
@@ -635,7 +635,7 @@ function function_b9c7ccbb(var_12230d08, var_829a20a8)
 	{
 		var_f499ccef = 0;
 	}
-	if(var_264e247c)
+	if(vgt_vtx_cnt_en)
 	{
 		self function_2aed1d83(var_f0bbde5, var_f499ccef);
 		if(isdefined(level.var_1e47389a))
@@ -980,7 +980,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 	{
 		if(isdefined(var_12230d08) && var_12230d08.script_noteworthy === "flinger")
 		{
-			self thread function_bb9a788b(var_6c365dbf, var_12230d08);
+			self thread fasttravel_flinger(var_6c365dbf, var_12230d08);
 		}
 		else
 		{
@@ -1033,7 +1033,7 @@ function function_66d020b0(var_5314bd63, nd_path_start, var_384528, str_notify, 
 		self util::clear_streamer_hint();
 	}
 	self.var_5817f611 = undefined;
-	self notify(#"hash_66790eb1100e11a2", {#hash_9fa6220c:var_12230d08});
+	self notify(#"fasttravel_finished", {#hash_9fa6220c:var_12230d08});
 	foreach(e_player in getplayers())
 	{
 		e_player clientfield::set_player_uimodel(("WorldSpaceIndicators.bleedOutModel" + self getentitynumber()) + ".hide", 0);
@@ -1780,7 +1780,7 @@ function function_60d91d03(var_f0bbde5, a_e_players)
 }
 
 /*
-	Name: function_bb9a788b
+	Name: fasttravel_flinger
 	Namespace: zm_fasttravel
 	Checksum: 0x242B859
 	Offset: 0x4CE0
@@ -1788,7 +1788,7 @@ function function_60d91d03(var_f0bbde5, a_e_players)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bb9a788b(var_6c365dbf, var_12230d08)
+function fasttravel_flinger(var_6c365dbf, var_12230d08)
 {
 	level endon(#"end_game");
 	self endoncallback(&function_672d56c7, #"death");

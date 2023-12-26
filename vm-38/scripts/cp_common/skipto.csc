@@ -35,7 +35,7 @@ function private autoexec function_b63bf986()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"skipto", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"skipto", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -63,7 +63,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: skipto
 	Checksum: 0xE25C242C
 	Offset: 0x398
@@ -71,7 +71,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level thread handle();
 }
@@ -919,8 +919,8 @@ function stop_objective_logic(name, starting)
 */
 function set_last_map_dvar(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	var_1fdcd030 = util::get_map_name();
-	setdvar(#"last_map", var_1fdcd030);
+	missionname = util::get_map_name();
+	setdvar(#"last_map", missionname);
 }
 
 /*

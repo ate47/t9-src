@@ -82,7 +82,7 @@ function function_4df027f2()
 */
 function function_8efe7666()
 {
-	self callback::function_d8abfc3d(#"hash_11aa32ad6d527054", &namespace_85745671::function_b8eb5dea);
+	self callback::function_d8abfc3d(#"on_ai_melee", &namespace_85745671::function_b8eb5dea);
 	self callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &namespace_85745671::function_5cb3181e);
 	self.var_12af7864 = 1;
 	self.var_c11b8a5a = 1;
@@ -115,7 +115,7 @@ function function_37804710()
 {
 	if(!namespace_88795f45::function_6b87eed1())
 	{
-		function_fb4a1aa3(self);
+		setup_awareness(self);
 	}
 }
 
@@ -170,12 +170,12 @@ function private function_9d59692c(var_33e339fe, var_551c6a0e)
 {
 	if(isdefined(var_33e339fe))
 	{
-		function_fb4a1aa3(var_33e339fe);
+		setup_awareness(var_33e339fe);
 		awareness::function_c241ef9a(var_33e339fe, self.favoriteenemy, 5);
 	}
 	if(isdefined(var_551c6a0e))
 	{
-		function_fb4a1aa3(var_551c6a0e);
+		setup_awareness(var_551c6a0e);
 		awareness::function_c241ef9a(var_551c6a0e, self.favoriteenemy, 5);
 	}
 	if(!isdefined(self.var_29459a31) || !isdefined(self.var_89592ba7))
@@ -260,7 +260,7 @@ function private function_1915f8d6(params, hotzone)
 }
 
 /*
-	Name: function_fb4a1aa3
+	Name: setup_awareness
 	Namespace: namespace_cd6bd9f
 	Checksum: 0x6389B2F8
 	Offset: 0x970
@@ -268,15 +268,15 @@ function private function_1915f8d6(params, hotzone)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_fb4a1aa3(entity)
+function private setup_awareness(entity)
 {
-	entity.var_f9a12c59 = 1;
-	entity.var_ed35eeb2 = 1;
+	entity.has_awareness = 1;
+	entity.ignorelaststandplayers = 1;
 	entity.var_1267fdea = 1;
 	self callback::function_d8abfc3d(#"on_ai_damage", &awareness::function_5f511313);
-	awareness::function_dad6ba0e(entity, #"wander", &function_7cdb2c4c, &awareness::function_4ebe4a6d, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
-	awareness::function_dad6ba0e(entity, #"investigate", &function_ba66485e, &awareness::function_9eefc327, &awareness::function_34162a25, undefined, &awareness::function_a360dd00);
-	awareness::function_dad6ba0e(entity, #"chase", &function_1534f0a3, &function_9ffae104, &awareness::function_b9f81e8b, &awareness::function_5c40e824);
+	awareness::register_state(entity, #"wander", &function_7cdb2c4c, &awareness::function_4ebe4a6d, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
+	awareness::register_state(entity, #"investigate", &function_ba66485e, &awareness::function_9eefc327, &awareness::function_34162a25, undefined, &awareness::function_a360dd00);
+	awareness::register_state(entity, #"chase", &function_1534f0a3, &function_9ffae104, &awareness::function_b9f81e8b, &awareness::function_5c40e824);
 	awareness::set_state(entity, #"wander");
 	entity thread awareness::function_fa6e010d();
 }

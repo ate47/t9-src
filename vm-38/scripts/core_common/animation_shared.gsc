@@ -123,10 +123,10 @@ function play_siege(str_anim, n_rate)
 	{
 		n_rate = 1;
 	}
-	self notify(#"hash_10506de382288d3");
-	self endon(#"death", #"scene_stop", #"hash_10506de382288d3");
+	self notify(#"stop_siege_anim");
+	self endon(#"death", #"scene_stop", #"stop_siege_anim");
 	/#
-		if(sessionmodeismultiplayergame() || function_f99d2668())
+		if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame())
 		{
 			iprintlnbold(("" + function_9e72a96(str_anim)) + "");
 			println(("" + function_9e72a96(str_anim)) + "");
@@ -144,7 +144,7 @@ function play_siege(str_anim, n_rate)
 	self function_cf6be307(str_anim, "default", n_rate, b_loop);
 	if(b_loop)
 	{
-		self waittill(#"hash_10506de382288d3");
+		self waittill(#"stop_siege_anim");
 	}
 	else
 	{
@@ -747,10 +747,10 @@ function _reach(s_tracker, animation, v_origin_or_ent, v_angles_or_tag, b_disabl
 		#/
 		self thread function_ba45bb6c();
 		self thread function_d7627522(animation, v_goal);
-		var_be17187b = undefined;
-		var_be17187b = self waittill(#"goal", #"new_anim_reach", #"new_scripted_anim", #"stop_scripted_anim", #"reach_timed_out");
+		s_waitresult = undefined;
+		s_waitresult = self waittill(#"goal", #"new_anim_reach", #"new_scripted_anim", #"stop_scripted_anim", #"reach_timed_out");
 		/#
-			if(var_be17187b._notify === "")
+			if(s_waitresult._notify === "")
 			{
 				iprintlnbold((("" + function_9e72a96(animation)) + "") + v_goal);
 				println((("" + function_9e72a96(animation)) + "") + v_goal);
@@ -806,8 +806,8 @@ function function_d7627522(animation, v_goal, radius)
 		waitframe(1);
 	}
 	self function_2ce879d2(var_f11838cd);
-	var_be17187b = undefined;
-	var_be17187b = self waittill(#"goal", #"new_anim_reach", #"new_scripted_anim", #"stop_scripted_anim", #"reach_timed_out");
+	s_waitresult = undefined;
+	s_waitresult = self waittill(#"goal", #"new_anim_reach", #"new_scripted_anim", #"stop_scripted_anim", #"reach_timed_out");
 	self function_9ae1c50();
 }
 

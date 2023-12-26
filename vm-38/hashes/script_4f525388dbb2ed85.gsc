@@ -299,7 +299,7 @@ function private function_7f9a08f5(name, value, min, max, func)
 		struct.min = min;
 		struct.max = max;
 		struct.func = func;
-		struct.var_c588e13c = 0;
+		struct.iserror = 0;
 		return struct;
 	#/
 }
@@ -704,17 +704,17 @@ function private function_c6c530d1(badval, message)
 {
 	/#
 		level endon(#"hash_47e0ed0d8fb144dc");
-		if(is_true(level._fx.var_7b96a5ce.data[badval].var_c588e13c))
+		if(is_true(level._fx.var_7b96a5ce.data[badval].iserror))
 		{
 			return;
 		}
 		namespace_61e6d095::function_f2a9266(#"hash_579637b8c2a4ab78", badval, "", 1);
 		namespace_61e6d095::function_f2a9266(#"hash_579637b8c2a4ab78", badval, "", message);
-		level._fx.var_7b96a5ce.data[badval].var_c588e13c = 1;
+		level._fx.var_7b96a5ce.data[badval].iserror = 1;
 		wait(1);
 		namespace_61e6d095::function_f2a9266(#"hash_579637b8c2a4ab78", badval, "", 0);
 		namespace_61e6d095::function_f2a9266(#"hash_579637b8c2a4ab78", badval, "", level._fx.var_7b96a5ce.data[badval].name);
-		level._fx.var_7b96a5ce.data[badval].var_c588e13c = 0;
+		level._fx.var_7b96a5ce.data[badval].iserror = 0;
 	#/
 }
 

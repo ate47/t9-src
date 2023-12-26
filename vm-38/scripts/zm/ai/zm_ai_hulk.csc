@@ -209,6 +209,6 @@ function private function_64d1f09b(localclientnum, oldval, newval, bnewent, bini
 */
 function private function_2a4100e7(localclientnum)
 {
-	self function_bf9d3071("rob_orda_dissolve");
+	self playrenderoverridebundle("rob_orda_dissolve");
 }
 

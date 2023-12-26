@@ -1,7 +1,7 @@
 #using script_1471eea5d2e60f83;
 #using script_16b1b77a76492c6a;
 #using script_34ab99a4ca1a43d;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_6155d71e1c9a57eb;
 #using script_7fc996fe8678852;
 #using scripts\core_common\array_shared.gsc;

@@ -130,7 +130,7 @@ function setarena(localclientnum, oldval, newval, bnewent, binitialsnap, fieldna
 	}
 	foreach(player in getlocalplayers())
 	{
-		player namespace_ac2a80f5::changecamera((isdefined(player.doa) ? player.doa.var_10752c35 : var_129a290));
+		player namespace_ac2a80f5::changecamera((isdefined(player.doa) ? player.doa.cameramode : var_129a290));
 	}
 	namespace_9fc66ac::function_5beeba99();
 }

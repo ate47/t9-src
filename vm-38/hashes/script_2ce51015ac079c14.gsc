@@ -44,7 +44,7 @@ class cplayer_insertion_choice : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cplayer_insertion_choice
 		Checksum: 0x7A6BF8EA
 		Offset: 0x3B8
@@ -52,9 +52,9 @@ class cplayer_insertion_choice : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("player_insertion_choice");
+		cLUIelem::register_clientside("player_insertion_choice");
 	}
 
 	/*
@@ -69,7 +69,7 @@ class cplayer_insertion_choice : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("player_insertion_choice");
-		cLUIelem::function_da693cbe("_state", 1, 2, "int");
+		cLUIelem::add_clientfield("_state", 1, 2, "int");
 	}
 
 	/*
@@ -89,13 +89,13 @@ class cplayer_insertion_choice : cLUIelem
 		}
 		else
 		{
-			if(#"hash_bcb68d30ea251e2" == state_name)
+			if(#"groundvehicle" == state_name)
 			{
 				[[ self ]]->set_data(localclientnum, "_state", 1);
 			}
 			else
 			{
-				if(#"hash_a9365fdb97f532b" == state_name)
+				if(#"halojump" == state_name)
 				{
 					[[ self ]]->set_data(localclientnum, "_state", 2);
 				}
@@ -184,7 +184,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: player_insertion_choice
 	Checksum: 0xB1E35C96
 	Offset: 0x260
@@ -192,10 +192,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cplayer_insertion_choice();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

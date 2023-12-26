@@ -173,7 +173,7 @@ function private function_21d71e38(player, cmd, args)
 	{
 		msg = args[1];
 	}
-	var_65cde9d7 = isstring(msg) || function_7a600918(msg);
+	var_65cde9d7 = isstring(msg) || ishash(msg);
 	if(function_81fac19d(!var_65cde9d7, "snd: invalid client msg"))
 	{
 		return;
@@ -641,14 +641,14 @@ function function_bb749fc3(var_afe43979, soundalias, var_99e65ecf, delaytime)
 		assert(isdefined(ent));
 	#/
 	/#
-		assert(isstring(soundalias) || function_7a600918(soundalias));
+		assert(isstring(soundalias) || ishash(soundalias));
 	#/
 	var_fe3be304 = 1;
 	if(!isdefined(var_99e65ecf) && isdefined(var_fe3be304))
 	{
 		var_99e65ecf = var_fe3be304;
 	}
-	if(snd::function_4e1ee82e() == 0)
+	if(snd::did_init() == 0)
 	{
 		var_cd7344db = !isdefined(delaytime) || (snd::isnumber(delaytime) && delaytime == 0);
 		if(snd::function_81fac19d(var_cd7344db, "snd: delayed due to first frame!"))
@@ -660,23 +660,23 @@ function function_bb749fc3(var_afe43979, soundalias, var_99e65ecf, delaytime)
 	{
 		wait(delaytime);
 	}
-	var_9af02310 = -1;
+	soundhandle = -1;
 	/#
 		assert(soundexists(soundalias), "" + soundalias);
 	#/
 	if(soundislooping(soundalias) == 1)
 	{
-		var_9af02310 = ent playloopsound(soundalias);
+		soundhandle = ent playloopsound(soundalias);
 	}
 	else
 	{
 		var_42be2e20 = "sounddone";
-		var_9af02310 = ent playsound(0, soundalias);
-		ent.var_9af02310 = var_9af02310;
-		ent thread function_297cdf07(var_42be2e20, var_9af02310);
+		soundhandle = ent playsound(0, soundalias);
+		ent.soundhandle = soundhandle;
+		ent thread function_297cdf07(var_42be2e20, soundhandle);
 	}
 	ent.soundalias = soundalias;
-	ent.var_9af02310 = var_9af02310;
+	ent.soundhandle = soundhandle;
 }
 
 /*
@@ -708,16 +708,16 @@ function function_273d939b(var_afe43979, var_24ea4e17)
 		{
 			if(is_true(soundislooping(soundalias)))
 			{
-				ent stoploopsound(ent.var_9af02310, var_24ea4e17);
+				ent stoploopsound(ent.soundhandle, var_24ea4e17);
 			}
 			else
 			{
 				ent stopsounds();
-				stopsound(ent.var_9af02310);
+				stopsound(ent.soundhandle);
 			}
 			waitframe(1);
 			ent.soundalias = undefined;
-			ent.var_9af02310 = undefined;
+			ent.soundhandle = undefined;
 		}
 		ent.soundtype = undefined;
 		function_bdc44456(ent);
@@ -772,11 +772,11 @@ function private function_7b0e43ab(done)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_297cdf07(done, var_9af02310)
+function private function_297cdf07(done, soundhandle)
 {
 	ent = self;
 	ent endon(#"death");
-	while(soundplaying(var_9af02310))
+	while(soundplaying(soundhandle))
 	{
 		waitframe(1);
 	}
@@ -899,14 +899,14 @@ function private function_3323ac64(var_afe43979)
 */
 function private function_5803da43(sound, volume, time)
 {
-	if(isdefined(sound) && isdefined(sound.var_9af02310))
+	if(isdefined(sound) && isdefined(sound.soundhandle))
 	{
 		if(time > 0)
 		{
 			time = 1 / time;
 		}
-		setsoundvolumerate(sound.var_9af02310, time);
-		setsoundvolume(sound.var_9af02310, volume);
+		setsoundvolumerate(sound.soundhandle, time);
+		setsoundvolume(sound.soundhandle, volume);
 	}
 }
 
@@ -921,14 +921,14 @@ function private function_5803da43(sound, volume, time)
 */
 function private function_d7b79aea(sound, pitch, time)
 {
-	if(isdefined(sound) && isdefined(sound.var_9af02310))
+	if(isdefined(sound) && isdefined(sound.soundhandle))
 	{
 		if(time > 0)
 		{
 			time = 1 / time;
 		}
-		setsoundpitchrate(sound.var_9af02310, time);
-		setsoundpitch(sound.var_9af02310, pitch);
+		setsoundpitchrate(sound.soundhandle, time);
+		setsoundpitch(sound.soundhandle, pitch);
 	}
 }
 
@@ -1405,29 +1405,29 @@ function private function_360bb421(key, value)
 		if(isarray(values) && values.size > 0)
 		{
 			var_864d2972 = values[0];
-			var_83833f = function_ea2f17d1(values[1], "");
+			contextvalue = function_ea2f17d1(values[1], "");
 			var_23614cc2 = function_ea2f17d1(values[2], 0);
 			if(key == "")
 			{
-				iprintlnbold((((("" + "") + var_864d2972) + "") + var_83833f) + "");
-				setsoundcontext(var_864d2972, var_83833f);
+				iprintlnbold((((("" + "") + var_864d2972) + "") + contextvalue) + "");
+				setsoundcontext(var_864d2972, contextvalue);
 			}
 			else
 			{
 				if(key == "")
 				{
-					iprintlnbold((((("" + "") + var_864d2972) + "") + var_83833f) + "");
+					iprintlnbold((((("" + "") + var_864d2972) + "") + contextvalue) + "");
 					foreach(player in function_2b2b83dc())
 					{
-						player setsoundentcontext(var_864d2972, var_83833f);
+						player setsoundentcontext(var_864d2972, contextvalue);
 					}
 				}
 				else if(key == "")
 				{
-					iprintlnbold((((("" + "") + var_864d2972) + "") + var_83833f) + "");
+					iprintlnbold((((("" + "") + var_864d2972) + "") + contextvalue) + "");
 					foreach(ent in getentarray(0))
 					{
-						ent setsoundentcontext(var_864d2972, var_83833f);
+						ent setsoundentcontext(var_864d2972, contextvalue);
 					}
 				}
 			}

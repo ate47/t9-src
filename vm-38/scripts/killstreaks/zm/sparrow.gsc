@@ -1,5 +1,5 @@
 #using script_24c32478acf44108;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using script_746c9396ccd2c32d;
 #using scripts\weapons\weapons.gsc;
@@ -79,7 +79,7 @@ function private onactordamage(params)
 	{
 		return;
 	}
-	statuseffect = function_4d1e7b48("dot_sig_bow_flame");
+	statuseffect = getstatuseffect("dot_sig_bow_flame");
 	self status_effect::status_effect_apply(statuseffect, weapon, params.eattacker, 0, undefined, undefined, params.vpoint);
 	self ammomod_napalmburst::function_74816787();
 	duration = float(statuseffect.var_77449e9) / 1000;

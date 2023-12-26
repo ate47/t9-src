@@ -1,11 +1,11 @@
 #using scripts\core_common\lui_shared.csc;
 
-class class_5c7b7dcc : cLUIelem
+class cmp_infect_timer : cLUIelem
 {
 
 	/*
 		Name: constructor
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x999020D4
 		Offset: 0x358
 		Size: 0x14
@@ -18,7 +18,7 @@ class class_5c7b7dcc : cLUIelem
 
 	/*
 		Name: destructor
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x3D6E3C51
 		Offset: 0x4A8
 		Size: 0x14
@@ -31,7 +31,7 @@ class class_5c7b7dcc : cLUIelem
 
 	/*
 		Name: open
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x3EB5E658
 		Offset: 0x440
 		Size: 0x24
@@ -44,22 +44,22 @@ class class_5c7b7dcc : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
-		Namespace: namespace_5c7b7dcc
+		Name: register_clientside
+		Namespace: cmp_infect_timer
 		Checksum: 0x3DD4B28F
 		Offset: 0x3D0
 		Size: 0x1C
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("mp_infect_timer");
+		cLUIelem::register_clientside("mp_infect_timer");
 	}
 
 	/*
 		Name: set_infectionTimeRemaining
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x74623191
 		Offset: 0x470
 		Size: 0x30
@@ -73,7 +73,7 @@ class class_5c7b7dcc : cLUIelem
 
 	/*
 		Name: setup_clientfields
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0x704929ED
 		Offset: 0x378
 		Size: 0x4C
@@ -83,12 +83,12 @@ class class_5c7b7dcc : cLUIelem
 	function setup_clientfields(var_7682811d)
 	{
 		cLUIelem::setup_clientfields("mp_infect_timer");
-		cLUIelem::function_da693cbe("infectionTimeRemaining", 1, 4, "int", var_7682811d);
+		cLUIelem::add_clientfield("infectionTimeRemaining", 1, 4, "int", var_7682811d);
 	}
 
 	/*
 		Name: function_fa582112
-		Namespace: namespace_5c7b7dcc
+		Namespace: cmp_infect_timer
 		Checksum: 0xB0DBC78A
 		Offset: 0x3F8
 		Size: 0x40
@@ -130,7 +130,7 @@ function private autoexec function_ff6918b6()
 */
 function register(var_7682811d)
 {
-	elem = new class_5c7b7dcc();
+	elem = new cmp_infect_timer();
 	[[ elem ]]->setup_clientfields(var_7682811d);
 	if(!isdefined(level.var_ae746e8f))
 	{
@@ -152,7 +152,7 @@ function register(var_7682811d)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: mp_infect_timer
 	Checksum: 0x50F579D3
 	Offset: 0x270
@@ -160,10 +160,10 @@ function register(var_7682811d)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
-	elem = new class_5c7b7dcc();
-	[[ elem ]]->function_5c1bb138();
+	elem = new cmp_infect_timer();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

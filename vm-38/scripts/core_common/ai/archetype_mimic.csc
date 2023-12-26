@@ -1,5 +1,5 @@
 #using script_197da0bce1da228f;
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\array_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
@@ -229,7 +229,7 @@ function mimic_prop_lure_fx(localclientnum, oldval, newval, bnewent, binitialsna
 	{
 		if(!self function_d2503806("rob_sr_item_gold"))
 		{
-			self function_bf9d3071("rob_sr_item_gold");
+			self playrenderoverridebundle("rob_sr_item_gold");
 		}
 	}
 	else

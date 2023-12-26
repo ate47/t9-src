@@ -118,25 +118,25 @@ function private function_53808d89(n, grid, mins, maxs)
 			}
 		}
 	}
-	var_3ea568e1 = [];
+	selectednodes = [];
 	for(i = 0; i < n; i++)
 	{
 		if(var_f8c934d0.size > 0)
 		{
 			selected = function_ee83bc59(var_f8c934d0);
-			if(!isdefined(var_3ea568e1))
+			if(!isdefined(selectednodes))
 			{
-				var_3ea568e1 = [];
+				selectednodes = [];
 			}
-			else if(!isarray(var_3ea568e1))
+			else if(!isarray(selectednodes))
 			{
-				var_3ea568e1 = array(var_3ea568e1);
+				selectednodes = array(selectednodes);
 			}
-			var_3ea568e1[var_3ea568e1.size] = var_f8c934d0[selected];
+			selectednodes[selectednodes.size] = var_f8c934d0[selected];
 			var_f8c934d0 = array::remove_index(var_f8c934d0, selected);
 		}
 	}
-	return var_3ea568e1;
+	return selectednodes;
 }
 
 /*

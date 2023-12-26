@@ -1,5 +1,5 @@
-#using script_522aeb6ae906391e;
-#using script_59f07c660e6710a5;
+#using scripts\core_common\ai\systems\blackboard.gsc;
+#using scripts\core_common\ai\systems\ai_interface.gsc;
 #using scripts\core_common\spawner_shared.gsc;
 
 #namespace namespace_a84b7a30;

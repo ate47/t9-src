@@ -74,25 +74,25 @@ event main(eventstruct)
 	setdvar(#"hash_11a23659adb39e95", 1);
 	callback::on_localclient_connect(&on_player_connect);
 	level.var_13339abf = array(#"hash_41f5516d2a39d700", #"hash_7f522bf9ee249485", #"hash_2d2ce8582fb2b98", #"hash_68767e76af3b02ad", #"hash_294b09b399adeaf6", #"hash_335dbdca3e36e2bd");
-	clientfield::function_a8bbc967("hudItems.streamerLoadFraction", #"hud_items", #"hash_7e7b0475689b500c", 1, 5, "float", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.wzLoadFinished", #"hud_items", #"hash_75d3a2a658cd9396", 1, 1, "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("hudItems.warzone.reinsertionPassengerCount", #"hash_593f03dd48d5bc1f", #"hash_4686fa61f7f123ba", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.alivePlayerCount", #"hud_items", #"hash_660e10919fc3cb96", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.alivePlayerCountEnemy", #"hud_items", #"hash_3200ae248348b38a", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.aliveTeammateCount", #"hud_items", #"hash_23a0fd1ff456959", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.spectatorsCount", #"hud_items", #"hash_2821db97459aaa4a", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.playerKills", #"hud_items", #"playerkills", 1, 9, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.playerCleanUps", #"hud_items", #"hash_cb62c942965b99d", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("presence.modeparam", #"hash_3645501c8ba141af", #"hash_7347f20e8c2800c3", 1, 7, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.showReinsertionPassengerCount", #"hud_items", #"hash_5f5475b776cfc0cd", 1, 1, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.playerLivesRemaining", #"hud_items", #"hash_6dddb9a20d49665d", 1, 3, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.playerCanRedeploy", #"hud_items", #"hash_116a728dee230334", 1, 1, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.zombiesSurvivalRespawn", #"hud_items", #"hash_130bf6c6767308c2", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.streamerLoadFraction", #"hud_items", #"streamerloadfraction", 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.wzLoadFinished", #"hud_items", #"wzloadfinished", 1, 1, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("hudItems.warzone.reinsertionPassengerCount", #"hash_593f03dd48d5bc1f", #"reinsertionpassengercount", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.alivePlayerCount", #"hud_items", #"aliveplayercount", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.alivePlayerCountEnemy", #"hud_items", #"aliveplayercountenemy", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.aliveTeammateCount", #"hud_items", #"aliveteammatecount", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.spectatorsCount", #"hud_items", #"spectatorscount", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.playerKills", #"hud_items", #"playerkills", 1, 9, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.playerCleanUps", #"hud_items", #"playercleanups", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("presence.modeparam", #"hash_3645501c8ba141af", #"modeparam", 1, 7, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.showReinsertionPassengerCount", #"hud_items", #"showreinsertionpassengercount", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.playerLivesRemaining", #"hud_items", #"playerlivesremaining", 1, 3, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.playerCanRedeploy", #"hud_items", #"playercanredeploy", 1, 1, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.zombiesSurvivalRespawn", #"hud_items", #"hash_130bf6c6767308c2", 1, 1, "int", undefined, 0, 0);
 	clientfield::function_5b7d846d("hudItems.warzone.collapse", #"hash_593f03dd48d5bc1f", #"collapse", 1, 21, "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("hudItems.warzone.waveRespawnTimer", #"hash_593f03dd48d5bc1f", #"hash_14384be8ccdfdba9", 1, 21, "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("hudItems.warzone.collapseIndex", #"hash_593f03dd48d5bc1f", #"hash_7ac8dd213b1f8d42", 1, 3, "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("hudItems.warzone.collapseCount", #"hash_593f03dd48d5bc1f", #"hash_28b490c7698f159d", 1, 3, "int", undefined, 0, 0);
-	clientfield::function_5b7d846d("hudItems.warzone.reinsertionIndex", #"hash_593f03dd48d5bc1f", #"hash_61754d24cc2fb6c3", 1, 3, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("hudItems.warzone.waveRespawnTimer", #"hash_593f03dd48d5bc1f", #"waverespawntimer", 1, 21, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("hudItems.warzone.collapseIndex", #"hash_593f03dd48d5bc1f", #"collapseindex", 1, 3, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("hudItems.warzone.collapseCount", #"hash_593f03dd48d5bc1f", #"collapsecount", 1, 3, "int", undefined, 0, 0);
+	clientfield::function_5b7d846d("hudItems.warzone.reinsertionIndex", #"hash_593f03dd48d5bc1f", #"reinsertionindex", 1, 3, "int", undefined, 0, 0);
 	clientfield::register("world", "set_objective_fog", 1, 2, "int", &set_objective_fog, 0, 0);
 	clientfield::function_5b7d846d("hudItems.team1.roundsWon", #"hash_410fe12a68d6e801", [1:#"roundswon", 0:#"team1"], 1, 4, "int", undefined, 0, 0);
 	clientfield::function_5b7d846d("hudItems.team2.roundsWon", #"hash_410fe12a68d6e801", [1:#"roundswon", 0:#"team2"], 1, 4, "int", undefined, 0, 0);
@@ -233,22 +233,22 @@ function private function_491c852e(item)
 {
 	switch(item)
 	{
-		case "hash_743b859c2367ff54":
+		case "trip_wire_wz_item":
 		{
 			return 1;
 			break;
 		}
-		case "hash_14b578e446580ad5":
+		case "concertina_wire_wz_item":
 		{
 			return 2;
 			break;
 		}
-		case "hash_5e5f2ed57ac4601f":
+		case "cymbal_monkey_wz_item":
 		{
 			return 3;
 			break;
 		}
-		case "hash_50b970644e43947b":
+		case "ultimate_turret_wz_item":
 		{
 			return 4;
 			break;
@@ -270,7 +270,7 @@ function private function_13a420b1(localclientnum)
 	self endon(#"shutdown", #"death");
 	self notify("df0a6a0cbfe7ce6");
 	self endon("df0a6a0cbfe7ce6");
-	var_8040e225 = item_world::function_a7e98a1a(localclientnum);
+	clientdata = item_world::function_a7e98a1a(localclientnum);
 	var_6e77adc6 = "inventory_craft" + localclientnum;
 	while(true)
 	{

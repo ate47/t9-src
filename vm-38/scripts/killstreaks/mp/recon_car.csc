@@ -1,6 +1,6 @@
 #using script_18b9d0e77614c97;
 #using scripts\killstreaks\killstreak_detect.csc;
-#using script_747cc3ca88e8d5b4;
+#using scripts\killstreaks\killstreak_vehicle.csc;
 #using scripts\core_common\system_shared.csc;
 #using scripts\core_common\vehicle_shared.csc;
 
@@ -48,7 +48,7 @@ function private function_70a657d8()
 	killstreak_detect::init_shared();
 	bundle = getscriptbundle("killstreak_recon_car");
 	level.var_af161ca6 = bundle;
-	namespace_231aa29a::function_155de655(bundle);
+	killstreak_vehicle::init_killstreak(bundle);
 	vehicle::add_vehicletype_callback(bundle.ksvehicle, &spawned);
 }
 

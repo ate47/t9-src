@@ -98,9 +98,9 @@ function get_radius(territory)
 			absmaxs[i] = max(absmaxs[i], var_cd8bd6d[i]);
 		}
 	}
-	var_e39d7c94 = (absmins[0], absmins[1], 0);
-	var_51941864 = (absmaxs[0], absmaxs[1], 0);
-	return distance2d(var_e39d7c94, var_51941864) / 2;
+	absmin = (absmins[0], absmins[1], 0);
+	absmax = (absmaxs[0], absmaxs[1], 0);
+	return distance2d(absmin, absmax) / 2;
 }
 
 /*
@@ -139,12 +139,12 @@ function is_inside(point, var_73362d27, territory)
 	}
 	foreach(boundary in territory.bounds)
 	{
-		var_fa52306b = point;
+		testpoint = point;
 		if(var_73362d27)
 		{
-			var_fa52306b = (var_fa52306b[0], var_fa52306b[1], boundary.origin[2]);
+			testpoint = (testpoint[0], testpoint[1], boundary.origin[2]);
 		}
-		if(boundary istouching(var_fa52306b))
+		if(boundary istouching(testpoint))
 		{
 			return true;
 		}

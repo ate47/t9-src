@@ -86,7 +86,7 @@ class class_1bec696c : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_1bec696c
 		Checksum: 0x7E784550
 		Offset: 0xB00
@@ -94,9 +94,9 @@ class class_1bec696c : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("DOA_BannerElement");
+		cLUIelem::register_clientside("DOA_BannerElement");
 	}
 
 	/*
@@ -139,17 +139,17 @@ class class_1bec696c : cLUIelem
 	function setup_clientfields(xcallback, ycallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_f5852d69, horizontal_alignmentcallback, var_766e2bbb)
 	{
 		cLUIelem::setup_clientfields("DOA_BannerElement");
-		cLUIelem::function_da693cbe("x", 1, 7, "int", ycallback);
-		cLUIelem::function_da693cbe("y", 1, 6, "int", heightcallback);
-		cLUIelem::function_da693cbe("height", 1, 2, "int", fadeOverTimecallback);
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int", alphacallback);
-		cLUIelem::function_da693cbe("alpha", 1, 4, "float", redcallback);
-		cLUIelem::function_da693cbe("red", 1, 4, "float", greencallback);
-		cLUIelem::function_da693cbe("green", 1, 4, "float", bluecallback);
-		cLUIelem::function_da693cbe("blue", 1, 4, "float", var_f5852d69);
+		cLUIelem::add_clientfield("x", 1, 7, "int", ycallback);
+		cLUIelem::add_clientfield("y", 1, 6, "int", heightcallback);
+		cLUIelem::add_clientfield("height", 1, 2, "int", fadeOverTimecallback);
+		cLUIelem::add_clientfield("fadeOverTime", 1, 5, "int", alphacallback);
+		cLUIelem::add_clientfield("alpha", 1, 4, "float", redcallback);
+		cLUIelem::add_clientfield("red", 1, 4, "float", greencallback);
+		cLUIelem::add_clientfield("green", 1, 4, "float", bluecallback);
+		cLUIelem::add_clientfield("blue", 1, 4, "float", var_f5852d69);
 		cLUIelem::function_dcb34c80("string", "text", 1);
-		cLUIelem::function_da693cbe("horizontal_alignment", 1, 2, "int", horizontal_alignmentcallback);
-		cLUIelem::function_da693cbe("scale", 1, 6, "float", var_766e2bbb);
+		cLUIelem::add_clientfield("horizontal_alignment", 1, 2, "int", horizontal_alignmentcallback);
+		cLUIelem::add_clientfield("scale", 1, 6, "float", var_766e2bbb);
 	}
 
 	/*
@@ -426,7 +426,7 @@ function register(xcallback, ycallback, heightcallback, fadeOverTimecallback, al
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: doa_bannerelement
 	Checksum: 0x16F3CD3B
 	Offset: 0x5E0
@@ -434,10 +434,10 @@ function register(xcallback, ycallback, heightcallback, fadeOverTimecallback, al
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_1bec696c();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

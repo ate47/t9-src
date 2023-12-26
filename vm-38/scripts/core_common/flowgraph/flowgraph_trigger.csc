@@ -1,4 +1,4 @@
-#using script_35857c2f8d30b2a4;
+#using scripts\core_common\flowgraph\flowgraph_core.csc;
 
 #namespace flowgraph_trigger;
 

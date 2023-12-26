@@ -44,7 +44,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -81,7 +81,7 @@ function private on_end(round_reset)
 {
 	foreach(player in getplayers())
 	{
-		player callback::function_53888e7f(&on_player_laststand);
+		player callback::remove_on_laststand(&on_player_laststand);
 	}
 }
 

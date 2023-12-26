@@ -1,6 +1,6 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;
@@ -39,7 +39,7 @@ function private autoexec function_6ddc27f5()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_7576c66086ab62aa", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_7576c66086ab62aa", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -62,7 +62,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_e38c57c1
 	Checksum: 0x303466C0
 	Offset: 0x1C8
@@ -70,7 +70,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	/#
 		if(getdvarint(#"hash_4894e3a42dd84dfa", 0))
@@ -103,7 +103,7 @@ function function_9af806be(var_c5b25bc5)
 		case 1:
 		{
 			self player::function_2a67df65(#"fl1", -50);
-			self zm_utility::function_e0448fec();
+			self zm_utility::set_max_health();
 			break;
 		}
 		case 2:
@@ -114,7 +114,7 @@ function function_9af806be(var_c5b25bc5)
 		case 3:
 		{
 			self player::function_2a67df65(#"db1", 50);
-			self zm_utility::function_e0448fec();
+			self zm_utility::set_max_health();
 			break;
 		}
 		case 4:
@@ -130,11 +130,11 @@ function function_9af806be(var_c5b25bc5)
 		case 6:
 		{
 			self zm_laststand::function_3a00302e(1);
-			if(!isdefined(self.var_edd3eb35))
+			if(!isdefined(self.n_regen_delay))
 			{
-				self.var_edd3eb35 = zombie_utility::function_d2dfacfd("player_health_regen_delay");
+				self.n_regen_delay = zombie_utility::function_d2dfacfd("player_health_regen_delay");
 			}
-			self.var_edd3eb35 = self.var_edd3eb35 + 1;
+			self.n_regen_delay = self.n_regen_delay + 1;
 			break;
 		}
 	}
@@ -186,7 +186,7 @@ function function_2a94cd59()
 			case 6:
 			{
 				self zm_laststand::function_409dc98e(1, 0);
-				self.var_edd3eb35 = self.var_edd3eb35 - 1;
+				self.n_regen_delay = self.n_regen_delay - 1;
 				break;
 			}
 		}
@@ -392,18 +392,18 @@ function devgui()
 		level.var_8e9d88b6[#"fl1"] = 1;
 		level.var_8e9d88b6[#"tn1"] = 2;
 		level.var_8e9d88b6[#"db1"] = 3;
-		level.var_8e9d88b6[#"hash_356b191335bab8"] = 4;
-		level.var_8e9d88b6[#"hash_34ad5ed8d296ff88"] = 5;
-		level.var_8e9d88b6[#"hash_ffc38cdd7774e8b"] = 6;
+		level.var_8e9d88b6[#"bf1"] = 4;
+		level.var_8e9d88b6[#"helmets1"] = 5;
+		level.var_8e9d88b6[#"season1"] = 6;
 		while(true)
 		{
 			waitframe(1);
 			str_command = getdvarstring(#"hash_443a451d4b2f9de2", "");
 			switch(str_command)
 			{
-				case "hash_356b191335bab8":
-				case "hash_ffc38cdd7774e8b":
-				case "hash_34ad5ed8d296ff88":
+				case "bf1":
+				case "season1":
+				case "helmets1":
 				case "db1":
 				case "tn1":
 				case "fl1":
@@ -485,7 +485,7 @@ function on_player_connect()
 	/#
 		self endon(#"disconnect");
 		level flag::wait_till("");
-		self function_53bb2a5();
+		self devgui_player_menu();
 	#/
 }
 
@@ -510,7 +510,7 @@ function function_c1ccd7f3(var_fc09f1a3, n_player, ...)
 }
 
 /*
-	Name: function_53bb2a5
+	Name: devgui_player_menu
 	Namespace: namespace_e38c57c1
 	Checksum: 0xBACFD6A
 	Offset: 0x10D0
@@ -518,7 +518,7 @@ function function_c1ccd7f3(var_fc09f1a3, n_player, ...)
 	Parameters: 0
 	Flags: None
 */
-function function_53bb2a5()
+function devgui_player_menu()
 {
 	/#
 		self function_1c3ffffd();

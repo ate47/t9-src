@@ -1,8 +1,8 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_300f815a565e66fb;
+#using scripts\killstreaks\emp_shared.gsc;
 #using scripts\weapons\heatseekingmissile.gsc;
-#using script_383a3b1bb18ba876;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_52d2de9b438adc78;
@@ -109,13 +109,13 @@ function private function_70a657d8()
 	/#
 		level thread supply_drop_dev_gui();
 	#/
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 	scene::add_scene_func(#"hash_23fe21c363168ac5", &function_4bf116ab, "init");
 	scene::add_scene_func(#"hash_211993854fb33604", &function_76b49bd8, "open");
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: supplydrop
 	Checksum: 0xA865BC36
 	Offset: 0xD80
@@ -123,7 +123,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	if(getgametypesetting(#"hash_d025af36cec2b4d"))
 	{
@@ -308,7 +308,7 @@ function function_9bea1c04(var_8cf55682)
 */
 function function_d57719b8()
 {
-	if(function_f99d2668())
+	if(sessionmodeiswarzonegame())
 	{
 		function_d51de8cf("uav", 18, 18);
 		function_d51de8cf("recon_car", 18, 18);
@@ -381,7 +381,7 @@ function function_bff5c062(supplydrop, attackingplayer)
 	supplydrop thread deleteonownerleave();
 	if(isdefined(level.var_f1edf93f))
 	{
-		supplydrop notify(#"hash_602ae7ca650d6287");
+		supplydrop notify(#"cancel_timeout");
 		var_eb79e7c3 = int([[level.var_f1edf93f]]() * 1000);
 		supplydrop thread killstreaks::waitfortimeout("inventory_supply_drop", var_eb79e7c3, &cratedelete, "death");
 	}
@@ -1017,7 +1017,7 @@ function usekillstreaksupplydrop(killstreak)
 }
 
 /*
-	Name: function_6b6c41a7
+	Name: spawn_supplydrop
 	Namespace: supplydrop
 	Checksum: 0x74AB7929
 	Offset: 0x3670
@@ -1025,7 +1025,7 @@ function usekillstreaksupplydrop(killstreak)
 	Parameters: 3
 	Flags: None
 */
-function function_6b6c41a7(owner, context, origin)
+function spawn_supplydrop(owner, context, origin)
 {
 	location = spawnstruct();
 	location.origin = origin;
@@ -1226,7 +1226,7 @@ function function_200081db(owner, context, location)
 	context.var_ea9c2360 = location;
 	context.killstreak_id = killstreak_id;
 	self thread helidelivercrate(context.var_ea9c2360, killstreakweapon, self, team, killstreak_id, killstreak_id, context);
-	self addweaponstat(bundle.var_1ab696c6, #"used", 1);
+	self addweaponstat(bundle.ksweapon, #"used", 1);
 }
 
 /*
@@ -1964,9 +1964,9 @@ function cratecontrolleddrop(killstreak, v_target_location, var_72886e11)
 		crate moveto(target, params.kstotaldroptime, acceltime, deceltime);
 		crate thread function_2defd397();
 		wait(acceltime);
-		if(!is_true(crate.var_7bea4af0))
+		if(!is_true(crate.pop_parachute))
 		{
-			crate waittill(#"movedone", #"hash_6ade3db3c3188274");
+			crate waittill(#"movedone", #"pop_parachute");
 		}
 		hostmigration::waittillhostmigrationdone();
 	}
@@ -2809,7 +2809,7 @@ function is_touching_crate()
 			stance_z_offset = (stance == "stand" ? 75 : (stance == "crouch" ? 55 : 15));
 			player_test_point = player.origin + (0, 0, stance_z_offset);
 			var_f6f95bb5 = distance2dsquared(player_test_point, self.origin);
-			var_dee7aebd = self.velocity[2];
+			zvel = self.velocity[2];
 			if(var_f6f95bb5 < 2500 && player_test_point[2] > crate_bottom_point[2])
 			{
 				attacker = (isdefined(self.owner) ? self.owner : self);
@@ -3324,9 +3324,9 @@ function personalusebar(object)
 	Parameters: 8
 	Flags: Linked
 */
-function spawn_helicopter(owner, team, origin, angles, var_87735872, targetname, killstreak_id, context)
+function spawn_helicopter(owner, team, origin, angles, vehicledef, targetname, killstreak_id, context)
 {
-	chopper = spawnvehicle(var_87735872, origin, angles, targetname);
+	chopper = spawnvehicle(vehicledef, origin, angles, targetname);
 	if(!isdefined(chopper))
 	{
 		if(isplayer(owner))
@@ -3447,7 +3447,7 @@ function destroyhelicopter(var_fec7078b)
 	}
 	if(isdefined(self.owner))
 	{
-		self.owner notify(#"hash_d843795c594bf0e");
+		self.owner notify(#"payload_fail");
 	}
 	self notify(#"hash_525537be2de4c159", {#owner:self.owner, #direction:self.angles, #position:self.origin});
 	lbexplode();
@@ -3856,7 +3856,7 @@ function private function_7d90f954(drop_origin, context)
 */
 function private function_75277c27(tacpoint, context)
 {
-	if(isdefined(context.var_eadc2c7d) && context.var_eadc2c7d >= 4000)
+	if(isdefined(context.ceilingheight) && context.ceilingheight >= 4000)
 	{
 		/#
 			recordsphere(context.origin, 2, (0, 1, 0), "");
@@ -4308,7 +4308,7 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	chopper thread function_e16ff9df(15);
 	if(isdefined(owner))
 	{
-		owner notify(#"hash_6736343f5a9c98f2");
+		owner notify(#"payload_delivered");
 	}
 	if(isdefined(context) && isdefined(context.epilog))
 	{
@@ -4386,7 +4386,7 @@ function helidelivercrate(origin, weapon, owner, team, killstreak_id, package_co
 	#/
 	if(level.var_e071ed64)
 	{
-		chopper util::function_c596f193();
+		chopper util::make_sentient();
 		if(!ispathfinder(chopper))
 		{
 			chopper makepathfinder();

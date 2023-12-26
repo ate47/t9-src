@@ -1,6 +1,6 @@
 #using script_566bf433dcd9d9c;
 #using script_7cc5fb39b97494c4;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\animation_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -43,7 +43,7 @@ function private autoexec function_2dc54c()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_4ad49805c423429d", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_4ad49805c423429d", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -68,7 +68,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_4fa53161
 	Checksum: 0x80F724D1
 	Offset: 0x2A8
@@ -76,7 +76,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -92,7 +92,7 @@ function private function_8ac3bea9()
 function private function_550f629a()
 {
 	var_1cde154f = getgametypesetting(#"use_doors");
-	var_5a23774b = getdvarint(#"hash_1da83e9a3dca0a70", 0);
+	var_5a23774b = getdvarint(#"disabledoors", 0);
 	if(!is_true(var_1cde154f) || is_true(var_5a23774b))
 	{
 		return;
@@ -408,14 +408,14 @@ function private function_a07f8293()
 			result = self waittill(#"hash_46fda91c613b40e5");
 			msg = result.msg;
 			var_e9968086 = msg;
-			self thread function_a1891b01(var_e9968086, var_dc35cd8c);
+			self thread update_debug(var_e9968086, var_dc35cd8c);
 			var_dc35cd8c = var_e9968086;
 		}
 	#/
 }
 
 /*
-	Name: function_a1891b01
+	Name: update_debug
 	Namespace: namespace_4fa53161
 	Checksum: 0x6A9480A1
 	Offset: 0xF30
@@ -423,7 +423,7 @@ function private function_a07f8293()
 	Parameters: 2
 	Flags: Private
 */
-function private function_a1891b01(var_e9968086, var_dc35cd8c)
+function private update_debug(var_e9968086, var_dc35cd8c)
 {
 	/#
 		self notify(#"new_msg");

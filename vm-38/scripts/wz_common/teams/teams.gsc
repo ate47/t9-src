@@ -284,8 +284,8 @@ function team_eliminated(team, var_293493b)
 	callback::callback(#"hash_1019ab4b81d07b35", {#hash_293493b:var_293493b, #team:team});
 	level hud::function_22df4165();
 	level thread function_9498e451(team);
-	var_3aef38fd = getplayers(team);
-	foreach(teammember in var_3aef38fd)
+	deadteam = getplayers(team);
+	foreach(teammember in deadteam)
 	{
 		teammember notify(#"end_respawn");
 		teammember luinotifyevent(#"team_eliminated", 1, var_293493b);

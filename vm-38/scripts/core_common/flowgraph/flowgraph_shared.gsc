@@ -1,4 +1,4 @@
-#using script_5971282fa1e50330;
+#using scripts\core_common\flowgraph\flowgraph_core.gsc;
 
 #namespace flowgraph_shared;
 
@@ -153,13 +153,13 @@ function equal(var_a, var_b)
 	Parameters: 3
 	Flags: None
 */
-function function_5cb6d7c8(x, var_ff3acc90, var_d545f8ef)
+function function_5cb6d7c8(x, b_1, b_2)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0), 1);
 	}
-	else if(is_true(var_d545f8ef))
+	else if(is_true(b_2))
 	{
 		self flowgraph::kick(array(undefined, 0, 1), 1);
 	}
@@ -174,19 +174,19 @@ function function_5cb6d7c8(x, var_ff3acc90, var_d545f8ef)
 	Parameters: 4
 	Flags: None
 */
-function function_4902305f(x, var_ff3acc90, var_d545f8ef, var_e7049c6c)
+function function_4902305f(x, b_1, b_2, b_3)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0, 0), 1);
 	}
 	else
 	{
-		if(is_true(var_d545f8ef))
+		if(is_true(b_2))
 		{
 			self flowgraph::kick(array(undefined, 0, 1, 0), 1);
 		}
-		else if(is_true(var_e7049c6c))
+		else if(is_true(b_3))
 		{
 			self flowgraph::kick(array(undefined, 0, 0, 1), 1);
 		}
@@ -202,25 +202,25 @@ function function_4902305f(x, var_ff3acc90, var_d545f8ef, var_e7049c6c)
 	Parameters: 5
 	Flags: None
 */
-function function_3b225c4(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4aeb7c0)
+function function_3b225c4(x, b_1, b_2, b_3, b_4)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0, 0, 0), 1);
 	}
 	else
 	{
-		if(is_true(var_d545f8ef))
+		if(is_true(b_2))
 		{
 			self flowgraph::kick(array(undefined, 0, 1, 0, 0), 1);
 		}
 		else
 		{
-			if(is_true(var_e7049c6c))
+			if(is_true(b_3))
 			{
 				self flowgraph::kick(array(undefined, 0, 0, 1, 0), 1);
 			}
-			else if(is_true(var_f4aeb7c0))
+			else if(is_true(b_4))
 			{
 				self flowgraph::kick(array(undefined, 0, 0, 0, 1), 1);
 			}
@@ -237,31 +237,31 @@ function function_3b225c4(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4aeb
 	Parameters: 6
 	Flags: None
 */
-function function_f82f0ebe(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4aeb7c0, var_fe28cab4)
+function function_f82f0ebe(x, b_1, b_2, b_3, b_4, b_5)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0, 0, 0, 0), 1);
 	}
 	else
 	{
-		if(is_true(var_d545f8ef))
+		if(is_true(b_2))
 		{
 			self flowgraph::kick(array(undefined, 0, 1, 0, 0, 0), 1);
 		}
 		else
 		{
-			if(is_true(var_e7049c6c))
+			if(is_true(b_3))
 			{
 				self flowgraph::kick(array(undefined, 0, 0, 1, 0, 0), 1);
 			}
 			else
 			{
-				if(is_true(var_f4aeb7c0))
+				if(is_true(b_4))
 				{
 					self flowgraph::kick(array(undefined, 0, 0, 0, 1, 0), 1);
 				}
-				else if(is_true(var_fe28cab4))
+				else if(is_true(b_5))
 				{
 					self flowgraph::kick(array(undefined, 0, 0, 0, 0, 1), 1);
 				}
@@ -279,37 +279,37 @@ function function_f82f0ebe(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4ae
 	Parameters: 7
 	Flags: None
 */
-function function_3f431ce5(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4aeb7c0, var_fe28cab4, var_fdb6e19)
+function function_3f431ce5(x, b_1, b_2, b_3, b_4, b_5, b_6)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0, 0, 0, 0, 0), 1);
 	}
 	else
 	{
-		if(is_true(var_d545f8ef))
+		if(is_true(b_2))
 		{
 			self flowgraph::kick(array(undefined, 0, 1, 0, 0, 0, 0), 1);
 		}
 		else
 		{
-			if(is_true(var_e7049c6c))
+			if(is_true(b_3))
 			{
 				self flowgraph::kick(array(undefined, 0, 0, 1, 0, 0, 0), 1);
 			}
 			else
 			{
-				if(is_true(var_f4aeb7c0))
+				if(is_true(b_4))
 				{
 					self flowgraph::kick(array(undefined, 0, 0, 0, 1, 0, 0), 1);
 				}
 				else
 				{
-					if(is_true(var_fe28cab4))
+					if(is_true(b_5))
 					{
 						self flowgraph::kick(array(undefined, 0, 0, 0, 0, 1, 0), 1);
 					}
-					else if(is_true(var_fdb6e19))
+					else if(is_true(b_6))
 					{
 						self flowgraph::kick(array(undefined, 0, 0, 0, 0, 0, 1), 1);
 					}
@@ -328,43 +328,43 @@ function function_3f431ce5(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4ae
 	Parameters: 8
 	Flags: None
 */
-function function_2d817962(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4aeb7c0, var_fe28cab4, var_fdb6e19, var_198e8183)
+function function_2d817962(x, b_1, b_2, b_3, b_4, b_5, b_6, b_7)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0, 0, 0, 0, 0, 0), 1);
 	}
 	else
 	{
-		if(is_true(var_d545f8ef))
+		if(is_true(b_2))
 		{
 			self flowgraph::kick(array(undefined, 0, 1, 0, 0, 0, 0, 0), 1);
 		}
 		else
 		{
-			if(is_true(var_e7049c6c))
+			if(is_true(b_3))
 			{
 				self flowgraph::kick(array(undefined, 0, 0, 1, 0, 0, 0, 0), 1);
 			}
 			else
 			{
-				if(is_true(var_f4aeb7c0))
+				if(is_true(b_4))
 				{
 					self flowgraph::kick(array(undefined, 0, 0, 0, 1, 0, 0, 0), 1);
 				}
 				else
 				{
-					if(is_true(var_fe28cab4))
+					if(is_true(b_5))
 					{
 						self flowgraph::kick(array(undefined, 0, 0, 0, 0, 1, 0, 0), 1);
 					}
 					else
 					{
-						if(is_true(var_fdb6e19))
+						if(is_true(b_6))
 						{
 							self flowgraph::kick(array(undefined, 0, 0, 0, 0, 0, 1, 0), 1);
 						}
-						else if(is_true(var_198e8183))
+						else if(is_true(b_7))
 						{
 							self flowgraph::kick(array(undefined, 0, 0, 0, 0, 0, 0, 1), 1);
 						}
@@ -384,49 +384,49 @@ function function_2d817962(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4ae
 	Parameters: 9
 	Flags: None
 */
-function function_c8fcb052(x, var_ff3acc90, var_d545f8ef, var_e7049c6c, var_f4aeb7c0, var_fe28cab4, var_fdb6e19, var_198e8183, var_2b5c251e)
+function function_c8fcb052(x, b_1, b_2, b_3, b_4, b_5, b_6, b_7, b_8)
 {
-	if(is_true(var_ff3acc90))
+	if(is_true(b_1))
 	{
 		self flowgraph::kick(array(undefined, 1, 0, 0, 0, 0, 0, 0, 0), 1);
 	}
 	else
 	{
-		if(is_true(var_d545f8ef))
+		if(is_true(b_2))
 		{
 			self flowgraph::kick(array(undefined, 0, 1, 0, 0, 0, 0, 0, 0), 1);
 		}
 		else
 		{
-			if(is_true(var_e7049c6c))
+			if(is_true(b_3))
 			{
 				self flowgraph::kick(array(undefined, 0, 0, 1, 0, 0, 0, 0, 0), 1);
 			}
 			else
 			{
-				if(is_true(var_f4aeb7c0))
+				if(is_true(b_4))
 				{
 					self flowgraph::kick(array(undefined, 0, 0, 0, 1, 0, 0, 0, 0), 1);
 				}
 				else
 				{
-					if(is_true(var_fe28cab4))
+					if(is_true(b_5))
 					{
 						self flowgraph::kick(array(undefined, 0, 0, 0, 0, 1, 0, 0, 0), 1);
 					}
 					else
 					{
-						if(is_true(var_fdb6e19))
+						if(is_true(b_6))
 						{
 							self flowgraph::kick(array(undefined, 0, 0, 0, 0, 0, 1, 0, 0), 1);
 						}
 						else
 						{
-							if(is_true(var_198e8183))
+							if(is_true(b_7))
 							{
 								self flowgraph::kick(array(undefined, 0, 0, 0, 0, 0, 0, 1, 0), 1);
 							}
-							else if(is_true(var_2b5c251e))
+							else if(is_true(b_8))
 							{
 								self flowgraph::kick(array(undefined, 0, 0, 0, 0, 0, 0, 0, 1), 1);
 							}
@@ -922,7 +922,7 @@ function function_4e718879(v_value)
 }
 
 /*
-	Name: function_a7a4e2b8
+	Name: pathnodeconstant
 	Namespace: namespace_22752a75
 	Checksum: 0x7C87C3D9
 	Offset: 0x1C58
@@ -930,7 +930,7 @@ function function_4e718879(v_value)
 	Parameters: 1
 	Flags: None
 */
-function function_a7a4e2b8(var_f4af12cc)
+function pathnodeconstant(var_f4af12cc)
 {
 	return var_f4af12cc;
 }
@@ -944,9 +944,9 @@ function function_a7a4e2b8(var_f4af12cc)
 	Parameters: 1
 	Flags: None
 */
-function function_9ef80b8b(var_f74b77ea)
+function function_9ef80b8b(e_value)
 {
-	return var_f74b77ea;
+	return e_value;
 }
 
 /*
@@ -958,9 +958,9 @@ function function_9ef80b8b(var_f74b77ea)
 	Parameters: 1
 	Flags: None
 */
-function introduction_minigun(var_e08c6927)
+function introduction_minigun(ai_value)
 {
-	return var_e08c6927;
+	return ai_value;
 }
 
 /*

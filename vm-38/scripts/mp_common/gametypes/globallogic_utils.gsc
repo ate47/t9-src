@@ -35,20 +35,20 @@ function private autoexec function_e478e7a5()
 	Parameters: 2
 	Flags: None
 */
-function is_winner(outcome, var_512330f1)
+function is_winner(outcome, team_or_player)
 {
-	if(isplayer(var_512330f1))
+	if(isplayer(team_or_player))
 	{
-		if(outcome.players.size && outcome.players[0] == var_512330f1)
+		if(outcome.players.size && outcome.players[0] == team_or_player)
 		{
 			return true;
 		}
-		if(isdefined(outcome.team) && outcome.team == var_512330f1.team)
+		if(isdefined(outcome.team) && outcome.team == team_or_player.team)
 		{
 			return true;
 		}
 	}
-	else if(isdefined(outcome.team) && outcome.team == var_512330f1)
+	else if(isdefined(outcome.team) && outcome.team == team_or_player)
 	{
 		return true;
 	}
@@ -410,7 +410,7 @@ function applyroundstartdelay()
 	self endon(#"disconnect", #"joined_spectators", #"death");
 	if(game.state == #"pregame")
 	{
-		level waittill(#"hash_313ad43b34e74e96");
+		level waittill(#"game_playing");
 	}
 	else
 	{
@@ -737,7 +737,7 @@ function function_8d61a6c2(var_c1e98979)
 			assert(isdefined(level.var_336c35f1[var_c1e98979]));
 		#/
 		log_string = level.var_336c35f1[var_c1e98979];
-		winner = round::function_9b24638f();
+		winner = round::get_winner();
 		if(isplayer(winner))
 		{
 			print(((("" + winner getxuid()) + "") + winner.name) + "");

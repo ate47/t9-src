@@ -49,15 +49,15 @@ function private function_70a657d8()
 	callback::add_weapon_type(#"hash_4b92b1a2aa3037f5", &spawned);
 	callback::add_weapon_type(#"eq_cluster_semtex_grenade", &spawned);
 	callback::add_weapon_type(#"hash_66401df7cd6bf292", &function_6054cc1e);
-	callback::add_weapon_type(#"hash_18c353e6053566bd", &function_117f61b8);
+	callback::add_weapon_type(#"sig_bow_explosive", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e1edad9bd44fd", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e1ddad9bd434a", &function_117f61b8);
 	callback::add_weapon_type(#"hash_494e18dad9bd3acb", &function_117f61b8);
-	callback::add_weapon_type(#"hash_40380537847df901", &function_78bd4311);
-	callback::add_weapon_type(#"hash_1d2a1056220e71a9", &function_78bd4311);
-	callback::add_weapon_type(#"hash_1d2a0f56220e6ff6", &function_78bd4311);
-	callback::add_weapon_type(#"hash_1d2a1256220e750f", &function_78bd4311);
-	callback::add_weapon_type(#"hash_1d2a1156220e735c", &function_78bd4311);
+	callback::add_weapon_type(#"sig_bow_quickshot", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot2", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot3", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot4", &spawned_arrow);
+	callback::add_weapon_type(#"sig_bow_quickshot5", &spawned_arrow);
 }
 
 /*
@@ -79,7 +79,7 @@ function spawned(localclientnum)
 }
 
 /*
-	Name: function_78bd4311
+	Name: spawned_arrow
 	Namespace: sticky_grenade
 	Checksum: 0xD7F3B6C0
 	Offset: 0x448
@@ -87,7 +87,7 @@ function spawned(localclientnum)
 	Parameters: 1
 	Flags: Linked
 */
-function function_78bd4311(localclientnum)
+function spawned_arrow(localclientnum)
 {
 	if(self isgrenadedud())
 	{
@@ -176,9 +176,9 @@ function fx_think(localclientnum, var_1e60ee48)
 		}
 		if(!localplayer isentitylinkedtotag(self, "j_head") && !localplayer isentitylinkedtotag(self, "j_elbow_le") && !localplayer isentitylinkedtotag(self, "j_spineupper"))
 		{
-			if(isdefined(self.weapon.var_4dd46f8a))
+			if(isdefined(self.weapon.customsettings))
 			{
-				var_e6fbac16 = getscriptbundle(self.weapon.var_4dd46f8a);
+				var_e6fbac16 = getscriptbundle(self.weapon.customsettings);
 				if(isdefined(var_e6fbac16.var_b941081f) && isdefined(var_e6fbac16.var_40772cbe))
 				{
 					self start_light_fx(localclientnum, var_e6fbac16.var_b941081f, var_e6fbac16.var_40772cbe);
@@ -241,9 +241,9 @@ function function_c879d0fd(localclientnum)
 	self endon(#"death");
 	self util::waittill_dobj(localclientnum);
 	interval = 0.3;
-	if(isdefined(self.weapon.var_4dd46f8a))
+	if(isdefined(self.weapon.customsettings))
 	{
-		var_e6fbac16 = getscriptbundle(self.weapon.var_4dd46f8a);
+		var_e6fbac16 = getscriptbundle(self.weapon.customsettings);
 		if(isdefined(var_e6fbac16.var_b941081f) && isdefined(var_e6fbac16.var_40772cbe))
 		{
 			for(;;)

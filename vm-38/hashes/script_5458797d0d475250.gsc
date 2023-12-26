@@ -44,7 +44,7 @@ class czm_tungsten_title_cards : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: czm_tungsten_title_cards
 		Checksum: 0x2B7CA68B
 		Offset: 0x3D0
@@ -52,9 +52,9 @@ class czm_tungsten_title_cards : cLUIelem
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("zm_tungsten_title_cards");
+		cLUIelem::register_clientside("zm_tungsten_title_cards");
 	}
 
 	/*
@@ -83,7 +83,7 @@ class czm_tungsten_title_cards : cLUIelem
 	function setup_clientfields(var_cb91ced3)
 	{
 		cLUIelem::setup_clientfields("zm_tungsten_title_cards");
-		cLUIelem::function_da693cbe("is_title_card_02", 4000, 1, "int", var_cb91ced3);
+		cLUIelem::add_clientfield("is_title_card_02", 4000, 1, "int", var_cb91ced3);
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_cb91ced3)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: zm_tungsten_title_cards
 	Checksum: 0x9E386FC1
 	Offset: 0x270
@@ -160,10 +160,10 @@ function register(var_cb91ced3)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new czm_tungsten_title_cards();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

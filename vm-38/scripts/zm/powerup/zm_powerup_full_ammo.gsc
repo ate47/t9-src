@@ -1,7 +1,7 @@
 #using scripts\zm_common\zm_loadout.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_1caf36ff04a85ff6;
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\hud_util_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -59,7 +59,7 @@ function private function_70a657d8()
 	zm_powerups::register_powerup("full_ammo", &grab_full_ammo);
 	if(zm_powerups::function_cc33adc8())
 	{
-		zm_powerups::add_zombie_powerup("full_ammo", #"p7_zm_power_up_max_ammo", #"hash_460ca52bf94f19c0", &zm_powerups::func_should_always_drop, 0, 0, 0);
+		zm_powerups::add_zombie_powerup("full_ammo", #"p7_zm_power_up_max_ammo", #"zombie/powerup_max_ammo", &zm_powerups::func_should_always_drop, 0, 0, 0);
 	}
 }
 
@@ -94,7 +94,7 @@ function grab_full_ammo(player)
 	Parameters: 2
 	Flags: Linked
 */
-function function_dae1df4d(var_7d81025, player)
+function function_dae1df4d(e_powerup, player)
 {
 	if(isdefined(level.check_player_is_ready_for_ammo))
 	{
@@ -103,9 +103,9 @@ function function_dae1df4d(var_7d81025, player)
 			return;
 		}
 	}
-	if(isdefined(player) && isplayer(player) && isdefined(var_7d81025.hint))
+	if(isdefined(player) && isplayer(player) && isdefined(e_powerup.hint))
 	{
-		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", var_7d81025.hint);
+		player zm_utility::function_846eb7dd(#"hash_1d757d99eb407952", e_powerup.hint);
 	}
 	player.var_655c0753 = undefined;
 	player notify(#"zmb_max_ammo");

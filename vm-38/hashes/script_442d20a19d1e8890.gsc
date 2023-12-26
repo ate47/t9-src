@@ -44,7 +44,7 @@ class class_7c3faeda : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_7c3faeda
 		Checksum: 0x8E16E15A
 		Offset: 0x440
@@ -52,9 +52,9 @@ class class_7c3faeda : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("Incursion_InfiltrationTitleCards");
+		cLUIelem::register_clientside("Incursion_InfiltrationTitleCards");
 	}
 
 	/*
@@ -69,8 +69,8 @@ class class_7c3faeda : cLUIelem
 	function setup_clientfields(var_f1385203)
 	{
 		cLUIelem::setup_clientfields("Incursion_InfiltrationTitleCards");
-		cLUIelem::function_da693cbe("_state", 1, 4, "int");
-		cLUIelem::function_da693cbe("SelectedInfiltration", 1, 3, "int", var_f1385203);
+		cLUIelem::add_clientfield("_state", 1, 4, "int");
+		cLUIelem::add_clientfield("SelectedInfiltration", 1, 3, "int", var_f1385203);
 	}
 
 	/*
@@ -270,7 +270,7 @@ function register(var_f1385203)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: incursion_infiltrationtitlecards
 	Checksum: 0x944F6941
 	Offset: 0x288
@@ -278,10 +278,10 @@ function register(var_f1385203)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_7c3faeda();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

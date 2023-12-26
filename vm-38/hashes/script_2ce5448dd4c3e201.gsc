@@ -182,13 +182,13 @@ function function_dd2493cc(local_client_num, objid, zone_index)
 				{
 					if(state != si)
 					{
-						entity function_5d482e78(rob);
+						entity stoprenderoverridebundle(rob);
 					}
 					continue;
 				}
 				if(state == si)
 				{
-					entity function_bf9d3071(rob);
+					entity playrenderoverridebundle(rob);
 					if(iscodcaster)
 					{
 						codcaster::function_773f6e31(local_client_num, entity, rob, state);
@@ -306,7 +306,7 @@ function function_b25b095f(localclientnum, oldval, newval, bnewent, binitialsnap
 				rob = level.var_117b4a3a[0] + suffix;
 				if(!self function_d2503806(rob))
 				{
-					self function_bf9d3071(rob);
+					self playrenderoverridebundle(rob);
 				}
 				if(iscodcaster)
 				{

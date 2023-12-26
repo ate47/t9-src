@@ -72,7 +72,7 @@ class cluielemimage : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cluielemimage
 		Checksum: 0xADB2BEE4
 		Offset: 0x7C8
@@ -80,9 +80,9 @@ class cluielemimage : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("LUIelemImage");
+		cLUIelem::register_clientside("LUIelemImage");
 	}
 
 	/*
@@ -150,18 +150,18 @@ class cluielemimage : cLUIelem
 		Parameters: 10
 		Flags: None
 	*/
-	function setup_clientfields(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b)
+	function setup_clientfields(xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b)
 	{
 		cLUIelem::setup_clientfields("LUIelemImage");
-		cLUIelem::function_da693cbe("x", 1, 7, "int", ycallback);
-		cLUIelem::function_da693cbe("y", 1, 6, "int", var_997793d7);
-		cLUIelem::function_da693cbe("width", 1, 6, "int", heightcallback);
-		cLUIelem::function_da693cbe("height", 1, 6, "int", fadeOverTimecallback);
-		cLUIelem::function_da693cbe("fadeOverTime", 1, 5, "int", alphacallback);
-		cLUIelem::function_da693cbe("alpha", 1, 4, "float", redcallback);
-		cLUIelem::function_da693cbe("red", 1, 4, "float", greencallback);
-		cLUIelem::function_da693cbe("green", 1, 4, "float", bluecallback);
-		cLUIelem::function_da693cbe("blue", 1, 4, "float", var_e6b6b84b);
+		cLUIelem::add_clientfield("x", 1, 7, "int", ycallback);
+		cLUIelem::add_clientfield("y", 1, 6, "int", widthcallback);
+		cLUIelem::add_clientfield("width", 1, 6, "int", heightcallback);
+		cLUIelem::add_clientfield("height", 1, 6, "int", fadeOverTimecallback);
+		cLUIelem::add_clientfield("fadeOverTime", 1, 5, "int", alphacallback);
+		cLUIelem::add_clientfield("alpha", 1, 4, "float", redcallback);
+		cLUIelem::add_clientfield("red", 1, 4, "float", greencallback);
+		cLUIelem::add_clientfield("green", 1, 4, "float", bluecallback);
+		cLUIelem::add_clientfield("blue", 1, 4, "float", var_e6b6b84b);
 		cLUIelem::function_dcb34c80("material", "material", 1);
 	}
 
@@ -272,10 +272,10 @@ function private autoexec function_17117bd2()
 	Parameters: 10
 	Flags: None
 */
-function register(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b)
+function register(xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b)
 {
 	elem = new cluielemimage();
-	[[ elem ]]->setup_clientfields(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b);
+	[[ elem ]]->setup_clientfields(xcallback, ycallback, widthcallback, heightcallback, fadeOverTimecallback, alphacallback, redcallback, greencallback, bluecallback, var_e6b6b84b);
 	if(!isdefined(level.var_ae746e8f))
 	{
 		level.var_ae746e8f = associativearray();
@@ -296,7 +296,7 @@ function register(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTi
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: luielemimage
 	Checksum: 0xB5A703A3
 	Offset: 0x308
@@ -304,10 +304,10 @@ function register(xcallback, ycallback, var_997793d7, heightcallback, fadeOverTi
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cluielemimage();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

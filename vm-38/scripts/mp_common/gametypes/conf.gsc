@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\core_common\player\player_stats.gsc;
@@ -120,7 +120,7 @@ function onuse(player)
 		if(!tacinsertboost)
 		{
 			player globallogic_score::giveteamscoreforobjective(player.team, level.teamscoreperkilldenied);
-			player contracts::function_a54e2068(#"hash_7f29e6dade49a6b7", 1);
+			player contracts::increment_contract(#"hash_7f29e6dade49a6b7", 1);
 		}
 	}
 	else
@@ -136,7 +136,7 @@ function onuse(player)
 		player.pers[#"killsconfirmed"]++;
 		player.killsconfirmed = player.pers[#"killsconfirmed"];
 		player globallogic_score::giveteamscoreforobjective(player.team, level.teamscoreperkillconfirmed);
-		player contracts::function_a54e2068(#"hash_27de6edf9043b26f", 1);
+		player contracts::increment_contract(#"hash_27de6edf9043b26f", 1);
 		if(!tacinsertboost)
 		{
 			currenttime = gettime();
@@ -146,7 +146,7 @@ function onuse(player)
 				if(player.lastkillconfirmedcount >= 3)
 				{
 					scoreevents::processscoreevent(#"kill_confirmed_multi", player, undefined, undefined);
-					player contracts::function_a54e2068(#"hash_2185f973f409838f", 1);
+					player contracts::increment_contract(#"hash_2185f973f409838f", 1);
 					player stats::function_cc215323(#"hash_1b563e11d9caca7e", 1);
 					player.lastkillconfirmedcount = 0;
 				}

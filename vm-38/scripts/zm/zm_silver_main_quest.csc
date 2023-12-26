@@ -35,7 +35,7 @@ function init()
 {
 	namespace_5b1144e::function_5ae4a10c(#"p9_fxanim_zm_gp_crafting_variant_xmodel", "workbench", #"hash_d670b6f3d8c2841", undefined, undefined, 1);
 	namespace_5b1144e::function_5ae4a10c(#"p9_rus_computer_02", "medbay_computer", undefined, #"hash_5b20033c44a4321f", undefined, 1);
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		return;
 	}

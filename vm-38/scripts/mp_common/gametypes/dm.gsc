@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using script_44b0b8420eabacad;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -98,7 +98,7 @@ function onendgame(var_c1e98979)
 	{
 		[[level._setplayerscore]](player, [[level._getplayerscore]](player) + 1);
 	}
-	match::function_d1e740f6(player);
+	match::set_winner(player);
 }
 
 /*

@@ -1,9 +1,9 @@
-#using script_18e21a7011416ce0;
+#using scripts\zm_common\zm_audio_sq.gsc;
 #using scripts\core_common\item_inventory.gsc;
 #using script_25ebc9ade08aed84;
 #using script_34ab99a4ca1a43d;
 #using scripts\zm_common\zm_fasttravel.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4108035fe400ce67;
 #using script_5404bcacf34a92d;
 #using scripts\zm_common\zm_vo.gsc;
@@ -60,7 +60,7 @@ function private autoexec function_fb964518()
 function init()
 {
 	init_clientfields();
-	function_ec9e5cf2();
+	init_quests();
 	level thread scene::init(#"hash_5a121f0591383986");
 }
 
@@ -83,7 +83,7 @@ function init_clientfields()
 }
 
 /*
-	Name: function_ec9e5cf2
+	Name: init_quests
 	Namespace: namespace_36ebd7e4
 	Checksum: 0x6C3DDC0F
 	Offset: 0x800
@@ -91,9 +91,9 @@ function init_clientfields()
 	Parameters: 0
 	Flags: Linked
 */
-function function_ec9e5cf2()
+function init_quests()
 {
-	namespace_8f39dfb1::init();
+	zm_audio_sq::init();
 	level zm_sq::register(#"hash_4bcc3acb4102f466", #"step_1", #"hash_1309b1590ff55819", &function_1dcf5339, &function_9a3d73f5);
 	level zm_sq::register(#"hash_4bcc3acb4102f466", #"step_2", #"hash_1309ae590ff55300", &function_bc64a2fc, &function_5339496c);
 	level zm_sq::register(#"hash_5891e4c3e9c2ece4", #"step_1", #"hash_cdb7944a1051037", &function_f68bd85b, &function_a10cd1d4);
@@ -1734,7 +1734,7 @@ function function_2085bf3b()
 			{
 				self function_98957f5b();
 				level thread function_6413e9b();
-				callback::function_5a753d97(&function_2c951177);
+				callback::remove_on_weapon_change(&function_2c951177);
 				callback::function_824d206(&function_2056cd79);
 				break;
 			}
@@ -2055,7 +2055,7 @@ function function_c64d2826(e_player)
 	e_player giveweapon(level.var_e4731251);
 	e_player switchtoweapon(level.var_e4731251, 1);
 	e_player waittill(#"weapon_change_complete");
-	callback::function_f77ced93(&function_2c951177);
+	callback::on_weapon_change(&function_2c951177);
 	callback::function_33f0ddd3(&function_2056cd79);
 	e_player thread function_8ee22ffd();
 	e_player val::reset(#"hash_5f4be7238bf3892b", "disable_weapon_cycling");
@@ -2108,7 +2108,7 @@ function function_9c294ad5(e_player)
 	e_player endon(#"disconnect");
 	s_result = undefined;
 	s_result = e_player waittill(#"hash_31f98f1ef1f33ee1", #"fake_death");
-	callback::function_5a753d97(&function_2c951177);
+	callback::remove_on_weapon_change(&function_2c951177);
 	callback::function_824d206(&function_2056cd79);
 	e_player takeweapon(level.var_e4731251);
 	e_player notify(#"hide_equipment_hint_text");

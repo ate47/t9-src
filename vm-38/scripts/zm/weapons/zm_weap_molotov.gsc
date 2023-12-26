@@ -1,5 +1,5 @@
 #using script_62caa307a394c18c;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\weapons\molotov.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\hud_shared.gsc;
@@ -92,7 +92,7 @@ function function_b107b600(position, var_efa24ea4, damageendtime, var_ac892ba9)
 	Parameters: 8
 	Flags: Linked
 */
-function function_16a57018(damageendtime, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, var_4dd46f8a)
+function function_16a57018(damageendtime, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, customsettings)
 {
 	if(isdefined(fireeffectarea))
 	{
@@ -106,7 +106,7 @@ function function_16a57018(damageendtime, owner, position, fireeffectarea, var_2
 	}
 	self.var_8928bbff = array([], []);
 	self.var_87dae7f1 = 1;
-	self thread function_b107b600(position, var_efa24ea4, damageendtime, var_4dd46f8a.var_4bf1fc1f);
+	self thread function_b107b600(position, var_efa24ea4, damageendtime, customsettings.var_4bf1fc1f);
 	while(gettime() < damageendtime)
 	{
 		damageapplied = 0;
@@ -115,7 +115,7 @@ function function_16a57018(damageendtime, owner, position, fireeffectarea, var_2
 		potential_targets = self.var_8928bbff[self.var_87dae7f1];
 		function_1eaaceab(potential_targets);
 		start_time = gettime();
-		var_ba904176 = var_4dd46f8a.var_ba904176;
+		var_ba904176 = customsettings.var_ba904176;
 		if(zm_utility::is_survival())
 		{
 			var_39fef10c = zm_equipment::function_739fbb72(var_ba904176);
@@ -126,18 +126,18 @@ function function_16a57018(damageendtime, owner, position, fireeffectarea, var_2
 		}
 		foreach(index, actor in potential_targets)
 		{
-			actor thread function_f0bbc1f4(owner, var_39fef10c, var_4dd46f8a.var_4bf1fc1f, start_time + (int(((float(function_60d95f53()) / 1000) * index) * 1000)));
+			actor thread function_f0bbc1f4(owner, var_39fef10c, customsettings.var_4bf1fc1f, start_time + (int(((float(function_60d95f53()) / 1000) * index) * 1000)));
 		}
 		for(i = 0; i < potential_targets.size; i++)
 		{
 			target = potential_targets[i];
 			if(isdefined(target))
 			{
-				self trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, var_4dd46f8a, start_time);
+				self trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, customsettings, start_time);
 			}
 			waitframe(1);
 		}
-		wait_time = var_4dd46f8a.var_4bf1fc1f - ((float(gettime() - start_time)) / 1000);
+		wait_time = customsettings.var_4bf1fc1f - ((float(gettime() - start_time)) / 1000);
 		if(wait_time > 0)
 		{
 			wait(wait_time);
@@ -154,7 +154,7 @@ function function_16a57018(damageendtime, owner, position, fireeffectarea, var_2
 	Parameters: 9
 	Flags: Linked
 */
-function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, var_4dd46f8a, start_time)
+function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a74bc, killcament, weapon, customsettings, start_time)
 {
 	if(!(isdefined(fireeffectarea) || isdefined(var_289a74bc)) || (isdefined(target) && is_true(target.var_8ef7113a)))
 	{
@@ -179,12 +179,12 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a7
 	{
 		target notify(#"hash_50bc036c8d6c0018");
 	}
-	else if(molotov::candofiredamage(killcament, target, var_4dd46f8a.var_4bf1fc1f) && (!isdefined(target.sessionstate) || target.sessionstate == "playing"))
+	else if(molotov::candofiredamage(killcament, target, customsettings.var_4bf1fc1f) && (!isdefined(target.sessionstate) || target.sessionstate == "playing"))
 	{
 		trace = bullettrace(position, target getshootatpos(), 0, target);
 		if(trace[#"fraction"] == 1)
 		{
-			target thread function_8422dabd(sourcepos, killcament, trace, position, weapon, var_4dd46f8a, owner, start_time);
+			target thread function_8422dabd(sourcepos, killcament, trace, position, weapon, customsettings, owner, start_time);
 		}
 		else
 		{
@@ -204,7 +204,7 @@ function trytoapplyfiredamage(target, owner, position, fireeffectarea, var_289a7
 	Parameters: 8
 	Flags: Linked
 */
-function function_8422dabd(origin, killcament, trace, position, weapon, var_4dd46f8a, owner, start_time)
+function function_8422dabd(origin, killcament, trace, position, weapon, customsettings, owner, start_time)
 {
 	self endon(#"death");
 	var_4dd4e6ee = owner;
@@ -216,8 +216,8 @@ function function_8422dabd(origin, killcament, trace, position, weapon, var_4dd4
 	{
 		self.var_84e41b20[position.starttime] = 1;
 	}
-	var_5c4f174b = max((float(gettime() - start_time)) / 1000, var_4dd46f8a.var_4bf1fc1f);
-	var_341dfe48 = int(var_4dd46f8a.var_ba904176 * var_5c4f174b);
+	var_5c4f174b = max((float(gettime() - start_time)) / 1000, customsettings.var_4bf1fc1f);
+	var_341dfe48 = int(customsettings.var_ba904176 * var_5c4f174b);
 	self dodamage(var_341dfe48, self.origin, owner, weapon, "none", "MOD_BURNED", 0, weapon);
 	self.var_ae639436 = var_4dd4e6ee;
 }

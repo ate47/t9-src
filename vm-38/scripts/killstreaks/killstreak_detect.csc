@@ -73,7 +73,7 @@ function init_shared()
 		level.emp_killstreaks = [];
 		if(0)
 		{
-			renderoverridebundle::function_f72f089c(#"hash_7d4b6b0d84ddafa3", #"friendly", (sessionmodeiscampaigngame() ? #"hash_461520942fd1154d" : #"rob_sonar_set_friendlyequip_mp"), &function_95f96f3e);
+			renderoverridebundle::function_f72f089c(#"hash_7d4b6b0d84ddafa3", #"friendly", (sessionmodeiscampaigngame() ? #"rob_sonar_set_friendlyequip_cp" : #"rob_sonar_set_friendlyequip_mp"), &function_95f96f3e);
 		}
 		function_8ac48939(level.killstreakcorebundle);
 	}
@@ -246,8 +246,8 @@ function function_d859c344(local_client_num, newval)
 	}
 	if(isdefined(bundle))
 	{
-		var_872807f = bundle.("ksROBShowFriendly");
-		if(is_true(var_872807f) && 0)
+		show_friendly = bundle.("ksROBShowFriendly");
+		if(is_true(show_friendly) && 0)
 		{
 			self renderoverridebundle::function_c8d97b8e(newval, #"friendly", bundle.var_d3413870 + "friendly");
 		}
@@ -611,8 +611,8 @@ function checkteammissiles(localclientnum)
 */
 function function_8ac48939(bundle)
 {
-	var_872807f = bundle.("ksROBShowFriendly");
-	if(is_true(var_872807f))
+	show_friendly = bundle.("ksROBShowFriendly");
+	if(is_true(show_friendly))
 	{
 		renderoverridebundle::function_f72f089c(bundle.var_d3413870 + "friendly", bundle.("ksROBFriendly"), &function_95f96f3e);
 	}

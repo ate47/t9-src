@@ -1,14 +1,14 @@
 #using scripts\core_common\player\player_shared.gsc;
 #using script_32399001bdb550da;
 #using script_35ae72be7b4fec10;
-#using script_35b5ff21c2a0960f;
+#using scripts\core_common\globallogic\globallogic_vehicle.gsc;
 #using script_3626f1b2cf51a99c;
 #using script_3706d21c449d0d14;
 #using scripts\core_common\player\player_role.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using script_48294c0de5c37487;
 #using scripts\weapons\weapon_utils.gsc;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\core_common\globallogic\globallogic_player.gsc;
@@ -218,7 +218,7 @@ function private function_16f6fb10()
 		self notifyonplayercommand("", "");
 		while(true)
 		{
-			self waittill(#"hash_561a693fae6d2e9f");
+			self waittill(#"play_gesture");
 			gesture = level.var_b63e01a9;
 			var_f3002d70 = function_39ab832f(1);
 			if(!var_f3002d70)
@@ -421,7 +421,7 @@ function callback_playerconnect()
 	}
 	if(!level.splitscreen && !isdefined(self.pers[#"score"]))
 	{
-		iprintln(#"hash_2bff59245c345d80", self);
+		iprintln(#"mp/connected", self);
 	}
 	if(!isdefined(self.pers[#"score"]))
 	{
@@ -530,7 +530,7 @@ function callback_playerconnect()
 	self.gametype_kill_streak = 0;
 	self.spawnqueueindex = -1;
 	self.deathtime = 0;
-	player::function_5ae8566b(1, 0);
+	player::init_heal(1, 0);
 	self.lastgrenadesuicidetime = -1;
 	self.teamkillsthisround = 0;
 	if(isdefined(world.player_lives))
@@ -639,7 +639,7 @@ function callback_playerconnect()
 	level.player = self;
 	globallogic::updateteamstatus();
 	self function_eee2a9d2();
-	var_c0fcc1e2 = self stats::get_stat(#"hash_34f35d8710b57e3a", #"unlocked");
+	var_c0fcc1e2 = self stats::get_stat(#"zmcampaigndata", #"unlocked");
 	if(!isdefined(level.var_841888e0))
 	{
 		level.var_841888e0 = 1;
@@ -1070,7 +1070,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	}
 	overrideplayerdamage = function_7681dccc();
 	idamage = int(idamage);
-	var_a1f8d00b = idamage;
+	unmodified = idamage;
 	if(isdefined(overrideplayerdamage))
 	{
 		modifieddamage = self [[overrideplayerdamage]](einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, var_fd90b0bb, vpoint, vdir, shitloc, psoffsettime, boneindex);
@@ -1258,7 +1258,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	{
 		self notify(#"body_shield_damage", params);
 		self.var_c3d9d4c9 = 1;
-		var_709ce886 = 1;
+		blockeddamage = 1;
 		idamage = 0;
 	}
 	if(idamage > 0)
@@ -1424,7 +1424,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 		}
 		else
 		{
-			if(idamage < 1 && !is_true(var_709ce886) && !self flag::get("player_is_invulnerable"))
+			if(idamage < 1 && !is_true(blockeddamage) && !self flag::get("player_is_invulnerable"))
 			{
 				idamage = 1;
 			}
@@ -1454,7 +1454,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 					eattacker.damagedplayers[self.clientid].entity = self;
 				}
 			}
-			if(is_true(var_709ce886))
+			if(is_true(blockeddamage))
 			{
 				self clientfield::set_to_player("player_damage_type", 1);
 				self addtodamageindicator(50, vdir);
@@ -1483,7 +1483,7 @@ function callback_playerdamage(einflictor, eattacker, idamage, idflags, smeansof
 	}
 	else
 	{
-		idamage = var_a1f8d00b;
+		idamage = unmodified;
 		self finishplayerdamagewrapper(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, var_fd90b0bb, vpoint, vdir, shitloc, vdamageorigin, psoffsettime, boneindex, vsurfacenormal);
 	}
 	time = gettime();
@@ -1837,7 +1837,7 @@ function private function_bb371c3(var_b1630ef, debugdraw)
 	var_68e0f9e9 = (var_2ae934a0 * -1, var_2ae934a0 * -1, var_2ae934a0 * -1);
 	var_4da0b949 = (var_2ae934a0, var_2ae934a0, var_2ae934a0);
 	var_6c3bd059 = physicstrace(var_fd0c9f1c, var_6e0e1c32, var_68e0f9e9, var_4da0b949, player, 32);
-	if(is_true(var_6c3bd059[#"hash_7f9ee3a239b86eea"]) || var_6c3bd059[#"fraction"] < 0.9)
+	if(is_true(var_6c3bd059[#"startsolid"]) || var_6c3bd059[#"fraction"] < 0.9)
 	{
 		var_c440a44e = 0;
 	}
@@ -1856,16 +1856,16 @@ function private function_bb371c3(var_b1630ef, debugdraw)
 	var_288b287b = (var_2ae934a0, var_2ae934a0, 0.1);
 	var_fe488304 = player.origin + (var_be9b9194.forward * var_6ee16314);
 	startoffset = vectorscale((0, 0, 1), 5);
-	var_770c351c = vectorscale((0, 0, -1), 8);
-	var_891e5be8 = physicstrace(var_fe488304 + startoffset, var_fe488304 + var_770c351c, var_c8e0e024, var_288b287b, player, 32);
-	if(is_true(var_891e5be8[#"hash_7f9ee3a239b86eea"]) || var_891e5be8[#"fraction"] > 0.9 || var_891e5be8[#"fraction"] < 0.1)
+	endoffset = vectorscale((0, 0, -1), 8);
+	var_891e5be8 = physicstrace(var_fe488304 + startoffset, var_fe488304 + endoffset, var_c8e0e024, var_288b287b, player, 32);
+	if(is_true(var_891e5be8[#"startsolid"]) || var_891e5be8[#"fraction"] > 0.9 || var_891e5be8[#"fraction"] < 0.1)
 	{
 		var_f3002d70 = 0;
 	}
 	/#
 		if(is_true(debugdraw))
 		{
-			var_1c1cfbe7 = (var_c8e0e024[0], var_c8e0e024[1], var_770c351c[2]);
+			var_1c1cfbe7 = (var_c8e0e024[0], var_c8e0e024[1], endoffset[2]);
 			var_d42e62c7 = (var_288b287b[0], var_288b287b[1], startoffset[2]);
 			var_974e8d59 = (0, 1, 0);
 			if(!var_f3002d70)
@@ -2121,7 +2121,7 @@ function playerkilled_obituary(attacker, einflictor, weapon, smeansofdeath)
 		{
 			obituary(self, self, weapon, smeansofdeath);
 		}
-		demo::function_ae3420ca(self, self, einflictor);
+		demo::kill_bookmark(self, self, einflictor);
 	}
 	else
 	{
@@ -2129,7 +2129,7 @@ function playerkilled_obituary(attacker, einflictor, weapon, smeansofdeath)
 		{
 			obituary(self, attacker, weapon, smeansofdeath);
 		}
-		demo::function_ae3420ca(self, attacker, einflictor);
+		demo::kill_bookmark(self, attacker, einflictor);
 	}
 }
 

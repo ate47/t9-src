@@ -58,7 +58,7 @@ class cblackseajetskideployprompt : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cblackseajetskideployprompt
 		Checksum: 0x452D64DB
 		Offset: 0x3D0
@@ -66,9 +66,9 @@ class cblackseajetskideployprompt : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("BlackSeaJetskiDeployPrompt");
+		cLUIelem::register_clientside("BlackSeaJetskiDeployPrompt");
 	}
 
 	/*
@@ -83,7 +83,7 @@ class cblackseajetskideployprompt : cLUIelem
 	function setup_clientfields(var_8c9ddf96)
 	{
 		cLUIelem::setup_clientfields("BlackSeaJetskiDeployPrompt");
-		cLUIelem::function_da693cbe("deployProgress", 1, 5, "float", var_8c9ddf96);
+		cLUIelem::add_clientfield("deployProgress", 1, 5, "float", var_8c9ddf96);
 	}
 
 	/*
@@ -152,7 +152,7 @@ function register(var_8c9ddf96)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: blackseajetskideployprompt
 	Checksum: 0xE786992D
 	Offset: 0x270
@@ -160,10 +160,10 @@ function register(var_8c9ddf96)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cblackseajetskideployprompt();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

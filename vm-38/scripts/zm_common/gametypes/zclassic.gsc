@@ -8,7 +8,7 @@
 #using scripts\zm_common\zm_round_logic.gsc;
 #using script_799de24f8ad427f7;
 #using script_7b1cd3908a825fdd;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -213,8 +213,8 @@ function onstartgametype()
 	zm_behavior::function_70a657d8();
 	zm_cleanup::function_70a657d8();
 	zm_spawner::init();
-	zm_behavior::function_8ac3bea9();
-	zm_cleanup::function_8ac3bea9();
+	zm_behavior::postinit();
+	zm_cleanup::postinit();
 	level.spawnmins = (0, 0, 0);
 	level.spawnmaxs = (0, 0, 0);
 	structs = struct::get_array("player_respawn_point", "targetname");
@@ -250,7 +250,7 @@ function on_player_spawn()
 		self.pers[#"score"] = var_c6b6dcea;
 		self.score = self.pers[#"score"];
 		self.score_total = self.score;
-		self.var_f22ee5e = self.score_total;
+		self.objscore = self.score_total;
 		/#
 			if(getdvarint(#"zombie_cheat", 0) >= 1)
 			{
@@ -464,7 +464,7 @@ function function_452e5ad6()
 	var_7fc5b7c3 = arraysortclosest(var_d117c934, self.origin, 20, 0, 2000);
 	var_5d59bb63 = arraysortclosest(var_d117c934, self.origin, 20, 1000, 2000);
 	var_1a672bba = (var_5d59bb63.size ? var_5d59bb63 : var_7fc5b7c3);
-	var_61c941e8 = array::random(var_1a672bba);
-	return var_61c941e8;
+	s_player_spawn = array::random(var_1a672bba);
+	return s_player_spawn;
 }
 

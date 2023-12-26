@@ -1,9 +1,9 @@
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\zm_common\zm_loadout.gsc;
 #using script_340a2e805e35f7a2;
 #using script_471b31bd963b388e;
 #using script_5e96d104c70be5ac;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using script_7a8059ca02b7b09e;
 #using script_7bacb32f8222fa3e;
 #using script_7fc996fe8678852;
@@ -57,7 +57,7 @@ function private autoexec function_b64d615f()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_wallbuy", &function_70a657d8, &function_8ac3bea9, undefined, array(#"zm", #"zm_zonemgr", #"zm_unitrigger", #"zm_weapons", #"hash_5bcba15330839867"));
+	system::register(#"zm_wallbuy", &function_70a657d8, &postinit, undefined, array(#"zm", #"zm_zonemgr", #"zm_unitrigger", #"zm_weapons", #"hash_5bcba15330839867"));
 }
 
 /*
@@ -71,12 +71,12 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_custom::function_901b751c(#"hash_51a2cf319e12d9ae"))
+	if(!zm_custom::function_901b751c(#"zmwallbuysenabled"))
 	{
-		var_b936460 = getentarray("wallbuy_outline", "targetname");
-		foreach(var_160326ff in var_b936460)
+		a_outlines = getentarray("wallbuy_outline", "targetname");
+		foreach(e_outline in a_outlines)
 		{
-			var_160326ff delete();
+			e_outline delete();
 		}
 		return;
 	}
@@ -89,7 +89,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_wallbuy
 	Checksum: 0xD3460D77
 	Offset: 0x6C0
@@ -97,9 +97,9 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
-	if(!getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(!getgametypesetting(#"zmwallbuysenabled"))
 	{
 		return;
 	}
@@ -318,7 +318,7 @@ function function_ab0340bb(var_71f7928d)
 */
 function function_d77fb9ee(s_instance)
 {
-	if(!getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(!getgametypesetting(#"zmwallbuysenabled"))
 	{
 		return;
 	}
@@ -616,7 +616,7 @@ function function_d77fb9ee(s_instance)
 */
 function function_669a830(s_destination)
 {
-	if(!getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(!getgametypesetting(#"zmwallbuysenabled"))
 	{
 		return;
 	}
@@ -714,7 +714,7 @@ function init_spawnable_weapon_upgrade(s_destination)
 			spawnable_weapon = spawnable_weapon_spawns[i];
 			spawnable_weapon.weapon = getweapon(spawnable_weapon.zombie_weapon_upgrade);
 			weapon_group = zm_utility::getweaponclasszm(spawnable_weapon.weapon);
-			if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"hash_6f1440098d849316") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"hash_1f6665b5581f6b6e")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"hash_1d5c8e6f0e20201a")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"hash_2f6740b518dbeb8f")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"hash_5bfd047c58816496")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
+			if(weapon_group == #"weapon_pistol" && !zm_custom::function_901b751c(#"zmweaponspistol") || (weapon_group == #"weapon_cqb" && !zm_custom::function_901b751c(#"zmweaponsshotgun")) || (weapon_group == #"weapon_smg" && !zm_custom::function_901b751c(#"zmweaponssmg")) || (weapon_group == #"weapon_assault" && !zm_custom::function_901b751c(#"zmweaponsar")) || (weapon_group == #"weapon_tactical" && !zm_custom::function_901b751c(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !zm_custom::function_901b751c(#"zmweaponslmg")) || (weapon_group == #"weapon_sniper" && !zm_custom::function_901b751c(#"zmweaponssniper")) || (weapon_group == #"weapon_knife" && !zm_custom::function_901b751c(#"zmweaponsknife")))
 			{
 				continue;
 			}
@@ -892,10 +892,10 @@ function function_c970de50(trigger, parent)
 */
 function function_753c491c(trigger)
 {
-	self.var_857d2187 = self.model;
+	self.orgmodel = self.model;
 	self setmodel(#"wpn_t7_none_world");
 	trigger waittill(#"trigger");
-	self setmodel(self.var_857d2187);
+	self setmodel(self.orgmodel);
 }
 
 /*
@@ -1056,7 +1056,7 @@ function wall_weapon_update_prompt(player)
 	}
 	else
 	{
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			return false;
 		}
@@ -1085,7 +1085,7 @@ function wall_weapon_update_prompt(player)
 			}
 			else
 			{
-				if(player bgb::is_enabled(#"hash_4a6b297c85fafec1"))
+				if(player bgb::is_enabled(#"zm_bgb_wall_to_wall_clearance"))
 				{
 					if(player function_8b1a219a())
 					{
@@ -1362,7 +1362,7 @@ function weapon_spawn_think()
 			wait(0.1);
 			continue;
 		}
-		if(namespace_497ab7da::is_active())
+		if(zm_trial_disable_buys::is_active())
 		{
 			wait(0.1);
 			continue;
@@ -1403,10 +1403,10 @@ function weapon_spawn_think()
 			player zm_stats::increment_challenge_stat(#"survivalist_buy_wallbuy", undefined, 1);
 			player zm_stats::increment_challenge_stat(#"hash_385398b8acbf8b4a", undefined, 1);
 			player zm_stats::increment_challenge_stat(#"hash_702d98df99af63d5", undefined, 1);
-			player zm_stats::function_c0c6ab19(#"hash_6f9f408a95b50400", 1, 1);
+			player zm_stats::function_c0c6ab19(#"weapons_bought", 1, 1);
 			player zm_stats::function_c0c6ab19(#"wallbuys", 1, 1);
-			player contracts::function_5b88297d(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
-			player contracts::function_5b88297d(#"hash_56a15f4e4fa5f4b7", 1, #"zstandard");
+			player contracts::increment_zm_contract(#"hash_4a8bbc38f59c2743", 1, #"zstandard");
+			player contracts::increment_zm_contract(#"hash_56a15f4e4fa5f4b7", 1, #"zstandard");
 			if(self.weapon.isriotshield)
 			{
 				player zm_equipment::give(self.weapon);
@@ -1451,7 +1451,7 @@ function weapon_spawn_think()
 						weapon = namespace_65181344::function_67456242(point.var_a6762160);
 						dropitem = item_drop::drop_item(0, weapon, 1, weapon.maxammo, point.id, self.origin, self.angles, 1);
 						dropitem.wallbuy_weapon = 1;
-						dropitem.var_8e092725 = 1;
+						dropitem.hidetime = 1;
 						dropitem hide();
 						player zm_weapons::function_98776900(dropitem, 0, 0);
 					}
@@ -1491,7 +1491,7 @@ function weapon_spawn_think()
 		}
 		if(isdefined(player))
 		{
-			player notify(#"hash_52d48b9173a9eeec");
+			player notify(#"wallbuy_done");
 			if(isdefined(self.stub) && isdefined(self.stub.prompt_and_visibility_func))
 			{
 				self [[self.stub.prompt_and_visibility_func]](player);

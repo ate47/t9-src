@@ -42,7 +42,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.ammoCooldowns.equipment.tactical", #"hud_items", [2:#"tactical", 1:#"equipment", 0:#"hash_2f126bd99a74de8b"], 1, 5, "float", undefined, 0, 0);
-	clientfield::function_a8bbc967("hudItems.ammoCooldowns.equipment.lethal", #"hud_items", [2:#"lethal", 1:#"equipment", 0:#"hash_2f126bd99a74de8b"], 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.ammoCooldowns.equipment.tactical", #"hud_items", [2:#"tactical", 1:#"equipment", 0:#"hash_2f126bd99a74de8b"], 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.ammoCooldowns.equipment.lethal", #"hud_items", [2:#"lethal", 1:#"equipment", 0:#"hash_2f126bd99a74de8b"], 1, 5, "float", undefined, 0, 0);
 }
 

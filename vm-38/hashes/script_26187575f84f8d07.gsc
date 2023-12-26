@@ -269,7 +269,7 @@ function private function_218080fb()
 	self.var_fa06c0e = [];
 	self.var_e17ae8be = [];
 	self.var_3401d807 = [];
-	var_c255bde9 = level.var_cd139dc0;
+	initialradius = level.var_cd139dc0;
 	if(isdefined(self.script_radius))
 	{
 		maxradius = self.script_radius;
@@ -278,16 +278,16 @@ function private function_218080fb()
 	{
 		maxradius = randomintrange(level.var_d18d7655, level.var_67432513);
 	}
-	self.var_bf5103a8 = int(((maxradius - var_c255bde9) / 800) + 0.5);
+	self.var_bf5103a8 = int(((maxradius - initialradius) / 800) + 0.5);
 	var_92d713c7 = level.var_aa6b51f5;
-	self.var_91017512 = (maxradius - var_c255bde9) / (self.var_bf5103a8 - 1);
+	self.var_91017512 = (maxradius - initialradius) / (self.var_bf5103a8 - 1);
 	self.circleradius = 800;
 	for(i = 0; i < self.var_bf5103a8; i++)
 	{
 		self.var_fa06c0e[i] = [];
 		self.var_e17ae8be[i] = [];
 		self.var_3401d807[i] = [];
-		var_4fc3d1c0 = var_c255bde9 + (self.var_91017512 * i);
+		var_4fc3d1c0 = initialradius + (self.var_91017512 * i);
 		var_f79106a4 = int(((var_4fc3d1c0 * 2) * 3.14159) / (self.circleradius / (1 / (1 + var_92d713c7))) + 0.5);
 		angledelta = 360 / var_f79106a4;
 		for(j = 0; j < var_f79106a4; j++)

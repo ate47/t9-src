@@ -52,7 +52,7 @@ function private function_70a657d8()
 	}
 	callback::add_weapon_type(#"nightingale", &function_85f37224);
 	level.var_4977c64a = getweapon(#"nightingale");
-	level.nightingale_custom_settings = getscriptbundle(level.var_4977c64a.var_4dd46f8a);
+	level.nightingale_custom_settings = getscriptbundle(level.var_4977c64a.customsettings);
 }
 
 /*

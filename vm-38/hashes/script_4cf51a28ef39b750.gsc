@@ -561,7 +561,7 @@ function function_b5f4f0c()
 	while(true)
 	{
 		s_notify = undefined;
-		s_notify = level waittill(#"hash_e66663be8ba322f");
+		s_notify = level waittill(#"fasttravel_bought");
 		s_notify.player zm_vo::function_604084ea();
 		if(!isdefined(level.var_a43447e4))
 		{
@@ -591,7 +591,7 @@ function function_b5f4f0c()
 function function_8b483cee()
 {
 	self endon(#"disconnect");
-	self waittill(#"hash_66790eb1100e11a2");
+	self waittill(#"fasttravel_finished");
 	while(is_true(level.var_f6ea0657))
 	{
 		waitframe(1);

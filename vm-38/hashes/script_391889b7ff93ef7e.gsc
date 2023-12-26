@@ -1,4 +1,4 @@
-#using script_ac6a30f1991e105;
+#using scripts\core_common\ai\systems\fx_character.csc;
 #using scripts\core_common\ai_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
@@ -31,7 +31,7 @@ function private autoexec function_611cc46d()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_78bf0dc450091c57", &function_70a657d8, undefined, undefined, undefined);
+	system::register(#"wz_ai_avogadro", &function_70a657d8, undefined, undefined, undefined);
 }
 
 /*

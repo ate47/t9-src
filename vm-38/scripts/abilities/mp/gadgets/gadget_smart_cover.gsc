@@ -50,13 +50,13 @@ function private autoexec __init__system__()
 function private function_70a657d8()
 {
 	init_shared();
-	function_649f8cbe(&function_c8d7d200);
+	function_649f8cbe(&onsmartcoverplaced);
 	function_a9427b5c(&function_a430cceb);
 	level.var_b57c1895 = &function_9a2b3318;
 }
 
 /*
-	Name: function_c8d7d200
+	Name: onsmartcoverplaced
 	Namespace: smart_cover
 	Checksum: 0xEF6FD263
 	Offset: 0x178
@@ -64,7 +64,7 @@ function private function_70a657d8()
 	Parameters: 1
 	Flags: Linked
 */
-function function_c8d7d200(smartcover)
+function onsmartcoverplaced(smartcover)
 {
 	self battlechatter::function_fc82b10(smartcover.weapon, smartcover.origin, smartcover);
 	self callback::callback(#"hash_70eeb7d813f149b2", {#cover:smartcover.smartcover, #owner:self});
@@ -105,10 +105,10 @@ function function_a430cceb(attacker, weapon)
 */
 function function_9a2b3318(origin, angles, player)
 {
-	if(isdefined(level.var_5101157d.bundle.var_bc78f60e))
+	if(isdefined(level.smartcoversettings.bundle.var_bc78f60e))
 	{
-		length2 = sqr(level.var_5101157d.bundle.var_bc78f60e + level.var_5101157d.bundle.maxwidth);
-		foreach(protectedzone in level.var_5101157d.var_d6a27a84)
+		length2 = sqr(level.smartcoversettings.bundle.var_bc78f60e + level.smartcoversettings.bundle.maxwidth);
+		foreach(protectedzone in level.smartcoversettings.var_d6a27a84)
 		{
 			if(isdefined(protectedzone))
 			{
@@ -134,7 +134,7 @@ function function_9a2b3318(origin, angles, player)
 */
 function function_18f38647(zone)
 {
-	array::add(level.var_5101157d.var_d6a27a84, zone);
+	array::add(level.smartcoversettings.var_d6a27a84, zone);
 }
 
 /*
@@ -148,6 +148,6 @@ function function_18f38647(zone)
 */
 function function_60a53911(zone)
 {
-	arrayremovevalue(level.var_5101157d.var_d6a27a84, zone);
+	arrayremovevalue(level.smartcoversettings.var_d6a27a84, zone);
 }
 

@@ -47,7 +47,7 @@ class cwz_revive_prompt : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -89,7 +89,7 @@ class cwz_revive_prompt : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -104,10 +104,10 @@ class cwz_revive_prompt : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("wz_revive_prompt");
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int");
-		cLUIelem::function_da693cbe("progress", 1, 5, "float");
-		cLUIelem::function_da693cbe("reviveProgress", 1, 5, "float");
-		cLUIelem::function_da693cbe("cowardsWay", 1, 1, "int");
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int");
+		cLUIelem::add_clientfield("progress", 1, 5, "float");
+		cLUIelem::add_clientfield("reviveProgress", 1, 5, "float");
+		cLUIelem::add_clientfield("cowardsWay", 1, 1, "int");
 	}
 
 	/*

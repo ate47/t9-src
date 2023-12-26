@@ -1,9 +1,9 @@
-#using script_1254ac024174d9c0;
+#using scripts\zm_common\trials\zm_trial_disable_buys.gsc;
 #using scripts\core_common\item_inventory.gsc;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_camos.gsc;
 #using script_698dd790cdc4965f;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\activecamo_shared.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -237,7 +237,7 @@ function update_hint_string(player)
 		}
 		return false;
 	}
-	if(namespace_497ab7da::is_active())
+	if(zm_trial_disable_buys::is_active())
 	{
 		self sethintstring(#"hash_55d25caf8f7bbb2f");
 		return true;

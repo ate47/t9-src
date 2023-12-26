@@ -33,7 +33,7 @@
 #using script_5fa6f3b5786efa65;
 #using script_60c2b013c242647;
 #using script_6b6510e124bad778;
-#using script_6f7b2cd5eb7f3e6d;
+#using scripts\core_common\ai\zombie_vortex.gsc;
 #using script_717759a5d2a40e63;
 #using script_74970cdde0a631ed;
 #using script_74a56359b7d02ab6;
@@ -782,7 +782,7 @@ class class_38f05ef0
 	}
 
 	/*
-		Name: function_fda2229d
+		Name: getdata
 		Namespace: namespace_38f05ef0
 		Checksum: 0xFBF963FB
 		Offset: 0x25D0
@@ -790,7 +790,7 @@ class class_38f05ef0
 		Parameters: 0
 		Flags: Linked
 	*/
-	function function_fda2229d()
+	function getdata()
 	{
 		return var_12094064;
 	}
@@ -910,7 +910,7 @@ class class_a08a1bec
 		}
 		if(!isdefined(data))
 		{
-			data = [[ itemdef ]]->function_fda2229d();
+			data = [[ itemdef ]]->getdata();
 		}
 		if(!isdefined(width))
 		{
@@ -1040,7 +1040,7 @@ class class_a08a1bec
 	}
 
 	/*
-		Name: function_fda2229d
+		Name: getdata
 		Namespace: namespace_a08a1bec
 		Checksum: 0x1B78D65E
 		Offset: 0x3840
@@ -1048,7 +1048,7 @@ class class_a08a1bec
 		Parameters: 1
 		Flags: Linked
 	*/
-	function function_fda2229d(data)
+	function getdata(data)
 	{
 		return var_12094064;
 	}
@@ -1523,7 +1523,7 @@ function function_f9ae7957()
 	}
 	if(type == 1)
 	{
-		data = [[ self ]]->function_fda2229d();
+		data = [[ self ]]->getdata();
 		if(isdefined(data))
 		{
 			switch(data)
@@ -2343,7 +2343,7 @@ function function_2ebebd0c()
 				case 1:
 				case 13:
 				{
-					player namespace_eccff4fb::function_9e8690e0(self, [[ self.def ]]->function_fda2229d());
+					player namespace_eccff4fb::function_9e8690e0(self, [[ self.def ]]->getdata());
 					self function_4ecd84a8(player);
 					break;
 				}
@@ -2735,7 +2735,7 @@ function function_cbae9ca3()
 	playerw = 25;
 	var_b2876baf = playerz + playerh;
 	var_4eae5a61 = playerx - playerw;
-	var_a82b48d6 = playerx + playerw;
+	playerright = playerx + playerw;
 	var_a2eaa855 = playery - playerw;
 	var_ec175a2f = playery + playerw;
 	foreach(pickup in self.doa.var_ad888d1f)
@@ -2758,7 +2758,7 @@ function function_cbae9ca3()
 		var_acf65447 = pickup.origin[0];
 		minx = var_acf65447 - var_ed781dc;
 		maxx = var_acf65447 + var_ed781dc;
-		if(maxx < var_4eae5a61 || minx > var_a82b48d6)
+		if(maxx < var_4eae5a61 || minx > playerright)
 		{
 			continue;
 		}
@@ -3037,7 +3037,7 @@ function function_2cfd5616(popvec)
 */
 function function_2c64b1c7()
 {
-	data = [[ self.pickup ]]->function_fda2229d();
+	data = [[ self.pickup ]]->getdata();
 	self.scale = ((data & 65535) / 65535) * 10;
 	self.popup = data >> 16;
 	self setscale(self.scale);

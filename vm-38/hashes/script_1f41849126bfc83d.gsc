@@ -50,9 +50,9 @@ function private function_70a657d8()
 		return;
 	}
 	callback::on_spawned(&_on_player_spawned);
-	clientfield::function_a8bbc967("hudItems.incursion.radiationDamage", 1, 5, "float");
-	clientfield::function_a8bbc967("hudItems.incursion.radiationProtection", 1, 5, "float");
-	clientfield::function_a8bbc967("hudItems.incursion.radiationHealth", 1, 5, "float");
+	clientfield::register_clientuimodel("hudItems.incursion.radiationDamage", 1, 5, "float");
+	clientfield::register_clientuimodel("hudItems.incursion.radiationProtection", 1, 5, "float");
+	clientfield::register_clientuimodel("hudItems.incursion.radiationHealth", 1, 5, "float");
 	clientfield::register("toplayer", "radiation", 1, 10, "int");
 }
 

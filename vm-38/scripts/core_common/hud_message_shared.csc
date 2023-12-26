@@ -64,7 +64,7 @@ function function_65299180(localclientnum, var_e69b15f0, var_ba0dbe09)
 	setuimodelvalue(getuimodel(var_683a6ce, #"numargs"), var_ba0dbe09.size);
 	if(!setuimodelvalue(var_683a6ce, var_e69b15f0))
 	{
-		function_9a227103(var_683a6ce);
+		forcenotifyuimodel(var_683a6ce);
 	}
 }
 

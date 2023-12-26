@@ -42,12 +42,12 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::register("toplayer", "dot_splatter", 1, 1, "counter", &function_ed8f4835, 0, 0);
-	clientfield::register("toplayer", "dot_no_splatter", 1, 1, "counter", &function_b7f70b8a, 0, 0);
+	clientfield::register("toplayer", "dot_splatter", 1, 1, "counter", &on_dot_splatter, 0, 0);
+	clientfield::register("toplayer", "dot_no_splatter", 1, 1, "counter", &on_dot_no_splatter, 0, 0);
 }
 
 /*
-	Name: function_ed8f4835
+	Name: on_dot_splatter
 	Namespace: status_effect_dot
 	Checksum: 0x7D8197D7
 	Offset: 0x1B8
@@ -55,13 +55,13 @@ function private function_70a657d8()
 	Parameters: 7
 	Flags: Linked
 */
-function function_ed8f4835(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function on_dot_splatter(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
-	self.var_430c4b70 = 1;
+	self.dot_damaged = 1;
 }
 
 /*
-	Name: function_b7f70b8a
+	Name: on_dot_no_splatter
 	Namespace: status_effect_dot
 	Checksum: 0x85F6903F
 	Offset: 0x210
@@ -69,7 +69,7 @@ function function_ed8f4835(localclientnum, oldval, newval, bnewent, binitialsnap
 	Parameters: 7
 	Flags: Linked
 */
-function function_b7f70b8a(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
+function on_dot_no_splatter(localclientnum, oldval, newval, bnewent, binitialsnap, fieldname, bwastimejump)
 {
 	self.dot_no_splatter = 1;
 }

@@ -105,7 +105,7 @@ function init()
 	}
 	level.doa.doa_bundle = getscriptbundle("doa_bundle");
 	level thread function_170b90e5();
-	callback::add_callback(#"hash_4e1a50a35ec44bcc", &on_menu_response);
+	callback::add_callback(#"menu_response", &on_menu_response);
 }
 
 /*
@@ -258,7 +258,7 @@ function function_32d5e898()
 	level.doa.var_65a70dc = doa_enemy::function_d7c5adee("basic_zombie");
 	function_3ca3c6e4();
 	function_9ad4988();
-	setdvar(#"hash_54488b7c651bd0ec", 0);
+	setdvar(#"ui_busyblockingamemenu", 0);
 }
 
 /*
@@ -668,7 +668,7 @@ function function_49592bf9(var_4b98f072)
 	level endon(#"hash_47730e778d03543b");
 	self endon(#"disconnect");
 	var_7d86dbf8 = self gamepadusedlast();
-	setdvar(#"hash_54488b7c651bd0ec", !var_7d86dbf8);
+	setdvar(#"ui_busyblockingamemenu", !var_7d86dbf8);
 	while(true)
 	{
 		waitresult = undefined;
@@ -678,7 +678,7 @@ function function_49592bf9(var_4b98f072)
 		{
 			var_4b98f072.result = 0;
 			var_4b98f072.timeleft = 0;
-			setdvar(#"hash_54488b7c651bd0ec", 0);
+			setdvar(#"ui_busyblockingamemenu", 0);
 			level notify(#"hash_47730e778d03543b");
 			return;
 		}
@@ -731,7 +731,7 @@ function function_295c3381(var_4b98f072)
 		{
 			var_4b98f072.result = 1;
 			var_4b98f072.timeleft = 0;
-			setdvar(#"hash_54488b7c651bd0ec", 0);
+			setdvar(#"ui_busyblockingamemenu", 0);
 			return;
 		}
 		if(self secondaryoffhandbuttonpressed())

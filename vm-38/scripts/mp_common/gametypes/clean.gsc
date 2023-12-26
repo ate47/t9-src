@@ -1,5 +1,5 @@
 #using script_1cc417743d7c262d;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
 #using scripts\abilities\mp\gadgets\gadget_concertina_wire.gsc;
 #using script_44b0b8420eabacad;
@@ -69,8 +69,8 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.cleanCarryCount", 14000, 4, "int");
-	clientfield::function_a8bbc967("hudItems.cleanCarryFull", 14000, 1, "int");
+	clientfield::register_clientuimodel("hudItems.cleanCarryCount", 14000, 4, "int");
+	clientfield::register_clientuimodel("hudItems.cleanCarryFull", 14000, 1, "int");
 	clientfield::register("scriptmover", "taco_flag", 14000, 2, "int");
 	clientfield::register("allplayers", "taco_carry", 14000, 1, "int");
 	clientfield::register("scriptmover", "taco_waypoint", 14000, 1, "int");
@@ -197,16 +197,16 @@ function function_aafe4c74()
 			taco clientfield::set("taco_flag", 0);
 		}
 	}
-	foreach(var_f30b24ef in level.cleandeposithubs)
+	foreach(deposithub in level.cleandeposithubs)
 	{
-		var_f30b24ef stoploopsound();
-		if(isdefined(var_f30b24ef.baseeffect))
+		deposithub stoploopsound();
+		if(isdefined(deposithub.baseeffect))
 		{
-			var_f30b24ef.baseeffect delete();
+			deposithub.baseeffect delete();
 		}
-		if(isdefined(var_f30b24ef.var_a9079d5e))
+		if(isdefined(deposithub.var_a9079d5e))
 		{
-			var_f30b24ef.var_a9079d5e delete();
+			deposithub.var_a9079d5e delete();
 		}
 	}
 	foreach(player in level.players)
@@ -457,7 +457,7 @@ function function_903c4eff(victim, attacker, pos, yawangle)
 	self.var_2581d0d notsolid();
 	self thread function_8cb72ba4();
 	self thread function_9415d18b();
-	self thread function_8f7a9a20();
+	self thread timeout_wait();
 }
 
 /*
@@ -517,7 +517,7 @@ function function_9415d18b()
 }
 
 /*
-	Name: function_8f7a9a20
+	Name: timeout_wait
 	Namespace: clean
 	Checksum: 0x46B25795
 	Offset: 0x1BB0
@@ -525,7 +525,7 @@ function function_9415d18b()
 	Parameters: 0
 	Flags: None
 */
-function function_8f7a9a20()
+function timeout_wait()
 {
 	level endon(#"game_ended");
 	self endon(#"reset");
@@ -646,8 +646,8 @@ function private function_8c1a5f77()
 	level.cleandeposithubs = [];
 	foreach(point in level.cleandepositpoints)
 	{
-		var_f30b24ef = function_bad2b0d4(point);
-		level.cleandeposithubs[level.cleandeposithubs.size] = var_f30b24ef;
+		deposithub = function_bad2b0d4(point);
+		level.cleandeposithubs[level.cleandeposithubs.size] = deposithub;
 	}
 }
 
@@ -703,17 +703,17 @@ function function_bad2b0d4(origin)
 {
 	trigger = spawn("trigger_radius", origin, 0, 60, 108);
 	visuals[0] = spawn("script_model", trigger.origin);
-	var_f30b24ef = gameobjects::create_use_object(#"neutral", trigger, visuals, undefined, level.var_dfce3f1c);
-	var_f30b24ef gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
-	var_f30b24ef gameobjects::set_visible(#"hash_5ccfd7bbbf07c770");
-	var_f30b24ef gameobjects::set_use_time(0);
-	var_f30b24ef gameobjects::disable_object();
-	var_f30b24ef.onuse = &function_83e87bd5;
-	var_f30b24ef.canuseobject = &function_1237ad98;
-	var_f30b24ef.effectorigin = trigger.origin + vectorscale((0, 0, 1), 4);
-	var_f30b24ef.influencer = influencers::create_influencer("clean_deposit_hub", var_f30b24ef.origin, 0);
-	enableinfluencer(var_f30b24ef.influencer, 0);
-	return var_f30b24ef;
+	deposithub = gameobjects::create_use_object(#"neutral", trigger, visuals, undefined, level.var_dfce3f1c);
+	deposithub gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
+	deposithub gameobjects::set_visible(#"hash_5ccfd7bbbf07c770");
+	deposithub gameobjects::set_use_time(0);
+	deposithub gameobjects::disable_object();
+	deposithub.onuse = &function_83e87bd5;
+	deposithub.canuseobject = &function_1237ad98;
+	deposithub.effectorigin = trigger.origin + vectorscale((0, 0, 1), 4);
+	deposithub.influencer = influencers::create_influencer("clean_deposit_hub", deposithub.origin, 0);
+	enableinfluencer(deposithub.influencer, 0);
+	return deposithub;
 }
 
 /*
@@ -800,17 +800,17 @@ function function_fd08eb25()
 			objective_setstate(level.var_96226f2e, "invisible");
 		}
 		var_e0b73154 = (isdefined(var_79efdaa0) ? var_79efdaa0 : function_e3e1cf54(var_696c0ca5));
-		var_f30b24ef = level.cleandeposithubs[var_e0b73154];
+		deposithub = level.cleandeposithubs[var_e0b73154];
 		var_79efdaa0 = function_e3e1cf54(var_e0b73154);
-		var_f30b24ef gameobjects::enable_object();
-		var_f30b24ef gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
-		smart_cover::function_18f38647(var_f30b24ef.trigger);
-		concertina_wire::function_18f38647(var_f30b24ef.trigger);
-		var_f30b24ef thread function_b8a3dde4();
-		enableinfluencer(var_f30b24ef.influencer, 1);
+		deposithub gameobjects::enable_object();
+		deposithub gameobjects::allow_use(#"hash_5ccfd7bbbf07c770");
+		smart_cover::function_18f38647(deposithub.trigger);
+		concertina_wire::function_18f38647(deposithub.trigger);
+		deposithub thread function_b8a3dde4();
+		enableinfluencer(deposithub.influencer, 1);
 		if(isdefined(level.var_1940f14e))
 		{
-			level.var_1940f14e.origin = var_f30b24ef.origin;
+			level.var_1940f14e.origin = deposithub.origin;
 			level.var_1940f14e show();
 		}
 		setmatchflag("bomb_timer_a", 1);
@@ -848,18 +848,18 @@ function function_fd08eb25()
 		{
 			wait(level.cleandepositonlinetime);
 		}
-		smart_cover::function_60a53911(var_f30b24ef.trigger);
-		concertina_wire::function_60a53911(var_f30b24ef.trigger);
-		var_f30b24ef gameobjects::disable_object();
-		var_f30b24ef gameobjects::allow_use(#"hash_161f03feaadc9b8f");
-		var_f30b24ef gameobjects::set_visible(#"hash_161f03feaadc9b8f");
-		enableinfluencer(var_f30b24ef.influencer, 0);
-		var_f30b24ef stoploopsound();
+		smart_cover::function_60a53911(deposithub.trigger);
+		concertina_wire::function_60a53911(deposithub.trigger);
+		deposithub gameobjects::disable_object();
+		deposithub gameobjects::allow_use(#"hash_161f03feaadc9b8f");
+		deposithub gameobjects::set_visible(#"hash_161f03feaadc9b8f");
+		enableinfluencer(deposithub.influencer, 0);
+		deposithub stoploopsound();
 		if(isdefined(level.var_1940f14e))
 		{
 			level.var_1940f14e hide();
 		}
-		var_f30b24ef.baseeffect delete();
+		deposithub.baseeffect delete();
 	}
 }
 
@@ -1245,7 +1245,7 @@ function function_bbcf6af(attacker, yawangle)
 	self clientfield::set_player_uimodel("hudItems.cleanCarryCount", self.carriedtacos);
 	self function_fccce038();
 	/#
-		dropcount = dropcount + getdvarint(#"hash_28135ad78580b035", 0);
+		dropcount = dropcount + getdvarint(#"extratacos", 0);
 	#/
 	var_8a33c2ea = 360 / (dropcount + 1);
 	for(i = 0; i < dropcount; i++)

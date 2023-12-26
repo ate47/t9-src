@@ -31,7 +31,7 @@ function private autoexec function_5d060761()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_tungsten_ffotd", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_tungsten_ffotd", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -48,7 +48,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_tungsten_ffotd
 	Checksum: 0x737D9A08
 	Offset: 0x268
@@ -56,7 +56,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level thread function_e0cfb01("zone_service_tunnels_02_spawns", (4938.35, -2918.99, -3247.5));
 	level thread function_e0cfb01("zone_service_tunnels_01_spawns", (6619.54, -2900.19, -3207));

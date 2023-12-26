@@ -1,4 +1,4 @@
-#using script_240ef62ff60b2694;
+#using scripts\core_common\player\player_stats.csc;
 #using scripts\core_common\aat_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;

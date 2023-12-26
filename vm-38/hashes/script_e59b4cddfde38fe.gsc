@@ -48,7 +48,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -66,10 +66,10 @@ function private function_70a657d8()
 */
 function private on_begin(var_a84ac7c8, str_archetype, n_kill_count, str_destination, str_zone1, str_zone2, var_588808b1, var_91e2fb66, var_84245fe9)
 {
-	var_1968096a = [4:var_84245fe9, 3:var_91e2fb66, 2:var_588808b1, 1:str_zone2, 0:str_zone1];
-	arrayremovevalue(var_1968096a, undefined, 0);
+	str_zones = [4:var_84245fe9, 3:var_91e2fb66, 2:var_588808b1, 1:str_zone2, 0:str_zone1];
+	arrayremovevalue(str_zones, undefined, 0);
 	level.var_8c6f70d0 = [];
-	foreach(str_zone in var_1968096a)
+	foreach(str_zone in str_zones)
 	{
 		if(!isdefined(level.var_8c6f70d0))
 		{

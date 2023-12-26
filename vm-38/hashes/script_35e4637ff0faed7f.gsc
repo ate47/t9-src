@@ -714,7 +714,7 @@ function function_2205d3f9()
 	if(isdefined(truck))
 	{
 		snd::play("veh_tkd_chase_jeepbump_rev", truck);
-		truck callback::function_36aab2f3(&function_bfd50c68);
+		truck callback::on_vehicle_collision(&function_bfd50c68);
 		truck waittill(#"death");
 		snd::play("veh_tkd_chase_jeepbump_explo_01", truck);
 	}
@@ -2195,7 +2195,7 @@ function function_f311ea18(var_bbe56cd4)
 	self.active = 1;
 	self thread function_2682a954();
 	wait(2);
-	level.var_e561515d callback::function_36aab2f3(&function_53e16f01);
+	level.var_e561515d callback::on_vehicle_collision(&function_53e16f01);
 	level waittill(#"rc_detonate");
 	self.active = undefined;
 	self namespace_db2381c4::function_fe8be1e0();
@@ -2889,7 +2889,7 @@ function function_31c124f2()
 		var_5dc5c128++;
 		waitframe(1);
 	}
-	if(level.player stats::function_441050ca(#"hash_6cf378bf26dccb10") == 0)
+	if(level.player stats::get_stat_global(#"hash_6cf378bf26dccb10") == 0)
 	{
 		level.player stats::function_dad108fa(#"hash_6cf378bf26dccb10", 1);
 	}

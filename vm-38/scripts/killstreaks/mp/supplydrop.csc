@@ -1,4 +1,4 @@
-#using script_3d31ed135d4747;
+#using scripts\killstreaks\supplydrop_shared.csc;
 #using scripts\core_common\system_shared.csc;
 
 #namespace supplydrop;

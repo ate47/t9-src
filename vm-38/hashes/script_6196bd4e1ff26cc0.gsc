@@ -1,4 +1,4 @@
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\core_common\flag_shared.gsc;
 #using scripts\core_common\system_shared.gsc;

@@ -1,5 +1,5 @@
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
 #using scripts\core_common\struct.gsc;
@@ -50,7 +50,7 @@ event main(eventstruct)
 	level._game_module_custom_spawn_init_func = &zm_gametype::custom_spawn_init_func;
 	level._game_module_stat_update_func = &zm_stats::survival_classic_custom_stat_update;
 	level._round_start_func = &zm_round_logic::round_start;
-	zm_player::register_player_damage_callback(&function_567c449a);
+	zm_player::register_player_damage_callback(&playerdamagecallback);
 	callback::on_spawned(&onplayerspawned);
 }
 
@@ -82,8 +82,8 @@ function onstartgametype()
 	zm_behavior::function_70a657d8();
 	zm_cleanup::function_70a657d8();
 	zm_spawner::init();
-	zm_behavior::function_8ac3bea9();
-	zm_cleanup::function_8ac3bea9();
+	zm_behavior::postinit();
+	zm_cleanup::postinit();
 	level.spawnmins = (0, 0, 0);
 	level.spawnmaxs = (0, 0, 0);
 	structs = struct::get_array("player_respawn_point", "targetname");
@@ -131,7 +131,7 @@ function onscorelimit()
 }
 
 /*
-	Name: function_567c449a
+	Name: playerdamagecallback
 	Namespace: zgrief
 	Checksum: 0x22697615
 	Offset: 0x5C8
@@ -139,7 +139,7 @@ function onscorelimit()
 	Parameters: 10
 	Flags: None
 */
-function function_567c449a(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
+function playerdamagecallback(einflictor, eattacker, idamage, idflags, smeansofdeath, weapon, vpoint, vdir, shitloc, psoffsettime)
 {
 	if(isdefined(shitloc) && isplayer(shitloc))
 	{

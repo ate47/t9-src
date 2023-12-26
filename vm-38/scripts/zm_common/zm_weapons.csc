@@ -40,7 +40,7 @@ function private autoexec function_59f5f6e3()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_weapons", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_weapons", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -72,7 +72,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_weapons
 	Checksum: 0xFD3206C9
 	Offset: 0x2E0
@@ -80,7 +80,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	init_weapons();
 	function_8389c033(#"ray_gun", #"ray_gun");
@@ -210,7 +210,7 @@ function private on_player_connect(localclientnum)
 	}
 	resetweaponcosts(localclientnum);
 	level flag::wait_till("weapon_table_loaded");
-	if(getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(getgametypesetting(#"zmwallbuysenabled"))
 	{
 		level flag::wait_till("weapon_wallbuys_created");
 	}
@@ -515,7 +515,7 @@ function private function_350ee41()
 		}
 		level.var_8bd4028f[level.var_8bd4028f.size] = s_item.var_a6762160;
 		var_89230090 = getscriptbundle(s_item.var_a6762160);
-		weapon = namespace_ad5a0cd6::function_35e06774(var_89230090, isdefined(var_89230090.attachments));
+		weapon = item_world_util::function_35e06774(var_89230090, isdefined(var_89230090.attachments));
 		if(isweapon(weapon))
 		{
 			if(!isdefined(level.var_c8b5248e))
@@ -546,7 +546,7 @@ function private function_350ee41()
 */
 function load_weapon_spec_from_table(table, first_row)
 {
-	gametype = util::function_5df4294();
+	gametype = util::get_game_type();
 	index = first_row;
 	row = tablelookuprow(table, index);
 	while(isdefined(row))

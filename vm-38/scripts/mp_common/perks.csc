@@ -67,9 +67,9 @@ function private function_70a657d8()
 	level.sitrepscan2_setradius = getdvarint(#"scr_sitrepscan2_setradius", 50000);
 	level.sitrepscan2_setfalloff = getdvarfloat(#"scr_sitrepscan2_setfalloff", 0.01);
 	level.sitrepscan2_setdesat = getdvarfloat(#"scr_sitrepscan2_setdesat", 0.4);
-	callback::function_d46d9315(&function_d46d9315);
+	callback::on_gameplay_started(&on_gameplay_started);
 	level.var_6fc25f5c = getscriptbundle(#"awareness");
-	level.var_842a5e1f = getscriptbundle(#"hash_7223a3f0f10bc07c");
+	level.var_842a5e1f = getscriptbundle(#"awareness_deadsilence");
 	/#
 		level thread updatedvars();
 	#/
@@ -173,7 +173,7 @@ function on_localplayer_spawned(local_client_num)
 }
 
 /*
-	Name: function_d46d9315
+	Name: on_gameplay_started
 	Namespace: perks
 	Checksum: 0xD53E3BE
 	Offset: 0xAB0
@@ -181,7 +181,7 @@ function on_localplayer_spawned(local_client_num)
 	Parameters: 1
 	Flags: Linked
 */
-function function_d46d9315(local_client_num)
+function on_gameplay_started(local_client_num)
 {
 	if(sessionmodeismultiplayergame() && !isdefined(level.var_783d3911))
 	{
@@ -704,9 +704,9 @@ function function_3edf2cf8(dist_sq, var_73491815, var_47435b6f)
 	Parameters: 2
 	Flags: Linked
 */
-function function_365c39ef(var_c91d7aa9, bundle)
+function function_365c39ef(awareness_action, bundle)
 {
-	switch(var_c91d7aa9)
+	switch(awareness_action)
 	{
 		case "slide_start":
 		{
@@ -716,11 +716,11 @@ function function_365c39ef(var_c91d7aa9, bundle)
 		{
 			return bundle.var_fe0aa1d2;
 		}
-		case "hash_156b3d94aec3cb34":
+		case "damage_landing":
 		{
 			return bundle.var_6ae8117c;
 		}
-		case "hash_7d2d2a481c2aa519":
+		case "doublejump_boosted":
 		{
 			return bundle.var_37bac39d;
 		}
@@ -749,13 +749,13 @@ function function_365c39ef(var_c91d7aa9, bundle)
 	Parameters: 4
 	Flags: Linked
 */
-function function_255fe01d(var_bf36ab55, var_56a8d7eb, playerforward, var_a82b48d6)
+function function_255fe01d(var_bf36ab55, var_56a8d7eb, playerforward, playerright)
 {
 	vector = var_bf36ab55 - var_56a8d7eb;
 	vectorflat = vectornormalize((vector[0], vector[1], 0));
 	var_451ea257 = vectordot(vectorflat, playerforward);
 	var_2f93b65 = var_451ea257 > 0;
-	var_8add8d51 = vectordot(vectorflat, var_a82b48d6);
+	var_8add8d51 = vectordot(vectorflat, playerright);
 	var_b1d7b2f5 = var_8add8d51 > 0;
 	if(var_2f93b65)
 	{
@@ -827,8 +827,8 @@ function function_f648816a(local_client_num)
 		var_bb2f1c40 = pow(2, 3);
 		for(index = level.nearbyspawns.size - 1; index >= 0; index--)
 		{
-			var_ea16bd7 = getservertime(local_client_num) - level.nearbyspawns[index].spawntime;
-			if(2500 < var_ea16bd7)
+			difftime = getservertime(local_client_num) - level.nearbyspawns[index].spawntime;
+			if(2500 < difftime)
 			{
 				arrayremoveindex(level.nearbyspawns, index);
 				continue;
@@ -871,8 +871,8 @@ function function_e3426b1f(local_client_num)
 		var_92c1a6b3 = [];
 		for(index = level.nearbyspawns.size - 1; index >= 0; index--)
 		{
-			var_ea16bd7 = getservertime(local_client_num) - level.nearbyspawns[index].spawntime;
-			if(2500 < var_ea16bd7)
+			difftime = getservertime(local_client_num) - level.nearbyspawns[index].spawntime;
+			if(2500 < difftime)
 			{
 				arrayremoveindex(level.nearbyspawns, index);
 				continue;
@@ -940,7 +940,7 @@ function monitor_detectnearbyenemies(local_client_num)
 			{
 				level.var_6fc25f5c = getscriptbundle(#"awareness");
 				var_55336d8d = level.var_6fc25f5c;
-				level.var_842a5e1f = getscriptbundle(#"hash_7223a3f0f10bc07c");
+				level.var_842a5e1f = getscriptbundle(#"awareness_deadsilence");
 				var_c394e130 = level.var_842a5e1f;
 			}
 		#/
@@ -1214,7 +1214,7 @@ function function_c2b5b27c(local_client_num)
 	while(true)
 	{
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_f741860b69ec1b1");
+		waitresult = self waittill(#"awareness_action");
 		if(isdefined(waitresult.var_53714565))
 		{
 			var_9f19a239 = waitresult.var_53714565;

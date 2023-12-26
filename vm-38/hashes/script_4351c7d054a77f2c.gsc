@@ -58,7 +58,7 @@ class cSpectreRisingIndicator : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: cSpectreRisingIndicator
 		Checksum: 0xA76C33
 		Offset: 0x438
@@ -66,9 +66,9 @@ class cSpectreRisingIndicator : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("SpectreRisingIndicator");
+		cLUIelem::register_clientside("SpectreRisingIndicator");
 	}
 
 	/*
@@ -97,8 +97,8 @@ class cSpectreRisingIndicator : cLUIelem
 	function setup_clientfields(var_c05c67e2, var_f25b9f45)
 	{
 		cLUIelem::setup_clientfields("SpectreRisingIndicator");
-		cLUIelem::function_da693cbe("clientnum", 1, 7, "int", var_c05c67e2);
-		cLUIelem::function_da693cbe("isAlive", 1, 1, "int", var_f25b9f45);
+		cLUIelem::add_clientfield("clientnum", 1, 7, "int", var_c05c67e2);
+		cLUIelem::add_clientfield("isAlive", 1, 1, "int", var_f25b9f45);
 	}
 
 	/*
@@ -168,7 +168,7 @@ function register(var_c05c67e2, var_f25b9f45)
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: spectrerisingindicator
 	Checksum: 0x2E88A5B9
 	Offset: 0x278
@@ -176,10 +176,10 @@ function register(var_c05c67e2, var_f25b9f45)
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new cSpectreRisingIndicator();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -15,7 +15,7 @@ function private autoexec function_b7835160()
 }
 
 /*
-	Name: function_d0ac8d8
+	Name: get_jumpkits
 	Namespace: namespace_eb06e24d
 	Checksum: 0x7EE10776
 	Offset: 0x80
@@ -23,11 +23,11 @@ function private autoexec function_b7835160()
 	Parameters: 0
 	Flags: Linked
 */
-function function_d0ac8d8()
+function get_jumpkits()
 {
 	if(!isdefined(level.var_aadba305))
 	{
-		level.var_aadba305 = (isdefined(getscriptbundlelist(#"hash_4c4900fca46d6c74")) ? getscriptbundlelist(#"hash_4c4900fca46d6c74") : array());
+		level.var_aadba305 = (isdefined(getscriptbundlelist(#"jumpkits")) ? getscriptbundlelist(#"jumpkits") : array());
 	}
 	return level.var_aadba305;
 }
@@ -43,7 +43,7 @@ function function_d0ac8d8()
 */
 function function_3045dd71()
 {
-	return function_d0ac8d8().size;
+	return get_jumpkits().size;
 }
 
 /*
@@ -57,18 +57,18 @@ function function_3045dd71()
 */
 function function_550c6257(var_ff60755f)
 {
-	var_f51354c7 = function_d0ac8d8();
+	jumpkits = get_jumpkits();
 	/#
-		assert(var_f51354c7.size > 0);
+		assert(jumpkits.size > 0);
 	#/
 	/#
-		assert(isdefined(var_f51354c7[0]));
+		assert(isdefined(jumpkits[0]));
 	#/
-	if(var_ff60755f < 0 || var_ff60755f >= var_f51354c7.size || !isdefined(var_f51354c7[var_ff60755f]))
+	if(var_ff60755f < 0 || var_ff60755f >= jumpkits.size || !isdefined(jumpkits[var_ff60755f]))
 	{
 		var_ff60755f = 0;
 	}
-	return getscriptbundle(var_f51354c7[var_ff60755f]);
+	return getscriptbundle(jumpkits[var_ff60755f]);
 }
 
 /*
@@ -132,7 +132,7 @@ function private function_c72eb508()
 		return self.var_9f20891;
 	}
 	count = function_3045dd71();
-	self.var_9f20891 = function_d59c2d03(count, level.var_cca3647d + self getentitynumber());
+	self.var_9f20891 = function_d59c2d03(count, level.item_spawn_seed + self getentitynumber());
 	return self.var_9f20891;
 }
 
@@ -167,7 +167,7 @@ function private function_37ae175b(type)
 }
 
 /*
-	Name: function_fc6b6f3b
+	Name: get_parachute
 	Namespace: namespace_eb06e24d
 	Checksum: 0x35F78C05
 	Offset: 0x4D8
@@ -175,13 +175,13 @@ function private function_37ae175b(type)
 	Parameters: 0
 	Flags: Linked
 */
-function function_fc6b6f3b()
+function get_parachute()
 {
 	return function_83a2cad4(self function_37ae175b(0));
 }
 
 /*
-	Name: function_4a22ec61
+	Name: get_parachute_kit
 	Namespace: namespace_eb06e24d
 	Checksum: 0xF8C11F27
 	Offset: 0x510
@@ -189,13 +189,13 @@ function function_fc6b6f3b()
 	Parameters: 0
 	Flags: None
 */
-function function_4a22ec61()
+function get_parachute_kit()
 {
 	return function_550c6257(self function_37ae175b(0));
 }
 
 /*
-	Name: function_c772633d
+	Name: get_wingsuit
 	Namespace: namespace_eb06e24d
 	Checksum: 0xBA7F209A
 	Offset: 0x548
@@ -203,13 +203,13 @@ function function_4a22ec61()
 	Parameters: 0
 	Flags: Linked
 */
-function function_c772633d()
+function get_wingsuit()
 {
 	return function_aa3a05b1(self function_37ae175b(2));
 }
 
 /*
-	Name: function_3c54cdb1
+	Name: get_wingsuit_kit
 	Namespace: namespace_eb06e24d
 	Checksum: 0xCEE3A2AB
 	Offset: 0x580
@@ -217,13 +217,13 @@ function function_c772633d()
 	Parameters: 0
 	Flags: None
 */
-function function_3c54cdb1()
+function get_wingsuit_kit()
 {
 	return function_550c6257(self function_37ae175b(2));
 }
 
 /*
-	Name: function_2328db2c
+	Name: get_trailfx
 	Namespace: namespace_eb06e24d
 	Checksum: 0x7F416C2
 	Offset: 0x5B8
@@ -231,7 +231,7 @@ function function_3c54cdb1()
 	Parameters: 0
 	Flags: None
 */
-function function_2328db2c()
+function get_trailfx()
 {
 	return function_6452f9c5(self function_37ae175b(1));
 }

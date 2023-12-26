@@ -1,20 +1,20 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using script_2c5daa95f8fec03c;
 #using scripts\core_common\ai\archetype_mocomps_utility.gsc;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_3819e7a1427df6d2;
-#using script_3aa0f32b70d4f7cb;
-#using script_3f9e0dc8454d98e1;
-#using script_41fe08c37d53a635;
-#using script_4bf952f6ba31bb17;
-#using script_4d85e8de54b02198;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\systems\destructible_character.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_mocomp.gsc;
+#using scripts\core_common\ai\systems\animation_state_machine_notetracks.gsc;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using script_5e0bde12853401b5;
-#using script_6809bf766eba194a;
-#using script_71dfbfdfba4489a0;
+#using scripts\core_common\ai\archetype_utility.gsc;
+#using scripts\core_common\ai\systems\debug.gsc;
 #using scripts\zm_common\ai\zm_ai_utility.gsc;
 #using scripts\weapons\weaponobjects.gsc;
-#using script_caf007e2a98afa2;
+#using scripts\core_common\ai\systems\animation_state_machine_utility.gsc;
 #using scripts\core_common\aat_shared.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -1869,7 +1869,7 @@ function private mechzspawnsetup()
 	self.stumble_stun_cooldown_time = gettime();
 	self.jump_cooldown = 0;
 	self.var_e9c62827 = 1;
-	self weaponobjects::function_9d7ae85f("eq_mechz_firebomb", &function_d0651b24, 1);
+	self weaponobjects::createwatcher("eq_mechz_firebomb", &function_d0651b24, 1);
 	/#
 		self.debug_traversal_ast = "";
 	#/
@@ -2443,7 +2443,7 @@ function function_53f176ae(eventstruct)
 			break;
 		}
 		case "alerted":
-		case "hash_37f66b10bf727fdf":
+		case "melee_notetrack":
 		case "hash_42df88229e5571c4":
 		case "jump":
 		case "hash_7ab80d642b09800b":

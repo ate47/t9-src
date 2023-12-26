@@ -1,6 +1,6 @@
 #using script_1cc417743d7c262d;
-#using script_545a0bac37bda541;
-#using script_57f7003580bb15e0;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\weapons\deployable.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -48,7 +48,7 @@ function init_shared()
 	weapon = getweapon(#"tear_gas");
 	clientfield::register("toplayer", "in_tear_gas", 1, 2, "int");
 	weaponobjects::function_e6400478(#"tear_gas", &function_db9e3adb, 0);
-	deployable::function_2e088f73(weapon);
+	deployable::register_deployable(weapon);
 	globallogic_score::function_a458dbe1(#"hash_69c2a47bf2322b6b", &function_dbdedd18);
 	callback::on_finalize_initialization(&function_1c601b99);
 }
@@ -96,7 +96,7 @@ function function_bff5c062(teargas, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			teargas notify(#"hash_602ae7ca650d6287");
+			teargas notify(#"cancel_timeout");
 			teargas thread weaponobjects::weapon_object_timeout(teargas.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
@@ -124,9 +124,9 @@ function function_db9e3adb(watcher)
 	watcher.var_8eda8949 = (0, 0, 0);
 	watcher.stuntime = 1;
 	watcher.var_10efd558 = "switched_field_upgrade";
-	if(isdefined(watcher.weapon.var_4dd46f8a))
+	if(isdefined(watcher.weapon.customsettings))
 	{
-		var_e6fbac16 = getscriptbundle(watcher.weapon.var_4dd46f8a);
+		var_e6fbac16 = getscriptbundle(watcher.weapon.customsettings);
 		watcher.var_20d0363e = var_e6fbac16.var_af22b5dc;
 		watcher.activationdelay = var_e6fbac16.var_a3fd61e7;
 		watcher.detectiongraceperiod = (isdefined(var_e6fbac16.var_88b0248b) ? var_e6fbac16.var_88b0248b : 0);
@@ -153,7 +153,7 @@ function function_db9e3adb(watcher)
 */
 function function_dbdedd18(attacker, victim, var_3d1ed4bd, weapon, meansofdeath)
 {
-	victim contracts::function_a54e2068(#"hash_d9376f51d3c734c");
+	victim contracts::increment_contract(#"hash_d9376f51d3c734c");
 	if(meansofdeath != weapon)
 	{
 		level scoreevents::function_2a2e1723(#"hash_5a02ff4e546b68f1", victim, var_3d1ed4bd);
@@ -176,7 +176,7 @@ function function_7641afa6(watcher, player)
 	self.var_48d842c3 = 1;
 	self.var_515d6dda = 1;
 	self function_619a5c20();
-	var_e6fbac16 = getscriptbundle(self.weapon.var_4dd46f8a);
+	var_e6fbac16 = getscriptbundle(self.weapon.customsettings);
 	self.var_b2ed661a = var_e6fbac16.teargasduration + 3;
 	self weaponobjects::onspawnproximitygrenadeweaponobject(watcher, player);
 	player battlechatter::function_fc82b10(self.weapon, self.origin, self);
@@ -228,7 +228,7 @@ function function_f82566e8(attacker, weapon, target)
 		self delete();
 		return;
 	}
-	var_e6fbac16 = getscriptbundle(var_7e6e7f9f.var_4dd46f8a);
+	var_e6fbac16 = getscriptbundle(var_7e6e7f9f.customsettings);
 	radius = var_e6fbac16.var_b86ce9f4;
 	duration = var_e6fbac16.teargasduration;
 	position = self.origin;
@@ -361,13 +361,13 @@ function function_516794d8(grenadeent, var_7e6e7f9f)
 	{
 		return;
 	}
-	var_ce7665b1 = grenadeent.team;
+	grenadeteam = grenadeent.team;
 	owner = grenadeent.owner;
 	while(true)
 	{
 		waitresult = undefined;
 		waitresult = var_160d2855 waittilltimeout(0.2, #"death");
-		playertargets = grenadeent getpotentialtargets(owner, var_ce7665b1, var_7e6e7f9f);
+		playertargets = grenadeent getpotentialtargets(owner, grenadeteam, var_7e6e7f9f);
 		foreach(player in playertargets)
 		{
 			if(player hasperk(#"hash_5fef46715b368a6e"))
@@ -422,7 +422,7 @@ function private getpotentialtargets(owner, ownerteam, var_7e6e7f9f)
 		return function_a1ef346b();
 	}
 	potentialtargets = function_f6f34851(ownerteam);
-	var_e6fbac16 = getscriptbundle(var_7e6e7f9f.var_4dd46f8a);
+	var_e6fbac16 = getscriptbundle(var_7e6e7f9f.customsettings);
 	if(is_true(var_e6fbac16.var_fc20cda3) && isalive(owner))
 	{
 		potentialtargets[potentialtargets.size] = owner;
@@ -442,14 +442,14 @@ function private getpotentialtargets(owner, ownerteam, var_7e6e7f9f)
 function private function_78d7002(var_7e6e7f9f, owner, grenadeent)
 {
 	self endoncallback(&function_ac86e0a9, #"death", #"hash_7adffd186663a874");
-	dot = (level.hardcoremode === 1 ? function_4d1e7b48(#"hash_5f651c0a59d8c40d") : function_4d1e7b48(#"hash_69c2a47bf2322b6b"));
+	dot = (level.hardcoremode === 1 ? getstatuseffect(#"hash_5f651c0a59d8c40d") : getstatuseffect(#"hash_69c2a47bf2322b6b"));
 	dot.killcament = grenadeent.killcament;
 	self thread status_effect::status_effect_apply(dot, var_7e6e7f9f, owner, 0, undefined, undefined, grenadeent.origin);
 	self playsoundtoplayer(#"hash_569fa11d8a4005ba", self);
 	foreach(stage, var_c62d6d34 in level.var_29115f03)
 	{
 		self.var_1b05dcde = stage;
-		slow = function_4d1e7b48(var_c62d6d34.slow);
+		slow = getstatuseffect(var_c62d6d34.slow);
 		self thread status_effect::status_effect_apply(slow, var_7e6e7f9f, owner);
 		self clientfield::set_to_player("in_tear_gas", stage);
 		wait(float(slow.var_77449e9) / 1000);
@@ -472,11 +472,11 @@ function private function_ac86e0a9(notifyhash)
 		if(isdefined(self.var_1b05dcde))
 		{
 			var_c62d6d34 = level.var_29115f03[self.var_1b05dcde];
-			slow = function_4d1e7b48(var_c62d6d34.slow);
+			slow = getstatuseffect(var_c62d6d34.slow);
 			self status_effect::function_408158ef(slow.setype, slow.var_18d16a6b);
 			self.var_1b05dcde = undefined;
 		}
-		dot = (level.hardcoremode === 1 ? function_4d1e7b48(#"hash_5f651c0a59d8c40d") : function_4d1e7b48(#"hash_69c2a47bf2322b6b"));
+		dot = (level.hardcoremode === 1 ? getstatuseffect(#"hash_5f651c0a59d8c40d") : getstatuseffect(#"hash_69c2a47bf2322b6b"));
 		self status_effect::function_408158ef(dot.setype, dot.var_18d16a6b);
 		self clientfield::set_to_player("in_tear_gas", 0);
 		self.var_2ee59975 = undefined;
@@ -512,9 +512,9 @@ function private function_9eda41cd(var_160d2855, var_7e6e7f9f, owner)
 		return;
 	}
 	var_c62d6d34 = level.var_29115f03[self.var_1b05dcde];
-	slow = function_4d1e7b48(var_c62d6d34.slow);
-	var_18c0a09d = function_4d1e7b48(var_c62d6d34.var_18c0a09d);
-	dot = (level.hardcoremode === 1 ? function_4d1e7b48(#"hash_5f651c0a59d8c40d") : function_4d1e7b48(#"hash_69c2a47bf2322b6b"));
+	slow = getstatuseffect(var_c62d6d34.slow);
+	var_18c0a09d = getstatuseffect(var_c62d6d34.var_18c0a09d);
+	dot = (level.hardcoremode === 1 ? getstatuseffect(#"hash_5f651c0a59d8c40d") : getstatuseffect(#"hash_69c2a47bf2322b6b"));
 	self status_effect::function_408158ef(dot.setype, dot.var_18d16a6b);
 	self status_effect::function_408158ef(slow.setype, slow.var_18d16a6b);
 	self thread status_effect::status_effect_apply(var_18c0a09d, var_7e6e7f9f, owner);

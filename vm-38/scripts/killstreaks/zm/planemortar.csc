@@ -1,5 +1,5 @@
 #using scripts\killstreaks\zm\airsupport.csc;
-#using script_2893c826e7922f28;
+#using scripts\killstreaks\planemortar_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\postfx_shared.csc;
 #using scripts\core_common\system_shared.csc;
@@ -168,7 +168,7 @@ function function_85734aa(localclientnum, marker)
 	if(isplayer(player))
 	{
 		player postfx::function_c8b5f318("pstfx_artillery_strike_bundle", #"hash_1dc8a3cb360b2900" + marker.var_595cc3a1, 4);
-		player postfx::function_c8b5f318("pstfx_artillery_strike_bundle", #"hash_3930a65cbb342a89" + marker.var_595cc3a1, 64);
+		player postfx::function_c8b5f318("pstfx_artillery_strike_bundle", #"radius " + marker.var_595cc3a1, 64);
 	}
 }
 

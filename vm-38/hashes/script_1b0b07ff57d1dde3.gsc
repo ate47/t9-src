@@ -5,7 +5,7 @@
 #using script_1b0b07ff57d1dde3;
 #using script_1ee011cd0961afd7;
 #using script_2a5bf5b4a00cee0d;
-#using script_35598499769dbb3d;
+#using scripts\core_common\ai\systems\gib.gsc;
 #using script_40f967ad5d18ea74;
 #using script_47851dbeea22fe66;
 #using script_4d748e58ce25b60c;
@@ -382,7 +382,7 @@ function function_5e680689(attacker, damage, meansofdeath, weapon, var_fd90b0bb,
 }
 
 /*
-	Name: function_3ab2b4eb
+	Name: gib_random_part
 	Namespace: namespace_ed80aead
 	Checksum: 0xA3618C0C
 	Offset: 0x13F8
@@ -390,7 +390,7 @@ function function_5e680689(attacker, damage, meansofdeath, weapon, var_fd90b0bb,
 	Parameters: 1
 	Flags: Linked
 */
-function function_3ab2b4eb(damage)
+function gib_random_part(damage)
 {
 	if(!isdefined(damage))
 	{

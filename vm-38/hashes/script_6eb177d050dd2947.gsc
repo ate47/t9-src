@@ -1,4 +1,4 @@
-#using script_3b78d6d26bf3ec83;
+#using scripts\abilities\gadgets\gadget_jammer_shared.csc;
 #using scripts\core_common\callbacks_shared.csc;
 #using scripts\core_common\clientfield_shared.csc;
 #using scripts\core_common\system_shared.csc;
@@ -64,7 +64,7 @@ function private function_70a657d8()
 */
 function function_9147a2d6(localclientnum)
 {
-	self thread function_31a1aa18(localclientnum);
+	self thread on_game_ended(localclientnum);
 }
 
 /*
@@ -367,9 +367,9 @@ function function_3edf2cf8(dist_sq, var_73491815, var_47435b6f)
 	Parameters: 2
 	Flags: Linked
 */
-function function_bc3e2f11(var_c91d7aa9, bundle)
+function function_bc3e2f11(awareness_action, bundle)
 {
-	switch(var_c91d7aa9)
+	switch(awareness_action)
 	{
 		case "slide_start":
 		{
@@ -379,11 +379,11 @@ function function_bc3e2f11(var_c91d7aa9, bundle)
 		{
 			return bundle.var_fe0aa1d2;
 		}
-		case "hash_156b3d94aec3cb34":
+		case "damage_landing":
 		{
 			return bundle.var_6ae8117c;
 		}
-		case "hash_7d2d2a481c2aa519":
+		case "doublejump_boosted":
 		{
 			return bundle.var_37bac39d;
 		}
@@ -865,8 +865,8 @@ function function_c2b5b27c()
 			continue;
 		}
 		waitresult = undefined;
-		waitresult = self waittill(#"hash_f741860b69ec1b1", #"death", #"disconnect");
-		if(waitresult._notify !== #"hash_f741860b69ec1b1")
+		waitresult = self waittill(#"awareness_action", #"death", #"disconnect");
+		if(waitresult._notify !== #"awareness_action")
 		{
 			self.var_7122b2ff = undefined;
 			return;
@@ -932,7 +932,7 @@ function private function_ea9698c4(localclientnum)
 }
 
 /*
-	Name: function_31a1aa18
+	Name: on_game_ended
 	Namespace: listening_device
 	Checksum: 0x35C19416
 	Offset: 0x2BF0
@@ -940,7 +940,7 @@ function private function_ea9698c4(localclientnum)
 	Parameters: 1
 	Flags: Linked, Private
 */
-function private function_31a1aa18(localclientnum)
+function private on_game_ended(localclientnum)
 {
 	level waittill(#"game_ended");
 	function_8c113a94(localclientnum);

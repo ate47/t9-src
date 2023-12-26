@@ -1,4 +1,4 @@
-#using script_5660bae5b402a1eb;
+#using scripts\core_common\ai\zombie_death.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\laststand_shared.gsc;
@@ -61,7 +61,7 @@ function private function_70a657d8()
 	zm_powerups::set_weapon_ignore_max_ammo("minigun");
 	if(zm_powerups::function_cc33adc8())
 	{
-		zm_powerups::add_zombie_powerup("minigun", "zombie_pickup_minigun", #"hash_59b04447e22b4f0c", &func_should_drop_minigun, 1, 0, 0, undefined, "powerup_mini_gun", "zombie_powerup_minigun_time", "zombie_powerup_minigun_on");
+		zm_powerups::add_zombie_powerup("minigun", "zombie_pickup_minigun", #"zombie/powerup_minigun", &func_should_drop_minigun, 1, 0, 0, undefined, "powerup_mini_gun", "zombie_powerup_minigun_time", "zombie_powerup_minigun_on");
 		level.zombie_powerup_weapon[#"minigun"] = getweapon(#"minigun");
 	}
 	callback::on_connect(&init_player_zombie_vars);

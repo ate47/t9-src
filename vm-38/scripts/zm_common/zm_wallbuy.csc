@@ -34,7 +34,7 @@ function private autoexec function_8cfa4962()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_wallbuy", &function_70a657d8, &function_8ac3bea9, undefined, #"zm");
+	system::register(#"zm_wallbuy", &function_70a657d8, &postinit, undefined, #"zm");
 }
 
 /*
@@ -48,7 +48,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(!getgametypesetting(#"zmwallbuysenabled"))
 	{
 		return;
 	}
@@ -65,7 +65,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_wallbuy
 	Checksum: 0xE67E45D7
 	Offset: 0x698
@@ -73,9 +73,9 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
-	if(!getgametypesetting(#"hash_51a2cf319e12d9ae"))
+	if(!getgametypesetting(#"zmwallbuysenabled"))
 	{
 		return;
 	}
@@ -122,7 +122,7 @@ function init()
 		spawnable_weapon = spawnable_weapon_spawns[i];
 		spawnable_weapon.weapon = getweapon(spawnable_weapon.zombie_weapon_upgrade);
 		weapon_group = function_e2703c27(spawnable_weapon.weapon);
-		if(weapon_group == #"weapon_pistol" && !getgametypesetting(#"hash_6f1440098d849316") || (weapon_group == #"weapon_cqb" && !getgametypesetting(#"hash_edfb07f798aaab5")) || (weapon_group == #"weapon_smg" && !getgametypesetting(#"hash_1f6665b5581f6b6e")) || (weapon_group == #"weapon_assault" && !getgametypesetting(#"hash_1d5c8e6f0e20201a")) || (weapon_group == #"weapon_tactical" && !getgametypesetting(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !getgametypesetting(#"hash_2f6740b518dbeb8f")) || (weapon_group == #"weapon_sniper" && !getgametypesetting(#"hash_5bfd047c58816496")) || (weapon_group == #"weapon_knife" && !getgametypesetting(#"zmweaponsknife")))
+		if(weapon_group == #"weapon_pistol" && !getgametypesetting(#"zmweaponspistol") || (weapon_group == #"weapon_cqb" && !getgametypesetting(#"zmweaponsshotgun")) || (weapon_group == #"weapon_smg" && !getgametypesetting(#"zmweaponssmg")) || (weapon_group == #"weapon_assault" && !getgametypesetting(#"zmweaponsar")) || (weapon_group == #"weapon_tactical" && !getgametypesetting(#"zmweaponstr")) || (weapon_group == #"weapon_lmg" && !getgametypesetting(#"zmweaponslmg")) || (weapon_group == #"weapon_sniper" && !getgametypesetting(#"zmweaponssniper")) || (weapon_group == #"weapon_knife" && !getgametypesetting(#"zmweaponsknife")))
 		{
 			continue;
 		}
@@ -570,133 +570,133 @@ function function_8f12abec(localclientnum)
 		case "ar_damage_t9":
 		{
 			var_254469d1 = #"hash_60d3a1f7d422e966";
-			var_8aa9ab80 = #"hash_4d8398888735db8";
+			name_hash = #"hash_4d8398888735db8";
 			break;
 		}
 		case "ar_fastfire_t9":
 		{
 			var_254469d1 = #"hash_9e1422a498a153";
-			var_8aa9ab80 = #"hash_717baccca4cf03d1";
+			name_hash = #"hash_717baccca4cf03d1";
 			break;
 		}
 		case "ar_mobility_t9":
 		{
 			var_254469d1 = #"hash_13c954f44eee4616";
-			var_8aa9ab80 = #"hash_7bd4f5716e446b78";
+			name_hash = #"hash_7bd4f5716e446b78";
 			break;
 		}
 		case "ar_slowfire_t9":
 		{
 			var_254469d1 = #"hash_43891455ac15b7be";
-			var_8aa9ab80 = #"hash_63e8969bae8c6414";
+			name_hash = #"hash_63e8969bae8c6414";
 			break;
 		}
 		case "ar_standard_t9":
 		{
 			var_254469d1 = #"hash_51976978ad5a7a0a";
-			var_8aa9ab80 = #"hash_67e1bb4dbdf802d8";
+			name_hash = #"hash_67e1bb4dbdf802d8";
 			break;
 		}
 		case "ar_accurate_t9":
 		{
 			var_254469d1 = #"hash_5465e97890027a63";
-			var_8aa9ab80 = #"hash_4ea07dc5c94ab7f9";
+			name_hash = #"hash_4ea07dc5c94ab7f9";
 			break;
 		}
 		case "pistol_burst_t9":
 		{
 			var_254469d1 = #"hash_380cbbb95bef9a97";
-			var_8aa9ab80 = #"hash_703b41f88b42f343";
+			name_hash = #"hash_703b41f88b42f343";
 			break;
 		}
 		case "pistol_revolver_t9":
 		{
 			var_254469d1 = #"hash_1551c0e06f65b6e8";
-			var_8aa9ab80 = #"hash_5091c4707ec6b942";
+			name_hash = #"hash_5091c4707ec6b942";
 			break;
 		}
 		case "pistol_semiauto_t9":
 		{
 			var_254469d1 = #"hash_1d6b5a3162315d2a";
-			var_8aa9ab80 = #"hash_2439a2ff4beb86b0";
+			name_hash = #"hash_2439a2ff4beb86b0";
 			break;
 		}
 		case "shotgun_fullauto_t9":
 		{
 			var_254469d1 = #"hash_543883d02a25c8f2";
-			var_8aa9ab80 = #"hash_6df0ff702b2613be";
+			name_hash = #"hash_6df0ff702b2613be";
 			break;
 		}
 		case "shotgun_semiauto_t9":
 		{
 			var_254469d1 = #"hash_5fb436cc685858bf";
-			var_8aa9ab80 = #"hash_6dcf0445e7c7257b";
+			name_hash = #"hash_6dcf0445e7c7257b";
 			break;
 		}
 		case "shotgun_pump_t9":
 		{
 			var_254469d1 = #"hash_2142923f8242e70a";
-			var_8aa9ab80 = #"hash_1631ac670b00dbfa";
+			name_hash = #"hash_1631ac670b00dbfa";
 			break;
 		}
 		case "smg_burst_t9":
 		{
 			var_254469d1 = #"hash_3de7cc85209151f9";
-			var_8aa9ab80 = #"hash_2c75287d04644bcb";
+			name_hash = #"hash_2c75287d04644bcb";
 			break;
 		}
 		case "smg_capacity_t9":
 		{
 			var_254469d1 = #"hash_269644599df154db";
-			var_8aa9ab80 = #"hash_423632bb711a406b";
+			name_hash = #"hash_423632bb711a406b";
 			break;
 		}
 		case "smg_fastfire_t9":
 		{
 			var_254469d1 = #"hash_4ea0b0f3291897dd";
-			var_8aa9ab80 = #"hash_6def002686374645";
+			name_hash = #"hash_6def002686374645";
 			break;
 		}
 		case "smg_handling_t9":
 		{
 			var_254469d1 = #"hash_552da77f6dd268f4";
-			var_8aa9ab80 = #"hash_410c31e1c403b298";
+			name_hash = #"hash_410c31e1c403b298";
 			break;
 		}
 		case "smg_heavy_t9":
 		{
 			var_254469d1 = #"hash_3de4a3ba0c0c6176";
-			var_8aa9ab80 = #"hash_42c7bf7c8a2eaad8";
+			name_hash = #"hash_42c7bf7c8a2eaad8";
 			break;
 		}
 		case "smg_standard_t9":
 		{
 			var_254469d1 = #"hash_1be663d24baec560";
-			var_8aa9ab80 = #"hash_1895010b5180880c";
+			name_hash = #"hash_1895010b5180880c";
 			break;
 		}
 		case "sniper_powersemi_t9":
 		{
 			var_254469d1 = #"hash_23fca34f81467e8";
-			var_8aa9ab80 = #"hash_1fed797b830c9f74";
+			name_hash = #"hash_1fed797b830c9f74";
 			break;
 		}
 		case "sniper_quickscope_t9":
 		{
 			var_254469d1 = #"hash_5afdcf904fe36502";
-			var_8aa9ab80 = #"hash_4cf07e30456d6a24";
+			name_hash = #"hash_4cf07e30456d6a24";
 			break;
 		}
 		case "sniper_standard_t9":
 		{
 			var_254469d1 = #"hash_2dc0ad079e877d92";
-			var_8aa9ab80 = #"hash_755d23459c2344cc";
+			name_hash = #"hash_755d23459c2344cc";
 			break;
 		}
 		case "tr_damagesemi_t9":
 		{
 			var_254469d1 = #"hash_4412650e08944071";
-			var_8aa9ab80 = #"hash_14e7b988f9459207";
+			name_hash = #"hash_14e7b988f9459207";
 			break;
 		}
 		case "tr_fullauto_t9":
@@ -707,43 +707,43 @@ function function_8f12abec(localclientnum)
 		case "tr_longburst_t9":
 		{
 			var_254469d1 = #"hash_26d132a48416630e";
-			var_8aa9ab80 = #"hash_696d8b6b3a595612";
+			name_hash = #"hash_696d8b6b3a595612";
 			break;
 		}
 		case "tr_powerburst_t9":
 		{
 			var_254469d1 = #"hash_6bae63c0650c5b6b";
-			var_8aa9ab80 = #"hash_7e1fb00fccc464b5";
+			name_hash = #"hash_7e1fb00fccc464b5";
 			break;
 		}
 		case "tr_precisionsemi_t9":
 		{
 			var_254469d1 = #"hash_7f13eff55abcf1ec";
-			var_8aa9ab80 = #"hash_1a652a02b8f8208";
+			name_hash = #"hash_1a652a02b8f8208";
 			break;
 		}
 		case "lmg_slowfire_t9":
 		{
 			var_254469d1 = #"hash_13c6573ab08b92d1";
-			var_8aa9ab80 = #"hash_5eca49abef9d89ed";
+			name_hash = #"hash_5eca49abef9d89ed";
 			break;
 		}
 		case "lmg_light_t9":
 		{
 			var_254469d1 = #"hash_373cf28c1cd363c0";
-			var_8aa9ab80 = #"hash_115345b891f63176";
+			name_hash = #"hash_115345b891f63176";
 			break;
 		}
 		case "lmg_accurate_t9":
 		{
 			var_254469d1 = #"hash_7c2e5b18f3e46c4";
-			var_8aa9ab80 = #"hash_7eb1b81fdce9b908";
+			name_hash = #"hash_7eb1b81fdce9b908";
 			break;
 		}
 		default:
 		{
 			var_254469d1 = #"hash_51976978ad5a7a0a";
-			var_8aa9ab80 = #"hash_151d1b68c65d9d05";
+			name_hash = #"hash_151d1b68c65d9d05";
 			var_9ac76ba3 = 0;
 			break;
 		}
@@ -752,7 +752,7 @@ function function_8f12abec(localclientnum)
 	var_4972e475.var_fc558e74 = "wallbuy";
 	if(var_9ac76ba3)
 	{
-		var_4972e475.var_ed875153 = var_8aa9ab80;
+		var_4972e475.var_ed875153 = name_hash;
 	}
 	var_4972e475 function_619a5c20();
 	self.var_4972e475 = var_4972e475;

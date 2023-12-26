@@ -47,7 +47,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!zm_trial::function_b47f6aba())
+	if(!zm_trial::is_trial_mode())
 	{
 		return;
 	}
@@ -74,7 +74,7 @@ function private on_begin(var_93fc795f, var_a7c52900, var_c8a36f90)
 		{
 			switch(var_c8a36f90)
 			{
-				case "hash_7ea198622e307b9":
+				case "prone_random":
 				{
 					player thread function_9c988cd8(var_93fc795f, var_a7c52900, 1);
 					break;
@@ -226,7 +226,7 @@ function private function_26f124d8()
 			}
 			return false;
 		}
-		case "hash_7ea198622e307b9":
+		case "prone_random":
 		case "prone":
 		{
 			if(self getstance() === "prone")

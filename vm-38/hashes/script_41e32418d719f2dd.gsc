@@ -30,7 +30,7 @@ function private autoexec function_fed0bd28()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_7b30b3878fc15536", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_7b30b3878fc15536", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -54,7 +54,7 @@ function function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_77bd50da
 	Checksum: 0x80F724D1
 	Offset: 0x158
@@ -62,7 +62,7 @@ function function_70a657d8()
 	Parameters: 0
 	Flags: Linked
 */
-function function_8ac3bea9()
+function postinit()
 {
 }
 

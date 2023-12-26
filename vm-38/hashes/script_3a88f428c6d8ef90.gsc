@@ -36,7 +36,7 @@ function private autoexec function_5ebbd151()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_775f993ac537d970", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"hash_775f993ac537d970", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -57,7 +57,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_b61a349a
 	Checksum: 0x80F724D1
 	Offset: 0x1A0
@@ -65,7 +65,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -82,7 +82,7 @@ function on_player_connect()
 {
 	self.var_d9fddbc5 = 0;
 	self.var_b37d3db2 = 0;
-	self callback::add_callback(#"weapon_fired", &function_78ccee50);
+	self callback::add_callback(#"weapon_fired", &on_weapon_fired);
 	self callback::add_callback(#"weapon_change", &function_39ab0a6a);
 }
 
@@ -120,7 +120,7 @@ function function_39ab0a6a(eventstruct)
 }
 
 /*
-	Name: function_78ccee50
+	Name: on_weapon_fired
 	Namespace: namespace_b61a349a
 	Checksum: 0xEF33902A
 	Offset: 0x338
@@ -128,7 +128,7 @@ function function_39ab0a6a(eventstruct)
 	Parameters: 1
 	Flags: Linked
 */
-function function_78ccee50(eventstruct)
+function on_weapon_fired(eventstruct)
 {
 	if(!isplayer(self))
 	{

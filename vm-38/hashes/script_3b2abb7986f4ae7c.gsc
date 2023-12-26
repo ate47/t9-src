@@ -2,7 +2,7 @@
 #using scripts\core_common\item_inventory.gsc;
 #using script_34ab99a4ca1a43d;
 #using script_3a88f428c6d8ef90;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_437ce686d29bb81b;
 #using scripts\zm_common\zm_vo.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -263,7 +263,7 @@ function function_685a8288(instance)
 				break;
 			}
 		}
-		if(level.var_7d45d0d4.var_3385b421.content_script_name === "holdout")
+		if(level.var_7d45d0d4.activeobjective.content_script_name === "holdout")
 		{
 			wait(0.5);
 			continue;
@@ -632,9 +632,9 @@ function cratecontrolleddrop(instance, v_target_location, n_drop_time, var_72886
 		crate moveto(target, params.kstotaldroptime, acceltime, deceltime);
 		crate thread function_2defd397();
 		wait(acceltime);
-		if(!is_true(crate.var_7bea4af0))
+		if(!is_true(crate.pop_parachute))
 		{
-			crate waittill(#"movedone", #"hash_6ade3db3c3188274");
+			crate waittill(#"movedone", #"pop_parachute");
 		}
 		hostmigration::waittillhostmigrationdone();
 	}
@@ -797,7 +797,7 @@ function function_345ada65(attacker)
 	playsoundatposition(#"hash_2f1ae087d02ed33f", self.origin);
 	if(isplayer(attacker))
 	{
-		a_enemies = attacker function_bdda420f(self.origin, 256);
+		a_enemies = attacker getenemiesinradius(self.origin, 256);
 		foreach(ai in a_enemies)
 		{
 			if(isalive(ai))
@@ -1075,7 +1075,7 @@ function is_touching_crate()
 			stance_z_offset = (stance == "stand" ? 75 : (stance == "crouch" ? 55 : 15));
 			player_test_point = player.origin + (0, 0, stance_z_offset);
 			var_f6f95bb5 = distance2dsquared(player_test_point, self.origin);
-			var_dee7aebd = self.velocity[2];
+			zvel = self.velocity[2];
 			if(var_f6f95bb5 < 2500 && player_test_point[2] > crate_bottom_point[2])
 			{
 				attacker = (isdefined(self.owner) ? self.owner : self);

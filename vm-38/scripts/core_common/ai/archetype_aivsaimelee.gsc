@@ -1,5 +1,5 @@
-#using script_3aa0f32b70d4f7cb;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\struct.gsc;

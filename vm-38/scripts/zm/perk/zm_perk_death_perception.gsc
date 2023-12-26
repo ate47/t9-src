@@ -32,7 +32,7 @@ function private autoexec function_4293a6f6()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_perk_death_perception", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_perk_death_perception", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -50,11 +50,11 @@ function private function_70a657d8()
 	{
 		return;
 	}
-	function_7a04ad0d();
+	enable_death_perception_perk_for_level();
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_perk_death_perception
 	Checksum: 0x80F724D1
 	Offset: 0x360
@@ -62,12 +62,12 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
 /*
-	Name: function_7a04ad0d
+	Name: enable_death_perception_perk_for_level
 	Namespace: zm_perk_death_perception
 	Checksum: 0x14430300
 	Offset: 0x370
@@ -75,7 +75,7 @@ function private function_8ac3bea9()
 	Parameters: 0
 	Flags: Linked
 */
-function function_7a04ad0d()
+function enable_death_perception_perk_for_level()
 {
 	callback::on_item_pickup(&on_item_pickup);
 	zm_perks::register_perk_basic_info(#"hash_1ea1a9cfee998e89", #"perk_death_perception", 2000, #"hash_a81bac8ed8357c6", getweapon("zombie_perk_bottle_death_perception"), undefined, #"zmperksdeathperception");

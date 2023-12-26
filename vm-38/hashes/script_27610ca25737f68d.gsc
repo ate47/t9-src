@@ -1,6 +1,6 @@
 #using script_2c5daa95f8fec03c;
-#using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4dc6a9b234b838e1;
 #using script_72401f526ba71638;
 #using scripts\core_common\ai_shared.gsc;
@@ -210,7 +210,7 @@ function private function_71efd0e6(a_ai_targets, v_origin, var_f61738a0, b_stun)
 		}
 		if(b_stun && ai.var_6f84b820 === #"special")
 		{
-			ai ai::function_62795e55();
+			ai ai::clear_stun();
 			ai ai::stun();
 		}
 		waitframe(1);
@@ -272,7 +272,7 @@ function private function_3655d156(e_player, n_radius, v_origin)
 {
 	if(isdefined(e_player))
 	{
-		a_ai_targets = e_player function_bdda420f(v_origin, n_radius);
+		a_ai_targets = e_player getenemiesinradius(v_origin, n_radius);
 	}
 	else
 	{

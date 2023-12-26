@@ -42,7 +42,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("huditems.abilityHoldToActivate", #"hud_items", #"hash_699f031de6af4f60", 1, 2, "int", undefined, 0, 0);
-	clientfield::function_a8bbc967("huditems.abilityDelayProgress", #"hud_items", #"hash_44ab75a900c80d0f", 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("huditems.abilityHoldToActivate", #"hud_items", #"abilityholdtoactivate", 1, 2, "int", undefined, 0, 0);
+	clientfield::register_clientuimodel("huditems.abilityDelayProgress", #"hud_items", #"abilitydelayprogress", 1, 5, "float", undefined, 0, 0);
 }
 

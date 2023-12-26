@@ -1,8 +1,8 @@
-#using script_178024232e91b0a1;
+#using scripts\core_common\ai\systems\behavior_state_machine.gsc;
 #using scripts\core_common\ai\archetype_human_cover.gsc;
-#using script_3aa0f32b70d4f7cb;
-#using script_4a3f9b8905878272;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\systems\behavior_tree_utility.gsc;
+#using scripts\core_common\ai\archetype_cover_utility.gsc;
+#using scripts\core_common\ai\archetype_utility.gsc;
 
 #namespace archetype_human_exposed;
 
@@ -449,7 +449,7 @@ function private shouldusesidearmpistol(entity, checkdistance)
 			{
 				targetangles = vectortoangles(entity.enemy.origin - entity.origin);
 				entityangles = entity.angles;
-				if(isdefined(entity.node) && (entity.node.type == #"hash_63cbb4767da2a801" || entity.node.type == #"hash_2a7b1ca393696762" || entity.node.type == #"hash_7a0e62fbbe3989d4" || (entity.node.type == #"hash_581529fff05853f0" || entity.node.type == #"hash_1bb444d857814e92") || (entity.node.type == #"hash_6d8019ab9d39bf96" || entity.node.type == #"hash_280d1247a6abdbae" || entity.node.type == #"hash_171465527444ed14")) && btapi_isatcovercondition(entity))
+				if(isdefined(entity.node) && (entity.node.type == #"cover left" || entity.node.type == #"cover right" || entity.node.type == #"cover pillar" || (entity.node.type == #"cover stand" || entity.node.type == #"conceal stand") || (entity.node.type == #"cover crouch" || entity.node.type == #"cover crouch window" || entity.node.type == #"conceal crouch")) && btapi_isatcovercondition(entity))
 				{
 					entityangles = entity.node.angles;
 				}

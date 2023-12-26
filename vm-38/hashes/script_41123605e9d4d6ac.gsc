@@ -225,7 +225,7 @@ function function_5565725d(localclientnum, dissolve, rob)
 		{
 			if(isdefined(zombie))
 			{
-				zombie function_bf9d3071(rob);
+				zombie playrenderoverridebundle(rob);
 			}
 		}
 	}
@@ -235,7 +235,7 @@ function function_5565725d(localclientnum, dissolve, rob)
 		{
 			if(isdefined(zombie))
 			{
-				zombie function_5d482e78(rob);
+				zombie stoprenderoverridebundle(rob);
 			}
 		}
 	}

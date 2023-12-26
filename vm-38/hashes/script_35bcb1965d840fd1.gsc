@@ -37,7 +37,7 @@ function private autoexec function_7859d20f()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"red_door", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"red_door", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -77,7 +77,7 @@ function init_clientfields()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: red_door
 	Checksum: 0x195C01F7
 	Offset: 0x590
@@ -85,7 +85,7 @@ function init_clientfields()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	scene::add_scene_func("p8_fxanim_zm_office_wormhole_bundle", &function_1d5c7052);
 	level.var_d03afa3 = [];
@@ -111,13 +111,13 @@ function private function_8ac3bea9()
 */
 function function_1d5c7052(a_ents)
 {
-	var_fd99631b = a_ents[getfirstarraykey(a_ents)];
+	e_wormhole = a_ents[getfirstarraykey(a_ents)];
 	do
 	{
 		util::wait_network_frame();
 	}
-	while(!var_fd99631b isplayinganimscripted());
-	var_fd99631b clientfield::set("" + #"hash_7948e032082fdac", 1);
+	while(!e_wormhole isplayinganimscripted());
+	e_wormhole clientfield::set("" + #"hash_7948e032082fdac", 1);
 }
 
 /*
@@ -885,7 +885,7 @@ function function_a6dcc63f(s_door)
 	t_door triggerignoreteam();
 	t_door setvisibletoall();
 	t_door setteamfortrigger(#"none");
-	t_door callback::function_35a12f19(&function_e1544483);
+	t_door callback::on_trigger(&function_e1544483);
 	return t_door;
 }
 

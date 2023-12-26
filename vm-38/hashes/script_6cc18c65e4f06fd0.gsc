@@ -3,12 +3,12 @@
 #using script_1df36deb5752c05d;
 #using script_1e13c013927b6692;
 #using script_3a88f428c6d8ef90;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_58860a35d0555f74;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_60d2812480bc5591;
 #using script_64fee205fe8ada38;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using script_72401f526ba71638;
 #using scripts\zm\ai\zm_ai_mimic.gsc;
@@ -77,12 +77,12 @@ function init()
 	level thread function_cdf29db1(1);
 	level thread function_1d66a215(1);
 	level thread end_fight_boss_arm_clip(1);
-	if(!zm_utility::function_e51dc2d8())
+	if(!zm_utility::is_ee_enabled())
 	{
 		return;
 	}
 	/#
-		if(getdvarint(#"hash_11ad6a9695943217", 0) == 1)
+		if(getdvarint(#"zm_debug_ee", 0) == 1)
 		{
 			level thread function_37597f29();
 		}
@@ -575,7 +575,7 @@ function function_2baf9762()
 		var_2560e451 = spawnvehicle("veh_mil_ru_fav_heavy_zm", s_veh.origin, s_veh.angles, "end_fight_vehicle");
 		var_2560e451.takedamage = 0;
 		var_2560e451 thread scene::play(#"hash_6ce133c6a716cfc2");
-		level flag::wait_till(#"hash_4b00aa230ebbe82b");
+		level flag::wait_till(#"main_quest_completed");
 		var_2560e451 scene::stop(#"hash_6ce133c6a716cfc2", 1);
 		if(isdefined(var_2560e451))
 		{
@@ -609,7 +609,7 @@ function function_c8ef8fb2()
 */
 function function_79ae7b73()
 {
-	level flag::set(#"hash_1b9ecc7979b0fcfb");
+	level flag::set(#"disable_fast_travel");
 	level flag::set(#"boss_fight_started");
 	showmiscmodels("hide_mid_scene_models");
 	hidemiscmodels("village_courtyard_side_gate");
@@ -705,7 +705,7 @@ function function_dc466f4e()
 	level endon(#"end_game");
 	level waittill(#"hash_3807e7b1086e4aa0");
 	level zm_utility::function_9ad5aeb1(0, 1, 0, 0);
-	level flag::set(#"hash_4b00aa230ebbe82b");
+	level flag::set(#"main_quest_completed");
 	level function_abb25db(0, (0, 0, 0));
 	level thread function_542224cc(0.5, (0, 0, 0), "screen_fade_in_black");
 	level thread function_abb25db(0.15, (0, 0, 0), "screen_fade_to_black");

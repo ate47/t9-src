@@ -37,7 +37,7 @@ event main(eventstruct)
 		prototype_hud::register();
 		level.var_352498c6 = 1;
 	}
-	callback::function_d46d9315(&function_d46d9315);
+	callback::on_gameplay_started(&on_gameplay_started);
 	/#
 		println("");
 	#/
@@ -76,7 +76,7 @@ function onstartgametype()
 }
 
 /*
-	Name: function_d46d9315
+	Name: on_gameplay_started
 	Namespace: zclassic
 	Checksum: 0xB41BBEEB
 	Offset: 0x1B8
@@ -84,7 +84,7 @@ function onstartgametype()
 	Parameters: 1
 	Flags: None
 */
-function function_d46d9315(localclientnum)
+function on_gameplay_started(localclientnum)
 {
 	waitframe(1);
 	util::function_8eb5d4b0(3500, 2.5);

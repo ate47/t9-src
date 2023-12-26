@@ -4,12 +4,12 @@
 #using script_193d6fcd3b319d05;
 #using script_34ab99a4ca1a43d;
 #using script_3751b21462a54a7d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_6196bd4e1ff26cc0;
 #using script_67ce8e728d8f37ba;
 #using scripts\zm_common\zm_round_logic.gsc;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\challenges_shared.gsc;
@@ -65,10 +65,10 @@ event main(eventstruct)
 {
 	clientfield::register("allplayers", "cranked_explode_fx", 1, 1, "counter");
 	clientfield::register("toplayer", "cranked_timer_sfx", 1, 1, "int");
-	clientfield::function_a8bbc967("ZMHud.zmCrankedMax", 6000, 5, "int", 0);
-	clientfield::function_a8bbc967("ZMHud.zmCrankedPct", 6000, 16, "float", 0);
-	clientfield::function_a8bbc967("ZMHud.zmCrankedTimerReset", 6000, 1, "counter", 0);
-	clientfield::function_a8bbc967("ZMHud.zmCrankedRoundNotification", 6000, 1, "int", 0);
+	clientfield::register_clientuimodel("ZMHud.zmCrankedMax", 6000, 5, "int", 0);
+	clientfield::register_clientuimodel("ZMHud.zmCrankedPct", 6000, 16, "float", 0);
+	clientfield::register_clientuimodel("ZMHud.zmCrankedTimerReset", 6000, 1, "counter", 0);
+	clientfield::register_clientuimodel("ZMHud.zmCrankedRoundNotification", 6000, 1, "int", 0);
 	level.var_2f5a329e = 1;
 	level.var_75c2c45f = 50;
 	level.var_eaa19257 = 1;
@@ -218,8 +218,8 @@ function onstartgametype()
 	zm_behavior::function_70a657d8();
 	zm_cleanup::function_70a657d8();
 	zm_spawner::init();
-	zm_behavior::function_8ac3bea9();
-	zm_cleanup::function_8ac3bea9();
+	zm_behavior::postinit();
+	zm_cleanup::postinit();
 	level.spawnmins = (0, 0, 0);
 	level.spawnmaxs = (0, 0, 0);
 	structs = struct::get_array("player_respawn_point", "targetname");

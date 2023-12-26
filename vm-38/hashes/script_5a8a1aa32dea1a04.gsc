@@ -47,7 +47,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 		{
 			flags = 0;
 		}
-		cLUIelem::function_8b8089ba(player, flags);
+		cLUIelem::open_luielem(player, flags);
 	}
 
 	/*
@@ -61,7 +61,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 	*/
 	function close(player)
 	{
-		cLUIelem::function_a68f6e20(player);
+		cLUIelem::close_luielem(player);
 	}
 
 	/*
@@ -90,7 +90,7 @@ class csr_weapon_upgrade_menu : cLUIelem
 	function setup_clientfields()
 	{
 		cLUIelem::setup_clientfields("sr_weapon_upgrade_menu");
-		cLUIelem::function_da693cbe("cannotAmmoMod", 16000, 1, "int");
+		cLUIelem::add_clientfield("cannotAmmoMod", 16000, 1, "int");
 	}
 
 }

@@ -43,7 +43,7 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	clientfield::function_a8bbc967("hudItems.radiationVestHealth", #"hud_items", #"hash_347090a9ef988900", 1, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.radiationVestHealth", #"hud_items", #"hash_347090a9ef988900", 1, 5, "float", undefined, 0, 0);
 }
 
 /*

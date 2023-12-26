@@ -410,7 +410,7 @@ function play_death_audio()
 */
 function play_spinning_plane_sound()
 {
-	if(self.vehicletype == #"hash_4043fb66689f91c8")
+	if(self.vehicletype == #"veh_dart_wz")
 	{
 		return;
 	}
@@ -2567,12 +2567,12 @@ function function_933d48a2()
 		waitresult = self waittill(#"veh_predictedcollision");
 		if(isdefined(waitresult.target))
 		{
-			var_e2031bd1 = waitresult.target;
-			if(!vehicle::is_corpse(var_e2031bd1) || is_true(var_e2031bd1.var_3acf1c07))
+			vehiclecorpse = waitresult.target;
+			if(!vehicle::is_corpse(vehiclecorpse) || is_true(vehiclecorpse.var_3acf1c07))
 			{
 				continue;
 			}
-			if(!isdefined(var_e2031bd1.settings) || !is_true(var_e2031bd1.settings.var_3a42a4d9))
+			if(!isdefined(vehiclecorpse.settings) || !is_true(vehiclecorpse.settings.var_3a42a4d9))
 			{
 				continue;
 			}
@@ -2582,10 +2582,10 @@ function function_933d48a2()
 			{
 				continue;
 			}
-			var_e2031bd1.var_3acf1c07 = 1;
-			var_e2031bd1 corpse_explode_fx();
-			var_e2031bd1 vehicle::do_death_dynents();
-			var_e2031bd1 deletewhensafe();
+			vehiclecorpse.var_3acf1c07 = 1;
+			vehiclecorpse corpse_explode_fx();
+			vehiclecorpse vehicle::do_death_dynents();
+			vehiclecorpse deletewhensafe();
 		}
 	}
 }

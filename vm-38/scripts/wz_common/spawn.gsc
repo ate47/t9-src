@@ -1,5 +1,5 @@
 #using script_1d29de500c266470;
-#using script_348ce871561476c9;
+#using scripts\core_common\player\player_free_fall.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
@@ -90,7 +90,7 @@ function function_e93291ff()
 			}
 		}
 	#/
-	var_137456fd = getdvarint(#"hash_400f07203191574f", -1);
+	var_137456fd = getdvarint(#"wz_dest_id", -1);
 	if(var_137456fd >= 0 && var_137456fd < destinations.size)
 	{
 		level.var_7767cea8[0] = destinations[var_137456fd];
@@ -151,15 +151,15 @@ function on_spawn_player(predictedspawn)
 	{
 		self.var_63af7f75 = -1;
 	}
-	if(isdefined(level.var_52b56362))
+	if(isdefined(level.deathcircleindex))
 	{
-		self.var_63af7f75 = level.var_52b56362;
+		self.var_63af7f75 = level.deathcircleindex;
 	}
 	self.var_c5134737 = 0;
 	spawnstruct = spawning::onspawnplayer(predictedspawn);
 	if(level.ingraceperiod)
 	{
-		self.var_b936d86b = spawnstruct;
+		self.startspawn = spawnstruct;
 	}
 	if(self.pers[#"spawns"] == 1)
 	{
@@ -186,9 +186,9 @@ function on_spawn_player(predictedspawn)
 */
 function function_ea62f5af()
 {
-	var_a56604c5 = namespace_eb06e24d::function_4a22ec61().lootid;
+	var_a56604c5 = namespace_eb06e24d::get_parachute_kit().lootid;
 	var_c9b1d229 = namespace_eb06e24d::function_4a39b434().lootid;
-	var_42b02106 = namespace_eb06e24d::function_3c54cdb1().lootid;
+	var_42b02106 = namespace_eb06e24d::get_wingsuit_kit().lootid;
 	var_f8e6b703 = self match_record::get_player_stat(#"hash_ec4aea1a8bbd82");
 	if(isdefined(var_f8e6b703))
 	{

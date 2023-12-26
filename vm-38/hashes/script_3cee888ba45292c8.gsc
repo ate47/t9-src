@@ -2,7 +2,7 @@
 #using script_2618e0f3e5e11649;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
-#using script_522aeb6ae906391e;
+#using scripts\core_common\ai\systems\blackboard.gsc;
 #using scripts\zm\ai\zm_ai_soa.gsc;
 #using script_744259b349d834c7;
 #using script_799de24f8ad427f7;
@@ -83,7 +83,7 @@ function function_49bf8a32()
 	self.var_d690f304 = &function_abeaa83;
 	self callback::function_d8abfc3d(#"on_ai_damage", &function_66c569e2);
 	self callback::on_death(&function_9730c48d);
-	function_fb4a1aa3(self);
+	setup_awareness(self);
 }
 
 /*
@@ -114,7 +114,7 @@ function function_f18b95c7()
 }
 
 /*
-	Name: function_fb4a1aa3
+	Name: setup_awareness
 	Namespace: namespace_119be0ad
 	Checksum: 0x77FB7634
 	Offset: 0x3D0
@@ -122,17 +122,17 @@ function function_f18b95c7()
 	Parameters: 1
 	Flags: Private
 */
-function private function_fb4a1aa3(entity)
+function private setup_awareness(entity)
 {
-	entity.var_f9a12c59 = 1;
-	entity.var_ed35eeb2 = 1;
+	entity.has_awareness = 1;
+	entity.ignorelaststandplayers = 1;
 	entity.var_e453bcfa = 10;
 	entity.var_91a026f2 = 10;
 	entity.var_7ee943e1 = 10;
 	self callback::function_d8abfc3d(#"on_ai_damage", &awareness::function_5f511313);
-	awareness::function_dad6ba0e(entity, #"wander", &function_bbabdf2, &function_21eb9d09, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
-	awareness::function_dad6ba0e(entity, #"investigate", &awareness::function_b41f0471, &awareness::function_9eefc327, &awareness::function_34162a25, undefined, &awareness::function_a360dd00);
-	awareness::function_dad6ba0e(entity, #"chase", &awareness::function_978025e4, &function_d2e99333, &awareness::function_b9f81e8b, &function_440337c2);
+	awareness::register_state(entity, #"wander", &function_bbabdf2, &function_21eb9d09, &awareness::function_b264a0bc, undefined, &awareness::function_555d960b);
+	awareness::register_state(entity, #"investigate", &awareness::function_b41f0471, &awareness::function_9eefc327, &awareness::function_34162a25, undefined, &awareness::function_a360dd00);
+	awareness::register_state(entity, #"chase", &awareness::function_978025e4, &function_d2e99333, &awareness::function_b9f81e8b, &function_440337c2);
 	awareness::set_state(self, #"wander");
 	entity callback::function_d8abfc3d(#"hash_10ab46b52df7967a", &function_9310b9ca);
 	entity thread awareness::function_fa6e010d();
@@ -221,11 +221,11 @@ function private function_53bc3572(soa)
 {
 	if(!self awareness::function_b3810444(self, #"bound"))
 	{
-		self awareness::function_dad6ba0e(self, #"bound", &function_916e0825, &function_1ea26b11, &function_a08dd1de, &function_39ab6f8d, undefined);
+		self awareness::register_state(self, #"bound", &function_916e0825, &function_1ea26b11, &function_a08dd1de, &function_39ab6f8d, undefined);
 	}
 	self awareness::set_state(self, #"bound");
 	namespace_19c99142::function_7d12a873(self, #"attacking", &function_f024bc97);
-	self callback::function_d8abfc3d(#"hash_184965470b4be191", &function_2bcd6c38);
+	self callback::function_d8abfc3d(#"awareness_event", &function_2bcd6c38);
 }
 
 /*
@@ -240,7 +240,7 @@ function private function_53bc3572(soa)
 function private function_3138c2d5(soa)
 {
 	self awareness::set_state(self, #"wander");
-	self callback::function_52ac9652(#"hash_184965470b4be191", &function_2bcd6c38);
+	self callback::function_52ac9652(#"awareness_event", &function_2bcd6c38);
 }
 
 /*
@@ -623,7 +623,7 @@ function private function_2bcd6c38(event)
 		return;
 	}
 	soa = namespace_19c99142::function_9dd68a24(self);
-	soa callback::callback(#"hash_184965470b4be191", {#params:event.params, #position:event.position, #entity:event.entity, #type:event.type});
+	soa callback::callback(#"awareness_event", {#params:event.params, #position:event.position, #entity:event.entity, #type:event.type});
 }
 
 /*

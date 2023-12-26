@@ -60,7 +60,7 @@ function function_70a657d8()
 	level thread register();
 	callback::on_spawned(&on_player_spawned);
 	callback::on_ai_spawned(&on_ai_spawned);
-	callback::function_20263b9e(&begin_other_grenade_tracking);
+	callback::on_grenade_fired(&begin_other_grenade_tracking);
 }
 
 /*
@@ -91,7 +91,7 @@ function register()
 */
 function function_5d95c1d()
 {
-	watcher = self weaponobjects::function_9d7ae85f("electroball_grenade", undefined, 0);
+	watcher = self weaponobjects::createwatcher("electroball_grenade", undefined, 0);
 	watcher.watchforfire = 1;
 	watcher.hackable = 0;
 	watcher.hackertoolradius = level.equipmenthackertoolradius;

@@ -213,7 +213,7 @@ function function_bb5d646a(localclientnum, oldval, newval, bnewent, binitialsnap
 		return;
 	}
 	self zombie_eye_glow::good_barricade_damaged(bwasdemojump);
-	self function_bf9d3071(#"hash_9f31d2c3b11a51c");
+	self playrenderoverridebundle(#"hash_9f31d2c3b11a51c");
 	e_fx = util::spawn_model(bwasdemojump, "tag_origin", self gettagorigin("J_Spine4"));
 	playsound(bwasdemojump, #"hash_61be08677fe8683", e_fx.origin);
 	var_5e7d1e09 = struct::get_array("satellite_pos", "script_noteworthy");

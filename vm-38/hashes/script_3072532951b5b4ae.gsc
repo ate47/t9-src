@@ -6,7 +6,7 @@
 #using script_42310dfa1362069f;
 #using script_4f58b276cb938e94;
 #using script_5450c003e8a913b7;
-#using script_6809bf766eba194a;
+#using scripts\core_common\ai\archetype_utility.gsc;
 #using script_68d08b784c92da95;
 #using script_6f8610e78fdd3440;
 #using scripts\core_common\ai\archetype_human.gsc;
@@ -2441,12 +2441,12 @@ function function_7653ca27(behaviortreeentity)
 		[[level.stealth.var_f67fe42c[self.stealth.bsmstate][0]]](behaviortreeentity);
 		self.bt.instancedata[self.bt.var_98919459] = self.stealth.bsmstate;
 	}
-	var_1dc434b4 = [[level.stealth.var_f67fe42c[self.stealth.bsmstate][1]]](behaviortreeentity);
-	if(var_1dc434b4)
+	updateresult = [[level.stealth.var_f67fe42c[self.stealth.bsmstate][1]]](behaviortreeentity);
+	if(updateresult)
 	{
 		namespace_2dd2c4d8::function_3b9e6ead(behaviortreeentity, "turn@stealth");
 	}
-	return var_1dc434b4;
+	return updateresult;
 }
 
 /*

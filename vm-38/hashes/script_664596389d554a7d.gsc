@@ -23,7 +23,7 @@
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
 #using script_34328dad68218b76;
-#using script_348ce871561476c9;
+#using scripts\core_common\player\player_free_fall.gsc;
 #using script_34ab99a4ca1a43d;
 #using script_355c6e84a79530cb;
 #using script_35b8a6927c851193;
@@ -146,20 +146,20 @@ event main(eventstruct)
 		level function_4ddaff8e();
 	#/
 	level.var_72a4153b = 0;
-	clientfield::function_a8bbc967("hudItems.streamerLoadFraction", 1, 5, "float", 1);
-	clientfield::function_a8bbc967("hudItems.wzLoadFinished", 1, 1, "int", 1);
+	clientfield::register_clientuimodel("hudItems.streamerLoadFraction", 1, 5, "float", 1);
+	clientfield::register_clientuimodel("hudItems.wzLoadFinished", 1, 1, "int", 1);
 	clientfield::function_5b7d846d("hudItems.warzone.reinsertionPassengerCount", 1, 7, "int");
-	clientfield::function_a8bbc967("hudItems.alivePlayerCount", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("hudItems.alivePlayerCountEnemy", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("hudItems.aliveTeammateCount", 1, 7, "int", 1);
-	clientfield::function_a8bbc967("hudItems.spectatorsCount", 1, 7, "int", 1);
-	clientfield::function_a8bbc967("hudItems.playerKills", 1, 9, "int", 0);
-	clientfield::function_a8bbc967("hudItems.playerCleanUps", 1, 7, "int", 0);
-	clientfield::function_a8bbc967("presence.modeparam", 1, 7, "int", 1);
-	clientfield::function_a8bbc967("hudItems.showReinsertionPassengerCount", 1, 1, "int", 0);
-	clientfield::function_a8bbc967("hudItems.playerLivesRemaining", 1, 3, "int");
-	clientfield::function_a8bbc967("hudItems.playerCanRedeploy", 1, 1, "int");
-	clientfield::function_a8bbc967("hudItems.zombiesSurvivalRespawn", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.alivePlayerCount", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("hudItems.alivePlayerCountEnemy", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("hudItems.aliveTeammateCount", 1, 7, "int", 1);
+	clientfield::register_clientuimodel("hudItems.spectatorsCount", 1, 7, "int", 1);
+	clientfield::register_clientuimodel("hudItems.playerKills", 1, 9, "int", 0);
+	clientfield::register_clientuimodel("hudItems.playerCleanUps", 1, 7, "int", 0);
+	clientfield::register_clientuimodel("presence.modeparam", 1, 7, "int", 1);
+	clientfield::register_clientuimodel("hudItems.showReinsertionPassengerCount", 1, 1, "int", 0);
+	clientfield::register_clientuimodel("hudItems.playerLivesRemaining", 1, 3, "int");
+	clientfield::register_clientuimodel("hudItems.playerCanRedeploy", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.zombiesSurvivalRespawn", 1, 1, "int");
 	clientfield::function_5b7d846d("hudItems.warzone.collapse", 1, 21, "int");
 	clientfield::function_5b7d846d("hudItems.warzone.waveRespawnTimer", 1, 21, "int");
 	clientfield::function_5b7d846d("hudItems.warzone.collapseIndex", 1, 3, "int");
@@ -181,7 +181,7 @@ event main(eventstruct)
 	level.var_d0ab70a2 = #"hash_2e67a581bd97b96c";
 	level.var_946a4954 = 90;
 	level.var_38743886 = &function_d7cf81e;
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 	callback::on_ai_spawned(&on_ai_spawned);
 	callback::on_ai_killed(&on_ai_killed);
 	callback::on_bleedout(&on_bleedout);
@@ -208,7 +208,7 @@ event main(eventstruct)
 	setdvar(#"hash_40eb8467241c4747", 1);
 	setdvar(#"hash_2f4280545354c82c", 1);
 	setdvar(#"hash_2ac8ade37339f558", 0);
-	setdvar(#"hash_5ea9a12f34af941e", 0);
+	setdvar(#"hkai_navmeshusehierarchialpathfind", 0);
 	setdvar(#"hkai_pathfinditerationlimit", 2000);
 	setsaveddvar(#"hash_1677d88b90b7fcf8", 1);
 	level.var_13339abf = array(#"hash_41f5516d2a39d700", #"hash_7f522bf9ee249485", #"hash_2d2ce8582fb2b98", #"hash_68767e76af3b02ad", #"hash_294b09b399adeaf6", #"hash_335dbdca3e36e2bd");
@@ -576,9 +576,9 @@ function on_player_spawn()
 	self.specialty = [];
 	self.playleaderdialog = 1;
 	targetplayer = undefined;
-	if(isdefined(level.var_7d45d0d4.var_3385b421.var_543569ce))
+	if(isdefined(level.var_7d45d0d4.activeobjective.var_543569ce))
 	{
-		spawn = level.var_7d45d0d4.var_3385b421 [[level.var_7d45d0d4.var_3385b421.var_543569ce]](self getentitynumber());
+		spawn = level.var_7d45d0d4.activeobjective [[level.var_7d45d0d4.activeobjective.var_543569ce]](self getentitynumber());
 	}
 	else
 	{
@@ -614,7 +614,7 @@ function on_player_spawn()
 		self setorigin(spawn.origin);
 		self setplayerangles(spawn.angles);
 	}
-	self namespace_4b76712::allow_player_basejumping(1);
+	self player_free_fall::allow_player_basejumping(1);
 	self squads::function_c70b26ea();
 	if(namespace_cf6efd05::function_85b812c9() && !is_true(self.uspawn_already_spawned) && !is_true(self.is_hotjoin))
 	{
@@ -717,7 +717,7 @@ function function_e93291ff()
 			}
 		}
 	#/
-	var_137456fd = getdvarint(#"hash_400f07203191574f", -1);
+	var_137456fd = getdvarint(#"wz_dest_id", -1);
 	if(var_137456fd >= 0 && var_137456fd < destinations.size)
 	{
 		level.var_7767cea8[0] = destinations[var_137456fd];
@@ -739,7 +739,7 @@ function function_e93291ff()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: zsurvival
 	Checksum: 0x563525EB
 	Offset: 0x2CB0
@@ -747,7 +747,7 @@ function function_e93291ff()
 	Parameters: 0
 	Flags: Linked
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	level thread function_9420630a();
 	level flag::wait_till(#"intro_scene_done");
@@ -1011,7 +1011,7 @@ function on_end_game(waitresult)
 		if(waitresult.reason === #"all_players_dead" || waitresult.reason === #"last_player_died")
 		{
 			level notify(#"hash_8202877a3aadac8");
-			if(level.var_7d45d0d4.var_3385b421.content_script_name !== "holdout")
+			if(level.var_7d45d0d4.activeobjective.content_script_name !== "holdout")
 			{
 				level zm_vo::function_7622cb70("matchEndLose");
 			}
@@ -1021,7 +1021,7 @@ function on_end_game(waitresult)
 }
 
 /*
-	Name: function_511245ae
+	Name: give_custom_loadout
 	Namespace: zsurvival
 	Checksum: 0xE8849CE6
 	Offset: 0x36B8
@@ -1029,7 +1029,7 @@ function on_end_game(waitresult)
 	Parameters: 1
 	Flags: None
 */
-function function_511245ae(takeoldweapon)
+function give_custom_loadout(takeoldweapon)
 {
 	self endon(#"disconnect");
 	if(!isdefined(takeoldweapon))
@@ -1097,7 +1097,7 @@ function function_798c4aa9()
 	{
 		waitframe(1);
 	}
-	backpack = function_4ba8fde(#"hash_527b2cdb9b6837f3");
+	backpack = function_4ba8fde(#"backpack_item");
 	backpack.count = 1;
 	var_fa3df96 = self item_inventory::function_e66dcff5(backpack);
 	item_world::function_de2018e3(backpack, self, var_fa3df96);
@@ -1140,16 +1140,16 @@ function give_match_bonus()
 		}
 		var_c602cc83 = player.var_3b4f6b37;
 		var_47c394ad = var_19a80e4c - 1;
-		for(var_173cd713 = 1; var_173cd713 <= var_47c394ad; var_173cd713++)
+		for(star_level = 1; star_level <= var_47c394ad; star_level++)
 		{
-			var_2a6bb6a1 = zm::function_d3113f01(var_173cd713).var_bd588afd;
+			var_2a6bb6a1 = zm::function_d3113f01(star_level).var_bd588afd;
 			var_c602cc83 = var_c602cc83 - var_2a6bb6a1;
 		}
 		var_370ac26d = int(max(var_c602cc83, 0));
 		player zm::function_78e7b549(var_370ac26d);
 		if(var_370ac26d > 0)
 		{
-			player namespace_81c567a8::function_d7b5082e();
+			player display_transition::function_d7b5082e();
 		}
 		/#
 			println((((("" + player getentnum()) + "") + player.name) + "") + var_370ac26d);
@@ -1412,9 +1412,9 @@ function private function_9420630a()
 */
 function function_452e5ad6()
 {
-	if(isdefined(level.var_7d45d0d4.var_3385b421) && level.var_7d45d0d4.var_3385b421.content_script_name === "holdout")
+	if(isdefined(level.var_7d45d0d4.activeobjective) && level.var_7d45d0d4.activeobjective.content_script_name === "holdout")
 	{
-		s_instance = level.var_7d45d0d4.var_3385b421;
+		s_instance = level.var_7d45d0d4.activeobjective;
 		if(isdefined(s_instance.a_s_teleports))
 		{
 			for(i = 0; i < s_instance.a_s_teleports.size; i++)

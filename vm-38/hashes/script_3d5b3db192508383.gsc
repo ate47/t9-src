@@ -42,10 +42,10 @@ function private autoexec __init__system__()
 */
 function private function_70a657d8()
 {
-	if(!(isdefined(getgametypesetting(#"hash_56ab3c042b783de6")) ? getgametypesetting(#"hash_56ab3c042b783de6") : 0))
+	if(!(isdefined(getgametypesetting(#"usabledynents")) ? getgametypesetting(#"usabledynents") : 0))
 	{
 		return;
 	}
-	clientfield::function_a8bbc967("hudItems.dynentUseHoldProgress", #"hud_items", #"hash_5ba72a5aa3320082", 13000, 5, "float", undefined, 0, 0);
+	clientfield::register_clientuimodel("hudItems.dynentUseHoldProgress", #"hud_items", #"dynentuseholdprogress", 13000, 5, "float", undefined, 0, 0);
 }
 

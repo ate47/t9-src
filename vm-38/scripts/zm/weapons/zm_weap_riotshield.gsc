@@ -1,7 +1,7 @@
 #using script_301f64a4090c381a;
-#using script_3f9e0dc8454d98e1;
-#using script_5660bae5b402a1eb;
-#using script_6e3c826b1814cab6;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\core_common\ai\zombie_death.gsc;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -47,7 +47,7 @@ function private autoexec function_d9769fc()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_equip_riotshield", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_equip_riotshield", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -67,7 +67,7 @@ function private function_70a657d8()
 	}
 	clientfield::register("toplayer", "zm_shield_damage_rumble", 1, 1, "counter");
 	clientfield::register("toplayer", "zm_shield_break_rumble", 1, 1, "counter");
-	clientfield::function_a8bbc967("ZMInventoryPersonal.shield_health", 1, 4, "float");
+	clientfield::register_clientuimodel("ZMInventoryPersonal.shield_health", 1, 4, "float");
 	zombie_utility::set_zombie_var(#"riotshield_cylinder_radius", 360);
 	zombie_utility::set_zombie_var(#"riotshield_fling_range", 90);
 	zombie_utility::set_zombie_var(#"riotshield_gib_range", 90);
@@ -100,9 +100,9 @@ function private function_70a657d8()
 	{
 		level.should_shield_absorb_damage = &should_shield_absorb_damage;
 	}
-	if(!isdefined(level.var_7509c7d8))
+	if(!isdefined(level.callbackplayershielddamageblocked))
 	{
-		level.var_7509c7d8 = &callback_playershielddamageblocked;
+		level.callbackplayershielddamageblocked = &callback_playershielddamageblocked;
 	}
 	if(!isdefined(level.var_2677b8bb))
 	{
@@ -114,7 +114,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: riotshield
 	Checksum: 0xF1A5BB16
 	Offset: 0x6D0
@@ -122,7 +122,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	level thread function_d987f765();
 }
@@ -172,7 +172,7 @@ function player_init_shield_health(weapon, var_cd9d17e0)
 			weapon = self.weaponriotshield;
 		}
 	}
-	switch(zm_custom::function_901b751c(#"hash_7ee9177eb922ddfa"))
+	switch(zm_custom::function_901b751c(#"zmshielddurability"))
 	{
 		case 0:
 		{
@@ -252,13 +252,13 @@ function function_d987f765()
 	level endon(#"game_ended");
 	while(true)
 	{
-		var_be17187b = undefined;
-		var_be17187b = level waittill(#"hash_4d7676bba8e782b5");
-		if(zm_powerups::function_cfd04802(#"carpenter") && isplayer(var_be17187b.var_264cf1f9))
+		s_waitresult = undefined;
+		s_waitresult = level waittill(#"carpenter_started");
+		if(zm_powerups::function_cfd04802(#"carpenter") && isplayer(s_waitresult.var_264cf1f9))
 		{
-			if(is_true(var_be17187b.var_264cf1f9.hasriotshield) && isdefined(var_be17187b.var_264cf1f9.player_shield_reset_health))
+			if(is_true(s_waitresult.var_264cf1f9.hasriotshield) && isdefined(s_waitresult.var_264cf1f9.player_shield_reset_health))
 			{
-				var_be17187b.var_264cf1f9 [[var_be17187b.var_264cf1f9.player_shield_reset_health]]();
+				s_waitresult.var_264cf1f9 [[s_waitresult.var_264cf1f9.player_shield_reset_health]]();
 			}
 		}
 		else
@@ -782,7 +782,7 @@ function riotshield_get_enemies_in_range(riotshield_knockdown_range, riotshield_
 			case "special":
 			case "elite":
 			{
-				if(self hasperk(#"hash_4262dc5dc4acb784"))
+				if(self hasperk(#"specialty_mod_shield"))
 				{
 					level.riotshield_knockdown_enemies[level.riotshield_knockdown_enemies.size] = e_target;
 					level.riotshield_knockdown_gib[level.riotshield_knockdown_gib.size] = 0;
@@ -847,7 +847,7 @@ function riotshield_melee(weapon, riotshield_knockdown_range, riotshield_gib_ran
 		{
 			level.riotshield_fling_enemies[i] thread riotshield_fling_zombie(self, level.riotshield_fling_vecs[i], i);
 			var_d3f92d4d = zombie_utility::function_d2dfacfd(#"riotshield_fling_damage_shield");
-			if(self hasperk(#"hash_4262dc5dc4acb784"))
+			if(self hasperk(#"specialty_mod_shield"))
 			{
 				var_d3f92d4d = var_d3f92d4d * 0.66;
 			}
@@ -880,7 +880,7 @@ function riotshield_melee(weapon, riotshield_knockdown_range, riotshield_gib_ran
 				var_d3f92d4d = zombie_utility::function_d2dfacfd(#"hash_6835f7c5524585f3");
 			}
 		}
-		if(self hasperk(#"hash_4262dc5dc4acb784"))
+		if(self hasperk(#"specialty_mod_shield"))
 		{
 			var_d3f92d4d = var_d3f92d4d * 0.66;
 		}

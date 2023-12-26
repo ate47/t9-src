@@ -1,10 +1,10 @@
 #using scripts\core_common\player\player_loadout.gsc;
 #using script_1cc417743d7c262d;
 #using scripts\core_common\player\player_shared.gsc;
-#using script_29ed825598140ca0;
-#using script_2c49ae69cd8ce30c;
+#using scripts\mp_common\player\player_killed.gsc;
+#using scripts\mp_common\player\player_utils.gsc;
 #using script_335d0650ed05d36d;
-#using script_3fda550bc6e1089a;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using scripts\core_common\player\player_stats.gsc;
 #using scripts\killstreaks\airsupport.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
@@ -94,17 +94,17 @@ event main(eventstruct)
 	callback::on_connect(&onconnect);
 	callback::on_disconnect(&ondisconnect);
 	callback::on_spawned(&onspawned);
-	callback::function_98a0917d(&function_98a0917d);
+	callback::on_game_playing(&on_game_playing);
 	spawning::addsupportedspawnpointtype("vip");
 	laststand_mp::function_367cfa1b(&function_95002a59);
-	laststand_mp::function_eb8c0e47(&function_114f1da7);
+	laststand_mp::function_eb8c0e47(&onplayerrevived);
 	level.var_34842a14 = 1;
 	level.var_ce802423 = 1;
 	clientfield::function_5b7d846d("hudItems.war.attackingTeam", 1, 2, "int");
 	clientfield::register("allplayers", "vip_keyline", 1, 1, "int");
 	clientfield::register("toplayer", "vip_ascend_postfx", 1, 1, "int");
 	/#
-		function_2085db3b();
+		init_devgui();
 	#/
 }
 
@@ -138,7 +138,7 @@ function onstartgametype()
 }
 
 /*
-	Name: function_98a0917d
+	Name: on_game_playing
 	Namespace: vip
 	Checksum: 0x4C5A23D8
 	Offset: 0xD70
@@ -146,7 +146,7 @@ function onstartgametype()
 	Parameters: 0
 	Flags: None
 */
-function function_98a0917d()
+function on_game_playing()
 {
 	function_83eb584e();
 	if(!isdefined(level.vip))
@@ -182,7 +182,7 @@ function function_98a0917d()
 function function_36f8016e(winning_team, var_c1e98979)
 {
 	function_f86e4f6e();
-	round::function_d1e740f6(winning_team);
+	round::set_winner(winning_team);
 	thread globallogic::function_a3e3bd39(winning_team, var_c1e98979);
 }
 
@@ -383,7 +383,7 @@ function onplayerkilled(einflictor, attacker, idamage, smeansofdeath, weapon, vd
 				if(elapsedtime < int(5 * 1000))
 				{
 					scoreevents::processscoreevent(#"hash_d188ac13cbd4780", psoffsettime, self);
-					psoffsettime contracts::function_a54e2068(#"hash_75904ce2cfeff35");
+					psoffsettime contracts::increment_contract(#"hash_75904ce2cfeff35");
 				}
 			}
 		}
@@ -700,7 +700,7 @@ function function_bf315481(player)
 	}
 	foreach(attacker in var_cd4a7b69)
 	{
-		attacker contracts::function_a54e2068(#"hash_16bcfd23ea2a1cf2");
+		attacker contracts::increment_contract(#"hash_16bcfd23ea2a1cf2");
 	}
 	thread globallogic_audio::function_b4319f8e("vipAttackersExfilCompleteTeam", player.team, player, "vipAttackersExfilCompleteTeam");
 	player thread globallogic_audio::leader_dialog_on_player("vipAttackersExfilCompleteVIP", "vipAttackersExfilCompleteVIP");
@@ -884,7 +884,7 @@ function private function_83eb584e()
 		vip.var_6b4e7428 = 1;
 		vip.var_db459f8d = 1;
 		vip.var_179765d7 = 1;
-		vip draft::function_2427a351();
+		vip draft::clear_cooldown();
 		vip setmovespeedscale(1);
 		vip.var_e8c7d324 = 1;
 		waitframe(1);
@@ -925,9 +925,9 @@ function function_a5c3a276()
 	#/
 	loadout = bundle.defaultloadouts[0];
 	primary = loadout.primary;
-	var_6834562f = loadout.var_6834562f;
+	primaryattachments = loadout.primaryattachments;
 	secondary = loadout.secondary;
-	var_90030ba7 = loadout.var_90030ba7;
+	secondaryattachments = loadout.secondaryattachments;
 	primarygrenade = loadout.primarygrenade;
 	var_db7ff8ba = loadout.var_1c89585f === 1;
 	secondarygrenade = loadout.secondarygrenade;
@@ -936,7 +936,7 @@ function function_a5c3a276()
 	talents = loadout.talents;
 	scorestreak = bundle.killstreaks[0];
 	vip function_3d8678e3(talents);
-	vip function_95ab03ff(primary, var_6834562f, secondary, var_90030ba7, primarygrenade, var_db7ff8ba, secondarygrenade, var_7bf99497, specialgrenade);
+	vip function_95ab03ff(primary, primaryattachments, secondary, secondaryattachments, primarygrenade, var_db7ff8ba, secondarygrenade, var_7bf99497, specialgrenade);
 	vip function_55acf845(scorestreak);
 	vip function_a9e5d783();
 	if(1)
@@ -997,15 +997,15 @@ function function_3d8678e3(talents)
 	Parameters: 9
 	Flags: None
 */
-function function_95ab03ff(primary, var_6834562f, secondary, var_90030ba7, primarygrenade, var_db7ff8ba, secondarygrenade, var_7bf99497, specialgrenade)
+function function_95ab03ff(primary, primaryattachments, secondary, secondaryattachments, primarygrenade, var_db7ff8ba, secondarygrenade, var_7bf99497, specialgrenade)
 {
 	if(isdefined(primary))
 	{
 		attachments = undefined;
-		if(isdefined(var_6834562f))
+		if(isdefined(primaryattachments))
 		{
 			attachments = [];
-			foreach(attachment in var_6834562f)
+			foreach(attachment in primaryattachments)
 			{
 				attachments[attachments.size] = attachment.attachment;
 			}
@@ -1035,10 +1035,10 @@ function function_95ab03ff(primary, var_6834562f, secondary, var_90030ba7, prima
 	if(isdefined(secondary))
 	{
 		attachments = undefined;
-		if(isdefined(var_90030ba7))
+		if(isdefined(secondaryattachments))
 		{
 			attachments = [];
-			foreach(attachment in var_90030ba7)
+			foreach(attachment in secondaryattachments)
 			{
 				attachments[attachments.size] = attachment.attachment;
 			}
@@ -1210,7 +1210,7 @@ function function_4d534334()
 */
 function function_55acf845(scorestreak)
 {
-	self loadout::function_8881abec();
+	self loadout::clear_killstreaks();
 	if(!isdefined(scorestreak))
 	{
 		return;
@@ -1361,7 +1361,7 @@ function private canrevive(revivee)
 }
 
 /*
-	Name: function_114f1da7
+	Name: onplayerrevived
 	Namespace: vip
 	Checksum: 0x7B1A2ECD
 	Offset: 0x4610
@@ -1369,7 +1369,7 @@ function private canrevive(revivee)
 	Parameters: 2
 	Flags: Private
 */
-function private function_114f1da7(revivee, reviver)
+function private onplayerrevived(revivee, reviver)
 {
 	reviver.pers[#"revives"] = (isdefined(reviver.pers[#"revives"]) ? reviver.pers[#"revives"] : 0) + 1;
 	reviver.revives = reviver.pers[#"revives"];
@@ -2409,7 +2409,7 @@ function resume_time()
 }
 
 /*
-	Name: function_2085db3b
+	Name: init_devgui
 	Namespace: vip
 	Checksum: 0x84583F95
 	Offset: 0x76E0
@@ -2417,7 +2417,7 @@ function resume_time()
 	Parameters: 0
 	Flags: None
 */
-function function_2085db3b()
+function init_devgui()
 {
 	/#
 		adddebugcommand("");

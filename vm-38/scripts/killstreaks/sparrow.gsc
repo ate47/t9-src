@@ -1,4 +1,4 @@
-#using script_57f7003580bb15e0;
+#using scripts\core_common\status_effects\status_effect_util.gsc;
 #using scripts\killstreaks\killstreaks_shared.gsc;
 #using scripts\weapons\weapons.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
@@ -76,7 +76,7 @@ event function_8cd77cf6(eventstruct)
 		position = waitresult.position;
 		if(waitresult._notify == "projectile_impact_explode")
 		{
-			if(!function_f4e48434(position))
+			if(!is_under_water(position))
 			{
 				normal = waitresult.normal;
 				var_a0148c55 = bullettrace(position, position - vectorscale(normal, 4), 1, missile);
@@ -132,7 +132,7 @@ function function_be16c377()
 }
 
 /*
-	Name: function_f4e48434
+	Name: is_under_water
 	Namespace: sparrow
 	Checksum: 0x95321CB3
 	Offset: 0x4C0
@@ -140,10 +140,10 @@ function function_be16c377()
 	Parameters: 1
 	Flags: Linked
 */
-function function_f4e48434(position)
+function is_under_water(position)
 {
-	var_c84f4998 = getwaterheight(position) - position[2];
-	return var_c84f4998 >= 24;
+	water_depth = getwaterheight(position) - position[2];
+	return water_depth >= 24;
 }
 
 /*

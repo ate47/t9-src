@@ -654,12 +654,12 @@ function private function_74dbcf3e(var_999c568b)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private function_95eb0e7b(rumble, var_b2bde200)
+function private function_95eb0e7b(rumble, fadestart)
 {
 	if(!isdefined(self.minigame.var_b5d11637) || self.minigame.var_b5d11637 != rumble)
 	{
 		function_35d8ea7();
-		function_fe0ad36e(self.localclientnum, rumble, var_b2bde200);
+		function_fe0ad36e(self.localclientnum, rumble, fadestart);
 		self.minigame.var_b5d11637 = rumble;
 	}
 }

@@ -44,7 +44,7 @@ class class_d0a96b4 : cLUIelem
 	}
 
 	/*
-		Name: function_5c1bb138
+		Name: register_clientside
 		Namespace: namespace_d0a96b4
 		Checksum: 0x343720C7
 		Offset: 0x348
@@ -52,9 +52,9 @@ class class_d0a96b4 : cLUIelem
 		Parameters: 0
 		Flags: None
 	*/
-	function function_5c1bb138()
+	function register_clientside()
 	{
-		cLUIelem::function_5c1bb138("TerminalKeyboardFrame");
+		cLUIelem::register_clientside("TerminalKeyboardFrame");
 	}
 
 	/*
@@ -136,7 +136,7 @@ function register()
 }
 
 /*
-	Name: function_5c1bb138
+	Name: register_clientside
 	Namespace: TerminalKeyboardFrame
 	Checksum: 0x3BC80F5E
 	Offset: 0x248
@@ -144,10 +144,10 @@ function register()
 	Parameters: 0
 	Flags: None
 */
-function function_5c1bb138()
+function register_clientside()
 {
 	elem = new class_d0a96b4();
-	[[ elem ]]->function_5c1bb138();
+	[[ elem ]]->register_clientside();
 	return elem;
 }
 

@@ -5,9 +5,9 @@
 #using script_27347f09888ad15;
 #using script_3357acf79ce92f4b;
 #using script_3411bb48d41bd3b;
-#using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
-#using script_3fda550bc6e1089a;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
+#using scripts\killstreaks\helicopter_shared.gsc;
 #using script_4421226bbc54b398;
 #using scripts\zm_common\zm_vo.gsc;
 #using script_669400ff5aadcc83;
@@ -15,7 +15,7 @@
 #using script_72d96920f15049b8;
 #using script_7fc996fe8678852;
 #using script_92d4d637814fefa;
-#using script_db06eb511bd9b36;
+#using scripts\zm_common\zm_cleanup_mgr.gsc;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\flag_shared.gsc;

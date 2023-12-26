@@ -1,6 +1,6 @@
 #using script_396f7d71538c9677;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\core_common\battlechatter.gsc;
 #using scripts\core_common\clientfield_shared.gsc;
 #using scripts\core_common\contracts_shared.gsc;
@@ -60,11 +60,11 @@ function init_shared()
 */
 function function_79d42bea(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return 128;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.var_40dfefd1) ? var_b0b958b3.var_40dfefd1 : 128);
 }
 
@@ -79,11 +79,11 @@ function function_79d42bea(weapon)
 */
 function function_36d48dce(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return 128;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.var_9e166547) ? var_b0b958b3.var_9e166547 : function_79d42bea(weapon));
 }
 
@@ -98,11 +98,11 @@ function function_36d48dce(weapon)
 */
 function function_f199623f(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return level.smokegrenadeduration;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.smokegrenadeduration) ? var_b0b958b3.smokegrenadeduration : level.smokegrenadeduration);
 }
 
@@ -117,11 +117,11 @@ function function_f199623f(weapon)
 */
 function function_184e15d2(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return level.smokegrenadedissipation;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return (isdefined(var_b0b958b3.smokegrenadedissipation) ? var_b0b958b3.smokegrenadedissipation : level.smokegrenadedissipation);
 }
 
@@ -267,11 +267,11 @@ function function_f02a8a0b(radius)
 */
 function function_c7b93adf(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return 1;
 	}
-	var_b0b958b3 = getscriptbundle(weapon.var_4dd46f8a);
+	var_b0b958b3 = getscriptbundle(weapon.customsettings);
 	return is_true(var_b0b958b3.var_afa9a0c4);
 }
 
@@ -308,7 +308,7 @@ function spawnsmokegrenadetrigger(smokeweapon, duration, owner)
 	trigger = spawn("trigger_radius", self.origin, 0, radius, radius);
 	trigger.owner = owner;
 	trigger.smokeweapon = smokeweapon;
-	self.var_b999539c = trigger;
+	self.smoketrigger = trigger;
 	if(isdefined(owner.team))
 	{
 		trigger setteamfortrigger(owner.team);
@@ -354,34 +354,34 @@ function function_b4a975f1(attacker, victim, weapon, attackerweapon, meansofdeat
 	{
 		return false;
 	}
-	var_b999539c = attackerweapon function_367ce00e();
-	if(isdefined(var_b999539c))
+	smoketrigger = attackerweapon function_367ce00e();
+	if(isdefined(smoketrigger))
 	{
-		if(weapon === var_b999539c.owner)
+		if(weapon === smoketrigger.owner)
 		{
 			if(isdefined(meansofdeath) && meansofdeath !== level.var_8e2aec59)
 			{
-				if(!isdefined(var_b999539c.var_25db02aa))
+				if(!isdefined(smoketrigger.var_25db02aa))
 				{
-					var_b999539c.kills = (isdefined(var_b999539c.kills) ? var_b999539c.kills : 0) + 1;
+					smoketrigger.kills = (isdefined(smoketrigger.kills) ? smoketrigger.kills : 0) + 1;
 					var_9194a036 = battlechatter::mpdialog_value("muteSmokeSuccessLineCount", 0);
-					if(var_b999539c.kills == (isdefined(var_9194a036) ? var_9194a036 : 3))
+					if(smoketrigger.kills == (isdefined(var_9194a036) ? var_9194a036 : 3))
 					{
 						weapon battlechatter::play_gadget_success(getweapon(#"willy_pete"), undefined, attackerweapon, undefined);
-						var_b999539c.var_25db02aa = 1;
+						smoketrigger.var_25db02aa = 1;
 					}
 				}
 			}
 			weapon stats::function_e24eec31(meansofdeath, #"kill_smoked_blinded_stunned", 1);
-			weapon contracts::function_a54e2068(#"hash_6477d3e8a879d241");
+			weapon contracts::increment_contract(#"hash_6477d3e8a879d241");
 			weapon stats::function_dad108fa(#"hash_3c5a82d06549abcc", 1);
 			return true;
 		}
-		if(isplayer(var_b999539c.owner) && isalive(var_b999539c.owner) && util::function_fbce7263(var_b999539c.owner.team, attackerweapon.team))
+		if(isplayer(smoketrigger.owner) && isalive(smoketrigger.owner) && util::function_fbce7263(smoketrigger.owner.team, attackerweapon.team))
 		{
 			if(level.teambased)
 			{
-				scoreevents::processscoreevent(#"hash_2ffa19a7dfef2ea0", var_b999539c.owner, undefined, getweapon(#"willy_pete"));
+				scoreevents::processscoreevent(#"smoke_assist", smoketrigger.owner, undefined, getweapon(#"willy_pete"));
 			}
 		}
 	}
@@ -522,11 +522,11 @@ function function_50ef4b12(weapon)
 */
 function private function_579815a1(weapon)
 {
-	if(!isdefined(weapon.var_4dd46f8a))
+	if(!isdefined(weapon.customsettings))
 	{
 		return false;
 	}
-	var_e6fbac16 = getscriptbundle(weapon.var_4dd46f8a);
+	var_e6fbac16 = getscriptbundle(weapon.customsettings);
 	if(var_e6fbac16.var_8ceb6ac8 === 1)
 	{
 		return true;
@@ -549,19 +549,19 @@ function private function_579815a1(weapon)
 */
 function function_87d0a127(grenadeent, smokeweapon)
 {
-	if(!isdefined(smokeweapon.var_b999539c))
+	if(!isdefined(smokeweapon.smoketrigger))
 	{
 		return;
 	}
-	var_ce7665b1 = smokeweapon.team;
-	owner = smokeweapon.var_b999539c.owner;
+	grenadeteam = smokeweapon.team;
+	owner = smokeweapon.smoketrigger.owner;
 	while(true)
 	{
 		waitresult = undefined;
 		waitresult = smokeweapon waittilltimeout(0.15, #"death");
 		if(isdefined(owner))
 		{
-			if(isdefined(smokeweapon.var_b999539c) && owner istouching(smokeweapon.var_b999539c) && waitresult._notify == #"timeout")
+			if(isdefined(smokeweapon.smoketrigger) && owner istouching(smokeweapon.smoketrigger) && waitresult._notify == #"timeout")
 			{
 				owner clientfield::set("inenemysmoke", 1);
 			}
@@ -588,11 +588,11 @@ function function_87d0a127(grenadeent, smokeweapon)
 */
 function function_8b6ddd71(grenadeent, smokeweapon)
 {
-	if(!isdefined(grenadeent.var_b999539c))
+	if(!isdefined(grenadeent.smoketrigger))
 	{
 		return;
 	}
-	var_ce7665b1 = grenadeent.team;
+	grenadeteam = grenadeent.team;
 	while(true)
 	{
 		waitresult = undefined;
@@ -612,9 +612,9 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 			{
 				player clientfield::set("foggerpostfx", 0);
 			}
-			if(isdefined(grenadeent.var_b999539c) && player istouching(grenadeent.var_b999539c) && waitresult._notify == #"timeout")
+			if(isdefined(grenadeent.smoketrigger) && player istouching(grenadeent.smoketrigger) && waitresult._notify == #"timeout")
 			{
-				if(player util::isenemyteam(var_ce7665b1))
+				if(player util::isenemyteam(grenadeteam))
 				{
 					player clientfield::set("insmoke", curval | 1);
 				}
@@ -624,7 +624,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				}
 				continue;
 			}
-			if(player util::isenemyteam(var_ce7665b1))
+			if(player util::isenemyteam(grenadeteam))
 			{
 				mask = 1;
 			}
@@ -637,7 +637,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				trig = undefined;
 				if(isdefined(grenadeent))
 				{
-					trig = player function_4cc4db89(var_ce7665b1, grenadeent.var_b999539c);
+					trig = player function_4cc4db89(grenadeteam, grenadeent.smoketrigger);
 				}
 				if(!isdefined(trig))
 				{
@@ -645,7 +645,7 @@ function function_8b6ddd71(grenadeent, smokeweapon)
 				}
 			}
 		}
-		if(!isdefined(grenadeent) || waitresult._notify != "timeout" || (!isdefined(grenadeent.var_b999539c) && grenadeent.item === getweapon(#"spectre_grenade")))
+		if(!isdefined(grenadeent) || waitresult._notify != "timeout" || (!isdefined(grenadeent.smoketrigger) && grenadeent.item === getweapon(#"spectre_grenade")))
 		{
 			break;
 		}

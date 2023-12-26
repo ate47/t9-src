@@ -1,7 +1,7 @@
 #using script_1435f3c9fc699e04;
 #using script_1cc417743d7c262d;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_545a0bac37bda541;
+#using scripts\core_common\globallogic\globallogic_score.gsc;
 #using scripts\killstreaks\killstreaks_util.gsc;
 #using scripts\weapons\weaponobjects.gsc;
 #using scripts\core_common\battlechatter.gsc;
@@ -98,7 +98,7 @@ function function_bff5c062(trophysystem, attackingplayer)
 		_station_up_to_detention_center_triggers = [[level.var_f1edf93f]]();
 		if((isdefined(_station_up_to_detention_center_triggers) ? _station_up_to_detention_center_triggers : 0))
 		{
-			trophysystem notify(#"hash_602ae7ca650d6287");
+			trophysystem notify(#"cancel_timeout");
 			trophysystem thread weaponobjects::weapon_object_timeout(trophysystem.var_2d045452, _station_up_to_detention_center_triggers);
 		}
 	}
@@ -191,7 +191,7 @@ function createtrophysystemwatcher(watcher)
 }
 
 /*
-	Name: function_87af78ed
+	Name: trophysystemstopped
 	Namespace: trophy_system
 	Checksum: 0xAC5B09BE
 	Offset: 0x810
@@ -199,12 +199,12 @@ function createtrophysystemwatcher(watcher)
 	Parameters: 0
 	Flags: None
 */
-function function_87af78ed()
+function trophysystemstopped()
 {
-	self endon(#"death", #"hash_340519cc3f2c92c3");
+	self endon(#"death", #"trophysystemstopped");
 	self util::waittillnotmoving();
 	self.trophysystemstationary = 1;
-	self notify(#"hash_340519cc3f2c92c3");
+	self notify(#"trophysystemstopped");
 }
 
 /*
@@ -235,13 +235,13 @@ function ontrophysystemspawn(watcher, player)
 	self function_619a5c20();
 	player stats::function_e24eec31(self.weapon, #"used", 1);
 	self thread deployanim();
-	self function_87af78ed();
+	self trophysystemstopped();
 	if(self depthinwater() > 10)
 	{
 		function_3044fc5();
 	}
 	self thread trophyactive(player);
-	self util::function_c596f193();
+	self util::make_sentient();
 	if(isdefined(player))
 	{
 		player battlechatter::function_fc82b10(getweapon(#"trophy_system"), self.origin, self);
@@ -271,7 +271,7 @@ function function_5a4f1e1e(player)
 	Parameters: 2
 	Flags: None
 */
-function ontrophysystemsmashed(attacker, var_61dedb9f)
+function ontrophysystemsmashed(attacker, callback_data)
 {
 	weaponobjects::function_b4793bda(self, self.weapon);
 	self playsound(#"exp_trophy_system");
@@ -280,14 +280,14 @@ function ontrophysystemsmashed(attacker, var_61dedb9f)
 	{
 		self.owner [[level.playequipmentdestroyedonplayer]]();
 	}
-	if(isdefined(var_61dedb9f) && (!var_3c4d4b60 || self.owner util::isenemyplayer(var_61dedb9f)))
+	if(isdefined(callback_data) && (!var_3c4d4b60 || self.owner util::isenemyplayer(callback_data)))
 	{
-		var_61dedb9f challenges::destroyedequipment();
-		scoreevents::processscoreevent(#"destroyed_trophy_system", var_61dedb9f, self.owner, undefined);
+		callback_data challenges::destroyedequipment();
+		scoreevents::processscoreevent(#"destroyed_trophy_system", callback_data, self.owner, undefined);
 		var_f3ab6571 = self.owner weaponobjects::function_8481fc06(self.weapon) > 1;
 		self.owner thread globallogic_audio::function_6daffa93(self.weapon, var_f3ab6571);
 	}
-	self battlechatter::function_d2600afc(var_61dedb9f, self.owner, self.weapon);
+	self battlechatter::function_d2600afc(callback_data, self.owner, self.weapon);
 	self delete();
 }
 
@@ -439,7 +439,7 @@ function trophyactive(owner)
 				scoreevents::processscoreevent(#"hash_37f14ae291c32c04", owner, undefined, self.weapon);
 				if(self.var_bf03cf85 >= 4)
 				{
-					owner contracts::function_a54e2068(#"hash_6c0438d5a54313d", 1);
+					owner contracts::increment_contract(#"hash_6c0438d5a54313d", 1);
 				}
 				owner stats::function_622feb0d(self.weapon.name, #"hash_1eed93e0c1faa7cf", 1);
 			}
@@ -459,7 +459,7 @@ function trophyactive(owner)
 	Parameters: 4
 	Flags: None
 */
-function projectileexplode(projectile, trophy, var_84c1f04c, var_cd148a81)
+function projectileexplode(projectile, trophy, var_84c1f04c, fxup)
 {
 	if(isdefined(self))
 	{
@@ -482,7 +482,7 @@ function projectileexplode(projectile, trophy, var_84c1f04c, var_cd148a81)
 		self stats::function_6fb0b113(#"trophy_system", #"hash_cac64f745e7f76d");
 	}
 	projposition = projectile.origin;
-	playfx(level.trophydetonationfx, projposition, var_84c1f04c, var_cd148a81);
+	playfx(level.trophydetonationfx, projposition, var_84c1f04c, fxup);
 	projectile playsound(#"hash_741683e10b98efd8");
 	projectile notify(#"trophy_destroyed");
 	if(isdefined(trophy))
@@ -709,7 +709,7 @@ function watchtrophysystemdamage(watcher)
 		}
 		if(level.teambased)
 		{
-			if(!function_f99d2668() && !level.hardcoremode && isdefined(self.owner) && !attacker util::isenemyteam(self.owner.team) && self.owner != attacker)
+			if(!sessionmodeiswarzonegame() && !level.hardcoremode && isdefined(self.owner) && !attacker util::isenemyteam(self.owner.team) && self.owner != attacker)
 			{
 				continue;
 			}
@@ -824,7 +824,7 @@ function deployanim()
 	self endon(#"death");
 	self setanim(#"hash_70b2041b1f6ad89", 1, 0, 0);
 	self clientfield::set("" + #"trophy_system_deploy", 1);
-	self waittill(#"hash_340519cc3f2c92c3");
+	self waittill(#"trophysystemstopped");
 	wait(0.1);
 	self setanim(#"hash_70b2041b1f6ad89");
 	self clientfield::set("" + #"trophy_system_deploy", 0);

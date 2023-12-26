@@ -1,5 +1,5 @@
 #using scripts\killstreaks\killstreak_bundles.gsc;
-#using script_383a3b1bb18ba876;
+#using scripts\killstreaks\killstreakrules_shared.gsc;
 #using script_396f7d71538c9677;
 #using script_4721de209091b1a6;
 #using scripts\core_common\player\player_stats.gsc;
@@ -64,8 +64,8 @@ function init_shared()
 	level.droplocations = [];
 	level.zoffsetcounter = 0;
 	level.var_46c23c0f = 0;
-	clientfield::function_a8bbc967("locSel.commandMode", 1, 1, "int");
-	clientfield::function_a8bbc967("locSel.snapTo", 1, 1, "int");
+	clientfield::register_clientuimodel("locSel.commandMode", 1, 1, "int");
+	clientfield::register_clientuimodel("locSel.snapTo", 1, 1, "int");
 	clientfield::register("vehicle", "timeout_beep", 1, 2, "int");
 	clientfield::register("toplayer", "thermal_glow", 1, 1, "int");
 	clientfield::register("toplayer", "thermal_glow_enemies_only", 12000, 1, "int");
@@ -135,21 +135,21 @@ function function_b5b6ef3e(func, obj)
 	Parameters: 2
 	Flags: Linked, Private
 */
-function private register_ui(killstreak_type, var_1624ed59)
+function private register_ui(killstreak_type, killstreak_menu)
 {
 	/#
 		assert(isdefined(level.killstreaks[killstreak_type]), "");
 	#/
-	item_index = getitemindexfromref(var_1624ed59);
+	item_index = getitemindexfromref(killstreak_menu);
 	killstreak_info = getunlockableiteminfofromindex(item_index, 0);
-	var_ccab2c89 = 0;
+	killstreak_cost = 0;
 	if(isdefined(killstreak_info))
 	{
-		var_ccab2c89 = killstreak_info.momentum;
+		killstreak_cost = killstreak_info.momentum;
 	}
 	level.killstreaks[killstreak_type].itemindex = item_index;
-	level.killstreaks[killstreak_type].momentumcost = var_ccab2c89;
-	level.killstreaks[killstreak_type].menuname = var_1624ed59;
+	level.killstreaks[killstreak_type].momentumcost = killstreak_cost;
+	level.killstreaks[killstreak_type].menuname = killstreak_menu;
 	level.killstreaks[killstreak_type].uiname = "";
 	/#
 		if(isdefined(killstreak_info))
@@ -158,7 +158,7 @@ function private register_ui(killstreak_type, var_1624ed59)
 		}
 		if(level.killstreaks[killstreak_type].uiname == "")
 		{
-			level.killstreaks[killstreak_type].uiname = var_1624ed59;
+			level.killstreaks[killstreak_type].uiname = killstreak_menu;
 		}
 	#/
 }
@@ -250,7 +250,7 @@ function private register_vehicle(killstreak_type, vehicle)
 	Parameters: 6
 	Flags: Linked, Private
 */
-function private function_e48aca4d(type, bundle, weapon, vehicle, var_c0a31091, isinventoryweapon)
+function private function_e48aca4d(type, bundle, weapon, vehicle, killstreak_use_function, isinventoryweapon)
 {
 	killstreak_init(type);
 	menukey = bundle.var_a99ef6da;
@@ -265,7 +265,7 @@ function private function_e48aca4d(type, bundle, weapon, vehicle, var_c0a31091, 
 	register_ui(type, menukey);
 	level.killstreaks[type].usagekey = type;
 	level.killstreaks[type].delaystreak = bundle.var_daf6b7af;
-	level.killstreaks[type].usefunction = var_c0a31091;
+	level.killstreaks[type].usefunction = killstreak_use_function;
 	register_weapon(type, bundle, weapon);
 	level.menureferenceforkillstreak[menukey] = type;
 	if(isdefined(bundle.altweapons))
@@ -316,19 +316,19 @@ function private function_e48aca4d(type, bundle, weapon, vehicle, var_c0a31091, 
 	Parameters: 2
 	Flags: Linked
 */
-function register_bundle(bundle, var_c0a31091)
+function register_bundle(bundle, killstreak_use_function)
 {
-	function_e48aca4d(bundle.var_d3413870, bundle, bundle.var_1ab696c6, bundle.ksvehicle, var_c0a31091, 0);
+	function_e48aca4d(bundle.var_d3413870, bundle, bundle.ksweapon, bundle.ksvehicle, killstreak_use_function, 0);
 	if(isdefined(bundle.var_fc0c8eae) && bundle.var_fc0c8eae.name != #"none")
 	{
-		function_e48aca4d("inventory_" + bundle.var_d3413870, bundle, bundle.var_fc0c8eae, undefined, var_c0a31091, 1);
-		if(bundle.var_fc0c8eae.iscarriedkillstreak && bundle.var_1ab696c6.iscarriedkillstreak)
+		function_e48aca4d("inventory_" + bundle.var_d3413870, bundle, bundle.var_fc0c8eae, undefined, killstreak_use_function, 1);
+		if(bundle.var_fc0c8eae.iscarriedkillstreak && bundle.ksweapon.iscarriedkillstreak)
 		{
 			if(!isdefined(level.var_6110cb51))
 			{
 				level.var_6110cb51 = [];
 			}
-			level.var_6110cb51[bundle.var_1ab696c6] = bundle.var_fc0c8eae;
+			level.var_6110cb51[bundle.ksweapon] = bundle.var_fc0c8eae;
 		}
 	}
 }
@@ -342,10 +342,10 @@ function register_bundle(bundle, var_c0a31091)
 	Parameters: 2
 	Flags: Linked
 */
-function register_killstreak(bundlename, var_832677ec)
+function register_killstreak(bundlename, use_function)
 {
 	bundle = getscriptbundle(bundlename);
-	register_bundle(bundle, var_832677ec);
+	register_bundle(bundle, use_function);
 }
 
 /*
@@ -2175,7 +2175,7 @@ function function_4167ea4e(params)
 }
 
 /*
-	Name: function_20263b9e
+	Name: on_grenade_fired
 	Namespace: killstreaks
 	Checksum: 0xCA453A
 	Offset: 0x5B40
@@ -2183,7 +2183,7 @@ function function_4167ea4e(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_20263b9e(params)
+function on_grenade_fired(params)
 {
 	grenade = params.projectile;
 	grenadeweaponid = params.weapon;
@@ -2203,7 +2203,7 @@ function function_20263b9e(params)
 }
 
 /*
-	Name: function_ce4a7c15
+	Name: on_offhand_fire
 	Namespace: killstreaks
 	Checksum: 0x81FD96EB
 	Offset: 0x5C40
@@ -2211,7 +2211,7 @@ function function_20263b9e(params)
 	Parameters: 1
 	Flags: Linked
 */
-function function_ce4a7c15(params)
+function on_offhand_fire(params)
 {
 	grenadeweaponid = params.weapon;
 	if(grenadeweaponid == level.var_239dc073)
@@ -2477,7 +2477,7 @@ function player_killstreak_threat_tracking(killstreaktype, var_bdb26ff0)
 			{
 				if(battlechatter::dialog_chance("killstreakSpotChance"))
 				{
-					player battlechatter::function_cef454e8(killstreaktype);
+					player battlechatter::playkillstreakthreat(killstreaktype);
 				}
 				var_9217cadc = battlechatter::mpdialog_value("killstreakSpotDelay", 0);
 				break;
@@ -2521,7 +2521,7 @@ function function_ece736e7(player, killstreak)
 		{
 			if(sighttracepassed(enemyeye, playereye, 0, enemy))
 			{
-				enemy battlechatter::function_cef454e8(get_from_weapon(killstreak));
+				enemy battlechatter::playkillstreakthreat(get_from_weapon(killstreak));
 				killstreak.var_95b0150d = gettime();
 				return;
 			}
@@ -2582,10 +2582,10 @@ function on_player_spawned()
 	pixbeginevent();
 	self thread give_owned();
 	self.killcamkilledbyent = undefined;
-	self callback::function_f77ced93(&function_4f415d8e);
-	self callback::function_f77ced93(&function_4167ea4e);
-	self callback::function_20263b9e(&function_20263b9e);
-	self callback::function_ce4a7c15(&function_ce4a7c15);
+	self callback::on_weapon_change(&function_4f415d8e);
+	self callback::on_weapon_change(&function_4167ea4e);
+	self callback::on_grenade_fired(&on_grenade_fired);
+	self callback::on_offhand_fire(&on_offhand_fire);
 	self thread initialspawnprotection();
 	self function_f964dc1c();
 	pixendevent();
@@ -2982,7 +2982,7 @@ function function_73566ec7(attacker, weapon, owner)
 	{
 		return;
 	}
-	attacker contracts::function_a54e2068(#"hash_317a8b8df3aa8838");
+	attacker contracts::increment_contract(#"hash_317a8b8df3aa8838");
 	switch(self.killstreaktype)
 	{
 		case "ultimate_turret":
@@ -2990,13 +2990,13 @@ function function_73566ec7(attacker, weapon, owner)
 		case "recon_car":
 		case "inventory_recon_car":
 		{
-			attacker contracts::function_a54e2068(#"hash_3c21dc0c4de41bec");
+			attacker contracts::increment_contract(#"hash_3c21dc0c4de41bec");
 			break;
 		}
 	}
 	if(attacker function_6c32d092(#"talent_coldblooded"))
 	{
-		attacker contracts::function_a54e2068(#"hash_25557f687502f078");
+		attacker contracts::increment_contract(#"hash_25557f687502f078");
 	}
 	bundle = get_script_bundle(self.killstreaktype);
 	if(isdefined(bundle) && isdefined(bundle.var_ebd92bbc))
@@ -3035,7 +3035,7 @@ function function_73566ec7(attacker, weapon, owner)
 				}
 				scoreevents::processscoreevent(bundle.var_74711af9, assister, owner, self.attackerdamage[assister.clientid].weapon);
 				assister stats::function_dad108fa(#"stats_destructions", 1);
-				assister contracts::function_a54e2068(#"hash_317a8b8df3aa8838");
+				assister contracts::increment_contract(#"hash_317a8b8df3aa8838");
 			}
 		}
 	}
@@ -3696,13 +3696,13 @@ function function_8cd96439(killstreakref, killstreakid, onplacecallback, oncance
 	Parameters: 4
 	Flags: Linked
 */
-function function_84da1341(damagecallback, var_b6f10e7c, var_1891d3cd, var_2053fdc6)
+function function_84da1341(damagecallback, destroyedcallback, var_1891d3cd, var_2053fdc6)
 {
 	waitframe(1);
 	placeable = self;
 	if(isdefined(level.var_8ddb1b0e))
 	{
-		placeable thread [[level.var_8ddb1b0e]](placeable.killstreakref, placeable.health, var_b6f10e7c, 0, undefined, var_1891d3cd, var_2053fdc6, 1);
+		placeable thread [[level.var_8ddb1b0e]](placeable.killstreakref, placeable.health, destroyedcallback, 0, undefined, var_1891d3cd, var_2053fdc6, 1);
 	}
 }
 
@@ -4160,7 +4160,7 @@ function function_b86397ae(killstreak, duration, var_c94af1de, callback, endcond
 			return;
 		}
 	#/
-	self endon(#"killstreak_hacked", #"hash_602ae7ca650d6287");
+	self endon(#"killstreak_hacked", #"cancel_timeout");
 	if(isdefined(endcondition1))
 	{
 		self endon(endcondition1);
@@ -4938,7 +4938,7 @@ function function_fc82c544(killstreaktype)
 		{
 			return 0;
 		}
-		if(sessionmodeismultiplayergame() || function_f99d2668() || sessionmodeiszombiesgame())
+		if(sessionmodeismultiplayergame() || sessionmodeiswarzonegame() || sessionmodeiszombiesgame())
 		{
 			mpkillstreakuses = {#team:player getteam(), #name:killstreaktype, #spawnid:-1, #endtime:gettime(), #starttime:var_64df9ac6};
 			var_8756d70f = function_cb0594d5();
@@ -4972,7 +4972,7 @@ function function_fc82c544(killstreaktype)
 */
 function function_47492133()
 {
-	self endon(#"death", #"timed_out", #"hash_602ae7ca650d6287");
+	self endon(#"death", #"timed_out", #"cancel_timeout");
 	level endon(#"disconnect");
 	/#
 		assert(isdefined(self.killstreakendtime));

@@ -1,8 +1,8 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_27d214e32f50853d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\zm_common\trials\zm_trial_damage_drains_points.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using scripts\core_common\player\player_stats.gsc;
-#using script_6e3c826b1814cab6;
+#using scripts\zm_common\zm_customgame.gsc;
 #using scripts\zm_common\zm_contracts.gsc;
 #using scripts\core_common\ai_shared.gsc;
 #using scripts\core_common\array_shared.gsc;
@@ -45,7 +45,7 @@ function private autoexec function_53b607b5()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"zm_score", &function_70a657d8, &function_8ac3bea9, undefined, undefined);
+	system::register(#"zm_score", &function_70a657d8, &postinit, undefined, undefined);
 }
 
 /*
@@ -68,7 +68,7 @@ function private function_70a657d8()
 	score_cf_register_info("death_head", 1, 3);
 	score_cf_register_info("death_melee", 1, 3);
 	score_cf_register_info("transform_kill", 1, 3);
-	clientfield::function_a8bbc967("hudItems.doublePointsActive", 1, 1, "int");
+	clientfield::register_clientuimodel("hudItems.doublePointsActive", 1, 1, "int");
 	callback::on_spawned(&player_on_spawned);
 	callback::on_item_pickup(&on_item_pickup);
 	level callback::on_ai_killed(&function_a3d16ee5);
@@ -78,7 +78,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: zm_score
 	Checksum: 0x80F724D1
 	Offset: 0x580
@@ -86,7 +86,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 }
 
@@ -428,7 +428,7 @@ function player_add_points(event, mod, hit_location, e_target, zombie_team, dama
 */
 function private function_e31cf9d5(str_score_event)
 {
-	if(namespace_32623e1c::is_active(1) && (str_score_event === "death" || str_score_event === "damage_points"))
+	if(zm_trial_damage_drains_points::is_active(1) && (str_score_event === "death" || str_score_event === "damage_points"))
 	{
 		return true;
 	}
@@ -654,7 +654,7 @@ function player_reduce_points(event, n_amount)
 		points = 4000000;
 	}
 	self.score = points;
-	self notify(#"hash_733a824fa6229915", {#str_reason:event});
+	self notify(#"reduced_points", {#str_reason:event});
 }
 
 /*
@@ -704,10 +704,10 @@ function add_to_player_score(points, b_add_to_total, str_awarded_by, var_e6e6150
 		self zm_stats::function_301c4be2("boas_scoreEarned", n_points_to_add_to_currency);
 		self zm_stats::function_c0c6ab19(#"zearned", n_points_to_add_to_currency, 1);
 		level notify(#"earned_points", {#points:points, #player:self});
-		self contracts::function_5b88297d(#"hash_781e103e02826009", n_points_to_add_to_currency, #"zstandard");
+		self contracts::increment_zm_contract(#"hash_781e103e02826009", n_points_to_add_to_currency, #"zstandard");
 		if(zm_utility::is_standard())
 		{
-			self zm_stats::function_c0c6ab19(#"hash_61d61f092d2739eb", n_points_to_add_to_currency);
+			self zm_stats::function_c0c6ab19(#"rush_points", n_points_to_add_to_currency);
 		}
 		if(b_add_to_total)
 		{
@@ -750,7 +750,7 @@ function minus_to_player_score(points, b_forced)
 	}
 	if(!b_forced)
 	{
-		self contracts::function_5b88297d(#"hash_257283d6c7065a1e", points);
+		self contracts::increment_zm_contract(#"hash_257283d6c7065a1e", points);
 	}
 	self.score = self.score - points;
 	self stats::function_dad108fa(#"hash_59d8674357c2b6de", points);
@@ -991,7 +991,7 @@ function function_89db94b3(e_attacker, n_damage, e_inflictor)
 	}
 	if(n_points)
 	{
-		if(isdefined(e_inflictor) && e_inflictor.var_9fde8624 === #"hash_44aa977896e18e7f")
+		if(isdefined(e_inflictor) && e_inflictor.var_9fde8624 === #"zombie_wolf_ally")
 		{
 			e_attacker player_add_points("damage_points", 10, undefined, undefined, undefined, undefined, undefined, self.var_12745932);
 			self.var_f256a4d9 = self.var_f256a4d9 - n_points;

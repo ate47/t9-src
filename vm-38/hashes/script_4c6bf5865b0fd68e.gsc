@@ -1,6 +1,6 @@
 #using scripts\zm_common\zm_loadout.gsc;
-#using script_35598499769dbb3d;
-#using script_3f9e0dc8454d98e1;
+#using scripts\core_common\ai\systems\gib.gsc;
+#using scripts\core_common\ai\zombie_utility.gsc;
 #using script_4dc6a9b234b838e1;
 #using scripts\core_common\callbacks_shared.gsc;
 #using scripts\core_common\math_shared.gsc;
@@ -36,7 +36,7 @@ function private autoexec function_e59497f()
 */
 function private autoexec __init__system__()
 {
-	system::register(#"hash_695bd4a240716800", &function_70a657d8, &function_8ac3bea9, undefined, #"zm_weapons");
+	system::register(#"hash_695bd4a240716800", &function_70a657d8, &postinit, undefined, #"zm_weapons");
 }
 
 /*
@@ -60,7 +60,7 @@ function private function_70a657d8()
 }
 
 /*
-	Name: function_8ac3bea9
+	Name: postinit
 	Namespace: namespace_5a359049
 	Checksum: 0xFCF15095
 	Offset: 0x260
@@ -68,7 +68,7 @@ function private function_70a657d8()
 	Parameters: 0
 	Flags: Linked, Private
 */
-function private function_8ac3bea9()
+function private postinit()
 {
 	if(!cymbal_monkey_exists())
 	{
